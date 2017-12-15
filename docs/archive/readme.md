@@ -1,0 +1,1 @@
+Bu klasör olasılıkla kalıcı arşiv konumuna taşınır önceki sürümler için geçerlidir ana belgelerinden genellikle malzeme kaldırılmakta olan içeriği için bir bekletme konum.
