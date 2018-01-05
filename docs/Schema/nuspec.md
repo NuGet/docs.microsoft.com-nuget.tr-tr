@@ -14,11 +14,11 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 91efd4b4cd2ec0bee4425ab66e0152e580e7975c
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: d002f55a75b3daaa2fed7a94e88582dd4f04e05f
+ms.sourcegitcommit: 1ebfff1263992c54de75366a1b1c26dbae6c0318
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="nuspec-reference"></a>.nuspec başvurusu
 
@@ -85,7 +85,7 @@ Bu öğeleri içinde görünmesi gereken bir `<metadata>` öğesi.
 
 ### <a name="optional-metadata-elements"></a>İsteğe bağlı meta veri öğeleri
 
-Bu öğeleri içinde görünmesi gereken bir `<metadata>` öğesi.
+Bu öğeler içinde görünebilir bir `<metadata>` öğesi.
 
 #### <a name="single-elements"></a>Tek öğeleri
 
