@@ -13,11 +13,11 @@ keywords: "Özellikler, dcr bilinen sorunlar, NuGet 2.8.3 sürüm notları, hata
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 8c0b38ea4975300af701b66266a9883eb54412c1
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: d6fbebaf02cede52a701abd31e843a077f8acbb7
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-283-release-notes"></a>NuGet 2.8.3 sürüm notları
 
@@ -25,4 +25,4 @@ ms.lasthandoff: 12/14/2017
 
 NuGet 2.8.3 17 Ekim 2014 yayımlanmıştır. Küçük bir güncelleştirmesidir bizim 2.8.1 ile VSIX bazı düzeltmeler hedeflenen.
 
-Bu sürümde için NuGet Paket Yöneticisi iletişim için destek eklenmiştir [ASP.NET vNext](http://www.asp.net/vnext), [DevExtreme](http://js.devexpress.com/) ve [BizTalk (.btproj)](http://msdn.microsoft.com/library/aa577497.aspx) proje türleri. Ayrıca paket geri yüklemesi etkinleştirme ve kaydetme Paket Yöneticisi seçenekleri senaryoları ile ilgili güvenilirlik hata düzeltmeleri içerir.
+Bu sürümde için NuGet Paket Yöneticisi iletişim için destek eklenmiştir [ASP.NET vNext](http://www.asp.net/vnext), [DevExtreme](http://js.devexpress.com/) ve [BizTalk (.btproj)](/biztalk/core/developing-biztalk-server-applications) proje türleri. Ayrıca paket geri yüklemesi etkinleştirme ve kaydetme Paket Yöneticisi seçenekleri senaryoları ile ilgili güvenilirlik hata düzeltmeleri içerir.

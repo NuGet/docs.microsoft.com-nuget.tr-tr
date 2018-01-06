@@ -13,11 +13,11 @@ keywords: "NuGet paket oluşturma, bir paket, nuspec bildirimi, NuGet paketi kur
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: e7a2c4d02afb2387161c22fe5bd443eb0991ea8c
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 50bc9e79f95f901477208f638b0965c82fd98356
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="creating-nuget-packages"></a>NuGet paketleri oluşturma
 
@@ -284,7 +284,7 @@ NuGet ile 3.5 +, paketleri ile belirli bir işaretlenebilir *paket türü* kulla
 
 - `Dependency`türü paketleri kitaplıkları ve uygulamalar için derleme veya çalışma zamanı varlıklar ekleyin ve (uyumlu olduğu varsayılarak) herhangi bir proje türü yüklenebilir.
 
-- `DotnetCliTool`türü paketlerdir uzantıları [.NET CLI](https://docs.microsoft.com/dotnet/articles/core/tools/index) ve komut satırından çağrılır. Gibi paketlerin, yalnızca .NET çekirdeği projelerinde yüklenebilir ve geri yükleme işlemleri üzerinde hiçbir etkisi yoktur. Bu proje başına uzantıları hakkında daha fazla ayrıntı kullanılabilir [.NET Core genişletilebilirlik](https://docs.microsoft.com/dotnet/articles/core/tools/extensibility#per-project-based-extensibility) belgeleri.
+- `DotnetCliTool`türü paketlerdir uzantıları [.NET CLI](/dotnet/articles/core/tools/index) ve komut satırından çağrılır. Gibi paketlerin, yalnızca .NET çekirdeği projelerinde yüklenebilir ve geri yükleme işlemleri üzerinde hiçbir etkisi yoktur. Bu proje başına uzantıları hakkında daha fazla ayrıntı kullanılabilir [.NET Core genişletilebilirlik](/dotnet/articles/core/tools/extensibility#per-project-based-extensibility) belgeleri.
 
     DotnetCliTool paket yüklendikten sonra Visual Studio pakette yerleştirir `project.json` `tools` yerine düğümü `dependencies` düğümü.
 
@@ -487,5 +487,5 @@ Paketinizi yeteneklerini veya aksi halde aşağıdaki konularda açıklandığı
 
 Son olarak, dikkat edilmesi gereken ek paket türleri vardır:
 
-- [Yerel Paketleri](../create-packages/native-packages.md)
-- [Simge paketleri](../create-packages/symbol-packages.md)
+- [Yerel Paketler](../create-packages/native-packages.md)
+- [Sembol Paketleri](../create-packages/symbol-packages.md)

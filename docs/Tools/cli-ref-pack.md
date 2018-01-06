@@ -13,11 +13,11 @@ keywords: "nuget paketi başvurusu, paketi komutu"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 353d5d839d85c04bc315c3a0e9cfe274a361bd15
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 22643ee4c7d5f858da728ba9d9d2886d600d20f0
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="pack-command-nuget-cli"></a>Paketi komut (NuGet CLI)
 
@@ -53,7 +53,7 @@ Burada `<nuspecPath>` ve `<projectPath>` belirtin `.nuspec` veya proje dosyası,
 | NoDefaultExcludes | Varsayılan dışlama olan NuGet engelleyen paket dosyaları, dosya ve klasörleri gibi bir noktayla başlayan `.svn` ve `.gitignore`. |
 | NoPackageAnalysis | Paketi paket analiz paketi oluşturduktan sonra çalışmayacağını belirtir. |
 | Çıktıdizini | Oluşturulan paket depolandığı klasörü belirtir. Bir klasör bulunmadığından belirtilmezse, geçerli klasörde kullanılır. |
-| Özellikler | Proje dosyasında değerleri geçersiz kılmak özellikler listesini belirtir; bkz: [yaygın MSBuild proje özellikleri](https://docs.microsoft.com/visualstudio/msbuild/common-msbuild-project-properties) özellik adları. Burada özellikleri bağımsız değişkeni bir belirteç listesidir noktalı virgülle ayrılmış değer çiftleri = burada her oluşumu `$token$` içinde `.nuspec` dosya verilen değer ile değiştirilecek. Değerleri tırnak işaretleri içindeki dizeleri olabilir. "Hata ayıklama" "Yapılandırma" özelliği için varsayılan olduğunu unutmayın. Bir yayın yapılandırmasını değiştirmek için kullanın `-Properties Configuration=Release`. |
+| Özellikler | Proje dosyasında değerleri geçersiz kılmak özellikler listesini belirtir; bkz: [yaygın MSBuild proje özellikleri](/visualstudio/msbuild/common-msbuild-project-properties) özellik adları. Burada özellikleri bağımsız değişkeni bir belirteç listesidir noktalı virgülle ayrılmış değer çiftleri = burada her oluşumu `$token$` içinde `.nuspec` dosya verilen değer ile değiştirilecek. Değerleri tırnak işaretleri içindeki dizeleri olabilir. "Hata ayıklama" "Yapılandırma" özelliği için varsayılan olduğunu unutmayın. Bir yayın yapılandırmasını değiştirmek için kullanın `-Properties Configuration=Release`. |
 | Son eki | *(3.4.4+)*  Genellikle yapı ya da diğer yayın öncesi tanımlayıcıları ekleme için kullanılan dahili olarak oluşturulan sürüm numarası bir sonek ekler. Örneğin, kullanarak `-suffix nightly` ile bir sürüm numarası benzer bir paket oluşturacak `1.2.3-nightly`. Sonekleri uyarılar, hatalar ve farklı sürümlerini NuGet ve NuGet Paket Yöneticisi ile olası uyumsuzlukları önlemek için bir harf ile başlamalıdır. |
 | Simgeleri | Paket kaynaklarını ve simgeleri içerdiğini belirtir. İle kullanıldığında bir `.nuspec` dosyası, bu bir normal NuGet paket dosyası oluşturur ve karşılık gelen paket simgeler. |
 | Aracı | Proje çıktı dosyalarını içinde yerleştirilmesi gerektiğini belirtir `tool` klasör. |

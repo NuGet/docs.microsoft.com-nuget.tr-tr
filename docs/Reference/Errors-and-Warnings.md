@@ -14,17 +14,17 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 3423e30eae07ff0c70a010576b8e701be027b847
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 53fccbb86f2920d870b5383070d043e25045a626
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="errors-and-warnings"></a>Hatalar ve uyarılar
 
 NuGet 4.3.0, hataları ve Uyarıları Bu konu başlığı altında açıklandığı gibi numaralı ve ilgili sorunları gidermek amacıyla ayrıntılı bilgi sağlar. 
 
-Hatalar ve uyarılar burada listelenen yalnızca [PackageReference tabanlı](../Consume-Packages/Package-References-in-Project-Files.md) projeleri ve NuGet 4.3.0. NuGet uyarıları bastırma veya hataları yükseltmesine MSBuild özellikleri de geliştirir. Daha fazla bilgi için bkz: [nasıl yapılır: Derleyici uyarılarını bastırma](https://docs.microsoft.com/visualstudio/ide/how-to-suppress-compiler-warnings) Visual Studio belgelerinde.
+Hatalar ve uyarılar burada listelenen yalnızca [PackageReference tabanlı](../Consume-Packages/Package-References-in-Project-Files.md) projeleri ve NuGet 4.3.0. NuGet uyarıları bastırma veya hataları yükseltmesine MSBuild özellikleri de geliştirir. Daha fazla bilgi için bkz: [nasıl yapılır: Derleyici uyarılarını bastırma](/visualstudio/ide/how-to-suppress-compiler-warnings) Visual Studio belgelerinde.
 
 **Hataları**
 

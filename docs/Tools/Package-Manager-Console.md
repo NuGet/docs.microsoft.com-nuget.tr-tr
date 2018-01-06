@@ -13,11 +13,11 @@ keywords: "NuGet Paket Yöneticisi konsolu, NuGet powershell, NuGet paketlerini 
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: d9df514c6f92a3ea0841503d86c44271e70f95f2
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: cc11963a9b9bfe9aa456d8cd4c8397e1084f660b
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="package-manager-console"></a>Paket Yöneticisi Konsolu
 
@@ -62,7 +62,7 @@ Bu konuda:
 
 ## <a name="opening-the-console-and-console-controls"></a>Konsol denetimleri ve konsolunu açma
 
-1. Visual Studio kullanarak Konsolu **Araçlar > NuGet Paket Yöneticisi > Paket Yöneticisi Konsolu** komutu. Konsol düzenlenmiş ve ancak istediğiniz konumlandırılmış bir Visual Studio penceredir (bkz [Visual Studio'da pencere düzenlerini özelleştirme](https://docs.microsoft.com/visualstudio/ide/customizing-window-layouts-in-visual-studio)).
+1. Visual Studio kullanarak Konsolu **Araçlar > NuGet Paket Yöneticisi > Paket Yöneticisi Konsolu** komutu. Konsol düzenlenmiş ve ancak istediğiniz konumlandırılmış bir Visual Studio penceredir (bkz [Visual Studio'da pencere düzenlerini özelleştirme](/visualstudio/ide/customizing-window-layouts-in-visual-studio)).
 
 1. Varsayılan olarak, Konsolu komutları, pencerenin üstündeki denetim kümesinde olarak belirli bir paket kaynağı ve proje karşı çalışır:
 
@@ -171,7 +171,7 @@ Visual Studio 2017 içinde NuGet ve NuGet Paket Yöneticisi herhangi seçtiğini
 
 Ayrıca, Visual Studio 2015 ve daha önce NuGet Paket Yöneticisi kayıpsa denetleyin **Araçlar > Uzantılar ve güncelleştirmeler...**  NuGet Paket Yöneticisi uzantısı arayın. Visual Studio Uzantıları yükleyici yapamıyorsanız doğrudan uzantısı indirebilirsiniz [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html).
 
-Paket Yöneticisi konsolu, Visual Studio for Mac ile şu anda kullanılabilir değil. Eşdeğer komutları ancak aracılığıyla kullanılabilir [NuGet CLI](nuget-exe-CLI-reference.md). Mac için Visual Studio, NuGet paketlerini yönetmek için bir kullanıcı Arabirimi yok. Bkz: [dahil olmak üzere bir NuGet paketini projenize](https://docs.microsoft.com/visualstudio/mac/nuget-walkthrough).
+Paket Yöneticisi konsolu, Visual Studio for Mac ile şu anda kullanılabilir değil. Eşdeğer komutları ancak aracılığıyla kullanılabilir [NuGet CLI](nuget-exe-CLI-reference.md). Mac için Visual Studio, NuGet paketlerini yönetmek için bir kullanıcı Arabirimi yok. Bkz: [dahil olmak üzere bir NuGet paketini projenize](/visualstudio/mac/nuget-walkthrough).
 
 Paket Yöneticisi konsolu ile Visual Studio Code dahil değildir.
 

@@ -17,15 +17,15 @@ keywords: "NuGet UI, NuGet Paket Yöneticisi kullanıcı Arabirimi, NuGet Visual
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 88e987054f3c59a327f71b15330a99eb350449e5
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 0f08e5a36499c4481c4e0cd70738d67d65cd980a
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-package-manager-ui"></a>NuGet Paket Yöneticisi kullanıcı Arabirimi
 
-Windows Visual Studio'da NuGet Paket Yöneticisi kullanıcı Arabirimi, kolayca yüklemek, kaldırmak ve projeler ve çözümler, NuGet paketlerini güncelleştirmeyi olanak sağlar. Visual Studio'da Mac için deneyimi için bkz: [dahil olmak üzere bir NuGet paketini projenize](https://docs.microsoft.com/visualstudio/mac/nuget-walkthrough). Paket Yöneticisi kullanıcı Arabirimi ile Visual Studio Code dahil değildir.
+Windows Visual Studio'da NuGet Paket Yöneticisi kullanıcı Arabirimi, kolayca yüklemek, kaldırmak ve projeler ve çözümler, NuGet paketlerini güncelleştirmeyi olanak sağlar. Visual Studio'da Mac için deneyimi için bkz: [dahil olmak üzere bir NuGet paketini projenize](/visualstudio/mac/nuget-walkthrough). Paket Yöneticisi kullanıcı Arabirimi ile Visual Studio Code dahil değildir.
 
 Bu konuda:
 

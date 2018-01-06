@@ -13,11 +13,11 @@ keywords: "NuGet paketi silme, NuGet paketini paketlerin unlisting, izin verilme
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 331979bdc3703ddbeff18e2bd0e6b0a17551e68b
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 9e388171f83fae7deb4f20033184dfa91bfab3da
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="deleting-packages"></a>Paketlerin silinmesi
 
@@ -41,7 +41,7 @@ Herhangi bir aşağıdaki ölçütleri karşılayan paketleri ortak NuGet galeri
 - Telif Hakkı ihlal eden veya lisansları ihlal ediyor.
 - Geçersiz içerik var.
 - Kullanılmakta olan sıfır üretken içeriğe sahip paketleri de dahil olmak üzere paket tanımlayıcıları üzerinde squat için. Paketleri kodu içermelidir veya sahipleri tanımlayıcı aktarmak üzere bir ürün olan başka birine bırakma gerekir.
-- Bir şeyler galeri girişiminde, açıkça yapmak için tasarlanmamıştır.
+- Açıkça yapmak için tasarlanmış bir şeyler galeri yapmaya çalışır.
 
 İhlal bu öğelerden herhangi birini bir paket bulursanız tıklatın **rapor kötüye** bağlantı paketi ayrıntıları sayfasında ve bir rapor gönderin.
 

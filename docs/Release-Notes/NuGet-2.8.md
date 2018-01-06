@@ -13,11 +13,11 @@ keywords: "Özellikler, dcr bilinen sorunlar, NuGet 2.8 sürüm notları, hata d
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 0bb35e9d6ef6f3dde7919cd502b32ba5a550c689
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 182e7d1e2224c431631cddd14fdbea8dd9e14278
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-28-release-notes"></a>NuGet 2.8 sürüm notları
 
@@ -96,7 +96,7 @@ Bu yeni özellikler araştırmak için bir paket yayın öncesi bir sürümünü
 
 ## <a name="development-dependencies"></a>Geliştirme bağımlılıkları
 
-Farklı türlerde yetenekleri geliştirme sürecinin iyileştirmek için kullanılan araçları dahil olmak üzere NuGet paketleri - olarak alınabilir. Yeni bir paket geliştirmede enstrümental olabileceği bu bileşenler, sonraki olduğunda yeni paketi bir bağımlılık yayımlanan düşünülmemelidir. NuGet 2.8 etkinleştirir kendisini tanımlamak bir paket `.nuspec` dosyası bir developmentDependency olarak. Yüklendiğinde, bu meta veriler ayrıca eklenir `packages.config` paketi yüklendi içine proje dosyası. Olduğunda, `packages.config` dosya sırasında NuGet bağımlılıklar için analiz daha sonra `nuget.exe pack`, geliştirme bağımlılıklar olarak işaretlenmiş bu bağımlılıkların dışında bırakır.
+Farklı türlerde yetenekleri geliştirme sürecinin iyileştirmek için kullanılan araçları dahil olmak üzere NuGet paketleri - olarak alınabilir. Yeni bir paket geliştirmede enstrümental olabileceği daha sonra yayımlandığında bu bileşenlerin bir bağımlılık yeni paket düşünülmemelidir. NuGet 2.8 etkinleştirir kendisini tanımlamak bir paket `.nuspec` dosyası bir developmentDependency olarak. Yüklendiğinde, bu meta veriler ayrıca eklenir `packages.config` paketi yüklendi içine proje dosyası. Olduğunda, `packages.config` dosya sırasında NuGet bağımlılıklar için analiz daha sonra `nuget.exe pack`, geliştirme bağımlılıklar olarak işaretlenmiş bu bağımlılıkların dışında bırakır.
 
 ## <a name="individual-packagesconfig-files-for-different-platforms"></a>Farklı platformlar için tek tek packages.config dosyaları
 

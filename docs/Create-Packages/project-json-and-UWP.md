@@ -13,11 +13,11 @@ keywords: "NuGet bağımlılıkları, NuGet ve UWP, UWP ve project.json, NuGet p
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 40507e541997cea368052c373a4124d9c4a00a51
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: ae49c017365e1a63622fde318d5c94b64ed1ea2e
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="projectjson-and-uwp"></a>Project.JSON ve UWP
 
@@ -70,7 +70,7 @@ NuGet paketlerini bu biçimi kullanarak aşağıdaki bilinen klasör ve davranı
 
 NuGet paketlerini içerebilir `.targets` ve `.props` paket içine yüklenir herhangi MSBuild proje içeri aktarılan dosyalar. NuGet içinde 2.x, bu yapıldı ekleyerek `<Import>` deyimleri `.csproj` dosya, NuGet 3. 0'belirli "projesine yükleme" eylemi yok. Bunun yerine paket geri yükleme işlemi iki dosya Yazar `[projectname].nuget.props` ve `[projectname].NuGet.targets`.
 
-MSBuild için bu iki dosyayı aramak için bilir ve başına yakın ve proje oluşturma işlemi sona otomatik olarak alır. Bu Nuget'e çok benzer bir davranış sağlar 2.x, ancak temel farklardan biri ile: *var. hedefler/özellik dosyaları yok garantili sırası bu durumda*. MSBuild yolu sipariş hedefleri ancak sunar `BeforeTargets` ve `AfterTargets` özniteliklerini `<Target>` tanımı (bkz [hedef öğesi (MSBuild)](https://docs.microsoft.com/visualstudio/msbuild/target-element-msbuild).
+MSBuild için bu iki dosyayı aramak için bilir ve başına yakın ve proje oluşturma işlemi sona otomatik olarak alır. Bu Nuget'e çok benzer bir davranış sağlar 2.x, ancak temel farklardan biri ile: *var. hedefler/özellik dosyaları yok garantili sırası bu durumda*. MSBuild yolu sipariş hedefleri ancak sunar `BeforeTargets` ve `AfterTargets` özniteliklerini `<Target>` tanımı (bkz [hedef öğesi (MSBuild)](/visualstudio/msbuild/target-element-msbuild).
 
 
 ## <a name="lib-and-ref"></a>LIB ve Ref
@@ -93,7 +93,7 @@ Bazı durumlarda farklı bir derleme (.NET başvuru derlemeleri do bu Bugün) de
 
 Çoğu paketi yazarları gerektirmeyen `ref` klasör. Derleme ve IntelliSense için tutarlı bir yüzey alanını sağlar ancak farklı TxMs için farklı uygulama olması gereken paketleri için kullanışlıdır. Bu öğeler büyük kullanım örneği `System.*` sevkiyat .NET Core NuGet üzerinde bir parçası olarak oluşturulan paketler. Bu paketleri ref derlemelerin tutarlı bir kümesini birleşik çeşitli uygulamaları sahiptir.
 
-Derlemeleri mekanik olarak, dahil `ref` klasöründe derleyiciye geçirilen başvuru derlemeleri alır. Biz geçirme için derlemeler için olanlar csc.exe kullanmış olduğunuz bunlar [C# / Reference seçeneği](https://docs.microsoft.com/dotnet/articles/csharp/language-reference/compiler-options/reference-compiler-option) geçin.
+Derlemeleri mekanik olarak, dahil `ref` klasöründe derleyiciye geçirilen başvuru derlemeleri alır. Biz geçirme için derlemeler için olanlar csc.exe kullanmış olduğunuz bunlar [C# / Reference seçeneği](/dotnet/articles/csharp/language-reference/compiler-options/reference-compiler-option) geçin.
 
 Yapısını `ref` klasördür aynı `lib`, örneğin:
 
@@ -121,7 +121,7 @@ Bu örnekte derlemelerde `ref` dizinler tüm olacaktır aynı.
 
 ## <a name="runtimes"></a>Çalışma zamanları
 
-Çalışma zamanları klasör derlemeler ve "işletim sistemi ve CPU mimarisine göre genellikle tanımlanmış olan belirli çalışma zamanları", üzerinde çalıştırmak için gerekli yerel kitaplıkları içerir. Bu çalışma zamanları kullanılarak tanımlanır [çalışma zamanı tanımlayıcıları (RID)](https://docs.microsoft.com/dotnet/core/rid-catalog) gibi `win`, `win-x86`, `win7-x86`, `win8-64`vb.
+Çalışma zamanları klasör derlemeler ve "işletim sistemi ve CPU mimarisine göre genellikle tanımlanmış olan belirli çalışma zamanları", üzerinde çalıştırmak için gerekli yerel kitaplıkları içerir. Bu çalışma zamanları kullanılarak tanımlanır [çalışma zamanı tanımlayıcıları (RID)](/dotnet/core/rid-catalog) gibi `win`, `win-x86`, `win7-x86`, `win8-64`vb.
 
 ## <a name="native-light-up"></a>Yerel açık yukarı
 

@@ -14,11 +14,11 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 4d1d2e6850f22306d715b1c2071ee45b0eb050dc
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 36e1f0cd6e4284a6bd272ce3c85749e9ed72cbcd
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="target-frameworks"></a>Hedef Çerçeve
 
@@ -53,7 +53,7 @@ NuGet istemcileri çerçeveleri aşağıdaki tabloda destekler. Eşdeğerleri k�
 |                |              | net46      |
 |                |              | net461     |
 |                |              | net462     |
-|Windows Mağazası   | netcore      | netcore [netcore45] |
+|Microsoft deposu (Windows mağazası) | netcore      | netcore [netcore45] |
 |                |              | netcore45 [win, olduğu win8] |
 |                |              | netcore451 [win81] |
 |                |              | netcore50 |
@@ -83,7 +83,7 @@ Evrensel Windows Platformu | uap | uap [uap10.0] |
 .NET core uygulaması | netcoreapp | netcoreapp1.0 |
 | | | netcoreapp1.1 |
 | | | netcoreapp2.0 |
-Tizen | tizen | tizen3 |
+tizen | tizen | tizen3 |
 | | | tizen4 |
 
 ## <a name="deprecated-frameworks"></a>Kullanım dışı çerçeveler
@@ -122,7 +122,7 @@ Aşağıdaki çerçevelerini kullanım dışı bırakılmıştır. Bu çerçevel
 
 ## <a name="net-platform-standard"></a>NET Platform standart
 
-[.NET Platform standardını](https://github.com/dotnet/corefx/blob/master/Documentation/architecture/net-platform-standard.md) ikili uyumlu çerçeveleri, diğerleri birleşimi başvurmak bir tek hedef framework izin vererek arasında başvurular basitleştirir. (Arka plan için bkz: [.NET Primer](https://docs.microsoft.com/dotnet/articles/standard/index).)
+[.NET Platform standardını](https://github.com/dotnet/corefx/blob/master/Documentation/architecture/net-platform-standard.md) ikili uyumlu çerçeveleri, diğerleri birleşimi başvurmak bir tek hedef framework izin vererek arasında başvurular basitleştirir. (Arka plan için bkz: [.NET Primer](/dotnet/articles/standard/index).)
 
 [NuGet alma yakın Framework aracı](https://aka.ms/s2m3th) NuGet bir framework projenin framework temel alınarak bir paketteki birçok kullanılabilir framework varlıklar arasından seçim yapmak için kullandığı benzetimini yapar.
 

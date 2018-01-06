@@ -13,11 +13,11 @@ keywords: "paketler Xamarin, platformlar arası paketleri için bir paket oluşt
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 8ee825a6299d7de375fd2f242cf456da13b777d9
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: f372856232f151efcf972881cffbe7d4bb7ed6ee
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-cross-platform-packages"></a>Platformlar arası paketleri oluşturma
 
@@ -43,7 +43,7 @@ Bu kılavuzda iOS, Android ve Windows mobil projelerinde kullanılan bir platfor
 
 ## <a name="create-the-project-structure-and-abstraction-code"></a>Proje yapısı ve Özet kodu oluşturma
 
-1. İndirme ve çalıştırma [Xamarin Şablonları uzantısı eklentisi](https://visualstudiogallery.msdn.microsoft.com/afead421-3fbf-489a-a4e8-4a244ecdbb1e) Visual Studio için. Bu şablonlar bu kılavuz için gerekli Proje yapısı oluşturmak kolaylaştıracak.
+1. İndirme ve çalıştırma [Xamarin Şablonları uzantısı eklentisi](https://marketplace.visualstudio.com/items?itemName=vs-publisher-473885.PluginForXamarinTemplates) Visual Studio için. Bu şablonlar bu kılavuz için gerekli Proje yapısı oluşturmak kolaylaştıracak.
 1. Visual Studio'da **Dosya > Yeni > Proje**, arama `Plugin`seçin **xamarin eklentisi** şablonu adı için LoggingLibrary değiştirin ve Tamam'ı tıklatın.
 
     ![Visual Studio'da yeni boş uygulama (Xamarin.Forms taşınabilir) projesi](media/CrossPlatform-NewProject.png)
@@ -280,4 +280,4 @@ Paketinizi diğer geliştiricileri için kullanılabilir yapmak için yönergele
 - [Paket sürümü oluşturma](../reference/package-versioning.md)
 - [Birden çok .NET Framework sürümleri destekleme](../create-packages/supporting-multiple-target-frameworks.md)
 - [MSBuild özellik ve hedefleri bir pakete dahil etme](../create-packages/creating-a-package.md#including-msbuild-props-and-targets-in-a-package)
-- [Yerelleştirilmiş paketleri oluşturma](../create-packages/creating-localized-packages.md)
+- [Yerelleştirilmiş Paketler Oluşturma](../create-packages/creating-localized-packages.md)

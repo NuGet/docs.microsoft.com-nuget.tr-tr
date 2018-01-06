@@ -13,17 +13,17 @@ keywords: "Özellikler, dcr bilinen sorunlar, NuGet 3.2 sürüm notları, hata d
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 364a1ac62af25351e78df0b9a506f0919fc8fb61
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 551a54482f83803a2e5e5b6ba57a1bf3dd06db8a
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-32-release-notes"></a>NuGet 3.2 sürüm notları
 
 [NuGet 3.2 RC sürüm notları](../release-notes/nuget-3.2-RC.md) | [NuGet 3.2.1 sürüm notları](../release-notes/nuget-3.2.1.md)
 
-NuGet 3.2 yayımlanan 16 Eylül 2015 geliştirmeleri ve 3.1.1 yönelik düzeltmeler koleksiyonu olarak serbest bırakır ve hem de kullanılabilir [dist.nuget.org](http://dist.nuget.org/index.html) ve [Visual Studio Galerisi](https://visualstudiogallery.msdn.microsoft.com/5d345edc-2e2d-4a9c-b73b-d53956dc458d?SRC=Home).
+NuGet 3.2 yayımlanan 16 Eylül 2015 geliştirmeleri ve 3.1.1 yönelik düzeltmeler koleksiyonu olarak serbest bırakır ve hem de kullanılabilir [dist.nuget.org](http://dist.nuget.org/index.html) ve [Visual Studio Galerisi](https://marketplace.visualstudio.com/items?itemName=NuGetTeam.NuGetPackageManagerforVisualStudio2015).
 
 ## <a name="new-features"></a>Yeni Özellikler
 

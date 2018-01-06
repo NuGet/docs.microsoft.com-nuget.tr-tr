@@ -17,11 +17,11 @@ keywords: "NuGet API listeleme tüm paketleri, NuGet API çoğaltma paketleri nu
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 50a5be4cb0405ad78a72d0497612781a4b346060
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 5559a7cd104861b1a10aa8d1513696e609c51c15
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="query-for-all-packages-published-to-nugetorg"></a>Nuget.org için yayımlanan tüm paketler için sorgu
 
@@ -106,7 +106,7 @@ Bu adım, burada özel mantığınızı uygulamak bağlıdır. Bu kılavuzdaki d
 
 ### <a name="downloading-the-nupkg"></a>.nupkg yükleniyor
 
-İndirme içinde ilgileniyorsanız .nupkg ait paketler için bulunan Kataloğu'nda kullanabileceğiniz [paket içerik kaynağı](../../api/package-base-address-resource.md). Ancak, bir paket katalog ve paket içerik kaynağı kullanılabilir olduğunda bulunduğunda arasına kısa bir gecikme olduğunu unutmayın. Bu nedenle, karşılaşırsanız `404 Not Found` .nupkg Kataloğu'nda bulunan bir paket için indirme girişiminde bulunulduğunda yalnızca kısa bir süre daha sonra yeniden deneyin. Bu gecikme düzelttikten GitHub sorunu tarafından izlenir [NuGet/NuGetGallery #3455](https://github.com/NuGet/NuGetGallery/issues/3455).
+İndirme içinde ilgileniyorsanız .nupkg ait paketler için bulunan Kataloğu'nda kullanabileceğiniz [paket içerik kaynağı](../../api/package-base-address-resource.md). Ancak, bir paketi kataloğunda bulunduğunda ve paket içerik kaynağı kullanılabilir olduğunda arasına kısa bir gecikme olduğunu unutmayın. Bu nedenle, karşılaşırsanız `404 Not Found` .nupkg Kataloğu'nda bulunan bir paket için indirme girişiminde bulunulduğunda yalnızca kısa bir süre daha sonra yeniden deneyin. Bu gecikme düzelttikten GitHub sorunu tarafından izlenir [NuGet/NuGetGallery #3455](https://github.com/NuGet/NuGetGallery/issues/3455).
 
 ## <a name="move-the-cursor-forward"></a>İmleç ilerlemek
 

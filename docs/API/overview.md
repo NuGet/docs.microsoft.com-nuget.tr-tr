@@ -17,17 +17,17 @@ keywords: "NuGet V3 API, NuGet V2 API, NuGet JSON, NuGet kayıt API'si, NuGet AP
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: a9515d90ad66d8840f575bba542f0cf887c41718
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 05ed17f12f413d29d97a253d7d55f154d4910834
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-api"></a>NuGet API
 
 NuGet paketlerini indirmek ve meta veri Getir, yeni paketleri yayımlama ve çoğu diğer resmi NuGet istemcileri kullanılabilir işlemleri için kullanılan HTTP uç noktalar kümesi API'dir.
 
-Bu API gibi NuGet işlemleri gerçekleştirmek için Visual Studio, nuget.exe ve .NET CLI NuGet istemcisi tarafından kullanılır [ `dotnet restore` ](https://docs.microsoft.com/dotnet/articles/core/preview3/tools/dotnet-restore), Visual Studio kullanıcı Arabirimi aramada ve [ `nuget.exe push` ](../tools/cli-ref-push.md).
+Bu API gibi NuGet işlemleri gerçekleştirmek için Visual Studio, nuget.exe ve .NET CLI NuGet istemcisi tarafından kullanılır [ `dotnet restore` ](/dotnet/articles/core/preview3/tools/dotnet-restore), Visual Studio kullanıcı Arabirimi aramada ve [ `nuget.exe push` ](../tools/cli-ref-push.md).
 
 Not Bazı durumlarda, nuget.org başka bir paket kaynak tarafından zorlanmaz ek gereksinimlere sahiptir. Bu farklılıklar tarafından belgelenen [nuget.org protokolleri](nuget-protocols.md).
 

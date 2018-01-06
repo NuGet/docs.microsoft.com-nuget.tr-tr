@@ -13,11 +13,11 @@ keywords: "Özellikler, dcr bilinen sorunlar, NuGet 1.8 sürüm notları, hata d
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 875cb752fed102c24da255a336d3f16729ca082c
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 350f0d9590c1e0ef1a843fd783203b158059efa7
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-18-release-notes"></a>NuGet 1.8 sürüm notları
 
@@ -72,7 +72,7 @@ Bu onay vermeniz 2 yolu vardır. İlk aşağıda gösterildiği gibi Paket Yöne
 
 İkinci ortam değişkeni "EnableNuGetPackageRestore" "true" değerini ayarlamak için yöntemidir.  Bu yöntem CI veya yapı sunucuları gibi katılımsız makineler yöneliktir.
 
-Şimdi, yukarıda belirtildiği gibi biz yalnızca bu özellik için geçişteki NuGet 1.8 yerleştirilmiş.  Pratikte, bu özelliği etkinleştirmek için mantığı tümünün ekledik olsa da, bunu şu anda bu sürümde zorlanmaz olduğunu anlamına gelir. Etkin olacaktır, ancak, sonraki ortamınızı uygun şekilde yapılandırabilir ve biz başlattığınızda, bu nedenle etkilenmiş değil, farkında mümkün olan en kısa sürede yaptığınız istedik şekilde NuGet sürümü zorunlu izin kısıtlaması.
+Şimdi, yukarıda belirtildiği gibi biz yalnızca bu özellik için geçişteki NuGet 1.8 yerleştirilmiş.  Pratikte, bu özelliği etkinleştirmek için mantığı tümünün ekledik olsa da, bunu şu anda bu sürümde uygulandığını anlamına gelir. Etkin olacaktır, ancak, sonraki ortamınızı uygun şekilde yapılandırabilir ve biz başlattığınızda, bu nedenle etkilenmiş değil, farkında mümkün olan en kısa sürede yaptığınız istedik şekilde NuGet sürümü zorunlu izin kısıtlaması.
 
 Daha fazla ayrıntı için lütfen bkz. [ekip Web günlüğü postası](http://blog.nuget.org/20120518/package-restore-and-consent.html) bu özelliği.
 

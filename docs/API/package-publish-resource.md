@@ -17,16 +17,15 @@ keywords: "NuGet API itme paket NuGet API Sil paket, NuGet API unlist paketi, Nu
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 1fa3c0e1698a11208d9ef29fdf26a4980cb60cf5
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 87970a701c63bce2b74c619069ec1d231ea77ab5
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="push-and-delete"></a>Anında iletme ve silin
 
-Anında iletme ve silme (veya unlist, bağlı sunucu uygulaması) mümkündür NuGet V3 API'yi kullanarak paketler.
-İki işlem kapatarak dayalı `PackagePublish` kaynak bulunan [Hizmeti dizini](service-index.md).
+Anında iletme Sil (veya unlist, bağlı sunucu uygulaması) mümkündür ve relist NuGet V3 API kullanarak paketler. Bu işlemler kapatarak dayalı `PackagePublish` kaynak bulunan [Hizmeti dizini](service-index.md).
 
 ## <a name="versioning"></a>Sürüm oluşturma
 
@@ -44,9 +43,12 @@ Protokol aynı olduğundan bu URL eski V2 itme bitiş noktası ile aynı konumda
 
 ## <a name="http-methods"></a>HTTP yöntemleri
 
-`PUT` Ve `DELETE` HTTP yöntemleri, bu kaynak tarafından desteklenir. Hangi yöntemlerin her noktadaki desteklediği için aşağıya bakın.
+`PUT`, `POST` Ve `DELETE` HTTP yöntemleri, bu kaynak tarafından desteklenir. Hangi yöntemlerin her noktadaki desteklediği için aşağıya bakın.
 
 ## <a name="push-a-package"></a>Bir paket gönderme
+
+> [!Note]
+> nuget.org sahip [ek gereksinimler](NuGet-Protocols.md) itme uç noktasıyla etkileşim için.
 
 nuget.org aşağıdaki API kullanarak koymadan yeni paketlerini destekler. Sağlanan Kimliğini ve sürümünü paketiyle zaten varsa, nuget.org itme reddeder. Mevcut bir paketi değiştirerek diğer paket kaynaklarını destekleyebilir.
 
@@ -101,4 +103,29 @@ X-NuGet-apikey ile yapılan | Üstbilgi | dize | Evet      | Örneğin, `X-NuGet
 Durum kodu | Açıklama
 ----------- | -------
 204         | Paket silindi
+404         | İle sağlanan bir paket yok `ID` ve `VERSION` var.
+
+## <a name="relist-a-package"></a>Bir paket relist
+
+Bir paket listelenmemiş ise, bu paket "relist" uç nokta kullanarak arama sonuçlarında bir kez daha görünür hale getirmek mümkündür. Aynı şekilde olan bu uç noktaya sahip [Sil (unlist) uç noktası](#delete-a-package) ancak kullanır `POST` yerine HTTP yöntemini `DELETE` yöntemi.
+
+Paket zaten listeleniyorsa, istek hala başarılı olur.
+
+```
+POST https://www.nuget.org/api/v2/package/{ID}/{VERSION}
+```
+
+### <a name="request-parameters"></a>İstek parametreleri
+
+Ad           | İçindeki     | Tür   | Gerekli | Notlar
+-------------- | ------ | ------ | -------- | -----
+Kimlik             | URL    | dize | Evet      | Relist paket kimliği
+VERSION        | URL    | dize | Evet      | Relist Paket sürümü
+X-NuGet-apikey ile yapılan | Üstbilgi | dize | Evet      | Örneğin, `X-NuGet-ApiKey: {USER_API_KEY}`
+
+### <a name="response"></a>Yanıt
+
+Durum kodu | Açıklama
+----------- | -------
+204         | Paket artık listelenir
 404         | İle sağlanan bir paket yok `ID` ve `VERSION` var.

@@ -13,11 +13,11 @@ keywords: "NuGet paket oluşturma, yayımlama, NuGet paketi NuGet Öğreticisi"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 36a7c2b1d056dddf07a59737de1c3e94294689ac
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: b33344c3b3dd782fc4668d2a1674b9501fadcc03
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-and-publish-a-package"></a>Oluşturma ve bir paket yayımlama
 
@@ -115,7 +115,6 @@ Bulduktan sonra bir `.nupkg` dosyası, yayımlama, nuget.org kullanmaya `push` k
 > [!Warning]
 > Nuget.org için yayımlama paketleri diğer geliştiricilerine herkese görünür. Paketleri özel olarak barındırmak için bkz: [paketleri barındırma](../hosting-packages/overview.md).
 
-
 1. Ücretsiz bir hesap oluşturmak [nuget.org](https://www.nuget.org/users/account/LogOn?returnUrl=%2F), veya zaten varsa oturum açın. Yeni bir hesap oluşturmadan bir onay e-posta gönderir. Bir paket karşıya yüklemeden önce hesap onaylamanız gerekir.
 
 1. Oturum açtıktan sonra kullanıcı adınızın (sağ üstte) seçin ve ardından **API anahtarları**.
@@ -134,7 +133,7 @@ Bulduktan sonra bir `.nupkg` dosyası, yayımlama, nuget.org kullanmaya `push` k
     ```
     nuget push AppLogger.1.0.0.0.nupkg 47be3377-c434-4c29-8576-af7f6993a54b -Source https://api.nuget.org/v3/index.json
     ```
-    
+
 1. nuget.exe yayımlama işleminin sonuçlarını görüntüler:
 
     ```
@@ -156,7 +155,7 @@ Ve bu kadar! Yalnızca ilk NuGet paketinizi yayımladıktan [nuget.org](https://
 ## <a name="related-topics"></a>İlgili konular
 
 - [Bir paket oluşturun](../create-packages/creating-a-package.md)
-- [Bir paket yayımlama](../create-packages/publish-a-package.md)
+- [Paket Yayımlama](../create-packages/publish-a-package.md)
 - [Birden çok hedef çerçeveyi desteği](../create-packages/supporting-multiple-target-frameworks.md)
 - [Paket sürümü oluşturma](../reference/package-versioning.md)
 - [Yerelleştirilmiş paketleri oluşturma](../create-packages/creating-localized-packages.md)

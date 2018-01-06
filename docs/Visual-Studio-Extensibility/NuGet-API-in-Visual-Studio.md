@@ -13,15 +13,15 @@ keywords: NuGet API, NuGet Visual Studio'da NuGet programlama arabirimleri
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 1d5c4cba1474f4215c6cc83497e347b2145f21ef
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: e1279f5c0c36bfdf99a6bae240c779fd0c39f04c
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-api-in-visual-studio"></a>Visual Studio'da NuGet API
 
-NuGet Paket Yöneticisi kullanıcı Arabirimi ve Visual Studio konsolunda ek olarak, ayrıca bazı yararlı Hizmetleri aracılığıyla verir. [Yönetilen Genişletilebilirlik Çerçevesi (MEF)](http://msdn.microsoft.com/library/dd460648.aspx). Bu arabirim diğer bileşenleri yüklemek ve paketleri kaldırmak ve yüklü paketleri hakkında bilgi edinmek için kullanılan NuGet ile etkileşim kurmak için Visual Studio'da verir.
+NuGet Paket Yöneticisi kullanıcı Arabirimi ve Visual Studio konsolunda ek olarak, ayrıca bazı yararlı Hizmetleri aracılığıyla verir. [Yönetilen Genişletilebilirlik Çerçevesi (MEF)](/dotnet/framework/mef/index). Bu arabirim diğer bileşenleri yüklemek ve paketleri kaldırmak ve yüklü paketleri hakkında bilgi edinmek için kullanılan NuGet ile etkileşim kurmak için Visual Studio'da verir.
 
 NuGet itibariyle 3.3 +, NuGet tümü bulunan aşağıdaki hizmetleri verir `NuGet.VisualStudio` ad alanında `NuGet.VisualStudio.dll` derleme:
 
@@ -47,7 +47,7 @@ NuGet itibariyle 3.3 +, NuGet tümü bulunan aşağıdaki hizmetleri verir `NuGe
 > [!Warning]
 > Genel arabirimler kodunuzda yanı sıra diğer türleri kullanmayın ve herhangi diğer NuGet derlemelere dahil, başvuru değil `NuGet.Core.dll`.
 
-1. Bir hizmeti kullanmak için kendisi aracılığıyla içe [MEF alma özniteliği](https://msdn.microsoft.com/library/dd460648.aspx#Imports%20and%20Exports%20with%20Attributes), aracılığıyla veya [IComponentModel hizmet](http://msdn.microsoft.com/library/microsoft.visualstudio.componentmodelhost.icomponentmodel.aspx).
+1. Bir hizmeti kullanmak için kendisi aracılığıyla içe [MEF alma özniteliği](/dotnet/framework/mef/index#imports-and-exports-with-attributes), aracılığıyla veya [IComponentModel hizmet](/dotnet/api/microsoft.visualstudio.componentmodelhost.icomponentmodel?redirectedfrom=MSDN&view=visualstudiosdk-2017).
 
     ```cs
     //Using the Import attribute

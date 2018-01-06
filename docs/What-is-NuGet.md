@@ -13,15 +13,15 @@ keywords: "NuGet Paket Yöneticisi, tüketim, paket oluşturma paketini barınd�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 29dcedf33a54e249fe0b6acf588e4aafde28304f
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 2bc6a9e154df287fee6a7e00cc1349dfa2100643
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="an-introduction-to-nuget"></a>NuGet giriş
 
-Tüm modern geliştirme platformu için temel bir aracı üzerinden geliştiriciler oluşturabilir, paylaşmak ve kod yararlı kitaplıkları tüketen bir mekanizmadır. Bunlar içerebileceğinden "paketler" (dll) bu kitaplıkları tüketen projelerinde gerekebilecek diğer içeriği ile birlikte derlenmiş kod gibi böyle kitaplıklarının genel olarak denir.
+Tüm modern geliştirme platformu için temel bir aracı üzerinden geliştiriciler oluşturabilir, paylaşmak ve yararlı kod tüketen bir mekanizmadır. Genellikle "(dll) olarak derlenmiş kod bu paketleri tüketen projelerinde gereken diğer içeriği ile birlikte içeren paketler" içine kodun paketlenebilir.
 
 .NET için kod paylaşım mekanizmasıdır **NuGet**, hangi nasıl paketleri .NET oluşturulur için barındırılan ve tüketilen tanımlar ve bu rollerin her birine araçlar sağlar. 
 
@@ -44,8 +44,8 @@ Destek barındırma yanı sıra, NuGet ayrıca çeşitli oluşturucuları ve tü
 | Aracı | Platformlar | İlgili senaryolar | Açıklama |
 | --- | --- | --- | --- |
 | [nuget.exe CLI](Tools/nuget-exe-CLI-Reference.md) | Tümü | Oluşturma, tüketim | Özellikle bazı yalnızca tüketicileri için uygulama paketi oluşturucuları uygulayarak bazı komutlar tüm NuGet yetenekleri sağlar ve diğerleri hem de uygulama. Örneğin, oluşturucuları kullanma paketini `nuget pack` çeşitli derlemeler ve ilişkili dosyaları bir paket oluşturmak için tüketiciler kullanım paketini komutu `nuget install` bir proje ve herkesin paketleri dahil için kullanır `nuget config` NuGet yapılandırmayı ayarlamak için değişkenleri.  |
-| [Paket Yöneticisi kullanıcı Arabirimi](Tools/Package-Manager-UI.md) | Visual Studio Windows | Tüketim | Yükleme ve .NET projelerinde paketlerini yönetme için kullanımı kolay kullanıcı Arabirimi sağlar. | 
-| [NuGet UI yönetme](https://docs.microsoft.com/visualstudio/mac/nuget-walkthrough) | Mac için Visual Studio | Tüketim | Yükleme ve .NET projelerinde paketlerini yönetme için kullanımı kolay kullanıcı Arabirimi sağlar. |
+| [Paket Yöneticisi UI](Tools/Package-Manager-UI.md) | Visual Studio Windows | Tüketim | Yükleme ve .NET projelerinde paketlerini yönetme için kullanımı kolay kullanıcı Arabirimi sağlar. | 
+| [NuGet UI yönetme](/visualstudio/mac/nuget-walkthrough) | Mac için Visual Studio | Tüketim | Yükleme ve .NET projelerinde paketlerini yönetme için kullanımı kolay kullanıcı Arabirimi sağlar. |
 | [Paket Yöneticisi Konsolu](Tools/Package-Manager-Console.md) | Visual Studio Windows | Tüketim | Sağlar [PowerShell komutlarını](Tools/Powershell-Reference.md) yükleme ve .NET projelerinde paketlerini yönetme. | 
 | [DotNet CLI](Tools/dotnet-Commands.md) | Tümü | Oluşturma, tüketim | Bazı NuGet CLI doğrudan .NET Core zincirinin içinde özellikleri sağlar. |
 | [MSBuild](Schema/msbuild-targets.md) | Windows | Oluşturma, tüketim | Paketleri oluşturma ve MSBuild araç zinciri aracılığıyla doğrudan projesinde kullanılan paketleri geri yükleme yeteneği sağlar. |

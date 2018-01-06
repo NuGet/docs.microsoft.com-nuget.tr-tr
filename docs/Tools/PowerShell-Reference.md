@@ -13,11 +13,11 @@ keywords: "NuGet Paket Yöneticisi konsolu, NuGet Powershell komutlarını NuGet
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c0da5c88447784fdd49d824bbd03b11f73c22ebc
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 64450a8bcca7f6028d4ce389d51ac35e9209cfae
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="powershell-reference"></a>PowerShell başvurusu
 
@@ -27,23 +27,23 @@ Paket Yöneticisi konsolu, bir PowerShell arabirimi belirli komutları NuGet ile
 > Tüm PowerShell komutları yalnızca paket tüketimi ilgilidir. PowerShell komutlarını oluşturmak ve bir paket ayrıca diğer paketleri tüketicisi olarak toplasa bile dışında paketleri yayımlamak için ilgilidir.
 
 > [!Important]
-> Burada listelenen komutlar Visual Studio'da Paket Yöneticisi konsolu özgüdür ve farklı [paket Yönetimi Modülü komutları](https://msdn.microsoft.com/powershell/reference/6/packagemanagement/packagemanagement) genel bir PowerShell ortamında kullanılabilir. Özellikle, her bir ortamda, diğer kullanılabilir olmayan komutlar sahip ve aynı ada sahip komutları kendi belirli değişkenlerinde farklı olabilir. Visual Studio'da paket Yönetimi konsolunu kullanarak, komutları ve mevcut bu konudaki belgelenen bağımsız değişkenleri uygulanır.
+> Burada listelenen komutlar Visual Studio'da Paket Yöneticisi konsolu özgüdür ve farklı [paket Yönetimi Modülü komutları](/powershell/module/packagemanagement/?view=powershell-6) genel bir PowerShell ortamında kullanılabilir. Özellikle, her bir ortamda, diğer kullanılabilir olmayan komutlar sahip ve aynı ada sahip komutları kendi belirli değişkenlerinde farklı olabilir. Visual Studio'da paket Yönetimi konsolunu kullanarak, komutları ve mevcut bu konudaki belgelenen bağımsız değişkenleri uygulanır.
 
 | Sık kullanılan komutlar | Açıklama | NuGet sürümü |
 | --- | --- | --- |
 | [Install-Package](ps-ref-install-package.md) | Bir paketi ve bağımlılıklarını projeye yükler. | Tümü |
-| [Güncelleştirme paketi](ps-ref-update-package.md) | Bir paketi ve bağımlılıklarını veya projesindeki tüm paketleri güncelleştirir. | Tümü |
-| [Paket Bul](ps-ref-find-package.md) | Bir paket kimliği veya anahtar sözcükleri kullanarak paket kaynağını arar. | 3.0+ |
+| [Update-Package](ps-ref-update-package.md) | Bir paketi ve bağımlılıklarını veya projesindeki tüm paketleri güncelleştirir. | Tümü |
+| [Find-Package](ps-ref-find-package.md) | Bir paket kimliği veya anahtar sözcükleri kullanarak paket kaynağını arar. | 3.0+ |
 | [Get-Package](ps-ref-get-package.md) | Yerel depoda yüklü olan paketlerin listesini alır veya paket kaynağındaki paketleri listeler. | Tümü |
 
 | İkincil komutları | Açıklama | NuGet sürümü |
 | --- | --- | --- |
-| [BindingRedirect ekleme](ps-ref-add-bindingredirect.md) | Bir proje için çıkış yolu içindeki tüm derlemelerde inceler ve bağlama yeniden yönlendirmelerini ekler `app.config` veya `web.config` gerektiğinde. | Tümü |
-| [Get-proje](ps-ref-get-project.md) | Varsayılan ya da belirtilen proje hakkındaki bilgileri görüntüler. | 3.0+ |
-| [Açık PackagePage](ps-ref-open-packagepage.md) | Proje, lisans veya belirtilen paket için rapor kötüye URL'si ile varsayılan tarayıcı başlatır. | 3.0 +'da kullanım dışıdır |
+| [Add-BindingRedirect](ps-ref-add-bindingredirect.md) | Bir proje için çıkış yolu içindeki tüm derlemelerde inceler ve bağlama yeniden yönlendirmelerini ekler `app.config` veya `web.config` gerektiğinde. | Tümü |
+| [Get-Project](ps-ref-get-project.md) | Varsayılan ya da belirtilen proje hakkındaki bilgileri görüntüler. | 3.0+ |
+| [Open-PackagePage](ps-ref-open-packagepage.md) | Proje, lisans veya belirtilen paket için rapor kötüye URL'si ile varsayılan tarayıcı başlatır. | 3.0 +'da kullanım dışıdır |
 | [Register-TabExpansion](ps-ref-register-tabexpansion.md) | Bir sekme genişlemesi parametreler için yaygın olarak kullanılan parametre değerleri için özelleştirilmiş genişletmeleri oluşturmanızı sağlayan bir komut kaydeder. | Tümü |
-| [Eşitleme paketi](ps-ref-sync-package.md) | Get paketinden yüklü sürümü proje belirtilen ve sürümü çözümdeki projelerin geri kalanına eşitlenir. | 3.0+ |
-| [Kaldırma paketi](ps-ref-uninstall-package.md) | Bir paket bağımlılıklarını isteğe bağlı olarak kaldırarak bir projeden kaldırır. | Tümü |
+| [Sync-Package](ps-ref-sync-package.md) | Get paketinden yüklü sürümü proje belirtilen ve sürümü çözümdeki projelerin geri kalanına eşitlenir. | 3.0+ |
+| [Uninstall-Package](ps-ref-uninstall-package.md) | Bir paket bağımlılıklarını isteğe bağlı olarak kaldırarak bir projeden kaldırır. | Tümü |
 
 Konsolu içinden aşağıdaki komutlardan birini ilgili eksiksiz, ayrıntılı yardım için yalnızca söz konusu komut adı ile aşağıdaki komutu çalıştırın:
 

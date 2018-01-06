@@ -13,11 +13,11 @@ keywords: "NuGet Paket Yöneticisi konsolu, NuGet Powershell komutlarını NuGet
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 7bf8cdb938195f4747932b38ef0d5bb6c34b9137
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 6a3232af925f75713168421e68f2773060c5ebaa
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="add-bindingredirect-package-manager-console-in-visual-studio"></a>Ekleme BindingRedirect (Visual Studio'da Paket Yöneticisi Konsolu)
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 12/14/2017
 
 Bir proje için çıkış yolu içindeki tüm derlemelerde arar ve gerektiğinde uygulama veya web yapılandırma dosyasına bağlama yeniden yönlendirmelerini ekler. Bu komut, bir paket yüklerken otomatik olarak çalıştırılır.
 
-Bağlama yeniden yönlendirmeleri ve neden kullanıldıkları hakkında ayrıntılar için bkz: [derleme sürümlerini yönlendirme](https://docs.microsoft.com/dotnet/framework/configure-apps/redirect-assembly-versions) .NET belgelerinde.
+Bağlama yeniden yönlendirmeleri ve neden kullanıldıkları hakkında ayrıntılar için bkz: [derleme sürümlerini yönlendirme](/dotnet/framework/configure-apps/redirect-assembly-versions) .NET belgelerinde.
 
 ## <a name="syntax"></a>Sözdizimi
 

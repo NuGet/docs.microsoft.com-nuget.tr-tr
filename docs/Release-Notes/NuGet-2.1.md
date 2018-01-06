@@ -13,11 +13,11 @@ keywords: "Özellikler, dcr bilinen sorunlar, NuGet 2.1 sürüm notları, hata d
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c45cfb9f6a46a1efd9fe4531602191973da66290
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: dafe575eedbfed215c0b1c86795bea281de97252
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-21-release-notes"></a>NuGet 2.1 sürüm notları
 
@@ -80,7 +80,7 @@ NuGet 2.1 paketleri klasörünün konumunu üzerinde daha ayrıntılı denetim s
 Bu örnekte, paylaşılan `Nuget.Config` dosya C:\myteam derinliği bağımsız olarak oluşturulan her proje için paylaşılan paketler klasörünü belirtir. Var olan bir paket klasörü altında çözüm kök varsa, NuGet paketleri yeni konuma yerleştirir önce silmeniz gerektiğine dikkat edin.
 
 ## <a name="support-for-portable-libraries"></a>Taşınabilir kitaplıklara desteği
-[Taşınabilir kitaplıklara](http://msdn.microsoft.com/library/gg597391.aspx) önce farklı platformlarda Microsoft.NET Framework Windows Phone ve hatta Xbox Silverlight'a sürümlerinden yapmadan çalışabilirsiniz derlemeleri oluşturmanıza olanak sağlayan bir .NET 4 ile sunulan bir özelliktir 360 (şu anda NuGet Xbox taşınabilir kitaplığı hedef desteklemiyor rağmen).  Genişletme tarafından [paketini kuralları](../create-packages/supporting-multiple-target-frameworks.md) framework sürümleri ve profilleri için NuGet 2.1 artık taşınabilir kitaplıklara bileşik framework ve profil hedef sahip paketleri oluşturmanıza olanak sağlayarak destekler `lib` klasörler.
+[Taşınabilir kitaplıklara](/dotnet/standard/cross-platform/cross-platform-development-with-the-portable-class-library) önce farklı platformlarda Microsoft.NET Framework Windows Phone ve hatta Xbox Silverlight'a sürümlerinden yapmadan çalışabilirsiniz derlemeleri oluşturmanıza olanak sağlayan bir .NET 4 ile sunulan bir özelliktir 360 (şu anda NuGet Xbox taşınabilir kitaplığı hedef desteklemiyor rağmen).  Genişletme tarafından [paketini kuralları](../create-packages/supporting-multiple-target-frameworks.md) framework sürümleri ve profilleri için NuGet 2.1 artık taşınabilir kitaplıklara bileşik framework ve profil hedef sahip paketleri oluşturmanıza olanak sağlayarak destekler `lib` klasörler.
 
 Örnek olarak, aşağıdaki taşınabilir sınıf kitaplığının kullanılabilir hedef platformlar göz önünde bulundurun.
 

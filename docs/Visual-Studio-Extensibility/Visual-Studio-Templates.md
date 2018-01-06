@@ -3,29 +3,28 @@ title: "Visual Studio şablonları NuGet paketlerine | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 2/8/2017
+ms.date: 1/3/2018
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 0b2cf228-f028-475d-8792-c012dffdb26f
 description: "NuGet paketlerini Visual Studio Proje ve öğe şablonları bir parçası olarak dahil etmek için yönergeler."
 keywords: "NuGet Visual Studio, Visual Studio Proje şablonları, Visual Studio öğe şablonları, proje şablonları paketlerinde, paketler halinde öğe şablonları"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 5b2ad7616578b5f54d917c4555e861c847814da9
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 45a2ca2c08660be650f9cf38301f628923e1f8be
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="packages-in-visual-studio-templates"></a>Visual Studio şablonları paketler
 
-Visual Studio Proje ve öğe şablonları, genellikle proje ve öğe oluşturulduğunda bazı paketler halinde yüklü olduğundan emin olun gerekir. Örneğin, ASP.NET MVC 3 şablonu jQuery, Modernizr ve diğer paketleri yükler.
+Visual Studio Proje ve öğe şablonları, genellikle bir proje veya öğesi oluşturulduğunda belirli paketleri yüklü olduğundan emin olun gerekir. Örneğin, ASP.NET MVC 3 şablonu jQuery, Modernizr ve diğer paketleri yükler.
 
 Bunu desteklemek için şablon yazarlar tek tek kitaplıklarda yerine gerekli paketleri yüklemek için NuGet söyleyebilirsiniz. Geliştiriciler sonra kolayca bu paketleri daha sonraki bir zamanda güncelleştirebilirsiniz.
 
-Şablonların kendilerine yazma hakkında daha fazla bilgi için bkz [proje oluşturma ve Visual Studio öğe şablonları](https://msdn.microsoft.com/library/s365byhx.aspx) veya [oluşturma özel Proje ve öğe şablonlarını Visual Studio SDK'sı](https://msdn.microsoft.com/library/ff527340.aspx).
+Şablonların kendilerine yazma hakkında daha fazla bilgi için bkz [nasıl yapılır: Proje şablonları oluşturma](/visualstudio/ide/how-to-create-project-templates) veya [oluşturma özel Proje ve öğe şablonlarını](/visualstudio/extensibility/creating-custom-project-and-item-templates).
 
 Bu bölüm geri kalanı düzgün NuGet paketleri dahil etmek için bir şablon yazarken uygulanacak belirli adımlar açıklanmaktadır.
 
@@ -34,16 +33,15 @@ Bu bölüm geri kalanı düzgün NuGet paketleri dahil etmek için bir şablon y
 
 Bir örnek için bkz: [NuGetInVsTemplates örnek](https://bitbucket.org/marcind/nugetinvstemplates).
 
-
 ## <a name="adding-packages-to-a-template"></a>Bir şablona paketleri ekleme
 
-Şablon örneği oluşturulduğunda bir [Şablon Sihirbazı](https://msdn.microsoft.com/library/ms185301.aspx) bu paketleri nerede bulacağını hakkında bilgilerle birlikte yüklemek için olan paketlerin listesini yüklemek için çağrılır. Paket içinde VSIX içine katıştırılmış, şablonda katıştırılmış veya yerel sabit sürücüsünde bulunan bir kayıt defteri anahtarı dosya yolu başvurma kullanın; Bu durumda. Bu konumları hakkında ayrıntılar daha sonra bu bölümde verilir.
+Şablon örneği oluşturulduğunda bir [Şablon Sihirbazı](/visualstudio/extensibility/how-to-use-wizards-with-project-templates) bu paketleri nerede bulacağını hakkında bilgilerle birlikte yüklemek için olan paketlerin listesini yüklemek için çağrılır. Paket içinde VSIX içine katıştırılmış, şablonda katıştırılmış veya yerel sabit sürücüsünde bulunan bir kayıt defteri anahtarı dosya yolu başvurma kullanın; Bu durumda. Bu konumları hakkında ayrıntılar daha sonra bu bölümde verilir.
 
-Önceden yüklenen paketler iş kullanarak [şablon sihirbazları](http://msdn.microsoft.com/library/ms185301.aspx). Şablon örneği özel sihirbaz çağrılır. Sihirbaz yüklenmesi gereken paketlerin listesini yükler ve bu bilgileri uygun NuGet API'leri geçirir.
+Önceden yüklenen paketler iş kullanarak [şablon sihirbazları](/visualstudio/extensibility/how-to-use-wizards-with-project-templates). Şablon örneği özel sihirbaz çağrılır. Sihirbaz yüklenmesi gereken paketlerin listesini yükler ve bu bilgileri uygun NuGet API'leri geçirir.
 
 Paketleri bir şablona dahil adımlar:
 
-1. İçinde `vstemplate` dosya, NuGet Şablon Sihirbazı'nı bir başvuru ekleyerek bir [ `WizardExtension` ](http://msdn.microsoft.com/library/ms171411.aspx) öğe:
+1. İçinde `vstemplate` dosya, NuGet Şablon Sihirbazı'nı bir başvuru ekleyerek bir [ `WizardExtension` ](/visualstudio/extensibility/wizardextension-element-visual-studio-templates) öğe:
 
     ```xml
     <WizardExtension>
@@ -66,12 +64,11 @@ Paketleri bir şablona dahil adımlar:
 
     *(NuGet 2.2.1+)*  Birden çok sihirbaz destekler `<package>` öğeleri birden çok paket kaynaklarını destekleyecek şekilde. Hem `id` ve `version` , belirli bir paketin sürümü anlamına yüklenecek daha yeni bir sürümü kullanılabilir olsa bile, öznitelikler gereklidir. Bu, paket güncelleştirmesi şablon kullanılarak Geliştirici paketi güncelleştirmeye seçimi bırakarak şablon bozmasını engeller.
 
-
 1. NuGet paketleri aşağıdaki bölümlerde açıklandığı gibi bulabileceğiniz deposu belirtin.
 
 ### <a name="vsix-package-repository"></a>VSIX Paket Deposu
 
-Visual Studio Proje/öğesi şablonları için önerilen dağıtım yaklaşımdır bir [VSIX uzantısı](http://msdn.microsoft.com/library/ff363239.aspx) çünkü birden çok proje/öğe şablonları birlikte paketlemenize olanak sağlar ve geliştiricilerin şablonlarınızı kolay bulmasına olanak tanır VS Uzantı Yöneticisi'ni veya Visual Studio Galerisi kullanıyor. Uzantı için güncelleştirmelerin de kullanarak dağıtmak kolay [Visual Studio Uzantı Yöneticisi otomatik güncelleştirme mekanizmasını](http://msdn.microsoft.com/library/dd997169.aspx).
+Visual Studio Proje/öğesi şablonları için önerilen dağıtım yaklaşımdır bir [VSIX uzantısı](/visualstudio/extensibility/shipping-visual-studio-extensions) çünkü birden çok proje/öğe şablonları birlikte paketlemenize olanak sağlar ve geliştiricilerin şablonlarınızı kolay bulmasına olanak tanır VS Uzantı Yöneticisi'ni veya Visual Studio Galerisi kullanıyor. Uzantı için güncelleştirmelerin de kullanarak dağıtmak kolay [Visual Studio Uzantı Yöneticisi otomatik güncelleştirme mekanizmasını](/visualstudio/extensibility/how-to-update-a-visual-studio-extension).
 
 VSIX şablon tarafından gereken paketler için kaynak olarak hizmet verebilir:
 
@@ -83,25 +80,17 @@ VSIX şablon tarafından gereken paketler için kaynak olarak hizmet verebilir:
     </packages>
     ```
 
-    `repository` Öznitelik deposu olarak türünü belirten `extension` sırada `repositoryId` VSIX benzersiz tanıtıcısı (Bu değeri [ `ID` özniteliği](http://msdn.microsoft.com/library/dd393688.aspx) uzantının içinde`vsixmanifest` dosyası).
+    `repository` Öznitelik deposu olarak türünü belirtir `extension` sırada `repositoryId` VSIX benzersiz tanıtıcısı (Bu değeri `ID` uzantının özniteliğinde `vsixmanifest` dosya için bkz: [ VSIX uzantı şema 2.0 başvurusu](/visualstudio/extensibility/vsix-extension-schema-2-0-reference)).
 
 1. Yerleştir, `nupkg` bir klasördeki dosyaları adlı `Packages` VSIX içinde.
-1. Gerekli paket dosyaları olarak ekleme [özel uzantı içerik](http://msdn.microsoft.com/library/dd393737.aspx) içinde `source.extension.vsixmanifest` dosya. 2.0 şema kullanıyorsanız, aşağıdaki gibi görünmelidir:
+
+1. Gerekli paket dosyaları olarak ekleme `<Asset>` içinde `vsixmanifest` dosyası (bkz [VSIX uzantı şema 2.0 başvurusu](/visualstudio/extensibility/vsix-extension-schema-2-0-reference)):
 
     ```xml
     <Asset Type="Moq.4.0.10827.nupkg" d:Source="File" Path="Packages\Moq.4.0.10827.nupkg" d:VsixSubPath="Packages" />
     ```
 
-    1.0 şema kullanıyorsanız, aşağıdaki gibi görünmelidir:
-
-    ```xml
-    <CustomExtension Type="Moq.4.0.10827.nupkg">
-        packages/Moq.4.0.10827.nupkg
-    </CustomExtension>
-    ```
-
 1. Proje şablonları olarak aynı VSIX içinde paketler sağlayabilir veya, daha fazla senaryonuz için mantıklı varsa bunları ayrı içinde VSIX içine koyabilirsiniz unutmayın. Ancak, uzantının değişiklikler şablonunuzu uğratabilir olduğundan üzerinde denetim, elinizde VSIX başvuruda bulunmayın.
-
 
 ### <a name="template-package-repository"></a>Şablon Paket Deposu
 
@@ -120,7 +109,6 @@ Yalnızca bir tek proje öğesi şablon dağıtma ve birden fazla şablon birlik
 1. Paketler proje/öğesi şablon ZIP dosyası kök klasörüne yerleştirin.
 
 Bir veya daha fazla paket şablonların ortak olduğunda bu yaklaşımı kullanarak birden fazla şablon içeren bir VSIX gereksiz oluşan şişirmeyi müşteri adayları olduğunu unutmayın. Bu gibi durumlarda kullanmak [VSIX deposu olarak](#vsix-package-repository) önceki bölümde açıklandığı gibi.
-
 
 ### <a name="registry-specified-folder-path"></a>Kayıt defteri tarafından belirtilen klasör yolu
 
@@ -159,6 +147,6 @@ Bir MSI kullanılarak yüklenen SDK'ları doğrudan geliştiricinin makinesinde 
     <!-- ... -->
     ```
 
-1. Proje/öğe şablonları oluşturma ayarlayarak kaydedilmesini gerektirir [ `<PromptForSaveOnCreation>` ](http://msdn.microsoft.com/library/twfxayz5.aspx) içinde `.vstemplate` dosya.
+1. Proje/öğe şablonları oluşturma dahil ederek kaydedilmesini gerektirir [ `<PromptForSaveOnCreation>true</PromptForSaveOnCreation>` ](/visualstudio/extensibility/promptforsaveoncreation-element-visual-studio-templates) içinde `.vstemplate` dosya.
 
 1. Şablonları içermeyen bir `packages.config` veya `project.json` dosya ve içermeyen veya tüm başvuruları veya NuGet paketleri yüklendiğinde ekleneceği içerik.

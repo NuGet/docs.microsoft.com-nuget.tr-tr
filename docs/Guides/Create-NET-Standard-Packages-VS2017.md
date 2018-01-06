@@ -13,17 +13,17 @@ keywords: "bir paket, .NET standart paketleri, .NET Core oluşturun"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 82e413119b12503336becd6019e4fa3e4ac0b1f3
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 5b48ad2f062fd3a9b99985dbda6f89e6039dac4d
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-net-standard-20-packages-with-visual-studio-2017"></a>Visual Studio 2017 ile .NET standart 2.0 paketleri oluşturma
 
 *NuGet 4.x+ ve MSBuild 15.3 Visual Studio 2017 güncelleştirme 3 koşuluyla + uygulanır. Visual Studio 2017 önceki sürümleri için bu yönergeler için standart 1.4 .NET 1. 6 değiştirerek geçerli \<TargetFramework\> özelliği. Ayrıca bkz. [.NET standart paketleri oluşturmak Visual Studio 2015 ile](../guides/create-net-standard-packages-vs2015.md) NuGet 3.x+ ile çalışmak için.*
 
-[.NET standart Kitaplığı](https://docs.microsoft.com/dotnet/articles/standard/library) olduğu .NET API'lerini biçimsel belirtimini hedeflenen böylece büyük bütünlüğünü .NET ekosistemi oluşturma tüm .NET çalışma zamanları üzerinde kullanılabilir olması. .NET standart kitaplığı, iş yükünü bağımsız uygulamak tüm .NET platformları için BCL (temel sınıf kitaplığı) API'leri Tekdüzen kümesini tanımlar. Bunu tüm .NET çalışma zamanları arasında kullanılabilir PCLs üretmek için geliştiricilere olanak sağlar ve azaltır değilse platforma özgü koşullu derleme yönergeleri paylaşılan kod ortadan kaldırır.
+[.NET standart Kitaplığı](/dotnet/articles/standard/library) olduğu .NET API'lerini biçimsel belirtimini hedeflenen böylece büyük bütünlüğünü .NET ekosistemi oluşturma tüm .NET çalışma zamanları üzerinde kullanılabilir olması. .NET standart kitaplığı, iş yükünü bağımsız uygulamak tüm .NET platformları için BCL (temel sınıf kitaplığı) API'leri Tekdüzen kümesini tanımlar. Bunu tüm .NET çalışma zamanları arasında kullanılabilir PCLs üretmek için geliştiricilere olanak sağlar ve azaltır değilse platforma özgü koşullu derleme yönergeleri paylaşılan kod ortadan kaldırır.
 
 Bu kılavuz .NET standart kitaplığı 2.0 Visual Studio 2017 güncelleştirme 3'ü ve NuGet 4.0 ile hedefleyen bir nuget paketi oluşturmada size yol gösterir.
 
@@ -113,5 +113,5 @@ Paketinizi diğer geliştiricileri için kullanılabilir yapmak için yönergele
 
 - [Proje dosyalarını başvurularında paketini](../consume-packages/package-references-in-project-files.md) paketinizi proje dosyasında doğrudan açıklayan tüm ayrıntılarını açıklar.
 - [NuGet paketi ve geri yükleme MSBuild hedefleri olarak](../schema/msbuild-targets.md) kullanmak için tüm seçenekleri açıklar `msbuild /t:pack` paketi oluşturmak için.
-- [.NET standart kitaplığı belgeleri](https://docs.microsoft.com/dotnet/articles/standard/library)
-- [.NET Core için .NET Framework'bağlantı noktası oluşturma](https://docs.microsoft.com/dotnet/articles/core/porting/index)
+- [.NET standart kitaplığı belgeleri](/dotnet/articles/standard/library)
+- [.NET Core için .NET Framework'bağlantı noktası oluşturma](/dotnet/articles/core/porting/index)

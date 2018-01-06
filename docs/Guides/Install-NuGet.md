@@ -13,11 +13,11 @@ keywords: "nuget.exe CLI, NuGet istemcisi araçları, NuGet Paket Yöneticisi, N
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b1abb30458c9ebfb0ffb28be254efd9709a9627f
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 2f67c298d269149bba9f36ad9e026d5443c39b6a
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="installing-nuget-client-tools"></a>NuGet istemci araçlarını yükleme
 
@@ -29,7 +29,7 @@ Yapı, yayımlama ve NuGet paketleri kullanmasına yardımcı olmak için kullan
 1. [ **NuGet CLI** ](#nuget-cli) komut satırı yardımcı programıdır Windows için tüm NuGet yetenekleri sağlayan; Mac OSX ve Linux Mono kullanarak veya .NET Core CLI aracılığıyla da çalıştırılabilir (`dotnet`).
 1. [ **Visual Studio'da NuGet Paket Yöneticisi** ](#nuget-package-manager-in-visual-studio) (yalnızca Windows) yönetme ve paketleri doğrudan Visual içinde belirli NuGet komutlarını üzerinden kullanabileceğiniz bir PowerShell konsolunda içeren bir GUI araçtır Studio. Paket Yöneticisi kullanıcı Arabirimi ve konsol Visual Studio ile (Windows) 2012 ve üzeri dahil ve önceki sürümleri için el ile yüklenebilir.
 
-    Mac için Visual Studio ile doğrudan NuGet özellikleri yerleşiktir. Bkz: [dahil olmak üzere bir NuGet paketini projenize](https://docs.microsoft.com/visualstudio/mac/nuget-walkthrough) kılavuz.
+    Mac için Visual Studio ile doğrudan NuGet özellikleri yerleşiktir. Bkz: [dahil olmak üzere bir NuGet paketini projenize](/visualstudio/mac/nuget-walkthrough) kılavuz.
 
     Visual Studio Code günümüzde hiçbir yerleşik NuGet destek yok. NuGet CLI kullanın veya [dotnet CLI](../Tools/dotnet-Commands.md).
 
@@ -53,7 +53,7 @@ Aşağıdaki özellikleri yalnızca NuGet CLI içinde desteklenir:
 
 > [!Note]
 > Başka bir iyi araçtır [NuGet paketi Gezgini](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer), görsel olarak araştırmak, oluşturmak ve NuGet paketleri düzenlemek için açık kaynaklı, tek başına bir araç. Örneğin, paket her zaman yeniden oluşturmak zorunda kalmadan bir paket yapısı Deneysel değişiklik yapmak için çok yararlı olur.
-> Platformlar arası [.NET Core CLI](https://docs.microsoft.com/dotnet/articles/core/tools/index#installation) .NET Core uygulamaları geliştirmek için kullanılan araç zinciri, silebilir, yerel öğeler, gönderme, paketi ve geri yükleme gibi birkaç NuGet komutlarını destekler. 
+> Platformlar arası [.NET Core CLI](/dotnet/articles/core/tools/index#installation) .NET Core uygulamaları geliştirmek için kullanılan araç zinciri, silebilir, yerel öğeler, gönderme, paketi ve geri yükleme gibi birkaç NuGet komutlarını destekler. 
 
 ## <a name="nuget-cli"></a>NuGet CLI
 

@@ -13,11 +13,11 @@ keywords: "Özellikler, dcr bilinen sorunlar, NuGet 2.6 sürüm notları, hata d
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: f93e34326aa9ab3d6bd5d1756126e6bfa24fd82e
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: b34c0049a5ba42f6bcd5b36fa5b0ba261e27ecd5
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-26-release-notes"></a>NuGet 2.6 sürüm notları
 
@@ -35,8 +35,8 @@ Hala Visual Studio 2010 ve Visual Studio 2012 destekleme ve olabildiğince küç
 
 NuGet 2.6 ile başlayarak, aşağıdaki şekilde iki uzantıları yayımlayacak:
 
-1. [NuGet Paket Yöneticisi](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c/file/37502/30/NuGet.Tools.vsix) (Visual Studio 2010 ve 2012 için geçerlidir)
-2. [Visual Studio 2013 için NuGet Paket Yöneticisi](http://visualstudiogallery.msdn.microsoft.com/4ec1526c-4a8c-4a84-b702-b21a8f5293ca)
+1. [NuGet Paket Yöneticisi](https://marketplace.visualstudio.com/items?itemName=NuGetTeam.NuGetPackageManager) (Visual Studio 2010 ve 2012 için geçerlidir)
+1. [Visual Studio 2013 için NuGet Paket Yöneticisi](https://marketplace.visualstudio.com/items?itemName=NuGetTeam.NuGetPackageManagerforVisualStudio2013)
 
 Bu bölme ile [nuget.org](https://nuget.org) giriş sayfasının "Nuget'i Yükle" düğmesini şimdi yönlendirilirsiniz için [NuGet yükleme](../guides/install-nuget.md) sayfasında, şunları bulabileceğiniz farklı NuGet istemcileri yükleme hakkında daha fazla bilgi.
 
@@ -44,7 +44,8 @@ Bu bölme ile [nuget.org](https://nuget.org) giriş sayfasının "Nuget'i Yükle
 
 ### <a name="xdt-webconfig-transformation-support"></a>XDT Web.config dönüşümü desteği
 
-Visual Studio'da kullanılan XDT dönüştürme altyapısı kullanan daha güçlü XML dönüşümleri desteklemek için açıldı NuGet istemci için en çok istenen özelliklerden birini [yapılandırma dönüşümleri yapı](http://msdn.microsoft.com/library/dd465318(v=vs.100).aspx).
+NuGet istemci için en çok istenen özelliklerden biri, Visual Studio derleme yapılandırma dönüşümler kullanılan XDT dönüştürme altyapısı kullanan daha güçlü XML dönüşümleri desteklemek için bırakıldı.
+
 Nisan 2013'te XDT NuGet desteği ile ilgili iki büyük duyuruları yapılan. İlk XDT kitaplığı kendisini çalıştırılmakta emin olan [bir NuGet paketi olarak yayımlanan](https://nuget.org/packages/Microsoft.Web.Xdt) ve [açık kaynaklıdır CodePlex üzerinde](http://xdt.codeplex.com/). Bu adım NuGet istemcisi de dahil olmak üzere diğer açık kaynaklı yazılım tarafından ücretsiz olarak kullanılacak XDT altyapısı etkin. İkinci duyuru için NuGet istemci dönüşümler XDT Altyapısı'nın kullanımını desteklemek için plan oluştu. Bu tümleştirme NuGet 2.6 içerir.
 
 #### <a name="how-it-works"></a>Nasıl çalışır?

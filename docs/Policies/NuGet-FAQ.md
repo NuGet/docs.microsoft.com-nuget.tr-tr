@@ -13,11 +13,11 @@ keywords: "NuGet soru- cevap, sorular ve yanıtlar, ortak sorunları, NuGet sür
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 105fa6e1cad3d163b673376c74ce9c835a0b5059
-ms.sourcegitcommit: 122bf7ce308365ea45da018b0768f0536de76a1f
+ms.openlocfilehash: 44636a3ab8a3f7aaf96e52aa67d568d7ef381549
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-frequently-asked-questions"></a>NuGet sık sorulan sorular
 
@@ -57,9 +57,9 @@ Daha fazla bilgi için bkz: [bulma ve paketleri seçme](../Consume-Packages/Find
 **Nasıl NuGet farklı Visual Studio ürünlerinde destekleniyor mu?**
 
 - Visual Studio Windows destekler [Paket Yöneticisi kullanıcı Arabirimi](../tools/Package-Manager-UI.md) ve [Paket Yöneticisi Konsolu](../tools/Package-Manager-Console.md).
-- Mac için Visual Studio açıklandığı gibi yerleşik NuGet özellikleri olan [dahil olmak üzere bir NuGet paketini projenize](https://docs.microsoft.com/visualstudio/mac/nuget-walkthrough).
+- Mac için Visual Studio açıklandığı gibi yerleşik NuGet özellikleri olan [dahil olmak üzere bir NuGet paketini projenize](/visualstudio/mac/nuget-walkthrough).
 - Visual Studio Code (tüm platformlar) doğrudan herhangi NuGet tümleştirme yok. Kullanım [NuGet CLI](../tools/nuget-exe-CLI-Reference.md) veya [dotnet CLI](../tools/dotnet-commands.md).
-- Visual Studio Team Services sağlar [NuGet paketlerini geri yüklemek için bir derleme adımı](https://docs.microsoft.com/vsts/build-release/tasks/package/nuget). Ayrıca [konak özel NuGet paketi akışları Team Services](https://www.visualstudio.com/docs/package/nuget/publish).
+- Visual Studio Team Services sağlar [NuGet paketlerini geri yüklemek için bir derleme adımı](/vsts/build-release/tasks/package/nuget). Ayrıca [konak özel NuGet paketi akışları Team Services](https://www.visualstudio.com/docs/package/nuget/publish).
 
 **Yüklü olan NuGet Araçlar'ün tam sürümünü nasıl kontrol edilsin mi?**
 
@@ -101,7 +101,7 @@ Evet, özel komut eklemek olası `nuget.exe`açıklandığı gibi [Ramiz Reynold
 
 **Paket Yöneticisi Konsolu'nda DTE nesneye erişimi nasıl sağlarım?**
 
-Visual Studio Otomasyon nesne modeli en üst düzey nesnesinde DTE (geliştirme araçları ortamı) nesne adı verilir. Konsol bu adlı bir değişken üzerinden sağlar `$DTE`. Daha fazla bilgi için bkz: [Otomasyon modeline genel bakış](https://docs.microsoft.com/visualstudio/extensibility/internals/automation-model-overview) Visual Studio genişletilebilirliğini belgelerinde.
+Visual Studio Otomasyon nesne modeli en üst düzey nesnesinde DTE (geliştirme araçları ortamı) nesne adı verilir. Konsol bu adlı bir değişken üzerinden sağlar `$DTE`. Daha fazla bilgi için bkz: [Otomasyon modeline genel bakış](/visualstudio/extensibility/internals/automation-model-overview) Visual Studio genişletilebilirliğini belgelerinde.
 
 **DTE2 türü $DTE değişkenine cast deneyin, ancak bir hata iletisi: "" EnvDTE80.DTE2"türü için EnvDTE.DTEClass" türündeki "EnvDTE.DTEClass" değeri dönüştürülemiyor. Ne oldu?**
 

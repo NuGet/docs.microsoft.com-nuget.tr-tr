@@ -13,11 +13,11 @@ keywords: "NuGet UWP denetimleri, Visual Studio XAML Tasarımcısı, harmanlama 
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: f51dbabd406199752e4f9d612b498f59ffb54021
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 8756ce472c11a05370914841245295361b3f179b
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="creating-uwp-controls-as-nuget-packages"></a>NuGet paketleri olarak UWP denetimler oluşturma
 
@@ -105,7 +105,7 @@ UWP paketleri, uygulamanın yüklendiği bir işletim sistemi sürümü üst ve 
 \ref\uap10.0\*
 ```
 
-Uygun TPMinV onay zorlamak için oluşturma bir [MSBuild hedefleri dosya](https://docs.microsoft.com/visualstudio/msbuild/msbuild-targets) ve ("your_assembly_name" belirli derlemenizi adıyla değiştirerek) yapı klasörü altındaki paket:
+Uygun TPMinV onay zorlamak için oluşturma bir [MSBuild hedefleri dosya](/visualstudio/msbuild/msbuild-targets) ve ("your_assembly_name" belirli derlemenizi adıyla değiştirerek) yapı klasörü altındaki paket:
 
 ```
 \build
@@ -133,7 +133,7 @@ Hedef dosyanın aşağıdaki gibi görünmelidir örneği şöyledir:
 
 ## <a name="add-design-time-support"></a>Tasarım zamanı desteği ekleme
 
-Burada Özellik denetçisi'nde denetim özelliklerini göster yapılandırmak için özel donatıcıların, vb. yerleştirin ekleyin, `design.dll` içinde dosya `lib\<platform>\Design` klasörü hedef platformu için uygun olarak. Ayrıca, emin olmak için  **[Şablonu Düzenle > bir kopyasını düzenlemek](https://docs.microsoft.com/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)**  özelliği works içermelidir `Generic.xaml` ve içinde birleştirir tüm kaynak sözlükleri `<AssemblyName>\Themes` klasör. (Bu dosyayı bir denetimin çalışma zamanı davranışını etkisi yoktur.)
+Burada Özellik denetçisi'nde denetim özelliklerini göster yapılandırmak için özel donatıcıların, vb. yerleştirin ekleyin, `design.dll` içinde dosya `lib\<platform>\Design` klasörü hedef platformu için uygun olarak. Ayrıca, emin olmak için  **[Şablonu Düzenle > bir kopyasını düzenlemek](/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)**  özelliği works içermelidir `Generic.xaml` ve içinde birleştirir tüm kaynak sözlükleri `<AssemblyName>\Themes` klasör. (Bu dosyayı bir denetimin çalışma zamanı davranışını etkisi yoktur.)
 
 
 ```
@@ -172,7 +172,7 @@ Denetim veya kaybı UWP projesi tarafından kullanılan görüntüleri gibi pake
 \tools
 ```
 
-Ayrıca Yaz bir[MSBuild hedefleri dosya](https://docs.microsoft.com/visualstudio/msbuild/msbuild-targets) varlık Süren projenin çıkış klasörüne kopyalanır emin olmak için:
+Ayrıca Yaz bir[MSBuild hedefleri dosya](/visualstudio/msbuild/msbuild-targets) varlık Süren projenin çıkış klasörüne kopyalanır emin olmak için:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -187,5 +187,5 @@ Ayrıca Yaz bir[MSBuild hedefleri dosya](https://docs.microsoft.com/visualstudio
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-- [UWP paketleri oluşturma](create-uwp-packages.md)
+- [UWP Paketleri oluşturma](create-uwp-packages.md)
 - [ExtensionSDKasNuGetPackage örnek](https://github.com/NuGet/Samples/tree/master/ExtensionSDKasNuGetPackage)

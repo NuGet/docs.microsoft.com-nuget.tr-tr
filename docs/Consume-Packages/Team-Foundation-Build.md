@@ -13,11 +13,11 @@ keywords: "NuGet paket geri yüklemesi, NuGet ve TFS, NuGet ve VSTS, NuGet yapı
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 4be1bb83549958897a15d690439cac073c9683d1
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 82decfa1a39cb99c405840a8f13b0bc993111c09
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="setting-up-package-restore-with-team-foundation-build"></a>Paket geri yüklemesi Team Foundation Build ile ayarlama
 
@@ -29,9 +29,9 @@ ms.lasthandoff: 12/14/2017
 >
 > Alt yapı işlem şablonları ile Visual Studio Team Services veya şirket içi Team Foundation Server 2013 kullanıyorsanız, otomatik paket geri yükleme yapılandırma işleminin bir parçası olarak gerçekleşir.
 
-Bu bölümde paketleri parçası olarak geri yükleme konusunda ayrıntılı bilgi sağlayacaktır [Team Foundation Build](http://msdn.microsoft.com/library/ms181710(v=VS.90).aspx) her ikisi için [git](http://en.wikipedia.org/wiki/Git_(software)) yanı [TF sürüm denetimi](http://msdn.microsoft.com/library/ms181237(v=vs.120).aspx).
+Bu bölümde paketleri parçası olarak geri yükleme konusunda ayrıntılı bilgi sağlayacaktır [Hizmetleri ekip](/vsts/build-release/index) her ikisi de hem Git hem de Team Services sürüm denetimi.
 
-Bu kılavuzu kullanarak bu senaryo için belirli olmasına rağmen [Team Foundation Service](http://tfs.visualstudio.com/), kavramları ayrıca diğer sürüm denetimi için uygulama ve sistemler oluşturabilir.
+Bu kılavuzda Visual Studio Team Services kullanarak bu senaryo için belirli olsa da, kavramlar, ayrıca diğer sürüm denetimine uygulamak ve sistemler oluşturabilir.
 
 ## <a name="the-general-approach"></a>Genel yaklaşım
 
@@ -119,7 +119,7 @@ Sürüm denetimi biz giriş yapma yok iletişim kurmak için **paketleri** klas�
 
 Bu tüm dışlayacak `packages` klasörleri ancak olacak yeniden dahil tüm kapsanan `.targets` dosyaları. İçin bir şablon isteyenlerin bulabilirsiniz `.gitignore` Visual Studio geliştiriciler ihtiyaçlarını için özellikle tasarlanmış dosyaları [burada](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore).
 
-TF sürüm denetimi destekleyen çok benzer bir mekanizma aracılığıyla [.tfignore](http://msdn.microsoft.com/library/ms245454.aspx) dosya. Neredeyse aynı söz dizimi:
+TF sürüm denetimi destekleyen çok benzer bir mekanizma aracılığıyla [.tfignore](/vsts/tfvc/add-files-server#customize-which-files-are-ignored-by-version-control) dosya. Neredeyse aynı söz dizimi:
 
     *.user
     *.suo
@@ -135,7 +135,7 @@ Bu proje üç geleneksel hedefleri olacaktır `Clean`, `Build` ve `Rebuild` yeni
 
 - `Build` Ve `Rebuild` her ikisi de bağlıdır hedefleri `RestorePackages`. Bu, her ikisi de çalıştırabilirsiniz emin olur `Build` ve `Rebuild` ve paketleri geri yükleniyor.
 - `Clean`, `Build` ve `Rebuild` tüm çözüm dosyalarını karşılık gelen MSBuild hedef çağırma.
-- `RestorePackages` Hedef çağırır `nuget.exe` her çözüm dosyası. Bu kullanarak gerçekleştirilir [toplu işleme MSBuild işlevselliği](http://msdn.microsoft.com/library/ms171473.aspx).
+- `RestorePackages` Hedef çağırır `nuget.exe` her çözüm dosyası. Bu kullanarak gerçekleştirilir [toplu işleme MSBuild işlevselliği](/visualstudio/msbuild/msbuild-batching).
 
 Sonucu şu şekilde görünür:
 

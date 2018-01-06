@@ -13,17 +13,17 @@ keywords: "bir paket, .NET standart paketler, .NET standart eşleme tablosu olu�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: a912c27e1873d60426f2147995f69e2dcc433ca9
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: e02888bf552997afe25e967f13e021e78e40d48d
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-net-standard-packages-with-visual-studio-2015"></a>Visual Studio 2015 ile .NET standart paketleri oluşturma
 
 *Nuget'e geçerlidir 3.x. Bkz: [oluşturma .NET standart paketlerle Visual Studio 2017](../guides/create-net-standard-packages-vs2017.md) NuGet 4.x+ ile çalışmak için.*
 
-[.NET standart Kitaplığı](https://docs.microsoft.com/dotnet/articles/standard/library) olduğu .NET API'lerini biçimsel belirtimini hedeflenen böylece büyük bütünlüğünü .NET ekosistemi oluşturma tüm .NET çalışma zamanları üzerinde kullanılabilir olması. .NET standart kitaplığı, iş yükünü bağımsız uygulamak tüm .NET platformları için BCL (temel sınıf kitaplığı) API'leri Tekdüzen kümesini tanımlar. Bunu tüm .NET çalışma zamanları arasında kullanılabilir PCLs üretmek için geliştiricilere olanak sağlar ve azaltır değilse platforma özgü koşullu derleme yönergeleri paylaşılan kod ortadan kaldırır.
+[.NET standart Kitaplığı](/dotnet/articles/standard/library) olduğu .NET API'lerini biçimsel belirtimini hedeflenen böylece büyük bütünlüğünü .NET ekosistemi oluşturma tüm .NET çalışma zamanları üzerinde kullanılabilir olması. .NET standart kitaplığı, iş yükünü bağımsız uygulamak tüm .NET platformları için BCL (temel sınıf kitaplığı) API'leri Tekdüzen kümesini tanımlar. Bunu tüm .NET çalışma zamanları arasında kullanılabilir PCLs üretmek için geliştiricilere olanak sağlar ve azaltır değilse platforma özgü koşullu derleme yönergeleri paylaşılan kod ortadan kaldırır.
 
 Bu kılavuz .NET standart kitaplığı 1.4 hedefleyen bir nuget paketi oluşturmada size yol gösterir. Bu, .NET Framework 4.6.1, Evrensel Windows platformu 10, .NET Core ve Mono/Xamarin çalışır. Ayrıntılar için bkz [.NET standart eşleme tablosu](#net-standard-mapping-table) bu konuda daha sonra.
 
@@ -328,6 +328,6 @@ Bunu yapmak için oluşturmak, `readme.txt` dosya, bu proje kök klasöre yerle�
 - [Paket sürümü oluşturma](../reference/package-versioning.md)
 - [Birden çok .NET Framework sürümleri destekleme](../create-packages/supporting-multiple-target-frameworks.md)
 - [Bir pakete MSBuild özellik ve hedefler](../create-packages/creating-a-package.md#including-msbuild-props-and-targets-in-a-package)
-- [Yerelleştirilmiş paketleri oluşturma](../create-packages/creating-localized-packages.md)
-- [.NET standart kitaplığı belgeleri](https://docs.microsoft.com/dotnet/articles/standard/library)
-- [.NET Core için .NET Framework'bağlantı noktası oluşturma](https://docs.microsoft.com/dotnet/articles/core/porting/index)
+- [Yerelleştirilmiş Paketler Oluşturma](../create-packages/creating-localized-packages.md)
+- [.NET standart kitaplığı belgeleri](/dotnet/articles/standard/library)
+- [.NET Core için .NET Framework'bağlantı noktası oluşturma](/dotnet/articles/core/porting/index)

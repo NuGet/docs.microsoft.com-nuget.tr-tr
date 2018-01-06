@@ -14,11 +14,11 @@ ms.reviewer:
 - karann-msft
 - unniravindranathan
 - anangaur
-ms.openlocfilehash: 7d380b7f2ff52ec39a2ac9a2b939ee51db6054f3
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 89a55716ccbc9043cfce4c7f38ec8ab9a0e2f768
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="transforming-source-code-and-configuration-files"></a>Kaynak kodu ve yapılandırma dosyaları dönüştürme
 
@@ -27,20 +27,19 @@ Kullanarak projeleri için `packages.config` veya `project.json`, NuGet kaynak k
 > [!Note]
 > Bir paketi kullanarak bir projeye yüklendiğinde, kaynak ve yapılandırma dosyası dönüşümleri uygulanan değil [paket referanslarını proje dosyalarına](../Consume-Packages/Package-References-in-Project-Files.md). 
 
-A **kaynak kodu dönüştürme** paketin dosyalarında tek yönlü belirteci değiştirme uygulandığı `content` paketi yüklendiğinde burada belirteçleri Visual Studio'ya başvurmak klasörü [proje özellikleri](https://msdn.microsoft.com/library/vslangproj.projectproperties_properties.aspx) . Bu projenin ad alanına bir dosya eklemek için ya da genellikle içine geçecek kod özelleştirmenizi sağlar `global.asax` ASP.NET projesinde.
+A **kaynak kodu dönüştürme** paketin dosyalarında tek yönlü belirteci değiştirme uygulandığı `content` paketi yüklendiğinde burada belirteçleri Visual Studio'ya başvurmak klasörü [proje özellikleri](/dotnet/api/vslangproj.projectproperties?redirectedfrom=MSDN&view=visualstudiosdk-2017#properties_) . Bu projenin ad alanına bir dosya eklemek için ya da genellikle içine geçecek kod özelleştirmenizi sağlar `global.asax` ASP.NET projesinde.
 
 A **config dosya dönüşümü** , bir hedef projesinde gibi zaten mevcut dosyaların değiştirmenizi sağlar `web.config` ve `app.config`. Örneğin, bir öğe eklemek paketinizi gereken `modules` yapılandırma dosyası bölümünde. Bu dönüştürme için yapılandırma dosyalarını eklemek için bölümlerde paketinde özel dosyaları ekleyerek yapılır. Bir paketi kaldırıldığında, aynı değişiklikleri daha sonra bu iki yönlü bir dönüştürme yapma ters çevrilir.
-
 
 ## <a name="specifying-source-code-transformations"></a>Kaynak kodu dönüşümleri belirtme
 
 1. Paketten projeye eklemek istediğiniz dosya paketin içinde bulunduğu olmalıdır `content` klasör. Adlı bir dosya isterseniz, örneğin, `ContosoData.cs` yüklenmesi için bir `Models` klasörü hedef projesinin olmalıdır içinde `content\Models` paket klasöründe.
 
-2. Yükleme sırasında belirteci değiştirme uygulamak için NuGet istemek üzere append `.pp` kaynak kodu dosya adı. Yükleme tamamlandıktan sonra dosya değil olacaktır `.pp` uzantısı.
+1. Yükleme sırasında belirteci değiştirme uygulamak için NuGet istemek üzere append `.pp` kaynak kodu dosya adı. Yükleme tamamlandıktan sonra dosya değil olacaktır `.pp` uzantısı.
 
     Örneğin, dönüşümler yapmak için `ContosoData.cs`, paketteki dosya adı `ContosoData.cs.pp`. Yükleme sonrasında olarak görünür `ContosoData.cs`.
 
-3. Kaynak kodu dosyasının formun büyük küçük harf duyarsız belirteçlerini kullanmak `$token$` değerleri belirtmek için bu NuGet proje özellikleri ile değiştirmeniz gerekir:
+1. Kaynak kodu dosyasının formun büyük küçük harf duyarsız belirteçlerini kullanmak `$token$` değerleri belirtmek için bu NuGet proje özellikleri ile değiştirmeniz gerekir:
 
     ```cs
     namespace $rootnamespace$.Models
@@ -58,8 +57,7 @@ A **config dosya dönüşümü** , bir hedef projesinde gibi zaten mevcut dosyal
 
     Yükleme işleminden sonra NuGet değiştirir `$rootnamespace$` ile `Fabrikam` hedef projeyi varsayılarak kullanıcının, kök ad alanı `Fabrikam`.
 
-`$rootnamespace$` Belirteci en yaygın kullanılan proje özelliği; diğerlerini listelenen [proje özelliklerini](https://msdn.microsoft.com/library/vslangproj.projectproperties_properties.aspx) MSDN'de belgelerin. Elbette, bazı özellikler için proje türü belirli olabileceğini oluşturduğunu, unutmayın.
-
+`$rootnamespace$` Belirteci en yaygın kullanılan proje özelliği; diğerlerini listelenen [proje özelliklerini](/dotnet/api/vslangproj.projectproperties?redirectedfrom=MSDN&view=visualstudiosdk-2017#properties_) MSDN'de belgelerin. Elbette, bazı özellikler için proje türü belirli olabileceğini oluşturduğunu, unutmayın.
 
 ## <a name="specifying-config-file-transformations"></a>Yapılandırma dosyası dönüşümleri belirtme
 
@@ -91,7 +89,6 @@ XDT kullanmanın avantajı yalnızca iki statik dosyaları birleştirme yerine, 
 
 Eklemek için bir `MyNuModule` öğesine `modules` bölümünde paket yükleme sırasında oluşturma bir `web.config.transform` paketin dosyasında `content` şöyle klasörü:
 
-    
 ```xml
 <configuration>
     <system.webServer>
@@ -125,10 +122,9 @@ Daha kapsamlı bir örnek olarak [hata günlük modülleri ve işleyicileri içi
 
 Yükleme ve paket kaldırma etkisini görmek için Visual Studio'da yeni bir ASP.NET projesi oluşturma (altında şablonudur **Visual C# > Web** yeni proje iletişim kutusunda) ve boş bir ASP.NET uygulamasını seçin. Açık `web.config` başlangıç durumunu görmek için. Projeye sağ tıklayın, seçin **NuGet paketlerini Yönet**üzerinde nuget.org ELMAH için gözatın ve en son sürümünü yükleyin. Yapılan tüm değişiklikler fark `web.config`. Şimdi paketi kaldırma ve göreceğiniz `web.config` önceki durumuna geri çevirin.
 
-
 ### <a name="xdt-transforms"></a>XDT dönüşümler
 
-NuGet 2.6 ve daha sonra yapılandırma dosyalarını kullanarak değiştirebilirsiniz [XDT sözdizimi](https://msdn.microsoft.com/library/dd465326.aspx). Ayrıca belirteçleri ile değiştir NuGet olabilir [proje özellikleri](https://msdn.microsoft.com/library/vslangproj.projectproperties_properties.aspx) içinde özellik adı ekleyerek `$` sınırlayıcı (büyük küçük harf duyarsız).
+NuGet 2.6 ve daha sonra yapılandırma dosyalarını kullanarak değiştirebilirsiniz [XDT sözdizimi](https://msdn.microsoft.com/library/dd465326.aspx). Ayrıca belirteçleri ile değiştir NuGet olabilir [proje özellikleri](/dotnet/api/vslangproj.projectproperties?redirectedfrom=MSDN&view=visualstudiosdk-2017#properties_) içinde özellik adı ekleyerek `$` sınırlayıcı (büyük küçük harf duyarsız).
 
 Örneğin, aşağıdaki `app.config.install.xdt` dosya ekler bir `appSettings` öğesine `app.config` içeren `FullPath`, `FileName`, ve `ActiveConfigurationSettings` projeden değerler:
 

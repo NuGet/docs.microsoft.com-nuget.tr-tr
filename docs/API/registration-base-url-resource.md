@@ -17,11 +17,11 @@ keywords: "NuGet API paket meta verileri, NuGet API kayıt, NuGet API listelenme
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 15d3c836a5748497fe33dadc17e5a44846b4a8c0
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 1aabe6ae5c661e12b2639700813946e7a9a58b24
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="package-metadata"></a>Paket meta verileri
 
@@ -76,7 +76,7 @@ Kayıt dizin URL'sini tahmin edilebilir ve verilen bir paket kimliği ve kayıt 
 
 ### <a name="registration-pages-and-leaves"></a>Kayıt sayfaları ve bırakır
 
-Depolamak bir sunucu uygulaması için kesinlikle gerekli olmasa da kayıt ayrı kayıt sayfası belgelerde leafs, istemci-tarafı bellekten kazanacak şekilde önerilen bir yöntemdir. Yerine satır içi kullanım tüm kayıt bırakır dizini ya da hemen bırakır sayfa belgeleri depolamak, sunucu uygulama paketi sürümleri sayısına göre iki yaklaşım arasında seçim yapma bazı buluşsal yöntem tanımlamanız önerilir veya Paket toplam boyutu bırakır.
+Bunu kesinlikle olmadığında depolamak bir sunucu uygulaması için ayrı kayıt sayfası belgelerde kayıt leafs gerekli olsa da, istemci-tarafı bellekten kazanacak şekilde önerilen bir yöntemdir. Yerine satır içi kullanım tüm kayıt bırakır dizini ya da hemen bırakır sayfa belgeleri depolamak, sunucu uygulama paketi sürümleri sayısına göre iki yaklaşım arasında seçim yapma bazı buluşsal yöntem tanımlamanız önerilir veya Paket toplam boyutu bırakır.
 
 Tüm paket sürümlerini depolamak (kayıt dizin kaydeder HTTP istek sayısı fetch paket meta verileri ancak daha büyük bir belge yüklenmelidir ve daha fazla istemci bellek tahsis edilmelidir anlamına gelir gerekli bırakır). Diğer taraftan, sunucu uygulamasına hemen kayıt bırakır ayrı sayfa belgelerde depoluyorsa, istemci, gerekli bilgileri almak için daha fazla HTTP isteklerini gerçekleştirmeniz gerekir.
 
@@ -92,7 +92,7 @@ Ad     | İçindeki     | Tür    | Gerekli | Notlar
 -------- | ------ | ------- | -------- | -----
 LOWER_ID | URL    | dize  | Evet      | Dönüştürüldükten paket kimliği
 
-`LOWER_ID` Tarafından uygulanan kurallarını kullanarak dönüştürüldükten istenen paket kimliği bir değerdir. NET'in [ `System.String.ToLowerInvariant()` ](https://msdn.microsoft.com/en-us/library/system.string.tolowerinvariant.aspx) yöntemi.
+`LOWER_ID` Tarafından uygulanan kurallarını kullanarak dönüştürüldükten istenen paket kimliği bir değerdir. NET'in [ `System.String.ToLowerInvariant()` ](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) yöntemi.
 
 ### <a name="response"></a>Yanıt
 
