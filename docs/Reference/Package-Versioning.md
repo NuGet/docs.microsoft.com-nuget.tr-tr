@@ -14,11 +14,11 @@ ms.reviewer:
 - anandr
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 25b74ab629cab0fff7114bf1621606de5fc18dd2
-ms.sourcegitcommit: 89bb9d429c19ff69084c35acad09daea3e16d56b
+ms.openlocfilehash: cb5624a2fd99e8afd8a8226fd786343f485041c4
+ms.sourcegitcommit: c27e565de485cbe836e6c2a66e44a50b35b487ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="package-versioning"></a>Paket sürümü oluşturma
 
@@ -95,7 +95,8 @@ Aşağıdaki ifadeler doğru ise nuget.org için bir paket SemVer v2.0.0 paket o
 Nuget.org için SemVer v2.0.0 özgü paketini karşıya yükleyin, paketin eski istemcileri için görünmez ve yalnızca aşağıdaki NuGet istemcileri için kullanılabilir şöyledir:
 
 - NuGet 4.3.0+
-- Visual Studio 2017 sürüm 15.3 + 
+- Visual Studio 2017 sürüm 15.3 +
+- Visual Studio 2015 ile birlikte [NuGet VSIX v3.6.0](https://dist.nuget.org/visualstudio-2015-vsix/latest/NuGet.Tools.vsix)
 - DotNet.exe (.NET SDK'sı 2.0.0+)
 
 Üçüncü taraf istemciler:

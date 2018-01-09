@@ -13,11 +13,11 @@ keywords: "NuGet soru- cevap, sorular ve yanıtlar, ortak sorunları, NuGet sür
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 44636a3ab8a3f7aaf96e52aa67d568d7ef381549
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: d19a24a2d1955e996e18d44fee346865d36493f8
+ms.sourcegitcommit: e5b7cf6675be9891341c196afe822cea6f71d60c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="nuget-frequently-asked-questions"></a>NuGet sık sorulan sorular
 
@@ -177,9 +177,9 @@ Bir paketi Lisans Koşulları'nı belirtmiyorsa kullanarak doğrudan paketi sahi
 
 ## <a name="managing-packages-on-nugetorg"></a>Nuget.org paketlerini yönetme
 
-**Paket meta verileri, karşıya yüklendikten sonra düzenleyebilir miyim? Nuspec düzenleme ve meta veri paketini değişiklik yapmak için yeni bir paket karşıya yükleme neden önerilir?**
+**Paket meta verileri, karşıya yüklendikten sonra düzenleyebilir miyim? Neden nuspec düzenleme ve meta veri paketini değişiklik yapmak için yeni bir paket karşıya yükleme gerekiyor mu?**
 
-NuGet paket imzalama uygulama. Paketin imzalanması bir tasarım prensibi imzalı paket içeriğini nuspec içeren değişmez, olmanızın gerekmesidir. Paket meta verileri düzenleme değişiklikleri varolan imza geçersiz kılmalarını nuspec için sonuçlanır. Paket oluşturulduktan sonra paket meta verileri düzenleme gerektirmeyecek şekilde var olan iş akışları değiştirme öneririz.
+NuGet tüm paketler imzalanmasını gerektirir. Paketin imzalanması bir tasarım prensibi imzalı paket içeriğini nuspec içeren değişmez, olmanızın gerekmesidir. Paket meta verileri düzenleme değişiklikleri varolan imza geçersiz kılmalarını nuspec için sonuçlanır. Paket oluşturulduktan sonra paket meta verileri düzenleme gerektirmeyecek şekilde var olan iş akışları değiştirme öneririz.
 
 Not paketiniz için listelenen bağımlılıkları paketinden otomatik olarak oluşturulur ve düzenlenemez.
 

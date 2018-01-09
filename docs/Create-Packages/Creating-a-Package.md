@@ -13,11 +13,11 @@ keywords: "NuGet paket oluşturma, bir paket, nuspec bildirimi, NuGet paketi kur
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 50bc9e79f95f901477208f638b0965c82fd98356
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 6675d21a2900a1b61e17c08518b328732f4472c5
+ms.sourcegitcommit: 1cb047b24b3b69d80e808c23b2ace0d98d2dfdcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="creating-nuget-packages"></a>NuGet paketleri oluşturma
 
