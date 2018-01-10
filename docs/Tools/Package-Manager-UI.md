@@ -17,11 +17,11 @@ keywords: "NuGet UI, NuGet Paket Yöneticisi kullanıcı Arabirimi, NuGet Visual
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 0f08e5a36499c4481c4e0cd70738d67d65cd980a
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: fb2166b727dd01de0f7096535fdbc71c5ab0e2a3
+ms.sourcegitcommit: cde52deee5691d3e8bcb96f46f9645c7ba579af8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="nuget-package-manager-ui"></a>NuGet Paket Yöneticisi kullanıcı Arabirimi
 
@@ -39,7 +39,7 @@ Bu konuda:
 > [!Note]
 > Visual Studio 2015'te NuGet Paket Yöneticisi kayıpsa denetleyin **Araçlar > Uzantılar ve güncelleştirmeler...**  arayın ve *NuGet Paket Yöneticisi* uzantısı. Visual Studio Uzantıları yükleyici yapamıyorsanız doğrudan uzantısını [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html).
 >
-> Visual Studio 2017 içinde NuGet ve NuGet Paket Yöneticisi otomatik olarak tüm yüklenir. NET ilgili iş yükleri. Seçerek individuall yüklemek **bileşenleri tek tek > kod Araçlar > NuGet Paket Yöneticisi** Visual Studio 2017 yükleyici seçeneği.
+> Visual Studio 2017 içinde NuGet ve NuGet Paket Yöneticisi otomatik olarak tüm yüklenir. NET ilgili iş yükleri. Tek tek seçerek yüklemek **bileşenleri tek tek > kod Araçlar > NuGet Paket Yöneticisi** Visual Studio 2017 yükleyici seçeneği.
 
 ## <a name="finding-and-installing-a-package"></a>Bulma ve bir paket yükleme
 
