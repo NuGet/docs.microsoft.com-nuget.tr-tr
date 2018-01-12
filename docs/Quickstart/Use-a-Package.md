@@ -13,13 +13,15 @@ keywords: "NuGet paketlerini kullanarak NuGet paketleri, NuGet paket referanslar
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: bcccc7139de31a8d07e9ed52abfd12fe9e6d687b
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 639f4883f5ce904a44d8aa23d76c93ed79ea4b9d
+ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="install-and-use-a-package"></a>Yükleme ve bir paket kullanma
+
+NuGet paketleri diğer geliştiriciler projelerinizi kullanmak için kullanılabilir hale yeniden kullanılabilir kod birimleridir. Bkz: [NuGet nedir?](../What-is-NuGet.md) arka planı için.
 
 [!INCLUDE [install-methods](../includes/install-methods.md)]
 
@@ -125,4 +127,4 @@ Projedeki Newtonsoft.Json paketiyle çağırabilirsiniz kendi `JsonConvert.Seria
 
 - [Genel bakış ve iş akışı paket tüketimi](../consume-packages/overview-and-workflow.md)
 - [Bulma ve paketleri seçme](../consume-packages/finding-and-choosing-packages.md)
-- [NuGet davranışını yapılandırma](../consume-packages/configuring-nuget-behavior.md)
+- [NuGet Davranışını Yapılandırma](../consume-packages/configuring-nuget-behavior.md)

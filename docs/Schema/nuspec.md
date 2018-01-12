@@ -14,11 +14,11 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: dbbf81966fc0cfe76e44682d6cc18276825282fb
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: cd5b7c79ad0af07b167e062d4a2f5142ef2d718a
+ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="nuspec-reference"></a>.nuspec başvurusu
 
@@ -172,8 +172,8 @@ Ve bir derleme, `AssemblyName` olan `LoggingLibrary` ile `Release` MSBuild, sonu
 `<dependencies>` Öğesi içinde `<metadata>` herhangi bir sayıda içeren `<dependency>` en üst düzey paketinin bağımlı olduğu diğer paketleri belirleyin öğeleri. Her özniteliklerini `<dependency>` aşağıdaki gibidir:
 
 | Öznitelik | Açıklama |
-| --- | --- | 
-| `id` | (Gerekli) Bağımlılık paket kimliği. |
+| --- | --- |
+| `id` | (Gerekli) Bir paket sayfasında "EntityFramework" ve paket nuget.org adı "NUnit" gibi bağımlılık paketin paket Kimliğini gösterir. |
 | `version` | (Gerekli) Sürümleri bağımlılık olarak kabul edilebilir aralık. Bkz: [paket sürüm](../reference/package-versioning.md#version-ranges-and-wildcards) söz dizimi için. |
 | include | Virgülle ayrılmış listesini içeren/çıkarma (aşağıya bakın) son pakete dahil etmek bağımlılığın belirten etiketler. Varsayılan değer `none` şeklindedir. |
 | exclude | Virgülle ayrılmış listesini içeren/çıkarma (aşağıya bakın) son paketinde dışlanacak bağımlılığın belirten etiketler. Varsayılan değer `all`. İle belirtilen etiketleri `exclude` ile belirtilen önceliklidir `include`. Örneğin, `include="runtime, compile" exclude="compile"` aynı `include="runtime"`. |

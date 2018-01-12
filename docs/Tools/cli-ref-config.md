@@ -13,11 +13,11 @@ keywords: "nuget config başvuru, config komutu"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 12a8b51dd11b9bc3a496e02e869cdeb95e67b9e3
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: f49751d9747687177e3b6c1890ee9d2919be8d0e
+ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="config-command-nuget-cli"></a>config komutunu (NuGet CLI)
 
@@ -33,6 +33,8 @@ nuget config -AsPath <name> [options]
 ```
 
 Burada `<name>` ve `<value>` yapılandırmada ayarlamak için bir anahtar-değer çifti belirtin. Sayıda çiftleri istendiği gibi belirtebilirsiniz. Bir değer kaldırmak için ad belirtin ve `=` oturum ancak hiçbir değer.
+
+İzin verilen anahtar adları için bkz: [NuGet yapılandırma dosyası başvurusu](../Schema/nuget-config-file.md).
 
 NuGet 3.4 + içinde `<value>` kullanabilirsiniz [ortam değişkenleri](cli-ref-environment-variables.md).
 

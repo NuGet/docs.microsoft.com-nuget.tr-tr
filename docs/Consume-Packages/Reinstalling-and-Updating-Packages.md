@@ -13,11 +13,11 @@ keywords: "NuGet paketi yüklemesi, NuGet paketi yeniden, NuGet paket geri yükl
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 898a431af4ed2e090b87d97bf43cec965b72d3c3
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 6a198b371c86166e2bcdee7f6cf2a6c971bea0a3
+ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>Yeniden yükleme ve güncelleştirme paketleri
 
@@ -31,7 +31,8 @@ Güncelleştirme ve paketleri yeniden şu şekilde gerçekleştirilir:
 | Paket Yöneticisi kullanıcı Arabirimi | Üzerinde **güncelleştirmeleri** sekmesinde bir veya daha fazla paket seçin ve Seç **güncelleştirme** | Üzerinde **yüklü** sekmesinde, bir paket seçin, adıyla kaydedin ve ardından **kaldırma**. Geçiş **Gözat** sekmesinde, arama için paket adı, onu seçin ve sonra seçin **yükleme**). |
 | nuget.exe CLI | `nuget update`komutu | Tüm paketler için paket klasörü silin ve ardından çalıştırın `nuget install`. Tek bir paket için paket klasörünü silin ve kullanmak `nuget install <id>` aynı yeniden yüklemek için. |
 
-Bu konuda:
+Bu makalede:
+
 - [Bir paketi yeniden zamanı](#when-to-reinstall-a-package)
 - [Kısıtlayan yükseltme sürümleri](#constraining-upgrade-versions)
 
@@ -39,7 +40,7 @@ Bu konuda:
 
 1. **Paket geri yüklendikten sonra başvuruları bozuk**: Proje açılır ve NuGet paketleri, ancak hala bozuk bakın başvuruları geri, her bu paketlerin yeniden yüklemeyi deneyin.
 1. **Proje nedeniyle silinen dosyaların bozulur**: NuGet engellemez, projenizin bölün ve yanlışlıkla bir paketten yüklü içeriği değiştirmek kolaydır, paketleri eklenen öğeler kaldırılıyor. Proje geri yüklemek için etkilenen paketler yeniden yükleyin.
-1. **Paket güncelleştirme ihlal proje**: bir paket için bir güncelleştirme proje bozarsa, hata da olabilir bağımlılık paketi tarafından genellikle neden olur. Bağımlılık durumunu geri yüklemek için özel pakette yeniden yükleyin.
+1. **Paket güncelleştirme ihlal proje**: bir paket için bir güncelleştirme proje bozarsa, hata, güncelleştirmelerinin de olabilir bir bağımlılık paketi tarafından genellikle neden olur. Bağımlılık durumunu geri yüklemek için özel pakette yeniden yükleyin.
 1. **Proje yeniden hedefleme veya yükseltme**: Bu proje güncellendiyse yükseltilmiş veya kaldırılmış ve paketi hedef framework değişikliği nedeniyle yeniden gerektiriyorsa yararlı olabilir. NuGet 2.7 ve bu gibi durumlarda hemen sonra projeyi yeniden hedefleme ve sonraki derleme uyarıları bir derleme hatası paketin yeniden yüklenmesi gerekebilir size bildirmek sonraki gösterir. Proje yükseltme için NuGet proje yükseltme günlüğüne bir hata gösterir.
 1. **Geliştirme sırasında bir paket yeniden**: paketi yazarları çoğunlukla gerekir geliştirme paket aynı sürümünü yeniden yüklemek davranış test etmek için. `Install-Package` Komutunu kullanın, bir yeniden yükleme zorlamak için bir seçenek sağlamaz `Update-Package -reinstall` yerine.
 

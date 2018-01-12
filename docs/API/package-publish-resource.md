@@ -17,11 +17,11 @@ keywords: "NuGet API itme paket NuGet API Sil paket, NuGet API unlist paketi, Nu
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 87970a701c63bce2b74c619069ec1d231ea77ab5
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 5fbcd82b09ebd56ae21103640e7c39b482059525
+ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="push-and-delete"></a>Anında iletme ve silin
 
@@ -127,5 +127,5 @@ X-NuGet-apikey ile yapılan | Üstbilgi | dize | Evet      | Örneğin, `X-NuGet
 
 Durum kodu | Açıklama
 ----------- | -------
-204         | Paket artık listelenir
+200         | Paket artık listelenir
 404         | İle sağlanan bir paket yok `ID` ve `VERSION` var.

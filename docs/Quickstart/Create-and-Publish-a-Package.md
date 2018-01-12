@@ -13,11 +13,11 @@ keywords: "NuGet paket oluşturma, yayımlama, NuGet paketi NuGet Öğreticisi"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b33344c3b3dd782fc4668d2a1674b9501fadcc03
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: ab5235537d869047075b93f9d8255ae9e61dfedd
+ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="create-and-publish-a-package"></a>Oluşturma ve bir paket yayımlama
 
@@ -52,7 +52,7 @@ Bir bildirim her NuGet paketi gerekir&mdash;bir `.nuspec` dosya&mdash;içeriğin
     nuget spec
     ```
 
-1. Dosyayı bir metin düzenleyicisinde açın. Bildirim yere aşağıdaki kod şöyle görünür belirteçleri biçiminde  *$ `<token>` $*  olması değiştirilir paket oluşturma işlemi sırasında projenin Properties/AssemblyInfo.cs değerlerle dosya. Belirteçleri hakkında daha fazla bilgi için bkz: [.nuspec dosyası oluşturma](../create-packages/creating-a-package.md#creating-the-nuspec-file).
+1. Dosyayı bir metin düzenleyicisinde açın. Bildirim yere aşağıdaki kod şöyle görünür belirteçleri biçiminde `<token>` (gibi `$id$`) olması değiştirilir paket oluşturma işlemi sırasında projenin Properties/AssemblyInfo.cs dosyasından gelen değerlerle. Belirteçleri hakkında daha fazla bilgi için bkz: [.nuspec dosyası oluşturma](../create-packages/creating-a-package.md#creating-the-nuspec-file).
 
     ```xml
     <?xml version="1.0"?>

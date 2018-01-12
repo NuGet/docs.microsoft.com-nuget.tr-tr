@@ -13,11 +13,11 @@ keywords: "NuGet Paket bağımlılıklarını, NuGet sürüm oluşturma, bağım
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 251ae6944cc0010f596c9b3daf95c318595a5c4d
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 93a3d077a6dd1946485fc8c48f97c8009280890c
+ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>NuGet Paket bağımlılıklarını nasıl çözümler
 
@@ -151,6 +151,12 @@ Bu sorunu çözmek için doğrudan başvurmalıdır `C.dll` sizin (veya doğru o
             }
         }
     }
+    ```
+
+- İle [paketini proje dosyalarını başvurularında](../consume-packages/package-references-in-project-files.md) (NuGet 4.0 + yalnızca), ekleme `ExcludeAssets="All"` bağımlılık olarak:
+
+    ```xml
+    <PackageReference Include="packageC" Version="1.0.0" ExcludeAssets="All" />
     ```
 
 ## <a name="dependency-updates-during-package-install"></a>Paket sırasında bağımlılık güncelleştirmeleri yükle 

@@ -13,11 +13,11 @@ keywords: "NuGet.Config dosyasındaki, NuGet yapılandırma başvurusu, NuGet ya
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: fa471e1ad419c6a4cab99e271375d9be94c29a50
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 830c622f622b894a228b18dfdb3a790bccfde8a3
+ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="nugetconfig-reference"></a>NuGet.Config başvurusu
 
@@ -31,12 +31,11 @@ Bu konuda:
 - [bindingRedirects bölümü](#bindingredirects-section)
 - [packageRestore bölümü](#packagerestore-section)
 - [Çözüm bölümü](#solution-section)
-- [Paket kaynak bölümler](#package-source-sections):
-    - [packageSources](#packagesources)
-    - [packageSourceCredentials](#packagesourcecredentials)
-    - [apikeys](#apikeys)
-    - [disabledPackageSources](#disabledpackagesources)
-    - [activePackageSource](#activepackagesource)
+- [Paket kaynak bölümler](#package-source-sections): - [packageSources](#packagesources)
+  - [packageSourceCredentials](#packagesourcecredentials)
+  - [apikeys](#apikeys)
+  - [disabledPackageSources](#disabledpackagesources)
+  - [activePackageSource](#activepackagesource)
 - [Ortam değişkenlerini kullanma](#using-environment-variables)
 - [Örnek yapılandırma dosyası](#example-config-file)
 
@@ -59,7 +58,6 @@ Not: `dependencyVersion` ve `repositoryPath` kullanarak projeleri için geçerli
 | defaultPushSource | URL veya bir işlem için başka bir paket kaynaklarını bulunursa, varsayılan olarak kullanılması gereken paket kaynağının yolunu tanımlar. |
 | http_proxy http_proxy.user http_proxy.password no_proxy | Proxy ayarlarını; paket kaynaklarına bağlanırken kullanmak için `http_proxy` biçiminde olmalıdır `http://<username>:<password>@<domain>`. Parolaları şifrelenir ve el ile eklenemez. İçin `no_proxy`, değer atlama proxy sunucusu etki alanları virgülle ayrılmış bir listesi verilmiştir. Alternatif olarak, bu değerleri http_proxy ve no_proxy ortam değişkenleri kullanabilirsiniz. Daha fazla bilgi için bkz: [NuGet proxy ayarlarını](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (skolima.blogspot.com). |
 
-
 **Örnek**:
 
 ```xml
@@ -70,7 +68,6 @@ Not: `dependencyVersion` ve `repositoryPath` kullanarak projeleri için geçerli
     <add key="http_proxy" value="http://company-squid:3128@contoso.com" />
 </config>
 ```
-
 
 ## <a name="bindingredirects-section"></a>bindingRedirects bölümü
 
@@ -116,7 +113,6 @@ Denetimleri olup olmadığını `packages` klasörü, çözümün kaynak denetim
 | --- | --- |
 | disableSourceControlIntegration | Kaynak denetimi ile çalışırken, paketler klasörü yoksay tutulmayacağını gösteren bir Boole değeri. Varsayılan değer false'tur. |
 
-
 **Örnek**:
 
 ```xml
@@ -125,13 +121,13 @@ Denetimleri olup olmadığını `packages` klasörü, çözümün kaynak denetim
 </solution>
 ```
 
-
 ## <a name="package-source-sections"></a>Paket kaynak bölümleri
 
 `packageSources`, `packageSourceCredentials`, `apikeys`, `activePackageSource`, Ve `disabledPackageSources` birlikte yükleme, geri yükleme ve güncelleştirme işlemi sırasında NuGet paketi depoları ile nasıl çalıştığını yapılandırmak için tüm iş.
 
 [ `nuget sources` Komutu](../tools/cli-ref-sources.md) genellikle dışında bu ayarları yönetmek için kullanılan `apikeys` hangi kullanılarak yönetilir [ `nuget setapikey` komutu](../tools/cli-ref-setapikey.md).
 
+Nuget.org kaynak URL'sini olduğuna dikkat edin `https://api.nuget.org/v3/index.json`.
 
 ### <a name="packagesources"></a>packageSources
 
@@ -150,7 +146,6 @@ Tüm bilinen paket kaynaklarını listeler.
     <add key="Test Source" value="c:\packages" />
 </packageSources>
 ```
-
 
 ### <a name="packagesourcecredentials"></a>packageSourceCredentials
 
@@ -190,7 +185,7 @@ Yapılandırma dosyasındaki `<packageSourceCredentials>` öğesi her bir geçer
     <Test_x0020_Source>
         <add key="Username" value="user" />
         <add key="ClearTextPassword" value="hal+9ooo_da!sY" />
-    </Test_x0020_Source>    
+    </Test_x0020_Source>
 </packageSourceCredentials>
 ```
 
@@ -210,7 +205,6 @@ Depolar kümesiyle olarak API anahtar kimlik doğrulaması kullanan kaynakları 
 </apikeys>
 ```
 
-
 ### <a name="disabledpackagesources"></a>disabledPackageSources
 
 Şu anda devre dışı bırakılmış kaynakları tanımlanır. Boş olabilir.
@@ -218,8 +212,6 @@ Depolar kümesiyle olarak API anahtar kimlik doğrulaması kullanan kaynakları 
 | Anahtar | Değer |
 | --- | --- |
 | (kaynak adı) | Kaynak devre dışı olup olmadığını gösteren bir Boole değeri. |
-
-
 
 **Örnek:**
 
@@ -263,7 +255,6 @@ Ortam değişkenleri kullanabilirsiniz `NuGet.Config` değerleri (ayarları uygu
 Benzer şekilde, varsa `HOME` Mac/Linux'ta kümesine `/home/myStuff`, ardından `$HOME/NuGetRepository` dosya yapılandırmada çözümler `/home/myStuff/NuGetRepository`.
 
 Bir ortam değişkeni bulunmazsa, NuGet yapılandırma dosyasından hazır değeri kullanır.
-
 
 ## <a name="example-config-file"></a>Örnek yapılandırma dosyası
 
