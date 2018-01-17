@@ -14,11 +14,11 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: cd5b7c79ad0af07b167e062d4a2f5142ef2d718a
-ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
+ms.openlocfilehash: b8c286b9a5705526e2e8fcf259c6503d48e5d181
+ms.sourcegitcommit: d576d84fb4b6a178eb2ac11f55deb08ac771ba1c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="nuspec-reference"></a>.nuspec başvurusu
 
@@ -79,7 +79,7 @@ Bu öğeleri içinde görünmesi gereken bir `<metadata>` öğesi.
 | Öğe | Açıklama |
 | --- | --- |
 | **id** | Nuget.org ya da ihtiyacınız arasında benzersiz olması büyük küçük harf duyarsız paket tanımlayıcısı galeri paketi bulunur. Kimlikleri değil boşluk ya da bir URL için geçerli olmayan karakterler içeren ve genellikle .NET ad alanı kuralları izleyin. Bkz: [benzersiz paket tanımlayıcısı seçme](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number) Kılavuzu. |
-| **Sürüm** | Aşağıdaki şekilde paketin sürümü *major.minor.patch* düzeni. Sürüm numaraları, yayın öncesi soneki içerebilir, açıklandığı gibi [paket sürüm](../reference/package-versioning.md#pre-release-versions). |
+| **version** | Aşağıdaki şekilde paketin sürümü *major.minor.patch* düzeni. Sürüm numaraları, yayın öncesi soneki içerebilir, açıklandığı gibi [paket sürüm](../reference/package-versioning.md#pre-release-versions). |
 | **Açıklama** | Paket UI görüntü için uzun bir açıklaması. |
 | **yazarları** | Nuget.org profil adları eşleşen paketleri yazarlar, virgülle ayrılmış listesi. Bunlar nuget.org NuGet galerisinde görüntülenir ve paketleri çapraz başvuru için aynı yazarlar tarafından kullanılır. |
 
@@ -91,7 +91,7 @@ Bu öğeler içinde görünebilir bir `<metadata>` öğesi.
 
 | Öğe | Açıklama |
 | --- | --- |
-| **Başlık** | Nuget.org ve Visual Studio'da Paket Yöneticisi gibi UI görünümlerde genellikle kullanılan paket, bir insan kolay başlığı. Belirtilmezse, paket kimliği kullanılır. |
+| **title** | Nuget.org ve Visual Studio'da Paket Yöneticisi gibi UI görünümlerde genellikle kullanılan paket, bir insan kolay başlığı. Belirtilmezse, paket kimliği kullanılır. |
 | **sahipleri** | Nuget.org üzerinde profil adları kullanarak paket oluşturucuları virgülle ayrılmış listesi. Bu genellikle aynı olarak listesidir `authors`ve paket için nuget.org karşıya yüklenirken göz ardı edilir. Bkz: [yönetme paket sahipleri nuget.org üzerinde](../create-packages/publish-a-package.md#managing-package-owners-on-nugetorg). |
 | **projectUrl** | Paketin giriş sayfası, genellikle kullanıcı Arabiriminde gösterilen URL'sini nuget.org yanı sıra görüntüler. |
 | **licenseUrl** | Genellikle nuget.org yanı sıra kullanıcı Arabirimi görüntüler gösterilen paketin lisans URL'sini. |
@@ -103,13 +103,13 @@ Bu öğeler içinde görünebilir bir `<metadata>` öğesi.
 | **Telif Hakkı** | *(1.5 +)*  Paket ayrıntılarını telif hakkı. |
 | **Dil** | Paketi için yerel ayar kimliği. Bkz: [yerelleştirilmiş paketleri oluşturma](../create-packages/creating-localized-packages.md). |
 | **etiketleri** | Etiketleri ve paketler arama ve filtreleme aracılığıyla paket ve yardımcı bulunabilirliğini açıklayan anahtar sözcükleri boşlukla ayrılmış listesi. |
-| **Hizmet verilebilen** | *(3.3 +)*  İç NuGet için kullanım içindir. |
+| **serviceable** | *(3.3 +)*  İç NuGet için kullanım içindir. |
 
 #### <a name="collection-elements"></a>Koleksiyon öğeleri
 
 | Öğe | Açıklama |
 | --- | --- |
-**packageTypes** | *(3.3 +)*  Sıfır veya daha fazla koleksiyonu `<packageType>` geleneksel bağımlılık paketi varsa dışında paket türünü belirleyen öğeleri. Her packageType öznitelikleri *adı* ve *sürüm*. Bkz: [ayar paket türü](../create-packages/creating-a-package.md#setting-a-package-type). |
+**packageTypes** | *(3.5 +)*  Sıfır veya daha fazla koleksiyonu `<packageType>` geleneksel bağımlılık paketi varsa dışında paket türünü belirleyen öğeleri. Her packageType öznitelikleri *adı* ve *sürüm*. Bkz: [ayar paket türü](../create-packages/creating-a-package.md#setting-a-package-type). |
 | **Bağımlılıklar** | Sıfır veya daha fazla koleksiyonu `<dependency>` öğeleri paketi için bağımlılıklar belirtme. Her bir bağımlılığın öznitelikleri *kimliği*, *sürüm*, *dahil* (3.x+) ve *hariç* (3.x+). Bkz: [bağımlılıkları](#dependencies) aşağıda. |
 | **frameworkAssemblies** | *(1.2 +)*  Sıfır veya daha fazla koleksiyonu `<frameworkAssembly>` öğeleri, bu paket için gerekli .NET Framework derleme başvurularını tanımlayan da sağlar başvuruları paketi kullanan projeler için eklenir. Her frameworkAssembly sahip *assemblyName* ve *targetFramework* öznitelikleri. Bkz: [framework derlemeyi belirtmeyi başvuran GAC](#specifying-framework-assembly-references-gac) aşağıda. |
 | **başvuruları** | *(1.5 +)*  Sıfır veya daha fazla koleksiyonu `<reference>` paketin derlemelerde adlandırma öğeleri `lib` proje başvuruları eklenen klasör. Her başvurusu olan bir *dosya* özniteliği. `<references>`Ayrıca içerebilir bir `<group>` öğesi ile bir *targetFramework* sonra içeren öznitelik `<reference>` öğeleri. Atlanırsa, tüm başvuruları `lib` dahil edilir. Bkz: [açık derleme başvurularını belirtme](#specifying-explicit-assembly-references) aşağıda. |
@@ -340,8 +340,8 @@ Her `<file>` öğesi aşağıdaki özniteliklere belirtir:
 | Öznitelik | Açıklama |
 | --- | --- |
 | **src** | Dosya veya dosyalar tarafından belirtilen Dışlamalar tabi dahil etmek için konumunu `exclude` özniteliği. Göreli yol olduğundan `.nuspec` mutlak bir yol belirtilmediği sürece dosya. Joker karakter `*` izin verilir ve çift joker karakter `**` özyinelemeli klasör arama anlamına gelir. |
-| **Hedef** | Göreli yolu ile başlamalı, kaynak dosyaları yerleştirilir, paket içindeki klasöre `lib`, `content`, `build`, veya `tools`. Bkz: [kurala dayalı bir çalışma dizininden bir .nuspec oluşturma](../Create-Packages/Creating-a-Package.md#from-a-convention-based-working-directory). |
-| **hariç tutma** | Dosya veya dosya desenlerinin ayarlayacağım noktalı virgülle ayrılmış listesini `src` konumu. Joker karakter `*` izin verilir ve çift joker karakter `**` özyinelemeli klasör arama anlamına gelir. |
+| **target** | Göreli yolu ile başlamalı, kaynak dosyaları yerleştirilir, paket içindeki klasöre `lib`, `content`, `build`, veya `tools`. Bkz: [kurala dayalı bir çalışma dizininden bir .nuspec oluşturma](../Create-Packages/Creating-a-Package.md#from-a-convention-based-working-directory). |
+| **exclude** | Dosya veya dosya desenlerinin ayarlayacağım noktalı virgülle ayrılmış listesini `src` konumu. Joker karakter `*` izin verilir ve çift joker karakter `**` özyinelemeli klasör arama anlamına gelir. |
 
 ### <a name="examples"></a>Örnekler
 
@@ -544,10 +544,10 @@ Bu dosyalar, proje sistem içinde bunların nasıl kullanılacağını açıklay
 | Öznitelik | Açıklama |
 | --- | --- |
 | **içerir** | (Gerekli) Dosya veya dosyalar tarafından belirtilen Dışlamalar tabi dahil etmek için konumunu `exclude` özniteliği. Göreli yol olduğundan `.nuspec` mutlak bir yol belirtilmediği sürece dosya. Joker karakter `*` izin verilir ve çift joker karakter `**` özyinelemeli klasör arama anlamına gelir. |
-| **hariç tutma** | Dosya veya dosya desenlerinin ayarlayacağım noktalı virgülle ayrılmış listesini `src` konumu. Joker karakter `*` izin verilir ve çift joker karakter `**` özyinelemeli klasör arama anlamına gelir. |
+| **exclude** | Dosya veya dosya desenlerinin ayarlayacağım noktalı virgülle ayrılmış listesini `src` konumu. Joker karakter `*` izin verilir ve çift joker karakter `**` özyinelemeli klasör arama anlamına gelir. |
 | **buildAction** | MSBuild için içerik öğesine gibi atanacak yapı eylemi `Content`, `None`, `Embedded Resource`, `Compile`vb. Varsayılan, `Compile` değeridir. |
 | **copyToOutput** | İçerik öğeleri yapı çıktı klasörüne kopyalanıp kopyalanmayacağını gösteren bir Boole değeri. Varsayılan olarak yanlıştır. |
-| **düzleştirme** | İçerik öğeleri yapı çıktı (true) tek bir klasöre kopyalayın veya klasör yapısı (false) paketindeki korumak için gösteren bir Boole değeri. Varsayılan olarak yanlıştır. |
+| **flatten** | İçerik öğeleri yapı çıktı (true) tek bir klasöre kopyalayın veya klasör yapısı (false) paketindeki korumak için gösteren bir Boole değeri. CopyToOutput bayrağı ayarlandığında bu bayrağı yalnızca çalışır true. Varsayılan olarak yanlıştır. |
 
 Bir paket yüklerken, alt öğelerini NuGet geçerlidir `<contentFiles>` yukarıdan aşağıya. Aynı dosyanın eşleşen birden fazla giriş varsa tüm girişleri uygulanır. Aynı öznitelik için bir çakışma varsa en üstteki girişi alt girişleri geçersiz kılar.
 
@@ -679,8 +679,8 @@ Boş klasörler kullanabileceğiniz `.` dil ve TxM, belirli bir kombinasyonu iç
 
 Bu örnekte, belirli bir proje hedefleri için aşağıdaki yüklenir:
 
-- . NET4 -> `System.Web`,`System.Net`
+- .NET4 -> `System.Web`, `System.Net`
 - . NET4 İstemci profili ->`System.Net`
 - Silverlight 3 ->`System.Json`
-- Silverlight 4 ->`System.Windows.Controls.DomainServices`
-- WindowsPhone ->`Microsoft.Devices.Sensors`
+- Silverlight 4 -> `System.Windows.Controls.DomainServices`
+- WindowsPhone -> `Microsoft.Devices.Sensors`

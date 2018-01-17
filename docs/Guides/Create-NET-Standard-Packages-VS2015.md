@@ -311,12 +311,12 @@ Bunu yapmak için oluşturmak, `readme.txt` dosya, bu proje kök klasöre yerle�
 |Platform adı |Alias|
 |--------------|-----|
 |.NET standart | netstandard| 1.0| 1.1| 1.2| 1.3| 1.4| 1,5| 1.6|
-|.NET Core | netcoreapp| & #x 2192;| & #x 2192;| & #x 2192;| & #x 2192;| & #x 2192;| & #x 2192;| 1.0|
+|.NET Core | netcoreapp| &#x2192;| &#x2192;| &#x2192;| &#x2192;| &#x2192;| &#x2192;| 1.0|
 |.NET Framework| NET| 4,5| 4.5.1| 4.6| 4.6.1| 4.6.2| 4.6.3|
-|Mono/Xamarin platformları| & #x 2192;| & #x 2192;| & #x 2192;| & #x 2192;| & #x 2192;| & #x 2192;|
-|Evrensel Windows Platformu| uap| & #x 2192;| & #x 2192;| & #x 2192;| & #x 2192;|10.0|
-|Windows| Win| & #x 2192;| 8.0| 8.1|
-|Windows Phone| WPA| & #x 2192;| & #x 2192;|8.1|
+|Mono/Xamarin platformları| &#x2192;| &#x2192;| &#x2192;| &#x2192;| &#x2192;| &#x2192;|
+|Evrensel Windows Platformu| uap| &#x2192;| &#x2192;| &#x2192;| &#x2192;|10.0|
+|Windows| Win| &#x2192;| 8.0| 8.1|
+|Windows Phone| WPA| &#x2192;| &#x2192;|8.1|
 |Windows Phone Silverlight| WB| 8.0|
 
 

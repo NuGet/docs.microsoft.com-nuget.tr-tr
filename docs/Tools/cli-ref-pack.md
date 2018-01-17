@@ -13,11 +13,11 @@ keywords: "nuget paketi başvurusu, paketi komutu"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 22643ee4c7d5f858da728ba9d9d2886d600d20f0
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 0dbecb8f01acf781ab8d2e77e8df7fa405f74cf1
+ms.sourcegitcommit: d576d84fb4b6a178eb2ac11f55deb08ac771ba1c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="pack-command-nuget-cli"></a>Paketi komut (NuGet CLI)
 
@@ -40,9 +40,9 @@ Burada `<nuspecPath>` ve `<projectPath>` belirtin `.nuspec` veya proje dosyası,
 
 | Seçenek | Açıklama |
 | --- | --- |
-| Ana yolu | Tanımlanan dosyalarının temel yolunu ayarlar `.nuspec` dosya. |
+| BasePath | Tanımlanan dosyalarının temel yolunu ayarlar `.nuspec` dosya. |
 | Derleme | Proje paket oluşturmadan önce oluşturulmalıdır belirtir. |
-| Hariç tutma | Bir paket oluştururken çıkarılacak bir veya daha fazla joker karakter düzenleri belirtir. |
+| Exclude | Bir paket oluştururken çıkarılacak bir veya daha fazla joker karakter düzenleri belirtir. Birden fazla desen belirtmek için yineleyin Exclude bayrağı. Aşağıdaki örneğe bakın. |
 | ExcludeEmptyDirectories | Boş dizinleri dahil edilmesi paket oluştururken engeller. |
 | ForceEnglishOutput | *(3.5 +)*  Değişmez, İngilizce tabanlı kültürü kullanarak çalışacak şekilde nuget.exe zorlar. |
 | Yardım | Bilgi komutu için yardımı görüntüler. |
@@ -100,4 +100,6 @@ nuget pack foo.csproj -Build -Symbols -Properties owners=janedoe,xiaop;version="
 nuget pack foo.nuspec -Version 2.1.0
 
 nuget pack foo.nuspec -Version 1.0.0 -MinClientVersion 2.5
+
+nuget pack Package.nuspec -exclude "*.exe" -exclude "*.bat"
 ```

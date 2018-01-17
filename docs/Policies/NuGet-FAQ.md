@@ -3,7 +3,7 @@ title: "Sık sorulan-sorular NuGet | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 12/07/2017
+ms.date: 01/11/2018
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
@@ -13,11 +13,11 @@ keywords: "NuGet soru- cevap, sorular ve yanıtlar, ortak sorunları, NuGet sür
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: d19a24a2d1955e996e18d44fee346865d36493f8
-ms.sourcegitcommit: e5b7cf6675be9891341c196afe822cea6f71d60c
+ms.openlocfilehash: f029af78edfcc5e542c5df2d4d6db8eeaebc3068
+ms.sourcegitcommit: d576d84fb4b6a178eb2ac11f55deb08ac771ba1c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="nuget-frequently-asked-questions"></a>NuGet sık sorulan sorular
 
@@ -92,6 +92,10 @@ Evet, NuGet doğrudan komut satırından çalışır. Bkz: [Yükleme Kılavuzu](
 **NuGet komut satırı aracının en son sürümünü nasıl sağlarım?**
 
 Bkz: [Yükleme Kılavuzu](../guides/install-nuget.md).
+
+**Nuget.exe lisansını nedir?**
+
+MIT lisans koşullarına nuget.exe yeniden dağıtmak için izin verilir. Güncelleştirme ve yeniden dağıtmak için seçtiğiniz nuget.exe tüm kopyalarını bakım sorumlu.
 
 **NuGet komut satırı aracı genişletmek mümkün mü?**
 
@@ -173,7 +177,6 @@ Her proje dosyası bağımlılıkları kendi listesi içerdiğinden bu bir sorun
 Her paket paketine dahil terimleri tabidir. Erişim, indirme ya da herhangi bir paket alınırken önce hüküm gözden geçirmelidir. Nuget.org üzerinde kullanmak **lisans bilgilerini** bağlantı paketi sayfasında.
 
 Bir paketi Lisans Koşulları'nı belirtmiyorsa kullanarak doğrudan paketi sahibine başvurun **sahipleri başvurun** nuget.org paketi sayfasında bağlantı. Microsoft hiçbir fikri mülkiyet, üçüncü taraf paket sağlayıcılardan lisans değildir ve üçüncü taraflar tarafından sağlanan bilgileri sorumlu değildir.
-
 
 ## <a name="managing-packages-on-nugetorg"></a>Nuget.org paketlerini yönetme
 
