@@ -9,7 +9,6 @@
 ## [UWP Paketleri oluşturma](Guides/Create-UWP-Packages.md)
 ## [NuGet Paketleri olarak UWP Denetimleri oluşturma](Guides/Create-UWP-Controls.md)
 ## [Platformlar Arası Paketler Oluşturma](Guides/Create-Cross-Platform-Packages.md)
-## [API’yi kullanarak tüm paketler için sorgu](Guides/api/query-for-all-published-packages.md)
 # Paket Oluşturma
 ## [Genel Bakış ve İş Akışı](Create-Packages/Overview-and-Workflow.md)
 ## [Paket Oluşturma](Create-Packages/Creating-a-Package.md)
@@ -86,6 +85,7 @@
 ### [nuget.exe Kimlik Bilgileri Sağlayıcıları](Reference/extensibility/nuget-exe-Credential-Providers.md)
 # API
 ## [Genel bakış](API/overview.md)
+## [Nasıl yapılır: API’yi kullanarak tüm paketler için sorgu oluşturma](Guides/api/query-for-all-published-packages.md)
 ## [Hizmet Dizini](API/service-index.md)
 ## [Gönder ve Sil](API/package-publish-resource.md)
 ## [Ara](API/search-query-service-resource.md)
@@ -133,7 +133,7 @@
 ## [NuGet 3.0 RC2](Release-Notes/NuGet-3.0-RC2.md)
 ## [NuGet 3.0 RC](Release-Notes/NuGet-3.0-RC.md)
 ## [NuGet 3.0 Beta](Release-Notes/NuGet-3.0-Beta.md)
-## [NuGet 3.0 Preview](Release-Notes/NuGet-3.0-Preview.md)
+## [NuGet 3.0 Önizleme](Release-Notes/NuGet-3.0-Preview.md)
 ## [NuGet 2.12](Release-Notes/NuGet-2.12.md)
 ## [NuGet 2.12 RC](Release-Notes/NuGet-2.12-RC.md)
 ## [NuGet 2.9 RC](Release-Notes/NuGet-2.9-RC.md)
