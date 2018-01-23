@@ -14,11 +14,11 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 53fccbb86f2920d870b5383070d043e25045a626
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 29eb72cbb6c095cd3aeb524fd8b28416ec5dc798
+ms.sourcegitcommit: 6ccb963e065680ab2e7df1d8dd5492897fd56b04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="errors-and-warnings"></a>Hatalar ve uyarılar
 
@@ -31,7 +31,7 @@ Hatalar ve uyarılar burada listelenen yalnızca [PackageReference tabanlı](../
 | Grup | Hata numaraları |
 | --- | --- |
 | [Geçersiz giriş hataları](#invalid-input-errors) | [NU1001](#nu1001), [NU1002](#nu1002), [NU1003](#nu1003) |
-| [Eksik paket ve proje hataları](#missing-package-and-project-errors) | [NU1100](#nu1100), [NU1101](#nu1101), [NU1102](#nu1102), [NU1103](#nu1103), [NU1104](#nu1104), [NU1105](#nu1105), [ NU1106](#nu1106), [NU1107](#nu1107) (daha önce NU1607) [NU1108](#nu1107) (daha önce NU1606) |
+| [Eksik paket ve proje hataları](#missing-package-and-project-errors) | [NU1100](#nu1100), [NU1101](#nu1101), [NU1102](#nu1102), [NU1103](#nu1103), [NU1104](#nu1104), [NU1105](#nu1105), [NU1106](#nu1106), [NU1107](#nu1107) (previously NU1607), [NU1108](#nu1108) (previously NU1606) |
 | [Uyumluluk hataları](#compatibility-errors) | [NU1201](#nu1201), [NU1202](#nu1202), [NU1203](#nu1203), [NU1401](#nu1401) |
 
 **Uyarıları**
@@ -115,7 +115,7 @@ Hatalar ve uyarılar burada listelenen yalnızca [PackageReference tabanlı](../
 | --- | --- |
 | **Sorunu** | Bir ProjectReference mevcut olmayan bir dosyaya işaret eder. |
 | **Olası nedenler** | Proje dosyası diskten eksik veya hatalı bir başvurudur. |
-| **Örnek ileti** | *Proje Başvurusu 'c:\a.csproj' yok. Proje başvurusu geçerli olduğunu ve proje dosyasının varolduğunu kontrol edin.* |
+| **Örnek ileti** | *Project reference does not exist 'c:\a.csproj'. Proje başvurusu geçerli olduğunu ve proje dosyasının varolduğunu kontrol edin.* |
 
 ### <a name="nu1105"></a>NU1105
 
@@ -133,7 +133,7 @@ Hatalar ve uyarılar burada listelenen yalnızca [PackageReference tabanlı](../
 | **Olası nedenler** | Paketler bağımlılık paketi uçlu aralıkları yerine tam sürümlerinde içerir. |
 | **Örnek ileti** | *{İd}'için çakışma istekleri giderilemiyor: {çakışma yolu} Framework: {hedef grafik}* |
 
-< a name = "NU1107 ></a>
+<a name="nu1107"></a> 
 
 ### <a name="nu1107-previously-nu1607"></a>NU1107 (daha önce NU1607)
 
@@ -143,7 +143,7 @@ Hatalar ve uyarılar burada listelenen yalnızca [PackageReference tabanlı](../
 | **Olası nedenler** | Tam sürümleri bağımlılık kısıtlamalar paketlerle sürüm gerekirse artırmak diğer paketleri izin vermez. |
 | **Örnek ileti** | *Sürüm çakışması için NuGet.Versioning algılandı. Paket, bu sorunu çözmek için doğrudan projeden başvuru.<br/>  NuGet.Packaging 3.5.0 -> (= 3.5.0) NuGet.Versioning<br/> NuGet.Configuration 4.0.0 -> NuGet.Versioning (= 4.0.0)* |
 
-< a name = "NU1108 ></a>
+<a name="nu1108"></a>
 
 ### <a name="nu1108-previously-nu1606"></a>NU1108 (daha önce NU1606)
 
@@ -171,7 +171,7 @@ Hatalar ve uyarılar burada listelenen yalnızca [PackageReference tabanlı](../
 | --- | --- |
 | **Sorunu** | Bir bağımlılık paketi projeyle uyumlu tüm varlıkları içermiyor. |
 | **Olası nedenler** | Paket projenin hedef çerçevesi desteklemiyor. |
-| **Örnek ileti** | *Paket System.ComponentModel.EventBasedAsync 4.0.11 netstandard1.3 ile uyumlu değil (. NETStandard, sürüm = v1.3). Paket System.ComponentModel.EventBasedAsync 4.0.11 destekler:<br/> -monoandroid10 (MonoAndroid, sürüm = v1.0)<br/> -monotouch10 (MonoTouch, sürüm = v1.0)<br/> -net45 (. NETFramework, sürümü v4.5 =)<br/> -netcore50 (. NETCore, sürüm = v5.0)<br/> -netstandard1.0 (. NETStandard, sürüm = v1.0)<br/> -taşınabilir net45 olduğu win8 + wp8 + wpa81 (. NETPortable, sürüm v0.0, profil = Profile259 =)<br/> -olduğu win8 (Windows, sürüm = v8.0)<br/> -wp8 (WindowsPhone, sürüm v8.0 =)<br/> -wpa81 (WindowsPhoneApp, sürüm v8.1 =)<br/> -xamarinios10 () Xamarin.iOS,Version=v1.0)<br/> -xamarinmac20 (Xamarin.Mac,Version=v2.0)<br/> -xamarintvos10 (Xamarin.TVOS,Version=v1.0)<br/> -xamarinwatchos10 (Xamarin.WatchOS,Version=v1.0)*|
+| **Örnek ileti** | *Package System.ComponentModel.EventBasedAsync 4.0.11 is not compatible with netstandard1.3 (.NETStandard,Version=v1.3). Package System.ComponentModel.EventBasedAsync 4.0.11 supports:<br/>  - monoandroid10 (MonoAndroid,Version=v1.0)<br/>  - monotouch10 (MonoTouch,Version=v1.0)<br/>  - net45 (.NETFramework,Version=v4.5)<br/>  - netcore50 (.NETCore,Version=v5.0)<br/>  - netstandard1.0 (.NETStandard,Version=v1.0)<br/>  - portable-net45+win8+wp8+wpa81 (.NETPortable,Version=v0.0,Profile=Profile259)<br/>  - win8 (Windows,Version=v8.0)<br/>  - wp8 (WindowsPhone,Version=v8.0)<br/>  - wpa81 (WindowsPhoneApp,Version=v8.1)<br/>  - xamarinios10 (Xamarin.iOS,Version=v1.0)<br/>  - xamarinmac20 (Xamarin.Mac,Version=v2.0)<br/>  - xamarintvos10 (Xamarin.TVOS,Version=v1.0)<br/>  - xamarinwatchos10 (Xamarin.WatchOS,Version=v1.0)*|
 
 ### <a name="nu1203"></a>NU1203
 
@@ -263,8 +263,6 @@ Hatalar ve uyarılar burada listelenen yalnızca [PackageReference tabanlı](../
 
 ## <a name="resolver-conflict-warnings"></a>Çözümleyici çakışma uyarıları
 
-[NU1608](#nu1608)
-
 ### <a name="nu1608"></a>NU1608
 
 | | |
@@ -275,19 +273,15 @@ Hatalar ve uyarılar burada listelenen yalnızca [PackageReference tabanlı](../
 
 ## <a name="package-fallback-warnings"></a>Paket geri dönüş uyarıları
 
-[NU1701](#nu1701)
-
 ### <a name="nu1701"></a>NU1701
 
 | | |
 | --- | --- |
-| **Sorunu** | *PackageTargetFallback/AssetTargetFallback* varlıklar bir paket seçmek için kullanıldı. Bu varlıklar % 100 uyumlu olmayabilir bilmeniz kullanıcı izin vermek için bir uyarıdır. |
+| **Sorunu** | *PackageTargetFallback/AssetTargetFallback* was used to select assets from a package. Bu varlıklar % 100 uyumlu olmayabilir bilmeniz kullanıcı izin vermek için bir uyarıdır. |
 | **Olası nedenler** | Paket proje framework desteklemiyor. |
 | **Örnek ileti** | *Paket 'NuGet.Versioning', 'taşınabilir net45 + olduğu win8' yerine projenin hedef çerçevesi 'netstandard1.5' kullanılarak geri yüklendi. Bu paket projenizi ile tamamen uyumlu olmayabilir.* |
 
 ## <a name="feed-warnings"></a>Akış uyarıları
-
-[NU1801](#nu1801)
 
 ### <a name="nu1801"></a>NU1801
 

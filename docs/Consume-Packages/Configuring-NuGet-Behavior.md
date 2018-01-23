@@ -13,11 +13,11 @@ keywords: "NuGet yapılandırma dosyaları, NuGet yapılandırması, NuGet davra
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: f9e56b68f70387435cdaa1537db503abb912fd2a
-ms.sourcegitcommit: 122bf7ce308365ea45da018b0768f0536de76a1f
+ms.openlocfilehash: 9269180241a880d3b796b79a13dbcd45627d74d7
+ms.sourcegitcommit: 9ac1fa23a4a8ce098692de93328b1db4136fe3d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="configuring-nuget-behavior"></a>NuGet davranışını yapılandırma
 
@@ -28,19 +28,19 @@ Bu konuda:
 - [NuGet.Config dosya konumları ve kullanır](#config-file-locations-and-uses)
 - [Ayarları değiştirme](#changing-config-settings)
 - [Ayarları nasıl uygulanır](#how-settings-are-applied)
-- [NuGetDefaults.Config dosyası](#nuget-defaults-file)
+- [NuGetDefaults.Config file](#nuget-defaults-file)
 
-## <a name="config-file-locations-and-uses"></a>Config dosya konumları ve kullanır
+## <a name="nugetconfig-file-locations-and-uses"></a>NuGet.Config dosya konumları ve kullanır
 
 | Kapsam | NuGet.Config dosya konumu | Açıklama |
 | --- | --- | --- |
-| Project | Proje klasörünü veya sürücü kök kadar herhangi bir klasör | Bir proje klasöründe ayarlar yalnızca bu proje için geçerlidir. Birden çok proje alt klasör içeren üst klasörlerde ayarlar bu klasörlerdeki tüm projeleri için geçerlidir. |
-| Kullanıcı | Windows: %APPDATA%\NuGet\NuGet.Config<br/>Mac/Linux: ~/.nuget/NuGet.Config | Ayarları tüm işlemleri için geçerlidir, ancak herhangi bir proje düzeyi ayarı tarafından geçersiz kılınır. CLI komutları kullanırken, farklı yapılandırma dosyası kullanarak belirtebilirsiniz `-configFile` varsayılan kullanıcı düzeyinde dosyasında herhangi bir ayarı yok saymak için anahtar. |
-| Bilgisayar | Windows: % ProgramFiles (x86) %\NuGet\Config<br/>Mac/Linux: $XDG_DATA_HOME (genellikle ~/.local/share) | Ayarlar bilgisayar üzerinde tüm işlemler için geçerli olan, ancak herhangi bir kullanıcı veya proje düzeyi ayarı tarafından kılınmadı. |
+| Proje | Geçerli klasör (diğer adıyla proje klasörü) veya sürücü kök kadar herhangi bir klasör.| Bir proje klasöründe ayarlar yalnızca bu proje için geçerlidir. Birden çok proje alt klasör içeren üst klasörlerde ayarlar bu klasörlerdeki tüm projeleri için geçerlidir. |
+| Kullanıcı | Windows: %APPDATA%\NuGet\NuGet.Config<br/>Mac/Linux: ~/.nuget/NuGet.Config | Ayarları tüm işlemleri için geçerlidir, ancak herhangi bir proje düzeyi ayarı tarafından geçersiz kılınır. |
+| Bilgisayar | Windows: %ProgramFiles(x86)%\NuGet\Config<br/>Mac/Linux: $XDG_DATA_HOME (typically ~/.local/share) | Ayarlar bilgisayar üzerinde tüm işlemler için geçerli olan, ancak herhangi bir kullanıcı veya proje düzeyi ayarı tarafından kılınmadı. |
 
 NuGet'ın önceki sürümlerini için Notlar:
 - NuGet 3.3 ve daha önce kullanılan bir `.nuget` çözüm genelindeki ayarları için klasör. Bu dosya NuGet 3.4 + kullanılmaz.
-- 3.x için NuGet 2.6 için Windows bilgisayar düzeyinde yapılandırma dosyası % ProgramData%\NuGet\Config bulunamadı [\\{IDE} [\\{Version} [\\{SKU}]]]\NuGet.Config, burada *{IDE}* olabilir *Visual Studio*, *{Version}* Visual Studio sürümü gibi edildi *14.0*, ve *{SKU}* ya *topluluk*, *Pro*, veya *Kurumsal*. Nuget'e 4.0 + ayarlarını geçirmek için yapılandırma dosyası % ProgramFiles(x86) % \NuGet\Config kopyalayın. Linus üzerinde /etc/opt, önceki bu konumda olan ve Mac, Library/Application Support.
+- 3.x için NuGet 2.6 için Windows bilgisayar düzeyinde yapılandırma dosyası % ProgramData%\NuGet\Config bulunamadı [\\{IDE} [\\{Version} [\\{SKU}]]]\NuGet.Config, burada *{IDE}* olabilir *Visual Studio*, *{Version}* Visual Studio sürümü gibi edildi *14.0*, ve *{SKU}* ya *topluluk*, *Pro*, veya *Kurumsal*. Nuget'e 4.0 + ayarlarını geçirmek için yapılandırma dosyası % ProgramFiles(x86) % \NuGet\Config kopyalayın. Linux üzerinde /etc/opt, önceki bu konumda olan ve Mac, Library/Application Support.
 
 ## <a name="changing-config-settings"></a>Yapılandırma ayarlarını değiştirme
 
@@ -158,7 +158,7 @@ A. kullanıcı düzeyinde dosyası, (Windows, Mac/Linux'ta ~/.nuget/NuGet.Config
 </configuration>
 ```
 
-B. disk_drive_2/NuGet.Config dosya:
+File B. disk_drive_2/NuGet.Config:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -172,7 +172,7 @@ B. disk_drive_2/NuGet.Config dosya:
 </configuration>
 ```
 
-C. dosya disk_drive_2/Project1/NuGet.Config:
+File C. disk_drive_2/Project1/NuGet.Config:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -188,7 +188,7 @@ C. dosya disk_drive_2/Project1/NuGet.Config:
 </configuration>
 ```
 
-Dosya D. disk_drive_2/Project2/NuGet.Config:
+File D. disk_drive_2/Project2/NuGet.Config:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

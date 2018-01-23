@@ -13,11 +13,11 @@ keywords: "NuGet paket oluşturma, yayımlama, NuGet paketi NuGet Öğreticisi"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: ab5235537d869047075b93f9d8255ae9e61dfedd
-ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
+ms.openlocfilehash: 9ec7091b0984c53fb883bbace9ee55d10ece773c
+ms.sourcegitcommit: 9ac1fa23a4a8ce098692de93328b1db4136fe3d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="create-and-publish-a-package"></a>Oluşturma ve bir paket yayımlama
 
@@ -119,14 +119,14 @@ Bulduktan sonra bir `.nupkg` dosyası, yayımlama, nuget.org kullanmaya `push` k
 
 1. Oturum açtıktan sonra kullanıcı adınızın (sağ üstte) seçin ve ardından **API anahtarları**.
 
-1. Seçin **oluşturma**, anahtarınız için bir ad, seçin **kapsamları seçin > anında**altında **API anahtarı**, girin * için **Glob düzeni**, ardından seçin **oluşturma**.
+1. Seçin **oluşturma**, anahtarınız için bir ad, seçin **kapsamları seçin > anında** altında **API anahtarı**, girin * için **Glob düzeni**, ardından seçin **oluşturma**.
 
 1. Anahtar oluşturulduktan sonra Seç **kopyalama** erişim almak için anahtar CLI sahip olmanız gerekir:
 
     ![API anahtarını Panoya kopyalama](media/QS_Create-02-APIKey.png)
 
     > [!Warning]
-    > Anahtarınızı güvenli bir konuma kaydedin ve gizli kalmasını olmadığından. Anahtarınızı yanlışlıkla açığa varsa, her zaman, dilediğiniz zaman yeniden oluşturabilirsiniz. Artık paketleri CLI itmek istiyorsanız, API anahtarını da kaldırabilirsiniz.
+    > Anahtarınızı güvenli bir konuma kaydedin ve gizli tutun. Anahtarınızı yanlışlıkla açığa, herhangi bir zamanda yeniden oluşturabilirsiniz. Artık paketleri CLI itmek istiyorsanız, API anahtarını da kaldırabilirsiniz.
 
 1. Aşağıdaki komutu çalıştırın istemine, paket adı belirtme ve anahtar değeri ile değiştirerek 4. adımda kopyalanan:
 

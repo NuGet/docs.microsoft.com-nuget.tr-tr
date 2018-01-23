@@ -13,11 +13,11 @@ keywords: "NuGet paketlerini kullanarak NuGet paketleri, NuGet paket referanslar
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 639f4883f5ce904a44d8aa23d76c93ed79ea4b9d
-ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
+ms.openlocfilehash: ffba868bbbf1fe373fd45a9459eab7072f4c19b3
+ms.sourcegitcommit: 9ac1fa23a4a8ce098692de93328b1db4136fe3d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="install-and-use-a-package"></a>Yükleme ve bir paket kullanma
 
@@ -27,7 +27,7 @@ NuGet paketleri diğer geliştiriciler projelerinizi kullanmak için kullanılab
 
 Koduyla paketinde yüklendikten sonra başvurmak `using <namespace>` nerede \<ad alanı\> kullanmakta olduğunuz paket özeldir. Başvuru yapıldığında, kendi API aracılığıyla paket çağırabilirsiniz.
 
-Bu konunun geri kalanında popüler yüklemek için Paket Yöneticisi kullanıcı arabirimini kullanarak sürecinde yardımcı olur [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) bir evrensel Windows Platformu (UWP) proje paketinde. Ardından, paketi kullanarak bir örnek gösterilmektedir. Bir proje ile kullandığınız her yerinden NuGet paketi için benzer aynı iş akışı kullanın.
+Bu konunun geri kalanında popüler yüklemek için Paket Yöneticisi kullanıcı arabirimini kullanarak sürecinde yardımcı olur [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) bir evrensel Windows Platformu (UWP) proje paketinde. Ardından, paketi kullanarak bir örnek gösterilmektedir. Benzer bir iş akışı için diğer NuGet paketlerini kullanın.
 
 - [Önkoşulları yüklemek](#install-pre-requisites)
 - [Proje oluşturma](#create-a-project)
@@ -35,7 +35,7 @@ Bu konunun geri kalanında popüler yüklemek için Paket Yöneticisi kullanıc�
 - [' % S ' Newtonsoft.Json API uygulamasında kullanma](#use-the-newtonsoftjson-api-in-the-app)
 
 > [!Tip]
-> **Başlat nuget.org ile**: nuget.org paket yükleme olduğu .NET geliştiricileri yeniden bileşenleri kendi uygulamalarında bulmak için kullandığınız ortak bir iş akışı. Her zaman nuget.org doğrudan arama ya da bulmak ve bu konu başlığı altında gösterildiği gibi Visual Studio içindeki paketleri yükleyin.
+> **Başlat nuget.org ile**: nuget.org paket yükleme olan kendi uygulamalarında kullanabilecekleri bileşenleri bulmak için .NET geliştiricilerinin kullanan ortak bir iş akışı. Her zaman nuget.org doğrudan arama ya da bulmak ve bu konu başlığı altında gösterildiği gibi Visual Studio içindeki paketleri yükleyin.
 
 ## <a name="install-pre-requisites"></a>Önkoşulları yüklemek
 

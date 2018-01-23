@@ -13,19 +13,19 @@ keywords: "NuGet Paket bağımlılıklarını, NuGet sürüm oluşturma, bağım
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 93a3d077a6dd1946485fc8c48f97c8009280890c
-ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
+ms.openlocfilehash: 91af96eb1f4bf0ee5a46ea8c418440eff20c768d
+ms.sourcegitcommit: 9ac1fa23a4a8ce098692de93328b1db4136fe3d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>NuGet Paket bağımlılıklarını nasıl çözümler
 
 Bir parçası olarak yüklenen içeren bir paket yüklü veya yeniden, dilediğiniz zaman bir [geri](../consume-packages/package-restore.md) işlemi, NuGet de ilk paket bağımlı olduğu herhangi bir ek paket yükler.
 
-Bu hemen bağımlılıkları da kendi başlarına, için rasgele bir derinliği devam edebilirsiniz bağımlılıkları olabilir. Bu ne adlı üreten bir *bağımlılık grafiğinin* paketleri arasındaki ilişkileri açıklar tüm düzeyleri şunlardır.
+Bu hemen bağımlılıkları da kendi başlarına, için rasgele bir derinliği devam edebilirsiniz bağımlılıkları olabilir. Bu ne adlı üreten bir *bağımlılık grafiğinin* , tüm düzeylerdeki paketleri arasındaki ilişkileri açıklar.
 
-Birden çok paket aynı bağımlılık varsa, daha sonra aynı paket kimliği grafikte birden çok kez olası farklı sürüm kısıtlamalarıyla görünebilir. NuGet hangi sürümü seçmeniz gerekir böylece ancak, belirli bir paket yalnızca bir sürümü bir projede kullanılabilir kullanılabilir. Tam işlem kullanılan paket başvuru biçimi bağlıdır.
+Birden çok paket aynı bağımlılık varsa, daha sonra aynı paket kimliği grafikte birden çok kez olası farklı sürüm kısıtlamalarıyla görünebilir. Ancak, NuGet hangi sürümünün kullanıldığını seçmeniz gerekir böylece bir proje ile belirli bir paket yalnızca bir sürümü kullanılabilir. Tam işlem kullanılan paket başvuru biçimi bağlıdır.
 
 Bu konuda:
 - [PackageReference ve project.json bir bağımlılık çözümleme](#dependency-resolution-with-packagereference-and-projectjson)

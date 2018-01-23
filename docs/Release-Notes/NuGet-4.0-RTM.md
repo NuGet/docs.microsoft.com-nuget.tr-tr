@@ -13,11 +13,11 @@ keywords: "Özellikler, dcr bilinen sorunlar, NuGet 4.0 RTM sürüm notları, ha
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 2cdee8b736fa2c651da803be9a10a6114936134a
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 488b7259f4cc8635d590d35283dc685dc117ad39
+ms.sourcegitcommit: 9ac1fa23a4a8ce098692de93328b1db4136fe3d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="40-rtm-release-notes"></a>4.0 sürüm notları RTM
 
@@ -51,7 +51,7 @@ Bazen, geçersiz imzalı bir bütünleştirilmiş kod içeren bir paket kulland�
 #### <a name="issue"></a>Sorun:
 NuGet Paket Yöneticisi DotNetCLITools’u görüntülemez ve eklemeye/güncelleştirmeye izin vermez. [NuGet#4256](https://github.com/NuGet/Home/issues/4256)
 
-* #### <a name="workaround"></a>Geçici çözüm:
+#### <a name="workaround"></a>Geçici çözüm:
 Proje dosyanızda DotNetCLIToolReferences el ile düzenlenmelidir.
 
 ### <a name="nuget-restore-will-fail-when-you-set-packageid-property-for-projects"></a>Projeler için PackageId özelliğini ayarladığınızda NuGet geri yüklemesi başarısız olur
@@ -260,7 +260,7 @@ El ile geri yükleme yapın.
 
 * Restore3 PackageReferences TargetFrameworks ile tüm çiftler. - [#3504](https://github.com/NuGet/Home/issues/3504)
 
-* Nuget Çekmeleri MSBuild beklenmeyen sürümü VS "15" Preview 4 istisnası Komut İstemi - [#3408](https://github.com/NuGet/Home/issues/3408)
+* Nuget Çekmeleri MSBuild beklenmeyen sürümü VS "15" Preview 4 istisnası command prompt - [#3408](https://github.com/NuGet/Home/issues/3408)
 
 * Hedefleri/özellik dosyaları geri yükleme başarısız - out yazma [#3399](https://github.com/NuGet/Home/issues/3399)
 
@@ -286,7 +286,7 @@ El ile geri yükleme yapın.
 
 * DotNet paketi proje başvuruları ile başarısız olur ve <TargetFramework>  -  [#3865](https://github.com/NuGet/Home/issues/3865)
 
-* ProjectSystemCache.TryGetProjectNameByShortName - LockRecursionException [#3861](https://github.com/NuGet/Home/issues/3861)
+* LockRecursionException in ProjectSystemCache.TryGetProjectNameByShortName - [#3861](https://github.com/NuGet/Home/issues/3861)
 
 * MSBuild özellikleri - boşlukları kırpma [#3819](https://github.com/NuGet/Home/issues/3819)
 
@@ -365,4 +365,3 @@ El ile geri yükleme yapın.
 [Konu listesi 3](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.0 RC3")  
 [Konu listesi 4](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.0 RC2")  
 [Konu listesi 5](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.0 RC")
-
