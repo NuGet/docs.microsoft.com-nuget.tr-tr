@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: ed433790-99bf-4b71-92a8-17314bd49867
 description: "NuGet bilinen sorunları, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere 1.6 için sürüm notları."
 keywords: "Özellikler, dcr bilinen sorunlar, NuGet 1.6 sürüm notları, hata düzeltmeleri eklendi"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 7824d62cb73c54205175ec742cfc26d1ca3aa741
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 114b03cede24dee520ace1d8aa920a648ad16af1
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
  # <a name="nuget-16-release-notes"></a>NuGet 1.6 sürüm notları
 

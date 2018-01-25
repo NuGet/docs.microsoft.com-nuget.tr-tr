@@ -3,28 +3,27 @@ title: "NuGet Paket Yöneticisi konsolu Kılavuzu | Microsoft Docs"
 author: kraigb
 hms.author: kraigb
 manager: ghogen
-ms.date: 10/24/2017
+ms.date: 01/23/2018
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 2b92b119-6861-406c-82af-9d739af230e4
 f1_keywords: vs.nuget.packagemanager.console
 description: "Paketlerle çalışmak için Visual Studio'da NuGet Paket Yöneticisi Konsolu kullanma için yönergeler."
 keywords: "NuGet Paket Yöneticisi konsolu, NuGet powershell, NuGet paketlerini yönetme"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b8f1df23d1a43412868c14e508ee5221d48dcc7c
-ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
+ms.openlocfilehash: b89c51812cee0f64c6f5c39cd9d86bc4a0be068e
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="package-manager-console"></a>Paket Yöneticisi Konsolu
 
 NuGet Paket Yöneticisi Konsolu Windows 2012 ve sonraki sürümleri Visual Studio içinde yerleşik olarak bulunur. (Bu Mac veya Visual Studio Code için Visual Studio ile dahil değildir.)
 
-Konsol kullanmanıza olanak sağlayan [NuGet PowerShell komutlarını](../tools/powershell-reference.md) bulmak için yükleme, kaldırma ve NuGet paketlerini güncelleştirmeyi. Konsolunu kullanarak, burada Paket Yöneticisi kullanıcı Arabirimi bir işlem gerçekleştirmek için bir yöntem sağlamaz durumlarda gereklidir.
+Konsol kullanmanıza olanak sağlayan [NuGet PowerShell komutlarını](../tools/powershell-reference.md) bulmak için yükleme, kaldırma ve NuGet paketlerini güncelleştirmeyi. Konsolunu kullanarak, burada Paket Yöneticisi kullanıcı Arabirimi bir işlem gerçekleştirmek için bir yöntem sağlamaz durumlarda gereklidir. Kullanılacak `nuget.exe` Konsolu komutları görmek [konsolunda nuget.exe CLI kullanarak](#using-the-nugetexe-cli-in-the-console).
 
 Örneğin, bulma ve bir paket yükleme ile üç kolay adımı gerçekleştirilir:
 
@@ -43,17 +42,6 @@ Konsol kullanmanıza olanak sağlayan [NuGet PowerShell komutlarını](../tools/
     # Install the Elmah package to the project named MyProject.
     Install-Package Elmah -ProjectName MyProject
     ```
-
-Bu konuda:
-
-- [Konsolunu açma](#opening-the-console-and-console-controls)
-- [Bir paketi yükleniyor](#installing-a-package)
-- [Bir paketi kaldırma](#uninstalling-a-package)
-- [Bir paket bulma](#finding-a-package)
-- [Paket güncelleştirme](#updating-a-package)
-- [Konsolunun kullanılabilirliğini](#availability-of-the-console)
-- [Paket Yöneticisi konsolu genişletme](#extending-the-package-manager-console)
-- [Bir NuGet PowerShell profili ayarlama](#setting-up-a-nuget-powershell-profile)
 
 > [!Important]
 > Konsolunda kullanılabilir tüm işlemleri ile de yapılabilir [NuGet CLI](../tools/nuget-exe-cli-reference.md). Ancak, Konsolu komutları Visual Studio ve kaydedilmiş bir proje/çözüm bağlamında çalışır ve genellikle kendi eşdeğer CLI komutları birden fazla gerçekleştirmek. Örneğin, konsolu üzerinden bir paket yükleme CLI komut'in almadığı projesine bir başvuru ekler. Bu nedenle, CLI konsola kullanarak Visual Studio'da genellikle çalışan geliştiricilere tercih eder.
@@ -96,8 +84,8 @@ Bir paketi yüklerken aşağıdaki eylemleri gerçekleştirir:
 - Geçerli lisans şartları zımni Sözleşmesi ile Konsol penceresinde görüntüler. Koşulları kabul etmiyorsanız, paketi hemen kaldırmanız gerekir.
 - Her başvuru biçimi kullanımda içinde projesine bir başvuru ekler. Başvuruları daha sonra Çözüm Gezgini ve geçerli başvuru biçim dosyası görünür. Ancak, doğrudan proje dosyasındaki değişiklikleri görmek için projeyi kaydedin gerek PackageReference ile unutmayın.
 - Paketi önbelleğe alır:
-    - PackageReference: Paket konumundaki önbelleğe alınmış `%USERPROFILE%\.nuget\packages` ve kilidi dosya yani `project.assets.json` güncelleştirilir.
-    - `packages.config`: oluşturur bir `packages` klasör paketi dosyalarını içindeki bir alt klasör içine çözüm kök ve kopyalar. `package.config` Dosya güncelleştirilir.
+  - PackageReference: Paket konumundaki önbelleğe alınmış `%USERPROFILE%\.nuget\packages` ve kilidi dosya yani `project.assets.json` güncelleştirilir.
+  - `packages.config`: oluşturur bir `packages` klasör paketi dosyalarını içindeki bir alt klasör içine çözüm kök ve kopyalar. `package.config` Dosya güncelleştirilir.
 - Güncelleştirmeleri `app.config` ve/veya `web.config` paketi kullanıyorsa [kaynak ve yapılandırma dosyası dönüşümleri](../create-packages/source-and-config-file-transformations.md).
 - Henüz yoksa projedeki tüm bağımlılıkları yükler. Bu paket işleminde, açıklandığı gibi güncelleştirme sürümleri [bağımlılık çözümlemesi](../consume-packages/dependency-resolution.md).
 - Paketin Benioku dosyası varsa, bir Visual Studio penceresinde görüntüler.
@@ -186,9 +174,7 @@ Bazı paketler yeni komutları Konsolu yükleyin. Örneğin, `MvcScaffolding` gi
 
 Bir PowerShell profili, PowerShell kullandığınız her yerde sık kullanılan komutlar kullanılabilir kılmanızı sağlar. NuGet genellikle aşağıdaki konumda bulunan NuGet özgü bir profili destekler:
 
-```
-%UserProfile%\Documents\WindowsPowerShell\NuGet_profile.ps1
-```
+    %UserProfile%\Documents\WindowsPowerShell\NuGet_profile.ps1
 
 Profil bulmak için şunu yazın `$profile` konsolunda:
 
@@ -198,3 +184,12 @@ C:\Users\<user>\Documents\WindowsPowerShell\NuGet_profile.ps1
 ```
 
 Daha fazla ayrıntı için başvurmak [Windows PowerShell profilleri](https://technet.microsoft.com/library/bb613488.aspx).
+
+## <a name="using-the-nugetexe-cli-in-the-console"></a>Konsolunda CLI nuget.exe kullanma
+
+Yapmak için [ `nuget.exe` CLI](nuget-exe-CLI-Reference.md) Paket Yöneticisi konsolunda kullanılabilir yükleme [NuGet.CommandLine](http://www.nuget.org/packages/NuGet.CommandLine/) konsolundan paketi:
+
+```ps
+# Other versions are available, see http://www.nuget.org/packages/NuGet.CommandLine/
+Install-Package NuGet.CommandLine -Version 4.4.1
+```

@@ -11,17 +11,16 @@ ms.date: 10/30/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: cfd338b5-6253-48c0-88ba-17c6b98fc935
 description: "Bir dizin oluşturulur ve üzerinde nuget.org silinen tüm paketlerin kataloğudur."
 keywords: "NuGet V3 API Kataloğu, nuget.org işlem günlüğü, NuGet.org çoğaltmak, NuGet.org, NuGet.org yalnızca append kaydının kopyalama"
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 4c98b7cbd92575f6905e98a5bca5602a4d8ac0dd
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: d1a24be68a60085a40361c374ffb34dc221f09c4
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="catalog"></a>Katalog
 
@@ -73,9 +72,7 @@ Katalog öğeleri her zaman bir düz olarak artan, kronolojik sırayla Kataloğu
 
 Aşağıdaki isteği katalog dizinini getirir.
 
-```
-GET {@id}
-```
+    GET {@id}
 
 Aşağıdaki özelliklere sahip bir nesne içeren bir JSON belgesi katalog dizinidir:
 
@@ -107,9 +104,7 @@ Tersine için [paketini meta veri kaynağı](registration-base-url-resource.md) 
 
 ### <a name="sample-request"></a>Örnek istek
 
-```
-GET https://api.nuget.org/v3/catalog0/index.json
-```
+    GET https://api.nuget.org/v3/catalog0/index.json
 
 ### <a name="sample-response"></a>Örnek yanıt
 
@@ -150,7 +145,7 @@ Ad            | Tür    | Gerekli | Notlar
 commitId        | dize  | Evet      | Bu katalog öğesi ile ilişkili yürütme kimliği
 commitTimeStamp | dize  | Evet      | Bu katalog öğesinin yürütme zaman damgası
 nuget:id        | dize  | Evet      | Bu yaprak ilgili paket kimliği
-nuget:Version   | dize  | Evet      | Bu yaprak ilgili Paket sürümü
+nuget:version   | dize  | Evet      | Bu yaprak ilgili Paket sürümü
 
 `@type` Değer aşağıdaki iki değerden biri olacaktır:
 
@@ -161,9 +156,7 @@ Her ne tür, göreceğiniz anlamına gelir hakkında daha fazla ayrıntı için 
 
 ### <a name="sample-request"></a>Örnek istek
 
-```
-GET https://api.nuget.org/v3/catalog0/page2926.json
-```
+    GET https://api.nuget.org/v3/catalog0/page2926.json
 
 ### <a name="sample-response"></a>Örnek yanıt
 
@@ -178,8 +171,8 @@ Katalog yaprak belge, aşağıdaki özelliklere sahip bir JSON nesnesidir:
 Ad                    | Tür                       | Gerekli | Notlar
 ----------------------- | -------------------------- | -------- | -----
 @type                   | dize veya dize dizisi | Evet      | Katalog öğesi türleri
-Katalog: commitId        | dize                     | Evet      | Bu katalog öğesi ile ilişkilendirilmiş bir yürütme kimliği
-Katalog: commitTimeStamp | dize                     | Evet      | Bu katalog öğesinin yürütme zaman damgası
+catalog:commitId        | dize                     | Evet      | Bu katalog öğesi ile ilişkilendirilmiş bir yürütme kimliği
+catalog:commitTimeStamp | dize                     | Evet      | Bu katalog öğesinin yürütme zaman damgası
 kimlik                      | dize                     | Evet      | Katalog öğesi paket kimliği
 Yayımlanan               | dize                     | Evet      | Paketin yayımlanan tarih katalog öğesi
 sürüm                 | dize                     | Evet      | Katalog öğesi Paket sürümü
@@ -217,16 +210,16 @@ isPrerelease            | Boole değeri                    | Evet      | Paket s
 dil                | dize                     | Yok       |
 licenseUrl              | dize                     | Yok       |
 listelenen                  | Boole değeri                    | Yok       | Paket listede olmayan
-MinClientVersion        | dize                     | Yok       |
+minClientVersion        | dize                     | Yok       |
 packageHash             | dize                     | Evet      | Kullanarak kodlama paket karmasını [standart base 64](https://tools.ietf.org/html/rfc4648#section-4)
 packageHashAlgorithm    | dize                     | Evet      |
 packageSize             | tamsayı                    | Evet      | Paket .nupkg bayt cinsinden boyutu
 projectUrl              | dize                     | Yok       |
-ReleaseNotes            | dize                     | Yok       |
+releaseNotes            | dize                     | Yok       |
 requireLicenseAgreement | Boole değeri                    | Yok       | Varsayın `false` dışlanan varsa
 özet                 | dize                     | Yok       |
 etiketler                    | Dize dizisi           | Yok       |
-Başlık                   | dize                     | Yok       |
+title                   | dize                     | Yok       |
 verbatimVersion         | dize                     | Yok       | Sürüm dizesi olarak başlangıçta .nuspec bulundu
 
 Paket `version` tam, normalleştirilmiş sürüm dizesi bir özelliktir. Bu SemVer 2.0.0 yapılandırma verilerini buraya dahil olabileceği anlamına gelir.
@@ -242,9 +235,7 @@ Paket `version` tam, normalleştirilmiş sürüm dizesi bir özelliktir. Bu SemV
 
 #### <a name="sample-request"></a>Örnek istek
 
-```
 GET https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.storage.1.0.0.json
-```
 
 #### <a name="sample-response"></a>Örnek yanıt
 
@@ -265,9 +256,7 @@ Paket Sil katalog öğeleri sahip herhangi bir ek özellik listelenenlere [tüm 
 
 #### <a name="sample-request"></a>Örnek istek
 
-```
 GET https://api.nuget.org/v3/catalog0/data/2017.11.02.00.40.00/netstandard1.4_lib.1.0.0-test.json
-```
 
 #### <a name="sample-response"></a>Örnek yanıt
 

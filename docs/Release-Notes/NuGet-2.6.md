@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: d99bbf29-2b9a-4dc5-a823-5eb4f9e30f7f
 description: "NuGet bilinen sorunları, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere 2.6 için sürüm notları."
 keywords: "Özellikler, dcr bilinen sorunlar, NuGet 2.6 sürüm notları, hata düzeltmeleri eklendi"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b34c0049a5ba42f6bcd5b36fa5b0ba261e27ecd5
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: c2df9721e6941c110948af1a2d4ec4b7aeb476dd
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-26-release-notes"></a>NuGet 2.6 sürüm notları
 
@@ -38,7 +37,7 @@ NuGet 2.6 ile başlayarak, aşağıdaki şekilde iki uzantıları yayımlayacak:
 1. [NuGet Paket Yöneticisi](https://marketplace.visualstudio.com/items?itemName=NuGetTeam.NuGetPackageManager) (Visual Studio 2010 ve 2012 için geçerlidir)
 1. [Visual Studio 2013 için NuGet Paket Yöneticisi](https://marketplace.visualstudio.com/items?itemName=NuGetTeam.NuGetPackageManagerforVisualStudio2013)
 
-Bu bölme ile [nuget.org](https://nuget.org) giriş sayfasının "Nuget'i Yükle" düğmesini şimdi yönlendirilirsiniz için [NuGet yükleme](../guides/install-nuget.md) sayfasında, şunları bulabileceğiniz farklı NuGet istemcileri yükleme hakkında daha fazla bilgi.
+Bu bölme ile [nuget.org](https://nuget.org) giriş sayfasının "Nuget'i Yükle" düğmesini alır, [NuGet yükleme](../install-nuget-client-tools.md) sayfasında, şunları bulabileceğiniz farklı NuGet istemcileri yükleme hakkında daha fazla bilgi.
 
 <a name="xdt"></a>
 
@@ -53,8 +52,8 @@ Nisan 2013'te XDT NuGet desteği ile ilgili iki büyük duyuruları yapılan. İ
 NuGet XDT destek yararlanmak için mekanizması gereksinimlerine şuna benzer [geçerli config dönüştürmesi özelliği](../create-packages/source-and-config-file-transformations.md).
 Dönüştürme dosyaları paketin içerik klasöründe eklenir. Ancak, Config dönüşümleri yükleme ve kaldırma için tek bir dosya kullanırken, aşağıdaki dosyaları kullanarak bu işlemlerin ikisinin üzerinde ayrıntılı denetim XDT dönüşümleri etkinleştirin:
 
-- Web.config.install.XDT
-- Web.config.Uninstall.XDT
+- Web.config.install.xdt
+- Web.config.uninstall.xdt
 
 Ayrıca, NuGet Dosya sonekini dönüştürmeleri için varolan web.config.transforms kullanarak paketleri çalışmaya devam edecek şekilde çalıştırmak için hangi altyapısı belirlemek için kullanır. XDT dönüşümleri ayrıca tüm XML dosyası (yalnızca web.config) uygulanması bu projenizde diğer uygulamalar için yararlanabileceğiniz şekilde.
 

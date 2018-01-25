@@ -3,21 +3,20 @@ title: "NuGet Visual Studio Proje sistemi desteği | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 1/9/2017
+ms.date: 01/09/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 9d7fa7f6-82ed-4df6-9734-f43a3d8e3b98
 description: "Üçüncü taraf proje türleri için Visual Studio Proje sistemine NuGet tümleştirilmesi."
 keywords: "NuGet Visual Studio, özel proje türleri, Visual Studio projeleri"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 9c8cad46f18578bec41bd9280985e42972a9b3c1
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: e2f7c4a32f80b96360f08d04efb8af639af2ddd3
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-support-for-the-visual-studio-project-system"></a>NuGet Visual Studio Proje sistemi desteği
 
@@ -25,20 +24,18 @@ Visual Studio'da üçüncü taraf proje türlerini desteklemek için NuGet 3.x+ 
 
 NuGet ile tümleştirmek için bir proje sistem bu konuda açıklanan tüm proje özelliklerini kendi desteği tanıtır gerekir.
 
-
-> [!NOTE]
-> Projenizde yüklemek paketler etkinleştirmek amacıyla projenize gerçekten yok özellikleri bildirme. Proje Özellikleri NuGet istemci yanı sıra Visual Studio ve diğer uzantıları özelliklerinin çoğu bağlıdır. Yanlışlıkla projenizi yeteneklerini reklam çalışmasına bu bileşenler ve kullanıcılarınızın deneyimini düşmesine yol açabilir.
+> [!Note]
+> Projenizde yüklemek paketler etkinleştirmek amacıyla projenize gerçekten yok yetenekleri bildirmeyin. Proje Özellikleri NuGet istemci yanı sıra Visual Studio ve diğer uzantıları özelliklerinin çoğu bağlıdır. Yanlışlıkla projenizi yeteneklerini reklam çalışmasına bu bileşenler ve kullanıcılarınızın deneyimini düşmesine yol açabilir.
 
 ## <a name="advertise-project-capabilities"></a>Proje Özellikleri tanıtma
 
 Hangi paketlerin göre proje türü ile uyumlu olan NuGet istemcisi belirler [projenin özellikleri](https://github.com/Microsoft/VSProjectSystem/blob/master/doc/overview/about_project_capabilities.md)aşağıdaki tabloda açıklandığı gibi.
 
-
-|Özellik|Açıklama|
-|----------------|-----------|
-|AssemblyReferences|Proje derleme başvurularını (WinRTReferences farklı) desteklediğini gösterir|
-|DeclaredSourceItems|Proje kaynak öğeleri bildirir, proje tipik bir MSBuild proje (değil DNX) olduğunu belirtir (yerine bir `project.json` klasördeki tüm dosyaları bir derlemenin parçası olduğunu varsayar dosyası).|
-|UserSourceItems|Kullanıcı kendi projeye rastgele dosyalar eklemek için izin verildiğini gösterir.|
+| Özellik | Açıklama |
+| --- | --- |
+| AssemblyReferences | Proje derleme başvurularını (WinRTReferences farklı) desteklediğini belirtir. |
+| DeclaredSourceItems | Proje kaynak öğeleri bildirir, proje tipik bir MSBuild proje (değil DNX) olduğunu gösterir. |
+| UserSourceItems|Kullanıcı kendi projeye rastgele dosyalar eklemek için izin verildiğini gösterir. |
 
 Proje CPS tabanlı sistemler için sizin için bu bölümün geri kalanında tanımlanan proje özellikleri uygulama ayrıntılarını yapılmış. Bkz: [CPS projelerinde proje özellikleri bildirme](https://github.com/Microsoft/VSProjectSystem/blob/master/doc/overview/about_project_capabilities.md#how-to-declare-project-capabilities-in-your-project).
 
@@ -76,9 +73,8 @@ public interface IVsBooleanSymbolPresenceChecker
 }
 ```
 
-
 Bu arabirim için bir örnek uygulama sonra olacaktır:
-    
+
 ```cs
 class VsProjectCapabilitiesPresenceChecker : IVsBooleanSymbolPresenceChecker
 {

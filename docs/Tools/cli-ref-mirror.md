@@ -3,21 +3,20 @@ title: "NuGet CLI yansıtma komutu | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 10/24/2017
+ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 190d7010-172e-44b8-8a32-94a2a63be4f3
 description: "Nuget.exe yansıtma komut başvurusu"
 keywords: "nuget yansıtma başvuru, yansıtma komutu"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 67daa1aa278b42b7974c562ba4097a525e7bb105
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 7ff5f1c1a915943e8a2eb9c6d6ab09a850968371
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="mirror-command-nuget-cli"></a>Yansıtma komutu (NuGet CLI)
 
@@ -30,7 +29,7 @@ Bir paketi ve bağımlılıklarını belirtilen kaynak depoları öğesinden hed
 
 ## <a name="usage"></a>Kullanım
 
-```
+```cli
 nuget mirror <packageID | configFilePath> <listUrlTarget> <publishUrlTarget> [options]
 ```
 
@@ -44,7 +43,7 @@ Hedef depo açıksa `https://machine/repo` çalıştıran [NuGet.Server](../host
 
 | Seçenek | Açıklama |
 | --- | --- |
-| apikey ile yapılan | Hedef depo API anahtarı. Mevcut bir belirtilen varsa *%AppData%\NuGet\NuGet.Config* kullanılır. |
+| ApiKey | Hedef depo API anahtarı. Mevcut bir belirtilen varsa *%AppData%\NuGet\NuGet.Config* kullanılır. |
 | Yardım | Bilgi komutu için yardımı görüntüler. |
 | NoCache | NuGet paketleri yerel makine önbellekleri kullanmalarını engeller. |
 | Sekmeyi | Ne uygulanır ancak işlemleri gerçekleştirmez kaydeder; İtme işlemleri için başarı varsayar. |
@@ -57,7 +56,7 @@ Ayrıca bkz. [ortam değişkenleri](cli-ref-environment-variables.md)
 
 ## <a name="examples"></a>Örnekler
 
-```
+```cli
 nuget mirror packages.config  https://MyRepo/nuget https://MyRepo/api/v2/package -source https://nuget.org/api/v2 -apikey myApiKey -nocache
 
 nuget mirror Microsoft.AspNet.Mvc https://MyRepo/nuget https://MyRepo/api/v2/package -version 4.0.20505.0

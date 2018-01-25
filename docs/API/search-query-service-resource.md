@@ -11,17 +11,16 @@ ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 11ca2092-67dc-41a9-a7af-afe610d8febb
 description: "Arama hizmeti istemcileri anahtar sözcüğüyle paketler için sorgu ve bazı paket alanları sonuçlarına filtre sağlar."
 keywords: "NuGet arama API, NuGet paketleri, sorgu NuGet paketlerini API'sine NuGet paketlerini göz atmak için API Bul"
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 8b37c1bfb66290de49641a8b6197cb83cd35318a
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 612ce0f46b654335a29bb36a64b27525994162ed
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="search"></a>Ara
 
@@ -51,9 +50,7 @@ API arama sorgusu istemciye belirtilen arama sorgusuyla eşleşen paketleri içi
 
 Listede bulunmayan bir paket hiç arama sonuçlarında görüntülenmesi gerekir.
 
-```
-GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
-```
+    GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
 
 ### <a name="request-parameters"></a>İstek parametreleri
 
@@ -107,7 +104,7 @@ projectUrl     | dize                     | Yok       |
 kayıt   | dize                     | Yok       | İlişkili için mutlak URL [kayıt dizini](registration-base-url-resource.md#registration-index)
 özet        | dize                     | Yok       | 
 etiketler           | dize veya dize dizisi | Yok       | 
-Başlık          | dize                     | Yok       | 
+title          | dize                     | Yok       | 
 totalDownloads | tamsayı                    | Yok       | Bu değer yüklemeler toplamına çıkarsanabileceği `versions` dizisi
 Doğrulandı       | Boole değeri                    | Yok       | Paket olup olmadığını belirten bir JSON Boole [doğrulandı](../reference/id-prefix-reservation.md)
 
@@ -123,9 +120,7 @@ Yüklemeleri | tamsayı | Evet      | Bu belirli Paket sürümü için indirme
 
 ### <a name="sample-request"></a>Örnek istek
 
-```
-GET https://api-v2v3search-0.nuget.org/query?q=NuGet.Versioning&prerelease=false
-```
+    GET https://api-v2v3search-0.nuget.org/query?q=NuGet.Versioning&prerelease=false
 
 ### <a name="sample-response"></a>Örnek yanıt
 

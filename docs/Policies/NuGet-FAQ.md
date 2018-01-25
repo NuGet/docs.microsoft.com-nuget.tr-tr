@@ -7,36 +7,22 @@ ms.date: 01/11/2018
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 199a915d-9595-4ae2-a1fb-b15da6d7735a
 description: "Ortak sorular ve yanıtlar NuGet komut satırında ve Visual Studio kullanarak ve NuGet Galerisi ile çalışmak için."
 keywords: "NuGet soru- cevap, sorular ve yanıtlar, ortak sorunları, NuGet sürümleri, sürüm paketi"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: f029af78edfcc5e542c5df2d4d6db8eeaebc3068
-ms.sourcegitcommit: d576d84fb4b6a178eb2ac11f55deb08ac771ba1c
+ms.openlocfilehash: 9bbd73643b830b1e63de18324667e1b1b88eaf3e
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-frequently-asked-questions"></a>NuGet sık sorulan sorular
 
-Bu konuda:
-
-- [Başlarken](#getting-started)
-- [Visual Studio'da NuGet](#nuget-in-visual-studio)
-- [NuGet komut satırı](#nuget-command-line)
-- [NuGet Paket Yöneticisi Konsolu](#nuget-package-manager-console)
-- [Oluşturma ve paketleri yayımlama](#creating-and-publishing-packages)
-- [Paketleri ile çalışma](#working-with-packages)
-- [Nuget.org paketlerini yönetme](#managing-packages-on-nugetorg)
-- [nuget.org erişilebilir değil](#nugetorg-not-accessible)
-
-## <a name="getting-started"></a>Başlarken
-
 **NuGet çalıştırmak için gereken nedir?**
 
-Kullanıcı Arabirimi ve komut satırı araçları geçici tüm bilgileri kullanılabilir [Yükleme Kılavuzu](../guides/install-nuget.md).
+Kullanıcı Arabirimi ve komut satırı araçları geçici tüm bilgileri kullanılabilir [Yükleme Kılavuzu](../install-nuget-client-tools.md).
 
 **NuGet Mono destekliyor mu?**
 
@@ -85,13 +71,13 @@ Git **güncelleştirmeleri** sekmesinde Paket Yöneticisi Arabiriminde ve seçin
 
 **NuGet Visual Studio dışında kullanabilir miyim?**
 
-Evet, NuGet doğrudan komut satırından çalışır. Bkz: [Yükleme Kılavuzu](../guides/install-nuget.md) ve [CLI başvuru](../tools/nuget-exe-CLI-Reference.md).
+Evet, NuGet doğrudan komut satırından çalışır. Bkz: [Yükleme Kılavuzu](../install-nuget-client-tools.md) ve [CLI başvuru](../tools/nuget-exe-CLI-Reference.md).
 
 ## <a name="nuget-command-line"></a>NuGet komut satırı
 
 **NuGet komut satırı aracının en son sürümünü nasıl sağlarım?**
 
-Bkz: [Yükleme Kılavuzu](../guides/install-nuget.md).
+Bkz: [Yükleme Kılavuzu](../install-nuget-client-tools.md).
 
 **Nuget.exe lisansını nedir?**
 

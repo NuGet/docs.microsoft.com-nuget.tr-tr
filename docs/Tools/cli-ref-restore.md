@@ -3,41 +3,36 @@ title: NuGet CLI restore komutu | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 10/24/2017
+ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 6ee41020-e548-4e61-b8cd-c82b77ac6af7
-description: "Nuget.exe restore komutu için başvurusu"
+description: Reference for the nuget.exe restore command
 keywords: "nuget başvuru geri yüklemek için restore paketleri komutu"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b435a3c2ffe08e3c2f8fc6a4dacb06cf674e4fb9
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 93d7b6967d9297ee822df1583351385210775173
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="restore-command-nuget-cli"></a>Restore komutu (NuGet CLI)
 
 **Uygulandığı öğe:** paketini tüketim &bullet; **desteklenen sürümler:** 2.7 +
 
-NuGet 2.7 +: İndirir ve gelen eksik paketleri yükler `packages` klasör.
+İndirir ve gelen eksik paketleri yükler `packages` klasör. NuGet 4.0 + ve PackageReference biçimi ile kullanıldığında, oluşturan bir `<project>.nuget.props` , gerekirse, dosya `obj` klasör. (Dosyası kaynak denetiminden atlanabilir.)
 
-NuGet 3.3 + kullanarak projeleri ile `project.json`: oluşturan bir `project.lock.json` dosyası ve bir `<project>.nuget.props` gerekirse, dosya. (Her iki dosyası kaynak denetiminden atlanabilir.)
-
-NuGet 4.0 + hangi başvuruları paketindeki proje dosyasında doğrudan projeyle: oluşturur bir `<project>.nuget.props` , gerekirse, dosya `obj` klasör. (Dosyası kaynak denetiminden atlanabilir.)
-
-Mac OSX ve Linux Mono üzerinde CLI ile paketleri geri PackageReference biçimiyle desteklenmiyor.
+Mac OSX ve Linux Mono üzerinde CLI ile paketleri geri PackageReference ile desteklenmiyor.
 
 ## <a name="usage"></a>Kullanım
 
-```
+```cli
 nuget restore <projectPath> [options]
 ```
 
-Burada `<projectPath>` bir çözüm konumunu belirten bir `packages.config` dosya, veya bir `project.json` dosya. Bkz: [açıklamalar](#remarks) aşağıda davranış Ayrıntılar için.
+Burada `<projectPath>` bir çözüm konumunu belirtir veya `packages.config` dosyası. Bkz: [açıklamalar](#remarks) aşağıda davranış Ayrıntılar için.
 
 ## <a name="options"></a>Seçenekler
 
@@ -61,7 +56,7 @@ Burada `<projectPath>` bir çözüm konumunu belirten bir `packages.config` dosy
 | RequireConsent | Paketleri geri indirme ve yükleme paketleri önce etkin olduğunu doğrular. Ayrıntılar için bkz [paketi geri yüklemesi](../consume-packages/package-restore.md). |
 | SolutionDirectory | Çözüm klasörü belirtir. Bir çözüm için paketleri geri yüklenirken geçerli değil. |
 | Kaynak | Paket kaynaklarını listesini geri yüklemek için kullanılacak (URL'ler olarak) belirtir. Belirtilmezse, komut yapılandırma dosyalarında sağlanan kaynakları kullanır, bkz: [NuGet yapılandırma davranışı](../Consume-Packages/Configuring-NuGet-Behavior.md). |
-| Ayrıntı Düzeyi |> çıktıda görüntülenen ayrıntı miktarını belirtir: *normal*, *sessiz*, *(2.5 +) ayrıntılı*. |
+| Ayrıntı Düzeyi |> çıktıda görüntülenen ayrıntı miktarını belirtir: *normal*, *sessiz*, *ayrıntılı*. |
 
 Ayrıca bkz. [ortam değişkenleri](cli-ref-environment-variables.md)
 
@@ -74,15 +69,14 @@ Restore komutu aşağıdaki adımları gerçekleştirir:
     | --- | --- |
     Çözüm (klasör) | NuGet arar bir `.sln` dosya ve aksi takdirde bir hata verir kullanır. `(SolutionDir)\.nuget`Başlangıç klasörü olarak kullanılır.
     `.sln`Dosya | Çözümü tarafından tanımlanan paketler geri; bir hata durumunda verir `-SolutionDirectory` kullanılır. `$(SolutionDir)\.nuget`Başlangıç klasörü olarak kullanılır.
-    `packages.config`, `project.json`, ya da proje dosyası | Çözümleme ve bağımlılıkları yükleme dosyasında listelenen paketler geri yükleyin.
+    `packages.config`ya da proje dosyası | Çözümleme ve bağımlılıkları yükleme dosyasında listelenen paketler geri yükleyin.
     Başka bir dosya türü | Dosya olduğu varsayılır bir `.sln` dosya olarak yukarıdaki; yoksa bir çözüm, bir hata NuGet sağlar.
     (belirtilmezse projectPath) | -NuGet geçerli klasörde çözüm dosyalarını arar. Tek bir dosyada bulunursa, bir paketlerini geri yüklemek için kullanılır; birden çok çözüm bulunursa, NuGet hata verir.
-    |-Hiçbir çözüm dosya varsa, NuGet arayan bir `packages.config` veya `project.json` ve bunu paketlerini geri yüklemek için kullanır.
-    |-Çözüm dosyası yok varsa, `packages.config`, veya `project.json` bulunduğunda NuGet hata verir.
+    |-Hiçbir çözüm dosya varsa, NuGet arayan bir `packages.config` ve bunu paketlerini geri yüklemek için kullanır.
+    |-Çözüm Eğer veya `packages.config` dosya bulunduğunda, NuGet hata verir.
 
 1. (Hiçbiri bu klasörlerin bulunmazsa NuGet hata verir) aşağıdaki öncelik sırasını kullanarak paketler klasörü belirleyin:
 
-    - `%userprofile%\.nuget\packages` Değeri `project.json`.
     - İle belirtilen klasör `-PackagesDirectory`.
     - `repositoryPath` Hyperlink içinde`Nuget.Config`
     - İle belirtilen klasör`-SolutionDirectory`
@@ -95,7 +89,7 @@ Restore komutu aşağıdaki adımları gerçekleştirir:
 
 ## <a name="examples"></a>Örnekler
 
-```
+```cli
 # Restore packages for a solution file
 nuget restore a.sln
 

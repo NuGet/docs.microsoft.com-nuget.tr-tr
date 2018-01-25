@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: b514da09-da1f-416b-9bfc-692f08fb6957
 description: "Bilinen sorunlar, hata düzeltmeleri, eklenen özellikleri ve dcr NuGet 3.4.2 dahil etmek için sürüm notları."
 keywords: "Özellikler, dcr bilinen sorunlar, NuGet 3.4.2 sürüm notları, hata düzeltmeleri eklendi"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6761c59b6dc85b9a8503041928c2707549006d9c
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 892a965e67762af2ae42c2d6ee75d2838104d1c2
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-342-release-notes"></a>NuGet 3.4.2 sürüm notları
 
@@ -36,7 +35,7 @@ Nuget.exe 3.4.2 Sürüm Adayı'na indirebilirsiniz [burada](https://dist.nuget.o
 * Bu değişiklik ek olarak, size iki kez güncelleştirme getirme sayısı, VS Arabiriminde nerede biz ağ basarsa bir sorunu düzelttikten. Bazı zaman aşımı sorunları müşteriler 3.4/3.4.1 deneyimli kısmen sorumlu.
 * No_proxy ayarı desteği eklendi
 
-##<a name="fixes"></a>Düzeltmeler
+## <a name="fixes"></a>Düzeltmeler
 
 * Nuget.org kaynak için 3.4.1 güncelleştirdikten sonra NuGet ayarları veya yapılandırma eksik olduğu bir sorun düzeltilmiştir.
 * Bir sorun nerede 3.4.1 FindPackagesById için büyük/küçük harf değişikliği Artifactory keser sabit.

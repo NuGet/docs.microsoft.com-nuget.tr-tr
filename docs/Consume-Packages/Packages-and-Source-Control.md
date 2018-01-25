@@ -3,21 +3,20 @@ title: NuGet paketleri ve kaynak denetimi | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 7/17/2017
+ms.date: 07/17/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 2c874e6f-99eb-46dd-997f-f67d98d0237e
 description: "Sürüm denetimi ve kaynak denetim sistemleri içindeki NuGet paketleri kabul etme ve git ve TFVC'yi paketlerle atlayın durumları."
 keywords: "Depoları NuGet kaynak denetimi, NuGet sürüm denetimi, NuGet ve git, NuGet ve TFS, NuGet ve TFVC'yi, atlama paketleri, kaynak denetimi depoları, sürüm denetimi"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c73dea74f2363f49fb476a5812c29de63fec89a3
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 274492f2b1d05c781dadaab70cdc7d281549d002
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="omitting-nuget-packages-in-source-control-systems"></a>Kaynak Denetim sistemleri NuGet paketlerini atlama
 
@@ -38,7 +37,7 @@ Kullanım [.gitignore dosyası](https://git-scm.com/docs/gitignore) eklenmesini 
 
 Önemli kısımlarını `.gitignore` dosyası:
 
-```
+```gitignore
 # Ignore NuGet Packages
 *.nupkg
 
@@ -85,9 +84,9 @@ Seçili dosyaları için TFVC'yi kaynak denetimi tümleştirmesi devre dışı b
 
 1. TFS 2012 veya sonraki sürümünü veya Visual Studio Team Services ile oluşturma bir `.tfignore` dosya açıklandığı gibi [AddFiles sunucuya](https://www.visualstudio.com/en-us/docs/tfvc/add-files-server#tfignore). Bu dosyada yapılan değişiklikler açıkça yoksaymak için aşağıdaki içerik `\packages` depo düzeyi ve diğer birkaç Ara dosyaları klasörü. (Dosya adını kullanarak Windows Gezgini'nde oluşturabileceğiniz bir `.tfignore.` sondaki noktayı, ancak ile devre dışı bırakmak için "Bilinen dosya uzantılarını gizle" ilk seçenek.):
 
-   ```
+   ```cli
    # Ignore NuGet Packages
-   *.nupkg   
+   *.nupkg
 
    # Ignore the NuGet packages folder in the root of the repository. If needed, prefix 'packages'
    # with additional folder names if it's not in the same folder as .tfignore.   

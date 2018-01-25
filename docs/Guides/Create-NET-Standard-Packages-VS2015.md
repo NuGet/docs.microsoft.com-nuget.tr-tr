@@ -3,21 +3,20 @@ title: "Visual Studio 2015 ile birlikte .NET standart NuGet paketlerini oluştur
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 1/9/2017
+ms.date: 01/09/2017
 ms.topic: get-started-article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 29b3bceb-0f35-4cdd-bbc3-a04eb823164c
 description: "NuGet kullanarak .NET standart NuGet paketleri oluşturma bir uçtan uca Kılavuz 3.x ve Visual Studio 2015."
 keywords: "bir paket, .NET standart paketler, .NET standart eşleme tablosu oluşturma"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: e02888bf552997afe25e967f13e021e78e40d48d
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 24089eba93d80dca32632a8c1e174aef849ee72d
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="create-net-standard-packages-with-visual-studio-2015"></a>Visual Studio 2015 ile .NET standart paketleri oluşturma
 
@@ -35,7 +34,6 @@ Bu kılavuz .NET standart kitaplığı 1.4 hedefleyen bir nuget paketi oluşturm
 1. [.NET standart eşleme tablosu](#net-standard-mapping-table)
 1. [İlgili Konular](#related-topics)
 
-
 ## <a name="pre-requisites"></a>Ön koşullar
 
 1. Visual Studio 2015. Community edition ücretsiz yükleyin [visualstudio.com](https://www.visualstudio.com/); Elbette Professional ve Enterprise sürümleri de kullanabilirsiniz.
@@ -45,8 +43,6 @@ Bu kılavuz .NET standart kitaplığı 1.4 hedefleyen bir nuget paketi oluşturm
 > [!Note]
 > nuget.exe CLI aracı kendisini bir yükleyici nedenle bunu çalıştırmak yerine tarayıcınızdan indirilen dosyayı kaydettiğinizden emin olur.
 
-
-
 ## <a name="create-the-class-library-project"></a>Sınıf kitaplığı proje oluşturma
 
 1. Visual Studio'da **Dosya > Yeni > Proje**, genişletin **Visual C# > Windows** düğümü, select **sınıf kitaplığı (taşınabilir)**AppLogger için adı değiştirin ve Tamam'ı tıklatın.
@@ -54,11 +50,13 @@ Bu kılavuz .NET standart kitaplığı 1.4 hedefleyen bir nuget paketi oluşturm
     ![Yeni sınıf kitaplığı proje oluşturma](media/NetStandard-NewProject.png)
 
 1. İçinde **taşınabilir sınıf kitaplığı eklemek** görünen seçin iletişim `.NET Framework 4.6` ve `ASP.NET Core 1.0` seçenekleri.
+
 1. Sağ `AppLogger (Portable)` Çözüm Gezgini'nde seçin **özellikleri**seçin **Kitaplığı** sekmesini ve ardından **hedef .NET Platform standardını** içinde**Hedefleme** bölümü. Bu daha sonra seçebileceğiniz onaylama için ister `.NET Standard 1.4` açılır:
 
     ![Hedef .NET standart 1.4 ayarlama](media/NetStandard-ChangeTarget.png)
 
 1. Tıklayın **yapı** sekmesinde, değiştirmek **yapılandırma** için `Release`ve için kutuyu **XML belge dosyası**.
+
 1. Kodunuzu bileşenine örneğin ekleyin:
 
     ```cs
@@ -80,7 +78,7 @@ Bu kılavuz .NET standart kitaplığı 1.4 hedefleyen bir nuget paketi oluşturm
 
 1. Bir komut istemi açın, içeren klasöre gidin `AppLogg.csproj` klasörü (bir düzey altındaki where `.sln` dosyası), NuGet çalıştırıp `spec` ilk oluşturmak için komutu `AppLogger.nuspec` dosyası:
 
-```
+```cli
 nuget spec
 ```
 
@@ -116,12 +114,11 @@ nuget spec
 
 1. Çözüme sağ tıklayın ve seçin **yapı çözümü** bir paket için tüm dosyaları oluşturmak için.
 
-
 ## <a name="package-the-component"></a>Paket bileşeni
 
 Tamamlanan ile `.nuspec` pakete eklemek için gereken tüm dosyaları başvuran, çalıştırmak hazırsınız `pack` komutu:
 
-```
+```cli
 nuget pack AppLogger.nuspec
 ```
 
@@ -205,11 +202,8 @@ Bu yöntemi kullanma hakkında daha fazla ayrıntı için bkz: [destekleyen bird
 
 Bazı durumlarda özel aracın veya işlemin derleme sırasında çalıştırma gibi paketinizi tüketen projelerine özel derleme hedefler ya da özellikleri eklemek isteyebilirsiniz. Dosyaları ekleyerek bunu bir `\build` aşağıdaki adımlarda açıklandığı gibi klasör. NuGet \build dosyalarıyla bir paketi yüklendiğinde, .targets ve .props dosyalarını işaret proje dosyasında bir MSBuild öğe ekler.
 
-> [!Note]
-> Kullanırken `project.json`, hedefleri projeye eklenmez ancak kullanılabilir hale getirilir `project.lock.json`.
-
-
 1. Projeyi içeren klasörün içinde, `.nuspec` adlı bir klasör oluşturun, dosya `build`.
+
 1. İçinde `build`, desteklenen her için klasörler oluşturmanız ve içinde bulunanlar yerleştirin, `.targets` ve `.props` dosyaları:
 
         \build
@@ -236,7 +230,6 @@ Bazı durumlarda özel aracın veya işlemin derleme sırasında çalıştırma 
 1. Kullanarak yeniden paketi oluşturma `nuget pack AppLogger.nuspec`.
 
 Ek ayrıntılar için başvurmak [dahil MSBuild özellik ve paketteki hedefleri](../create-packages/creating-a-package.md#including-msbuild-props-and-targets-in-a-package).
-
 
 ### <a name="creating-localized-packages"></a>Yerelleştirilmiş paketleri oluşturma
 
@@ -283,14 +276,12 @@ Yerelleştirilmiş sürümleri kitaplığınızın oluşturmak için farklı yer
 
 1. Kullanarak yeniden paketi oluşturma `nuget pack AppLogger.nuspec`.
 
-
 ### <a name="adding-a-readme"></a>Bir benioku dosyası ekleme
 
 Dahil ettiğinizde bir `readme.txt` paketi, Visual Studio kök dosyasında görüntüler, paket doğrudan yüklendiğinde.
 
 > [!Note]
 > Bağımlılık olarak yüklü olan paketler için veya .NET Core projeleri için Benioku dosyaları gösterilmez.
-
 
 Bunu yapmak için oluşturmak, `readme.txt` dosya, bu proje kök klasöre yerleştirin ve kendisine başvuran `.nuspec` dosyası:
 
@@ -305,21 +296,18 @@ Bunu yapmak için oluşturmak, `readme.txt` dosya, bu proje kök klasöre yerle�
 </package>
 ```
 
-
 ## <a name="net-standard-mapping-table"></a>.NET standart eşleme tablosu
 
 |Platform adı |Alias|
 |--------------|-----|
-|.NET standart | netstandard| 1.0| 1.1| 1.2| 1.3| 1.4| 1,5| 1.6|
+|.NET Standard | netstandard| 1.0| 1.1| 1.2| 1.3| 1.4| 1,5| 1.6|
 |.NET Core | netcoreapp| &#x2192;| &#x2192;| &#x2192;| &#x2192;| &#x2192;| &#x2192;| 1.0|
-|.NET Framework| NET| 4,5| 4.5.1| 4.6| 4.6.1| 4.6.2| 4.6.3|
+|.NET Framework| net| 4,5| 4.5.1| 4.6| 4.6.1| 4.6.2| 4.6.3|
 |Mono/Xamarin platformları| &#x2192;| &#x2192;| &#x2192;| &#x2192;| &#x2192;| &#x2192;|
 |Evrensel Windows Platformu| uap| &#x2192;| &#x2192;| &#x2192;| &#x2192;|10.0|
 |Windows| Win| &#x2192;| 8.0| 8.1|
-|Windows Phone| WPA| &#x2192;| &#x2192;|8.1|
-|Windows Phone Silverlight| WB| 8.0|
-
-
+|Windows Phone| wpa| &#x2192;| &#x2192;|8.1|
+|Windows Phone Silverlight| wp| 8.0|
 
 ## <a name="related-topics"></a>İlgili konular
 

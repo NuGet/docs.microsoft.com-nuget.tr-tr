@@ -7,19 +7,18 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 0b76064f-0607-438a-bbf8-dd862690f48e
 description: "NuGet 3.5 Beta 2 bilinen sorunlar, hata düzeltmeleri, eklenen özellikleri ve dcr dahil için sürüm notları."
 keywords: "Özellikler, dcr bilinen sorunlar, NuGet 3.5 Beta 2 sürüm notları, hata düzeltmeleri eklendi"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6dd388e52308d2f3cd32d4d6c66c2868f0ae2a41
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 4073b669c19f9e96ebd35ba269919b5f42313e7c
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
-# <a name="35-beta2-release-notes"></a>3.5 Beta2 sürüm notları
+# <a name="nuget-35-beta2-release-notes"></a>NuGet 3.5 Beta2 sürüm notları
 
 [NuGet 3.5 Beta sürüm notları](../release-notes/nuget-3.5-Beta.md) | [NuGet 3.5 RC sürüm notları](../release-notes/nuget-3.5-RC.md)
 
@@ -28,8 +27,6 @@ NuGet 3.5 Beta 2 RTM, 27 Haziran 2016 Visual Studio 2013 ve nuget.exe için yay�
 [Tam bir değişim günlüğü](https://github.com/NuGet/NuGet.Client/compare/release-3.5.0-beta...release-3.5.0-beta2)
 
 [Konu listesi](https://github.com/Nuget/Home/issues?q=is%3Aissue+milestone%3A%223.5+Beta2%22+is%3Aclosed)
-
-# <a name="notable-changes"></a>Önemli değişiklikleri
 
 ## <a name="bug-fixes"></a>Hata Düzeltmeleri
 
@@ -89,7 +86,7 @@ NuGet 3.5 Beta 2 RTM, 27 Haziran 2016 Visual Studio 2013 ve nuget.exe için yay�
 
 ## <a name="features-and-behavior-changes"></a>Özellikler ve davranış değişiklikleri
 
-* nuget.exe push - zaman aşımı parametresi işe yaramazsa - [#2785](https://github.com/NuGet/Home/issues/2785)
+* nuget.exe push - timeout parameter doesn't work  - [#2785](https://github.com/NuGet/Home/issues/2785)
 
 * değil nuget.exe geri yükleme üretmek `.props` ve `.targets` dosyalarını `.nuproj` projeleri (v3.4.3.855 gerileme) - [#2711](https://github.com/NuGet/Home/issues/2711)
 

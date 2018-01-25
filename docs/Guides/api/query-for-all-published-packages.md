@@ -7,21 +7,20 @@ ms.author:
 - joelverhagen
 - kraigb
 manager: skofman
-ms.date: 11/2/2017
+ms.date: 11/02/2017
 ms.topic: get-started-article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 5d017cd4-3d75-4341-ba90-3c57be093b7d
 description: "NuGet API'yi kullanarak nuget.org için yayımlanan tüm paketler için sorgu ve zaman içinde güncel kalın."
 keywords: "NuGet API listeleme tüm paketleri, NuGet API çoğaltma paketleri nuget.org için en son paketler yayımlandı"
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 5559a7cd104861b1a10aa8d1513696e609c51c15
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: eb5374916f1afcd7a6758b3af03fd2abb88332c1
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="query-for-all-packages-published-to-nugetorg"></a>Nuget.org için yayımlanan tüm paketler için sorgu
 
@@ -64,27 +63,21 @@ DateTime cursor = DateTime.UtcNow.AddHours(-1);
 
 Kullanarak her kaynağın (Bitiş) NuGet API'sindeki konumu bulunmasına [Hizmeti dizini](../../api/service-index.md). Bu kılavuz nuget.org üzerinde odaklanmıştır olduğundan, biz nuget.org Hizmeti dizini kullanırsınız.
 
-```
-GET https://api.nuget.org/v3/index.json
-```
+    GET https://api.nuget.org/v3/index.json
 
-Hizmet belgesini nuget.org üzerinde kaynakların tümünü içeren JSON belgedir. Kaynak sahip Ara `@type` özellik değerinin `Catalog/3.0.0`. İlişkili `@id` özellik değeri olan katalog dizinini URL'si.
+Hizmet belgesini nuget.org üzerinde kaynakların tümünü içeren JSON belgedir. Kaynak sahip Ara `@type` özellik değerinin `Catalog/3.0.0`. İlişkili `@id` özellik değeri olan katalog dizinini URL'si. 
 
 ## <a name="find-new-catalog-leaves"></a>Yeni Katalog bırakır Bul
 
 Kullanarak `@id` özellik değeri önceki adımda bulundu indirmek katalog dizini:
 
-```
-GET https://api.nuget.org/v3/catalog0/index.json
-```
+    GET https://api.nuget.org/v3/catalog0/index.json
 
 Seri durumdan [katalog dizinini](../../api/catalog-resource.md#catalog-index). Tüm filtre [sayfa nesneleri katalog](../../api/catalog-resource.md#catalog-page-object-in-the-index) ile `commitTimeStamp` değerinden küçük veya eşit, geçerli imleç.
 
 Kullanarak tam belgenin geri kalan her katalog sayfası karşıdan `@id` özelliği.
 
-```
-GET https://api.nuget.org/v3/catalog0/page2926.json
-```
+    GET https://api.nuget.org/v3/catalog0/page2926.json
 
 Seri durumdan [katalog sayfası](../../api/catalog-resource.md#catalog-page). Tüm filtre [yaprak nesneleri katalog](../../api/catalog-resource.md#catalog-item-object-in-a-page) ile `commitTimeStamp` değerinden küçük veya eşit, geçerli imleç.
 
@@ -96,9 +89,7 @@ Bu noktada, katalog öğeleri istediğiniz herhangi bir özel işlem gerçekleş
 
 Meta verileri (Açıklama, bağımlılıkları, .nupkg boyutu, vb. gibi) paket hakkında ilgileniyorsanız getirebilirsiniz [katalog yaprak belge](../../api/catalog-resource.md#catalog-leaf) kullanarak `@id` özelliği.
 
-```
-GET https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.storage.1.0.0.json
-```
+    GET https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.storage.1.0.0.json
 
 Bu belgede bulunan meta verileri tümünün [paketini meta veri kaynağı](../../api/registration-base-url-resource.md)ve daha fazlası!
 
@@ -122,14 +113,13 @@ Katalog HTTP üzerinden bir dizi JSON belgeleri kullanılabilir olduğundan, bir
 
 C# örnekleri kullanılabilir [NuGet/Samples depo](https://github.com/NuGet/Samples/tree/master/CatalogReaderExample).
 
-```
+```cli
 git clone https://github.com/NuGet/Samples.git
 ```
 
 ### <a name="catalog-sdk"></a>SDK katalog
 
-Katalog kullanmak için en kolay yolu, yayın öncesi .NET katalog SDK paketini kullanmaktır: [NuGet.Protocol.Catalog](https://dotnet.myget.org/feed/nuget-build/package/nuget/NuGet.Protocol.Catalog).
-Bu paket edinilebilir `nuget-build` akış, MyGet NuGet paket kaynağı URL'sini kullandığınız `https://dotnet.myget.org/F/nuget-build/api/v3/index.json`.
+Katalog kullanmak için en kolay yolu, yayın öncesi .NET katalog SDK paketini kullanmaktır: [NuGet.Protocol.Catalog](https://dotnet.myget.org/feed/nuget-build/package/nuget/NuGet.Protocol.Catalog). Bu paket edinilebilir `nuget-build` akış, MyGet NuGet paket kaynağı URL'sini kullandığınız `https://dotnet.myget.org/F/nuget-build/api/v3/index.json`.
 
 İle uyumlu bir proje için bu paketi yükleyebilirsiniz `netstandard1.3` ya da (örneğin, .NET Framework 4.6) büyük.
 
@@ -137,7 +127,7 @@ Bu paketi kullanan bir örnek github'da kullanılabilir [NuGet.Protocol.Catalog.
 
 #### <a name="sample-output"></a>Örnek çıktı
 
-```
+```output
 2017-11-10T22:16:44.8689025+00:00: Found package details leaf for xSkrape.APIWrapper.REST 1.0.2.
 2017-11-10T22:16:54.6972769+00:00: Found package details leaf for xSkrape.APIWrapper.REST 1.0.1.
 2017-11-10T22:19:20.6385542+00:00: Found package details leaf for Platform.EnUnity 1.0.8.
@@ -171,14 +161,13 @@ warn: NuGet.Protocol.Catalog.CatalogProcessor[0]
 
 ### <a name="minimal-sample"></a>En az örnek
 
-Daha fazla ayrıntı kataloğunda etkileşim gösteren bir örnek için daha az bağımlılıkları, bkz: [CatalogReaderExample örnek proje](https://github.com/NuGet/Samples/tree/master/CatalogReaderExample/CatalogReaderExample).
-Proje hedefleri `netcoreapp2.0` ve bağımlı [NuGet.Protocol 4.4.0](https://www.nuget.org/packages/NuGet.Protocol/4.4.0) (için hizmeti dizini çözme) ve [Newtonsoft.Json 9.0.1](https://www.nuget.org/packages/Newtonsoft.Json/9.0.1) (için JSON seri durumundan çıkarma).
+Daha fazla ayrıntı kataloğunda etkileşim gösteren bir örnek için daha az bağımlılıkları, bkz: [CatalogReaderExample örnek proje](https://github.com/NuGet/Samples/tree/master/CatalogReaderExample/CatalogReaderExample). Proje hedefleri `netcoreapp2.0` ve bağımlı [NuGet.Protocol 4.4.0](https://www.nuget.org/packages/NuGet.Protocol/4.4.0) (için hizmeti dizini çözme) ve [Newtonsoft.Json 9.0.1](https://www.nuget.org/packages/Newtonsoft.Json/9.0.1) (için JSON seri durumundan çıkarma).
 
 Kod ana mantığı görünür [Program.cs dosyasının](https://github.com/NuGet/Samples/blob/master/CatalogReaderExample/CatalogReaderExample/Program.cs).
 
 #### <a name="sample-output"></a>Örnek çıktı
 
-```
+```output
 No cursor found. Defaulting to 11/2/2017 9:41:28 PM.
 Fetched catalog index https://api.nuget.org/v3/catalog0/index.json.
 Fetched catalog page https://api.nuget.org/v3/catalog0/page2935.json.

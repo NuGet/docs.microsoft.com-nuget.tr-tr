@@ -3,35 +3,26 @@ title: "NuGet paketi ve geri yükleme MSBuild hedefleri olarak | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 4/3/2017
+ms.date: 04/03/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 86f7e724-2509-4d7d-aa8d-4a3fb913ded6
 description: "NuGet paketi ve geri yükleme, doğrudan NuGet 4.0 + ile MSBuild hedefleri olarak çalışabilir."
 keywords: "NuGet ve MSBuild, NuGet paketi hedef, NuGet geri yükleme hedefi"
 ms.reviewer: karann-msft
-ms.openlocfilehash: d4778a21a96de6d76d7a20ff9a305960dd6c2bf1
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 169d73709eeb17aade7d99da66bbb4f346f8093f
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet paketi ve MSBuild hedefleri olarak geri yükleme
 
-*NuGet 4.0 +*
+*NuGet 4.0+*
 
-NuGet 4.0 +, bilgileri ile doğrudan çalışabilir bir `.csproj` ayrı bir gerektirmeden dosya `.nuspec` veya `project.json` dosyası. Bu yapılandırma dosyaları daha önce depolanan tüm meta veriler yerine depolanabilir `.csproj` doğrudan, burada açıklandığı gibi dosya.
+PackageReference biçimiyle NuGet 4.0 + doğrudan ayrı bir kullanmak yerine bir proje dosyası içinde tüm bildirim meta veri depolayabilirsiniz `.nuspec` dosya.
 
 MSBuild ile 15.1 +, NuGet birinci sınıf MSBuild vatandaşı ile aynı zamanda olan `pack` ve `restore` aşağıda açıklandığı gibi hedefler. Bu hedeflerde, diğer MSBuild görev veya hedef ile olduğu gibi NuGet ile çalışmanıza olanak sağlar. (NuGet için 3.x ve daha önce kullandığınız [paketi](../tools/cli-ref-pack.md) ve [geri](../tools/cli-ref-restore.md) NuGet CLI aracılığıyla yerine komutları.)
-
-Bu konuda:
-
-- [Hedef derleme sırası](#target-build-order)
-- [paketi hedef](#pack-target)
-- [Paketi senaryoları](#pack-scenarios)
-- [geri yükleme hedefi](#restore-target)
-- [PackageTargetFallback](#packagetargetfallback)
 
 ## <a name="target-build-order"></a>Hedef derleme sırası
 
@@ -50,26 +41,25 @@ Benzer şekilde, bir MSBuild görev yazabileceğiniz, kendi hedef yazma ve MSBui
 
 ## <a name="pack-target"></a>paketi hedef
 
-Diğer bir deyişle, paketi hedef kullanırken `msbuild /t:pack`, MSBuild çizer girdilerinden gelen `.csproj` dosya yerine `project.json` veya `.nuspec` dosyaları. Aşağıdaki tabloda eklenebilir MSBuild özellikleri açıklanmaktadır bir `.csproj` ilk dosyasında `<PropertyGroup>` düğümü. Bu düzenlemeler kolayca Visual Studio 2017 ve daha sonra projeye sağ tıklayıp seçerek yapabileceğiniz **{project_name} Düzenle** bağlam menüsünde. Kolaylık olması için tablo eşdeğer özelliği tarafından düzenlenir bir [ `.nuspec` dosya](../schema/nuspec.md).
+Diğer bir deyişle, paketi hedef kullanırken `msbuild /t:pack`, MSBuild proje dosyasından girdilerinden çizer. Proje dosyası içinde ilk eklenebilir MSBuild özellikler aşağıdaki tabloda açıklanmıştır `<PropertyGroup>` düğümü. Bu düzenlemeler kolayca Visual Studio 2017 ve daha sonra projeye sağ tıklayıp seçerek yapabileceğiniz **{project_name} Düzenle** bağlam menüsünde. Kolaylık olması için tablo eşdeğer özelliği tarafından düzenlenir bir [ `.nuspec` dosya](../schema/nuspec.md).
 
 Unutmayın `Owners` ve `Summary` özelliklerinden `.nuspec` MSBuild ile desteklenmez.
 
-
 | Öznitelik/NuSpec değeri | MSBuild özelliği | Varsayılan | Notlar |
 |--------|--------|--------|--------|
-| Kimliği | Paket kimliği | AssemblyName | MSBuild gelen $(AssemblyName) |
+| Kimliği | PackageId | AssemblyName | MSBuild gelen $(AssemblyName) |
 | Sürüm | PackageVersion | Sürüm | Bu semver örnek "1.0.0", "1.0.0-beta" veya "1.0.0-beta-00345" için uyumlu değil |
-| VersionPrefix | PackageVersionPrefix | empty | PackageVersion ayarı PackageVersionPrefix üzerine yazar |
-| VersionSuffix | PackageVersionSuffix | empty | MSBuild gelen $(VersionSuffix). PackageVersion ayarı PackageVersionSuffix üzerine yazar | 
+| VersionPrefix | PackageVersionPrefix | empty | PackageVersionPrefix PackageVersion ayarını geçersiz kılar |
+| VersionSuffix | PackageVersionSuffix | empty | MSBuild gelen $(VersionSuffix). PackageVersionSuffix PackageVersion ayarını geçersiz kılar |
 | Yazarlar | Yazarlar | Geçerli kullanıcının kullanıcı adı | |
 | Sahipleri | Yok | NuSpec içinde mevcut olmayan | |
 | Başlık | Başlık | Paket kimliği| |
 | Açıklama | Açıklama | "Paketi" | |
 | Telif Hakkı | Telif Hakkı | empty | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | false | |
-| licenseUrl | PackageLicenseUrl | empty | |
-| projectUrl | PackageProjectUrl | empty | |
-| iconUrl | PackageIconUrl | empty | |
+| LicenseUrl | PackageLicenseUrl | empty | |
+| ProjectUrl | PackageProjectUrl | empty | |
+| IconUrl | PackageIconUrl | empty | |
 | Etiketler | PackageTags | empty | Etiketleri noktalı virgülle ayrılmış olan. |
 | ReleaseNotes | PackageReleaseNotes | empty | |
 | RepositoryUrl | RepositoryUrl | empty | |
@@ -77,12 +67,11 @@ Unutmayın `Owners` ve `Summary` özelliklerinden `.nuspec` MSBuild ile destekle
 | PackageType | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
 | Özet | Desteklenmez | | |
 
-
 ### <a name="pack-target-inputs"></a>paketi hedef girişleri
 
 - IsPackable
 - PackageVersion
-- Paket kimliği
+- PackageId
 - Yazarlar
 - Açıklama
 - Telif Hakkı
@@ -158,7 +147,7 @@ Ayrıca, aşağıdaki meta verileri, proje başvurusu ekleyebilirsiniz:
 Varsayılan olarak, her şeyi köküne eklenen `content` ve `contentFiles\any\<target_framework>` bir paket ve korur klasördeki göreli klasör yapısı, bir paket yolu belirtmediğiniz sürece:
 
 ```xml
-<Content Include="..\win7-x64\libuv.txt">        
+<Content Include="..\win7-x64\libuv.txt">
     <Pack>true</Pack>
     <PackagePath>content\myfiles\</PackagePath>
 </Content>
@@ -179,9 +168,8 @@ Ayrıca bir MSBuild özelliği olan `$(IncludeContentInPack)`, varsayılan olara
 
 Yukarıdaki öğelerin hiçbirinde ayarlayabilirsiniz diğer paketi belirli meta verileri içeren ```<PackageCopyToOutput>``` ve ```<PackageFlatten>``` hangi kümeleri ```CopyToOutput``` ve ```Flatten``` üzerinde değerleri ```contentFiles``` çıkış nuspec girişi.
 
-
 > [!Note]
-> İçerik öğeleri dışında `<Pack>` ve `<PackagePath>` meta verileri de ayarlanabilir derleme, EmbeddedResource, ApplicationDefinition, sayfa, kaynak, KarşılamaEkranı, DesignData, DesignDataWithDesignTimeCreatableTypes, yapı eylemiyle dosyalarda CodeAnalysisDictionary, AndroidAsset, AndroidResource, BundleResource veya yok.
+> İçerik öğeleri dışında `<Pack>` ve `<PackagePath>` meta verileri de ayarlanabilir derleme, EmbeddedResource, ApplicationDefinition, sayfa, kaynak, KarşılamaEkranı, DesignData, DesignDataWithDesignTimeCreateableTypes yapı eylemiyle dosyalarda , CodeAnalysisDictionary, AndroidAsset, AndroidResource, BundleResource veya yok.
 >
 > Dosya adı, paket yolu genelleme desenleri kullanırken eklenecek paketi için paket yolu paket yoluyla dosya adını içeren tam yol kabul edilir klasör ayırıcı karakter, aksi takdirde ile bitmesi gerekir.
 
@@ -209,13 +197,13 @@ Kullanabileceğiniz bir `.nuspec` içeri aktarmak için bir proje dosyasına sah
 
 Kullanıyorsanız `dotnet.exe` projenizi paketi için bir komut aşağıdaki gibi kullanın:
 
-```
+```cli
 dotnet pack <path to .csproj file> /p:NuspecFile=<path to nuspec file> /p:NuspecProperties=<> /p:NuspecBasePath=<Base path> 
 ```
 
 MSBuild projenizi Paketi kullanıyorsanız, aşağıdaki gibi bir komutu kullanın:
 
-```
+```cli
 msbuild /t:pack <path to .csproj file> /p:NuspecFile=<path to nuspec file> /p:NuspecProperties=<> /p:NuspecBasePath=<Base path> 
 ```
 
@@ -229,7 +217,6 @@ msbuild /t:pack <path to .csproj file> /p:NuspecFile=<path to nuspec file> /p:Nu
 1. Geri yükleme çalıştırma
 1. Paketleri indirin
 1. Varlıklar dosya, hedefleri ve özellik yazma
-
 
 ### <a name="restore-properties"></a>Özellikler geri yükleme
 
@@ -247,11 +234,11 @@ Ek geri yükleme ayarlarını MSBuild proje dosyası özelliklerinde alınması.
 | RestoreGraphProjectInput | Mutlak yollar içermesi gereken geri yüklemek için projeleri noktalı virgülle ayrılmış listesi. |
 | RestoreOutputPath | Çıkış klasörüne varsayarak, `obj` klasörü. |
 
-**Örnekler**
+#### <a name="examples"></a>Örnekler
 
 Komut satırı:
 
-```
+```cli
 msbuild /t:restore /p:RestoreConfigFile=<path>
 ```
 
@@ -273,10 +260,9 @@ Geri yükleme yapı aşağıdaki dosyaları oluşturur `obj` klasörü:
 | `{projectName}.projectFileExtension.nuget.g.props` | MSBuild özellik paketlerinde bulunan başvurular |
 | `{projectName}.projectFileExtension.nuget.g.targets` | MSBuild hedefleri paketlerinde bulunan başvurular |
 
+### <a name="packagetargetfallback"></a>PackageTargetFallback
 
-### <a name="packagetargetfallback"></a>PackageTargetFallback 
-
-`PackageTargetFallback` Öğesi paketleri geri yüklenirken kullanılacak uyumlu hedefleri kümesi belirtmenize olanak verir (denk [ `imports` içinde `project.json` ](../schema/project-json.md#imports)). Bir dotnet kullanmak paketleri izin vermek için tasarlanmış [TxM](../schema/target-frameworks.md) dotnet TxM bildirmeyin uyumlu paketlerle çalışmak için. Projeniz TxM dotnet kullanıyorsa, eklediğiniz sürece diğer bir deyişle, daha sonra bağlı olduğu gereken üzerinde de tüm paketler dotnet TxM, olması `<PackageTargetFallback>` dotnet ile uyumlu olacak şekilde dotnet olmayan platformları izin vermek üzere projenize. 
+`PackageTargetFallback` Öğesi paketleri geri yüklenirken kullanılacak uyumlu hedefleri kümesi belirtmenize olanak sağlar. Bir dotnet kullanmak paketleri izin vermek için tasarlanmış [TxM](../schema/target-frameworks.md) dotnet TxM bildirmeyin uyumlu paketlerle çalışmak için. Projeniz TxM dotnet kullanıyorsa, eklediğiniz sürece diğer bir deyişle, daha sonra bağlı olduğu gereken üzerinde de tüm paketler dotnet TxM, olması `<PackageTargetFallback>` dotnet ile uyumlu olacak şekilde dotnet olmayan platformları izin vermek üzere projenize.
 
 Proje kullanıyorsa, örneğin, `netstandard1.6` TxM ve bağımlı paketi içeren yalnızca `lib/net45/a.dll` ve `lib/portable-net45+win81/a.dll`, projeyi oluşturmak başarısız olur. Getirileceğini istediğiniz ikinci DLL'dir sonra ekleyebileceğiniz bir `PackageTargetFallback` gibi söylemek için `portable-net45+win81` DLL uyumludur:
 
@@ -293,7 +279,6 @@ Projenizdeki tüm hedefler için bir geri dönüş bildirmek için devre dışı
     $(PackageTargetFallback);portable-net45+win81
 </PackageTargetFallback >
 ```
-
 
 ### <a name="replacing-one-library-from-a-restore-graph"></a>Bir geri yükleme grafik bir kitaplıktan değiştirme
 

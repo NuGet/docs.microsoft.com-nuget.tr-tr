@@ -3,21 +3,20 @@ title: "NuGet ekosistemine genel bakış | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 1/9/2017
+ms.date: 01/18/2018
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 8971dcf5-1d05-46e1-adf2-ce0f55521a49
 description: "Kapsamlı kaynaklar NuGet kaynakları, Microsoft olmayan NuGet projeleri, yardımcı programlar ve eğitim malzemelerinizin de dahil olmak üzere NuGet ekosistemindeki."
 keywords: "NuGet ekosistemi, Microsoft olmayan NuGet projeleri, NuGet açık kaynak, NuGet yardımcı programlar, NuGet eğitim malzemelerini"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: de64cf96595825b7c1bf2e235e370f5a95c64096
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 7c1e457c034f239fbea4e75f24851ea38182a294
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="an-overview-of-the-nuget-ecosystem"></a>NuGet ekosistemine genel bakış
 
@@ -41,38 +40,37 @@ Microsoft, NuGet geliştirme için yaygın katıldığını. Microsoft çalışa
 
 Diğer birçok kişiler ve şirketler NuGet ekosistemi önemli ölçüde katkıda yaptınız. Burada listelenen her proje, çekirdek NuGet Bileşenler'den farklı bir lisansa sahip olabilir, böylece Lisans Koşulları'nı kullanmadan önce kabul edilebilir olduğundan emin olun:
 
-* [AppVeyor CI](https://www.appveyor.com/)
-* [Artifactory](https://www.jfrog.com/artifactory/)
-* [BoxStarter](http://boxstarter.org/)
-* [Chocolatey](https://chocolatey.org/)
-* [CoApp](http://coapp.org/)
-* [JetBrains ReSharper](https://resharper-plugins.jetbrains.com/)
-* [JetBrains TeamCity](https://www.jetbrains.com/teamcity/)
-* [Olan Klondike'yi](https://github.com/themotleyfool/Klondike)
-* [MinimalNugetServer](https://github.com/TanukiSharp/MinimalNugetServer)
-* [MyGet (veya hizmet olarak NuGet)](http://www.myget.org/)
-* [NuGet paketi Gezgini](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer)
-* [NuGet sunucu](http://nugetserver.net/)
-* [OctopusDeploy](https://octopus.com/)
-* [Paket](https://fsprojects.github.io/Paket/)
-* [ProGet (Inedo)](http://inedo.com/proget)
-* [scriptcs](http://scriptcs.net/)
-* [SharpDevelop](http://community.sharpdevelop.net/blogs/mattward/archive/2011/01/23/NuGetSupportInSharpDevelop.aspx)
-* [Sonatype Nexus](http://www.sonatype.com/nexus-repository-sonatype)
-* [SymbolSource](http://www.symbolsource.org/Public)
-* [Xamarin ve MonoDevelop](https://github.com/mrward/monodevelop-nuget-addin)
-
+- [AppVeyor CI](https://www.appveyor.com/)
+- [Artifactory](https://www.jfrog.com/artifactory/)
+- [BoxStarter](http://boxstarter.org/)
+- [Chocolatey](https://chocolatey.org/)
+- [CoApp](http://coapp.org/)
+- [JetBrains ReSharper](https://resharper-plugins.jetbrains.com/)
+- [JetBrains TeamCity](https://www.jetbrains.com/teamcity/)
+- [Klondike](https://github.com/themotleyfool/Klondike)
+- [MinimalNugetServer](https://github.com/TanukiSharp/MinimalNugetServer)
+- [MyGet (veya hizmet olarak NuGet)](http://www.myget.org/)
+- [NuGet paketi Gezgini](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer)
+- [NuGet Server](http://nugetserver.net/)
+- [OctopusDeploy](https://octopus.com/)
+- [Paket](https://fsprojects.github.io/Paket/)
+- [ProGet (Inedo)](http://inedo.com/proget)
+- [scriptcs](http://scriptcs.net/)
+- [SharpDevelop](http://community.sharpdevelop.net/blogs/mattward/archive/2011/01/23/NuGetSupportInSharpDevelop.aspx)
+- [Sonatype Nexus](http://www.sonatype.com/nexus-repository-sonatype)
+- [SymbolSource](http://www.symbolsource.org/Public)
+- [Xamarin ve MonoDevelop](https://github.com/mrward/monodevelop-nuget-addin)
 
 ## <a name="other-nuget-based-utilities"></a>Diğer NuGet tabanlı yardımcı programları
 
 Bu araçlar ve yardımcı programlar NuGet üzerinde oluşturulmuş şunlardır:
 
-* [Glimpse'in uzantıları](http://getglimpse.com/Packages) (eklentileri olan paketleri)
-* [NuGetMustHaves.com](http://nugetmusthaves.com/)
-* [Orchard](http://www.orchardproject.net/) (CMS modülleri getirilen Orchard Galerisi'nde barındırılan NuGet akışı bir v1'den)
-* [NuGet sunucu Java uygulaması](http://jonnyzzz.com/blog/2012/03/07/nuget-server-in-pure-java/)
-* [NuGetLatest](https://twitter.com/NuGetLatest) (yeni TWİTLEME bot yayınlar paketi Twitter)
-* [DefinitelyTyped](http://definitelytyped.org/) ([otomatik](https://github.com/DefinitelyTyped/NugetAutomation/) TypeScript türü [tanımları için NuGet yayımlanan](http://www.nuget.org/packages?q=DefinitelyTyped))
+- [Glimpse'in uzantıları](http://getglimpse.com/Packages) (eklentileri olan paketleri)
+- [NuGetMustHaves.com](http://nugetmusthaves.com/)
+- [Orchard](http://www.orchardproject.net/) (CMS modülleri getirilen Orchard Galerisi'nde barındırılan NuGet akışı bir v1'den)
+- [NuGet sunucu Java uygulaması](http://jonnyzzz.com/blog/2012/03/07/nuget-server-in-pure-java/)
+- [NuGetLatest](https://twitter.com/NuGetLatest) (yeni TWİTLEME bot yayınlar paketi Twitter)
+- [DefinitelyTyped](http://definitelytyped.org/) ([otomatik](https://github.com/DefinitelyTyped/NugetAutomation/) TypeScript türü [tanımları için NuGet yayımlanan](http://www.nuget.org/packages?q=DefinitelyTyped))
 
 ## <a name="training-materials-and-references"></a>Eğitim malzemelerini ve başvurular
 
@@ -80,11 +78,11 @@ Genellikle bir yeni aracın veya teknoloji kullanarak bir öğrenme eğrisi ile 
 
 Başka bir deyişle, paketleri yazma – ve özellikle iyi paketleri – otomatik derleme ve dağıtım işlemleri NuGet benimsemenin ile birlikte, aşağıdaki kaynaklarla biraz daha uzun harcama gerektirir:
 
-- [NuGet blogu](http://blog.nuget.org/)
+- [NuGet Blog](http://blog.nuget.org/)
 - [NuGet takım Twitter'da@nuget](http://twitter.com/nuget)
 - Kitaplar:
-    * [Apress Pro NuGet](http://bit.ly/ProNuGet)
-    * [NuGet 2 temelleri](http://www.amazon.com/NuGet-2-Essentials-Damir-Arh-ebook/dp/B00GTQD5M4)
+  - [Apress Pro NuGet](http://bit.ly/ProNuGet)
+  - [NuGet 2 temelleri](http://www.amazon.com/NuGet-2-Essentials-Damir-Arh-ebook/dp/B00GTQD5M4)
 
 ## <a name="documentation-for-individual-packages"></a>Tek paketler için belgeler
 

@@ -3,21 +3,20 @@ title: NuGet CLI belirtim komutu | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 10/24/2017
+ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 85611449-87e6-489b-8c6c-fe1d7be76c13
 description: "Nuget.exe belirtim komut başvurusu"
 keywords: "nuget belirtim başvurusu, belirtim komutu"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c32b23e66c8eb4db1c8fa6dc615589219c00239f
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: cc7e772e737a0f74929d13e2b126f7796b6d0dc7
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="spec-command-nuget-cli"></a>belirtim komutu (NuGet CLI)
 
@@ -27,7 +26,7 @@ Oluşturan bir `.nuspec` dosyası yeni bir paket için. Proje dosyası ile aynı
 
 ## <a name="usage"></a>Kullanım
 
-```
+```cli
 nuget spec [<packageID>] [options]
 ```
 
@@ -38,17 +37,17 @@ Burada `<packageID>` kaydetmek için bir isteğe bağlı paket tanımlayıcısı
 | Seçenek | Açıklama |
 | --- | --- |
 | AssemblyPath | Meta veriler için kullanmak için derleme yolunu belirtir. |
-| Zorla | Var olan üzerine yazar `.nuspec` dosya. |
+| Force | Var olan üzerine yazar `.nuspec` dosya. |
 | ForceEnglishOutput | *(3.5 +)*  Değişmez, İngilizce tabanlı kültürü kullanarak çalışacak şekilde nuget.exe zorlar. |
 | Yardım | Bilgi komutu için yardımı görüntüler. |
 | Etkileşimli olmayan | Kullanıcı girişi veya onayı için ister gizler. |
-| Ayrıntı Düzeyi | Çıktıda görüntülenen ayrıntı miktarını belirtir: *normal*, *sessiz*, *(2.5 +) ayrıntılı*. |
+| Ayrıntı Düzeyi | Çıktıda görüntülenen ayrıntı miktarını belirtir: *normal*, *sessiz*, *ayrıntılı*. |
 
 Ayrıca bkz. [ortam değişkenleri](cli-ref-environment-variables.md)
 
 ## <a name="examples"></a>Örnekler
 
-```
+```cli
 nuget spec
 
 nuget spec MyPackage

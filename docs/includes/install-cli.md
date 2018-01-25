@@ -1,4 +1,4 @@
 1. Mac ve Linux, yükleme [Mono 4.4.2 ya da daha sonra](http://www.mono-project.com/docs/getting-started/install/).
-2. Ziyaret [nuget.org/downloads](https://nuget.org/downloads) ve istediğiniz NuGet sürümünü seçin.
-3. Her yükleme içindir `nuget.exe` dosyasını doğrudan. Dosyasını tercih ettiğiniz bir klasöre kaydetmek için tarayıcınızı isteyin. Dosya *değil* bir yükleyici; tarayıcıdan olmaz göstermeden herhangi bir şey çalışıyor.
+2. Ziyaret [nuget.org/downloads](https://nuget.org/downloads) ve NuGet 3.3 ya da daha yüksek seçin (2.8.6 Mono ile uyumlu değil). En son sürümü her zaman önerilir ve 4.1.0+ için nuget.org paketlerini yayımlamak için gereklidir.
+3. Her yükleme içindir `nuget.exe` dosyasını doğrudan. Dosyasını tercih ettiğiniz bir klasöre kaydetmek için tarayıcınızı isteyin. Dosya *değil* yükleyici; doğrudan tarayıcıdan çalıştırırsanız herhangi bir şey göremezsiniz.
 4. Yerleştirdiğiniz klasörü Ekle `nuget.exe` , yol ortam değişkenine yerden CLI aracını kullanın.

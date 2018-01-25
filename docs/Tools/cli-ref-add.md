@@ -3,21 +3,20 @@ title: NuGet CLI Ekle komutu | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 10/24/2017
+ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 4f68a016-ad4e-41fc-b869-88910fc5121e
 description: "Nuget.exe için başvuru Ekle komutu"
 keywords: "nuget başvuru eklemek için paket komut ekleme"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: bf9a6e51dfbf1716ba40273487b76ae04c18e948
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 70c86f8d240bd308224f6b7887b630cc1e953bf8
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="add-command-nuget-cli"></a>Ekle komutu (NuGet CLI)
 
@@ -38,7 +37,7 @@ Paketteki tüm dosyaları hedef paket kaynağına genişletmek için kullanmak `
 
 ## <a name="usage"></a>Kullanım
 
-```
+```cli
 nuget add <packagePath> -Source <sourcePath> [options]
 ```
 
@@ -59,7 +58,7 @@ Ayrıca bkz. [ortam değişkenleri](cli-ref-environment-variables.md)
 
 ## <a name="examples"></a>Örnekler
 
-```
+```cli
 nuget add foo.nupkg -Source c:\bar\
 
 nuget add foo.nupkg -Source \\bar\packages\

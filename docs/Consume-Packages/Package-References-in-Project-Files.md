@@ -1,32 +1,31 @@
 ---
-title: "Visual Studio proje dosyalarına NuGet PackageReference | Microsoft Docs"
+title: "NuGet PackageReference biçimi (proje dosyalarına paket referanslarını) | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 7/17/2017
+ms.date: 07/17/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 5a554e9d-1266-48c2-92e8-6dd00b1d6810
-description: "NuGet PackageReference NuGet 4.0 + ve VS2017 tarafından desteklenen gibi proje dosyalarına ayrıntıları"
-keywords: "NuGet Paket bağımlılıklarını, paket referanslarını proje dosyalarını, PackageReference, packages.config, project.json, VS2017, Visual Studio 2017, NuGet 4"
+description: "NuGet PackageReference NuGet 4.0 + ve VS2017 ve .NET Core 2.0 tarafından desteklenen gibi proje dosyalarına ayrıntıları"
+keywords: "NuGet Paket bağımlılıklarını, paket referanslarını proje dosyalarını, PackageReference, packages.config VS2017, Visual Studio 2017, NuGet 4, .NET Core 2.0"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 275957c94e4a4bb45f359cd48816acf4f286ebad
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 24a977f9de535559dcb0392749298ea502c3c7ce
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Proje dosyalarına paket referanslarını (PackageReference)
 
-Paketini kullanarak başvurular `PackageReference` düğümü, ayrı bir gerek yerine NuGet bağımlılıkları doğrudan proje dosyalarını yönetmenize olanak `packages.config` veya `project.json` dosyası. Bu yöntem, NuGet diğer yönlerini etkilemez; Örneğin, ayarlarında `NuGet.Config` açıklandığı gibi dosyaları (paket kaynaklarını dahil) uygulanan hala [NuGet davranışını yapılandırma](Configuring-NuGet-Behavior.md).
+Paketini kullanarak başvurular `PackageReference` düğümü, ayrı bir gerek yerine NuGet bağımlılıkları doğrudan proje dosyalarını yönetmenize olanak `packages.config` dosya. Bu yöntem, NuGet diğer yönlerini etkilemez; Örneğin, ayarlarında `NuGet.Config` açıklandığı gibi dosyaları (paket kaynaklarını dahil) uygulanan hala [NuGet davranışını yapılandırma](Configuring-NuGet-Behavior.md).
 
 > [!Important]
 > Şu anda paket referanslarını Visual Studio 2017 içinde yalnızca, .NET Core projeleri, .NET standart projeleri ve Windows 10 derleme 15063 (oluşturucuları güncelleştirme) hedefleme UWP projeleri için desteklenir.
 
-`PackageReference` Yaklaşım paket referanslarını hedef framework, yapılandırma, platform veya diğer gruplandırmaları başına seçmek için MSBuild koşulları kullanmanıza olanak verir. Bu da bağımlılıkları ve içerik akışı üzerinde ayrıntılı denetim sağlar. Davranış açısından ve [bağımlılık çözümlemesi](Dependency-Resolution.md), kullanarak aynı olan `project.json`.
+`PackageReference` Yaklaşım paket referanslarını hedef framework, yapılandırma, platform veya diğer gruplandırmaları başına seçmek için MSBuild koşulları kullanmanıza olanak verir. Bu da bağımlılıkları ve içerik akışı üzerinde ayrıntılı denetim sağlar.
 
 MSBuild proje dosyalarına paket referanslarını tümleştirilmesi hakkında daha fazla bilgi için bkz: [NuGet paketi ve geri yükleme MSBuild hedefleri olarak](../schema/msbuild-targets.md).
 
@@ -37,14 +36,14 @@ Bir bağımlılık aşağıdaki sözdizimini kullanarak, proje dosyasında ekley
 ```xml
 <ItemGroup>
     <!-- ... -->
-    <PackageReference Include="Contoso.Utility.UsefulStuff" Version="3.6.0" />    
+    <PackageReference Include="Contoso.Utility.UsefulStuff" Version="3.6.0" />
     <!-- ... -->
 </ItemGroup>
 ```
 
 ## <a name="controlling-dependency-version"></a>Bağımlılık sürümünü denetleme
 
-Bir paketin sürümü belirtmek için aynı kullanırken kuraldır `packages.config` veya `project.json`:
+Bir paketin sürümü belirtmek için aynı kullanırken kuraldır `packages.config`:
 
 ```xml
 <ItemGroup>
@@ -90,9 +89,8 @@ Aşağıdaki meta veri etiketlerini bağımlılık varlıklar kontrol edin:
 | Etiket | Açıklama | Varsayılan Değer |
 | --- | --- | --- |
 | IncludeAssets | Bu varlıklar kullanılır | tüm |
-| ExcludeAssets | Bu varlıklar tüketilen değil | yok | 
+| ExcludeAssets | Bu varlıklar tüketilen değil | yok |
 | PrivateAssets | Bu varlıklar kullanılır, ancak üst projeye akış olmaz | Content dosyaları, çözümleyiciler; derleme |
-
 
 Bu etiketler için izin verilen değerler aşağıdaki gibidir, dışında noktalı virgül ile ayırarak birden çok değerlerle `all` ve `none` gerekir göründüğü tek başına:
 
@@ -134,7 +132,7 @@ Koşullar herhangi bir MSBuild değişkeni kullanabilirsiniz veya bir değişken
 ```xml
 <ItemGroup>
     <!-- ... -->
-    <PackageReference Include="Newtonsoft.json" Version="9.0.1" Condition="'$(TargetFramework)' == 'net452'" />    
+    <PackageReference Include="Newtonsoft.json" Version="9.0.1" Condition="'$(TargetFramework)' == 'net452'" />
     <!-- ... -->
 </ItemGroup>
 ```

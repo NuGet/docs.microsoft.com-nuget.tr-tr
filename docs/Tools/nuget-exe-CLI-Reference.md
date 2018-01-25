@@ -3,21 +3,20 @@ title: "NuGet komut satırı arabirimi (CLI) başvurusu | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 10/24/2017
+ms.date: 01/23/2018
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: d777c424-0cf3-4bc0-8abd-7ca16c22192b
 description: "CLI nuget.exe için komut satırı başvurusu dizini"
 keywords: "nuget.exe başvurusu dizini, nuget.exe komut satırı arabirimi, nuget.exe CLI, nuget komutu"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 5dba358b1dda46f551721461e0460219f8210f9a
-ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
+ms.openlocfilehash: 8b1ee17702f5a54a77dc2cd663e13729a9b4a39f
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-cli-reference"></a>NuGet CLI başvurusu
 
@@ -27,15 +26,20 @@ Herhangi bir komutu kullanmak için bir komut penceresi açın veya kabuk bash a
 
 Bu belge NuGet CLI en son sürümünü yansıtır. Kullanmakta olduğunuz herhangi belirli bir sürümü için tam Ayrıntılar için Çalıştır `nuget help` istenen komutu.
 
-## <a name="installing-nugetexe"></a>Nuget.exe yükleme
+## <a name="installing-nugetexe"></a>Installing nuget.exe
 
 [!INCLUDE[install-cli](../includes/install-cli.md)]
 
+> [!Tip]
+> NuGet CLI Visual Studio'da Paket Yöneticisi konsolu içinde kullanılabilir yapmak için bkz: [konsolunda nuget.exe CLI kullanarak](package-manager-console.md#using-the-nugetexe-cli-in-the-console).
+
 ## <a name="availability"></a>Kullanılabilirlik
 
+Bkz: [Özellik kullanılabilirliği](../install-nuget-client-tools.md#feature-availability) tam Ayrıntılar için.
+
 - Tüm komutlar Windows üzerinde kullanılabilir.
-- Tüm komutları çalışmak [Mono üzerinde çalışan nuget.exe](../guides/install-nuget.md#mac-osx-and-linux) için belirtilen yerlerde dışındaki `pack`, `restore`, ve `update`.
-- `pack`, `restore`, `delete`, `locals`, Ve `push` komutları Mac ve Linux üzerinden kullanılabilir de [dotnet CLI](dotnet-Commands.md).
+- Tüm komutlar için belirtilenler dışında Mono üzerinde çalışan nuget.exe çalışmak `pack`, `restore`, ve `update`.
+- `pack`, `restore`, `delete`, `locals`, Ve `push` komutlardır ayrıca dotnet CLI Mac ve Linux üzerinde kullanılabilir.
 
 ## <a name="commands-and-applicability"></a>Komutlar ve Uygulanabilirlik
 
@@ -51,7 +55,6 @@ Kullanılabilir komutlar ve paket oluşturma, paket tüketim ve/veya bir ana bil
 | [restore](cli-ref-restore.md) | Tüketim | 2.7+ | Paket başvuru biçime tarafından başvurulan tüm paketler geri yükler. Mono üzerinde çalışırken, PackageReference biçimi kullanarak paketleri geri yüklenmesi desteklenmez. |
 | [setapikey](cli-ref-setapikey.md) | Yayımlama, tüketim | Tümü | Bu paket kaynağına erişimi için bir anahtar gerektirdiğinde verilen paket kaynağı için bir API anahtarı kaydeder. |
 | [spec](cli-ref-spec.md) | Oluşturma | Tümü | Oluşturan bir `.nuspec` dosya, bir Visual Studio Proje dosyası oluşturma belirteçleri kullanarak. |
-
 
 | İkincil komutları | Geçerli rolleri | NuGet sürümü | Açıklama |
 | --- | --- | --- | --- |

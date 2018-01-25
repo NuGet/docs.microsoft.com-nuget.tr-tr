@@ -11,17 +11,16 @@ ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 96b07019-c2e1-4f40-9290-f65ad71af3b1
 description: "Paket kayıt temel URL'si paketlerle ilgili meta verilerini getirmek sağlar."
 keywords: "NuGet API paket meta verileri, NuGet API kayıt, NuGet API listelenmemiş paketleri"
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 1aabe6ae5c661e12b2639700813946e7a9a58b24
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: c098d70d58011bad7f9829f0c95c87c1339dd362
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="package-metadata"></a>Paket meta verileri
 
@@ -82,9 +81,7 @@ Tüm paket sürümlerini depolamak (kayıt dizin kaydeder HTTP istek sayısı fe
 
 Buluşsal yöntem nuget.org kullandığı aşağıdaki gibidir: bir paket 128 veya daha fazla sürümü varsa, bırakır boyutu 64 sayfalarına bölün. 128'den az sürümleri varsa, tüm satır içi kayıt dizine bırakır.
 
-```
-GET {@id}/{LOWER_ID}/index.json
-```
+    GET {@id}/{LOWER_ID}/index.json
 
 ### <a name="request-parameters"></a>İstek parametreleri
 
@@ -155,13 +152,13 @@ iconUrl                  | dize                     | Yok       |
 kimlik                       | dize                     | Evet      | Paket kimliği
 licenseUrl               | dize                     | Yok       | 
 listelenen                   | Boole değeri                    | Yok       | Absent listelenen IF olarak kabul edilmesi
-MinClientVersion         | dize                     | Yok       | 
+minClientVersion         | dize                     | Yok       | 
 projectUrl               | dize                     | Yok       | 
 Yayımlanan                | dize                     | Yok       | Paketin ne zaman yayımlanan, bir ISO 8601 zaman damgası içeren bir dize
-RequireLicenseAcceptance | Boole değeri                    | Yok       | 
+requireLicenseAcceptance | Boole değeri                    | Yok       | 
 özet                  | dize                     | Yok       | 
 etiketler                     | dize veya dize dizisi  | Yok       | 
-Başlık                    | dize                     | Yok       | 
+title                    | dize                     | Yok       | 
 sürüm                  | dize                     | Evet      | Paketin sürümü
 
 `dependencyGroups` Özelliği olan bir hedef framework tarafından gruplandırılmış şekilde paketin bağımlılıklarını temsil eden nesneler dizisi. Paket hiçbir bağımlılık varsa `dependencyGroups` özelliği eksik, boş bir dizi veya `dependencies` tüm grupların özelliği boş veya eksik.
@@ -193,11 +190,9 @@ Varsa `range` özelliği dışlandı veya boş bir dize istemci sürüm aralığ
 
 ### <a name="sample-request"></a>Örnek istek
 
-```
-GET https://api.nuget.org/v3/registration3/nuget.server.core/index.json
-```
+    GET https://api.nuget.org/v3/registration3/nuget.server.core/index.json
 
-### <a name="sample-response"></a>Örnek yanıt 
+### <a name="sample-response"></a>Örnek yanıt
 
 [!code-JSON [package-registration-index.json](./_data/package-registration-index.json)]
 
@@ -222,9 +217,7 @@ Kayıt yaprak nesnelerin şeklini kayıt dizini ile aynı olan [yukarıda](#regi
 
 ## <a name="sample-request"></a>Örnek istek
 
-```
-GET https://api.nuget.org/v3/registration3/ravendb.client/page/1.0.531/1.0.729-unstable.json
-```
+    GET https://api.nuget.org/v3/registration3/ravendb.client/page/1.0.531/1.0.729-unstable.json
 
 ## <a name="sample-response"></a>Örnek yanıt
 
@@ -252,9 +245,7 @@ kayıt   | dize  | Yok       | Kayıt dizin URL'si
 
 ### <a name="sample-request"></a>Örnek istek
 
-```
-GET https://api.nuget.org/v3/registration3/nuget.versioning/4.3.0.json
-```
+    GET https://api.nuget.org/v3/registration3/nuget.versioning/4.3.0.json
 
 ### <a name="sample-response"></a>Örnek yanıt
 

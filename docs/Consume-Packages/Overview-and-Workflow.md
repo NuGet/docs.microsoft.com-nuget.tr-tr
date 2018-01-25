@@ -7,17 +7,16 @@ ms.date: 06/06/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 3c60f920-457d-4f43-9efe-210c514e5242
 description: "NuGet paketlerini bir projede işleminin diğer belirli bölümlerine bağlantılar ile kullanma işlemi bir genel bakış."
 keywords: "NuGet paket tüketim, NuGet tüketim genel bakış, NuGet tüketim iş akışı, paket tüketimi iş akışı, paket tüketimi genel bakış"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c48351cb6fed0ac94bd437d9443811f46c032bd0
-ms.sourcegitcommit: 122bf7ce308365ea45da018b0768f0536de76a1f
+ms.openlocfilehash: f59309b87141453ccfa4de76f33a3a34d3fb3263
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="package-consumption-workflow"></a>Paket tüketimi iş akışı
 
@@ -27,7 +26,7 @@ Nuget.org ve kuruluşunuzun oluşturabilirsiniz özel paket galerileri arasında
 
 \*_İle dışında `nuget install` komut satırından; bu durumda yapılandırmasını düzenlemek için gereken dosyaları el ile. Bkz: [komut başvurusu yüklemek](../tools/cli-ref-install.md)._
 
-NuGet ya da kaydı yüklü her paket kimliği ve sürüm numarasını hatırlıyor `packages.config`, proje dosyası veya `project.json` proje türü ve NuGet sürümüne bağlı olarak, proje kök dosyasında. NuGet 4.0 +, ile [bağımlılıkları proje dosyasında depolamak](../consume-packages/package-references-in-project-files.md) (dışında Windows 10 RS1 hedefleme UWP projeleri) varsayılandır. Herhangi bir durumda, bağımlılıkları projeniz için tam listesini görmek için herhangi bir zamanda uygun dosyasında da bakabilirsiniz.
+NuGet ya da kaydı yüklü her paket kimliği ve sürüm numarasını hatırlıyor `packages.config` veya proje türü ve NuGet sürümüne bağlı olarak proje dosyası. NuGet 4.0 +, ile [bağımlılıkları proje dosyası veya PackageReference depolama](../consume-packages/package-references-in-project-files.md) bu Visual Studio yapılandırılabilir olsa da, genellikle varsayılan [Paket Yöneticisi kullanıcı Arabirimi seçenekleri](../tools/package-manager-ui.md). Herhangi bir durumda, bağımlılıkları projeniz için tam listesini görmek için herhangi bir zamanda uygun dosyasında da bakabilirsiniz.
 
 > [!Tip]
 > Lisans yazılımınızla kullanmayı düşündüğünüz her paket için her zaman kontrol akıllıca olur. Nuget.org üzerinde bulabilirsiniz bir **lisans bilgilerini** her paketin açıklaması sayfasının sağ tarafında bağlantı. Bir paketi Lisans Koşulları'nı belirtmiyorsa kullanarak doğrudan paketi sahibine başvurun **sahipleri başvurun** bağlantı paketi sayfasında. Microsoft hiçbir fikri mülkiyet, üçüncü taraf paket sağlayıcılardan lisans değildir ve üçüncü taraflar tarafından sağlanan bilgileri sorumlu değildir.
@@ -40,7 +39,7 @@ Proje kodunu bir kaynak havuzuna eklerken NuGet paketleri genellikle eklemeyin. 
 
 ![Bir depo kopyalama ve bir geri yükleme komutunu kullanarak NuGet paketleri geri akışı](media/Overview-02-RestoreFlow.png)
 
-[Paket geri yükleme](../consume-packages/package-restore.md) proje dosyasındaki bilgileri kullanır `packages.config`, `project.json` tüm bağımlılıkları yeniden yüklemek için. Farklar olduğunu işleminde karmaşık açıklandığı gibi unutmayın [bağımlılık çözümlemesi](../consume-packages/dependency-resolution.md).
+[Paket geri yükleme](../consume-packages/package-restore.md) proje dosyasındaki bilgileri kullanır veya `packages.config` tüm bağımlılıkları yeniden yüklemek için. Farklar olduğunu işleminde karmaşık açıklandığı gibi unutmayın [bağımlılık çözümlemesi](../consume-packages/dependency-resolution.md).
 
 Bazen bağımlılıkları da yeniden yükleyebilir bir projede zaten dahil edilen paketler yeniden yüklemek gereklidir. Bu kullanarak yapmak kolaydır `reinstall` NuGet komut satırı veya NuGet Paket Yöneticisi konsolu aracılığıyla komutu. Ayrıntılar için bkz [Reinstalling ve güncelleştirme paketleri](../consume-packages/reinstalling-and-updating-packages.md).
 

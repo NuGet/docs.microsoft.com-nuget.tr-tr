@@ -7,17 +7,16 @@ ms.date: 10/25/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: fbf31530-3bf4-478c-b26c-c2b24dd3406d
 description: "NuGet.Config dosya başvurusu yapılandırma, bindingRedirects, packageRestore, çözüm ve packageSource bölümler dahil olmak üzere."
 keywords: "NuGet.Config dosyasındaki, NuGet yapılandırma başvurusu, NuGet yapılandırma seçenekleri"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 830c622f622b894a228b18dfdb3a790bccfde8a3
-ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
+ms.openlocfilehash: 97f19239bcfb7a1c3a3b9b53ea11d73c8b339079
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nugetconfig-reference"></a>NuGet.Config başvurusu
 
@@ -29,7 +28,7 @@ Bu konuda:
 
 - [yapılandırma bölümü](#config-section)
 - [bindingRedirects bölümü](#bindingredirects-section)
-- [packageRestore bölümü](#packagerestore-section)
+- [packageRestore section](#packagerestore-section)
 - [Çözüm bölümü](#solution-section)
 - [Paket kaynak bölümler](#package-source-sections): - [packageSources](#packagesources)
   - [packageSourceCredentials](#packagesourcecredentials)
@@ -48,7 +47,7 @@ Bu konuda:
 
 Kullanılarak ayarlanabilir çeşitli yapılandırma ayarlarını içeren [ `nuget config` komutu](../tools/cli-ref-config.md).
 
-Not: `dependencyVersion` ve `repositoryPath` kullanarak projeleri için geçerli `packages.config`. `globalPackagesFolder`kullanarak projeler için geçerlidir `project.json` ve PackageReference biçimleri.
+Not: `dependencyVersion` ve `repositoryPath` kullanarak projeleri için geçerli `packages.config`. `globalPackagesFolder`PackageReference biçimini kullanarak projeler için geçerlidir.
 
 | Anahtar | Değer |
 | --- | --- |

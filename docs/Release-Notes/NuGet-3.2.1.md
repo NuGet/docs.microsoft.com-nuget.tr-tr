@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: d27c3bb9-8db1-439a-a134-54e20b7a7766
 description: "Bilinen sorunlar, hata düzeltmeleri, eklenen özellikleri ve dcr NuGet 3.2.1 dahil etmek için sürüm notları."
 keywords: "Özellikler, dcr bilinen sorunlar, NuGet 3.2.1 sürüm notları, hata düzeltmeleri eklendi"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b2001d9518a34bbd5f2879de6123ec13abf4ae08
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 7c9c2457c33eb3630f632c98bf0cf96703c3a548
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-321-release-notes"></a>NuGet 3.2.1 sürüm notları
 

@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: ba2edaad-4795-47a0-a572-d0e1716bd540
 description: "NuGet bilinen sorunları, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere 2.7 için sürüm notları."
 keywords: "Özellikler, dcr bilinen sorunlar, NuGet 2.7 Sürüm Notları, hata düzeltmeleri eklendi"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 502cb5e68f905e9ad8f4003bb0690d3e676f6bb7
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: b0e12f7e2cffa6e721dd13c117b7b3727cfcb5d7
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-27-release-notes"></a>NuGet 2.7 Sürüm Notları
 
@@ -29,9 +28,9 @@ NuGet 2.7 22 Ağustos 2013'te yayımlanmıştır.
 
 Aşağıdaki dış Katkıda Bulunanlar, önemli ölçüde katkıda NuGet 2.7 için teşekkür ederiz ister misiniz:
 
-1. [Can Roth](http://www.codeplex.com/site/users/view/mxrss) ([@mxrss](https://twitter.com/mxrss))
+1. [Mike Roth](http://www.codeplex.com/site/users/view/mxrss) ([@mxrss](https://twitter.com/mxrss))
     - Paketler ve ayrıntı listeleme zaman ayrıntılı lisans URL'sini gösterir.
-1. [ADAM Ralph](http://www.codeplex.com/site/users/view/adamralph) ([@adamralph](https://twitter.com/adamralph))
+1. [Adam Ralph](http://www.codeplex.com/site/users/view/adamralph) ([@adamralph](https://twitter.com/adamralph))
     - [#1956](http://nuget.codeplex.com/workitem/1956) -developmentDependency özniteliğe eklemek `packages.config` ve yalnızca çalışma zamanı paketleri dahil etmek paketi komutunu kullanın
 1. [Rafael Nicoletti](http://www.codeplex.com/site/users/view/tkrafael) ([@tkrafael](https://twitter.com/tkrafael))
     - Yinelenen özellikler anahtar nuget.exe paketi komutta kaçının.
@@ -40,7 +39,7 @@ Aşağıdaki dış Katkıda Bulunanlar, önemli ölçüde katkıda NuGet 2.7 iç
 1. [Slava Trenogin](http://www.codeplex.com/site/users/view/derigel) ([@derigel](https://twitter.com/derigel))
     - [#3217](http://nuget.codeplex.com/workitem/3217) -yanlış sekmede güncelleştirmeleri gösteren düzeltme NuGet iletişim
     - Düzeltme Project.TargetFramework ProjectManager içinde null olabilir
-    - [#3248](http://nuget.codeplex.com/workitem/3248) -SharedPackageRepository FindPackage/FindPackagesById düzeltme üzerinde mevcut olmayan PackageId başarısız olur
+    - [#3248](http://nuget.codeplex.com/workitem/3248) - Fix SharedPackageRepository FindPackage/FindPackagesById will fail on non-existent packageId
 1. [Kevin Boyle](http://www.codeplex.com/site/users/view/KevinBoyleRG) ([@kevfromireland](https://twitter.com/kevfromireland))
     - [#3234](http://nuget.codeplex.com/workitem/3234) -Nomad proje desteğini etkinleştir
 1. [Corin Blaikie](http://www.codeplex.com/site/users/view/corinblaikie) ([@corinblaikie](https://twitter.com/corinblaikie))
@@ -77,7 +76,7 @@ NuGet 2.7 ile başlayarak, paket geri yükleme izni üzerinde varsayılan olarak
 * Visual Studio 2013 Preview
 * Visual Studio 2012
 * Visual Studio 2010
-* nuget.exe komut satırı yardımcı programı
+* nuget.exe Command-Line Utility
 
 #### <a name="automatic-package-restore-in-visual-studio"></a>Visual Studio'da otomatik paket geri yüklemesi
 
@@ -103,9 +102,9 @@ NuGet 2.7 nuget.exe için yeni bir özellik sunar:`nuget.exe restore`
 
 Bu yeni Restore komutu kolayca tüm paketleri tek bir komutla bir çözüm için çözüm dosya veya klasör bağımsız değişken olarak kabul ederek geri yüklemenize olanak sağlar. Ayrıca, geçerli klasörde yalnızca tek bir çözüm olduğunda bu bağımsız değişken uygulanmaktadır. Aşağıdaki tüm tek çözüm dosyasını (MySolution.sln) içeren bir klasörden iş anlamına gelir:
 
-1. nuget.exe geri yükleme MySolution.sln
-1. nuget.exe geri yükleme.
-1. nuget.exe geri yükleme
+1. nuget.exe restore MySolution.sln
+1. nuget.exe restore .
+1. nuget.exe restore
 
 Restore komutu, çözüm dosyasını açın ve tüm projeleri çözüm içinde bulun. Buradan, onu bulacaksınız `packages.config` dosyaları her proje ve geri yükleme tüm paketler bulunamadı. Ayrıca bulunan çözüm düzeyi paketleri geri yükler `.nuget\packages.config` dosya. Yeni Restore komutu hakkında daha fazla bilgi bulunabilir [komut satırı başvurusu](../tools/cli-ref-restore.md).
 

@@ -11,26 +11,22 @@ ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 2f6d6cf2-53fb-417a-b1d8-e0ac591c1699
 description: "Hizmet dizini NuGet HTTP API giriş noktasıdır ve sunucu özelliklerini numaralandırır."
 keywords: "NuGet API giriş noktası, NuGetA PI uç nokta bulma"
 ms.reviewer:
 - karann
 - unnir
-ms.openlocfilehash: 0c43a09d8564964bd0140b9ac5deb9d3063e4dc5
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 9d0bb421c163520df4a1f0e9f3f71aab823aace3
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="service-index"></a>Hizmet dizini
 
 NuGet paket kaynağı için giriş noktasıdır ve paket kaynağının özellikleri bulmak bir istemci uygulaması izin veren bir JSON belgesi hizmet dizinidir. İki gerekli özellikleri olan bir JSON nesnesi hizmet dizinidir: `version` (hizmeti dizini şema sürümü) ve `resources` (uç noktaları veya paket kaynağının özelliklerini).
 
-nuget.org Hizmeti dizini burada bulunur:
-```
-https://api.nuget.org/v3/index.json
-```
+nuget.org Hizmeti dizini adresindedir `https://api.nuget.org/v3/index.json`.
 
 ## <a name="versioning"></a>Sürüm oluşturma
 
@@ -63,9 +59,7 @@ comment       | dize | Yok       | Kaynak İnsan okunabilir açıklaması
 
 `@type` Kaynakla kullanılırken kullanılacak belirli Protokolü tanımlamak için kullanılır. Kaynak türü donuk bir dizedir ancak genellikle biçime sahiptir:
 
-```
-{RESOURCE_NAME}/{RESOURCE_VERSION}
-```
+    {RESOURCE_NAME}/{RESOURCE_VERSION}
 
 İstemciler için sabit kod beklenen `@type` anlamak ve bir paket kaynağının hizmet dizinde aramak değerleri. Tam `@type` Günümüzde kullanılan değerleri numaralandırılan listelenen tek tek kaynak başvuru belgelerinde [API genel bakış](overview.md#resources-and-schema).
 
@@ -75,9 +69,7 @@ Her kaynak benzersiz olduğunu gereksinimi yoktur ve `@id` veya `@type`. Hangi k
 
 ### <a name="sample-request"></a>Örnek istek
 
-```
 GET https://api.nuget.org/v3/index.json
-```
 
 ### <a name="sample-response"></a>Örnek yanıt
 

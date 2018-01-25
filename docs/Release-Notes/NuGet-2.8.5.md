@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 60b96b2e-2a61-4f10-b5ad-3299f5a6d453
 description: "Bilinen sorunlar, hata düzeltmeleri, eklenen özellikleri ve dcr NuGet 2.8.5 dahil etmek için sürüm notları."
 keywords: "Özellikler, dcr bilinen sorunlar, NuGet 2.8.5 sürüm notları, hata düzeltmeleri eklendi"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 3b297704968b8423f60e9de08e27860dc375c019
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: ace56284e56f24394d49c0598ec3604b62caaf67
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-285-release-notes"></a>NuGet 2.8.5 sürüm notları
 
@@ -34,4 +33,4 @@ Bu sürümde için NuGet Paket Yöneticisi iletişim için destek eklenmiştir [
 
 Bir hata FSharp projelere düzgün şekilde yüklenmesini önlenmiş bu paketleri düzeltildi:
 
-https://nuget.Codeplex.com/workitem/4400
+https://nuget.codeplex.com/workitem/4400

@@ -3,27 +3,26 @@ title: "Platformlar arası NuGet paketlerini (için iOS, Android ve Windows) olu
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 1/9/2017
+ms.date: 01/09/2017
 ms.topic: get-started-article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: ae24824b-a138-4d12-a810-1f653ddffd32
 description: "NuGet paketleri için Xamarin oluşturduğunuz bir uçtan uca kılavuz, iOS, Android ve Windows yerel API'leri kullanın."
 keywords: "paketler Xamarin, platformlar arası paketleri için bir paket oluşturun"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: f372856232f151efcf972881cffbe7d4bb7ed6ee
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: fbb1c3fccf04202dedc686583b3a2f27f105266a
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="create-cross-platform-packages"></a>Platformlar arası paketleri oluşturma
 
 Platformlar arası paket çalışma zamanı işletim sistemine bağlı iOS, Android ve Windows, yerel API'lerini kullanan kodu içerir. Bunu yapmak basit olmasına karşın, geliştiricilerin bir PCL paketinden kullanmasına izin vermek için tercih edilir veya ortak bir API üzerinden .NET standart kitaplıkları yüzey alanı.
 
-Bu kılavuzda iOS, Android ve Windows mobil projelerinde kullanılan bir platformlar arası NuGet paketi oluşturacaksınız.
+Bu kılavuzda iOS, Android ve Windows mobil projelerinde kullanılan bir platformlar arası NuGet paketi oluşturun.
 
 1. [Ön koşullar](#pre-requisites)
 1. [Proje yapısı ve Özet kodu oluşturma](#create-the-project-structure-and-abstraction-code)
@@ -39,7 +38,6 @@ Bu kılavuzda iOS, Android ve Windows mobil projelerinde kullanılan bir platfor
 
 > [!Note]
 > nuget.exe CLI aracı kendisini bir yükleyici nedenle bunu çalıştırmak yerine tarayıcınızdan indirilen dosyayı kaydettiğinizden emin olur.
-
 
 ## <a name="create-the-project-structure-and-abstraction-code"></a>Proje yapısı ve Özet kodu oluşturma
 
@@ -110,12 +108,11 @@ Platforma özgü uyarlamasını uygulamak için `ILoggingLibrary` arabirimi ve y
 > [!Note]
 > İOS için oluşturmak için Visual Studio için açıklandığı gibi bağlı ağa bağlı bir Mac gereksinim [Visual Studio Xamarin.iOS için giriş](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/introduction_to_xamarin_ios_for_visual_studio/). Kullanılabilir bir Mac yoksa, Yapılandırma Yöneticisi'ni (yukarıdaki adım 3) IOS projede temizleyin.
 
-
 ## <a name="create-and-update-the-nuspec-file"></a>Oluşturun ve .nuspec dosyası güncelleştirin
 
 1. Bir komut istemi açıp `LoggingLibrary` where bir düzeyin klasörü `.sln` dosyası olduğunu ve NuGet çalıştırın `spec` ilk oluşturmak için komutu `Package.nuspec` dosyası:
 
-```
+```cli
 nuget spec
 ```
 
@@ -139,7 +136,7 @@ nuget spec
         </metadata>
     </package>
     ```
-    
+
 > [!Tip]
 > Paket sürümü ile soneki `-alpha`, `-beta` veya `-rc` paketinizi yayın öncesi olarak işaretlemek için kontrol [yayın öncesi sürümleri](../create-packages/prerelease-packages.md) yayın öncesi sürümleri hakkında daha fazla bilgi için.
 
@@ -172,7 +169,6 @@ Platforma özgü başvuru derlemeleri eklemek için aşağıdakileri ekleyin `<f
 
 > [!Note]
 > DLL ve XML dosyalarının adlarını kısaltmak için tüm verilen projeye, select sağ tıklayın **Kitaplığı** sekmesinde ve derleme adları değiştirin.
-
 
 ### <a name="add-dependencies"></a>Bağımlılıkları ekleyin.
 
@@ -259,7 +255,7 @@ Son `.nuspec` dosya artık görünmelidir aşağıdaki gibi burada yeniden adini
 
 Tamamlanan ile `.nuspec` pakete eklemek için gereken tüm dosyaları başvuran, çalıştırmak hazırsınız `pack` komutu:
 
-```
+```cli
 nuget pack LoggingLibrary.nuspec
 ```
 
@@ -269,7 +265,6 @@ Bu oluşturur `LoggingLibrary.YOUR_NAME.1.0.0.nupkg`. Gibi bir araç bu dosyayı
 
 > [!Tip]
 > A `.nupkg` yalnızca bir ZIP dosyasını farklı bir uzantıya sahip bir dosyadır. Ayrıca paket içeriğini, daha sonra değiştirerek inceleyebilirsiniz `.nupkg` için `.zip`, ancak uzantı nuget.org için bir paket karşıya yüklemeden önce geri yüklemek unutmayın.
-
 
 Paketinizi diğer geliştiricileri için kullanılabilir yapmak için yönergeleri izleyin [bir paketi yayımlamaya](../create-packages/publish-a-package.md).
 

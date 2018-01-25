@@ -11,17 +11,16 @@ ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 8c81f1ac-18c7-44d1-b2e3-584fe85dee6f
 description: "NuGet paketlerini indirmek, meta veri Getir, yeni paketler, vb. yayımlamak için kullanılan HTTP uç noktalar kümesi API'dir."
-keywords: "NuGet V3 API, NuGet V2 API, NuGet JSON, NuGet kayıt API'si, NuGet API düz kapsayıcı, NuGet nupkg API, NuGet meta veriler API, NuGet arama API, NuGet itme API, NuGe yayımlama API'sı, NuGet Sil API, NuGet unlist API, NuGet Protokolü"
+keywords: NuGet V3 API, NuGet V2 API, NuGet JSON, NuGet registration API, NuGet API flat container, NuGet nupkg API, NuGet metadata API, NuGet search API, NuGet push API, NuGe publish API, NuGet delete API, NuGet unlist API, NuGet protocol
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 05ed17f12f413d29d97a253d7d55f154d4910834
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: c28b0912be6dbccab06078100cb71821c3658e08
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-api"></a>NuGet API
 
@@ -79,7 +78,7 @@ API tarafından döndürülen tüm zaman damgaları UTC ya da aksi takdirde kull
 
 ## <a name="http-methods"></a>HTTP yöntemleri
 
-Fiil   | Bir yönetim grubuna bağlanmak veya bağlı bir yönetim grubunun özelliklerini düzenlemek için Yönetim çalışma alanında
+Verb   | Bir yönetim grubuna bağlanmak veya bağlı bir yönetim grubunun özelliklerini düzenlemek için Yönetim çalışma alanında
 ------ | -----------
 AL    | Genellikle veri alma salt okunur bir işlemi gerçekleştirir.
 HEAD   | Karşılık gelen için yanıt üstbilgilerini getirir `GET` isteği.
@@ -112,9 +111,9 @@ Tüm `GET` API uç noktasına yapılan istek HTTP yeniden yönlendirmesi (301 ve
 
 Ad                     | Açıklama
 ------------------------ | -----------
-X-NuGet-apikey ile yapılan           | Anında iletme ve silme için gerekir, bkz: [ `PackagePublish` kaynak](package-publish-resource.md)
-X-NuGet-istemci-sürüm   | **Kullanım dışı** ve tarafından değiştirildi`X-NuGet-Protocol-Version`
-X-NuGet-Protocol-sürüm | Bazı durumlarda yalnızca nuget.org üzerinde gerekli, bkz: [nuget.org protokolleri](NuGet-Protocols.md)
+X-NuGet-ApiKey           | Anında iletme ve silme için gerekir, bkz: [ `PackagePublish` kaynak](package-publish-resource.md)
+X-NuGet-Client-Version   | **Kullanım dışı** ve tarafından değiştirildi`X-NuGet-Protocol-Version`
+X-NuGet-Protocol-Version | Bazı durumlarda yalnızca nuget.org üzerinde gerekli, bkz: [nuget.org protokolleri](NuGet-Protocols.md)
 
 ## <a name="authentication"></a>Kimlik doğrulaması
 

@@ -12,11 +12,11 @@ keywords: "NuGet Paket Yöneticisi, tüketim, paket oluşturma paketini barınd�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 73c5af1fd06cae3c162446ad56c39a88bfdc3a1d
-ms.sourcegitcommit: d576d84fb4b6a178eb2ac11f55deb08ac771ba1c
+ms.openlocfilehash: e670fa6174f8dc9954ef9eebc06f61e84112117d
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="an-introduction-to-nuget"></a>NuGet giriş
 
@@ -86,15 +86,12 @@ Yalnızca başvuru listesi ile NuGet daha sonra yeniden yükleyebilirsiniz&mdash
 
 Bir otomatik dağıtım sisteminin bir parçası proje bir kopyasını alma bir yapı sunucusu gibi bir proje alan bilgisayar yalnızca bunlar gerekli olduğunda bağımlılıkları geri yüklemek için NuGet sorar. Visual Studio Team Services "NuGet geri yükleme" adımları tam bu amaçla sağlamak gibi sistemler oluşturabilir. Benzer şekilde, ne zaman geliştiriciler elde proje bir kopyasını (olarak depo kopyalarken) gibi bir komutu çağırabileceği `nuget restore` (NuGet CLI) `dotnet restore` (dotnet CLI) veya `Install-Package` tüm gerekli bir paketi de almak için (Paket Yöneticisi Konsolu). Kendi bölümü için Visual Studio Proje oluşturulurken paketleri otomatik olarak geri yükler.
 
-Açıkçası, daha sonra geliştiriciler ilgilenen nerede NuGet birincil rolü projenizin adına başvuru listeleyen Bakımı ve sağlayarak bu başvurulan bir paket verimli bir şekilde geri yükleme (ve güncelleştirmek için) anlamına gelir.
-
-Bu tam olarak nasıl gerçekleştiğini birkaç içinde kaynaklanan NuGet farklı sürümlerini üzerinden gelişen *paket Yönetimi biçimleri*adlı gibi:
+Açıkçası, daha sonra geliştiriciler ilgilenen nerede NuGet birincil rolü projenizin adına başvuru listeleyen Bakımı ve sağlayarak bu başvurulan bir paket verimli bir şekilde geri yükleme (ve güncelleştirmek için) anlamına gelir. Bu liste, iki birinde tutulur *paket Yönetimi biçimleri*adlı gibi:
 
 - [`packages.config`](Schema/packages-config.md): *(NuGet 1.0 +)* projesinde, diğer bağımlılıklar dahil olmak üzere tüm bağımlılıkları düz bir listesini tutar bir XML dosyası yüklü paketler.
 - [PackageReference](Consume-Packages/Package-References-in-Project-Files.md) (veya "paketini proje dosyalarını başvurularında") | *(NuGet 4.0 +)* ayrı bir dosya gerektiği şekilde bir projenin en üst düzey bağımlılıkları doğrudan proje dosyası listesini tutar. İlişkili bir dosya `project.assets.json`, genel bağımlılık grafiğinin yönetmek için dinamik olarak oluşturulur.
-- [`project.json`](Schema/project-json.md): *(kullanım dışı)* proje bağımlılıkları ile ilişkili bir dosyası bir genel paket grafiğinde bir listesini tutar bir JSON dosyası `project.lock.json`. Bu biçim lehinde PackageReference kullanım dışıdır.
 
-Hangi paket Yönetimi biçimi herhangi belirli bir projede işe proje türü ve kullanılabilir bir NuGet (ve/veya Visual Studio) sürümü bağlıdır. Hangi biçimi kullanılan denetlemek için yalnızca Ara `packages.config` veya `project.json` ilk paketinizi yükledikten sonra proje kök. Proje dosyası için doğrudan ya da dosya görmüyorsanız, bakın bir &lt;PackageReference&gt;öğesi.
+Hangi paket Yönetimi biçimi herhangi belirli bir projede işe proje türü ve kullanılabilir bir NuGet (ve/veya Visual Studio) sürümü bağlıdır. Hangi biçimi kullanılan denetlemek için yalnızca Ara `packages.config` ilk paketinizi yükledikten sonra proje kök. Bu dosyayı yapmazsanız, doğrudan için proje dosyası bakın bir &lt;PackageReference&gt;öğesi.
 
 ## <a name="what-else-does-nuget-do"></a>Else NuGet ne yapar?
 

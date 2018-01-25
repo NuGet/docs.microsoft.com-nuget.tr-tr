@@ -11,17 +11,16 @@ ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 1eaa403a-5c13-4c05-9352-2f791b98aa7e
 description: "Yayımlama hizmeti, istemcilerin yeni paketleri yayımlama ve unlist veya var olan paketleri silmek olanak tanır."
 keywords: "NuGet API itme paket NuGet API Sil paket, NuGet API unlist paketi, NuGet API karşıya yükleme paketi, NuGet API'si paketi oluşturma"
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 5fbcd82b09ebd56ae21103640e7c39b482059525
-ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
+ms.openlocfilehash: f8051ca57fccae77917567d8c9f2f8a120a8d884
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="push-and-delete"></a>Anında iletme ve silin
 
@@ -52,15 +51,13 @@ Protokol aynı olduğundan bu URL eski V2 itme bitiş noktası ile aynı konumda
 
 nuget.org aşağıdaki API kullanarak koymadan yeni paketlerini destekler. Sağlanan Kimliğini ve sürümünü paketiyle zaten varsa, nuget.org itme reddeder. Mevcut bir paketi değiştirerek diğer paket kaynaklarını destekleyebilir.
 
-```
-PUT https://www.nuget.org/api/v2/package
-```
+    PUT https://www.nuget.org/api/v2/package
 
 ### <a name="request-parameters"></a>İstek parametreleri
 
 Ad           | İçindeki     | Tür   | Gerekli | Notlar
 -------------- | ------ | ------ | -------- | -----
-X-NuGet-apikey ile yapılan | Üstbilgi | dize | Evet      | Örneğin, `X-NuGet-ApiKey: {USER_API_KEY}`
+X-NuGet-ApiKey | Üstbilgi | dize | Evet      | Örneğin, `X-NuGet-ApiKey: {USER_API_KEY}`
 
 API anahtarını paket kaynağından kullanıcı tarafından onayınızı ve istemciyi yapılandırılmış donuk bir dizedir. Hiçbir belirli dize biçimi zorunlu ancak API anahtarı uzunluğu HTTP üstbilgi değerleri için makul bir boyut aşamaz.
 
@@ -86,9 +83,7 @@ Sunucu uygulamaları bir paketi başarıyla gönderildiğinde döndürülen baş
 
 nuget.org yorumlar paketi silme isteği olarak "unlist" bir. Bu paketin paket varolan Tüketiciler için hala kullanılabilir olduğundan, ancak paket artık arama sonuçlarında veya web arabirimi görünür anlamına gelir. Bu uygulama hakkında daha fazla bilgi için bkz: [silinen paketler](../policies/deleting-packages.md) ilkesi. Bu sinyal sabit delete olarak yorumlama, yumuşak silin veya unlist ücretsiz diğer sunucu uygulamalarıdır. Örneğin, [NuGet.Server](https://www.nuget.org/packages/NuGet.Server) (yalnızca eski V2 API destekleyen bir sunucu uygulaması) destekleyen bir unlist veya bir yapılandırma seçeneği göre sabit bir delete olarak bu isteği işleme.
 
-```
-DELETE https://www.nuget.org/api/v2/package/{ID}/{VERSION}
-```
+    DELETE https://www.nuget.org/api/v2/package/{ID}/{VERSION}
 
 ### <a name="request-parameters"></a>İstek parametreleri
 
@@ -96,7 +91,7 @@ Ad           | İçindeki     | Tür   | Gerekli | Notlar
 -------------- | ------ | ------ | -------- | -----
 Kimlik             | URL    | dize | Evet      | Silmek için paket kimliği
 VERSION        | URL    | dize | Evet      | Silmek için paketin sürümü
-X-NuGet-apikey ile yapılan | Üstbilgi | dize | Evet      | Örneğin, `X-NuGet-ApiKey: {USER_API_KEY}`
+X-NuGet-ApiKey | Üstbilgi | dize | Evet      | Örneğin, `X-NuGet-ApiKey: {USER_API_KEY}`
 
 ### <a name="response"></a>Yanıt
 
@@ -111,9 +106,7 @@ Bir paket listelenmemiş ise, bu paket "relist" uç nokta kullanarak arama sonu�
 
 Paket zaten listeleniyorsa, istek hala başarılı olur.
 
-```
-POST https://www.nuget.org/api/v2/package/{ID}/{VERSION}
-```
+    POST https://www.nuget.org/api/v2/package/{ID}/{VERSION}
 
 ### <a name="request-parameters"></a>İstek parametreleri
 
@@ -121,7 +114,7 @@ Ad           | İçindeki     | Tür   | Gerekli | Notlar
 -------------- | ------ | ------ | -------- | -----
 Kimlik             | URL    | dize | Evet      | Relist paket kimliği
 VERSION        | URL    | dize | Evet      | Relist Paket sürümü
-X-NuGet-apikey ile yapılan | Üstbilgi | dize | Evet      | Örneğin, `X-NuGet-ApiKey: {USER_API_KEY}`
+X-NuGet-ApiKey | Üstbilgi | dize | Evet      | Örneğin, `X-NuGet-ApiKey: {USER_API_KEY}`
 
 ### <a name="response"></a>Yanıt
 

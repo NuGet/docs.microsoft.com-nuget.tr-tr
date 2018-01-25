@@ -7,18 +7,17 @@ ms.date: 12/08/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 6ee3c826-dd3a-4fa9-863f-1fd80bc4230f
 description: "Sürüm numaraları ve diğer paketleri, bağlı bir NuGet paketi ve bağımlılıkları nasıl yükleneceğini aralıklarını belirtme hakkında tam ayrıntılar."
 keywords: "sürüm oluşturma, NuGet Paket bağımlılıklarını, NuGet bağımlılık sürümleri, NuGet sürüm numaralarını, NuGet Paket sürümü, sürüm aralıkları, sürüm belirtimleri, normalleştirilmiş sürüm numaraları"
 ms.reviewer:
 - anandr
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: cb5624a2fd99e8afd8a8226fd786343f485041c4
-ms.sourcegitcommit: c27e565de485cbe836e6c2a66e44a50b35b487ff
+ms.openlocfilehash: 70472d7d97d073009237a047e0fdf528b221dfd0
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="package-versioning"></a>Paket sürümü oluşturma
 
@@ -42,12 +41,11 @@ Belirli bir sürüm numarasını biçimindedir *Major.Minor.Patch [-soneki]*, bu
 - *-Soneki* (isteğe bağlı): bir tire izlenen bir yayım öncesi sürümünü belirten bir dizeyle (aşağıdaki [anlamsal sürüm oluşturma veya SemVer 1.0 kuralı](http://semver.org/spec/v1.0.0.html)).
 
 **Örnekler:**
-```
-1.0.1
-6.11.1231
-4.3.1-rc
-2.2.44-beta1
-```
+
+    1.0.1
+    6.11.1231
+    4.3.1-rc
+    2.2.44-beta1
 
 > [!Important]
 > nuget.org tam bir sürüm numarası eksik paketini karşıya yükleme reddeder. Sürüm belirtilmelidir `.nuspec` veya paketi oluşturmak üzere kullanılan proje dosyası.
@@ -67,16 +65,14 @@ Bu, paket geliştiriciler genellikle tanınan adlandırma kurallarına uygun old
 
 Paket referanslarını ve birden çok paket sürümü yalnızca soneki ile farklı çözülürken NuGet sonek olmayan bir sürümünü ilk seçer ve ardından yayın öncesi sürümler ters alfabetik sırada öncelik uygular. Örneğin, aşağıdaki sürümleri gösterilen sırada seçilen:
 
-```
-1.0.1
-1.0.1-zzz
-1.0.1-rc
-1.0.1-open
-1.0.1-beta
-1.0.1-alpha2
-1.0.1-alpha
-1.0.1-aaa
-```
+    1.0.1
+    1.0.1-zzz
+    1.0.1-rc
+    1.0.1-open
+    1.0.1-beta
+    1.0.1-alpha2
+    1.0.1-alpha
+    1.0.1-aaa
 
 ## <a name="semantic-versioning-200"></a>Anlamsal sürüm oluşturma 2.0.0
 
@@ -97,11 +93,11 @@ Nuget.org için SemVer v2.0.0 özgü paketini karşıya yükleyin, paketin eski 
 - NuGet 4.3.0+
 - Visual Studio 2017 sürüm 15.3 +
 - Visual Studio 2015 ile birlikte [NuGet VSIX v3.6.0](https://dist.nuget.org/visualstudio-2015-vsix/latest/NuGet.Tools.vsix)
-- DotNet.exe (.NET SDK'sı 2.0.0+)
+- dotnet.exe (.NET SDK 2.0.0+)
 
 Üçüncü taraf istemciler:
 
-- JetBrains binici
+- JetBrains Rider
 - Paket sürüm 5.0 +
 
 <!-- For compatibility with previous dependency-versions page -->
@@ -115,15 +111,15 @@ Paket bağımlılıklarını söz konusu olduğunda NuGet sürümü aralıkları
 |----------|--------------|-------------|
 | 1.0 | 1.0 ≤ x | En düşük sürüm, (bunlar dahil) |
 | (1.0,) | 1.0 < x | En düşük sürüm, özel |
-| [1.0] | x 1.0 == | Tam sürümü eşleşmiyor |
+| [1.0] | x == 1.0 | Tam sürümü eşleşmiyor |
 | (,1.0] | x ≤ 1.0 | En yüksek sürüm, (bunlar dahil) |
-| (,1.0) | < 1.0 x | Özel olarak, en yüksek sürüm |
+| (,1.0) | x < 1.0 | Özel olarak, en yüksek sürüm |
 | [1.0,2.0] | 1.0 ≤ x ≤ 2.0 | Tam aralık, (bunlar dahil) |
 | (1.0,2.0) | 1.0 < < 2.0 x | Tam aralık, özel |
 | [1.0,2.0) | 1.0 ≤ < 2.0 x | Karma (bunlar dahil) en düşük ve özel en yüksek sürüm |
 | (1.0)    | geçersiz | geçersiz |
 
-PackageReference kullanırken veya `project.json` bir joker karakter gösterimini kullanarak destekler de başvuru biçimleri, NuGet paketini \*, birincil, ikincil, düzeltme eki ve sayının yayın öncesi soneki bölümleri için. İle joker karakterler desteklenmez `packages.config` biçimi.
+PackageReference biçimi kullanıldığında, bir joker karakter gösterimini kullanarak NuGet de destekler \*, birincil, ikincil, düzeltme eki ve sayının yayın öncesi soneki bölümleri için. İle joker karakterler desteklenmez `packages.config` biçimi.
 
 > [!Note]
 > Yayın öncesi sürümleri, sürüm aralıkları çözülürken dahil edilmez. Yayın öncesi sürümler *olan* bir joker karakter kullanırken dahil (\*). Sürüm aralığı *[1.0,2.0]*, örneğin, 2.0 beta ancak joker gösterimi içermez _2.0-*_ yapar. Bkz: [sorun 912](https://github.com/NuGet/Home/issues/912) yayın öncesi joker karakterler hakkında daha fazla açıklama için.
@@ -228,18 +224,14 @@ Yükleme sırasında bir depodan paketler alma yeniden yükleyin veya geri yükl
 
 - Sürüm numaraları 2f3b kaldırılır:
 
-    ```
-    1.00 is treated as 1.0
-    1.01.1 is treated as 1.1.1
-    1.00.0.1 is treated as 1.0.0.1
-    ```
+        1.00 is treated as 1.0
+        1.01.1 is treated as 1.1.1
+        1.00.0.1 is treated as 1.0.0.1
 
 - Sürüm numarasını dördüncü bir parçası olarak sıfır atlanacak
 
-    ```
-    1.0.0.0 is treated as 1.0.0
-    1.0.01.0 is treated as 1.0.1
-    ```
+        1.0.0.0 is treated as 1.0.0
+        1.0.01.0 is treated as 1.0.1
 
 Bu normalleştirme paketlerde kendilerini sürüm numaraları etkilemez; Bu, yalnızca nasıl NuGet sürümleri bağımlılıkları çözümlenirken eşleşen etkiler.
 

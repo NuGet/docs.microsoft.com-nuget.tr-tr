@@ -3,21 +3,20 @@ title: "NuGet paketi bağımlılık çözümleme | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 8/14/2017
+ms.date: 08/14/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 1d530a72-3486-4a0d-b6fb-017524616f91
 description: "Üzerinden bir NuGet paketin bağımlılıklarını çözümlendi ve her iki NuGet yüklü işlemiyle ilgili ayrıntılar 2.x ve NuGet 3.x+."
 keywords: "NuGet Paket bağımlılıklarını, NuGet sürüm oluşturma, bağımlılık sürümleri, sürüm grafiği, sürüm çözünürlüğü, geçişli geri yükleme"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 91af96eb1f4bf0ee5a46ea8c418440eff20c768d
-ms.sourcegitcommit: 9ac1fa23a4a8ce098692de93328b1db4136fe3d2
+ms.openlocfilehash: b94ebe0eab5cc0316f78539c17cabadbee644d5f
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>NuGet Paket bağımlılıklarını nasıl çözümler
 
@@ -27,20 +26,13 @@ Bu hemen bağımlılıkları da kendi başlarına, için rasgele bir derinliği 
 
 Birden çok paket aynı bağımlılık varsa, daha sonra aynı paket kimliği grafikte birden çok kez olası farklı sürüm kısıtlamalarıyla görünebilir. Ancak, NuGet hangi sürümünün kullanıldığını seçmeniz gerekir böylece bir proje ile belirli bir paket yalnızca bir sürümü kullanılabilir. Tam işlem kullanılan paket başvuru biçimi bağlıdır.
 
-Bu konuda:
-- [PackageReference ve project.json bir bağımlılık çözümleme](#dependency-resolution-with-packagereference-and-projectjson)
-- [Packages.config bir bağımlılık çözümleme](#dependency-resolution-with-packagesconfig)
-- [Başvuruları hariç](#excluding-references), bir proje ve bir başkası tarafından üretilen bir derlemeyi belirtilen bir bağımlılık arasında bir çakışma olduğunda gerekli olduğu.
-- [Paket sırasında bağımlılık güncelleştirmeleri yükle](#dependency-updates-during-package-install)
-- [Uyumsuz paket hatalarını çözme](#resolving-incompatible-package-errors)
+## <a name="dependency-resolution-with-packagereference"></a>PackageReference bir bağımlılık çözümleme
 
-## <a name="dependency-resolution-with-packagereference-and-projectjson"></a>PackageReference ve project.json bir bağımlılık çözümleme
+Paketleri PackageReference biçimini kullanarak projelere yüklerken, NuGet uygun dosyasında bir düz paket grafik başvuruları ekler ve önceden çakışmaları çözer. Bu işlem olarak adlandırılır *geçişli geri yükleme*. Yeniden yüklemeyi veya paketleri geri sonra daha hızlı sonuçta grafikte listelenen paketler indirme işlemi ve daha tahmin edilebilir oluşturur. Ayrıca 2.8 gibi joker karakter (kayan) sürümlerinden yararlanabilirsiniz. \*, pahalı önlemenin ve hata potansiyeli çağrıları `nuget update` yapı sunucuları ve istemci makineleri.
 
-Paketleri PackageReference kullanarak projelere yüklerken veya `project.json` biçimleri, NuGet uygun dosyasında bir düz paket grafik başvuruları ekler ve önceden çakışmalar çözümlendi. Bu işlem olarak adlandırılır *geçişli geri yükleme*. Yeniden yüklemeyi veya paketleri geri sonra daha hızlı sonuçta grafikte listelenen paketler indirme işlemi ve daha tahmin edilebilir oluşturur. Ayrıca 2.8 gibi joker karakter (kayan) sürümlerinden yararlanabilirsiniz. \*, pahalı önlemenin ve hata potansiyeli çağrıları `nuget update` yapı sunucuları ve istemci makineleri.
+NuGet geri yükleme işlemi önce bir yapı çalıştığında, bağımlılıkları ilk bellekte çözümler, ardından, elde edilen grafik adlı bir dosyaya yazar `project.assets.json` içinde `obj` PackageReference kullanarak bir proje klasörü. MSBuild sonra bu dosyayı okur ve burada olası başvurular bulunabilir ve ardından bunları bellek proje ağacında ekler klasörler kümesi çevirir.
 
-NuGet geri yükleme işlemi önce bir yapı çalıştığında, bağımlılıkları ilk bellekte çözümler, ardından, elde edilen grafik adlı bir dosyaya yazar `project.assets.json` içinde `obj` klasörü PackageReference kullanarak bir proje veya adlı bir dosyaya `project.lock.json` yanında `project.json`. MSBuild sonra bu dosyayı okur ve burada olası başvurular bulunabilir ve ardından bunları bellek proje ağacında ekler klasörler kümesi çevirir.
-
-Kilit dosyası geçicidir ve kaynak denetimi eklenmemesi. Hem de varsayılan olarak listelenen `.gitignore` ve `.tfignore`. Bkz: [paketler ve kaynak denetimi](Packages-and-Source-Control.md).
+Kilit dosyası geçicidir ve kaynak denetimi eklenmemesi. Hem de varsayılan olarak listelenen `.gitignore` ve `.tfignore`. Bkz: [paketler ve kaynak denetimi](packages-and-source-control.md).
 
 ### <a name="dependency-resolution-rules"></a>Bağımlılık çözümleme kurallarını
 
@@ -115,16 +107,15 @@ Bu durumlarda, üst düzey bir tüketici (uygulama veya Paketle) doğrudan bağ�
 
 İle `packages.config`, NuGet tek tek her paketin yüklenmesi sırasında bağımlılık çakışmaları dener. A paketi yükleniyor ve paket B ve paket B bağlıdır, diğer bir deyişle, zaten listede `packages.config` bir bağımlılık, başka bir NuGet paketi istenen B sürümlerini karşılaştırır ve tüm sürüm karşılayan bir sürümünü bulmaya çalışır kısıtlamaları. Özellikle, NuGet alt seçer *major.minor* bağımlılıkları karşılayan sürümü.
 
-Varsayılan olarak, NuGet 2.7 ve önceki en yüksek çözümler *düzeltme eki* sürüm (kullanarak *major.minor.patch.build* kuralı). [NuGet 2.8 ve daha yüksek](../release-notes/nuget-2.8.md#patch-resolution-for-dependencies) için en düşük düzeltme eki sürümü varsayılan olarak aramak için bu davranış değişir. Bu ayarı kullanılarak denetleyebilirsiniz `DependencyVersion` özniteliğini `Nuget.Config` ve `-DependencyVersion` komut satırında geçin.  
+Varsayılan olarak, en düşük düzeltme eki sürümü NuGet 2.8 görünüyor (bkz [NuGet 2.8 sürüm notları](../release-notes/nuget-2.8.md#patch-resolution-for-dependencies)). Bu ayarı kullanılarak denetleyebilirsiniz `DependencyVersion` özniteliğini `Nuget.Config` ve `-DependencyVersion` komut satırında geçin.  
 
 `packages.config` Bağımlılıkları çözümleniyor büyük bağımlılık grafikleri için karmaşık alır için işlem. Her yeni paket yükleme tüm grafik çapraz geçişi gerektirir ve sürüm çakışmaları için Fırsat başlatır. Bir çakışma oluştuğunda, özellikle proje dosyasına olası değişiklikleri ile belirlenmemiş bir durum proje bırakarak yükleme durdurulur. Bu sorunu diğer paketi başvurusu biçimleri kullanırken değildir.
 
-
 ## <a name="managing-dependency-assets"></a>Bağımlılık varlıklarını yönetme
 
-Kullanırken `project.json` veya PackageReference biçimleri, üst düzey proje bağımlılıkları akışına hangi varlıklarından kontrol edebilirsiniz. Ayrıntılar için bkz [project.json](../Schema/project-json.md) ve [paketini proje dosyalarını başvurularında](Package-References-in-Project-Files.md#controlling-dependency-assets).
+PackageReference biçimi kullanıldığında, en üst düzey proje bağımlılıkları akışına hangi varlıklarından kontrol edebilirsiniz. Ayrıntılar için bkz [PackageReference](package-references-in-project-files.md#controlling-dependency-assets).
 
-Üst düzey proje kendisini bir paketi olduğunda, bu akış denetime kullanarak de `include` ve `exclude` listelenen bağımlılıkları özniteliklerle `.nuspec` dosya. Bkz: [.nuspec başvuru - bağımlılıkları](../Schema/nuspec.md#dependencies).
+Üst düzey proje kendisini bir paketi olduğunda, bu akış denetime kullanarak de `include` ve `exclude` listelenen bağımlılıkları özniteliklerle `.nuspec` dosya. Bkz: [.nuspec başvuru - bağımlılıkları](../schema/nuspec.md#dependencies).
 
 ## <a name="excluding-references"></a>Başvuruları hariç
 
@@ -140,34 +131,9 @@ Bu sorunu çözmek için doğrudan başvurmalıdır `C.dll` sizin (veya doğru o
 
 - `packages.config`: PackageC başvurusunu kaldırın `.csproj` yalnızca sürümüne başvuruyor dosyasını `C.dll` istediğiniz.
     
-- `project.json`: eklemek `"exclude" : "all"` PackageC bağımlılığı içinde:
-
-    ```json
-    {
-        "dependencies": {
-            "PackageC": {
-            "version": "1.0.0",
-            "exclude": "all"
-            }
-        }
-    }
-    ```
-
-- İle [paketini proje dosyalarını başvurularında](../consume-packages/package-references-in-project-files.md) (NuGet 4.0 + yalnızca), ekleme `ExcludeAssets="All"` bağımlılık olarak:
-
-    ```xml
-    <PackageReference Include="packageC" Version="1.0.0" ExcludeAssets="All" />
-    ```
-
 ## <a name="dependency-updates-during-package-install"></a>Paket sırasında bağımlılık güncelleştirmeleri yükle 
 
-NuGet ile 2.4.x ve, bağımlılık projede zaten bir paketi yüklendiğinde, mevcut sürümü de bu kısıtlamalar uymazsa bile daha önce bağımlılık sürümü kısıtlamaları karşılayan en son sürümüne güncelleştirilir. 
-
-Örneğin, paket B paketine bağlıdır ve 1.0 için sürüm numarasını belirtir A göz önünde bulundurun. Her iki sürümü 1.0, 1.1 ve 1.2 paketinin B. kaynak deposu içerir A B sürüm 1.0 zaten içeren projede yüklü ise B sürüm 1.2 güncelleştirilir. 
-
-Bağımlılık sürümünü zaten sağlanıyorsa bağımlılık NuGet 2.5 ve daha sonra diğer paket yüklemeleri sırasında güncelleştirilmez. 
-
-Aynı yukarıdaki örnekte, paket B 1.0 projesinde NuGet 2.5 ve daha sonraki bir projesine bırakır paketi yüklerken, olarak zaten sürüm kısıtlamasına. A paketi istekleri sürüm 1.1 veya üstü b olsaydı, ancak, ardından B 1.2 yüklenmesi. 
+Bağımlılık sürümünü zaten sağlanıyorsa bağımlılık diğer paket yüklemeleri sırasında güncelleştirilmez. Örneğin, paket B paketine bağlıdır ve 1.0 için sürüm numarasını belirtir A göz önünde bulundurun. Sürüm 1.0, 1.1 ve 1.2 paket b kaynak deposu içerir A B sürüm 1.0 zaten içeren projede yüklediyseniz, sürüm kısıtlamasına uyan çünkü B 1.0 kullanımda kalır. A paketi istekleri sürüm 1.1 veya üstü b olsaydı, ancak, ardından B 1.2 yüklenmesi. 
 
 ## <a name="resolving-incompatible-package-errors"></a>Uyumsuz paket hatalarını çözme
 
@@ -195,4 +161,4 @@ Uyumsuzlukları çözmek için şunlardan birini yapın:
 
 - Kullanmak istediğiniz paketleri tarafından desteklenen bir çerçeve projenize yeniden hedefleyin.
 - Paket yazarına başvurun ve onlarla seçilen framework desteği eklemek için çalışma. Üzerinde sayfa listeleme her paket [nuget.org](https://www.nuget.org/) sahip bir **kişi sahipleri** bu amaç için bağlantı.
-- **Önerilmez**: geçici bir çözüm olarak için paket yazarına ile çalışırken projeleri hedefleyen `netcore`, `netstandard`, ve `netcoreapp` uyumlu, böylece bu hedefleme paketleri izin verme olarak diğer çerçeveler belirtmek kullanılacak diğer çerçeveler. Bkz: [project.json alır](../Schema/project-json.md#imports) ve [MSBuild geri yükleme hedefi PackageTargetFallback](../Schema/msbuild-targets.md#packagetargetfallback). Bu beklenmeyen davranışları neden şekilde yeniden üzerinde bir güncelleştirme için paket yazarına ile çalışarak paket uyumsuzlukları gidermek en iyisidir.
+

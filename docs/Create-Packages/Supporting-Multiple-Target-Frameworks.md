@@ -3,21 +3,20 @@ title: "Çoklu sürüm desteği için NuGet paketleri | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 9/27/2017
+ms.date: 09/27/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 2646ffcd-83ae-4086-8915-a7fba3f53e45
 description: "Tek bir NuGet paketi birden çok .NET Framework sürümü hedeflemek için çeşitli yöntemler açıklaması."
 keywords: "NuGet paketi, NuGet ve .NET, .NET Framework sürümleri hedefleme hedefleme çoklu çerçevelerine, NuGet paketi oluşturma"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: d23158c6dab838b723764994e94fc21cab52f553
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 5a04116aaceaa21a4c57a617d942daec09686bfe
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="supporting-multiple-net-framework-versions"></a>Birden çok .NET framework sürümleri destekleme
 
@@ -26,15 +25,6 @@ ms.lasthandoff: 12/14/2017
 Birçok kitaplıkları belirli bir .NET Framework sürümünü hedefleyin. Örneğin, kitaplığınızın UWP için belirli bir sürüm ve .NET Framework 4.6 özelliklerinden yararlanır başka bir sürümü olabilir.
 
 Bu, açıklanan kurala dayalı çalışma dizini yöntemi kullanırken, tek bir pakette aynı kitaplığı birden fazla sürümünü koyma NuGet destekler uyum sağlayacak şekilde [paket oluşturma](../create-packages/creating-a-package.md#from-a-convention-based-working-directory).
-
-Bu konuda:
-
-- [Framework'te sürüm klasör yapısı](#framework-version-folder-structure)
-- [Derleme sürümlerini ve bir proje hedef çerçevesi eşleştirme](#matching-assembly-versions-and-the-target-framework-in-a-project)
-- [Framework sürümüne göre gruplandırma derlemeler](#grouping-assemblies-by-framework-version)
-- [Kullanmak için hangi NuGet hedef belirleme](#determining-which-nuget-target-to-use)
-- [İçerik dosyaları ve PowerShell betikleri](#content-files-and-powershell-scripts)
-
 
 ## <a name="framework-version-folder-structure"></a>Framework'te sürüm klasör yapısı
 
@@ -83,7 +73,6 @@ Mimariye özel derlemeler, diğer bir deyişle, ARM, hedef x 86 ve x64, ayrı de
 
 Bkz: [UWP paketleri oluşturmak](../Guides/Create-UWP-Packages.md) bu dosyalarda başvuran bir örnek için `.nuspec` bildirimi.
 
-
 ## <a name="matching-assembly-versions-and-the-target-framework-in-a-project"></a>Derleme sürümlerini ve bir proje hedef çerçevesi eşleştirme
 
 NuGet birden çok derleme sürümü olan bir paketi yüklendiğinde, projenin hedef çerçevesini derlemenin framework adla eşleşecek şekilde çalışır.
@@ -97,7 +86,6 @@ Bir eşleşme bulunmazsa, NuGet projenin hedef çerçevesi eşit veya daha az ku
             \MyAssembly.dll
         \net461
             \MyAssembly.dll
-
 
 .NET Framework 4.6 hedefleyen bir projede bu paket yükleme sırasında derlemede NuGet yükler `net45` klasörü, 4.6 küçük veya buna eşit olan en yüksek kullanılabilir olduğu için.
 
@@ -144,7 +132,7 @@ Ne zaman hedefleyen taşınabilir sınıf kitaplığı paketleme kitaplıkları 
 ## <a name="content-files-and-powershell-scripts"></a>İçerik dosyaları ve PowerShell betikleri
 
 > [!Warning]
-> Değişebilir içerik dosyaları ve komut dosyası yürütme ile kullanılabilir `packages.config` yalnızca biçimini; kullanırken kullanım dışı `project.json` ve PackagesReference biçimlendirir ve herhangi bir yeni paket kullanılmamalıdır.
+> Değişebilir içerik dosyaları ve komut dosyası yürütme ile kullanılabilir `packages.config` yalnızca biçimini; diğer biçimlere kullanım dışıdır ve herhangi bir yeni paket kullanılmamalıdır.
 
 İle `packages.config`, içeriği içinde aynı klasörü kuralını kullanarak hedef framework tarafından dosyaları ve PowerShell komut dosyaları gruplandırılabilir `content` ve `tools` klasörler. Örneğin:
 

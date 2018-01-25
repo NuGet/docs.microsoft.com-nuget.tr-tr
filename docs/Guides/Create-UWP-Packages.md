@@ -3,21 +3,20 @@ title: "Evrensel Windows platformu için NuGet paketlerini oluşturma | Microsof
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 7/17/2017
+ms.date: 07/17/2017
 ms.topic: get-started-article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: d98524b1-a674-4803-8ac5-3c6bce867f86
 description: "Windows çalışma zamanı bileşeni için evrensel Windows platformu kullanarak NuGet paketleri oluşturma bir uçtan uca kılavuz."
 keywords: "paketler UWP, Windows çalışma zamanı bileşenleri için bir paket oluşturun"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 0513ad063d01e573672b6c84a9e819b6df516f03
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: ef0343fcf6c156a8597df42fe006f9f805903714
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="create-uwp-packages"></a>UWP paketleri oluşturma
 
@@ -38,7 +37,6 @@ Bu kılavuzda hem yönetilen hem de yerel projeleri kullanılabilecek (XAML dene
 
 > [!Note]
 > nuget.exe CLI aracı kendisini bir yükleyici nedenle bunu çalıştırmak yerine tarayıcınızdan indirilen dosyayı kaydettiğinizden emin olur.
-
 
 ## <a name="create-a-uwp-windows-runtime-component"></a>Bir UWP Windows çalışma zamanı bileşeni oluşturma
 
@@ -63,7 +61,6 @@ Bu kılavuzda hem yönetilen hem de yerel projeleri kullanılabilecek (XAML dene
 > [!Note]
 > Bu kılavuzda paket için hata ayıklama yapıları kullanacaksınız. Hata ayıklama olmayan paketi için Toplu derleme iletişim yayın seçeneklerinde bunun yerine denetleyin ve adımları ortaya çıkan sürüm klasörlerde bakın.
 
-
 ## <a name="create-and-update-the-nuspec-file"></a>Oluşturun ve .nuspec dosyası güncelleştirin
 
 İlk oluşturmak için `.nuspec` dosya, aşağıdaki üç adımda yapın. Ardından bölümlerde diğer gerekli güncelleştirmeleri aracılığıyla yol.
@@ -71,7 +68,7 @@ Bu kılavuzda hem yönetilen hem de yerel projeleri kullanılabilecek (XAML dene
 1. Bir komut istemi açın ve içeren klasöre gidin `ImageEnhancer.vcxproj` (Bu çözüm dosyasını olduğu alt aşağıdaki olacaktır).
 1. NuGet Çalıştır `spec` oluşturmak için komutu `ImageEnhancer.nuspec` (dosya adı adından alınır `.vcxproj` dosyası):
 
-    ```
+    ```cli
     nuget spec
     ```
 
@@ -97,8 +94,6 @@ Bu kılavuzda hem yönetilen hem de yerel projeleri kullanılabilecek (XAML dene
 
 > [!Note]
 > Ortak tüketim için oluşturulan paketler için özel dikkat `<tags>` öğesi, bu etiketler başkalarının paketinizi bulun ve neler yaptığını anlamanıza yardımcı olmak gibi.
-
-
 
 ### <a name="adding-windows-metadata-to-the-package"></a>Paketi Windows meta verileri ekleme
 
@@ -247,12 +242,11 @@ Son `.nuspec` dosya artık görünmelidir aşağıdaki gibi burada yeniden adini
 </package>
 ```
 
-
 ## <a name="package-the-component"></a>Paket bileşeni
 
 Tamamlanan ile `.nuspec` pakete eklemek için gereken tüm dosyaları başvuran, çalıştırmak hazırsınız `pack` komutu:
 
-```
+```cli
 nuget pack ImageEnhancer.nuspec
 ```
 
@@ -272,4 +266,4 @@ Paketinizi diğer geliştiricileri için kullanılabilir yapmak için yönergele
 - [Paket sürümü oluşturma](../reference/package-versioning.md)
 - [Birden çok .NET Framework sürümleri destekleme](../create-packages/supporting-multiple-target-frameworks.md)
 - [Bir pakete MSBuild özellik ve hedefler](../create-packages/creating-a-package.md#including-msbuild-props-and-targets-in-a-package)
-- [Yerelleştirilmiş paketleri oluşturma](../create-packages/creating-localized-packages.md)
+- [Yerelleştirilmiş Paketler Oluşturma](../create-packages/creating-localized-packages.md)

@@ -3,20 +3,20 @@ title: "Visual Studio şablonları NuGet paketlerine | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 1/3/2018
+ms.date: 01/03/2018
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
 description: "NuGet paketlerini Visual Studio Proje ve öğe şablonları bir parçası olarak dahil etmek için yönergeler."
-keywords: "NuGet Visual Studio, Visual Studio Proje şablonları, Visual Studio öğe şablonları, proje şablonları paketlerinde, paketler halinde öğe şablonları"
+keywords: NuGet in Visual Studio, Visual Studio project templates, Visual Studio item templates, packages in project templates, packages in item templates
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 45a2ca2c08660be650f9cf38301f628923e1f8be
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 65b914e1fa59c28615f195b470880a12bf80efbb
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="packages-in-visual-studio-templates"></a>Visual Studio şablonları paketler
 
@@ -149,4 +149,4 @@ Bir MSI kullanılarak yüklenen SDK'ları doğrudan geliştiricinin makinesinde 
 
 1. Proje/öğe şablonları oluşturma dahil ederek kaydedilmesini gerektirir [ `<PromptForSaveOnCreation>true</PromptForSaveOnCreation>` ](/visualstudio/extensibility/promptforsaveoncreation-element-visual-studio-templates) içinde `.vstemplate` dosya.
 
-1. Şablonları içermeyen bir `packages.config` veya `project.json` dosya ve içermeyen veya tüm başvuruları veya NuGet paketleri yüklendiğinde ekleneceği içerik.
+1. Şablonları içermeyen bir `packages.config` dosya ve eklemeyin veya tüm başvuruları veya NuGet paketleri yüklendiğinde ekleneceği içerik.

@@ -3,35 +3,28 @@ title: "Visual Studio 2017 ile .NET standart 2.0 NuGet paketlerini oluşturma | 
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 5/23/2017
+ms.date: 05/23/2017
 ms.topic: get-started-article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 2c1de334-fdc9-4e1e-8ef6-a90b3e77ff0f
 description: "NuGet kullanarak .NET standart 2.0 NuGet paketleri oluşturma bir uçtan uca Kılavuz 4.x ve Visual Studio 2017."
 keywords: "bir paket, .NET standart paketleri, .NET Core oluşturun"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 5b48ad2f062fd3a9b99985dbda6f89e6039dac4d
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: aae38dd141c688a6eccc18cabea9e8245dbc36c5
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="create-net-standard-20-packages-with-visual-studio-2017"></a>Visual Studio 2017 ile .NET standart 2.0 paketleri oluşturma
 
-*NuGet 4.x+ ve MSBuild 15.3 Visual Studio 2017 güncelleştirme 3 koşuluyla + uygulanır. Visual Studio 2017 önceki sürümleri için bu yönergeler için standart 1.4 .NET 1. 6 değiştirerek geçerli \<TargetFramework\> özelliği. Ayrıca bkz. [.NET standart paketleri oluşturmak Visual Studio 2015 ile](../guides/create-net-standard-packages-vs2015.md) NuGet 3.x+ ile çalışmak için.*
+*NuGet 4.x+ ve MSBuild 15.3 Visual Studio 2017 güncelleştirme 3 ve sonraki sürümlerle koşuluyla + için geçerlidir. Visual Studio 2017 önceki sürümleri için bu yönergeler için standart 1.4 .NET 1. 6 değiştirerek geçerli \<TargetFramework\> özelliği. Ayrıca bkz. [.NET standart paketleri oluşturmak Visual Studio 2015 ile](../guides/create-net-standard-packages-vs2015.md) NuGet 3.x+ ile çalışmak için.*
 
 [.NET standart Kitaplığı](/dotnet/articles/standard/library) olduğu .NET API'lerini biçimsel belirtimini hedeflenen böylece büyük bütünlüğünü .NET ekosistemi oluşturma tüm .NET çalışma zamanları üzerinde kullanılabilir olması. .NET standart kitaplığı, iş yükünü bağımsız uygulamak tüm .NET platformları için BCL (temel sınıf kitaplığı) API'leri Tekdüzen kümesini tanımlar. Bunu tüm .NET çalışma zamanları arasında kullanılabilir PCLs üretmek için geliştiricilere olanak sağlar ve azaltır değilse platforma özgü koşullu derleme yönergeleri paylaşılan kod ortadan kaldırır.
 
-Bu kılavuz .NET standart kitaplığı 2.0 Visual Studio 2017 güncelleştirme 3'ü ve NuGet 4.0 ile hedefleyen bir nuget paketi oluşturmada size yol gösterir.
-
-1. [Ön koşullar](#pre-requisites)
-1. [Sınıf kitaplığı proje oluşturma](#create-the-netstandard-class-library-project)
-1. [.Csproj dosyasındaki meta verilerini düzenleme](#edit-metadata-in-the-csproj-file)
-1. [Paket bileşeni](#package-the-component)
-1. [İlgili Konular](#related-topics)
+Bu kılavuzda .NET standart kitaplığı 2.0 ile Visual Studio 2017 hedefleyen bir nuget paketi oluşturmada size anlatılmaktadır.
 
 ## <a name="pre-requisites"></a>Ön koşullar
 
@@ -88,7 +81,6 @@ Paket meta verileri doğrudan yer alan NuGet 4.0 ve .NET Core projelerle `.cspro
     ```
 
 1. Projeyi kaydedin sonra çözüme sağ tıklayın ve seçin **yapı çözümü** bu kez doğru meta verilerle bir paket için tüm dosyaları yeniden oluşturulacak.
-
 
 ## <a name="package-the-component"></a>Paket bileşeni
 

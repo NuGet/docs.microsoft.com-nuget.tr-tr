@@ -3,22 +3,21 @@ title: "NuGet için'.nuspec dosyası başvurusu | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 8/29/2017
+ms.date: 08/29/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: d4a4db9b-5c2d-46aa-9107-d2b01733df7c
 description: ".Nuspec dosyası bir paketi ve paket tüketicilere bilgi sağlamak için oluştururken kullanılan paket meta verileri içerir."
 keywords: "nuspec başvurusu, NuGet paket meta verileri, NuGet paket bildirimi, nuspec şeması"
 ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b8c286b9a5705526e2e8fcf259c6503d48e5d181
-ms.sourcegitcommit: d576d84fb4b6a178eb2ac11f55deb08ac771ba1c
+ms.openlocfilehash: 95f86d8cd11bce8f0f1fed068370311f575601de
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuspec-reference"></a>.nuspec başvurusu
 
@@ -68,7 +67,7 @@ Bu şemayı içinde bir `.nuspec` dosyası aşağıdaki genel biçime sahiptir:
 
 | Öznitelik | Gerekli | Açıklama |
 | --- | --- | --- | 
-| **minClientVersion** | Hayır | *(2.5 +)*  Nuget.exe ve Visual Studio Paket Yöneticisi tarafından zorlanan, bu paketi yükleyebilmek için NuGet istemci en düşük sürümünü belirtir. Bu paket belirli özelliklerine bağlıdır her kullanılır `.nuspec` belirli bir NuGet istemci sürümünün eklenen dosya. Örneğin, bir paketini kullanarak `developmentDependency` özniteliği için "2.8" belirtmelidir `minClientVersion`. Benzer şekilde, bir paketini kullanarak `contentFiles` öğesi (sonraki bölüme bakın) ayarlamalıdır `minClientVersion` "3.3" için. NuGet istemcileri 2.5 önce bu bayrak tanımıyor çünkü Ayrıca bunlar *her zaman* ne olursa olsun paketini yüklemek Reddet `minClientVersion` içerir. |
+| **minClientVersion** | Hayır | Nuget.exe ve Visual Studio Paket Yöneticisi tarafından zorlanan bu paketi yükleyebilmek için NuGet istemci en düşük sürümünü belirtir. Bu paket belirli özelliklerine bağlıdır her kullanılır `.nuspec` belirli bir NuGet istemci sürümünün eklenen dosya. Örneğin, bir paketini kullanarak `developmentDependency` özniteliği için "2.8" belirtmelidir `minClientVersion`. Benzer şekilde, bir paketini kullanarak `contentFiles` öğesi (sonraki bölüme bakın) ayarlamalıdır `minClientVersion` "3.3" için. NuGet istemcileri 2.5 önce bu bayrak tanımıyor çünkü Ayrıca bunlar *her zaman* ne olursa olsun paketini yüklemek Reddet `minClientVersion` içerir. |
 
 ### <a name="required-metadata-elements"></a>Gerekli meta veri öğeleri
 
@@ -260,8 +259,6 @@ Benzer şekilde, açık başvurular derlemeleri çalışma zamanı derlemeleri y
 
 ### <a name="reference-groups"></a>Başvuru grupları
 
-*Sürüm 2.5 +*
-
 Tek düz bir liste için alternatif olarak, proje hedef kullanmanın framework profili göre başvuruları belirtilebilir `<group>` içinde öğelerin `<references>`.
 
 Her Grup adlı bir özniteliği olan `targetFramework` ve sıfır veya daha fazla içeren `<reference>` öğeleri. Hedef Framework'ü projenin framework profiliyle uyumlu olduğunda bu başvuruları projeye eklenir.
@@ -331,7 +328,7 @@ Bu otomatik davranışı atlayıp açıkça hangi dosyaların bir pakete dahil e
 </files>
 ```
 
-NuGet ile 2.x ve önceki sürümleri ve kullanarak projeleri `packages.config`, `<files>` öğesi bir paket yüklendiğinde değişmez içerik dosyalarını eklemek için de kullanılır. NuGet 3.3 + ve kullanarak projeleri ile `project.json` pr PackageReference, `<contentFiles>` öğe yerine kullanılır. Bkz: [içerik dosyaları dahil olmak üzere](#including-content-files) aşağıda Ayrıntılar için.
+NuGet ile 2.x ve önceki sürümleri ve kullanarak projeleri `packages.config`, `<files>` öğesi bir paket yüklendiğinde değişmez içerik dosyalarını eklemek için de kullanılır. NuGet 3.3 + ve projeleri PackageReference, `<contentFiles>` öğe yerine kullanılır. Bkz: [içerik dosyaları dahil olmak üzere](#including-content-files) aşağıda Ayrıntılar için.
 
 ### <a name="file-element-attributes"></a>Dosya öğesi öznitelikleri
 
@@ -416,7 +413,7 @@ Her `<file>` öğesi aşağıdaki özniteliklere belirtir:
 - Proje derleme çıktı ile dahil edilmesi gereken komut
 - Projeye dahil edilmesi gereken ancak projeye özgü değişiklikleri gerekmeyen bir paket için yapılandırma dosyaları
 
-İçerik dosyalarını kullanarak bir paket dahil edilir `<files>` öğesini belirterek `content` klasöründe `target` özniteliği. Paket kullanarak bir projeye yüklendiğinde ancak, bu tür dosyaları göz ardı edilir `project.json` yerine kullanan sistem NuGet 3.3 + ya da NuGet 4 + PackageReference `<contentFiles>` öğesi.
+İçerik dosyalarını kullanarak bir paket dahil edilir `<files>` öğesini belirterek `content` klasöründe `target` özniteliği. Paket yerine kullanır PackageReference kullanarak bir projeye yüklendiğinde ancak, bu tür dosyaları göz ardı edilir `<contentFiles>` öğesi.
 
 Projeleri kullanma ile en fazla uyumluluk için bir paket içerik dosyalarını ideal olarak her iki öğelerinde belirtir.
 
@@ -533,7 +530,7 @@ Bu durumda, kaynak ve hedef dosya uzantılarını eşleştiğinden NuGet hedef d
 
 ### <a name="using-the-contentfiles-element-for-content-files"></a>Content dosyaları öğesi için içerik dosyalarını kullanma
 
-*Sürümüyle 3.3 + project.json ve 4.0 + PackageReference ile*
+*NuGet 4.0 + PackageReference ile*
 
 Varsayılan olarak, bir paket içeriği yerleştirir bir `contentFiles` klasörü (aşağıya bakın) ve `nuget pack` varsayılan özniteliklerini kullanarak bu klasördeki tüm dosyaları dahil. Bu durumda dahil etmek gerekli değildir bir `contentFiles` düğümünde `.nuspec` hiç.
 

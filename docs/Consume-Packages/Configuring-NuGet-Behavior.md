@@ -7,30 +7,22 @@ ms.date: 10/25/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: c1e34826-d07d-4609-a0fd-123459ae89c5
 description: "NuGet.Config dosyaları, hem genel hem de proje başına temelinde NuGet davranışını denetlemek ve nuget config komutu ile değiştirilmelidir."
 keywords: "NuGet yapılandırma dosyaları, NuGet yapılandırması, NuGet davranış ayarları, NuGet ayarları, Nuget.Config, NuGetDefaults.Config, Varsayılanları"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 9269180241a880d3b796b79a13dbcd45627d74d7
-ms.sourcegitcommit: 9ac1fa23a4a8ce098692de93328b1db4136fe3d2
+ms.openlocfilehash: 84bd351a8ce850d281f60dfd675a284d5de17645
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="configuring-nuget-behavior"></a>NuGet davranışını yapılandırma
 
 NuGet davranışı güdümlü bir veya daha fazla birikmiş ayarlar tarafından `NuGet.Config` proje-, kullanıcı- ve bilgisayar genelinde düzeyinde bulunabilir (XML) dosyaları. Bir genel `NuGetDefaults.Config` dosyası (2.7 +), özellikle de paket kaynaklarını yapılandırır. Ayarlar CLI, Paket Yöneticisi konsolu ve Paket Yöneticisi kullanıcı Arabirimi yürütülen tüm komutlar için geçerlidir.
 
-Bu konuda:
-
-- [NuGet.Config dosya konumları ve kullanır](#config-file-locations-and-uses)
-- [Ayarları değiştirme](#changing-config-settings)
-- [Ayarları nasıl uygulanır](#how-settings-are-applied)
-- [NuGetDefaults.Config file](#nuget-defaults-file)
-
-## <a name="nugetconfig-file-locations-and-uses"></a>NuGet.Config dosya konumları ve kullanır
+## <a name="config-file-locations-and-uses"></a>Config dosya konumları ve kullanır
 
 | Kapsam | NuGet.Config dosya konumu | Açıklama |
 | --- | --- | --- |
@@ -59,7 +51,7 @@ Ayarları NuGet CLI kullanarak yönetilen [config komutunu](../tools/cli-ref-con
 
 Windows:
 
-```
+```cli
 # Set repositoryPath in the user-level config file
 nuget config -set repositoryPath=c:\packages 
 
@@ -73,7 +65,7 @@ nuget config -set repositoryPath=c:\packages -configfile %ProgramFiles(x86)%\NuG
 
 Mac/Linux:
 
-```
+```cli
 # Set repositoryPath in the user-level config file
 nuget config -set repositoryPath=/home/packages 
 
@@ -92,7 +84,7 @@ nuget config -set repositoryPath=/home/packages -configfile $XDG_DATA_HOME/NuGet
 
 Bir değer kaldırmak için bir anahtar ile boş bir değer belirtin.
 
-```
+```cli
 # Windows
 nuget config -set repositoryPath= -configfile c:\my.Config
 
@@ -109,8 +101,6 @@ Aşağıdaki şablonu yeni dosyaya kopyalayın ve ardından `nuget config --conf
 <configuration>
 </configuration>
 ```
-
-<br/>
 
 ## <a name="how-settings-are-applied"></a>Ayarları nasıl uygulanır
 
@@ -163,7 +153,7 @@ File B. disk_drive_2/NuGet.Config:
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <configuration>
-    <config>        
+    <config>
         <add key="repositoryPath" value="disk_drive_2/tmp" />
     </config>
     <packageRestore>

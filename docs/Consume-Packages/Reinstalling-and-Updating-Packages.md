@@ -13,11 +13,11 @@ keywords: "NuGet paketi yüklemesi, NuGet paketi yeniden, NuGet paket geri yükl
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6a198b371c86166e2bcdee7f6cf2a6c971bea0a3
-ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
+ms.openlocfilehash: 75d53bb6d2fecf6ba4c44ea3f03af6834e3fd46c
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>Yeniden yükleme ve güncelleştirme paketleri
 
@@ -25,7 +25,7 @@ Altında aşağıda açıklandığı gibi durumlarda bir dizi vardır [ne zaman 
 
 Güncelleştirme ve paketleri yeniden şu şekilde gerçekleştirilir:
 
-| Yöntem | Güncelleştirme | Yeniden yükleme | 
+| Yöntem | Güncelleştirme | Yeniden yükleme |
 | --- | --- | --- |
 | Paket Yöneticisi Konsolu (açıklanan [kullanarak güncelleştirme paketi](#using-update-package)) | `Update-Package`komutu | `Update-Package -reinstall`komutu |
 | Paket Yöneticisi kullanıcı Arabirimi | Üzerinde **güncelleştirmeleri** sekmesinde bir veya daha fazla paket seçin ve Seç **güncelleştirme** | Üzerinde **yüklü** sekmesinde, bir paket seçin, adıyla kaydedin ve ardından **kaldırma**. Geçiş **Gözat** sekmesinde, arama için paket adı, onu seçin ve sonra seçin **yükleme**). |
@@ -85,6 +85,7 @@ Varsayılan olarak, `Update-Package` bir çözümde tüm paketler etkiler. Belir
 # Reinstall the package in just MyProject
 Update-Package <package_name> -ProjectName MyProject -reinstall
 ```
+
 İçin *güncelleştirme* projesindeki tüm paketleri (veya kullanarak yeniden `-reinstall`), kullanın `-ProjectName` herhangi belirli bir paket belirtmeden:
 
 ```ps
@@ -98,7 +99,7 @@ Bir çözümde tüm paketler güncelleştirmek için yalnızca kullanın `Update
 Update-Package 
 ```
 
-Bir proje veya çözümünü kullanarak paketleri güncelleştiriliyor `project.json` veya [paketini proje dosyalarını başvurularında](../Consume-Packages/Package-References-in-Project-Files.md) her zaman (ön sürüm paketlerini hariç) paketin en son sürüme güncelleştirir. Projeleri kullanan `packages.config` isterseniz, güncelleştirme sürümleri aşağıda açıklandığı gibi sınırlandırabilir [Constraining yükseltme sürümleri](#constraining-upgrade-versions).
+Bir proje veya çözümünü kullanarak paketleri güncelleştiriliyor [PackageReference](../Consume-Packages/Package-References-in-Project-Files.md) her zaman (ön sürüm paketlerini hariç) paketin en son sürüme güncelleştirir. Projeleri kullanan `packages.config` isterseniz, güncelleştirme sürümleri aşağıda açıklandığı gibi sınırlandırabilir [Constraining yükseltme sürümleri](#constraining-upgrade-versions).
 
 Komutu hakkında ayrıntılar için bkz: [güncelleştirme paketini](../Tools/ps-ref-update-package.md) başvuru.
 
@@ -122,4 +123,3 @@ Aşağıda bir paket yeniden yükleme yaparken etkilenebilir:
 
 1. **Bağımlı sürümleri dahil edildiğinde paketler yeniden yükleme**
     - Yukarıda açıklandığı şekilde, bir paket yeniden bağımlı herhangi bir yüklü paketleri sürümlerini değiştirmez. Mümkündür sonra bir bağımlılık yeniden yüklemeyi bağımlı paketi bozar.
-

@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 4153ff3f-f97f-4e54-b638-e844f70edf22
 description: "Bilinen sorunlar, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere NuGet 3.0 Beta için sürüm notları."
 keywords: "Özellikler, dcr bilinen sorunlar, NuGet 3.0 Beta sürüm notları, hata düzeltmeleri eklendi"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 46b2a81845f5ac06b8c80975c55fcfc33b86636e
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 618d140c443d51f4d7eb87bac2381ad961ed85d1
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-30-beta-release-notes"></a>NuGet 3.0 Beta sürüm notları
 
@@ -27,7 +26,7 @@ NuGet 3.0 Beta 23 Şubat 2015 tarihinde Visual Studio 2015 CTP 6 sürümü için
 
 Bu yeni sürümü yüklemeden önce NuGet Visual Studio 2015 uzantısı'nın herhangi bir önceki sürümünü kaldırmanız önerilir.  Uzantısı'nın bu sürümü ile herhangi bir sorun varsa, geri dönmek için önerilir [önceki sürüm](http://nuget.codeplex.com/downloads/get/909582) Visual Studio 2015 preview ile kullanım için.
 
-## <a name="visual-studio-2012"></a>Visual Studio 2012 +
+## <a name="visual-studio-2012"></a>Visual Studio 2012+
 
 Bu NuGet 3.0 Beta Visual Studio 2015 CTP 6 uzantısı Galerisi'nde yüklemek kullanılabilir. Önizleme düşme Visual Studio 2012 ve Visual Studio 2013 için çok yakında ulaşmak için çalışıyoruz. Bizim hedefi daha önce paylaşılmıştı [Visual Studio 2010 için güncelleştirmeleri Durdur](http://blog.nuget.org/20141002/visual-studio-2010.html), ve zor kararı vermiyoruz.
 

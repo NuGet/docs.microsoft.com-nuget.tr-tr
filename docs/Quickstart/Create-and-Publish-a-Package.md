@@ -3,30 +3,24 @@ title: "Tanıtım kılavuzu oluşturma ve yayımlama NuGet paketi | Microsoft Do
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 10/3/2017
+ms.date: 10/03/2017
 ms.topic: get-started-article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 91781ed6-da5c-49f0-b973-16dd8ad84229
 description: "Oluşturma ve yayımlama nuget.exe komut satırı arabirimi ve Visual Studio kullanarak bir NuGet paketi bir gözden geçirme Öğreticisi."
 keywords: "NuGet paket oluşturma, yayımlama, NuGet paketi NuGet Öğreticisi"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 9ec7091b0984c53fb883bbace9ee55d10ece773c
-ms.sourcegitcommit: 9ac1fa23a4a8ce098692de93328b1db4136fe3d2
+ms.openlocfilehash: 53d29283c9e786fc27e9a608d7d251d8d0b5b0b2
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="create-and-publish-a-package"></a>Oluşturma ve bir paket yayımlama
 
-Bir .NET sınıf kitaplığı'ndan bir NuGet paketi oluşturmak ve nuget.org için yayımlamak için basit bir işlemdir. Aşağıdaki adımlar NuGet komut satırı arabirimi (CLI) ve Visual Studio kullanarak işleminde size yol:
-
-- [Ön koşullar](#install-pre-requisites)
-- [.Nuspec paket bildirim dosyası oluştur](#create-the-nuspec-package-manifest-file)
-- [Paketi komutunu çalıştırın](#run-the-pack-command)
-- [Paket yayımlama](#publish-the-package)
+Bir .NET sınıf kitaplığı'ndan bir NuGet paketi oluşturmak ve nuget.org için yayımlamak için basit bir işlemdir. Bu makalede NuGet komut satırı arabirimi (CLI) ve Visual Studio kullanarak işleminde size kılavuzluk eder.
 
 ## <a name="pre-requisites"></a>Ön koşullar
 
@@ -48,7 +42,7 @@ Bir bildirim her NuGet paketi gerekir&mdash;bir `.nuspec` dosya&mdash;içeriğin
 
 1. NuGet CLI çalıştırmak `spec` projenizi sonra gibi adlı bildirim oluşturmak üzere komut `AppLogger.nuspec`:
 
-    ```
+    ```cli
     nuget spec
     ```
 
@@ -102,7 +96,7 @@ Bir bildirim her NuGet paketi gerekir&mdash;bir `.nuspec` dosya&mdash;içeriğin
 
 Bir NuGet paketi oluşturmak için (bir `.nupkg` dosyası) bir projeden çalıştırmak `pack` komutu:
 
-```
+```cli
 nuget pack AppLogger.csproj
 ```
 
@@ -130,13 +124,13 @@ Bulduktan sonra bir `.nupkg` dosyası, yayımlama, nuget.org kullanmaya `push` k
 
 1. Aşağıdaki komutu çalıştırın istemine, paket adı belirtme ve anahtar değeri ile değiştirerek 4. adımda kopyalanan:
 
-    ```
+    ```cli
     nuget push AppLogger.1.0.0.0.nupkg 47be3377-c434-4c29-8576-af7f6993a54b -Source https://api.nuget.org/v3/index.json
     ```
 
 1. nuget.exe yayımlama işleminin sonuçlarını görüntüler:
 
-    ```
+    ```output
     Pushing AppLogger.1.0.0.0.nupkg to 'https://www.nuget.org/api/v2/package'...
         PUT https://www.nuget.org/api/v2/package/
         Created https://www.nuget.org/api/v2/package/ 6829ms

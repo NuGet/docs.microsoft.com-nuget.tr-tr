@@ -3,21 +3,20 @@ title: ".NET derleme Platform Çözümleyicisi için NuGet biçimleri | Microsof
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 1/9/2017
+ms.date: 01/09/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: a86e2080-93dd-4081-ac9b-d3bd66ba3799
 description: "Paketlenmiş ve bir API veya kitaplık uygulaması NuGet paketleri ile dağıtılan .NET çözümleyiciler kuralları."
 keywords: "NuGet analyzer kuralları, .NET çözümleyiciler, NuGet ve .NET derleyici platformu, NuGet ve Roslyn"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: d26e879cc37047ce88aa7292c8c0b1e08e5fd89f
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: e44cfa609c14422d50769e512108844cbd2f96a4
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="analyzer-nuget-formats"></a>Çözümleyicisi NuGet biçimleri
 
@@ -30,7 +29,7 @@ ms.lasthandoff: 12/14/2017
 - analyzers\dotnet\System.Runtime.Analyzers.dll
 - analyzers\dotnet\cs\System.Runtime.CSharp.Analyzers.dll
 - analyzers\dotnet\vb\System.Runtime.VisualBasic.Analyzers.dll
-- build\System.Runtime.Analyzers.common.props
+- build\System.Runtime.Analyzers.Common.props
 - build\System.Runtime.Analyzers.props
 - build\System.Runtime.CSharp.Analyzers.props
 - build\System.Runtime.VisualBasic.Analyzers.props

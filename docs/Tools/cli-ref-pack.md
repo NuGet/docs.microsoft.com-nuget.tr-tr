@@ -3,21 +3,20 @@ title: NuGet CLI paketi komut | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 12/08/2017
+ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 55e9e4d2-8039-4e9b-bdd9-c8b3eb0e894b
 description: "Nuget.exe paketi komut başvurusu"
 keywords: "nuget paketi başvurusu, paketi komutu"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 0dbecb8f01acf781ab8d2e77e8df7fa405f74cf1
-ms.sourcegitcommit: d576d84fb4b6a178eb2ac11f55deb08ac771ba1c
+ms.openlocfilehash: 732a712f88c6267caae361673a05af0781877cf4
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="pack-command-nuget-cli"></a>Paketi komut (NuGet CLI)
 
@@ -30,7 +29,7 @@ Belirtilen temel bir NuGet paketi oluşturur `.nuspec` veya proje dosyası. `dot
 
 ## <a name="usage"></a>Kullanım
 
-```
+```cli
 nuget pack <nuspecPath | projectPath> [options]
 ```
 
@@ -57,7 +56,7 @@ Burada `<nuspecPath>` ve `<projectPath>` belirtin `.nuspec` veya proje dosyası,
 | Son eki | *(3.4.4+)*  Genellikle yapı ya da diğer yayın öncesi tanımlayıcıları ekleme için kullanılan dahili olarak oluşturulan sürüm numarası bir sonek ekler. Örneğin, kullanarak `-suffix nightly` ile bir sürüm numarası benzer bir paket oluşturacak `1.2.3-nightly`. Sonekleri uyarılar, hatalar ve farklı sürümlerini NuGet ve NuGet Paket Yöneticisi ile olası uyumsuzlukları önlemek için bir harf ile başlamalıdır. |
 | Simgeleri | Paket kaynaklarını ve simgeleri içerdiğini belirtir. İle kullanıldığında bir `.nuspec` dosyası, bu bir normal NuGet paket dosyası oluşturur ve karşılık gelen paket simgeler. |
 | Aracı | Proje çıktı dosyalarını içinde yerleştirilmesi gerektiğini belirtir `tool` klasör. |
-| Ayrıntı Düzeyi | Çıktıda görüntülenen ayrıntı miktarını belirtir: *normal*, *sessiz*, *(2.5 +) ayrıntılı*. |
+| Ayrıntı Düzeyi | Çıktıda görüntülenen ayrıntı miktarını belirtir: *normal*, *sessiz*, *ayrıntılı*. |
 | Sürüm | Sürüm numarasını geçersiz kılmaları `.nuspec` dosya. |
 
 Ayrıca bkz. [ortam değişkenleri](cli-ref-environment-variables.md)
@@ -83,7 +82,7 @@ Bu proje için paket tarafından oluşturulan `nuget pack` bir bağımlılığa 
 
 ## <a name="examples"></a>Örnekler
 
-```
+```cli
 nuget pack
 
 nuget pack foo.nuspec

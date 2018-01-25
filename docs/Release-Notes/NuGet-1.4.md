@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: e4856d0a-b408-4c60-ac51-f80ea06d9f79
 description: "NuGet bilinen sorunları, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere 1.4 için sürüm notları."
 keywords: "Özellikler, dcr bilinen sorunlar, NuGet 1.4 sürüm notları, hata düzeltmeleri eklendi"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c4c27861c8697c75a06712b8ca6243b3b206cbb3
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: a69f4f5c7172817d711fa5e995cf6db3875c4810
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-14-release-notes"></a>NuGet 1.4 sürüm notları
 
@@ -150,10 +149,10 @@ Tam bir listesi için iş öğeleri NuGet 1.4 içinde lütfen Görünüm sabit [
 * [Sorunu 1036](http://nuget.codeplex.com/workitem/1036): ekleme `NuGet Pack SomeProject.csproj` olay derleme artık sonrası için sonsuz bir döngüye neden olur.
 * [Sorunu 961](http://nuget.codeplex.com/workitem/961): `-Source` bayrağı göreli yollar destekler.
 
-# <a name="nuget-14-update"></a>NuGet 1.4 Güncelleştirme
+## <a name="nuget-14-update"></a>NuGet 1.4 Güncelleştirme
 Kısa süre içinde sürümünden NuGet 1.4 sonra birkaç düzeltmek önemli sorunları bulduk.
 Belirli bir sürüm 1.4 bu güncelleştirmeye 1.4.20615.9020 sayısıdır.
 
-## <a name="bug-fixes"></a>Hata Düzeltmeleri
+### <a name="bug-fixes"></a>Hata Düzeltmeleri
 * [Sorunu 1220](http://nuget.codeplex.com/workitem/1220): değil güncelleştirme paketi yürütmek `install.ps1` / `uninstall.ps1` birden fazla proje olduğunda tüm projelerdeki
 * [Sorun 1156](http://nuget.codeplex.com/workitem/1156): Paket Yöneticisi konsol takılmış W2K3/XP'de (Powershell 2 yüklü olmadığında)

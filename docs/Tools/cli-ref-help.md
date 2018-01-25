@@ -3,21 +3,20 @@ title: "NuGet CLI Yardım komutu | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 10/24/2017
+ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 780d7f52-d6c6-45cd-8a62-218ff8c0b270
 description: "Nuget.exe Yardım komut başvurusu"
 keywords: "nuget Yardım başvurusu, Yardım komutu"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 55dc263fedd7ed5a3e48b76dbc9a3ccc220655cf
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 97f72e1be0df6e97f8b06696b2b3861800e4ea08
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="help-or--command-nuget-cli"></a>Yardım veya? Komut (NuGet CLI)
 
@@ -27,7 +26,7 @@ Yardım bilgisi ve bilgi belirli komutlar hakkında Yardım genel görüntüler.
 
 ## <a name="usage"></a>Kullanım
 
-```
+```cli
 nuget help [command] [options]
 nuget ? [command] [options]
 ```
@@ -42,18 +41,18 @@ Burada [komut] Yardım görüntülemek için belirli bir komutu belirtir.
 | Seçenek | Açıklama |
 | --- | --- |
 | Tümü | Tüm kullanılabilir komutlar için ayrıntılı yardım yazdırma; belirli bir komut belirtilmezse yoksayıldı. |
-| ConfigFile | *(2.5 +)*  Uygulamak için NuGet yapılandırma dosyası. Belirtilmezse, *%AppData%\NuGet\NuGet.Config* kullanılır. |
+| ConfigFile | Uygulamak için NuGet yapılandırma dosyası. Belirtilmezse, *%AppData%\NuGet\NuGet.Config* kullanılır. |
 | ForceEnglishOutput | *(3.5 +)*  Değişmez, İngilizce tabanlı kültürü kullanarak çalışacak şekilde nuget.exe zorlar. |
 | Yardım | Bilgi Yardım komutu için yardımı görüntüler. |
 | Markdown | Ayrıntılı Yardımı ile kullanıldığında markdown biçimde yazdırma `-All`. Aksi halde yoksayılır. |
 | Etkileşimli olmayan | Kullanıcı girişi veya onayı için ister gizler. |
-| Ayrıntı Düzeyi | Çıktıda görüntülenen ayrıntı miktarını belirtir: *normal*, *sessiz*, *(2.5 +) ayrıntılı*. |
+| Ayrıntı Düzeyi | Çıktıda görüntülenen ayrıntı miktarını belirtir: *normal*, *sessiz*, *ayrıntılı*. |
 
 Ayrıca bkz. [ortam değişkenleri](cli-ref-environment-variables.md)
 
 ## <a name="examples"></a>Örnekler
 
-```
+```cli
 nuget help
 nuget help push
 nuget ?

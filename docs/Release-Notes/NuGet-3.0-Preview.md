@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 6762b6f8-82b7-4bab-a1f0-cd25e5dc1fb4
 description: "NuGet 3.0 bilinen sorunları, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere önizleme için sürüm notları."
 keywords: "Özellikler, dcr bilinen sorunlar, NuGet 3.0 Preview sürüm notları, hata düzeltmeleri eklendi"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: ae137af6f9722c454458fdcb4f20760c08d6e8bb
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: e07bcad2bf713deee0add72663c84b9979f8c5c4
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-30-preview-release-notes"></a>NuGet 3.0 Preview sürüm notları
 
@@ -25,7 +24,7 @@ ms.lasthandoff: 01/05/2018
 
 NuGet 3.0 Önizleme 12 Kasım 2014 Visual Studio 2015 Preview sürümünün bir parçası olarak serbest bırakıldı. NuGet 3.0 Önizleme yayımladık. Bu (Önizleme barındırabilir) bize için büyük bir sürüm olduğundan, ve bizim değişiklikleri geri alma Başlat mutluluk çalışıyoruz.
 
-## <a name="visual-studio-2012"></a>Visual Studio 2012 +
+## <a name="visual-studio-2012"></a>Visual Studio 2012+
 
 Bu NuGet 3.0 Önizleme Visual Studio 2015 Preview sürümünde dahil edilir. Önizleme düşme Visual Studio 2012 ve Visual Studio 2013 için çok yakında ulaşmak için çalışıyoruz. Bizim hedefi daha önce paylaşılmıştı [Visual Studio 2010 için güncelleştirmeleri Durdur](http://blog.nuget.org/20141002/visual-studio-2010.html), ve zor kararı vermiyoruz.
 
@@ -91,11 +90,11 @@ Ayrıca, içerik dosyaları paketlerinden projeniz zaten dosyalarında çakış�
 
 ![Dosya çakışma eylemi](./media/NuGet-3.0-Preview/file-conflict-action.png)
 
-### <a name="infinite-scrolling"></a>Sonsuz kaydırma
+### <a name="infinite-scrolling"></a>Infinite Scrolling
 
 Bir bit Geri bildiriminiz bizim kullanıcı Arabirimi üzerindeki iki kaydırma sahip almak ve paketleri listelerken örneklerinde disk belleği için kullanılır. Kısa listenin alt kısmına kaydırın, sonraki sayfa numarası tıklayın ve ardından yeniden kaydırın zorunda oldukça ortak. Yeni kullanıcı Arabirimi olmadan yalnızca kaydırma--daha fazla disk belleği gerekir böylece sonsuz paket listesinde kaydırma uyguladık.
 
-![Sonsuz kaydırma](./media/NuGet-3.0-Preview/infinite-scrolling.png)
+![Infinite Scrolling](./media/NuGet-3.0-Preview/infinite-scrolling.png)
 
 ### <a name="make-it-work-make-it-fast-make-it-pretty"></a>İş Oluştur, hızlı, Pretty olun oluştur
 

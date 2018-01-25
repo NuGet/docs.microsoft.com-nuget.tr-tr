@@ -7,7 +7,6 @@ ms.date: 12/08/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 62f6962b-7b84-4452-ae0d-a9e1ef1fc6f0
 f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager
 - vs.toolsoptionspages.nuget_package_manager.general
@@ -18,11 +17,11 @@ keywords: "NuGet UI, NuGet Paket Yöneticisi kullanıcı Arabirimi, NuGet Visual
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 39ce53184755887c419c8872148a6c13dc2c65ec
-ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
+ms.openlocfilehash: 0ff60c3cecee5fd9b7f698d2abed7553f5d89c1d
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-package-manager-ui"></a>NuGet Paket Yöneticisi kullanıcı Arabirimi
 
@@ -137,7 +136,7 @@ Paket kaynaklarını yönetmek için:
 
 ## <a name="package-manager-options-control"></a>Paket Yöneticisi seçeneklerini denetleme
 
-Bir paket seçildiğinde, küçük bir paket Yöneticisi kullanıcı Arabirimi görüntüler Genişletilebilir **seçenekleri** (her ikisi de daraltılmış ve genişletilmiş aşağıda gösterilen) sürüm Seçici altına denetimi. Bazı türleri, örneğin, .NET Core ve bunları kullanarak proje unutmayın `project.json` başvuru biçimi, yalnızca **Göster önizleme penceresi** seçeneği sağlanır.
+Bir paket seçildiğinde, küçük bir paket Yöneticisi kullanıcı Arabirimi görüntüler Genişletilebilir **seçenekleri** (her ikisi de daraltılmış ve genişletilmiş aşağıda gösterilen) sürüm Seçici altına denetimi. Bazı proje türleri, yalnızca unutmayın **Göster önizleme penceresi** seçeneği sağlanır.
 
 ![Paket Yöneticisi seçenekleri](media/PackageManagerUIOptions.png)
 

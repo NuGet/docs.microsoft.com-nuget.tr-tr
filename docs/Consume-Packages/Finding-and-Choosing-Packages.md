@@ -13,21 +13,15 @@ keywords: "NuGet paketini tüketim, NuGet paketi bulma, en iyi NuGet paketleri, 
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 23ef9832af0bd864b6dcd31ab8666ac21c7b2f67
-ms.sourcegitcommit: 122bf7ce308365ea45da018b0768f0536de76a1f
+ms.openlocfilehash: e1640ce478184dbbd8d8aad565f2247942db62e2
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Bulma ve projenizin NuGet paketlerini değerlendirme
 
 Herhangi bir .NET projesinin başlatırken veya uygulama veya hizmet işlevsel gereksinimini tanımlamak olduğunda bu gereksinimi karşılayan mevcut NuGet paketlerini kullanarak kendiniz pek çok zaman ve sorun kaydedebilirsiniz. Bu paketleri ortak koleksiyonundan gelen [nuget.org](http://www.nuget.org/packages/), ya da kuruluşunuzun veya başka bir üçüncü taraf tarafından sağlanan özel bir kaynak.
-
-Bu sayfada:
-
-- [Paketleri bulma](#finding-packages)
-- [Paketleri değerlendirme](#evaluating-packages)
-- [Search sözdizimi](#search-syntax)
 
 ## <a name="finding-packages"></a>Paketleri bulma
 

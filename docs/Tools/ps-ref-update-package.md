@@ -7,17 +7,16 @@ ms.date: 12/07/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: b4aa92a9-ce47-4d23-ae51-d5683e08a9d5
 description: "Visual Studio'da NuGet Paket Yöneticisi konsolunda güncelleştirme paketini PowerShell komut başvurusu."
 keywords: "NuGet Paket Yöneticisi konsolu, NuGet Powershell komutlarını NuGet Powershell başvurusu, güncelleştirme paketi"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 71f5cd7061e0f765d8808db8a3798657a941ba14
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 768fdb4d7c785b4f3ed9e70958390676ea965794
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="update-package-package-manager-console-in-visual-studio"></a>Güncelleştirme Paketi (Visual Studio'da Paket Yöneticisi Konsolu)
 

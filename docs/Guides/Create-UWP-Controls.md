@@ -3,41 +3,38 @@ title: "UWP için nasıl NuGet ile denetimleri | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 3/21/2017
+ms.date: 03/21/2017
 ms.topic: get-started-article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 1f9de20a-f394-4cf2-8e40-ba0f4239cd5e
 description: "UWP içeren NuGet paketleri oluşturmak nasıl gerekli meta veriler ve Visual Studio ve harmanlama tasarımcıları için destek dosyaları dahil olmak üzere denetler."
 keywords: "NuGet UWP denetimleri, Visual Studio XAML Tasarımcısı, harmanlama Tasarımcısı, özel denetimler"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 8756ce472c11a05370914841245295361b3f179b
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 3af17121f73b878decd5f0c933696fc1b0c786d7
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="creating-uwp-controls-as-nuget-packages"></a>NuGet paketleri olarak UWP denetimler oluşturma
 
 Visual Studio 2017 ile NuGet paketlerini teslim UWP denetimleri eklenen özelliklerinin avantajından yararlanabilirsiniz. Bu kılavuzda kullanarak şu olanakları anlatılmaktadır [ExtensionSDKasNuGetPackage örnek](https://github.com/NuGet/Samples/tree/master/ExtensionSDKasNuGetPackage). 
 
-## <a name="pre-requisites"></a>Ön koşullar:
+## <a name="pre-requisites"></a>Ön koşullar
 
-1.  Visual Studio 2017
-1.  Nasıl yapılır anlayış [UWP paketleri oluşturma](create-uwp-packages.md)
+1. Visual Studio 2017
+1. Nasıl yapılır anlayış [UWP paketleri oluşturma](create-uwp-packages.md)
 
 ## <a name="add-toolboxassets-pane-support-for-xaml-controls"></a>XAML denetimler için araç kutusu/varlıklar bölmesinde desteği ekleme
 
 XAML Tasarımcısı araç Visual Studio ve harmanlama varlıklar bölmesinde görünür bir XAML denetime sahip olmasını oluşturma bir `VisualStudioToolsManifest.xml` kökündeki dosyasında `tools` paket projenizin klasör. Araç kutusu veya varlıklar bölmesinde görünmesi denetimi gerekmiyorsa, bu dosyayı gerekli değildir.
 
-```
-\build
-\lib
-\tools
-    \VisualStudioToolsManifest.xml
-```    
+    \build
+    \lib
+    \tools
+        VisualStudioToolsManifest.xml
 
 Dosya yapısı aşağıdaki gibidir:
 
@@ -98,22 +95,18 @@ Aşağıdaki örnekte, proje "ManagedPackage.MyCustomControl.png" adlı bir gör
 
 UWP paketleri, uygulamanın yüklendiği bir işletim sistemi sürümü üst ve alt sınırları tanımlamak TargetPlatformVersion (TPV) ve TargetPlatformMinVersion (TPMinV) sahiptir. Daha fazla TPV karşı uygulama derlendiği SDK sürümünü belirtir. Bir UWP paketi yazarken bu özellikleri oluşturduğunu unutmayın: uygulamada tanımlı platform sürümlerinin sınırları dışındaki API'lerini kullanarak neden olacak yapılandırmanın başarısız olmasına veya uygulamanın çalışma zamanında başarısız.
 
-Örneğin, Windows 10 Anniversary Edition (10.0; TPMinV, denetimleri paketi için ayarladığınız düşünelim Yapı 14393), böylece paket yalnızca UWP tarafından tüketilen emin olmak istiyorsanız, bağlı alt eşleşen projeleri. Tarafından tüketilmesi paketinizi izin vermek için `project.json` UWP projeleri, temel denetimlerinizi aşağıdaki klasör adlarıyla paketini gerekir:
+Örneğin, Windows 10 Anniversary Edition (10.0; TPMinV, denetimleri paketi için ayarladığınız düşünelim Yapı 14393), böylece paket yalnızca UWP tarafından tüketilen emin olmak istiyorsanız, bağlı alt eşleşen projeleri. UWP projeleri tarafından tüketilmesi paketinizi izin vermek için aşağıdaki klasör adları, denetimleriyle paketi gerekir:
 
-```
-\lib\uap10.0\*
-\ref\uap10.0\*
-```
+    \lib\uap10.0\*
+    \ref\uap10.0\*
 
 Uygun TPMinV onay zorlamak için oluşturma bir [MSBuild hedefleri dosya](/visualstudio/msbuild/msbuild-targets) ve ("your_assembly_name" belirli derlemenizi adıyla değiştirerek) yapı klasörü altındaki paket:
 
-```
-\build
-    \uap10.0
+    \build
+      \uap10.0
         your_assembly_name.targets
-\lib
-\tools
-```
+    \lib
+    \tools
 
 Hedef dosyanın aşağıdaki gibi görünmelidir örneği şöyledir:
 
@@ -135,22 +128,18 @@ Hedef dosyanın aşağıdaki gibi görünmelidir örneği şöyledir:
 
 Burada Özellik denetçisi'nde denetim özelliklerini göster yapılandırmak için özel donatıcıların, vb. yerleştirin ekleyin, `design.dll` içinde dosya `lib\<platform>\Design` klasörü hedef platformu için uygun olarak. Ayrıca, emin olmak için  **[Şablonu Düzenle > bir kopyasını düzenlemek](/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)**  özelliği works içermelidir `Generic.xaml` ve içinde birleştirir tüm kaynak sözlükleri `<AssemblyName>\Themes` klasör. (Bu dosyayı bir denetimin çalışma zamanı davranışını etkisi yoktur.)
 
-
-```
-\build
-\lib
-    \uap10.0.14393.0
+    \build
+    \lib
+      \uap10.0.14393.0
         \Design
-            \MyControl.design.dll
+          \MyControl.design.dll
         \your_assembly_name
-            \Themes     
-                Generic.xaml
-\tools
-```
+          \Themes
+            Generic.xaml
+    \tools
 
 > [!Note]
 > Varsayılan olarak, denetim özelliklerini Özellik denetçisi çeşitli kategorisinde altında gösterilir.
-
 
 ## <a name="use-strings-and-resources"></a>Kullanım dizeler ve kaynakları
 
@@ -162,15 +151,13 @@ Bir örnek için bkz [MyCustomControl.cs](https://github.com/NuGet/Samples/blob/
 
 Denetim veya kaybı UWP projesi tarafından kullanılan görüntüleri gibi paket içeriğini. Bu dosyaları ekleme `lib\uap10.0.14393.0` ("your_assembly_name" belirli denetiminizi yeniden de eşleşmelidir) şekilde klasörü:
 
-```
-\build
-\lib
-    \uap10.0.14393.0
+    \build
+    \lib
+      \uap10.0.14393.0
         \Design
-        \your_assembly_name
-\contosoSampleImage.jpg
-\tools
-```
+          \your_assembly_name
+    \contosoSampleImage.jpg
+    \tools
 
 Ayrıca Yaz bir[MSBuild hedefleri dosya](/visualstudio/msbuild/msbuild-targets) varlık Süren projenin çıkış klasörüne kopyalanır emin olmak için:
 
@@ -188,4 +175,4 @@ Ayrıca Yaz bir[MSBuild hedefleri dosya](/visualstudio/msbuild/msbuild-targets) 
 ## <a name="see-also"></a>Ayrıca bkz.
 
 - [UWP Paketleri oluşturma](create-uwp-packages.md)
-- [ExtensionSDKasNuGetPackage örnek](https://github.com/NuGet/Samples/tree/master/ExtensionSDKasNuGetPackage)
+- [ExtensionSDKasNuGetPackage sample](https://github.com/NuGet/Samples/tree/master/ExtensionSDKasNuGetPackage)

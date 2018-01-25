@@ -3,21 +3,20 @@ title: "NuGet proje yönetimi | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 1/9/2017
+ms.date: 01/18/2018
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 94c088ce-ec96-4876-a210-fbdae743942c
 description: "Roller ve sorumluluklar committers, Katkıda Bulunanlar ve kullanıcılar için de dahil olmak üzere NuGet için idare modeli."
 keywords: "NuGet idare, NuGet benevolent dictator, committer sorumlulukları, katkıda bulunan sorumlulukları, kullanıcı sorumlulukları"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 0437b7d41f965da6a7ad44a7d0675916ed655fe1
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: ea1ddcc3e145afe3b905b23db37e1e61500200bb
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-governance"></a>NuGet idare
 
@@ -31,7 +30,7 @@ Bu benevolent dictator'ın iş topluluk içinde itirazları çözümlemek için 
 
 Burada açıklanan dört rolleri vardır: Benevolent Dictator, Committers, Katkıda Bulunanlar ve kullanıcılar.
 
-### <a name="benevolent-dictator"></a>Benevolent Dictator
+### <a name="benevolent-dictator"></a>Benevolent dictator
 
 NuGet çekirdek takım Benevolent Dictator ya da proje lideri olarak kendi kendine kaldırmasını ' dir. Ancak, topluluk her zaman çatalı yeteneğine sahip olduğundan, takım topluluğuna tam olarak yanıtlanamaz. Proje lideri bir bütün olarak topluluk anlamak ve çakışan birçok gereksinimleriniz değiştikçe mümkün olduğunca proje uzun vadede şekilde kalmıştır sağlarken karşılamak çalışmalarımızı beklenir.
 
@@ -55,7 +54,7 @@ Depoya katkıda bulunanlar ilk düzeltme eki yerleştirmeden önce oturum bir [k
 
 Katılımcı olmasını aşağıdaki depoları biri için bir çekme isteği gönder:
 
-- [NuGet istemcisi](https://github.com/NuGet/NuGet.Client)
+- [NuGet Client](https://github.com/NuGet/NuGet.Client)
 - [NuGet Galerisi](https://github.com/nuget/nugetgallery)
 - [NuGet belgeleri](https://github.com/nuget/nugetdocs)
 
@@ -81,21 +80,22 @@ Kullanıcılar, NuGet ve mümkün olduğunca topluluk hayatta katılmaya teşvik
 Proje ve kendi topluluk bulunmaya devam kullanıcılar genellikle kendilerini daha da fazla dahil olma bulur. Bu tür kullanıcılar sonra Katkıda Bulunanlar, yukarıda açıklandığı gibi olmasını geçin.
 
 ## <a name="package-succession-under-special-circumstances"></a>Paket art arda özel koşullarda
+
 Burada bir NuGet hesap sahibi incapacitated veya vefat talihsiz durumda, biz burada konusu hesabı tek sahipliği var. ve paket altında yayımlanan paket uygun sahibi/s eklemek için topluluğuyla karşılaşmayacağınızı bir [OSI Lisans onaylanan](https://opensource.org/licenses/alphabetical). Sahipliği istemek için bize aşağıdaki belgeler göndermeniz gerekir:
 
-1.  Kamu verilen fotoğraf kimliğinizi, fotokopi
-2.  Önceki hesap sahibinin durum kanıtlama aşağıdaki belgeler biri: 
+1. Kamu verilen fotoğraf kimliğinizi, fotokopi
+1. Önceki hesap sahibinin durum kanıtlama aşağıdaki belgeler biri: 
     - Bir resmi, devlet verilen ölüm sertifika önceki hesap sahibi ölüm, ise veya
     - TIP professional incapacitated hesap sahibi dikkatli sorumlu tarafından imzalanmış bir sertifika gibi sertifikalı bir belge.
-3.  Sahipliği, sağda kanıtlayan aşağıdaki belgeler biri: 
+1. Sahipliği, sağda kanıtlayan aşağıdaki belgeler biri: 
     - Hesap sahibinin kalan eşinin olduğunu gösteren marriage sertifika
     - İmzalı güç of avukata
     - Yürütücü veya lehtar olarak adlandırma ya da güven belgenin kopyasını,
     - Kendi üst varsa hesap sahibi için Doğum sertifikası veya
     - Hesap sahibinin yasal koruyucu varsa guardianship belgeleri.
-    
+
 Lütfen bize bir e-postası gönderin kendinizi bu ilkeyi çağırma gerekli bulursanız, [ support@nuget.org ](mailto:support@nuget.org) kimliği ve paketin sürümü.
-    
+
 ## <a name="transparency"></a>Saydamlık
 
 Açık kaynaklı bir projeyi idare topluluk güven oluşturma kendi başarısı için önemlidir. Bu amaçla kararlar saydam, açık bir şekilde yapılması gerekir. Projenin yönü hakkında tartışma genel olarak yapılmalıdır. Topluluk hiçbir zaman yakalanan hazırlıksız karar Benevolent Dictator tarafından tarafından. Ayrıca, topluluk üyeleri tüm geçmişini kararı ve onun bağlamı anlayabileceği böylece proje kararlarını hakkında tartışma arşivlenmiş gerekir.

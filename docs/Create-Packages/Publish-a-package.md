@@ -3,22 +3,21 @@ title: "Bir NuGet Paketi Yayımlama | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 10/5/2017
+ms.date: 10/05/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 2342aabd-983e-4db1-9230-57c84fa36969
 description: "Ayrıntılı yönergeler için NuGet paketi nuget.org veya özel akışları yayımlama ve nuget.org paket sahipliği yönetme."
 keywords: "NuGet Paketi Yayımlama NuGet paketi, NuGet paketinin sahipliği yayınlamak için NuGet akışlarını nuget.org, özel yayımlama"
 ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: fab25931165afb65aa3fd09c5bc37492ce814a49
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 2b57845d79c3ba45aa06a934a30d41e6f4d3057e
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="publishing-packages"></a>Paketleri yayımlama
 
@@ -35,38 +34,39 @@ Nuget.org için öncelikle [ücretsiz bir hesap için kayıt](https://www.nuget.
 
 ![NuGet kayıt ve oturum açın. konumda](media/publish_NuGetSignIn.png)
 
-Ardından, paketi nuget.org web Portalı aracılığıyla karşıya yükleme, komut satırından nuget.org için anında veya Visual Studio Team Services aracılığıyla CI/CD işleminin parçası olarak aşağıdaki bölümlerde açıklandığı gibi yayımlama.
+Ardından, ya da nuget.org web portalı üzerinden paketini karşıya yükleyin, yapabilirsiniz nuget.org için komut satırından itme (gerektirir `nuget.exe` 4.1.0+), ya da Visual Studio Team Services aracılığıyla CI/CD işleminin parçası olarak aşağıdaki bölümlerde açıklandığı gibi yayımlayın.
 
-### <a name="web-portal-use-the-upload-package-tab-on-nugetorg"></a>Web portalı: nuget.org üzerinde karşıya yükleme paketini sekmesini kullanın:
+### <a name="web-portal-use-the-upload-package-tab-on-nugetorg"></a>Web portalı: nuget.org üzerinde karşıya yükleme paketini sekmesini kullanın
 
 ![Bir paketi ile NuGet Paket Yöneticisi'ni yükleme](media/publish_UploadYourPackage.PNG)
 
-### <a name="command-line"></a>Komut satırı:
+### <a name="command-line"></a>Komut satırı
+
 > [!Important]
 > Anında iletme paketlere kullanmalısınız nuget.org için [nuget.exe v4.1.0 veya yukarıdaki](https://www.nuget.org/downloads), gerekli uygulayan [NuGet protokolleri](../api/nuget-protocols.md).
 
 1. Hesap ayarlarınızı gitmek için kullanıcı adına tıklayın.
-2. Altında **API anahtarı**, tıklatın **Panoya Kopyala** erişim almak için anahtar CLI sahip olmanız gerekir:
+1. Altında **API anahtarı**, tıklatın **Panoya Kopyala** erişim almak için anahtar CLI sahip olmanız gerekir:
 
     ![Hesap ayarlarından bir API anahtarını kopyalama](media/publish_APIKey.png)
 
-3. Bir komut isteminde aşağıdaki komutu çalıştırın:
+1. Bir komut isteminde aşağıdaki komutu çalıştırın:
 
-    ```
+    ```cli
     nuget setApiKey Your-API-Key
     ```
 
     Bu adım aynı makinede yapmak böylece bu makinede API anahtarınıza depolar.
 
-4. Paketinizi NuGet galerisinde komutu kullanarak gönderin:
+1. Paketinizi NuGet galerisinde komutu kullanarak gönderin:
 
-    ```
+    ```cli
     nuget push YourPackage.nupkg -Source https://api.nuget.org/v3/index.json
     ```
 
-5. Ortak yapılan önce tüm paketler için nuget.org karşıya virüs taraması ve herhangi bir virüs bulunursa reddetti. Nuget.org üzerinde listelenen tüm paketler de düzenli aralıklarla taranır.
+1. Ortak yapılan önce tüm paketler için nuget.org karşıya virüs taraması ve herhangi bir virüs bulunursa reddetti. Nuget.org üzerinde listelenen tüm paketler de düzenli aralıklarla taranır.
 
-6. Nuget.org üzerinde hesabınızı, tıklatın **my paketlerini yönetme** yeni bir görmek için yayımlanan; bir onay e-posta iletisi alacaksınız. Dizine ve diğerleri, hangi sırada paket sayfanızda şu iletiyi görürsünüz bulabileceğiniz bir yerde arama sonuçlarında görüntülenmesini paketinizi biraz sürebilir dikkat edin:
+1. Nuget.org üzerinde hesabınızı, tıklatın **my paketlerini yönetme** yeni bir görmek için yayımlanan; bir onay e-posta iletisi alacaksınız. Dizine ve diğerleri, hangi sırada paket sayfanızda şu iletiyi görürsünüz bulabileceğiniz bir yerde arama sonuçlarında görüntülenmesini paketinizi biraz sürebilir dikkat edin:
 
     ![Bir paket henüz dizine belirten iletisi](media/publish_NotYetIndexed.png)
 
@@ -78,7 +78,7 @@ Paket doğrulama ve dizin oluşturma altında 15 dakika genellikle alır. Paket 
 
 ### <a name="visual-studio-team-services-cicd"></a>Visual Studio Team Services (CI/CD)
 
-Visual Studio Team Services sürekli tümleştirme/dağıtım işleminin bir parçası kullanarak nuget.org paketleri iletin nuget.exe 4.1 kullanmanız gerekir ya da yukarıdaki NuGet görevler. Ayrıntılar bulunabilir [yapı içinde son NuGet kullanarak](https://blogs.msdn.microsoft.com/devops/2017/09/29/using-the-latest-nuget-in-your-build/) (Microsoft DevOps blogu).
+Paketleri nuget.org sürekli tümleştirme/dağıtım işleminin bir parçası Visual Studio Team Services kullanarak anında iletme, kullanmalısınız `nuget.exe` 4.1 veya yukarıdaki NuGet görevler. Ayrıntılar bulunabilir [yapı içinde son NuGet kullanarak](https://blogs.msdn.microsoft.com/devops/2017/09/29/using-the-latest-nuget-in-your-build/) (Microsoft DevOps blogu).
 
 ## <a name="managing-package-owners-on-nugetorg"></a>Nuget.org üzerinde paket sahiplerini yönetme
 

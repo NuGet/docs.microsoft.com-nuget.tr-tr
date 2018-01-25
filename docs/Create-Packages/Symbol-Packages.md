@@ -3,29 +3,27 @@ title: "NuGet sembol paketlerini oluşturma | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 9/12/2017
+ms.date: 09/12/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 4667a70d-5a17-4f1e-b2f2-b8d0c6af3882
 description: "Diğer NuGet paketleri Visual Studio'da hata ayıklamayı desteklemek için yalnızca sembolleri içeren NuGet paketleri oluşturma"
 keywords: "NuGet sembol paketlerini, hata ayıklama, hata ayıklama, paket sembolleri, sembol paketi kuralları NuGet destekleyen NuGet paketi"
 ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 2bdb8a2c946618b0c297c70bf7fcf6a9038b2a02
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: e25c34442861c36e9002120afc03cb39ea396f54
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="creating-symbol-packages"></a>Sembol paketleri oluşturma
 
 Nuget.org veya diğer kaynakları NuGet paketleri de destekler yanı sıra ilişkili sembol paketlerini oluşturmak ve bunları yayımlama [SymbolSource depo](http://www.symbolsource.org/Public).
 
 Paket tüketicileri ardından ekleyebilirsiniz `http://srv.symbolsource.org/pdb/Public` Visual Studio'da simgesi kaynakları için böylece Visual Studio hata ayıklayıcısında paket koda atlama. Bkz: [Visual Studio hata ayıklayıcısında simge (.pdb) ve kaynak dosyaları belirtme](/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger) işlem hakkında ayrıntılı bilgi için.
-
 
 ## <a name="creating-a-symbol-package"></a>Sembol paket oluşturma
 
@@ -36,7 +34,7 @@ Sembol paketi oluşturmak için bu kuralları izleyin:
 
 Her iki paketlerle oluşturabilirsiniz `-Symbols` herhangi birinden seçeneği bir `.nuspec` veya proje dosyası:
 
-```
+```cli
 nuget pack MyPackage.nuspec -Symbols
 
 nuget pack MyProject.csproj -Symbols
@@ -108,13 +106,13 @@ Sembol paketi kurallarından önceki bölümde açıklandığı gibi klasör yap
 
 1. Kolaylık olması için NuGet ile ilk API anahtarınıza kaydedin (bkz [bir paketi yayımlamaya](../create-packages/publish-a-package.md)nuget.org ve symbolsource.org için geçerli, symbolsource.org doğrulamak için nuget.org ile denetleyecek olduğundan paket sahibi değil.
 
-    ```
+    ```cli
     nuget SetApiKey Your-API-Key
     ```
 
 1. Birincil paketiniz için nuget.org yayımlandıktan sonra simge paketini aşağıdaki gibi otomatik olarak symbolsource.org nedeniyle hedefi olarak kullanacak anında `.symbols` dosya:
 
-    ```
+    ```cli
     nuget push MyPackage.symbols.nupkg
     ```
 > [!Note]
@@ -122,13 +120,13 @@ Sembol paketi kurallarından önceki bölümde açıklandığı gibi klasör yap
 
 1. Farklı simge depoya yayımlamak ya da adlandırma kuralı IU bir sembol paketi göndermek için kullanmak `-Source` seçeneği:
 
-    ```
+    ```cli
     nuget push MyPackage.symbols.nupkg -source https://nuget.smbsrc.net/
     ```
 
 1. Ayrıca, hem birincil hem de anında ve aşağıdakileri kullanarak aynı anda hem depoları paketlere simge:
 
-    ```
+    ```cli
     nuget push MyPackage.nupkg
     ```
 
@@ -136,4 +134,4 @@ Bu durumda, NuGet yayımlayacak `MyPackage.symbols.nupkg`, varsa, https://nuget.
 
 ## <a name="see-also"></a>Ayrıca Bkz.
 
- - <a href="https://www.symbolsource.org/Public/Wiki/Using" target="_blank">SymbolSource kullanarak</a> (symbolsource.org)
+[SymbolSource kullanarak](https://www.symbolsource.org/Public/Wiki/Using) (symbolsource.org)

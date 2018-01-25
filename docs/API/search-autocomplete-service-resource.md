@@ -11,17 +11,16 @@ ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: ead5cf7a-e51e-4cbb-8798-58226f4c853f
 description: "Arama otomatik tamamlama hizmeti paketi kimlikleri etkileşimli bulma ve sürümleri destekler."
 keywords: "NuGet otomatik tamamlama API, NuGet arama paket kimliği, substring paket kimliği"
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 313ceb630947b46c34b98e14044ecf121b725087
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 7c984ca61799293d7832851b80cf3fefc4734288
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="autocomplete"></a>Otomatik Tamamlama
 
@@ -51,9 +50,7 @@ Bir paket kimliği dizesi bir kısmı için arama ilk otomatik tamamlama API des
 
 Yalnızca listede bulunmayan sürümleri ile bir pakete sonuçlarında görünmez.
 
-```
-GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
-```
+    GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
 
 ### <a name="request-parameters"></a>İstek parametreleri
 
@@ -90,9 +87,7 @@ veri      | Dize dizisi | Evet      | Paket kimlikleri istek tarafından eşleş
 
 ### <a name="sample-request"></a>Örnek istek
 
-```
 GET https://api-v2v3search-0.nuget.org/autocomplete?q=storage&prerelease=true
-```
 
 ### <a name="sample-response"></a>Örnek yanıt
 
@@ -104,9 +99,7 @@ Bir paket kimliği önceki API'yi kullanarak bulununca, istemci API otomatik tam
 
 Listede bulunmayan bir paket sürümü sonuçlarında görünmez.
 
-```
-GET {@id}?id={ID}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
-```
+    GET {@id}?id={ID}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
 
 ### <a name="request-parameters"></a>İstek parametreleri
 
@@ -134,9 +127,7 @@ Paket sürümlerde `data` dizi SemVer 2.0.0 derleme meta verilerini içerebilir 
 
 ### <a name="sample-request"></a>Örnek istek
 
-```
-GET https://api-v2v3search-0.nuget.org/autocomplete?id=nuget.protocol&prerelease=true
-```
+    GET https://api-v2v3search-0.nuget.org/autocomplete?id=nuget.protocol&prerelease=true
 
 ### <a name="sample-response"></a>Örnek yanıt
 
