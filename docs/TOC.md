@@ -1,9 +1,9 @@
-# [NuGet nedir?](What-is-NuGet.md)
+# [NuGet nedir?](what-is-nuget.md)
+# [NuGet istemci araçlarını yükleme](install-nuget-client-tools.md)
 # Hızlı başlangıç
 ## [Paket Oluşturma ve Yayımlama](Quickstart/Create-and-Publish-a-Package.md)
 ## [Paket Kullanma](Quickstart/Use-a-Package.md)
 # Kılavuzlar
-## [NuGet istemci araçlarını yükleme](Guides/Install-NuGet.md)
 ## [NET Standart Paketleri oluşturma (Visual Studio 2017)](Guides/Create-NET-Standard-Packages-VS2017.md)
 ## [NET Standart Paketleri oluşturma (Visual Studio 2015)](Guides/Create-NET-Standard-Packages-VS2015.md)
 ## [UWP Paketleri oluşturma](Guides/Create-UWP-Packages.md)
@@ -19,8 +19,6 @@
 ## [Yerel Paketler](Create-Packages/Native-Packages.md)
 ## [Sembol Paketleri](Create-Packages/Symbol-Packages.md)
 ## [Paket Yayımlama](Create-Packages/Publish-a-package.md)
-## [project.json ve UWP](Create-Packages/project-json-and-UWP.md)
-## [project.json Etkisi](Create-Packages/project-json-Impact.md)
 # Paketleri Kullanma
 ## [Genel Bakış ve İş Akışı](Consume-Packages/Overview-and-Workflow.md)
 ## [Paketleri Bulma ve Seçme](Consume-Packages/Finding-and-Choosing-Packages.md)
@@ -71,7 +69,6 @@
 # Başvuru
 ## [.nuspec](Schema/nuspec.md)
 ## [packages.config](Schema/packages-config.md)
-## [project.json](Schema/project-json.md)
 ## [Paket Sürümü Oluşturma](reference/package-versioning.md)
 ## [Nuget.Config dosyası](Schema/nuget-config-file.md)
 ## [MSBuild Hedefleri](Schema/msbuild-targets.md)
@@ -83,6 +80,10 @@
 ## Genişletilebilirlik
 ### [Visual Studio için NuGet Kimlik Bilgileri Sağlayıcısı](Reference/extensibility/Nuget-Credential-Providers-for-Visual-Studio.md)
 ### [nuget.exe Kimlik Bilgileri Sağlayıcıları](Reference/extensibility/nuget-exe-Credential-Providers.md)
+## Arşivlenen içerik
+### [project.json reference format](archive/project-json.md)
+### [project.json ve UWP](archive/project-json-and-UWP.md)
+### [project.json impact](archive/project-json-impact.md)
 # API
 ## [Genel bakış](API/overview.md)
 ## [Nasıl yapılır: API’yi kullanarak tüm paketler için sorgu oluşturma](Guides/api/query-for-all-published-packages.md)
