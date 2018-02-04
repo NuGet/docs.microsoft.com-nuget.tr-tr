@@ -12,11 +12,11 @@ keywords: "paketler Xamarin, platformlar arası paketleri için bir paket oluşt
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: fbb1c3fccf04202dedc686583b3a2f27f105266a
-ms.sourcegitcommit: 24997b5345a997501fff846c9bd73610245ae0a6
+ms.openlocfilehash: 2f0131e4f447e2e0ab5a1d17e476a425eaa01b61
+ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-cross-platform-packages"></a>Platformlar arası paketleri oluşturma
 
@@ -50,7 +50,7 @@ Sonuçta elde edilen çözüm çeşitli platforma özgü projeleri birlikte iki 
 
 - Adlı PCL `Plugin.LoggingLibrary.Abstractions (Portable)`, bu durumda bileşenin ortak arabirimi (API yüzey alanını) tanımlar `ILoggingLibrary` ILoggingLibrary.cs dosyasında yer alan arabirimi. Arabirim kitaplığınıza tanımladığınız budur.
 - Diğer PCL `Plugin.LoggingLibrary (Portable)`, çalışma zamanında soyut arabiriminin bir platforma özgü uygulamasını bulun CrossLoggingLibrary.cs kodunu içerir. Genellikle, bu dosyayı değiştirmek gerekmez.
-- Platforma özgü projeleri, gibi `Plugin.LoggingLibrary.Android`, her içeren ilgili LoggingLibraryImplementation.cs dosyalarına arabiriminde yerel bir uygulama içerir. Kitaplığınızın kodu nereye oluşturacağınız budur.
+- Platforma özgü projeleri, gibi `Plugin.LoggingLibrary.Android`, her içeren ilgili LoggingLibraryImplementation.cs dosyalarına arabiriminde yerel bir uygulama içerir. Burada kitaplığınızın kodu derleme budur.
 
 Varsayılan olarak, arabirim tanımı, ancak hiçbir yöntemi soyutlamalar projesinin ILoggingLibrary.cs dosyası içerir. Bu kılavuzda amaçları doğrultusunda eklemek bir `Log` yöntemini aşağıdaki şekilde:
 
@@ -117,7 +117,7 @@ nuget spec
 ```
 
 1. Bu dosyayı yeniden adlandırmak `LoggingLibrary.nuspec` ve bir düzenleyicide açın.
-1. Aşağıdaki ile eşleşecek şekilde dosyasını güncelleştirme adiniz uygun bir değerle değiştirin. `<id>` Değeri, özellikle, benzersiz olmalıdır nuget.org (açıklanan adlandırma kuralları Bkz [paket oluşturma](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number)). Ayrıca yazar ve açıklama etiketleri güncelleştirmeniz gerekir veya paket adımı sırasında bir hata iletisi alırsınız unutmayın.
+1. Aşağıdaki ile eşleşecek şekilde dosyasını güncelleştirme adiniz uygun bir değerle değiştirin. `<id>` Değeri, özellikle, benzersiz olmalıdır nuget.org (açıklanan adlandırma kuralları Bkz [paket oluşturma](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number)). Ayrıca yazar ve açıklama etiketleri güncelleştirmeniz gerekir veya paket adımı sırasında bir hata alıyorsunuz unutmayın.
 
     ```xml
     <?xml version="1.0"?>
@@ -259,7 +259,7 @@ Tamamlanan ile `.nuspec` pakete eklemek için gereken tüm dosyaları başvuran,
 nuget pack LoggingLibrary.nuspec
 ```
 
-Bu oluşturur `LoggingLibrary.YOUR_NAME.1.0.0.nupkg`. Gibi bir araç bu dosyayı açmayı [NuGet paketi Gezgini](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer) ve tüm düğümleri genişleterek, aşağıdaki içeriği görürsünüz:
+Bu oluşturur `LoggingLibrary.YOUR_NAME.1.0.0.nupkg`. Gibi bir araç bu dosyayı açmayı [NuGet paketi Gezgini](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer) ve tüm düğümleri genişleterek, aşağıdaki içeriğe bakın:
 
 ![NuGet paket LoggingLibrary paket gösteren Gezgini](media/Cross-Platform-PackageExplorer.png)
 
@@ -270,7 +270,7 @@ Paketinizi diğer geliştiricileri için kullanılabilir yapmak için yönergele
 
 ## <a name="related-topics"></a>İlgili konular
 
-- [Nuspec başvurusu](../schema/nuspec.md)
+- [Nuspec başvurusu](../reference/nuspec.md)
 - [Simge paketleri](../create-packages/symbol-packages.md)
 - [Paket sürümü oluşturma](../reference/package-versioning.md)
 - [Birden çok .NET Framework sürümleri destekleme](../create-packages/supporting-multiple-target-frameworks.md)

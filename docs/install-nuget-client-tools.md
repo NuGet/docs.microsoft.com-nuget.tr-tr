@@ -12,15 +12,15 @@ keywords: "DotNet.exe CLI, nuget.exe CLI, NuGet istemcisi araçları, NuGet Pake
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b94da0ea6a6b7f1e269767a7395d81c3a97a2d0c
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
-ms.translationtype: MT
+ms.openlocfilehash: 07ca66b44a981f7fcc108e1b4d97c0cf5e206a6f
+ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="installing-nuget-client-tools"></a>NuGet istemci araçlarını yükleme
 
-> **Bir paketi yüklemek istiyorsunuz? Bkz: [hızlı başlangıç - kullanım bir paketi](quickstart/use-a-package.md).**
+> **Bir paketi yüklemek istiyorsunuz? Bkz: [NuGet paketlerini yüklemek için yol](consume-packages/ways-to-install-a-package.md).**
 
 Bir paket tüketici ya da Oluşturucu, olarak NuGet ile çalışmak için kullanabileceğiniz [platformlar arası komut satırı arabirimi (CLI) araçları](#cli-tools) yanı [Visual Studio'da NuGet özellikleri](#visual-studio). Bu makalede bulunan farklı araçlar özelliklerini kısaca özetler bunları ve bunların karşılaştırmalı nasıl yükleneceği [Özellik kullanılabilirliği](#feature-availability).
 
@@ -30,7 +30,7 @@ Bir paket tüketici ya da Oluşturucu, olarak NuGet ile çalışmak için kullan
 | [nuget.exe](#nugetexe-cli) | Windows ve çoğu özellikleri altında çalışan tüm NuGet özellikleri sağlayan [Mono](http://www.mono-project.com/docs/getting-started/install/) Mac ve Linux üzerinde. | [nuget.exe](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe) |
 | [Visual Studio](#visual-studio) | NuGet Paket Yöneticisi kullanıcı Arabirimi ve Paket Yöneticisi konsolu üzerinden özellikleri sağlar. | [Visual Studio 2017](https://www.visualstudio.com/downloads/) |
 
-[MSBuild CLI](schema/msbuild-targets.md) da geri yükleme ve yapı sunucularda öncelikle faydalı olduğu paketlerini oluşturma olanağı sağlar. MSBuild, aksi takdirde NuGet ile çalışmak için genel amaçlı bir aracı değildir.
+[MSBuild CLI](reference/msbuild-targets.md) da geri yükleme ve yapı sunucularda öncelikle faydalı olduğu paketlerini oluşturma olanağı sağlar. MSBuild, aksi takdirde NuGet ile çalışmak için genel amaçlı bir aracı değildir.
 
 ## <a name="cli-tools"></a>CLI araçlarını
 
