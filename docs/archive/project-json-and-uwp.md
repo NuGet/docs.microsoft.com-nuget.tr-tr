@@ -12,11 +12,11 @@ keywords: "NuGet bağımlılıkları, NuGet ve UWP, UWP ve project.json, NuGet p
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 0063c959a6d638d7ba1d579d35ff660dccae282c
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: f1ec086d6404c441ca5ad53028af2265a2344905
+ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="projectjson-and-uwp"></a>Project.JSON ve UWP
 
@@ -75,7 +75,7 @@ MSBuild için bu iki dosyayı aramak için bilir ve başına yakın ve proje olu
 
 ## <a name="lib-and-ref"></a>LIB ve Ref
 
-Davranışını `lib` klasörü kurmadı değiştirilen önemli ölçüde NuGet v3. Ancak, tüm derlemelerde bir TxM sonra adlı alt klasörler içinde olmalıdır ve artık doğrudan altında yerleştirilebilir `lib` klasör. Bir TxM bir paketteki belirli bir varlık için iş gerektiği bir platform adıdır. Mantıksal bir uzantı hedef Framework adlar (TFM) Örneğin bunlar `net45`, `net46`, `netcore50`, ve `dnxcore50` TxMs tüm örnekleri (bkz [hedef çerçeveyi](../Schema/Target-Frameworks.md). TxM bir çerçeve (TFM) yanı sıra diğer platforma özgü yüzey alanlara başvurabilir. Örneğin UWP TxM (`uap10.0`) UWP uygulamaları Windows yüzey alanını yanı sıra .NET yüzey alanını temsil eder.
+Davranışını `lib` klasörü kurmadı değiştirilen önemli ölçüde NuGet v3. Ancak, tüm derlemelerde bir TxM sonra adlı alt klasörler içinde olmalıdır ve artık doğrudan altında yerleştirilebilir `lib` klasör. Bir TxM bir paketteki belirli bir varlık için iş gerektiği bir platform adıdır. Mantıksal bir uzantı hedef Framework adlar (TFM) Örneğin bunlar `net45`, `net46`, `netcore50`, ve `dnxcore50` TxMs tüm örnekleri (bkz [hedef çerçeveyi](../reference/target-frameworks.md). TxM bir çerçeve (TFM) yanı sıra diğer platforma özgü yüzey alanlara başvurabilir. Örneğin UWP TxM (`uap10.0`) UWP uygulamaları Windows yüzey alanını yanı sıra .NET yüzey alanını temsil eder.
 
 Bir örnek lib yapısı:
 

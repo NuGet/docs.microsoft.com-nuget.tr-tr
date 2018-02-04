@@ -9,12 +9,13 @@ ms.prod: nuget
 ms.technology: 
 description: "NuGet paketi ve geri yükleme, doğrudan NuGet 4.0 + ile MSBuild hedefleri olarak çalışabilir."
 keywords: "NuGet ve MSBuild, NuGet paketi hedef, NuGet geri yükleme hedefi"
-ms.reviewer: karann-msft
+ms.reviewer:
+- karann-msft
 ms.openlocfilehash: 169d73709eeb17aade7d99da66bbb4f346f8093f
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.sourcegitcommit: 24997b5345a997501fff846c9bd73610245ae0a6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 01/31/2018
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet paketi ve MSBuild hedefleri olarak geri yükleme
 

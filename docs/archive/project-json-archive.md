@@ -12,11 +12,11 @@ keywords: "NuGet project.json dosyası"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 1cca7304ee3dbecaed3fbb337ad2d31f383f4c43
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: 42a40c6c637839c13effc9e476ac5702a92cfd2a
+ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="projectjson-archive"></a>project.json archive
 
@@ -60,19 +60,19 @@ Başvuru biçimleri listesinde:
 
 ## <a name="dependency-resolution-with-packagereference"></a>PackageReference bir bağımlılık çözümleme
 
-*İlk olarak, [bağımlılık çözümlemesi](../Consume-Packages/dependency-resolution.md#dependency-resolution-with-packagereference).*
+*İlk olarak, [bağımlılık çözümlemesi](../consume-packages/dependency-resolution.md#dependency-resolution-with-packagereference).*
 
 PackageReference davranışını için de geçerlidir `project.json`. NuGet restore bağımlılık grafiğinin adlı bir dosyaya yazar `project.lock.json` yanında `project.json`.
 
 ## <a name="managing-dependency-assets"></a>Bağımlılık varlıklarını yönetme
 
-*İlk olarak, [bağımlılık çözümlemesi](../Consume-Packages/dependency-resolution.md#managing-dependency-assets).*
+*İlk olarak, [bağımlılık çözümlemesi](../consume-packages/dependency-resolution.md#managing-dependency-assets).*
 
 Kullanırken `project.json` biçimi, en üst düzey proje bağımlılıkları akışına hangi varlıklarından kontrol edebilirsiniz. Ayrıntılar için bkz [project.json](project-json.md).
 
 ## <a name="excluding-references"></a>Başvuruları hariç
 
-*İlk olarak, [bağımlılık çözümlemesi](../Consume-Packages/dependency-resolution.md#excluding-references).*
+*İlk olarak, [bağımlılık çözümlemesi](../consume-packages/dependency-resolution.md#excluding-references).*
 
 - `project.json`: eklemek `"exclude" : "all"` PackageC bağımlılığı içinde:
 
@@ -89,21 +89,21 @@ Kullanırken `project.json` biçimi, en üst düzey proje bağımlılıkları ak
 
 ## <a name="resolving-incompatible-package-errors"></a>Uyumsuz paket hatalarını çözme
 
-*İlk olarak, [bağımlılık çözümlemesi](../Consume-Packages/dependency-resolution.md#resolving-incompatible-package-errors).*
+*İlk olarak, [bağımlılık çözümlemesi](../consume-packages/dependency-resolution.md#resolving-incompatible-package-errors).*
 
 Hataları çözümleme eklenen anlamına gelir:
 
-- **Önerilmez**: geçici bir çözüm olarak için paket yazarına ile çalışırken projeleri hedefleyen `netcore`, `netstandard`, ve `netcoreapp` uyumlu, böylece bu hedefleme paketleri izin verme olarak diğer çerçeveler belirtmek kullanılacak diğer çerçeveler. Bkz: [project.json alır](project-json.md#imports) ve [MSBuild geri yükleme hedefi PackageTargetFallback](../schema/msbuild-targets.md#packagetargetfallback). Bu beklenmeyen davranışları neden şekilde yeniden üzerinde bir güncelleştirme için paket yazarına ile çalışarak paket uyumsuzlukları gidermek en iyisidir.
+- **Önerilmez**: geçici bir çözüm olarak için paket yazarına ile çalışırken projeleri hedefleyen `netcore`, `netstandard`, ve `netcoreapp` uyumlu, böylece bu hedefleme paketleri izin verme olarak diğer çerçeveler belirtmek kullanılacak diğer çerçeveler. Bkz: [project.json alır](project-json.md#imports) ve [MSBuild geri yükleme hedefi PackageTargetFallback](../reference/msbuild-targets.md#packagetargetfallback). Bu beklenmeyen davranışları neden şekilde yeniden üzerinde bir güncelleştirme için paket yazarına ile çalışarak paket uyumsuzlukları gidermek en iyisidir.
 
 ## <a name="target-frameworks"></a>Hedef Çerçeve
 
-*İlk olarak, [hedef çerçeveler](../schema/target-frameworks.md).*
+*İlk olarak, [hedef çerçeveler](../reference/target-frameworks.md).*
 
 - [Project.JSON](project-json.md): `frameworks` düğümü karşı proje derlenmiş framework sürümlerini belirtir.
 
 ## <a name="creating-a-package"></a>Paket oluşturma
 
-*İlk olarak, [paket oluşturma](../Create-Packages/creating-a-package.md)*
+*İlk olarak, [paket oluşturma](../create-packages/creating-a-package.md)*
 
 ### <a name="setting-a-package-type"></a>Ayar paket türü
 
@@ -136,24 +136,24 @@ Kullanırken `project.json` biçimi, NuGet ayrıca bir joker karakter gösterimi
 
 ### <a name="nugetconfig-reference"></a>NuGet.Config başvurusu
 
-*İlk olarak, [NuGet.Config başvuru](../schema/nuget-config-file.md).*
+*İlk olarak, [NuGet.Config başvuru](../reference/nuget-config-file.md).*
 
 `globalPackagesFolder`yalnızca geçerli `project.json`.
 
 ### <a name="nuspec-file-reference"></a>nuspec dosyası başvurusu
 
-*İlk olarak, [nuspec başvuru](../schema/nuspec.md).*
+*İlk olarak, [nuspec başvuru](../reference/nuspec.md).*
 
 `<contentFiles>` Öğe yerine kullanılır `<files>` ile `project.json`.
 
 ### <a name="package-manager-options-control"></a>Paket Yöneticisi seçenekleri denetimi
 
-*İlk olarak, [Paket Yöneticisi kullanıcı Arabirimi başvurusu](../tools/Package-Manager-UI.md).*
+*İlk olarak, [Paket Yöneticisi kullanıcı Arabirimi başvurusu](../tools/package-manager-ui.md).*
 
 Kullanarak projeleri `project.json` başvuru biçimi Göster yalnızca **Göster önizleme penceresi** seçeneği.
 
 ### <a name="visual-studio-templates"></a>Visual Studio şablonları
 
-*İlk olarak, [Visual Studio şablonları NuGet paketlerine](../Visual-Studio-Extensibility/visual-studio-templates.md).*
+*İlk olarak, [Visual Studio şablonları NuGet paketlerine](../visual-studio-extensibility/visual-studio-templates.md).*
 
 En iyi uygulamalar: şablonları içermeyen bir `project.json` dosya ve içermeyen veya tüm başvuruları veya NuGet paketleri yüklendiğinde ekleneceği içerik.
