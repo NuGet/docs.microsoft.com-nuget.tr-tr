@@ -13,24 +13,24 @@ ms.reviewer:
 - karann-msft
 - unniravindranathan
 ms.openlocfilehash: ace56284e56f24394d49c0598ec3604b62caaf67
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/02/2018
 ---
-# <a name="nuget-285-release-notes"></a><span data-ttu-id="f4609-104">NuGet 2.8.5 sürüm notları</span><span class="sxs-lookup"><span data-stu-id="f4609-104">NuGet 2.8.5 Release Notes</span></span>
+# <a name="nuget-285-release-notes"></a><span data-ttu-id="d4457-104">NuGet 2.8.5 sürüm notları</span><span class="sxs-lookup"><span data-stu-id="d4457-104">NuGet 2.8.5 Release Notes</span></span>
 
-<span data-ttu-id="f4609-105">[NuGet 2.8.3 Sürüm Notları](../release-notes/nuget-2.8.3.md) | [NuGet 2.8.6 sürüm notları](../release-notes/nuget-2.8.6.md)</span><span class="sxs-lookup"><span data-stu-id="f4609-105">[NuGet 2.8.3 Release Notes](../release-notes/nuget-2.8.3.md) | [NuGet 2.8.6 Release Notes](../release-notes/nuget-2.8.6.md)</span></span>
+<span data-ttu-id="d4457-105">[NuGet 2.8.3 Sürüm Notları](../release-notes/nuget-2.8.3.md) | [NuGet 2.8.6 sürüm notları](../release-notes/nuget-2.8.6.md)</span><span class="sxs-lookup"><span data-stu-id="d4457-105">[NuGet 2.8.3 Release Notes](../release-notes/nuget-2.8.3.md) | [NuGet 2.8.6 Release Notes](../release-notes/nuget-2.8.6.md)</span></span>
 
-<span data-ttu-id="f4609-106">NuGet 2.8.5, 30 Mart 2015 yayımlanmıştır.</span><span class="sxs-lookup"><span data-stu-id="f4609-106">NuGet 2.8.5 was released March 30, 2015.</span></span> <span data-ttu-id="f4609-107">Küçük bir güncelleştirmesidir bizim 2.8.3 VSIX bazı düzeltmeler hedeflenen.</span><span class="sxs-lookup"><span data-stu-id="f4609-107">It is a minor update to our 2.8.3 VSIX with some targeted fixes.</span></span>
+<span data-ttu-id="d4457-106">NuGet 2.8.5, 30 Mart 2015 yayımlanmıştır.</span><span class="sxs-lookup"><span data-stu-id="d4457-106">NuGet 2.8.5 was released March 30, 2015.</span></span> <span data-ttu-id="d4457-107">Küçük bir güncelleştirmesidir bizim 2.8.3 VSIX bazı düzeltmeler hedeflenen.</span><span class="sxs-lookup"><span data-stu-id="d4457-107">It is a minor update to our 2.8.3 VSIX with some targeted fixes.</span></span>
 
-<span data-ttu-id="f4609-108">Bu sürümde için NuGet Paket Yöneticisi iletişim için destek eklenmiştir [DNX hedef Framework adlar](https://github.com/aspnet/dnx).</span><span class="sxs-lookup"><span data-stu-id="f4609-108">In this release, the support for NuGet Package Manager dialog was added for [DNX Target Framework Monikers](https://github.com/aspnet/dnx).</span></span>  <span data-ttu-id="f4609-109">Desteklenen bu yeni framework adları şunlardır:</span><span class="sxs-lookup"><span data-stu-id="f4609-109">These new framework monikers that are supported include:</span></span>
+<span data-ttu-id="d4457-108">Bu sürümde için NuGet Paket Yöneticisi iletişim için destek eklenmiştir [DNX hedef Framework adlar](https://github.com/aspnet/dnx).</span><span class="sxs-lookup"><span data-stu-id="d4457-108">In this release, the support for NuGet Package Manager dialog was added for [DNX Target Framework Monikers](https://github.com/aspnet/dnx).</span></span>  <span data-ttu-id="d4457-109">Desteklenen bu yeni framework adları şunlardır:</span><span class="sxs-lookup"><span data-stu-id="d4457-109">These new framework monikers that are supported include:</span></span>
 
-* <span data-ttu-id="f4609-110">**core50** - A 'base' hedef framework ad (TFM) çekirdek CLR ile uyumludur.</span><span class="sxs-lookup"><span data-stu-id="f4609-110">**core50** - A 'base' target framework moniker (TFM) that is compatible with the Core CLR.</span></span>
-* <span data-ttu-id="f4609-111">**dnx452** - tam 4.5.2 kullanarak A TFM DNX tabanlı belirli uygulamaları framework sürümü</span><span class="sxs-lookup"><span data-stu-id="f4609-111">**dnx452** - A TFM specific to DNX-based apps using the full 4.5.2 version of the framework</span></span>
-* <span data-ttu-id="f4609-112">**dnx46** - framework'ün tam 4.6 sürümünü kullanarak bir TFM DNX tabanlı belirli uygulamaları</span><span class="sxs-lookup"><span data-stu-id="f4609-112">**dnx46** - A TFM specific to DNX-based apps using the full 4.6 version of the framework</span></span>
-* <span data-ttu-id="f4609-113">**dnxcore50** - framework çekirdek 5.0 sürümünü kullanarak bir TFM DNX tabanlı belirli uygulamaları</span><span class="sxs-lookup"><span data-stu-id="f4609-113">**dnxcore50** - A TFM specific to DNX-based apps using the Core 5.0 version of the framework</span></span>
+* <span data-ttu-id="d4457-110">**core50** - A 'base' hedef framework ad (TFM) çekirdek CLR ile uyumludur.</span><span class="sxs-lookup"><span data-stu-id="d4457-110">**core50** - A 'base' target framework moniker (TFM) that is compatible with the Core CLR.</span></span>
+* <span data-ttu-id="d4457-111">**dnx452** - tam 4.5.2 kullanarak A TFM DNX tabanlı belirli uygulamaları framework sürümü</span><span class="sxs-lookup"><span data-stu-id="d4457-111">**dnx452** - A TFM specific to DNX-based apps using the full 4.5.2 version of the framework</span></span>
+* <span data-ttu-id="d4457-112">**dnx46** - framework'ün tam 4.6 sürümünü kullanarak bir TFM DNX tabanlı belirli uygulamaları</span><span class="sxs-lookup"><span data-stu-id="d4457-112">**dnx46** - A TFM specific to DNX-based apps using the full 4.6 version of the framework</span></span>
+* <span data-ttu-id="d4457-113">**dnxcore50** - framework çekirdek 5.0 sürümünü kullanarak bir TFM DNX tabanlı belirli uygulamaları</span><span class="sxs-lookup"><span data-stu-id="d4457-113">**dnxcore50** - A TFM specific to DNX-based apps using the Core 5.0 version of the framework</span></span>
 
-<span data-ttu-id="f4609-114">Bir hata FSharp projelere düzgün şekilde yüklenmesini önlenmiş bu paketleri düzeltildi:</span><span class="sxs-lookup"><span data-stu-id="f4609-114">One bug was fixed that prevented packages from installing into FSharp projects properly:</span></span>
+<span data-ttu-id="d4457-114">Bir hata FSharp projelere düzgün şekilde yüklenmesini önlenmiş bu paketleri düzeltildi:</span><span class="sxs-lookup"><span data-stu-id="d4457-114">One bug was fixed that prevented packages from installing into FSharp projects properly:</span></span>
 
-<span data-ttu-id="f4609-115">https://nuget.codeplex.com/workitem/4400</span><span class="sxs-lookup"><span data-stu-id="f4609-115">https://nuget.codeplex.com/workitem/4400</span></span>
+<span data-ttu-id="d4457-115">https://nuget.codeplex.com/workitem/4400</span><span class="sxs-lookup"><span data-stu-id="d4457-115">https://nuget.codeplex.com/workitem/4400</span></span>
