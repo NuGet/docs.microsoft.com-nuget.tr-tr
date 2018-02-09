@@ -12,11 +12,11 @@ keywords: "NuGet ve project.json, project.json etkisi yazma konuları, project.j
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6104b4dac330869bc5724ffcf15cc0ac9ee26c1f
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: b732d48b169825764d614c338658f8c6ef45e765
+ms.sourcegitcommit: eabd401616a98dda2ae6293612acb3b81b584967
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="impact-of-projectjson-when-creating-packages"></a>Paket oluştururken project.json etkisi
 
@@ -61,7 +61,7 @@ Başlangıç genellikle kolaylaştırmak için proje değiştirme girişimi pake
 
 Çoğu mevcut paketleri aşağıda açıklanan paket biçimi kullanmanız gerekmez.
 
-Yerel içerik biçimi birinci sınıf bir senaryo sağlar. Hedef platformu temel alarak Yönetilen derlemeler yanında ikili uygulamaları dağıtmayı bağlı olarak donanım uygulamaları yakın derlemeleri yönetilen anlamına gelir. Örneğin System.IO.Compression paket bu teknoloji kullanılarak. [https://www.nuget.org/packages/System.IO.Compression](https://www.nuget.org/packages/System.IO.Compression)
+Yerel içerik biçimi birinci sınıf bir senaryo sağlar. Bu yönetilen derlemeler hedef platformu temel alarak Yönetilen derlemeler yanında ikili uygulamaları dağıtmayı donanım uygulamaları yakın bağlı olduğunu anlamına gelir. Örneğin System.IO.Compression paket bu teknoloji kullanılarak. [https://www.nuget.org/packages/System.IO.Compression](https://www.nuget.org/packages/System.IO.Compression)
 
 Yukarıdaki işlevselliği kesinlikle gerekli değilse, burada açıklanan biçimde yalnızca NuGet 3.x+ tarafından desteklenen olarak Özet olarak var olan paketi biçimiyle kalmanız öneririz.
 
