@@ -1,0 +1,17 @@
+<span data-ttu-id="dfb5a-101">Profilinizdeki nuget.org üzerinde seçin **paketlerini Yönet** bir görmek için yalnızca yayımlanmış.</span><span class="sxs-lookup"><span data-stu-id="dfb5a-101">From your profile on nuget.org, select **Manage Packages** to see the one you just published.</span></span> <span data-ttu-id="dfb5a-102">Aynı zamanda bir onay e-posta alırsınız.</span><span class="sxs-lookup"><span data-stu-id="dfb5a-102">You also receive a confirmation email.</span></span> <span data-ttu-id="dfb5a-103">Biraz sıralanması ve diğerleri bulabileceğiniz arama sonuçlarında görüntülenmesi paketinize sürebileceğini unutmayın.</span><span class="sxs-lookup"><span data-stu-id="dfb5a-103">Note that it might take a while for your package to be indexed and appear in search results where others can find it.</span></span> <span data-ttu-id="dfb5a-104">Bu işlem sırasında paket sayfanızı aşağıdaki iletiyi gösterir:</span><span class="sxs-lookup"><span data-stu-id="dfb5a-104">During that time your package page shows the message below:</span></span>
+
+    ![This package has not been indexed yet. It will appear in search results and will be available for install/restore after indexing is complete.](../media/QS_Create-03-NotIndexed.png)
+
+<span data-ttu-id="dfb5a-105">Ve bu kadar!</span><span class="sxs-lookup"><span data-stu-id="dfb5a-105">And that's it!</span></span> <span data-ttu-id="dfb5a-106">Ayrıca, diğer geliştiricilerin kendi projelerinde kullanabileceğiniz nuget.org için yalnızca ilk NuGet paketi oluşturdunuz.</span><span class="sxs-lookup"><span data-stu-id="dfb5a-106">You've just published your first NuGet package to nuget.org that other developers can use in their own projects.</span></span>
+
+<span data-ttu-id="dfb5a-107">(Örneğin, bir boş sınıf kitaplığı ile oluşturduğunuz paketini) gerçekte yararlı olmaz bir paketi oluşturduğunuz bu kılavuzda, yapmanız gerekenler varsa *unlist* Arama sonuçlarından gizlemek için paket:</span><span class="sxs-lookup"><span data-stu-id="dfb5a-107">If in this walkthrough you created a package that isn't actually useful (such as a package created with an empty class library), you should *unlist* the package to hide it from search results:</span></span>
+
+1. <span data-ttu-id="dfb5a-108">Nuget.org üzerinde kullanıcı adınızı (sayfanın sağ üst) seçin ve ardından seçin **paketlerini Yönet**.</span><span class="sxs-lookup"><span data-stu-id="dfb5a-108">On nuget.org, select your user name (upper right of the page), then select **Manage Packages**.</span></span>
+
+1. <span data-ttu-id="dfb5a-109">Altında unlist istediğiniz paketi bulun **yayımlanan** ve çöp kutusu simgesine sağ taraftaki seçin:</span><span class="sxs-lookup"><span data-stu-id="dfb5a-109">Locate the package you want to unlist under **Published** and select the trash can icon on the right:</span></span>
+
+    ![Çöp kutusu üzerinde nuget.org listeleyen bir paket için gösterilen simgesi](../media/qs_create-vs-03-trash-can.png)
+
+1. <span data-ttu-id="dfb5a-111">Sonraki sayfada etiketli kutuyu temizleyin **arama sonuçları (paket adı) listesinde** seçip **kaydetmek**:</span><span class="sxs-lookup"><span data-stu-id="dfb5a-111">On the subsequent page, clear the box labeled **List (package-name) in search results** and select **Save**:</span></span>
+
+    ![Nuget.org paketin listesi onay kutusunu temizleyerek](../media/qs_create-vs-04-unlist.png)

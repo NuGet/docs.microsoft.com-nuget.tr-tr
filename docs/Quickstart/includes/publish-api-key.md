@@ -1,0 +1,11 @@
+1. <span data-ttu-id="e72a6-101">[Nuget.org hesabınızda oturum](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) veya zaten yoksa, bir hesap oluşturun.</span><span class="sxs-lookup"><span data-stu-id="e72a6-101">[Sign into your nuget.org account](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) or create an account if you don't have one already.</span></span>
+
+1. <span data-ttu-id="e72a6-102">Kullanıcı adınızın (sağ üstte) seçin ve ardından **API anahtarları**.</span><span class="sxs-lookup"><span data-stu-id="e72a6-102">Select your user name (on the upper right), then select **API Keys**.</span></span>
+
+1. <span data-ttu-id="e72a6-103">Seçin **oluşturma**, anahtarınız için bir ad, seçin **kapsamları seçin > anında**altında **API anahtarı**, girin \* için **Glob düzeni**, ardından seçin **oluşturma**.</span><span class="sxs-lookup"><span data-stu-id="e72a6-103">Select **Create**, provide a name for your key, select **Select Scopes > Push**Under **API Key**, enter \* for **Glob pattern**, then select **Create**.</span></span>
+
+1. <span data-ttu-id="e72a6-104">Anahtar oluşturulduktan sonra Seç **kopyalama** erişim almak için anahtar CLI gerekir:</span><span class="sxs-lookup"><span data-stu-id="e72a6-104">Once the key is created, select **Copy** to retrieve the access key you need in the CLI:</span></span>
+
+    ![API anahtarını Panoya kopyalama](../media/QS_Create-02-APIKey.png)
+
+1. <span data-ttu-id="e72a6-106">**Önemli**: anahtar üzerinde yeniden daha sonra kopyalanamıyor çünkü anahtarınızı güvenli bir konuma kaydedin.</span><span class="sxs-lookup"><span data-stu-id="e72a6-106">**Important**: Save your key in a secure location because you cannot copy the key again later on.</span></span> <span data-ttu-id="e72a6-107">API anahtar sayfasına döndürürse, kopyalanması için anahtarın yeniden oluşturulması gerekir.</span><span class="sxs-lookup"><span data-stu-id="e72a6-107">If you return to the API key page, you need to regenerate the key to copy it.</span></span> <span data-ttu-id="e72a6-108">Artık paketleri CLI itmek istiyorsanız, API anahtarını da kaldırabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="e72a6-108">You can also remove the API key if you no longer want to push packages via the CLI.</span></span>
