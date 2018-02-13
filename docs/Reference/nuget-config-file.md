@@ -12,17 +12,17 @@ keywords: "NuGet.Config dosyasındaki, NuGet yapılandırma başvurusu, NuGet ya
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 9a183b67ae18f4fa5c042f1806f8abcc9b799b77
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: df602cb561a19f0eac085695de80db1fbaa1a313
+ms.sourcegitcommit: 33436d122873249dbb20616556cd8c6783f38909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/12/2018
 ---
 # <a name="nugetconfig-reference"></a>NuGet.Config başvurusu
 
 NuGet davranışı farklı ayarları tarafından denetlenir `NuGet.Config` dosyaları açıklandığı gibi [NuGet davranışını yapılandırma](../consume-packages/configuring-nuget-behavior.md).
 
-`NuGet.Config`bir üst düzey içeren bir XML dosyası `<configuration>` düğümü, bu konuda açıklanan bölümünün öğeleri içerir. Her bölüm sıfır veya daha fazla içerir `<add>` öğeleriyle `key` ve `value` öznitelikleri. Bkz: [örnekler yapılandırma dosyası](#example-config-file). Ayar adları büyük küçük harf duyarsız ve değerleri kullanabilir [ortam değişkenleri](#using-environment-variables).
+`NuGet.Config` bir üst düzey içeren bir XML dosyası `<configuration>` düğümü, bu konuda açıklanan bölümünün öğeleri içerir. Her bölüm sıfır veya daha fazla içerir `<add>` öğeleriyle `key` ve `value` öznitelikleri. Bkz: [örnekler yapılandırma dosyası](#example-config-file). Ayar adları büyük küçük harf duyarsız ve değerleri kullanabilir [ortam değişkenleri](#using-environment-variables).
 
 Bu konuda:
 
@@ -48,7 +48,7 @@ Bu konuda:
 
 Kullanılarak ayarlanabilir çeşitli yapılandırma ayarlarını içeren [ `nuget config` komutu](../tools/cli-ref-config.md).
 
-Not: `dependencyVersion` ve `repositoryPath` kullanarak projeleri için geçerli `packages.config`. `globalPackagesFolder`PackageReference biçimini kullanarak projeler için geçerlidir.
+Not: `dependencyVersion` ve `repositoryPath` kullanarak projeleri için geçerli `packages.config`. `globalPackagesFolder` PackageReference biçimini kullanarak projeler için geçerlidir.
 
 | Anahtar | Değer |
 | --- | --- |
@@ -131,7 +131,7 @@ Nuget.org kaynak URL'sini olduğuna dikkat edin `https://api.nuget.org/v3/index.
 
 ### <a name="packagesources"></a>packageSources
 
-Tüm bilinen paket kaynaklarını listeler.
+Tüm bilinen paket kaynaklarını listeler. Geri yükleme işlemleri sırasında ve PackageReference biçimini kullanarak herhangi bir projeyle sırası göz ardı edilir. NuGet kaynakları sırasını yükleme için uyar ve güncelleştirme işlemleri kullanarak projeleri ile `packages.config`.
 
 | Anahtar | Değer |
 | --- | --- |
@@ -157,7 +157,7 @@ Kullanıcı adları ve parolalar genellikle ile belirtilen kaynakları için dep
 | Parola | Kaynağı şifrelenmiş parolası. |
 | cleartextpassword | Kaynak şifrelenmemiş parola. |
 
-**Örnek:**
+Örnek:
 
 Yapılandırma dosyasındaki `<packageSourceCredentials>` öğesi her bir geçerli kaynak adı için alt düğümleri içerir (adında boşluk ile değiştirilir `_x0020+`). Diğer bir deyişle, "Contoso" ve "Test kaynağı" adlı kaynakları için yapılandırma dosyası aşağıdaki şifrelenmiş parolalar kullanırken içerir:
 
@@ -213,7 +213,7 @@ Depolar kümesiyle olarak API anahtar kimlik doğrulaması kullanan kaynakları 
 | --- | --- |
 | (kaynak adı) | Kaynak devre dışı olup olmadığını gösteren bir Boole değeri. |
 
-**Örnek:**
+Örnek:
 
 ```xml
 <disabledPackageSources>
@@ -232,7 +232,7 @@ Depolar kümesiyle olarak API anahtar kimlik doğrulaması kullanan kaynakları 
 
 | Anahtar | Değer |
 | --- | --- |
-| (kaynak adı) veya`All` | Anahtar bir kaynak adı ise, kaynak yolu veya URL'si değerdir. Varsa `All`, değer olmalıdır `(Aggregate source)` Aksi durumda devre dışı tüm paket kaynaklarını birleştirmek için. |
+| (kaynak adı) veya `All` | Anahtar bir kaynak adı ise, kaynak yolu veya URL'si değerdir. Varsa `All`, değer olmalıdır `(Aggregate source)` Aksi durumda devre dışı tüm paket kaynaklarını birleştirmek için. |
 
 **Örnek**:
 
