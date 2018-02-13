@@ -12,53 +12,53 @@ keywords: "NuGet.Config dosyasındaki, NuGet yapılandırma başvurusu, NuGet ya
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 9a183b67ae18f4fa5c042f1806f8abcc9b799b77
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: df602cb561a19f0eac085695de80db1fbaa1a313
+ms.sourcegitcommit: 33436d122873249dbb20616556cd8c6783f38909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/12/2018
 ---
-# <a name="nugetconfig-reference"></a><span data-ttu-id="d1fdb-104">NuGet.Config başvurusu</span><span class="sxs-lookup"><span data-stu-id="d1fdb-104">NuGet.Config reference</span></span>
+# <a name="nugetconfig-reference"></a><span data-ttu-id="3cd85-104">NuGet.Config başvurusu</span><span class="sxs-lookup"><span data-stu-id="3cd85-104">NuGet.Config reference</span></span>
 
-<span data-ttu-id="d1fdb-105">NuGet davranışı farklı ayarları tarafından denetlenir `NuGet.Config` dosyaları açıklandığı gibi [NuGet davranışını yapılandırma](../consume-packages/configuring-nuget-behavior.md).</span><span class="sxs-lookup"><span data-stu-id="d1fdb-105">NuGet behavior is controlled by settings in different `NuGet.Config` files as described in [Configuring NuGet Behavior](../consume-packages/configuring-nuget-behavior.md).</span></span>
+<span data-ttu-id="3cd85-105">NuGet davranışı farklı ayarları tarafından denetlenir `NuGet.Config` dosyaları açıklandığı gibi [NuGet davranışını yapılandırma](../consume-packages/configuring-nuget-behavior.md).</span><span class="sxs-lookup"><span data-stu-id="3cd85-105">NuGet behavior is controlled by settings in different `NuGet.Config` files as described in [Configuring NuGet Behavior](../consume-packages/configuring-nuget-behavior.md).</span></span>
 
-<span data-ttu-id="d1fdb-106">`NuGet.Config`bir üst düzey içeren bir XML dosyası `<configuration>` düğümü, bu konuda açıklanan bölümünün öğeleri içerir.</span><span class="sxs-lookup"><span data-stu-id="d1fdb-106">`NuGet.Config` is an XML file containing a top-level `<configuration>` node, which then contains the section elements described in this topic.</span></span> <span data-ttu-id="d1fdb-107">Her bölüm sıfır veya daha fazla içerir `<add>` öğeleriyle `key` ve `value` öznitelikleri.</span><span class="sxs-lookup"><span data-stu-id="d1fdb-107">Each section contains zero or more `<add>` elements with `key` and `value` attributes.</span></span> <span data-ttu-id="d1fdb-108">Bkz: [örnekler yapılandırma dosyası](#example-config-file).</span><span class="sxs-lookup"><span data-stu-id="d1fdb-108">See the [examples config file](#example-config-file).</span></span> <span data-ttu-id="d1fdb-109">Ayar adları büyük küçük harf duyarsız ve değerleri kullanabilir [ortam değişkenleri](#using-environment-variables).</span><span class="sxs-lookup"><span data-stu-id="d1fdb-109">Setting names are case-insensitive, and values can use [environment variables](#using-environment-variables).</span></span>
+<span data-ttu-id="3cd85-106">`NuGet.Config` bir üst düzey içeren bir XML dosyası `<configuration>` düğümü, bu konuda açıklanan bölümünün öğeleri içerir.</span><span class="sxs-lookup"><span data-stu-id="3cd85-106">`NuGet.Config` is an XML file containing a top-level `<configuration>` node, which then contains the section elements described in this topic.</span></span> <span data-ttu-id="3cd85-107">Her bölüm sıfır veya daha fazla içerir `<add>` öğeleriyle `key` ve `value` öznitelikleri.</span><span class="sxs-lookup"><span data-stu-id="3cd85-107">Each section contains zero or more `<add>` elements with `key` and `value` attributes.</span></span> <span data-ttu-id="3cd85-108">Bkz: [örnekler yapılandırma dosyası](#example-config-file).</span><span class="sxs-lookup"><span data-stu-id="3cd85-108">See the [examples config file](#example-config-file).</span></span> <span data-ttu-id="3cd85-109">Ayar adları büyük küçük harf duyarsız ve değerleri kullanabilir [ortam değişkenleri](#using-environment-variables).</span><span class="sxs-lookup"><span data-stu-id="3cd85-109">Setting names are case-insensitive, and values can use [environment variables](#using-environment-variables).</span></span>
 
-<span data-ttu-id="d1fdb-110">Bu konuda:</span><span class="sxs-lookup"><span data-stu-id="d1fdb-110">In this topic:</span></span>
+<span data-ttu-id="3cd85-110">Bu konuda:</span><span class="sxs-lookup"><span data-stu-id="3cd85-110">In this topic:</span></span>
 
-- [<span data-ttu-id="d1fdb-111">yapılandırma bölümü</span><span class="sxs-lookup"><span data-stu-id="d1fdb-111">config section</span></span>](#config-section)
-- [<span data-ttu-id="d1fdb-112">bindingRedirects bölümü</span><span class="sxs-lookup"><span data-stu-id="d1fdb-112">bindingRedirects section</span></span>](#bindingredirects-section)
-- [<span data-ttu-id="d1fdb-113">packageRestore section</span><span class="sxs-lookup"><span data-stu-id="d1fdb-113">packageRestore section</span></span>](#packagerestore-section)
-- [<span data-ttu-id="d1fdb-114">Çözüm bölümü</span><span class="sxs-lookup"><span data-stu-id="d1fdb-114">solution section</span></span>](#solution-section)
-- <span data-ttu-id="d1fdb-115">[Paket kaynak bölümler](#package-source-sections):</span><span class="sxs-lookup"><span data-stu-id="d1fdb-115">[Package source sections](#package-source-sections):</span></span>
-  - [<span data-ttu-id="d1fdb-116">packageSources</span><span class="sxs-lookup"><span data-stu-id="d1fdb-116">packageSources</span></span>](#packagesources)
-  - [<span data-ttu-id="d1fdb-117">packageSourceCredentials</span><span class="sxs-lookup"><span data-stu-id="d1fdb-117">packageSourceCredentials</span></span>](#packagesourcecredentials)
-  - [<span data-ttu-id="d1fdb-118">apikeys</span><span class="sxs-lookup"><span data-stu-id="d1fdb-118">apikeys</span></span>](#apikeys)
-  - [<span data-ttu-id="d1fdb-119">disabledPackageSources</span><span class="sxs-lookup"><span data-stu-id="d1fdb-119">disabledPackageSources</span></span>](#disabledpackagesources)
-  - [<span data-ttu-id="d1fdb-120">activePackageSource</span><span class="sxs-lookup"><span data-stu-id="d1fdb-120">activePackageSource</span></span>](#activepackagesource)
-- [<span data-ttu-id="d1fdb-121">Ortam değişkenlerini kullanma</span><span class="sxs-lookup"><span data-stu-id="d1fdb-121">Using environment variables</span></span>](#using-environment-variables)
-- [<span data-ttu-id="d1fdb-122">Örnek yapılandırma dosyası</span><span class="sxs-lookup"><span data-stu-id="d1fdb-122">Example config file</span></span>](#example-config-file)
+- [<span data-ttu-id="3cd85-111">yapılandırma bölümü</span><span class="sxs-lookup"><span data-stu-id="3cd85-111">config section</span></span>](#config-section)
+- [<span data-ttu-id="3cd85-112">bindingRedirects bölümü</span><span class="sxs-lookup"><span data-stu-id="3cd85-112">bindingRedirects section</span></span>](#bindingredirects-section)
+- [<span data-ttu-id="3cd85-113">packageRestore section</span><span class="sxs-lookup"><span data-stu-id="3cd85-113">packageRestore section</span></span>](#packagerestore-section)
+- [<span data-ttu-id="3cd85-114">Çözüm bölümü</span><span class="sxs-lookup"><span data-stu-id="3cd85-114">solution section</span></span>](#solution-section)
+- <span data-ttu-id="3cd85-115">[Paket kaynak bölümler](#package-source-sections):</span><span class="sxs-lookup"><span data-stu-id="3cd85-115">[Package source sections](#package-source-sections):</span></span>
+  - [<span data-ttu-id="3cd85-116">packageSources</span><span class="sxs-lookup"><span data-stu-id="3cd85-116">packageSources</span></span>](#packagesources)
+  - [<span data-ttu-id="3cd85-117">packageSourceCredentials</span><span class="sxs-lookup"><span data-stu-id="3cd85-117">packageSourceCredentials</span></span>](#packagesourcecredentials)
+  - [<span data-ttu-id="3cd85-118">apikeys</span><span class="sxs-lookup"><span data-stu-id="3cd85-118">apikeys</span></span>](#apikeys)
+  - [<span data-ttu-id="3cd85-119">disabledPackageSources</span><span class="sxs-lookup"><span data-stu-id="3cd85-119">disabledPackageSources</span></span>](#disabledpackagesources)
+  - [<span data-ttu-id="3cd85-120">activePackageSource</span><span class="sxs-lookup"><span data-stu-id="3cd85-120">activePackageSource</span></span>](#activepackagesource)
+- [<span data-ttu-id="3cd85-121">Ortam değişkenlerini kullanma</span><span class="sxs-lookup"><span data-stu-id="3cd85-121">Using environment variables</span></span>](#using-environment-variables)
+- [<span data-ttu-id="3cd85-122">Örnek yapılandırma dosyası</span><span class="sxs-lookup"><span data-stu-id="3cd85-122">Example config file</span></span>](#example-config-file)
 
 <a name="dependencyVersion"></a>
 <a name="globalPackagesFolder"></a>
 <a name="repositoryPath"></a>
 <a name="proxy-settings"></a>
 
-## <a name="config-section"></a><span data-ttu-id="d1fdb-123">yapılandırma bölümü</span><span class="sxs-lookup"><span data-stu-id="d1fdb-123">config section</span></span>
+## <a name="config-section"></a><span data-ttu-id="3cd85-123">yapılandırma bölümü</span><span class="sxs-lookup"><span data-stu-id="3cd85-123">config section</span></span>
 
-<span data-ttu-id="d1fdb-124">Kullanılarak ayarlanabilir çeşitli yapılandırma ayarlarını içeren [ `nuget config` komutu](../tools/cli-ref-config.md).</span><span class="sxs-lookup"><span data-stu-id="d1fdb-124">Contains miscellaneous configuration settings, which can be set using the [`nuget config` command](../tools/cli-ref-config.md).</span></span>
+<span data-ttu-id="3cd85-124">Kullanılarak ayarlanabilir çeşitli yapılandırma ayarlarını içeren [ `nuget config` komutu](../tools/cli-ref-config.md).</span><span class="sxs-lookup"><span data-stu-id="3cd85-124">Contains miscellaneous configuration settings, which can be set using the [`nuget config` command](../tools/cli-ref-config.md).</span></span>
 
-<span data-ttu-id="d1fdb-125">Not: `dependencyVersion` ve `repositoryPath` kullanarak projeleri için geçerli `packages.config`.</span><span class="sxs-lookup"><span data-stu-id="d1fdb-125">Note: `dependencyVersion` and `repositoryPath` apply only to projects using `packages.config`.</span></span> <span data-ttu-id="d1fdb-126">`globalPackagesFolder`PackageReference biçimini kullanarak projeler için geçerlidir.</span><span class="sxs-lookup"><span data-stu-id="d1fdb-126">`globalPackagesFolder` applies only to projects using the PackageReference format.</span></span>
+<span data-ttu-id="3cd85-125">Not: `dependencyVersion` ve `repositoryPath` kullanarak projeleri için geçerli `packages.config`.</span><span class="sxs-lookup"><span data-stu-id="3cd85-125">Note: `dependencyVersion` and `repositoryPath` apply only to projects using `packages.config`.</span></span> <span data-ttu-id="3cd85-126">`globalPackagesFolder` PackageReference biçimini kullanarak projeler için geçerlidir.</span><span class="sxs-lookup"><span data-stu-id="3cd85-126">`globalPackagesFolder` applies only to projects using the PackageReference format.</span></span>
 
-| <span data-ttu-id="d1fdb-127">Anahtar</span><span class="sxs-lookup"><span data-stu-id="d1fdb-127">Key</span></span> | <span data-ttu-id="d1fdb-128">Değer</span><span class="sxs-lookup"><span data-stu-id="d1fdb-128">Value</span></span> |
+| <span data-ttu-id="3cd85-127">Anahtar</span><span class="sxs-lookup"><span data-stu-id="3cd85-127">Key</span></span> | <span data-ttu-id="3cd85-128">Değer</span><span class="sxs-lookup"><span data-stu-id="3cd85-128">Value</span></span> |
 | --- | --- |
-| <span data-ttu-id="d1fdb-129">dependencyVersion (`packages.config` yalnızca)</span><span class="sxs-lookup"><span data-stu-id="d1fdb-129">dependencyVersion (`packages.config` only)</span></span> | <span data-ttu-id="d1fdb-130">Varsayılan `DependencyVersion` paketi yükle, geri yükleme ve güncelleştirme için değer olduğunda `-DependencyVersion` anahtar doğrudan belirtilmedi.</span><span class="sxs-lookup"><span data-stu-id="d1fdb-130">The default `DependencyVersion` value for package install, restore, and update, when the `-DependencyVersion` switch is not specified directly.</span></span> <span data-ttu-id="d1fdb-131">Bu değer ayrıca NuGet Paket Yöneticisi kullanıcı Arabirimi tarafından kullanılır.</span><span class="sxs-lookup"><span data-stu-id="d1fdb-131">This value is also used by the NuGet Package Manager UI.</span></span> <span data-ttu-id="d1fdb-132">Değerler `Lowest`, `HighestPatch`, `HighestMinor`, `Highest`.</span><span class="sxs-lookup"><span data-stu-id="d1fdb-132">Values are `Lowest`, `HighestPatch`, `HighestMinor`, `Highest`.</span></span> |
-| <span data-ttu-id="d1fdb-133">globalPackagesFolder (kullanmıyorsa projeleri `packages.config`)</span><span class="sxs-lookup"><span data-stu-id="d1fdb-133">globalPackagesFolder (projects not using `packages.config`)</span></span> | <span data-ttu-id="d1fdb-134">Varsayılan Genel paketler klasörü konumu.</span><span class="sxs-lookup"><span data-stu-id="d1fdb-134">The location of the default global packages folder.</span></span> <span data-ttu-id="d1fdb-135">Varsayılan değer `%USERPROFILE%\.nuget\packages` (Windows) veya `~/.nuget/packages` (Mac/Linux).</span><span class="sxs-lookup"><span data-stu-id="d1fdb-135">The default is `%USERPROFILE%\.nuget\packages` (Windows) or `~/.nuget/packages` (Mac/Linux).</span></span> <span data-ttu-id="d1fdb-136">Göreli bir yol projeye özgü içinde kullanılabilir `Nuget.Config` dosyaları.</span><span class="sxs-lookup"><span data-stu-id="d1fdb-136">A relative path can be used in project-specific `Nuget.Config` files.</span></span> |
-| <span data-ttu-id="d1fdb-137">repositoryPath (`packages.config` yalnızca)</span><span class="sxs-lookup"><span data-stu-id="d1fdb-137">repositoryPath (`packages.config` only)</span></span> | <span data-ttu-id="d1fdb-138">NuGet paketleri yerine varsayılan yükleme konumu `$(Solutiondir)/packages` klasörü.</span><span class="sxs-lookup"><span data-stu-id="d1fdb-138">The location in which to install NuGet packages instead of the default `$(Solutiondir)/packages` folder.</span></span> <span data-ttu-id="d1fdb-139">Göreli bir yol projeye özgü içinde kullanılabilir `Nuget.Config` dosyaları.</span><span class="sxs-lookup"><span data-stu-id="d1fdb-139">A relative path can be used in project-specific `Nuget.Config` files.</span></span> |
-| <span data-ttu-id="d1fdb-140">defaultPushSource</span><span class="sxs-lookup"><span data-stu-id="d1fdb-140">defaultPushSource</span></span> | <span data-ttu-id="d1fdb-141">URL veya bir işlem için başka bir paket kaynaklarını bulunursa, varsayılan olarak kullanılması gereken paket kaynağının yolunu tanımlar.</span><span class="sxs-lookup"><span data-stu-id="d1fdb-141">Identifies the URL or path of the package source that should be used as the default if no other package sources are found for an operation.</span></span> |
-| <span data-ttu-id="d1fdb-142">http_proxy http_proxy.user http_proxy.password no_proxy</span><span class="sxs-lookup"><span data-stu-id="d1fdb-142">http_proxy http_proxy.user http_proxy.password no_proxy</span></span> | <span data-ttu-id="d1fdb-143">Proxy ayarlarını; paket kaynaklarına bağlanırken kullanmak için `http_proxy` biçiminde olmalıdır `http://<username>:<password>@<domain>`.</span><span class="sxs-lookup"><span data-stu-id="d1fdb-143">Proxy settings to use when connecting to package sources; `http_proxy` should be in the format `http://<username>:<password>@<domain>`.</span></span> <span data-ttu-id="d1fdb-144">Parolaları şifrelenir ve el ile eklenemez.</span><span class="sxs-lookup"><span data-stu-id="d1fdb-144">Passwords are encrypted and cannot be added manually.</span></span> <span data-ttu-id="d1fdb-145">İçin `no_proxy`, değer atlama proxy sunucusu etki alanları virgülle ayrılmış bir listesi verilmiştir.</span><span class="sxs-lookup"><span data-stu-id="d1fdb-145">For `no_proxy`, the value is a comma-separated list of domains the bypass the proxy server.</span></span> <span data-ttu-id="d1fdb-146">Alternatif olarak, bu değerleri http_proxy ve no_proxy ortam değişkenleri kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="d1fdb-146">You can alternately use the http_proxy and no_proxy environment variables for those values.</span></span> <span data-ttu-id="d1fdb-147">Daha fazla bilgi için bkz: [NuGet proxy ayarlarını](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (skolima.blogspot.com).</span><span class="sxs-lookup"><span data-stu-id="d1fdb-147">For additional details, see [NuGet proxy settings](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (skolima.blogspot.com).</span></span> |
+| <span data-ttu-id="3cd85-129">dependencyVersion (`packages.config` yalnızca)</span><span class="sxs-lookup"><span data-stu-id="3cd85-129">dependencyVersion (`packages.config` only)</span></span> | <span data-ttu-id="3cd85-130">Varsayılan `DependencyVersion` paketi yükle, geri yükleme ve güncelleştirme için değer olduğunda `-DependencyVersion` anahtar doğrudan belirtilmedi.</span><span class="sxs-lookup"><span data-stu-id="3cd85-130">The default `DependencyVersion` value for package install, restore, and update, when the `-DependencyVersion` switch is not specified directly.</span></span> <span data-ttu-id="3cd85-131">Bu değer ayrıca NuGet Paket Yöneticisi kullanıcı Arabirimi tarafından kullanılır.</span><span class="sxs-lookup"><span data-stu-id="3cd85-131">This value is also used by the NuGet Package Manager UI.</span></span> <span data-ttu-id="3cd85-132">Değerler `Lowest`, `HighestPatch`, `HighestMinor`, `Highest`.</span><span class="sxs-lookup"><span data-stu-id="3cd85-132">Values are `Lowest`, `HighestPatch`, `HighestMinor`, `Highest`.</span></span> |
+| <span data-ttu-id="3cd85-133">globalPackagesFolder (kullanmıyorsa projeleri `packages.config`)</span><span class="sxs-lookup"><span data-stu-id="3cd85-133">globalPackagesFolder (projects not using `packages.config`)</span></span> | <span data-ttu-id="3cd85-134">Varsayılan Genel paketler klasörü konumu.</span><span class="sxs-lookup"><span data-stu-id="3cd85-134">The location of the default global packages folder.</span></span> <span data-ttu-id="3cd85-135">Varsayılan değer `%USERPROFILE%\.nuget\packages` (Windows) veya `~/.nuget/packages` (Mac/Linux).</span><span class="sxs-lookup"><span data-stu-id="3cd85-135">The default is `%USERPROFILE%\.nuget\packages` (Windows) or `~/.nuget/packages` (Mac/Linux).</span></span> <span data-ttu-id="3cd85-136">Göreli bir yol projeye özgü içinde kullanılabilir `Nuget.Config` dosyaları.</span><span class="sxs-lookup"><span data-stu-id="3cd85-136">A relative path can be used in project-specific `Nuget.Config` files.</span></span> |
+| <span data-ttu-id="3cd85-137">repositoryPath (`packages.config` yalnızca)</span><span class="sxs-lookup"><span data-stu-id="3cd85-137">repositoryPath (`packages.config` only)</span></span> | <span data-ttu-id="3cd85-138">NuGet paketleri yerine varsayılan yükleme konumu `$(Solutiondir)/packages` klasörü.</span><span class="sxs-lookup"><span data-stu-id="3cd85-138">The location in which to install NuGet packages instead of the default `$(Solutiondir)/packages` folder.</span></span> <span data-ttu-id="3cd85-139">Göreli bir yol projeye özgü içinde kullanılabilir `Nuget.Config` dosyaları.</span><span class="sxs-lookup"><span data-stu-id="3cd85-139">A relative path can be used in project-specific `Nuget.Config` files.</span></span> |
+| <span data-ttu-id="3cd85-140">defaultPushSource</span><span class="sxs-lookup"><span data-stu-id="3cd85-140">defaultPushSource</span></span> | <span data-ttu-id="3cd85-141">URL veya bir işlem için başka bir paket kaynaklarını bulunursa, varsayılan olarak kullanılması gereken paket kaynağının yolunu tanımlar.</span><span class="sxs-lookup"><span data-stu-id="3cd85-141">Identifies the URL or path of the package source that should be used as the default if no other package sources are found for an operation.</span></span> |
+| <span data-ttu-id="3cd85-142">http_proxy http_proxy.user http_proxy.password no_proxy</span><span class="sxs-lookup"><span data-stu-id="3cd85-142">http_proxy http_proxy.user http_proxy.password no_proxy</span></span> | <span data-ttu-id="3cd85-143">Proxy ayarlarını; paket kaynaklarına bağlanırken kullanmak için `http_proxy` biçiminde olmalıdır `http://<username>:<password>@<domain>`.</span><span class="sxs-lookup"><span data-stu-id="3cd85-143">Proxy settings to use when connecting to package sources; `http_proxy` should be in the format `http://<username>:<password>@<domain>`.</span></span> <span data-ttu-id="3cd85-144">Parolaları şifrelenir ve el ile eklenemez.</span><span class="sxs-lookup"><span data-stu-id="3cd85-144">Passwords are encrypted and cannot be added manually.</span></span> <span data-ttu-id="3cd85-145">İçin `no_proxy`, değer atlama proxy sunucusu etki alanları virgülle ayrılmış bir listesi verilmiştir.</span><span class="sxs-lookup"><span data-stu-id="3cd85-145">For `no_proxy`, the value is a comma-separated list of domains the bypass the proxy server.</span></span> <span data-ttu-id="3cd85-146">Alternatif olarak, bu değerleri http_proxy ve no_proxy ortam değişkenleri kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="3cd85-146">You can alternately use the http_proxy and no_proxy environment variables for those values.</span></span> <span data-ttu-id="3cd85-147">Daha fazla bilgi için bkz: [NuGet proxy ayarlarını](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (skolima.blogspot.com).</span><span class="sxs-lookup"><span data-stu-id="3cd85-147">For additional details, see [NuGet proxy settings](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (skolima.blogspot.com).</span></span> |
 
-<span data-ttu-id="d1fdb-148">**Örnek**:</span><span class="sxs-lookup"><span data-stu-id="d1fdb-148">**Example**:</span></span>
+<span data-ttu-id="3cd85-148">**Örnek**:</span><span class="sxs-lookup"><span data-stu-id="3cd85-148">**Example**:</span></span>
 
 ```xml
 <config>
@@ -69,15 +69,15 @@ ms.lasthandoff: 02/01/2018
 </config>
 ```
 
-## <a name="bindingredirects-section"></a><span data-ttu-id="d1fdb-149">bindingRedirects bölümü</span><span class="sxs-lookup"><span data-stu-id="d1fdb-149">bindingRedirects section</span></span>
+## <a name="bindingredirects-section"></a><span data-ttu-id="3cd85-149">bindingRedirects bölümü</span><span class="sxs-lookup"><span data-stu-id="3cd85-149">bindingRedirects section</span></span>
 
-<span data-ttu-id="d1fdb-150">Bir paketi yüklendiğinde NuGet otomatik bağlama yeniden yönlendirmeleri yapar olup olmadığını yapılandırır.</span><span class="sxs-lookup"><span data-stu-id="d1fdb-150">Configures whether NuGet does automatic binding redirects when a package is installed.</span></span>
+<span data-ttu-id="3cd85-150">Bir paketi yüklendiğinde NuGet otomatik bağlama yeniden yönlendirmeleri yapar olup olmadığını yapılandırır.</span><span class="sxs-lookup"><span data-stu-id="3cd85-150">Configures whether NuGet does automatic binding redirects when a package is installed.</span></span>
 
-| <span data-ttu-id="d1fdb-151">Anahtar</span><span class="sxs-lookup"><span data-stu-id="d1fdb-151">Key</span></span> | <span data-ttu-id="d1fdb-152">Değer</span><span class="sxs-lookup"><span data-stu-id="d1fdb-152">Value</span></span> |
+| <span data-ttu-id="3cd85-151">Anahtar</span><span class="sxs-lookup"><span data-stu-id="3cd85-151">Key</span></span> | <span data-ttu-id="3cd85-152">Değer</span><span class="sxs-lookup"><span data-stu-id="3cd85-152">Value</span></span> |
 | --- | --- |
-| <span data-ttu-id="d1fdb-153">Atla</span><span class="sxs-lookup"><span data-stu-id="d1fdb-153">skip</span></span> | <span data-ttu-id="d1fdb-154">Otomatik bağlama yeniden yönlendirmeleri Atla görüntülenmeyeceğini gösteren bir Boole değeri.</span><span class="sxs-lookup"><span data-stu-id="d1fdb-154">A Boolean indicating whether to skip automatic binding redirects.</span></span> <span data-ttu-id="d1fdb-155">Varsayılan olarak yanlıştır.</span><span class="sxs-lookup"><span data-stu-id="d1fdb-155">The default is false.</span></span> |
+| <span data-ttu-id="3cd85-153">Atla</span><span class="sxs-lookup"><span data-stu-id="3cd85-153">skip</span></span> | <span data-ttu-id="3cd85-154">Otomatik bağlama yeniden yönlendirmeleri Atla görüntülenmeyeceğini gösteren bir Boole değeri.</span><span class="sxs-lookup"><span data-stu-id="3cd85-154">A Boolean indicating whether to skip automatic binding redirects.</span></span> <span data-ttu-id="3cd85-155">Varsayılan olarak yanlıştır.</span><span class="sxs-lookup"><span data-stu-id="3cd85-155">The default is false.</span></span> |
 
-<span data-ttu-id="d1fdb-156">**Örnek**:</span><span class="sxs-lookup"><span data-stu-id="d1fdb-156">**Example**:</span></span>
+<span data-ttu-id="3cd85-156">**Örnek**:</span><span class="sxs-lookup"><span data-stu-id="3cd85-156">**Example**:</span></span>
 
 ```xml
 <bindingRedirects>
@@ -85,18 +85,18 @@ ms.lasthandoff: 02/01/2018
 </bindingRedirects>
 ```
 
-## <a name="packagerestore-section"></a><span data-ttu-id="d1fdb-157">packageRestore bölümü</span><span class="sxs-lookup"><span data-stu-id="d1fdb-157">packageRestore section</span></span>
+## <a name="packagerestore-section"></a><span data-ttu-id="3cd85-157">packageRestore bölümü</span><span class="sxs-lookup"><span data-stu-id="3cd85-157">packageRestore section</span></span>
 
-<span data-ttu-id="d1fdb-158">*2.7 + göz ardı*</span><span class="sxs-lookup"><span data-stu-id="d1fdb-158">*Ignored in 2.7+*</span></span>
+<span data-ttu-id="3cd85-158">*2.7 + göz ardı*</span><span class="sxs-lookup"><span data-stu-id="3cd85-158">*Ignored in 2.7+*</span></span>
 
-<span data-ttu-id="d1fdb-159">Denetimleri paket geri yüklemesi sırasında oluşturur.</span><span class="sxs-lookup"><span data-stu-id="d1fdb-159">Controls package restore during builds.</span></span>
+<span data-ttu-id="3cd85-159">Denetimleri paket geri yüklemesi sırasında oluşturur.</span><span class="sxs-lookup"><span data-stu-id="3cd85-159">Controls package restore during builds.</span></span>
 
-| <span data-ttu-id="d1fdb-160">Anahtar</span><span class="sxs-lookup"><span data-stu-id="d1fdb-160">Key</span></span> | <span data-ttu-id="d1fdb-161">Değer</span><span class="sxs-lookup"><span data-stu-id="d1fdb-161">Value</span></span> |
+| <span data-ttu-id="3cd85-160">Anahtar</span><span class="sxs-lookup"><span data-stu-id="3cd85-160">Key</span></span> | <span data-ttu-id="3cd85-161">Değer</span><span class="sxs-lookup"><span data-stu-id="3cd85-161">Value</span></span> |
 | --- | --- |
-| <span data-ttu-id="d1fdb-162">Etkin</span><span class="sxs-lookup"><span data-stu-id="d1fdb-162">enabled</span></span> | <span data-ttu-id="d1fdb-163">NuGet otomatik geri yükleme gerçekleştirmek olup olmadığını gösteren bir Boole değeri.</span><span class="sxs-lookup"><span data-stu-id="d1fdb-163">A Boolean indicating whether NuGet can perform automatic restore.</span></span> <span data-ttu-id="d1fdb-164">Ayrıca ayarlayabilirsiniz `EnableNuGetPackageRestore` ortam değişkeni değerini `True` yapılandırma dosyasında bu anahtarı ayarı yerine.</span><span class="sxs-lookup"><span data-stu-id="d1fdb-164">You can also set the `EnableNuGetPackageRestore` environment variable with a value of `True` instead of setting this key in the config file.</span></span> |
-| <span data-ttu-id="d1fdb-165">otomatik</span><span class="sxs-lookup"><span data-stu-id="d1fdb-165">automatic</span></span> | <span data-ttu-id="d1fdb-166">NuGet bir yapı sırasında eksik paketleri denetleyip denetlemeyeceğini gösteren bir Boole değeri.</span><span class="sxs-lookup"><span data-stu-id="d1fdb-166">A Boolean indicating whether NuGet should check for missing packages during a build.</span></span> |
+| <span data-ttu-id="3cd85-162">Etkin</span><span class="sxs-lookup"><span data-stu-id="3cd85-162">enabled</span></span> | <span data-ttu-id="3cd85-163">NuGet otomatik geri yükleme gerçekleştirmek olup olmadığını gösteren bir Boole değeri.</span><span class="sxs-lookup"><span data-stu-id="3cd85-163">A Boolean indicating whether NuGet can perform automatic restore.</span></span> <span data-ttu-id="3cd85-164">Ayrıca ayarlayabilirsiniz `EnableNuGetPackageRestore` ortam değişkeni değerini `True` yapılandırma dosyasında bu anahtarı ayarı yerine.</span><span class="sxs-lookup"><span data-stu-id="3cd85-164">You can also set the `EnableNuGetPackageRestore` environment variable with a value of `True` instead of setting this key in the config file.</span></span> |
+| <span data-ttu-id="3cd85-165">otomatik</span><span class="sxs-lookup"><span data-stu-id="3cd85-165">automatic</span></span> | <span data-ttu-id="3cd85-166">NuGet bir yapı sırasında eksik paketleri denetleyip denetlemeyeceğini gösteren bir Boole değeri.</span><span class="sxs-lookup"><span data-stu-id="3cd85-166">A Boolean indicating whether NuGet should check for missing packages during a build.</span></span> |
 
-<span data-ttu-id="d1fdb-167">**Örnek**:</span><span class="sxs-lookup"><span data-stu-id="d1fdb-167">**Example**:</span></span>
+<span data-ttu-id="3cd85-167">**Örnek**:</span><span class="sxs-lookup"><span data-stu-id="3cd85-167">**Example**:</span></span>
 
 ```xml
 <packageRestore>
@@ -105,15 +105,15 @@ ms.lasthandoff: 02/01/2018
 </packageRestore>
 ```
 
-## <a name="solution-section"></a><span data-ttu-id="d1fdb-168">Çözüm bölümü</span><span class="sxs-lookup"><span data-stu-id="d1fdb-168">solution section</span></span>
+## <a name="solution-section"></a><span data-ttu-id="3cd85-168">Çözüm bölümü</span><span class="sxs-lookup"><span data-stu-id="3cd85-168">solution section</span></span>
 
-<span data-ttu-id="d1fdb-169">Denetimleri olup olmadığını `packages` klasörü, çözümün kaynak denetiminde yer almaktadır.</span><span class="sxs-lookup"><span data-stu-id="d1fdb-169">Controls whether the `packages` folder of a solution is included in source control.</span></span> <span data-ttu-id="d1fdb-170">Bu bölüm yalnızca çalışır `Nuget.Config` bir çözüm klasördeki dosyaları.</span><span class="sxs-lookup"><span data-stu-id="d1fdb-170">This section works only in `Nuget.Config` files in a solution folder.</span></span>
+<span data-ttu-id="3cd85-169">Denetimleri olup olmadığını `packages` klasörü, çözümün kaynak denetiminde yer almaktadır.</span><span class="sxs-lookup"><span data-stu-id="3cd85-169">Controls whether the `packages` folder of a solution is included in source control.</span></span> <span data-ttu-id="3cd85-170">Bu bölüm yalnızca çalışır `Nuget.Config` bir çözüm klasördeki dosyaları.</span><span class="sxs-lookup"><span data-stu-id="3cd85-170">This section works only in `Nuget.Config` files in a solution folder.</span></span>
 
-| <span data-ttu-id="d1fdb-171">Anahtar</span><span class="sxs-lookup"><span data-stu-id="d1fdb-171">Key</span></span> | <span data-ttu-id="d1fdb-172">Değer</span><span class="sxs-lookup"><span data-stu-id="d1fdb-172">Value</span></span> |
+| <span data-ttu-id="3cd85-171">Anahtar</span><span class="sxs-lookup"><span data-stu-id="3cd85-171">Key</span></span> | <span data-ttu-id="3cd85-172">Değer</span><span class="sxs-lookup"><span data-stu-id="3cd85-172">Value</span></span> |
 | --- | --- |
-| <span data-ttu-id="d1fdb-173">disableSourceControlIntegration</span><span class="sxs-lookup"><span data-stu-id="d1fdb-173">disableSourceControlIntegration</span></span> | <span data-ttu-id="d1fdb-174">Kaynak denetimi ile çalışırken, paketler klasörü yoksay tutulmayacağını gösteren bir Boole değeri.</span><span class="sxs-lookup"><span data-stu-id="d1fdb-174">A Boolean indicating whether to ignore the packages folder when working with source control.</span></span> <span data-ttu-id="d1fdb-175">Varsayılan değer false'tur.</span><span class="sxs-lookup"><span data-stu-id="d1fdb-175">The default value is false.</span></span> |
+| <span data-ttu-id="3cd85-173">disableSourceControlIntegration</span><span class="sxs-lookup"><span data-stu-id="3cd85-173">disableSourceControlIntegration</span></span> | <span data-ttu-id="3cd85-174">Kaynak denetimi ile çalışırken, paketler klasörü yoksay tutulmayacağını gösteren bir Boole değeri.</span><span class="sxs-lookup"><span data-stu-id="3cd85-174">A Boolean indicating whether to ignore the packages folder when working with source control.</span></span> <span data-ttu-id="3cd85-175">Varsayılan değer false'tur.</span><span class="sxs-lookup"><span data-stu-id="3cd85-175">The default value is false.</span></span> |
 
-<span data-ttu-id="d1fdb-176">**Örnek**:</span><span class="sxs-lookup"><span data-stu-id="d1fdb-176">**Example**:</span></span>
+<span data-ttu-id="3cd85-176">**Örnek**:</span><span class="sxs-lookup"><span data-stu-id="3cd85-176">**Example**:</span></span>
 
 ```xml
 <solution>
@@ -121,23 +121,23 @@ ms.lasthandoff: 02/01/2018
 </solution>
 ```
 
-## <a name="package-source-sections"></a><span data-ttu-id="d1fdb-177">Paket kaynak bölümleri</span><span class="sxs-lookup"><span data-stu-id="d1fdb-177">Package source sections</span></span>
+## <a name="package-source-sections"></a><span data-ttu-id="3cd85-177">Paket kaynak bölümleri</span><span class="sxs-lookup"><span data-stu-id="3cd85-177">Package source sections</span></span>
 
-<span data-ttu-id="d1fdb-178">`packageSources`, `packageSourceCredentials`, `apikeys`, `activePackageSource`, Ve `disabledPackageSources` birlikte yükleme, geri yükleme ve güncelleştirme işlemi sırasında NuGet paketi depoları ile nasıl çalıştığını yapılandırmak için tüm iş.</span><span class="sxs-lookup"><span data-stu-id="d1fdb-178">The `packageSources`, `packageSourceCredentials`, `apikeys`, `activePackageSource`, and `disabledPackageSources` all work together to configure how NuGet works with package repositories during install, restore, and update operations.</span></span>
+<span data-ttu-id="3cd85-178">`packageSources`, `packageSourceCredentials`, `apikeys`, `activePackageSource`, Ve `disabledPackageSources` birlikte yükleme, geri yükleme ve güncelleştirme işlemi sırasında NuGet paketi depoları ile nasıl çalıştığını yapılandırmak için tüm iş.</span><span class="sxs-lookup"><span data-stu-id="3cd85-178">The `packageSources`, `packageSourceCredentials`, `apikeys`, `activePackageSource`, and `disabledPackageSources` all work together to configure how NuGet works with package repositories during install, restore, and update operations.</span></span>
 
-<span data-ttu-id="d1fdb-179">[ `nuget sources` Komutu](../tools/cli-ref-sources.md) genellikle dışında bu ayarları yönetmek için kullanılan `apikeys` hangi kullanılarak yönetilir [ `nuget setapikey` komutu](../tools/cli-ref-setapikey.md).</span><span class="sxs-lookup"><span data-stu-id="d1fdb-179">The [`nuget sources` command](../tools/cli-ref-sources.md) is generally used to manage these settings, except for `apikeys` which is managed using the [`nuget setapikey` command](../tools/cli-ref-setapikey.md).</span></span>
+<span data-ttu-id="3cd85-179">[ `nuget sources` Komutu](../tools/cli-ref-sources.md) genellikle dışında bu ayarları yönetmek için kullanılan `apikeys` hangi kullanılarak yönetilir [ `nuget setapikey` komutu](../tools/cli-ref-setapikey.md).</span><span class="sxs-lookup"><span data-stu-id="3cd85-179">The [`nuget sources` command](../tools/cli-ref-sources.md) is generally used to manage these settings, except for `apikeys` which is managed using the [`nuget setapikey` command](../tools/cli-ref-setapikey.md).</span></span>
 
-<span data-ttu-id="d1fdb-180">Nuget.org kaynak URL'sini olduğuna dikkat edin `https://api.nuget.org/v3/index.json`.</span><span class="sxs-lookup"><span data-stu-id="d1fdb-180">Note that the source URL for nuget.org is `https://api.nuget.org/v3/index.json`.</span></span>
+<span data-ttu-id="3cd85-180">Nuget.org kaynak URL'sini olduğuna dikkat edin `https://api.nuget.org/v3/index.json`.</span><span class="sxs-lookup"><span data-stu-id="3cd85-180">Note that the source URL for nuget.org is `https://api.nuget.org/v3/index.json`.</span></span>
 
-### <a name="packagesources"></a><span data-ttu-id="d1fdb-181">packageSources</span><span class="sxs-lookup"><span data-stu-id="d1fdb-181">packageSources</span></span>
+### <a name="packagesources"></a><span data-ttu-id="3cd85-181">packageSources</span><span class="sxs-lookup"><span data-stu-id="3cd85-181">packageSources</span></span>
 
-<span data-ttu-id="d1fdb-182">Tüm bilinen paket kaynaklarını listeler.</span><span class="sxs-lookup"><span data-stu-id="d1fdb-182">Lists all known package sources.</span></span>
+<span data-ttu-id="3cd85-182">Tüm bilinen paket kaynaklarını listeler.</span><span class="sxs-lookup"><span data-stu-id="3cd85-182">Lists all known package sources.</span></span> <span data-ttu-id="3cd85-183">Geri yükleme işlemleri sırasında ve PackageReference biçimini kullanarak herhangi bir projeyle sırası göz ardı edilir.</span><span class="sxs-lookup"><span data-stu-id="3cd85-183">The order is ignored during restore operations and with any project using the PackageReference format.</span></span> <span data-ttu-id="3cd85-184">NuGet kaynakları sırasını yükleme için uyar ve güncelleştirme işlemleri kullanarak projeleri ile `packages.config`.</span><span class="sxs-lookup"><span data-stu-id="3cd85-184">NuGet respects the order of sources for install and update operations with projects using `packages.config`.</span></span>
 
-| <span data-ttu-id="d1fdb-183">Anahtar</span><span class="sxs-lookup"><span data-stu-id="d1fdb-183">Key</span></span> | <span data-ttu-id="d1fdb-184">Değer</span><span class="sxs-lookup"><span data-stu-id="d1fdb-184">Value</span></span> |
+| <span data-ttu-id="3cd85-185">Anahtar</span><span class="sxs-lookup"><span data-stu-id="3cd85-185">Key</span></span> | <span data-ttu-id="3cd85-186">Değer</span><span class="sxs-lookup"><span data-stu-id="3cd85-186">Value</span></span> |
 | --- | --- |
-| <span data-ttu-id="d1fdb-185">Paket kaynağı atamak (ad)</span><span class="sxs-lookup"><span data-stu-id="d1fdb-185">(name to assign to the package source)</span></span> | <span data-ttu-id="d1fdb-186">Yolu veya paket kaynağının URL'si.</span><span class="sxs-lookup"><span data-stu-id="d1fdb-186">The path or URL of the package source.</span></span> |
+| <span data-ttu-id="3cd85-187">Paket kaynağı atamak (ad)</span><span class="sxs-lookup"><span data-stu-id="3cd85-187">(name to assign to the package source)</span></span> | <span data-ttu-id="3cd85-188">Yolu veya paket kaynağının URL'si.</span><span class="sxs-lookup"><span data-stu-id="3cd85-188">The path or URL of the package source.</span></span> |
 
-<span data-ttu-id="d1fdb-187">**Örnek**:</span><span class="sxs-lookup"><span data-stu-id="d1fdb-187">**Example**:</span></span>
+<span data-ttu-id="3cd85-189">**Örnek**:</span><span class="sxs-lookup"><span data-stu-id="3cd85-189">**Example**:</span></span>
 
 ```xml
 <packageSources>
@@ -147,19 +147,19 @@ ms.lasthandoff: 02/01/2018
 </packageSources>
 ```
 
-### <a name="packagesourcecredentials"></a><span data-ttu-id="d1fdb-188">packageSourceCredentials</span><span class="sxs-lookup"><span data-stu-id="d1fdb-188">packageSourceCredentials</span></span>
+### <a name="packagesourcecredentials"></a><span data-ttu-id="3cd85-190">packageSourceCredentials</span><span class="sxs-lookup"><span data-stu-id="3cd85-190">packageSourceCredentials</span></span>
 
-<span data-ttu-id="d1fdb-189">Kullanıcı adları ve parolalar genellikle ile belirtilen kaynakları için depolar `-username` ve `-password` ile geçer `nuget sources`.</span><span class="sxs-lookup"><span data-stu-id="d1fdb-189">Stores usernames and passwords for sources, typically specified with the `-username` and `-password` switches with `nuget sources`.</span></span> <span data-ttu-id="d1fdb-190">Parolalar, varsayılan olarak şifrelenir, sürece `-storepasswordincleartext` seçeneği de kullanılır.</span><span class="sxs-lookup"><span data-stu-id="d1fdb-190">Passwords are encrypted by default unless the `-storepasswordincleartext` option is also used.</span></span>
+<span data-ttu-id="3cd85-191">Kullanıcı adları ve parolalar genellikle ile belirtilen kaynakları için depolar `-username` ve `-password` ile geçer `nuget sources`.</span><span class="sxs-lookup"><span data-stu-id="3cd85-191">Stores usernames and passwords for sources, typically specified with the `-username` and `-password` switches with `nuget sources`.</span></span> <span data-ttu-id="3cd85-192">Parolalar, varsayılan olarak şifrelenir, sürece `-storepasswordincleartext` seçeneği de kullanılır.</span><span class="sxs-lookup"><span data-stu-id="3cd85-192">Passwords are encrypted by default unless the `-storepasswordincleartext` option is also used.</span></span>
 
-| <span data-ttu-id="d1fdb-191">Anahtar</span><span class="sxs-lookup"><span data-stu-id="d1fdb-191">Key</span></span> | <span data-ttu-id="d1fdb-192">Değer</span><span class="sxs-lookup"><span data-stu-id="d1fdb-192">Value</span></span> |
+| <span data-ttu-id="3cd85-193">Anahtar</span><span class="sxs-lookup"><span data-stu-id="3cd85-193">Key</span></span> | <span data-ttu-id="3cd85-194">Değer</span><span class="sxs-lookup"><span data-stu-id="3cd85-194">Value</span></span> |
 | --- | --- |
-| <span data-ttu-id="d1fdb-193">Kullanıcı adı</span><span class="sxs-lookup"><span data-stu-id="d1fdb-193">username</span></span> | <span data-ttu-id="d1fdb-194">Düz metin kaynak için kullanıcı adı.</span><span class="sxs-lookup"><span data-stu-id="d1fdb-194">The user name for the source in plain text.</span></span> |
-| <span data-ttu-id="d1fdb-195">Parola</span><span class="sxs-lookup"><span data-stu-id="d1fdb-195">password</span></span> | <span data-ttu-id="d1fdb-196">Kaynağı şifrelenmiş parolası.</span><span class="sxs-lookup"><span data-stu-id="d1fdb-196">The encrypted password for the source.</span></span> |
-| <span data-ttu-id="d1fdb-197">cleartextpassword</span><span class="sxs-lookup"><span data-stu-id="d1fdb-197">cleartextpassword</span></span> | <span data-ttu-id="d1fdb-198">Kaynak şifrelenmemiş parola.</span><span class="sxs-lookup"><span data-stu-id="d1fdb-198">The unencrypted password for the source.</span></span> |
+| <span data-ttu-id="3cd85-195">Kullanıcı adı</span><span class="sxs-lookup"><span data-stu-id="3cd85-195">username</span></span> | <span data-ttu-id="3cd85-196">Düz metin kaynak için kullanıcı adı.</span><span class="sxs-lookup"><span data-stu-id="3cd85-196">The user name for the source in plain text.</span></span> |
+| <span data-ttu-id="3cd85-197">Parola</span><span class="sxs-lookup"><span data-stu-id="3cd85-197">password</span></span> | <span data-ttu-id="3cd85-198">Kaynağı şifrelenmiş parolası.</span><span class="sxs-lookup"><span data-stu-id="3cd85-198">The encrypted password for the source.</span></span> |
+| <span data-ttu-id="3cd85-199">cleartextpassword</span><span class="sxs-lookup"><span data-stu-id="3cd85-199">cleartextpassword</span></span> | <span data-ttu-id="3cd85-200">Kaynak şifrelenmemiş parola.</span><span class="sxs-lookup"><span data-stu-id="3cd85-200">The unencrypted password for the source.</span></span> |
 
-<span data-ttu-id="d1fdb-199">**Örnek:**</span><span class="sxs-lookup"><span data-stu-id="d1fdb-199">**Example:**</span></span>
+<span data-ttu-id="3cd85-201">Örnek:</span><span class="sxs-lookup"><span data-stu-id="3cd85-201">**Example:**</span></span>
 
-<span data-ttu-id="d1fdb-200">Yapılandırma dosyasındaki `<packageSourceCredentials>` öğesi her bir geçerli kaynak adı için alt düğümleri içerir (adında boşluk ile değiştirilir `_x0020+`).</span><span class="sxs-lookup"><span data-stu-id="d1fdb-200">In the config file, the `<packageSourceCredentials>` element contains child nodes for each applicable source name (spaces in the name are replaced with `_x0020+`).</span></span> <span data-ttu-id="d1fdb-201">Diğer bir deyişle, "Contoso" ve "Test kaynağı" adlı kaynakları için yapılandırma dosyası aşağıdaki şifrelenmiş parolalar kullanırken içerir:</span><span class="sxs-lookup"><span data-stu-id="d1fdb-201">That is, for sources named "Contoso" and "Test Source", the config file contains the following when using encrypted passwords:</span></span>
+<span data-ttu-id="3cd85-202">Yapılandırma dosyasındaki `<packageSourceCredentials>` öğesi her bir geçerli kaynak adı için alt düğümleri içerir (adında boşluk ile değiştirilir `_x0020+`).</span><span class="sxs-lookup"><span data-stu-id="3cd85-202">In the config file, the `<packageSourceCredentials>` element contains child nodes for each applicable source name (spaces in the name are replaced with `_x0020+`).</span></span> <span data-ttu-id="3cd85-203">Diğer bir deyişle, "Contoso" ve "Test kaynağı" adlı kaynakları için yapılandırma dosyası aşağıdaki şifrelenmiş parolalar kullanırken içerir:</span><span class="sxs-lookup"><span data-stu-id="3cd85-203">That is, for sources named "Contoso" and "Test Source", the config file contains the following when using encrypted passwords:</span></span>
 
 ```xml
 <packageSourceCredentials>
@@ -174,7 +174,7 @@ ms.lasthandoff: 02/01/2018
 </packageSourceCredentials>
 ```
 
-<span data-ttu-id="d1fdb-202">Şifrelenmemiş parolalar kullanırken:</span><span class="sxs-lookup"><span data-stu-id="d1fdb-202">When using unencrypted passwords:</span></span>
+<span data-ttu-id="3cd85-204">Şifrelenmemiş parolalar kullanırken:</span><span class="sxs-lookup"><span data-stu-id="3cd85-204">When using unencrypted passwords:</span></span>
 
 ```xml
 <packageSourceCredentials>
@@ -189,15 +189,15 @@ ms.lasthandoff: 02/01/2018
 </packageSourceCredentials>
 ```
 
-### <a name="apikeys"></a><span data-ttu-id="d1fdb-203">apikeys</span><span class="sxs-lookup"><span data-stu-id="d1fdb-203">apikeys</span></span>
+### <a name="apikeys"></a><span data-ttu-id="3cd85-205">apikeys</span><span class="sxs-lookup"><span data-stu-id="3cd85-205">apikeys</span></span>
 
-<span data-ttu-id="d1fdb-204">Depolar kümesiyle olarak API anahtar kimlik doğrulaması kullanan kaynakları tuşları [ `nuget setapikey` komutu](../tools/cli-ref-setapikey.md).</span><span class="sxs-lookup"><span data-stu-id="d1fdb-204">Stores keys for sources that use API key authentication, as set with the [`nuget setapikey` command](../tools/cli-ref-setapikey.md).</span></span>
+<span data-ttu-id="3cd85-206">Depolar kümesiyle olarak API anahtar kimlik doğrulaması kullanan kaynakları tuşları [ `nuget setapikey` komutu](../tools/cli-ref-setapikey.md).</span><span class="sxs-lookup"><span data-stu-id="3cd85-206">Stores keys for sources that use API key authentication, as set with the [`nuget setapikey` command](../tools/cli-ref-setapikey.md).</span></span>
 
-| <span data-ttu-id="d1fdb-205">Anahtar</span><span class="sxs-lookup"><span data-stu-id="d1fdb-205">Key</span></span> | <span data-ttu-id="d1fdb-206">Değer</span><span class="sxs-lookup"><span data-stu-id="d1fdb-206">Value</span></span> |
+| <span data-ttu-id="3cd85-207">Anahtar</span><span class="sxs-lookup"><span data-stu-id="3cd85-207">Key</span></span> | <span data-ttu-id="3cd85-208">Değer</span><span class="sxs-lookup"><span data-stu-id="3cd85-208">Value</span></span> |
 | --- | --- |
-| <span data-ttu-id="d1fdb-207">(kaynak URL)</span><span class="sxs-lookup"><span data-stu-id="d1fdb-207">(source URL)</span></span> | <span data-ttu-id="d1fdb-208">Şifrelenmiş API anahtarı.</span><span class="sxs-lookup"><span data-stu-id="d1fdb-208">The encrypted API key.</span></span> |
+| <span data-ttu-id="3cd85-209">(kaynak URL)</span><span class="sxs-lookup"><span data-stu-id="3cd85-209">(source URL)</span></span> | <span data-ttu-id="3cd85-210">Şifrelenmiş API anahtarı.</span><span class="sxs-lookup"><span data-stu-id="3cd85-210">The encrypted API key.</span></span> |
 
-<span data-ttu-id="d1fdb-209">**Örnek**:</span><span class="sxs-lookup"><span data-stu-id="d1fdb-209">**Example**:</span></span>
+<span data-ttu-id="3cd85-211">**Örnek**:</span><span class="sxs-lookup"><span data-stu-id="3cd85-211">**Example**:</span></span>
 
 ```xml
 <apikeys>
@@ -205,15 +205,15 @@ ms.lasthandoff: 02/01/2018
 </apikeys>
 ```
 
-### <a name="disabledpackagesources"></a><span data-ttu-id="d1fdb-210">disabledPackageSources</span><span class="sxs-lookup"><span data-stu-id="d1fdb-210">disabledPackageSources</span></span>
+### <a name="disabledpackagesources"></a><span data-ttu-id="3cd85-212">disabledPackageSources</span><span class="sxs-lookup"><span data-stu-id="3cd85-212">disabledPackageSources</span></span>
 
-<span data-ttu-id="d1fdb-211">Şu anda devre dışı bırakılmış kaynakları tanımlanır.</span><span class="sxs-lookup"><span data-stu-id="d1fdb-211">Identified currently disabled sources.</span></span> <span data-ttu-id="d1fdb-212">Boş olabilir.</span><span class="sxs-lookup"><span data-stu-id="d1fdb-212">May be empty.</span></span>
+<span data-ttu-id="3cd85-213">Şu anda devre dışı bırakılmış kaynakları tanımlanır.</span><span class="sxs-lookup"><span data-stu-id="3cd85-213">Identified currently disabled sources.</span></span> <span data-ttu-id="3cd85-214">Boş olabilir.</span><span class="sxs-lookup"><span data-stu-id="3cd85-214">May be empty.</span></span>
 
-| <span data-ttu-id="d1fdb-213">Anahtar</span><span class="sxs-lookup"><span data-stu-id="d1fdb-213">Key</span></span> | <span data-ttu-id="d1fdb-214">Değer</span><span class="sxs-lookup"><span data-stu-id="d1fdb-214">Value</span></span> |
+| <span data-ttu-id="3cd85-215">Anahtar</span><span class="sxs-lookup"><span data-stu-id="3cd85-215">Key</span></span> | <span data-ttu-id="3cd85-216">Değer</span><span class="sxs-lookup"><span data-stu-id="3cd85-216">Value</span></span> |
 | --- | --- |
-| <span data-ttu-id="d1fdb-215">(kaynak adı)</span><span class="sxs-lookup"><span data-stu-id="d1fdb-215">(name of source)</span></span> | <span data-ttu-id="d1fdb-216">Kaynak devre dışı olup olmadığını gösteren bir Boole değeri.</span><span class="sxs-lookup"><span data-stu-id="d1fdb-216">A Boolean indicating whether the source is disabled.</span></span> |
+| <span data-ttu-id="3cd85-217">(kaynak adı)</span><span class="sxs-lookup"><span data-stu-id="3cd85-217">(name of source)</span></span> | <span data-ttu-id="3cd85-218">Kaynak devre dışı olup olmadığını gösteren bir Boole değeri.</span><span class="sxs-lookup"><span data-stu-id="3cd85-218">A Boolean indicating whether the source is disabled.</span></span> |
 
-<span data-ttu-id="d1fdb-217">**Örnek:**</span><span class="sxs-lookup"><span data-stu-id="d1fdb-217">**Example:**</span></span>
+<span data-ttu-id="3cd85-219">Örnek:</span><span class="sxs-lookup"><span data-stu-id="3cd85-219">**Example:**</span></span>
 
 ```xml
 <disabledPackageSources>
@@ -224,17 +224,17 @@ ms.lasthandoff: 02/01/2018
 <disabledPackageSources />
 ```
 
-### <a name="activepackagesource"></a><span data-ttu-id="d1fdb-218">activePackageSource</span><span class="sxs-lookup"><span data-stu-id="d1fdb-218">activePackageSource</span></span>
+### <a name="activepackagesource"></a><span data-ttu-id="3cd85-220">activePackageSource</span><span class="sxs-lookup"><span data-stu-id="3cd85-220">activePackageSource</span></span>
 
-<span data-ttu-id="d1fdb-219">*(yalnızca 2.x; içinde kullanım dışı 3.x+)*</span><span class="sxs-lookup"><span data-stu-id="d1fdb-219">*(2.x only; deprecated in 3.x+)*</span></span>
+<span data-ttu-id="3cd85-221">*(yalnızca 2.x; içinde kullanım dışı 3.x+)*</span><span class="sxs-lookup"><span data-stu-id="3cd85-221">*(2.x only; deprecated in 3.x+)*</span></span>
 
-<span data-ttu-id="d1fdb-220">Şu anda etkin kaynağını tanımlayan veya toplama tüm kaynakları gösterir.</span><span class="sxs-lookup"><span data-stu-id="d1fdb-220">Identifies to the currently active source or indicates the aggregate of all sources.</span></span>
+<span data-ttu-id="3cd85-222">Şu anda etkin kaynağını tanımlayan veya toplama tüm kaynakları gösterir.</span><span class="sxs-lookup"><span data-stu-id="3cd85-222">Identifies to the currently active source or indicates the aggregate of all sources.</span></span>
 
-| <span data-ttu-id="d1fdb-221">Anahtar</span><span class="sxs-lookup"><span data-stu-id="d1fdb-221">Key</span></span> | <span data-ttu-id="d1fdb-222">Değer</span><span class="sxs-lookup"><span data-stu-id="d1fdb-222">Value</span></span> |
+| <span data-ttu-id="3cd85-223">Anahtar</span><span class="sxs-lookup"><span data-stu-id="3cd85-223">Key</span></span> | <span data-ttu-id="3cd85-224">Değer</span><span class="sxs-lookup"><span data-stu-id="3cd85-224">Value</span></span> |
 | --- | --- |
-| <span data-ttu-id="d1fdb-223">(kaynak adı) veya`All`</span><span class="sxs-lookup"><span data-stu-id="d1fdb-223">(name of source) or `All`</span></span> | <span data-ttu-id="d1fdb-224">Anahtar bir kaynak adı ise, kaynak yolu veya URL'si değerdir.</span><span class="sxs-lookup"><span data-stu-id="d1fdb-224">If key is the name of a source, the value is the source path or URL.</span></span> <span data-ttu-id="d1fdb-225">Varsa `All`, değer olmalıdır `(Aggregate source)` Aksi durumda devre dışı tüm paket kaynaklarını birleştirmek için.</span><span class="sxs-lookup"><span data-stu-id="d1fdb-225">If `All`, value should be `(Aggregate source)` to combine all package sources that are not otherwise disabled.</span></span> |
+| <span data-ttu-id="3cd85-225">(kaynak adı) veya `All`</span><span class="sxs-lookup"><span data-stu-id="3cd85-225">(name of source) or `All`</span></span> | <span data-ttu-id="3cd85-226">Anahtar bir kaynak adı ise, kaynak yolu veya URL'si değerdir.</span><span class="sxs-lookup"><span data-stu-id="3cd85-226">If key is the name of a source, the value is the source path or URL.</span></span> <span data-ttu-id="3cd85-227">Varsa `All`, değer olmalıdır `(Aggregate source)` Aksi durumda devre dışı tüm paket kaynaklarını birleştirmek için.</span><span class="sxs-lookup"><span data-stu-id="3cd85-227">If `All`, value should be `(Aggregate source)` to combine all package sources that are not otherwise disabled.</span></span> |
 
-<span data-ttu-id="d1fdb-226">**Örnek**:</span><span class="sxs-lookup"><span data-stu-id="d1fdb-226">**Example**:</span></span>
+<span data-ttu-id="3cd85-228">**Örnek**:</span><span class="sxs-lookup"><span data-stu-id="3cd85-228">**Example**:</span></span>
 
 ```xml
 <activePackageSource>
@@ -246,19 +246,19 @@ ms.lasthandoff: 02/01/2018
 </activePackageSource>
 ```
 
-## <a name="using-environment-variables"></a><span data-ttu-id="d1fdb-227">Ortam değişkenlerini kullanma</span><span class="sxs-lookup"><span data-stu-id="d1fdb-227">Using environment variables</span></span>
+## <a name="using-environment-variables"></a><span data-ttu-id="3cd85-229">Ortam değişkenlerini kullanma</span><span class="sxs-lookup"><span data-stu-id="3cd85-229">Using environment variables</span></span>
 
-<span data-ttu-id="d1fdb-228">Ortam değişkenleri kullanabilirsiniz `NuGet.Config` değerleri (ayarları uygulamak için NuGet 3.4 +) çalışma süresi.</span><span class="sxs-lookup"><span data-stu-id="d1fdb-228">You can use environment variables in `NuGet.Config` values (NuGet 3.4+) to apply settings at run time.</span></span>
+<span data-ttu-id="3cd85-230">Ortam değişkenleri kullanabilirsiniz `NuGet.Config` değerleri (ayarları uygulamak için NuGet 3.4 +) çalışma süresi.</span><span class="sxs-lookup"><span data-stu-id="3cd85-230">You can use environment variables in `NuGet.Config` values (NuGet 3.4+) to apply settings at run time.</span></span>
 
-<span data-ttu-id="d1fdb-229">Örneğin, varsa `HOME` Windows ortam değişkeni ayarlanır `c:\users\username`, ardından değeri `%HOME%\NuGetRepository` dosya yapılandırmada çözümler `c:\users\username\NuGetRepository`.</span><span class="sxs-lookup"><span data-stu-id="d1fdb-229">For example, if the `HOME` environment variable on Windows is set to `c:\users\username`, then the value of `%HOME%\NuGetRepository` in the configuration file resolves to `c:\users\username\NuGetRepository`.</span></span>
+<span data-ttu-id="3cd85-231">Örneğin, varsa `HOME` Windows ortam değişkeni ayarlanır `c:\users\username`, ardından değeri `%HOME%\NuGetRepository` dosya yapılandırmada çözümler `c:\users\username\NuGetRepository`.</span><span class="sxs-lookup"><span data-stu-id="3cd85-231">For example, if the `HOME` environment variable on Windows is set to `c:\users\username`, then the value of `%HOME%\NuGetRepository` in the configuration file resolves to `c:\users\username\NuGetRepository`.</span></span>
 
-<span data-ttu-id="d1fdb-230">Benzer şekilde, varsa `HOME` Mac/Linux'ta kümesine `/home/myStuff`, ardından `$HOME/NuGetRepository` dosya yapılandırmada çözümler `/home/myStuff/NuGetRepository`.</span><span class="sxs-lookup"><span data-stu-id="d1fdb-230">Similarly, if `HOME` on Mac/Linux is set to `/home/myStuff`, then `$HOME/NuGetRepository` in the configuration file resolves to `/home/myStuff/NuGetRepository`.</span></span>
+<span data-ttu-id="3cd85-232">Benzer şekilde, varsa `HOME` Mac/Linux'ta kümesine `/home/myStuff`, ardından `$HOME/NuGetRepository` dosya yapılandırmada çözümler `/home/myStuff/NuGetRepository`.</span><span class="sxs-lookup"><span data-stu-id="3cd85-232">Similarly, if `HOME` on Mac/Linux is set to `/home/myStuff`, then `$HOME/NuGetRepository` in the configuration file resolves to `/home/myStuff/NuGetRepository`.</span></span>
 
-<span data-ttu-id="d1fdb-231">Bir ortam değişkeni bulunmazsa, NuGet yapılandırma dosyasından hazır değeri kullanır.</span><span class="sxs-lookup"><span data-stu-id="d1fdb-231">If an environment variable is not found, NuGet uses the literal value from the configuration file.</span></span>
+<span data-ttu-id="3cd85-233">Bir ortam değişkeni bulunmazsa, NuGet yapılandırma dosyasından hazır değeri kullanır.</span><span class="sxs-lookup"><span data-stu-id="3cd85-233">If an environment variable is not found, NuGet uses the literal value from the configuration file.</span></span>
 
-## <a name="example-config-file"></a><span data-ttu-id="d1fdb-232">Örnek yapılandırma dosyası</span><span class="sxs-lookup"><span data-stu-id="d1fdb-232">Example config file</span></span>
+## <a name="example-config-file"></a><span data-ttu-id="3cd85-234">Örnek yapılandırma dosyası</span><span class="sxs-lookup"><span data-stu-id="3cd85-234">Example config file</span></span>
 
-<span data-ttu-id="d1fdb-233">Aşağıda `NuGet.Config` çeşitli ayarlar gösterilmektedir dosyası:</span><span class="sxs-lookup"><span data-stu-id="d1fdb-233">Below is an example `NuGet.Config` file that illustrates a number of settings:</span></span>
+<span data-ttu-id="3cd85-235">Aşağıda `NuGet.Config` çeşitli ayarlar gösterilmektedir dosyası:</span><span class="sxs-lookup"><span data-stu-id="3cd85-235">Below is an example `NuGet.Config` file that illustrates a number of settings:</span></span>
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
