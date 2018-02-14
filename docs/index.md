@@ -16,17 +16,17 @@ keywords:
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 08/15/2017
+ms.date: 02/12/2018
 ms.topic: hub-page
 ms.prod: nuget
 ms.technology: 
 ms.reviewer:
 - karann-msft
-ms.openlocfilehash: 58cd4b41c555b38334b10b3bb5aa2e22a430a5d4
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 901327a37f378e16210d4e0272fa3d5638af9bff
+ms.sourcegitcommit: 33436d122873249dbb20616556cd8c6783f38909
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/12/2018
 ---
 <div id="main" class="v2">
 <div class="container">
@@ -58,7 +58,7 @@ ms.lasthandoff: 02/01/2018
                             </a>
                         </li>
                         <li>
-                            <a href="quickstart/use-a-package.md">
+                            <a href="quickstart/install-and-use-a-package-using-the-dotnet-cli.md">
                             <div class="cardSize">
                                 <div class="cardPadding">
                                     <div class="card">
@@ -68,8 +68,8 @@ ms.lasthandoff: 02/01/2018
                                             </div>
                                         </div>
                                         <div class="cardText">
-                                            <h3>Hızlı Başlangıçlar</h3>
-                                            <p>Basit bir paket oluşturma ve paket kullanmaya yönelik odaklı kılavuzlar ile NuGet’i deneyin.</p>
+                                            <h3>Hızlı Başlangıç: Paket kullanma</h3>
+                                            <p>Proje içinde NuGet paketi yükleyip kullanmayı öğrenin (hem dotnet CLI’si hem de Visual Studio için izlenecek yollar mevcuttur).</p>
                                         </div>
                                     </div>
                                 </div>
@@ -77,18 +77,18 @@ ms.lasthandoff: 02/01/2018
                             </a>
                         </li>
                         <li>
-                            <a href="install-nuget-client-tools.md">
+                            <a href="quickstart/create-and-publish-a-package-using-the-dotnet-cli.md">
                             <div class="cardSize">
                                 <div class="cardPadding">
                                     <div class="card">
                                         <div class="cardImageOuter">
                                             <div class="cardImage  bgdAccent1">
-                                                <img src="media/hub/nuget-get-started-guides.svg" alt="Guides: experience NuGet's tools and capabilities with installation and package creation walkthroughs." />
+                                                <img src="media/hub/nuget-get-started-guides.svg" alt="Guides: experience NuGet's tools and capabilities for creating a package." />
                                             </div>
                                         </div>
                                         <div class="cardText">
-                                            <h3>Kılavuzlar</h3>
-                                            <p>Yükleme ve paket oluşturma adım adım kılavuzları ile NuGet araç ve özelliklerini deneyin.</p>
+                                            <h3>Hızlı Başlangıç: Paket oluşturma</h3>
+                                            <p>Paket oluşturmaya yönelik NuGet araçlarını ve becerilerini keşfedin (hem dotnet CLI’si hem de Visual Studio için izlenecek yollar mevcuttur).</p>
                                         </div>
                                     </div>
                                 </div>
@@ -106,7 +106,7 @@ ms.lasthandoff: 02/01/2018
                                             </div>
                                         </div>
                                         <div class="cardText">
-                                            <h3>Paket Oluşturma</h3>
+                                            <h3>Paketleri oluşturma</h3>
                                             <p>Genel iş akışından sürüm oluşturma, yayın öncesi sürüm, &amp; ve diğer özel paketlere kadar NuGet paketleri oluşturmak için bilmeniz gereken her şey.</p>
                                         </div>
                                     </div>
@@ -125,7 +125,7 @@ ms.lasthandoff: 02/01/2018
                                             </div>
                                         </div>
                                         <div class="cardText">
-                                            <h3>Paketleri Kullanma</h3>
+                                            <h3>Paketleri kullanma</h3>
                                             <p>İyi paketler bulma ve seçmeden geri yükleme güncelleştirmeleri ve önbelleğe almaya kadar NuGet paketlerini kullanma hakkında bilmeniz gereken her şey.</p>
                                         </div>
                                     </div>
@@ -144,7 +144,7 @@ ms.lasthandoff: 02/01/2018
                                             </div>
                                         </div>
                                         <div class="cardText">
-                                            <h3>Paketleri Barındırma</h3>
+                                            <h3>Paketleri barındırma</h3>
                                             <p>Paketleri yalnızca sınırlı bir kitle için kullanılabilir yapmak üzere nasıl kendi sunucularınız veya galerilerinizde barındırabileceğinizi öğrenin.</p>
                                         </div>
                                     </div>
@@ -230,7 +230,7 @@ ms.lasthandoff: 02/01/2018
                                             </div>
                                         </div>
                                         <div class="cardText">
-                                            <h3>Visual Studio Genişletilebilirliği</h3>
+                                            <h3>Visual Studio genişletilebilirliği</h3>
                                             <p>Visual Studio’da NuGet Paket Yöneticisi UI ve Konsol API’si, proje sistemi desteği ve Visual Studio şablonlarıyla bütünleştirme hakkında ayrıntılar.</p>
                                         </div>
                                     </div>
