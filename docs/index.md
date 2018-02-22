@@ -22,11 +22,11 @@ ms.prod: nuget
 ms.technology: 
 ms.reviewer:
 - karann-msft
-ms.openlocfilehash: 901327a37f378e16210d4e0272fa3d5638af9bff
-ms.sourcegitcommit: 33436d122873249dbb20616556cd8c6783f38909
+ms.openlocfilehash: 9af8cd5bd3333c8e47e363ad449057d18803ee58
+ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 02/20/2018
 ---
 <div id="main" class="v2">
 <div class="container">
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/12/2018
                                             </div>
                                         </div>
                                         <div class="cardText">
-                                            <h3>Hızlı Başlangıç: Paket oluşturma</h3>
+                                            <h3>Hızlı Başlangıç: paket oluşturma</h3>
                                             <p>Paket oluşturmaya yönelik NuGet araçlarını ve becerilerini keşfedin (hem dotnet CLI’si hem de Visual Studio için izlenecek yollar mevcuttur).</p>
                                         </div>
                                     </div>
