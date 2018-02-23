@@ -1,5 +1,5 @@
 ---
-title: "Oluşturma ve yayımlama dotnet CLI kullanarak bir NuGet paketi tanıtım Kılavuzu | Microsoft Docs"
+title: "Oluşturma ve yayımlama dotnet CLI kullanarak bir NuGet paketi | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
@@ -12,11 +12,11 @@ keywords: "NuGet paketini oluşturma, NuGet paketi yayımlama, NuGet öğretici 
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c9f46cafafcdc238e43979d6f05521e19bf3d7f6
-ms.sourcegitcommit: eabd401616a98dda2ae6293612acb3b81b584967
+ms.openlocfilehash: 32cbe5dea180daa5b9d21102b996bf160d4ee511
+ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="create-and-publish-a-package"></a>Oluşturma ve bir paket yayımlama
 
@@ -94,7 +94,6 @@ Bulduktan sonra bir `.nupkg` dosyası, yayımlama, nuget.org kullanmaya `dotnet 
 ### <a name="publish-errors"></a>Hataları yayımlama
 
 [!INCLUDE[publish-errors](includes/publish-errors.md)]
-
 
 ### <a name="manage-the-published-package"></a>Yayımlanan paket yönetme
 

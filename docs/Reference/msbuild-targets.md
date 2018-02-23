@@ -11,11 +11,11 @@ description: "NuGet paketi ve geri yükleme, doğrudan NuGet 4.0 + ile MSBuild h
 keywords: "NuGet ve MSBuild, NuGet paketi hedef, NuGet geri yükleme hedefi"
 ms.reviewer:
 - karann-msft
-ms.openlocfilehash: 6c488f49e12b014e7bd197d57041745387a4d7b4
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 4d448af3d31e0907cba223c0ccec55604e94f055
+ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet paketi ve MSBuild hedefleri olarak geri yükleme
 
@@ -63,8 +63,10 @@ Unutmayın `Owners` ve `Summary` özelliklerinden `.nuspec` MSBuild ile destekle
 | IconUrl | PackageIconUrl | empty | |
 | Etiketler | PackageTags | empty | Etiketleri noktalı virgülle ayrılmış olan. |
 | ReleaseNotes | PackageReleaseNotes | empty | |
-| RepositoryUrl | RepositoryUrl | empty | |
-| RepositoryType | RepositoryType | empty | |
+| Depo/URL'si | RepositoryUrl | empty | Depo URL'si kopyalama veya kaynak kodu almak için kullanılır. Örnek: *https://github.com/NuGet/NuGet.Client.git* |
+| Depo/türü | RepositoryType | empty | Depo türü. Örnekler: *git*, *tfs*. |
+| Depo/şube | RepositoryBranch | empty | İsteğe bağlı depo şube bilgileri. *RepositoryUrl* dahil edilmek üzere bu özellik için de belirtilmesi gerekir. Örnek: *ana* (NuGet 4.7.0+) |
+| Depo/tamamlama | RepositoryCommit | empty | İsteğe bağlı depo yürütme veya, paket kaynak belirtmek için değişiklik karşı oluşturuldu. *RepositoryUrl* dahil edilmek üzere bu özellik için de belirtilmesi gerekir. Örnek: *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0+) |
 | PackageType | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
 | Özet | Desteklenmez | | |
 
@@ -90,6 +92,8 @@ Unutmayın `Owners` ve `Summary` özelliklerinden `.nuspec` MSBuild ile destekle
 - IsTool
 - RepositoryUrl
 - RepositoryType
+- RepositoryBranch
+- RepositoryCommit
 - NoPackageAnalysis
 - MinClientVersion
 - IncludeBuildOutput
@@ -108,7 +112,7 @@ Değişikliğin parçası olarak [NuGet sorunu 2582](https://github.com/NuGet/Ho
 
 ### <a name="output-assemblies"></a>Çıktı derlemeler
 
-`nuget pack`kopya çıktı uzantılara sahip dosyaları `.exe`, `.dll`, `.xml`, `.winmd`, `.json`, ve `.pri`. MSBuild gelen sağladıkları üzerinde kopyalanır ve çıkış dosyalarının bağımlı `BuiltOutputProjectGroup` hedef.
+`nuget pack` kopya çıktı uzantılara sahip dosyaları `.exe`, `.dll`, `.xml`, `.winmd`, `.json`, ve `.pri`. MSBuild gelen sağladıkları üzerinde kopyalanır ve çıkış dosyalarının bağımlı `BuiltOutputProjectGroup` hedef.
 
 Çıkış derlemelerinin nereye proje dosyası veya komut satırı denetlemek için kullanabileceğiniz iki MSBuild özellikleri şunlardır:
 
@@ -156,7 +160,7 @@ Varsayılan olarak, her şeyi köküne eklenen `content` ve `contentFiles\any\<t
 
 Yalnızca belirli bir tüm içeriğinizi kopyalamak isterseniz klasörlerde kök (yerine `content` ve `contentFiles` her ikisi de), MSBuild özelliği kullanabilirsiniz `ContentTargetFolders`, varsayılan olarak "içerik; Content dosyaları" ancak başka bir klasör adı için ayarlanabilir. Not "Content dosyaları" belirterek, yalnızca `ContentTargetFolders` altında dosyaları koyan `contentFiles\any\<target_framework>` veya `contentFiles\<language>\<target_framework>` göre `buildAction`.
 
-`PackagePath`hedef yolları noktalı virgülle ayrılmış bir kümesi olabilir. Bir boş paket yolu belirterek dosya paket köküne ekleyin. Örneğin, aşağıdaki ekler `libuv.txt` için `content\myfiles`, `content\samples`ve paket kök:
+`PackagePath` hedef yolları noktalı virgülle ayrılmış bir kümesi olabilir. Bir boş paket yolu belirterek dosya paket köküne ekleyin. Örneğin, aşağıdaki ekler `libuv.txt` için `content\myfiles`, `content\samples`ve paket kök:
 
 ```xml
 <Content Include="..\win7-x64\libuv.txt">
@@ -210,7 +214,7 @@ msbuild /t:pack <path to .csproj file> /p:NuspecFile=<path to nuspec file> /p:Nu
 
 ## <a name="restore-target"></a>geri yükleme hedefi
 
-`MSBuild /t:restore`(hangi `nuget restore` ve `dotnet restore` .NET Core projeleriyle kullanmak), proje dosyasında aşağıdaki gibi başvurduğu paketleri yükler:
+`MSBuild /t:restore` (hangi `nuget restore` ve `dotnet restore` .NET Core projeleriyle kullanmak), proje dosyasında aşağıdaki gibi başvurduğu paketleri yükler:
 
 1. Tüm proje için proje başvuruları okuma
 1. Ara klasörü ve hedef çerçeveleri bulmak için proje özelliklerini okuma
@@ -257,7 +261,7 @@ Geri yükleme yapı aşağıdaki dosyaları oluşturur `obj` klasörü:
 
 | Dosya | Açıklama |
 |--------|--------|
-| `project.assets.json` | Daha önce`project.lock.json` |
+| `project.assets.json` | Daha önce `project.lock.json` |
 | `{projectName}.projectFileExtension.nuget.g.props` | MSBuild özellik paketlerinde bulunan başvurular |
 | `{projectName}.projectFileExtension.nuget.g.targets` | MSBuild hedefleri paketlerinde bulunan başvurular |
 

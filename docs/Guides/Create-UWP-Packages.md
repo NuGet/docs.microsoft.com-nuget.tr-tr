@@ -12,11 +12,11 @@ keywords: "paketler UWP, Windows çalışma zamanı bileşenleri için bir paket
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6d35b484ff708d7174c19791ab1ad7904bea0d2f
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: 6787704d41364a165270d56e8980f24d311b07b3
+ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="create-uwp-packages"></a>UWP paketleri oluşturma
 
@@ -156,7 +156,7 @@ Bileşeniniz XAML denetimiyle eklemek için denetim (proje şablonu tarafından 
 
 ### <a name="adding-targets"></a>.Targets ekleme
 
-Ardından, NuGet paketi tüketebilir C++ ve JavaScript projeleri gerekli derleme ve winmd dosyaları belirlemek üzere bir .targets dosyasında gerekir. (C# ve Visual Basic projeleri otomatik olarak bunu.) Aşağıda metne kopyalayarak bu dosyayı oluşturmak `ImageEnhancer.targets` ve aynı klasöre kaydedin `.nuspec` dosyası:
+Ardından, NuGet paketi tüketebilir C++ ve JavaScript projeleri gerekli derleme ve winmd dosyaları belirlemek üzere bir .targets dosyasında gerekir. (C# ve Visual Basic projeleri otomatik olarak bunu.) Aşağıda metne kopyalayarak bu dosyayı oluşturmak `ImageEnhancer.targets` ve aynı klasöre kaydedin `.nuspec` dosya. _Not_: Bu `.targets` dosya paket Kimliğini adıyla aynı olması gerekir (örneğin `<Id>` öğesinde `.nupspec` dosyası):
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

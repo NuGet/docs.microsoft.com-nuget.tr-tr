@@ -13,11 +13,11 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: dbeec1d3332571d8e9616dfe9675b5fcf3c85589
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 7e3621f01312e3b4fdbef116e5044869416b851c
+ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="target-frameworks"></a>Hedef Çerçeve
 
@@ -129,7 +129,7 @@ Aşağıdaki çerçevelerini kullanım dışı bırakılmıştır. Bu çerçevel
 ## <a name="portable-class-libraries"></a>Taşınabilir sınıf kitaplıkları
 
 > [!Warning]
-> **PCLs önerilmez**. Paketi yazarları netstandard PCLs desteklenir, ancak bunun yerine desteklemelidir. .NET Platform standardını PCLs bir evrimi olan ve istediğiniz gibi statik olarak bağlı değil tek bir ad kullanarak platformlarda ikili taşınabilirlik temsil *taşınabilir-a + b + c* adlar.
+> **PCLs önerilmez**. Paketi yazarları netstandard PCLs desteklenir, ancak bunun yerine desteklemelidir. .NET Platform standardını PCLs bir evrimi olan ve bir statik kitaplık gibi bağlı değil tek bir ad kullanarak platformlarda ikili taşınabilirlik temsil *taşınabilir-a + b + c* adlar.
 
 Birden çok alt-hedef-frameworks için başvuruda bulunan bir hedef framework tanımlamak için `portable` başvurulan çerçeveleri listesi öneki için kullanılan anahtar sözcüğü kullanın. Yapay istenmeyen yan etkileri bu çerçeveleri içinde açabilir olduğundan, karşı doğrudan derlenmemiş fazladan çerçeveleri dahil olmak üzere kaçının.
 

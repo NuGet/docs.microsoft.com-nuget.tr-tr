@@ -1,6 +1,6 @@
 Profilinizdeki nuget.org üzerinde seçin **paketlerini Yönet** bir görmek için yalnızca yayımlanmış. Aynı zamanda bir onay e-posta alırsınız. Biraz sıralanması ve diğerleri bulabileceğiniz arama sonuçlarında görüntülenmesi paketinize sürebileceğini unutmayın. Bu işlem sırasında paket sayfanızı aşağıdaki iletiyi gösterir:
 
-    ![This package has not been indexed yet. It will appear in search results and will be available for install/restore after indexing is complete.](../media/QS_Create-03-NotIndexed.png)
+![Bu paket henüz dizin değil. Arama sonuçlarında görünür ve dizin oluşturma işlemi tamamlandıktan sonra yükleme/geri yükleme için kullanılabilir duruma gelir.](../media/QS_Create-03-NotIndexed.png)
 
 Ve bu kadar! Ayrıca, diğer geliştiricilerin kendi projelerinde kullanabileceğiniz nuget.org için yalnızca ilk NuGet paketi oluşturdunuz.
 

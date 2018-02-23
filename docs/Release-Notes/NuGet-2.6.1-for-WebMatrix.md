@@ -13,23 +13,23 @@ keywords: "WebMatrix sürüm notları, hata düzeltmeleri ve bilinen sorunlar i�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6150fc34dd05c2e7ce132d2d6744b823daeb1a07
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: 633b71011dd1bc897ad95fd706337cef3aeef34c
+ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="nuget-261-for-webmatrix-release-notes"></a>NuGet 2.6.1 WebMatrix sürüm notları
 
 [NuGet 2.6 sürüm notları](../release-notes/nuget-2.6.md) | [NuGet 2.7 Sürüm Notları](../release-notes/nuget-2.7.md)
 
-NuGet takım güncelleştirilmiş bir NuGet Paket Yöneticisi uzantısı WebMatrix için 26 Mart 2014'te yayımladı.  Bu güncelleştirme yüklenebilir [WebMatrix uzantı Galerisi](http://extensions.webmatrix.com/packages/NuGetPackageManager/) aşağıdaki adımları kullanarak:
+NuGet takım güncelleştirilmiş bir NuGet Paket Yöneticisi uzantısı WebMatrix için 26 Mart 2014'te yayımladı.  Bu güncelleştirme yüklenebilir [WebMatrix uzantı Galerisi](https://blogs.iis.net/webmatrix/retiring-the-webmatrix-extensions-gallery) aşağıdaki adımları kullanarak:
 
 1. WebMatrix 3 açın
-2. Giriş Şeritte uzantıları simgesine tıklayın
-3. Güncelleştirmeler sekmesini seçin
-4. 2.6.1 için NuGet Paket Yöneticisi güncelleştirmek için tıklatın
-6. Kapatın ve WebMatrix 3 başlatın
+1. Giriş Şeritte uzantıları simgesine tıklayın
+1. Güncelleştirmeler sekmesini seçin
+1. 2.6.1 için NuGet Paket Yöneticisi güncelleştirmek için tıklatın
+1. Kapatın ve WebMatrix 3 başlatın
 
 ## <a name="notable-changes"></a>Önemli değişiklikleri
 
