@@ -13,11 +13,11 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 56cb9d5b40bbfbd722e611e0e86945eddbe9d19a
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: c52d0a7c0da507cb9688c8a7b2c4eaf54a8ca5c2
+ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="nuspec-reference"></a>.nuspec başvurusu
 
@@ -91,17 +91,17 @@ Bu öğeler içinde görünebilir bir `<metadata>` öğesi.
 | Öğe | Açıklama |
 | --- | --- |
 | **title** | Nuget.org ve Visual Studio'da Paket Yöneticisi gibi UI görünümlerde genellikle kullanılan paket, bir insan kolay başlığı. Belirtilmezse, paket kimliği kullanılır. |
-| **sahipleri** | Nuget.org üzerinde profil adları kullanarak paket oluşturucuları virgülle ayrılmış listesi. Bu genellikle aynı olarak listesidir `authors`ve paket için nuget.org karşıya yüklenirken göz ardı edilir. Bkz: [yönetme paket sahipleri nuget.org üzerinde](../create-packages/publish-a-package.md#managing-package-owners-on-nugetorg). |
+| **Sahipleri** | Nuget.org üzerinde profil adları kullanarak paket oluşturucuları virgülle ayrılmış listesi. Bu genellikle aynı olarak listesidir `authors`ve paket için nuget.org karşıya yüklenirken göz ardı edilir. Bkz: [yönetme paket sahipleri nuget.org üzerinde](../create-packages/publish-a-package.md#managing-package-owners-on-nugetorg). |
 | **projectUrl** | Paketin giriş sayfası, genellikle kullanıcı Arabiriminde gösterilen URL'sini nuget.org yanı sıra görüntüler. |
 | **licenseUrl** | Genellikle nuget.org yanı sıra kullanıcı Arabirimi görüntüler gösterilen paketin lisans URL'sini. |
-| **iconUrl** | UI görüntü paketinde simgesi olarak kullanılacak bir URL 64 x 64 görüntünün saydamlık arka plana sahip. Bu öğe içerdiğinden emin olun *resim URL'si doğrudan* ve görüntüyü içeren bir web sayfasının URL değil. Örneğin, görüntüyü github'dan, URL gibi raw dosyasını kullanmayı `https://github.com/<username>/<repository>/raw/<branch>/<logo.png>`. |
+| **iconUrl** | UI görüntü paketinde simgesi olarak kullanılacak bir URL 64 x 64 görüntünün saydamlık arka plana sahip. Bu öğe içerdiğinden emin olun *resim URL'si doğrudan* ve görüntüyü içeren bir web sayfasının URL değil. Örneğin, bir görüntü github'dan kullanmak için URL gibi raw dosyasını kullanın *https://github.com/\<kullanıcıadı\>/\<deposu\>/raw/\<şube\> / \<logo.png\>*. |
 | **requireLicenseAcceptance** | İstemci paketi lisans paketi yüklemeden önce kabul etmek için tüketici sor olup olmadığını belirten bir Boole değeri. |
-| **developmentDependency** | *(2.8 +)*  Paket olup olmadığını belirten bir Boolean değeri bir geliştirme-yalnızca-paket diğer paketler bağımlılık olarak dahil önleyen bağımlılık olarak işaretlenir. |
+| **DevelopmentDependency** | *(2.8 +)*  Paket olup olmadığını belirten bir Boolean değeri bir geliştirme-yalnızca-paket diğer paketler bağımlılık olarak dahil önleyen bağımlılık olarak işaretlenir. |
 | **Özet** | UI görüntülenmesi için paket kısa bir açıklaması. Atlanırsa, kesilmiş bir sürümünü `description` kullanılır. |
 | **releaseNotes** | *(1.5 +)*  Kullanıcı arabiriminde gibi sık kullanılan şekilde paketin bu sürümde yapılan değişikliklerin bir açıklaması **güncelleştirmeleri** sekmesi, Visual Studio Paket Yöneticisi ve Paket açıklaması yerine. |
 | **Telif Hakkı** | *(1.5 +)*  Paket ayrıntılarını telif hakkı. |
 | **Dil** | Paketi için yerel ayar kimliği. Bkz: [yerelleştirilmiş paketleri oluşturma](../create-packages/creating-localized-packages.md). |
-| **etiketleri** | Etiketleri ve paketler arama ve filtreleme aracılığıyla paket ve yardımcı bulunabilirliğini açıklayan anahtar sözcükleri boşlukla ayrılmış listesi. |
+| **Etiketleri** | Etiketleri ve paketler arama ve filtreleme aracılığıyla paket ve yardımcı bulunabilirliğini açıklayan anahtar sözcükleri boşlukla ayrılmış listesi. |
 | **serviceable** | *(3.3 +)*  İç NuGet için kullanım içindir. |
 
 #### <a name="collection-elements"></a>Koleksiyon öğeleri
@@ -111,7 +111,7 @@ Bu öğeler içinde görünebilir bir `<metadata>` öğesi.
 **packageTypes** | *(3.5 +)*  Sıfır veya daha fazla koleksiyonu `<packageType>` geleneksel bağımlılık paketi varsa dışında paket türünü belirleyen öğeleri. Her packageType öznitelikleri *adı* ve *sürüm*. Bkz: [ayar paket türü](../create-packages/creating-a-package.md#setting-a-package-type). |
 | **Bağımlılıklar** | Sıfır veya daha fazla koleksiyonu `<dependency>` öğeleri paketi için bağımlılıklar belirtme. Her bir bağımlılığın öznitelikleri *kimliği*, *sürüm*, *dahil* (3.x+) ve *hariç* (3.x+). Bkz: [bağımlılıkları](#dependencies) aşağıda. |
 | **frameworkAssemblies** | *(1.2 +)*  Sıfır veya daha fazla koleksiyonu `<frameworkAssembly>` öğeleri, bu paket için gerekli .NET Framework derleme başvurularını tanımlayan da sağlar başvuruları paketi kullanan projeler için eklenir. Her frameworkAssembly sahip *assemblyName* ve *targetFramework* öznitelikleri. Bkz: [framework derlemeyi belirtmeyi başvuran GAC](#specifying-framework-assembly-references-gac) aşağıda. |
-| **başvuruları** | *(1.5 +)*  Sıfır veya daha fazla koleksiyonu `<reference>` paketin derlemelerde adlandırma öğeleri `lib` proje başvuruları eklenen klasör. Her başvurusu olan bir *dosya* özniteliği. `<references>`Ayrıca içerebilir bir `<group>` öğesi ile bir *targetFramework* sonra içeren öznitelik `<reference>` öğeleri. Atlanırsa, tüm başvuruları `lib` dahil edilir. Bkz: [açık derleme başvurularını belirtme](#specifying-explicit-assembly-references) aşağıda. |
+| **Başvuruları** | *(1.5 +)*  Sıfır veya daha fazla koleksiyonu `<reference>` paketin derlemelerde adlandırma öğeleri `lib` proje başvuruları eklenen klasör. Her başvurusu olan bir *dosya* özniteliği. `<references>` Ayrıca içerebilir bir `<group>` öğesi ile bir *targetFramework* sonra içeren öznitelik `<reference>` öğeleri. Atlanırsa, tüm başvuruları `lib` dahil edilir. Bkz: [açık derleme başvurularını belirtme](#specifying-explicit-assembly-references) aşağıda. |
 | **Content dosyaları** | *(3.3 +)*  Koleksiyonu `<files>` tüketim projeye dahil etmek için içerik dosyaları belirlemek öğeleri. Bu dosyalar, proje sistem içinde bunların nasıl kullanılacağını açıklayan özniteliklerinin kümesiyle belirtilir. Bkz: [pakete eklenecek dosyaları belirtme](#specifying-files-to-include-in-the-package) aşağıda. |
 
 ### <a name="files-element"></a>Dosyalar öğesi
@@ -540,9 +540,9 @@ Bu dosyalar, proje sistem içinde bunların nasıl kullanılacağını açıklay
 
 | Öznitelik | Açıklama |
 | --- | --- |
-| **içerir** | (Gerekli) Dosya veya dosyalar tarafından belirtilen Dışlamalar tabi dahil etmek için konumunu `exclude` özniteliği. Göreli yol olduğundan `.nuspec` mutlak bir yol belirtilmediği sürece dosya. Joker karakter `*` izin verilir ve çift joker karakter `**` özyinelemeli klasör arama anlamına gelir. |
+| **İçerir** | (Gerekli) Dosya veya dosyalar tarafından belirtilen Dışlamalar tabi dahil etmek için konumunu `exclude` özniteliği. Göreli yol olduğundan `.nuspec` mutlak bir yol belirtilmediği sürece dosya. Joker karakter `*` izin verilir ve çift joker karakter `**` özyinelemeli klasör arama anlamına gelir. |
 | **exclude** | Dosya veya dosya desenlerinin ayarlayacağım noktalı virgülle ayrılmış listesini `src` konumu. Joker karakter `*` izin verilir ve çift joker karakter `**` özyinelemeli klasör arama anlamına gelir. |
-| **buildAction** | MSBuild için içerik öğesine gibi atanacak yapı eylemi `Content`, `None`, `Embedded Resource`, `Compile`vb. Varsayılan, `Compile` değeridir. |
+| **buildAction** | MSBuild için içerik öğesine gibi atanacak yapı eylemi `Content`, `None`, `Embedded Resource`, `Compile`vb. Varsayılan değer `Compile`. |
 | **copyToOutput** | İçerik öğeleri yapı çıktı klasörüne kopyalanıp kopyalanmayacağını gösteren bir Boole değeri. Varsayılan olarak yanlıştır. |
 | **flatten** | İçerik öğeleri yapı çıktı (true) tek bir klasöre kopyalayın veya klasör yapısı (false) paketindeki korumak için gösteren bir Boole değeri. CopyToOutput bayrağı ayarlandığında bu bayrağı yalnızca çalışır true. Varsayılan olarak yanlıştır. |
 
@@ -554,8 +554,8 @@ Paket proje şu biçimi kullanarak içerik yapısı:
 
     /contentFiles/{codeLanguage}/{TxM}/{any?}
 
-- `codeLanguages`olabilir `cs`, `vb`, `fs`, `any`, veya küçük harf denk bir verilen`$(ProjectLanguage)`
-- `TxM`NuGet destekleyen tüm yasal hedef framework addır (bkz [hedef çerçeveler](../reference/target-frameworks.md)).
+- `codeLanguages` olabilir `cs`, `vb`, `fs`, `any`, veya küçük harf denk bir verilen `$(ProjectLanguage)`
+- `TxM` NuGet destekleyen tüm yasal hedef framework addır (bkz [hedef çerçeveler](../reference/target-frameworks.md)).
 - Herhangi bir klasör yapısını bu söz dizimini sonuna eklenmiş.
 
 Örneğin:
@@ -677,7 +677,7 @@ Boş klasörler kullanabileceğiniz `.` dil ve TxM, belirli bir kombinasyonu iç
 Bu örnekte, belirli bir proje hedefleri için aşağıdaki yüklenir:
 
 - .NET4 -> `System.Web`, `System.Net`
-- . NET4 İstemci profili ->`System.Net`
-- Silverlight 3 ->`System.Json`
+- . NET4 İstemci profili -> `System.Net`
+- Silverlight 3 -> `System.Json`
 - Silverlight 4 -> `System.Windows.Controls.DomainServices`
 - WindowsPhone -> `Microsoft.Devices.Sensors`
