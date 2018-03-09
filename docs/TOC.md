@@ -26,6 +26,7 @@
 ## [Yayın öncesi paketleri](create-packages/prerelease-packages.md)
 ## [Yerel paketler](create-packages/native-packages.md)
 ## [Sembol paketleri](create-packages/symbol-packages.md)
+## [İmzalama paketleri](create-packages/sign-a-package.md)
 ## [Paket yayımlama](create-packages/publish-a-package.md)
 ## Kılavuzlar
 ### [UWP paketleri oluşturma](guides/create-uwp-packages.md)
@@ -51,9 +52,11 @@
 ### [push](tools/cli-ref-push.md)
 ### [restore](tools/cli-ref-restore.md)
 ### [setapikey](tools/cli-ref-setapikey.md)
+### [sign](tools/cli-ref-sign.md)
 ### [sources](tools/cli-ref-sources.md)
 ### [spec](tools/cli-ref-spec.md)
 ### [update](tools/cli-ref-update.md)
+### [verify](tools/cli-ref-verify.md)
 ### [Ortam değişkenleri](tools/cli-ref-environment-variables.md)
 ## [Paket Yöneticisi UI](tools/package-manager-ui.md)
 ## [Paket Yöneticisi Konsolu](tools/package-manager-console.md)
@@ -79,6 +82,7 @@
 ## [Hatalar ve uyarılar](reference/errors-and-warnings.md)
 ## [Kimlik ön eki ayırma](reference/id-prefix-reservation.md)
 ## [NuGet istemci SDK’sı](reference/nuget-client-sdk.md)
+## [İmzalı paket başvurusu](reference/signed-packages-reference.md)
 ## Genişletilebilirlik
 ### [Visual Studio için NuGet kimlik bilgileri sağlayıcısı](reference/extensibility/nuget-credential-providers-for-visual-studio.md)
 ### [nuget.exe kimlik bilgileri sağlayıcıları](reference/extensibility/nuget-exe-credential-providers.md)
@@ -108,7 +112,6 @@
 ## [Ekosistem](policies/ecosystem.md)
 ## [İtiraz çözümleme](policies/dispute-resolution.md)
 ## [Paketleri silme](policies/deleting-packages.md)
-# [GitHub depoları](https://github.com/NuGet)
 # Sürüm notları
 ## [Bilinen Sorunlar](release-notes/known-issues.md)
 ## [NuGet 4.5 RTM](release-notes/NuGet-4.5-RTM.md)
