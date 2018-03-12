@@ -12,11 +12,11 @@ keywords: "NuGet bağımlılıkları, NuGet ve UWP, UWP ve project.json, NuGet p
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: f1ec086d6404c441ca5ad53028af2265a2344905
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 3ef3703b2be92f84d37866bce9934ebcfed3a9f7
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="projectjson-and-uwp"></a>Project.JSON ve UWP
 
@@ -31,7 +31,7 @@ Var olan bir paket varsa ve UWP uygulamalar için destek eklemek istediğiniz, b
 
 ## <a name="i-already-target-netcore45"></a>I zaten netcore45 hedef
 
-Hedefliyorsanız `netcore45` zaten ve özelliklerinden burada yapmanıza gerek yoktur, Eylem gerekmiyor. `netcore45`paketleri UWP uygulamaları tarafından kullanılabilecek.
+Hedefliyorsanız `netcore45` zaten ve özelliklerinden burada yapmanıza gerek yoktur, Eylem gerekmiyor. `netcore45` paketleri UWP uygulamaları tarafından kullanılabilecek.
 
 ## <a name="i-want-to-take-advantage-of-windows-10-specific-apis"></a>Windows 10 özel API'leri yararlanmak istiyorum
 
@@ -61,11 +61,11 @@ NuGet paketlerini bu biçimi kullanarak aşağıdaki bilinen klasör ve davranı
 | Klasör | Davranışlar |
 | --- | --- |
 | Derleme | MSBuild içeren hedefleri ve özellik dosyalarını bu klasöre farklı projeye tümleşik ancak Aksi halde değişiklik yoktur. |
-| Araçlar | `install.ps1`ve `uninstall.ps1` çalıştırılamaz. `init.ps1`her zaman olduğu gibi çalışır. |
+| Araçlar | `install.ps1` ve `uninstall.ps1` çalıştırılamaz. `init.ps1` her zaman olduğu gibi çalışır. |
 | İçerik | İçeriği otomatik olarak bir kullanıcının projeye kopyalanmaz. Projedeki içerik ekleme desteği için sonraki bir sürümü planlanmaktadır. |
 | Lib | Çoğu paketlere ilişkin `lib` NuGet içinde mevcut aynı şekilde çalışır 2.x, ancak hangi adları için genişletilmiş seçenekleriyle kullanılabilir ve daha iyi mantığı içinde doğru alt klasörü paketler kullanırken çekme. Ancak, ile birlikte kullanıldığında `ref`, `lib` klasörde derlemelerde tarafından tanımlanan yüzey alanını uygulamak derlemeler `ref` klasör. |
-| Ref | `ref`Ortak tanımlama .NET derlemelerini içeren bir isteğe bağlı klasördür karşı derlemek bir uygulama için yüzey (Genel türleri ve yöntemleri). Bu klasör derlemelerde uygulaması olabilir, bunlar tamamen derleyici yüzey alanını tanımlamak için kullanılır. Paket Hayır varsa `ref` klasörü, sonra `lib` referans derlemesini ve uygulaması derleme. |
-| Çalışma zamanları | `runtimes`CPU mimarisi ve işletim sistemi belirli veya başka türlü platforma bağımlı ikili dosyaları gibi belirli işletim sistemi kodu içeren bir isteğe bağlı klasördür. |
+| Ref | `ref` Ortak tanımlama .NET derlemelerini içeren bir isteğe bağlı klasördür karşı derlemek bir uygulama için yüzey (Genel türleri ve yöntemleri). Bu klasör derlemelerde uygulaması olabilir, bunlar tamamen derleyici yüzey alanını tanımlamak için kullanılır. Paket Hayır varsa `ref` klasörü, sonra `lib` referans derlemesini ve uygulaması derleme. |
+| Çalışma zamanları | `runtimes` CPU mimarisi ve işletim sistemi belirli veya başka türlü platforma bağımlı ikili dosyaları gibi belirli işletim sistemi kodu içeren bir isteğe bağlı klasördür. |
 
 ## <a name="msbuild-targets-and-props-files-in-packages"></a>MSBuild hedefleri ve özellik dosyalarını paketler
 
@@ -121,7 +121,7 @@ Bu örnekte derlemelerde `ref` dizinler tüm olacaktır aynı.
 
 Çalışma zamanları klasör derlemeler ve "işletim sistemi ve CPU mimarisine göre genellikle tanımlanmış olan belirli çalışma zamanları", üzerinde çalıştırmak için gerekli yerel kitaplıkları içerir. Bu çalışma zamanları kullanılarak tanımlanır [çalışma zamanı tanımlayıcıları (RID)](/dotnet/core/rid-catalog) gibi `win`, `win-x86`, `win7-x86`, `win8-64`vb.
 
-## <a name="native-light-up"></a>Yerel açık yukarı
+## <a name="native-helpers-to-use-platform-specific-apis"></a>Platforma özgü API'ları kullanmak için yerel Yardımcıları
 
 Aşağıdaki örnek, çeşitli platformlar için tamamen yönetilen bir uygulama olsa da, Windows 8'i Windows 8 özgü yerel API burada çağırabilirsiniz yerel Yardımcıları kullanan bir paket gösterir.
 
@@ -187,7 +187,7 @@ Kullanarak projeleri tarafından kullanılabilecek bir paket oluşturmak isteyip
 
 - Ref ve çalışma zamanları yalnızca NuGet 3'te çalışır. NuGet 2 ile hem de yoksayılır.
 
-- Bağlı olamaz `install.ps1` veya `uninstall.ps1` işlevi. Bu dosyaları kullanırken yürütme `packages.config`, ile göz ardı edilir, ancak `project.json`. Paketinizi onlar olmadan kullanılabilir olması gereken şekilde çalışıyor. `init.ps1`hala NuGet 3'te çalışır.
+- Bağlı olamaz `install.ps1` veya `uninstall.ps1` işlevi. Bu dosyaları kullanırken yürütme `packages.config`, ile göz ardı edilir, ancak `project.json`. Paketinizi onlar olmadan kullanılabilir olması gereken şekilde çalışıyor. `init.ps1` hala NuGet 3'te çalışır.
 
 - Hedefleri ve özellik yükleme farklıdır, bu nedenle paketinizi hem de istemcilerde beklendiği gibi çalıştığından emin olun.
 

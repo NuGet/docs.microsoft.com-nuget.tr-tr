@@ -13,15 +13,15 @@ ms.reviewer:
 - ananguar
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: bee215fcc88b03dbdde6c15d1583898bdf205952
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: f74ea3c772a129f4b9cd286a77cf3e88eba2d33b
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="package-id-prefix-reservation"></a>Paket kimliği öneki ayırma
 
-Paket sahipleri olan ayırabilir ve kimliği önekleri ayırarak kimliklerini koruyun. Ek bilgilerle kullanma, paketler, bunlar tüketen paket olmayan tanımlayıcı özelliklerini aldatıcı paket tüketicileri sağlanır. 
+Paket sahipleri ayırmak ve kimliği önekleri ayırarak kimliklerini koruyun. Ek bilgilerle kullanma, paketler, bunlar tüketen paket olmayan tanımlayıcı özelliklerini aldatıcı paket tüketicileri sağlanır. 
 
 [nuget.org](https://www.nuget.org/) ve Visual Studio 2017 15.4 veya sonraki bir sürümü Paket ayrılmış kimliği eşleştiği sürece ayrılmış paket kimliği öneki ile sahipleri tarafından gönderilen paketleri adlandırma deseni önek için görsel bir gösterge gösterir. Ne kimliği öneki ayırma kapsar ve sahibi için bir kimlik öneki nasıl uygulayabilirsiniz başvuru açıklanmaktadır.
 

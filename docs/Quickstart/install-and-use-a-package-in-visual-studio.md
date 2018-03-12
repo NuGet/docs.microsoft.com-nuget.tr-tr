@@ -12,11 +12,11 @@ keywords: "NuGet paketlerini kullanarak NuGet paketleri, NuGet paket referanslar
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c0030877803ac7403f26e27ac3c5a0303d69c489
-ms.sourcegitcommit: eabd401616a98dda2ae6293612acb3b81b584967
+ms.openlocfilehash: b2cfe2d9b929d43f733fd28ba7336c0b04f718e6
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="install-and-use-a-package-in-visual-studio"></a>Yükleyin ve Visual Studio'da bir paket kullanın
 
@@ -27,7 +27,7 @@ Koduyla paketinde yüklendikten sonra başvurmak `using <namespace>` nerede \<ad
 > [!Tip]
 > **Başlat nuget.org ile**: Tarama nuget.org olan nasıl .NET geliştiricilerinin bileşenleri genellikle bulmak, kendi uygulamalarında yeniden kullanabilirsiniz. Nuget.org doğrudan arama veya bulabilir ve bu makalede gösterilen şekilde Visual Studio içindeki paketleri yükleyin.
 
-## <a name="pre-requisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - Evrensel Windows platformu geliştirme iş yükü ile Visual Studio 2017 veya
 - Visual Studio 2015 güncelleştirme 3 Evrensel Windows uygulamaları için Araçlar ile.

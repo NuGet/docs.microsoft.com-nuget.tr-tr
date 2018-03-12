@@ -12,11 +12,11 @@ keywords: "NuGet paket oluşturma, NuGet oluşturma genel bakış, NuGet oluştu
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6dcb531fc0c8a2fc68372b78af7de1a3bc592bc0
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.openlocfilehash: 84587ad1f511416cc03b6fee153d1df44d0e7aa7
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="package-creation-workflow"></a>Paket oluşturma iş akışı
 
@@ -45,6 +45,7 @@ Buradan, paketiniz için bir dizi diğer seçenek düşünebilirsiniz:
 - [Sembol paketlerini](../create-packages/symbol-packages.md) hata ayıklama sırasında kodunuza adım tüketicilerin izin kitaplığınızın simgelerini sağlama için yönergeler sunar.
 - [Sürüm oluşturma paketini](../reference/package-versioning.md) , bağımlılıklar (paketinizi tüketen diğer paketleri) için izin tam sürümünü belirlemek nasıl ele alınmaktadır.
 - [Yerel Paketleri](../create-packages/native-packages.md) C++ Tüketiciler için paket oluşturma işlemi açıklanmaktadır.
+- [Paket imzalama](../create-packages/sign-a-package.md) bir paket için bir dijital imza ekleme işlemi açıklanmaktadır.
 
 Ardından nuget.org için bir paketi yayımlamaya hazır olduğunuzda, basit işleminde izleyin [bir paketi yayımlamaya](../create-packages/publish-a-package.md).
 

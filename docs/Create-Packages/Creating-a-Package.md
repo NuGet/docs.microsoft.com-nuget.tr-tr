@@ -13,11 +13,11 @@ keywords: "NuGet paket oluşturma, bir paket, nuspec bildirimi, NuGet paketi kur
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 81305b889bb3d988c98c0eee04126e432053c5ef
-ms.sourcegitcommit: a40a6ce6897b2d9411397b2e29b1be234eb6e50c
+ms.openlocfilehash: 613e3eb9d08a0da96340f32b13c486508fa32439
+ms.sourcegitcommit: df21fe770900644d476d51622a999597a6f20ef8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="creating-nuget-packages"></a>NuGet paketleri oluşturma
 
@@ -174,7 +174,7 @@ Klasör kuralları aşağıdaki gibidir:
 | lib/{tfm} | Derleme (`.dll`), belgeleri (`.xml`) ve simge (`.pdb`) dosyaları belirtilen hedef Framework bilinen ad (TFM) için | Derlemeleri başvuru olarak eklenir; `.xml` ve `.pdb` proje klasörlerine kopyalanır. Bkz: [birden çok hedef çerçeveyi destekleyen](supporting-multiple-target-frameworks.md) framework hedef özgü alt klasörleri oluşturmak için. |
 | Çalışma zamanları | Mimariye özel derleme (`.dll`), simge (`.pdb`) ve yerel kaynak (`.pri`) dosyaları | Derlemeleri başvuru olarak eklenir; diğer dosyalar proje klasörlerine kopyalanır. Bkz: [birden çok hedef çerçeveyi destekleyen](supporting-multiple-target-frameworks.md). |
 | içerik | İsteğe bağlı dosyalar | İçeriği proje kök dizinine kopyalanır. Düşünün **içerik** sonuçta paket tüketir hedef uygulama kökü olarak klasör. Paketi uygulamanın bir görüntüsünü Ekle olmasını */görüntüleri* klasörü, paketin içinde yerleştirin *içeriği/görüntüleri* klasör. |
-| derleme | MSBuild `.targets` ve `.props` dosyaları | Proje dosyasına (NuGet 2.5 +) otomatik olarak eklenen veya `project.lock.json` (NuGet 3.x+). |
+| derleme | MSBuild `.targets` ve `.props` dosyaları | Otomatik olarak proje dosyasına eklenen veya `project.lock.json` (NuGet 3.x+). |
 | araçlar | PowerShell komut dosyaları ve programları Paket Yöneticisi Konsolu'ndan erişilebilir | `tools` Klasörü eklenen `PATH` yalnızca Paket Yöneticisi konsolu için ortam değişkeni (özellikle *değil* için `PATH` projesi oluştururken MSBuild için belirlenen). |
 
 Klasör yapısı herhangi bir sayıda hedef çerçeve için derlemeleri herhangi bir sayıda içerdiğinden bu yöntem, birden çok çerçeveyi destekleyen paket oluştururken gereklidir 
@@ -349,9 +349,9 @@ Ardından `.nuspec` dosya, bu dosyaları başvurmak mutlaka `<files>` düğümü
 </package>
 ```
 
-MSBuild özellik ve hedefleri bir pakete dahil olmak üzere yalnızca bir özelliktir [NuGet 2.5 sürümlerine eklenen](../release-notes/NuGet-2.5.md#automatic-import-of-msbuild-targets-and-props-files), bu nedenle eklemeniz önerilir `minClientVersion="2.5"` özniteliğini `metadata` belirtmek için öğesi Paket kullanmak için gereken en düşük NuGet İstemcisi sürüm.
+MSBuild özellik ve hedefleri bir pakete dahil edildi [NuGet 2.5 ile sunulan](../release-notes/NuGet-2.5.md#automatic-import-of-msbuild-targets-and-props-files), bu nedenle eklemeniz önerilir `minClientVersion="2.5"` özniteliğini `metadata` için gereken en düşük NuGet İstemcisi sürüm belirtmek için öğesi Paket kullanabilir.
 
-NuGet 2.5 + sahip bir paketi yüklendiğinde `\build` dosyaları, bir MSBuild ekler `<Import>` işaret proje dosyasındaki öğeleri `.targets` ve `.props` dosyaları. (`.props` proje dosyası; en üstte eklenir `.targets` altındaki eklenir.)
+NuGet paketi ile yüklendiğinde `\build` dosyaları, bir MSBuild ekler `<Import>` işaret proje dosyasındaki öğeleri `.targets` ve `.props` dosyaları. (`.props` proje dosyası; en üstte eklenir `.targets` altındaki eklenir.)
 
 NuGet ile 3.x hedefleri projeye eklenmez ancak bunun yerine kullanılabilir hale getirilir `project.lock.json`.
 
@@ -441,7 +441,7 @@ Visual Studio'da veya normal kullanarak komut satırında el ile yüklemeleri ko
 Otomatik test için temel işlem aşağıdaki gibidir:
 
 1. Kopya `.nupkg` dosyasını bir yerel klasöre.
-1. Paket kaynaklarınızın kullanarak klasörü Ekle `nuget sources -name <name> -source <path>` komutu (bkz [nuget kaynakları](../tools/cli-ref-sources.md)). Yalnızca bu yerel kaynağı kez verilen herhangi bir bilgisayarda ayarlamanız unutmayın.
+1. Paket kaynaklarınızın kullanarak klasörü Ekle `nuget sources add -name <name> -source <path>` komutu (bkz [nuget kaynakları](../tools/cli-ref-sources.md)). Yalnızca bu yerel kaynağı kez verilen herhangi bir bilgisayarda ayarlamanız unutmayın.
 1. Bu kaynak kullanarak paketi yükleyin `nuget install <packageID> -source <name>` nerede `<name>` verilen kaynak adıyla eşleşen `nuget sources`. Kaynağını belirterek, bu kaynak paketinin yüklü olduğu sağlar.
 1. Dosyaların doğru yüklü olduğunu denetlemek için dosya sistemini inceleyin.
 

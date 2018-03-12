@@ -13,23 +13,23 @@ ms.reviewer:
 - karann-msft
 - unniravindranathan
 - anangaur
-ms.openlocfilehash: 8bcf054a497e1069a11f96ba675853fb0f2ed667
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.openlocfilehash: 47d02d160a7e40f323edcbd87e2c8642905b8ddf
+ms.sourcegitcommit: df21fe770900644d476d51622a999597a6f20ef8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="transforming-source-code-and-configuration-files"></a>Kaynak kodu ve yapılandırma dosyaları dönüştürme
 
-Kullanarak projeleri için `packages.config`, NuGet kaynak kodu dönüşümleri yapma yeteneği destekler ve paket yapılandırma dosyaları yükleyip kez kaldırın. Bir paketi kullanarak bir projeye yüklendiğinde dönüşümleri uygulanmaz [PackageReference](../consume-packages/package-references-in-project-files.md).
+Kullanarak projeleri için `packages.config`, NuGet kaynak kodu dönüşümleri yapma yeteneği destekler ve paket yapılandırma dosyaları yükleyip kez kaldırın. Bir paketi kullanarak bir projeye yüklendiğinde yalnızca kaynak kodu dönüşümleri uygulanır [PackageReference](../consume-packages/package-references-in-project-files.md).
 
-A **kaynak kodu dönüştürme** paketin dosyalarında tek yönlü belirteci değiştirme uygulandığı `content` paketi yüklendiğinde burada belirteçleri Visual Studio'ya başvurmak klasörü [proje özellikleri](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7) . Bu projenin ad alanına bir dosya eklemek için ya da genellikle içine geçecek kod özelleştirmenizi sağlar `global.asax` ASP.NET projesinde.
+A **kaynak kodu dönüştürme** paketin dosyalarında tek yönlü belirteci değiştirme uygulandığı `content` veya `contentFiles` klasörü (`content` kullanan müşteriler için `packages.config` ve `contentFiles` için`PackageReference`) paketi yüklendiğinde, burada belirteçleri başvurmak için Visual Studio [proje özellikleri](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7). Bu projenin ad alanına bir dosya eklemek için ya da genellikle içine geçecek kod özelleştirmenizi sağlar `global.asax` ASP.NET projesinde.
 
 A **config dosya dönüşümü** , bir hedef projesinde gibi zaten mevcut dosyaların değiştirmenizi sağlar `web.config` ve `app.config`. Örneğin, bir öğe eklemek paketinizi gereken `modules` yapılandırma dosyası bölümünde. Bu dönüştürme için yapılandırma dosyalarını eklemek için bölümlerde paketinde özel dosyaları ekleyerek yapılır. Bir paketi kaldırıldığında, aynı değişiklikleri daha sonra bu iki yönlü bir dönüştürme yapma ters çevrilir.
 
 ## <a name="specifying-source-code-transformations"></a>Kaynak kodu dönüşümleri belirtme
 
-1. Paketten projeye eklemek istediğiniz dosya paketin içinde bulunduğu olmalıdır `content` klasör. Adlı bir dosya isterseniz, örneğin, `ContosoData.cs` yüklenmesi için bir `Models` klasörü hedef projesinin olmalıdır içinde `content\Models` paket klasöründe.
+1. Paketten projeye eklemek istediğiniz dosya paketin içinde bulunduğu olmalıdır `content` ve `contentFiles` klasörler. Adlı bir dosya isterseniz, örneğin, `ContosoData.cs` yüklenmesi için bir `Models` klasörü hedef projesinin olmalıdır içinde `content\Models` ve `contentFiles\{lang}\{tfm}\Models` paket klasörlerde.
 
 1. Yükleme sırasında belirteci değiştirme uygulamak için NuGet istemek üzere append `.pp` kaynak kodu dosya adı. Yükleme tamamlandıktan sonra dosya değil olacaktır `.pp` uzantısı.
 
@@ -60,7 +60,7 @@ A **config dosya dönüşümü** , bir hedef projesinde gibi zaten mevcut dosyal
 İzleyen bölümlerde açıklandığı gibi iki yolla yapılandırma dosyası dönüşümleri yapılabilir:
 
 - Dahil `app.config.transform` ve `web.config.transform` , paketin dosyalarında `content` klasörü, burada `.transform` uzantısı, bu dosyaları paketi yüklendiğinde var olan yapılandırma dosyaları ile birleştirmek için bir XML içeriyor NuGet söyler. Bir paketi kaldırıldığında, aynı XML kaldırılır.
-- (NuGet 2.6 ve sonrası) Dahil `app.config.install.xdt` ve `web.config.install.xdt` , paketin dosyalarında `content` klasörünü kullanarak [XDT sözdizimi](https://msdn.microsoft.com/library/dd465326.aspx) istediğiniz değişiklikleri açıklamak için. Bu seçenek ile de ekleyebilirsiniz bir `.uninstall.xdt` paket projeden kaldırıldığında değişiklikleri geri almak için dosya.
+- Dahil `app.config.install.xdt` ve `web.config.install.xdt` , paketin dosyalarında `content` klasörünü kullanarak [XDT sözdizimi](https://msdn.microsoft.com/library/dd465326.aspx) istediğiniz değişiklikleri açıklamak için. Bu seçenek ile de ekleyebilirsiniz bir `.uninstall.xdt` paket projeden kaldırıldığında değişiklikleri geri almak için dosya.
 
 > [!Note]
 > Dönüştürmeleri için uygulanmaz `.config` Visual Studio'da bir bağlantı olarak başvurulan dosyaları.
@@ -120,7 +120,7 @@ Yükleme ve paket kaldırma etkisini görmek için Visual Studio'da yeni bir ASP
 
 ### <a name="xdt-transforms"></a>XDT dönüşümler
 
-NuGet 2.6 ve daha sonra yapılandırma dosyalarını kullanarak değiştirebilirsiniz [XDT sözdizimi](https://msdn.microsoft.com/library/dd465326.aspx). Ayrıca belirteçleri ile değiştir NuGet olabilir [proje özellikleri](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7) içinde özellik adı ekleyerek `$` sınırlayıcı (büyük küçük harf duyarsız).
+Yapılandırma dosyaları kullanılarak değiştirebileceğiniz [XDT sözdizimi](https://msdn.microsoft.com/library/dd465326.aspx). Ayrıca belirteçleri ile değiştir NuGet olabilir [proje özellikleri](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7) içinde özellik adı ekleyerek `$` sınırlayıcı (büyük küçük harf duyarsız).
 
 Örneğin, aşağıdaki `app.config.install.xdt` dosya ekler bir `appSettings` öğesine `app.config` içeren `FullPath`, `FileName`, ve `ActiveConfigurationSettings` projeden değerler:
 

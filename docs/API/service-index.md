@@ -16,11 +16,11 @@ keywords: "NuGet API giriş noktası, NuGetA PI uç nokta bulma"
 ms.reviewer:
 - karann
 - unnir
-ms.openlocfilehash: 9d0bb421c163520df4a1f0e9f3f71aab823aace3
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 8de0bc15edc358d091d84da54b8b67c085f29645
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="service-index"></a>Hizmet dizini
 
@@ -30,12 +30,11 @@ nuget.org Hizmeti dizini adresindedir `https://api.nuget.org/v3/index.json`.
 
 ## <a name="versioning"></a>Sürüm oluşturma
 
-`version` Hizmeti dizini şema sürümü gösteren bir SemVer 2.0.0 parseable sürüm dizesi değeridir.
-Sürüm dizesi bir ana sürüm numarası olan API olması zorunlu tutulmuştur `3`. Hizmet dizin şemasına yapılan bölünemez değişiklikler gibi sürüm dizesinin alt sürümü artırılır.
+`version` Hizmeti dizini şema sürümü gösteren bir SemVer 2.0.0 parseable sürüm dizesi değeridir. Sürüm dizesi bir ana sürüm numarası olan API olması zorunlu tutulmuştur `3`. Hizmet dizin şemasına yapılan bölünemez değişiklikler gibi sürüm dizesinin alt sürümü artırılır.
 
 Her hizmet dizindeki bağımsız olarak hizmet dizin şeması sürümünden sürümlü kaynaktır.
 
-Geçerli şema sürümü `3.0.0-beta.1`.
+Geçerli şema sürümü `3.0.0`. `3.0.0` Sürümü eski işlevsel olarak eşdeğer `3.0.0-beta.1` sürüm ancak kararlı, tanımlı şemanın daha net bir şekilde iletişim kurar tercih edilen olması gerekir.
 
 ## <a name="http-methods"></a>HTTP yöntemleri
 

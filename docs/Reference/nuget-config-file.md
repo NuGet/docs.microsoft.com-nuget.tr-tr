@@ -12,11 +12,11 @@ keywords: "NuGet.Config dosyasındaki, NuGet yapılandırma başvurusu, NuGet ya
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: df602cb561a19f0eac085695de80db1fbaa1a313
-ms.sourcegitcommit: 33436d122873249dbb20616556cd8c6783f38909
+ms.openlocfilehash: c76ebcb06adc5e5b862647de6b6f4e19bde87b91
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="nugetconfig-reference"></a>NuGet.Config başvurusu
 
@@ -87,7 +87,7 @@ Bir paketi yüklendiğinde NuGet otomatik bağlama yeniden yönlendirmeleri yapa
 
 ## <a name="packagerestore-section"></a>packageRestore bölümü
 
-*2.7 + göz ardı*
+*Tüm geçerli sürümlerinde (2.7 +) göz ardı*
 
 Denetimleri paket geri yüklemesi sırasında oluşturur.
 
@@ -157,7 +157,7 @@ Kullanıcı adları ve parolalar genellikle ile belirtilen kaynakları için dep
 | Parola | Kaynağı şifrelenmiş parolası. |
 | cleartextpassword | Kaynak şifrelenmemiş parola. |
 
-Örnek:
+**Örnek:**
 
 Yapılandırma dosyasındaki `<packageSourceCredentials>` öğesi her bir geçerli kaynak adı için alt düğümleri içerir (adında boşluk ile değiştirilir `_x0020+`). Diğer bir deyişle, "Contoso" ve "Test kaynağı" adlı kaynakları için yapılandırma dosyası aşağıdaki şifrelenmiş parolalar kullanırken içerir:
 
@@ -213,7 +213,7 @@ Depolar kümesiyle olarak API anahtar kimlik doğrulaması kullanan kaynakları 
 | --- | --- |
 | (kaynak adı) | Kaynak devre dışı olup olmadığını gösteren bir Boole değeri. |
 
-Örnek:
+**Örnek:**
 
 ```xml
 <disabledPackageSources>

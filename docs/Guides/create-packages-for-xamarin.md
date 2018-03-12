@@ -12,11 +12,11 @@ keywords: "paketler Xamarin, platformlar arası paketleri için bir paket oluşt
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 2f0131e4f447e2e0ab5a1d17e476a425eaa01b61
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 185a0e1e424d1ceb2d8bacbcc1502b38412c4c41
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-cross-platform-packages"></a>Platformlar arası paketleri oluşturma
 
@@ -24,14 +24,14 @@ Platformlar arası paket çalışma zamanı işletim sistemine bağlı iOS, Andr
 
 Bu kılavuzda iOS, Android ve Windows mobil projelerinde kullanılan bir platformlar arası NuGet paketi oluşturun.
 
-1. [Ön koşullar](#pre-requisites)
+1. [Önkoşulları](#prerequisites)
 1. [Proje yapısı ve Özet kodu oluşturma](#create-the-project-structure-and-abstraction-code)
 1. [Platforma özgü kod yazma](#write-your-platform-specific-code)
 1. [Oluşturun ve .nuspec dosyası güncelleştirin](#create-and-update-the-nuspec-file)
 1. [Paket bileşeni](#package-the-component)
 1. [İlgili Konular](#related-topics)
 
-## <a name="pre-requisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 1. Evrensel Windows Platformu (UWP) ve Xamarin ile Visual Studio 2015. Community edition ücretsiz yükleyin [visualstudio.com](https://www.visualstudio.com/); Elbette Professional ve Enterprise sürümleri de kullanabilirsiniz. UWP ve Xamarin Araçları eklemek için bir özel yükleme seçeneğini belirleyin ve uygun seçenekleri denetleyin.
 1. NuGet CLI. Nuget.exe en son sürümünü indirme [nuget.org/downloads](https://nuget.org/downloads), tercih ettiğiniz bir konuma kaydetme. Zaten yoksa bu konum, PATH ortam değişkenine ekleyin.
@@ -271,7 +271,7 @@ Paketinizi diğer geliştiricileri için kullanılabilir yapmak için yönergele
 ## <a name="related-topics"></a>İlgili konular
 
 - [Nuspec başvurusu](../reference/nuspec.md)
-- [Simge paketleri](../create-packages/symbol-packages.md)
+- [Sembol paketleri](../create-packages/symbol-packages.md)
 - [Paket sürümü oluşturma](../reference/package-versioning.md)
 - [Birden çok .NET Framework sürümleri destekleme](../create-packages/supporting-multiple-target-frameworks.md)
 - [MSBuild özellik ve hedefleri bir pakete dahil etme](../create-packages/creating-a-package.md#including-msbuild-props-and-targets-in-a-package)

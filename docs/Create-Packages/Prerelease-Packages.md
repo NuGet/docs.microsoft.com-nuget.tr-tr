@@ -12,11 +12,11 @@ keywords: "sürüm oluşturma, NuGet paketini sürüm oluşturma, NuGet yayın �
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: f07b4a0428685b036640a7153190fd8454885608
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 03f744a96841a8c49d9f1dde89620b85de968d6f
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="building-pre-release-packages"></a>Yayın öncesi paketleri oluşturma
 
@@ -30,7 +30,7 @@ Yazılım sürüm yaşam döngüsü desteklemek için NuGet 1.6 ve üzeri yayın
 
 Bu tür sürümlerini iki yolla belirtebilirsiniz:
 
-- `.nuspec`Dosya: semantik Sürüm soneki dahil `version` öğe:
+- `.nuspec` Dosya: semantik Sürüm soneki dahil `version` öğe:
 
     ```xml
     <version>1.0.1-alpha</version>
@@ -79,7 +79,7 @@ Bu durum dikkate alınarak, aşağıdaki gibi tanınan adlandırma kurallarına 
 - `-rc`: Sürüm Adayı, genellikle büyük olasılıkla son bir yayın (stable) önemli hatalar ortaya çıkan sürece.
 
 > [!Note]
-> NuGet desteklemiyor [SemVer uyumlu (v2.0.0)](http://semver.org/spec/v2.0.0.html) yayın öncesi olarak noktalı gösterim ile numaraları `1.0.1-build.23`. Bir form gibi kullanabilirsiniz `1.0.1-build23` ancak bu her zaman bir yayım öncesi sürümü olarak kabul edilir.
+> NuGet 4.3.0+ destekleyen [anlamsal sürüm oluşturma v2.0.0](http://semver.org/spec/v2.0.0.html), olarak noktalı gösterim ön sürüm numaralarıyla destekleyen `1.0.1-build.23`. Noktalı gösterim 4.3.0 önce NuGet sürümleriyle desteklenmiyor. NuGet önceki sürümlerde gibi bir form kullanabilir `1.0.1-build23` ancak bu her zaman bir yayım öncesi sürümü olarak kabul.
 
 Ancak, kullanan ne olursa olsun sonekleri NuGet bunları öncelik ters alfabetik sırada verecektir:
 

@@ -12,17 +12,17 @@ keywords: "NuGet paketini oluşturma, NuGet paketi yayımlama, NuGet öğretici 
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 32cbe5dea180daa5b9d21102b996bf160d4ee511
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.openlocfilehash: 086de5378fe4ae928e6bd00cd3a87afd7c366a01
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-and-publish-a-package"></a>Oluşturma ve bir paket yayımlama
 
 Bir .NET sınıf kitaplığı'ndan bir NuGet paketi oluşturmak ve nuget.org kullanarak yayımlamak için basit bir işlemdir `dotnet` komut satırı arabirimi (CLI).
 
-## <a name="pre-requisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 1. Yükleme [.NET Core SDK](https://www.microsoft.com/net/download/), içeren `dotnet` CLI.
 
@@ -106,3 +106,4 @@ Bulduktan sonra bir `.nupkg` dosyası, yayımlama, nuget.org kullanmaya `dotnet 
 - [Birden çok hedef çerçeveyi desteği](../create-packages/supporting-multiple-target-frameworks.md)
 - [Paket sürümü oluşturma](../reference/package-versioning.md)
 - [Yerelleştirilmiş paketler oluşturma](../create-packages/creating-localized-packages.md)
+- [İmzalama paketleri](../create-packages/Sign-a-package.md)

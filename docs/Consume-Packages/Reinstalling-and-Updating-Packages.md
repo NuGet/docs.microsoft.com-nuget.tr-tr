@@ -13,11 +13,11 @@ keywords: "NuGet paketi yüklemesi, NuGet paketi yeniden, NuGet paket geri yükl
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c2d62f34819138c51bd9ccc698a8a2495a45824d
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.openlocfilehash: e2875630b24fbe04fc7bcab52335d849e54160de
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>Yeniden yükleme ve güncelleştirme paketleri
 
@@ -41,7 +41,7 @@ Bu makalede:
 1. **Paket geri yüklendikten sonra başvuruları bozuk**: Proje açılır ve NuGet paketleri, ancak hala bozuk bakın başvuruları geri, her bu paketlerin yeniden yüklemeyi deneyin.
 1. **Proje nedeniyle silinen dosyaların bozulur**: NuGet engellemez, projenizin bölün ve yanlışlıkla bir paketten yüklü içeriği değiştirmek kolaydır, paketleri eklenen öğeler kaldırılıyor. Proje geri yüklemek için etkilenen paketler yeniden yükleyin.
 1. **Paket güncelleştirme ihlal proje**: bir paket için bir güncelleştirme proje bozarsa, hata da güncelleştirilmiş bağımlılık paketi tarafından genellikle neden olur. Bağımlılık durumunu geri yüklemek için özel pakette yeniden yükleyin.
-1. **Proje yeniden hedefleme veya yükseltme**: Bu proje güncellendiyse yükseltilmiş veya kaldırılmış ve paketi hedef framework değişikliği nedeniyle yeniden gerektiriyorsa yararlı olabilir. NuGet 2.7 ve bu gibi durumlarda hemen sonra projeyi yeniden hedefleme ve sonraki derleme uyarıları bir derleme hatası paketin yeniden yüklenmesi gerekebilir size bildirmek sonraki gösterir. Proje yükseltme için NuGet proje yükseltme günlüğüne bir hata gösterir.
+1. **Proje yeniden hedefleme veya yükseltme**: Bu proje güncellendiyse yükseltilmiş veya kaldırılmış ve paketi hedef framework değişikliği nedeniyle yeniden gerektiriyorsa yararlı olabilir. Sonraki derleme uyarıları paketin yeniden yüklenmesi gerekebilir size bildirmek ve bu gibi durumlarda bir derleme hatası projeyi yeniden hedefleme hemen sonra NuGet gösterir. Proje yükseltme için NuGet proje yükseltme günlüğüne bir hata gösterir.
 1. **Geliştirme sırasında bir paket yeniden**: paketi yazarları çoğunlukla gerekir geliştirme paket aynı sürümünü yeniden yüklemek davranış test etmek için. `Install-Package` Komutunu kullanın, bir yeniden yükleme zorlamak için bir seçenek sağlamaz `Update-Package -reinstall` yerine.
 
 ## <a name="constraining-upgrade-versions"></a>Kısıtlayan yükseltme sürümleri

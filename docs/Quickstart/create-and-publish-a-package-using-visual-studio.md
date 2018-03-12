@@ -12,17 +12,17 @@ keywords: "NuGet paketini oluşturma, NuGet paketi yayımlama, NuGet öğretici,
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: a4d60fdc0f27f9c4080266e212ac1cfe470ba925
-ms.sourcegitcommit: eabd401616a98dda2ae6293612acb3b81b584967
+ms.openlocfilehash: 75cc425263447e2ca90db705c3bf314250dacb06
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-and-publish-a-package-using-visual-studio"></a>Oluşturma ve Visual Studio kullanarak bir paket yayımlama
 
 Visual Studio'da .NET sınıf kitaplığı NuGet paketi oluşturun ve ardından CLI aracını kullanarak nuget.org yayımlamak için basit bir işlemdir.
 
-## <a name="pre-requisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 1. Visual Studio 2017 ' herhangi bir sürümünü yüklemek [visualstudio.com](https://www.visualstudio.com/) herhangi biriyle. NET ilgili iş yükü. .NET iş yükü yüklendikten sonra visual Studio 2017 otomatik olarak NuGet yetenekleri içerir.
 

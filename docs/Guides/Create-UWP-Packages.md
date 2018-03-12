@@ -12,11 +12,11 @@ keywords: "paketler UWP, Windows çalışma zamanı bileşenleri için bir paket
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6787704d41364a165270d56e8980f24d311b07b3
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.openlocfilehash: af650b6cd67855a67d0f49cdbd9f510bf90a60f6
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-uwp-packages"></a>UWP paketleri oluşturma
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 02/20/2018
 
 Bu kılavuzda hem yönetilen hem de yerel projeleri kullanılabilecek (XAML denetim dahil) bir yerel UWP bileşeni ile bir NuGet paketi oluşturun.
 
-## <a name="pre-requisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 1. Visual Studio 2017 veya Visual Studio 2015. 2017 Community edition ücretsiz yükleyin [visualstudio.com](https://www.visualstudio.com/); Professional ve Enterprise sürümleri de kullanabilirsiniz.
 

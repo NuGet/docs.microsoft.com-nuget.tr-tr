@@ -12,11 +12,11 @@ keywords: "bir paket, .NET standart paketler, .NET standart eşleme tablosu olu�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 07624f524e6cfa77bdf182271c47cf725ef05c19
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.openlocfilehash: c15ffd709856fc9d5b9a9fb2fe87c0029b82650d
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-net-standard-packages-with-visual-studio-2015"></a>Visual Studio 2015 ile .NET standart paketleri oluşturma
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 02/20/2018
 
 Bu kılavuzda .NET standart kitaplığı 1.4 hedefleyen bir NuGet paketi oluşturmada size anlatılmaktadır. Bu tür bir kitaplığı .NET Framework 4.6.1, Evrensel Windows platformu 10, .NET Core ve Mono/Xamarin çalışır. Ayrıntılar için bkz [.NET standart eşleme tablosu](#net-standard-mapping-table) bu konuda daha sonra.
 
-## <a name="pre-requisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 1. Visual Studio 2015 Güncelleştirme 3
 1. [.NET Core SDK](https://www.microsoft.com/net/download/)

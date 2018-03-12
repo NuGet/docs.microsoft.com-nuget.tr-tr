@@ -12,11 +12,11 @@ keywords: "NuGet paket geri yüklemesi, NuGet ve TFS, NuGet ve VSTS, NuGet yapı
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b18cdab2c32ad135c0fc07fa0cf976ee33880a19
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.openlocfilehash: 9e3ef6e3bcc55705315fcb6ccf3e917963c62250
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="setting-up-package-restore-with-team-foundation-build"></a>Paket geri yüklemesi Team Foundation Build ile ayarlama
 
@@ -41,7 +41,7 @@ Bu kullanıyorsanız özellikle ilginç bir [dağıtılmış sürüm denetim](ht
 
 NuGet desteklenen [paketleri geri](../consume-packages/package-restore.md) derleme için uzun bir parçası olarak şimdi saat. Önceki uygulaması proje oluşturulurken NuGet paketleri geri çünkü derleme işlemini genişletme istediğiniz paketler için tavuk ve Yumurta sorunu yaşıyor. Ancak, MSBuild yapı oluşturma sırasında genişletme izin vermez; bir karşıdır bu MSBuild bir sorunu ancak bu devralınan bir sorun olduğunu savunabilir. Genişletmek için gereken hangi en boy bağlı olarak, paketi geri yüklemesi zamanına göre kaydetmek için çok geç olabilir.
 
-Bu sorunun kurut paketler derleme işlemindeki ilk adım olarak geri emin yapılmasıdır. NuGet 2.7 + bu basitleştirilmiş bir komut satırı kolaylaştırır:
+Bu sorunun kurut paketler derleme işlemindeki ilk adım olarak geri emin olmak:
 
 ```cli
 nuget restore path\to\solution.sln

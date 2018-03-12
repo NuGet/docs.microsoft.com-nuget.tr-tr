@@ -12,11 +12,11 @@ keywords: "DotNet.exe CLI, nuget.exe CLI, NuGet istemcisi araçları, NuGet Pake
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: ec8de83c9e05981016215e487888ab68a616d977
-ms.sourcegitcommit: dbcb872ec10430e1d761f34b851650e31c87a96d
+ms.openlocfilehash: 462557e939e769f26fe05d6f9e2994eaf43c6e11
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="installing-nuget-client-tools"></a>NuGet istemci araçlarını yükleme
 
@@ -28,7 +28,7 @@ Bir paket tüketici ya da Oluşturucu, olarak NuGet ile çalışmak için kullan
 |:------------- |:-------------|:-----|
 | [dotnet.exe](#dotnetexe-cli) | .NET Core SDK'sı ile dahil ve tüm platformlarda core NuGet özellikleri sağlar. | [.NET Core SDK](https://www.microsoft.com/net/download/) |
 | [nuget.exe](#nugetexe-cli) | Windows ve çoğu özellikleri altında çalışan tüm NuGet özellikleri sağlayan [Mono](http://www.mono-project.com/docs/getting-started/install/) Mac ve Linux üzerinde. | [nuget.exe](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe) |
-| [Visual Studio](#visual-studio) | NuGet Paket Yöneticisi kullanıcı Arabirimi ve Paket Yöneticisi konsolu üzerinden özellikleri sağlar. | [Visual Studio 2017](https://www.visualstudio.com/downloads/) |
+| [Visual Studio](#visual-studio) | NuGet Paket Yöneticisi kullanıcı Arabirimi ve Paket Yöneticisi konsolu üzerinden özellikleri sağlar. ile birlikte verilen. NET ilgili iş yükleri. | [Visual Studio 2017](https://www.visualstudio.com/downloads/) |
 
 [MSBuild CLI](reference/msbuild-targets.md) da geri yükleme ve yapı sunucularda öncelikle faydalı olduğu paketlerini oluşturma olanağı sağlar. MSBuild, aksi takdirde NuGet ile çalışmak için genel amaçlı bir aracı değildir.
 
@@ -38,7 +38,7 @@ Bir paket tüketici ya da Oluşturucu, olarak NuGet ile çalışmak için kullan
 
 ### <a name="dotnetexe-cli"></a>dotnet.exe CLI
 
-.NET Core 2.0 CLI `dotnet.exe`, çalışan tüm platformlarda (Windows, Mac ve Linux) ve yükleme, geri yükleme ve paketleri yayımlama gibi temel NuGet özellikleri sağlar. 'dotnet'.NET Core proje dosyalarını doğrudan tümleştirme sağlar (gibi `.csproj`), çoğu senaryoda yararlı olduğu. `dotnet`Ayrıca her platform için doğrudan yerleşik olarak bulunur ve Mono yüklemenizi gerektirmez.
+.NET Core 2.0 CLI `dotnet.exe`, çalışan tüm platformlarda (Windows, Mac ve Linux) ve yükleme, geri yükleme ve paketleri yayımlama gibi temel NuGet özellikleri sağlar. 'dotnet'.NET Core proje dosyalarını doğrudan tümleştirme sağlar (gibi `.csproj`), çoğu senaryoda yararlı olduğu. `dotnet` Ayrıca her platform için doğrudan yerleşik olarak bulunur ve Mono yüklemenizi gerektirmez.
 
 Yükleme:
 
@@ -67,10 +67,10 @@ Yükleme:
 - Mac için Visual Studio: bazı NuGet özellikleri doğrudan yerleşiktir. Bkz: [dahil olmak üzere bir NuGet paketini projenize](/visualstudio/mac/nuget-walkthrough) kılavuz. Diğer özellikler için kullanmak `dotnet.exe` veya `nuget.exe` CLI araçlarını.
 
 - Visual Studio Windows: **NuGet Paket Yöneticisi** Visual Studio 2012 ile birlikte sunulan ve üzerinde desteklenir. Paket Yöneticisi sağlar [Paket Yöneticisi kullanıcı Arabirimi](tools/package-manager-ui.md) ve [Paket Yöneticisi Konsolu](tools/package-manager-console.md), aracılığıyla NuGet işlemlerinin çoğu çalıştırabilirsiniz.
+  - Visual Studio 2017 yükleyici .NET kullanan herhangi bir iş yükü ile NuGet Paket Yöneticisi'ni içerir. Ayrı olarak yüklemeniz ya da Paket Yöneticisi'nin yüklü olduğunu doğrulamak için Visual Studio 2017 yükleyiciyi çalıştırın ve altında seçeneğini **bileşenleri tek tek > kod Araçlar > NuGet Paket Yöneticisi**.
   - Paket Yöneticisi kullanıcı Arabirimi ve Konsolu Windows Visual Studio benzersizdir. Bunlar şu anda Mac için Visual Studio üzerinde kullanılabilir değil.
   - Visual Studio otomatik olarak içermez `nuget.exe` CLI, daha önce açıklandığı gibi ayrı olarak yüklenmesi gerekir.
   - Paket Yöneticisi Konsolu komutları iş yalnızca Visual Studio'dan Windows ve diğer PowerShell ortamlar içinde değil.
-  - Visual Studio 2017 yükleyici .NET kullanan herhangi bir iş yükü ile NuGet Paket Yöneticisi'ni içerir. Ayrı olarak yüklemeniz ya da Paket Yöneticisi'nin yüklü olduğunu doğrulamak için Visual Studio 2017 yükleyiciyi çalıştırın ve altında seçeneğini **bileşenleri tek tek > kod Araçlar > NuGet Paket Yöneticisi**.
   - Ve önceki sürümleri, Visual Studio 2010 için "NuGet Paket Yöneticisi için Visual Studio" uzantısını yükleyin.
   - Visual Studio 2013 ve 2015 için NuGet uzantıları da adresinden yüklenebilir [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html).
   - Yaklaşan NuGet özellikleri Önizleme istiyorsanız, yükleme [Visual Studio 2017 Önizleme](https://www.visualstudio.com/vs/preview/), Visual Studio, kararlı sürümleriyle-yana çalışır. Sorunları rapor veya önizlemeleri fikirleri paylaşmak için bir sorun açmak [NuGet GitHub deposunu](https://github.com/Nuget/Home/issues).
@@ -104,7 +104,7 @@ Yükleme:
 
 ### <a name="related-topics"></a>İlgili konular
 
-- [DotNet komutları](tools/dotnet-commands.md)
+- [dotnet komutları](tools/dotnet-commands.md)
 - [NuGet CLI başvurusu](tools/nuget-exe-cli-reference.md)
 - [Paket Yöneticisi kullanıcı Arabirimi başvurusu](tools/package-manager-ui.md)
 - [Paket Yöneticisi konsolu başvurusu](tools/package-manager-console.md)

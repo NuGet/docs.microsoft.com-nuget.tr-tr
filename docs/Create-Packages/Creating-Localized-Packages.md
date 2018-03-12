@@ -12,18 +12,18 @@ keywords: "NuGet paket yerelleştirme, yerelleştirilmiş paketleri, NuGet yerel
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 1ce8cff07bf629fcdeeaace901a185f2446b077a
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: 5946ba6b43d3c418a1624aeb27d12b385d66b2fb
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="creating-localized-nuget-packages"></a>Yerelleştirilmiş NuGet paketleri oluşturma
 
 Bir kitaplık yerelleştirilmiş sürümlerini oluşturmanın iki yolu vardır:
 
 1. Tüm yerelleştirilmiş kaynaklar derlemeleri tek bir paket içerir.
-1. Ayrı yerelleştirilmiş uydu paketleri (NuGet 1.8 ve üzeri) kuralları katı bir dizi izleyerek oluşturun.
+1. Ayrı yerelleştirilmiş uydu paketleri kuralları katı bir dizi izleyerek oluşturun.
 
 Her iki yöntem aşağıdaki bölümlerde açıklandığı gibi avantajları ve dezavantajları, sahiptir.
 

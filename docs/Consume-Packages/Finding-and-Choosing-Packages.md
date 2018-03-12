@@ -13,11 +13,11 @@ keywords: "NuGet paketini tüketim, NuGet paketi bulma, en iyi NuGet paketleri, 
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: fe49d3c5548da2bde1bfdf4515b49232f6933e18
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.openlocfilehash: 0c52fa237a663fcf227e8336534d344e432523b4
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Bulma ve projenizin NuGet paketlerini değerlendirme
 
@@ -73,11 +73,9 @@ NuGet Visual Studio ve NuGet CLI kullanırken, yayın öncesi sürümleri varsay
 
 ### <a name="native-c-packages"></a>Yerel C++ paketleri
 
-Visual Studio'da C++ projelerinde kullanılan yerel C++ paketler için NuGet (2.5 +) destekler. Böylece **NuGet paketlerini Yönet** projeleri için bağlam menüsü komutu tanıtır bir `native` hedef çerçevesi ve MSBuild tümleştirme sağlar.
+Visual Studio'da C++ projelerinde kullanılan yerel C++ paketler için NuGet destekler. Böylece **NuGet paketlerini Yönet** projeleri için bağlam menüsü komutu tanıtır bir `native` hedef çerçevesi ve MSBuild tümleştirme sağlar.
 
 Yerel paketleri bulunamadı [nuget.org](https://www.nuget.org/packages), kullanarak arama `tag:native`. Bu tür paketleri genellikle sağlamak `.targets` ve `.props` paket bir projeye eklendiğinde, NuGet otomatik olarak içeri aktarır dosyaları.
-
-Yerel paketleri oluşturma hakkında daha fazla bilgi için bkz: [yerel paketleri](../create-packages/native-packages.md).
 
 ## <a name="evaluating-packages"></a>Paketleri değerlendirme
 
