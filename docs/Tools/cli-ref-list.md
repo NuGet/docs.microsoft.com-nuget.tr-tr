@@ -12,46 +12,48 @@ keywords: "nuget listesi başvurusu, liste paketleri komutu"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 5a1f68aaffd26a0f903aa3a7a4a450a0121191c3
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 7e0945b9e64a15a839f62bde0a0ef8f3d83335d4
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="list-command-nuget-cli"></a><span data-ttu-id="686ab-104">LIST komutu (NuGet CLI)</span><span class="sxs-lookup"><span data-stu-id="686ab-104">list command (NuGet CLI)</span></span>
+# <a name="list-command-nuget-cli"></a><span data-ttu-id="9cc16-104">LIST komutu (NuGet CLI)</span><span class="sxs-lookup"><span data-stu-id="9cc16-104">list command (NuGet CLI)</span></span>
 
-<span data-ttu-id="686ab-105">**Uygulandığı öğe:** paket tüketim, yayımlama &bullet; **desteklenen sürümler:** tüm</span><span class="sxs-lookup"><span data-stu-id="686ab-105">**Applies to:** package consumption, publishing &bullet; **Supported versions:** all</span></span>
+<span data-ttu-id="9cc16-105">**Uygulandığı öğe:** paket tüketim, yayımlama &bullet; **desteklenen sürümler:** tüm</span><span class="sxs-lookup"><span data-stu-id="9cc16-105">**Applies to:** package consumption, publishing &bullet; **Supported versions:** all</span></span>
 
-<span data-ttu-id="686ab-106">Belirli bir kaynaktan alınan paketlerin listesini görüntüler.</span><span class="sxs-lookup"><span data-stu-id="686ab-106">Displays a list of packages from a given source.</span></span> <span data-ttu-id="686ab-107">Herhangi bir kaynağa belirtilirse, genel yapılandırma dosyasında tanımlanmış tüm kaynakları `%AppData%\NuGet\NuGet.Config`, kullanılır.</span><span class="sxs-lookup"><span data-stu-id="686ab-107">If no sources are specified, all sources defined in the global configuration file, `%AppData%\NuGet\NuGet.Config`, are used.</span></span> <span data-ttu-id="686ab-108">Varsa `NuGet.Config` herhangi bir kaynağa sonra belirtir `list` varsayılan akışı (nuget.org) kullanır.</span><span class="sxs-lookup"><span data-stu-id="686ab-108">If `NuGet.Config` specifies no sources, then `list` uses the default feed (nuget.org).</span></span>
+<span data-ttu-id="9cc16-106">Belirli bir kaynaktan alınan paketlerin listesini görüntüler.</span><span class="sxs-lookup"><span data-stu-id="9cc16-106">Displays a list of packages from a given source.</span></span> <span data-ttu-id="9cc16-107">Herhangi bir kaynağa belirtilirse, genel yapılandırma dosyasında tanımlanmış tüm kaynakları `%AppData%\NuGet\NuGet.Config` (Windows) veya `~/.nuget/NuGet/NuGet.Config`, kullanılır.</span><span class="sxs-lookup"><span data-stu-id="9cc16-107">If no sources are specified, all sources defined in the global configuration file, `%AppData%\NuGet\NuGet.Config` (Windows) or `~/.nuget/NuGet/NuGet.Config`, are used.</span></span> <span data-ttu-id="9cc16-108">Varsa `NuGet.Config` herhangi bir kaynağa sonra belirtir `list` varsayılan akışı (nuget.org) kullanır.</span><span class="sxs-lookup"><span data-stu-id="9cc16-108">If `NuGet.Config` specifies no sources, then `list` uses the default feed (nuget.org).</span></span>
 
-## <a name="usage"></a><span data-ttu-id="686ab-109">Kullanım</span><span class="sxs-lookup"><span data-stu-id="686ab-109">Usage</span></span>
+## <a name="usage"></a><span data-ttu-id="9cc16-109">Kullanım</span><span class="sxs-lookup"><span data-stu-id="9cc16-109">Usage</span></span>
 
 ```cli
 nuget list [search terms] [options]
 ```
 
-<span data-ttu-id="686ab-110">Burada isteğe bağlı arama terimleri görüntülenen listeyi filtrelemek.</span><span class="sxs-lookup"><span data-stu-id="686ab-110">where the optional search terms will filter the displayed list.</span></span> <span data-ttu-id="686ab-111">Arama terimleri paketler, etiketler ve paket açıklamaları adlarını uygulanır.</span><span class="sxs-lookup"><span data-stu-id="686ab-111">Search terms are applied to the names of packages, tags, and package descriptions.</span></span>
+<span data-ttu-id="9cc16-110">Burada isteğe bağlı arama terimleri görüntülenen listeyi filtrelemek.</span><span class="sxs-lookup"><span data-stu-id="9cc16-110">where the optional search terms will filter the displayed list.</span></span> <span data-ttu-id="9cc16-111">Nuget.org üzerinde kullanırken, olduğu gibi arama terimlerini paketler, etiketler ve paket açıklamaları adlarını uygulanır.</span><span class="sxs-lookup"><span data-stu-id="9cc16-111">Search terms are applied to the names of packages, tags, and package descriptions just as they are when using them on nuget.org.</span></span>
 
-## <a name="options"></a><span data-ttu-id="686ab-112">Seçenekler</span><span class="sxs-lookup"><span data-stu-id="686ab-112">Options</span></span>
+## <a name="options"></a><span data-ttu-id="9cc16-112">Seçenekler</span><span class="sxs-lookup"><span data-stu-id="9cc16-112">Options</span></span>
 
-| <span data-ttu-id="686ab-113">Seçenek</span><span class="sxs-lookup"><span data-stu-id="686ab-113">Option</span></span> | <span data-ttu-id="686ab-114">Açıklama</span><span class="sxs-lookup"><span data-stu-id="686ab-114">Description</span></span> |
+| <span data-ttu-id="9cc16-113">Seçenek</span><span class="sxs-lookup"><span data-stu-id="9cc16-113">Option</span></span> | <span data-ttu-id="9cc16-114">Açıklama</span><span class="sxs-lookup"><span data-stu-id="9cc16-114">Description</span></span> |
 | --- | --- |
-| <span data-ttu-id="686ab-115">AllVersions</span><span class="sxs-lookup"><span data-stu-id="686ab-115">AllVersions</span></span> | <span data-ttu-id="686ab-116">Bir paketin tüm sürümleri listelenir.</span><span class="sxs-lookup"><span data-stu-id="686ab-116">List all versions of a package.</span></span> <span data-ttu-id="686ab-117">Varsayılan olarak, yalnızca son Paket sürümü görüntülenir.</span><span class="sxs-lookup"><span data-stu-id="686ab-117">By default, only the latest package version is displayed.</span></span> |
-| <span data-ttu-id="686ab-118">ConfigFile</span><span class="sxs-lookup"><span data-stu-id="686ab-118">ConfigFile</span></span> | <span data-ttu-id="686ab-119">Uygulamak için NuGet yapılandırma dosyası.</span><span class="sxs-lookup"><span data-stu-id="686ab-119">The NuGet configuration file to apply.</span></span> <span data-ttu-id="686ab-120">Belirtilmezse, *%AppData%\NuGet\NuGet.Config* kullanılır.</span><span class="sxs-lookup"><span data-stu-id="686ab-120">If not specified, *%AppData%\NuGet\NuGet.Config* is used.</span></span> |
-| <span data-ttu-id="686ab-121">ForceEnglishOutput</span><span class="sxs-lookup"><span data-stu-id="686ab-121">ForceEnglishOutput</span></span> | <span data-ttu-id="686ab-122">*(3.5 +)*  Değişmez, İngilizce tabanlı kültürü kullanarak çalışacak şekilde nuget.exe zorlar.</span><span class="sxs-lookup"><span data-stu-id="686ab-122">*(3.5+)* Forces nuget.exe to run using an invariant, English-based culture.</span></span> |
-| <span data-ttu-id="686ab-123">Yardım</span><span class="sxs-lookup"><span data-stu-id="686ab-123">Help</span></span> | <span data-ttu-id="686ab-124">Bilgi komutu için yardımı görüntüler.</span><span class="sxs-lookup"><span data-stu-id="686ab-124">Displays help information for the command.</span></span> |
-| <span data-ttu-id="686ab-125">IncludeDelisted</span><span class="sxs-lookup"><span data-stu-id="686ab-125">IncludeDelisted</span></span> | <span data-ttu-id="686ab-126">*(3.2 +)*  Listelenmemiş paketleri görüntüler.</span><span class="sxs-lookup"><span data-stu-id="686ab-126">*(3.2+)* Display unlisted packages.</span></span> |
-| <span data-ttu-id="686ab-127">Etkileşimli olmayan</span><span class="sxs-lookup"><span data-stu-id="686ab-127">NonInteractive</span></span> | <span data-ttu-id="686ab-128">Kullanıcı girişi veya onayı için ister gizler.</span><span class="sxs-lookup"><span data-stu-id="686ab-128">Suppresses prompts for user input or confirmations.</span></span> |
-| <span data-ttu-id="686ab-129">Yayın öncesi</span><span class="sxs-lookup"><span data-stu-id="686ab-129">PreRelease</span></span> | <span data-ttu-id="686ab-130">Ön sürüm paketlerini listede içerir.</span><span class="sxs-lookup"><span data-stu-id="686ab-130">Includes prerelease packages in the list.</span></span> |
-| <span data-ttu-id="686ab-131">Kaynak</span><span class="sxs-lookup"><span data-stu-id="686ab-131">Source</span></span> | <span data-ttu-id="686ab-132">Aranacak paket kaynaklarının listesini belirtir.</span><span class="sxs-lookup"><span data-stu-id="686ab-132">Specifies a list of packages sources to search.</span></span> |
-| <span data-ttu-id="686ab-133">Ayrıntı Düzeyi</span><span class="sxs-lookup"><span data-stu-id="686ab-133">Verbosity</span></span> | <span data-ttu-id="686ab-134">Çıktıda görüntülenen ayrıntı miktarını belirtir: *normal*, *sessiz*, *ayrıntılı*.</span><span class="sxs-lookup"><span data-stu-id="686ab-134">Specifies the amount of detail displayed in the output: *normal*, *quiet*, *detailed*.</span></span> |
+| <span data-ttu-id="9cc16-115">AllVersions</span><span class="sxs-lookup"><span data-stu-id="9cc16-115">AllVersions</span></span> | <span data-ttu-id="9cc16-116">Bir paketin tüm sürümleri listelenir.</span><span class="sxs-lookup"><span data-stu-id="9cc16-116">List all versions of a package.</span></span> <span data-ttu-id="9cc16-117">Varsayılan olarak, yalnızca son Paket sürümü görüntülenir.</span><span class="sxs-lookup"><span data-stu-id="9cc16-117">By default, only the latest package version is displayed.</span></span> |
+| <span data-ttu-id="9cc16-118">ConfigFile</span><span class="sxs-lookup"><span data-stu-id="9cc16-118">ConfigFile</span></span> | <span data-ttu-id="9cc16-119">Uygulamak için NuGet yapılandırma dosyası.</span><span class="sxs-lookup"><span data-stu-id="9cc16-119">The NuGet configuration file to apply.</span></span> <span data-ttu-id="9cc16-120">Belirtilmezse, `%AppData%\NuGet\NuGet.Config` (Windows) veya `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) kullanılır.</span><span class="sxs-lookup"><span data-stu-id="9cc16-120">If not specified, `%AppData%\NuGet\NuGet.Config` (Windows) or `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) is used.</span></span>|
+| <span data-ttu-id="9cc16-121">ForceEnglishOutput</span><span class="sxs-lookup"><span data-stu-id="9cc16-121">ForceEnglishOutput</span></span> | <span data-ttu-id="9cc16-122">*(3.5 +)*  Değişmez, İngilizce tabanlı kültürü kullanarak çalışacak şekilde nuget.exe zorlar.</span><span class="sxs-lookup"><span data-stu-id="9cc16-122">*(3.5+)* Forces nuget.exe to run using an invariant, English-based culture.</span></span> |
+| <span data-ttu-id="9cc16-123">Yardım</span><span class="sxs-lookup"><span data-stu-id="9cc16-123">Help</span></span> | <span data-ttu-id="9cc16-124">Bilgi komutu için yardımı görüntüler.</span><span class="sxs-lookup"><span data-stu-id="9cc16-124">Displays help information for the command.</span></span> |
+| <span data-ttu-id="9cc16-125">IncludeDelisted</span><span class="sxs-lookup"><span data-stu-id="9cc16-125">IncludeDelisted</span></span> | <span data-ttu-id="9cc16-126">*(3.2 +)*  Listelenmemiş paketleri görüntüler.</span><span class="sxs-lookup"><span data-stu-id="9cc16-126">*(3.2+)* Display unlisted packages.</span></span> |
+| <span data-ttu-id="9cc16-127">Etkileşimli olmayan</span><span class="sxs-lookup"><span data-stu-id="9cc16-127">NonInteractive</span></span> | <span data-ttu-id="9cc16-128">Kullanıcı girişi veya onayı için ister gizler.</span><span class="sxs-lookup"><span data-stu-id="9cc16-128">Suppresses prompts for user input or confirmations.</span></span> |
+| <span data-ttu-id="9cc16-129">Yayın öncesi</span><span class="sxs-lookup"><span data-stu-id="9cc16-129">PreRelease</span></span> | <span data-ttu-id="9cc16-130">Ön sürüm paketlerini listede içerir.</span><span class="sxs-lookup"><span data-stu-id="9cc16-130">Includes prerelease packages in the list.</span></span> |
+| <span data-ttu-id="9cc16-131">Kaynak</span><span class="sxs-lookup"><span data-stu-id="9cc16-131">Source</span></span> | <span data-ttu-id="9cc16-132">Aranacak paket kaynaklarının listesini belirtir.</span><span class="sxs-lookup"><span data-stu-id="9cc16-132">Specifies a list of packages sources to search.</span></span> |
+| <span data-ttu-id="9cc16-133">Ayrıntı Düzeyi</span><span class="sxs-lookup"><span data-stu-id="9cc16-133">Verbosity</span></span> | <span data-ttu-id="9cc16-134">Çıktıda görüntülenen ayrıntı miktarını belirtir: *normal*, *sessiz*, *ayrıntılı*.</span><span class="sxs-lookup"><span data-stu-id="9cc16-134">Specifies the amount of detail displayed in the output: *normal*, *quiet*, *detailed*.</span></span> |
 
-<span data-ttu-id="686ab-135">Ayrıca bkz. [ortam değişkenleri](cli-ref-environment-variables.md)</span><span class="sxs-lookup"><span data-stu-id="686ab-135">Also see [Environment variables](cli-ref-environment-variables.md)</span></span>
+<span data-ttu-id="9cc16-135">Ayrıca bkz. [ortam değişkenleri](cli-ref-environment-variables.md)</span><span class="sxs-lookup"><span data-stu-id="9cc16-135">Also see [Environment variables](cli-ref-environment-variables.md)</span></span>
 
-## <a name="examples"></a><span data-ttu-id="686ab-136">Örnekler</span><span class="sxs-lookup"><span data-stu-id="686ab-136">Examples</span></span>
+## <a name="examples"></a><span data-ttu-id="9cc16-136">Örnekler</span><span class="sxs-lookup"><span data-stu-id="9cc16-136">Examples</span></span>
 
 ```cli
 nuget list
 
-nuget list -Verbosity detailed -AllVersions
+nuget list chinese korean -Verbosity detailed
+
+nuget list couchbase -AllVersions
 ```
