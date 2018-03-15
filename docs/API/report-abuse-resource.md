@@ -12,15 +12,15 @@ ms.topic: reference
 ms.prod: nuget
 ms.technology: 
 description: "Rapor kötüye URL şablonu rapor kötüye bağlantısı kendi kullanıcı Arabiriminde görüntülenecek istemcilerin sağlar."
-keywords: "NuGet API rapor kötüye, NuGet API dosya uyumlu, NuGet.org rapor URL şablonu"
+keywords: "NuGet API rapor kötüye, NuGet API dosya uyumlu, nuget.org rapor URL şablonu"
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: c12be294c71547fbce421c72aa091e0eee15aacd
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: efbe5704e6e6028f9382fea3fe5ec453f573a2e9
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="report-abuse-url-template"></a>Rapor kötüye URL şablonu
 
@@ -32,10 +32,10 @@ Paket içeriğini getirmek için kullanılan kaynak `ReportAbuseUriTemplate` kay
 
 Aşağıdaki `@type` değerler kullanılır:
 
-@typedeğer                       | Notlar
+@type Değer                       | Notlar
 --------------------------------- | -----
 ReportAbuseUriTemplate/3.0.0-beta | İlk sürüm
-ReportAbuseUriTemplate/3.0.0-rc   | Diğer adı`ReportAbuseUriTemplate/3.0.0-beta`
+ReportAbuseUriTemplate/3.0.0-rc   | Diğer adı `ReportAbuseUriTemplate/3.0.0-beta`
 
 ## <a name="url-template"></a>URL şablonu
 
@@ -58,7 +58,7 @@ Ad        | Tür    | Gerekli | Notlar
 `{id}`      | dize  | Yok       | Paket kimliği için bildirmek için
 `{version}` | dize  | Yok       | Paket sürümü için bildirmek için
 
-`{id}` Ve `{version}` sunucu uygulaması tarafından yorumlanan değerleri büyük/küçük harfe duyarlı olması gerekir ve sürüm olup olmadığı normalleştirmesini için önemli.
+`{id}` Ve `{version}` büyük küçük harfe duyarlı ve sürüm olup olmadığı normalleştirmesini için hassas sunucu uygulaması tarafından yorumlanan değerleri olmalıdır.
 
 Örneğin, nuget.org rapor kötüye şablonu şöyle görünür:
 

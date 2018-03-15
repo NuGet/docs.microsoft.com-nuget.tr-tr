@@ -12,11 +12,11 @@ keywords: "NuGet paketlerini kullanarak NuGet paketleri, NuGet paket referanslar
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b2cfe2d9b929d43f733fd28ba7336c0b04f718e6
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.openlocfilehash: ff905fec6d6af4fa40fd4331cb970121b6eb0879
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="install-and-use-a-package-in-visual-studio"></a>Yükleyin ve Visual Studio'da bir paket kullanın
 
@@ -40,7 +40,7 @@ NuGet paketlerini tür .NET projeye yüklenebilir. Bu kılavuz için basit bir e
 
 ## <a name="add-the-newtonsoftjson-nuget-package"></a>Newtonsoft.Json NuGet paketi ekleme
 
-Paketi yüklemek için Paket Yöneticisi kullanıcı Arabirimi veya Paket Yöneticisi konsolu kullanabilirsiniz.
+Paketi yüklemek için Paket Yöneticisi kullanıcı Arabirimi veya Paket Yöneticisi konsolu kullanabilirsiniz. Bir paketi yüklediğinizde, NuGet bağımlılık ya da proje dosyanızı kaydeder veya `packages.config` dosyası. Daha fazla bilgi için bkz: [paket tüketimi genel bakış ve iş akışı](../consume-packages/Overview-and-Workflow.md).
 
 ### <a name="package-manager-ui"></a>Paket Yöneticisi kullanıcı Arabirimi
 

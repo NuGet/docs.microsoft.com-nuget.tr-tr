@@ -12,18 +12,17 @@ keywords: "nuget başvuru kaynakları, komut kaynakları"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 1e8204f5e1bf712f65d8efb14ca2a4bd802e3f90
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.openlocfilehash: 139a9494e1ea898c90ce79d5990530fbe08642bd
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="sources-command-nuget-cli"></a>kaynakları komutu (NuGet CLI)
 
 **Uygulandığı öğe:** paket tüketim, yayımlama &bullet; **desteklenen sürümler:** tüm
 
-Kullanıcı kapsam yapılandırma dosyası veya belirtilen yapılandırma dosyasında bulunan kaynakları listesini yönetir. Kullanıcı kapsam yapılandırma dosyası şu konumdadır `%APPDATA%\NuGet\NuGet.Config` Windows hem de `~/.nuget/NuGet.Config` Mac/Linux içinde.
-
+Kullanıcı kapsam yapılandırma dosyası veya belirtilen yapılandırma dosyasında bulunan kaynakları listesini yönetir. Kullanıcı kapsam yapılandırma dosyası şu konumdadır `%APPDATA%\NuGet\NuGet.Config` (Windows) ve `~/.nuget/NuGet/NuGet.Config` (Mac/Linux).
 
 Nuget.org kaynak URL'sini olduğuna dikkat edin `https://api.nuget.org/v3/index.json`.
 
@@ -39,7 +38,7 @@ Burada `<operation>` biri *listesinde, eklemek, kaldırmak, etkinleştirme, devr
 
 | Seçenek | Açıklama |
 | --- | --- |
-| ConfigFile | Uygulamak için NuGet yapılandırma dosyası. Belirtilmezse, *%AppData%\NuGet\NuGet.Config* kullanılır. |
+| ConfigFile | Uygulamak için NuGet yapılandırma dosyası. Belirtilmezse, `%AppData%\NuGet\NuGet.Config` (Windows) veya `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) kullanılır.|
 | ForceEnglishOutput | *(3.5 +)*  Değişmez, İngilizce tabanlı kültürü kullanarak çalışacak şekilde nuget.exe zorlar. |
 | Biçimi | Uygulandığı öğe `list` eylem ve `Detailed` (varsayılan) veya `Short`. |
 | Yardım | Bilgi komutu için yardımı görüntüler. |

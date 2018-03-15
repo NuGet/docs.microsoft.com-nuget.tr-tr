@@ -13,11 +13,11 @@ keywords: "NuGet paket geri yüklemesi, NuGet paket yükleme paketini, paketleri
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 1980e00f865344927d105513f62923d14971b17b
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.openlocfilehash: 761ef86a70e0a681449dc9fe86d6a52ac2b19bb1
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="package-restore"></a>Paket geri yüklemesi
 
@@ -58,7 +58,7 @@ Paket geri yüklemesi aracılığıyla etkin öncelikle **Araçlar > Seçenekler
 
 ![Paket geri yükleme davranışları NuGet Paket Yöneticisi seçeneklerle denetleme](media/Restore-01-AutoRestoreOptions.png)
 
-- **Nuget'in eksik paketleri indirmesine izin ver**: değiştirerek denetimleri paket geri yükleme tüm forms `packageRestore/enabled` ayarı `%AppData%\NuGet\NuGet.Config` aşağıda gösterildiği gibi dosya.
+- **Nuget'in eksik paketleri indirmesine izin ver**: değiştirerek denetimleri paket geri yükleme tüm forms `packageRestore/enabled` ayarı `NuGet.Config` aşağıda gösterildiği gibi dosya (`%AppData%\NuGet\NuGet.Config` , Windows'da `~/.nuget/NuGet/NuGet.Config` Mac/Linux'ta). Visual Studio'da bu ayarı sağlar **NuGet paketleri geri** çalışmak için çözümün bağlam menüsünde komutu.
 
     ```xml
     <configuration>
@@ -73,7 +73,7 @@ Paket geri yüklemesi aracılığıyla etkin öncelikle **Araçlar > Seçenekler
     > [!Note]
     >  `packageRestore/enabled` Ayarını geçersiz kılındı genel olarak adlandırılan bir ortam değişkeni ayarlayarak **EnableNuGetPackageRestore** doğru veya yanlış Visual Studio başlatılıyor veya bir yapı başlatmadan önce bir değere sahip.
 
-- **Visual Studio'da sırasında eksik paketleri oluşturmak için otomatik olarak denetle**: değiştirerek otomatik geri yükleme denetimleri `packageRestore/automatic` ayarı `%AppData%\NuGet\NuGet.Config` aşağıda gösterildiği gibi dosya.
+- **Visual Studio'da sırasında eksik paketleri oluşturmak için otomatik olarak denetle**: değiştirerek otomatik geri yükleme denetimleri `packageRestore/automatic` ayarı `NuGet.Config` aşağıda gösterildiği gibi dosya (`%AppData%\NuGet\NuGet.Config` , Windows'da `~/.nuget/NuGet/NuGet.Config` Mac/Linux'ta). Bu seçenek ayarlandığında, bir derleme Visual Studio'dan otomatik olarak çalıştırarak herhangi eksik paketleri geri yükler. Seçenek MSBuild kullanarak komut satırından çalıştırma derlemeleri etkilemez.
 
     ```xml
     ...

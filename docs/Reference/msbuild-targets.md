@@ -3,7 +3,7 @@ title: "NuGet paketi ve geri yükleme MSBuild hedefleri olarak | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 04/03/2017
+ms.date: 03/13/2018
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
@@ -11,11 +11,11 @@ description: "NuGet paketi ve geri yükleme, doğrudan NuGet 4.0 + ile MSBuild h
 keywords: "NuGet ve MSBuild, NuGet paketi hedef, NuGet geri yükleme hedefi"
 ms.reviewer:
 - karann-msft
-ms.openlocfilehash: 798b3550718294072d86b6e4827ec5017178d2cc
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.openlocfilehash: bb0ade1b0f5f81d7c8822d3c2b2f9dd45745fb8d
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet paketi ve MSBuild hedefleri olarak geri yükleme
 
@@ -42,7 +42,9 @@ Benzer şekilde, bir MSBuild görev yazabileceğiniz, kendi hedef yazma ve MSBui
 
 ## <a name="pack-target"></a>paketi hedef
 
-Diğer bir deyişle, paketi hedef kullanırken `msbuild /t:pack`, MSBuild proje dosyasından girdilerinden çizer. Proje dosyası içinde ilk eklenebilir MSBuild özellikler aşağıdaki tabloda açıklanmıştır `<PropertyGroup>` düğümü. Bu düzenlemeler kolayca Visual Studio 2017 ve daha sonra projeye sağ tıklayıp seçerek yapabileceğiniz **{project_name} Düzenle** bağlam menüsünde. Kolaylık olması için tablo eşdeğer özelliği tarafından düzenlenir bir [ `.nuspec` dosya](../reference/nuspec.md).
+PackageReference biçimini kullanarak, kullanarak .NET standart projeleri için `msbuild /t:pack` bir NuGet paketi oluşturmak için proje dosyasından girişleri çizer.
+
+Proje dosyası içinde ilk eklenebilir MSBuild özellikler aşağıdaki tabloda açıklanmıştır `<PropertyGroup>` düğümü. Bu düzenlemeler kolayca Visual Studio 2017 ve daha sonra projeye sağ tıklayıp seçerek yapabileceğiniz **{project_name} Düzenle** bağlam menüsünde. Kolaylık olması için tablo eşdeğer özelliği tarafından düzenlenir bir [ `.nuspec` dosya](../reference/nuspec.md).
 
 Unutmayın `Owners` ve `Summary` özelliklerinden `.nuspec` MSBuild ile desteklenmez.
 
@@ -194,7 +196,7 @@ Kullanırken `MSBuild /t:pack /p:IsTool=true`, tüm dosyaları belirtilen çıkt
 
 ### <a name="packing-using-a-nuspec"></a>Bir .nuspec kullanarak paketleme
 
-Kullanabileceğiniz bir `.nuspec` içeri aktarmak için bir proje dosyasına sahip olması koşuluyla, projenizin paketi dosyaya `NuGet.Build.Tasks.Pack.targets` böylece paketi görevi çalıştırılabilir. Aşağıdaki üç MSBuild özellikleri kullanarak paket için uygun olan bir `.nuspec`:
+Kullanabileceğiniz bir `.nuspec` almak için SDK proje dosyası olması koşuluyla, projenizin paketi dosyaya `NuGet.Build.Tasks.Pack.targets` böylece paketi görevi çalıştırılabilir. Hala bir nuspec dosyası paketlemeden önce projeyi geri yüklemeniz gerekir. Proje dosyası hedef Framework'ü ilgisiz ve bir nuspec sevk kullanılmaz. Aşağıdaki üç MSBuild özellikleri kullanarak paket için uygun olan bir `.nuspec`:
 
 1. `NuspecFile`: göreli veya mutlak bir yol `.nuspec` paketleme için kullanılan dosya.
 1. `NuspecProperties`: noktalı virgülle ayrılmış listesini anahtar = değer çiftleri. MSBuild komut satırı ayrıştırma works yöntemi nedeniyle birden çok özellikleri şu şekilde belirtilmelidir: `/p:NuspecProperties=\"key1=value1;key2=value2\"`.  
@@ -212,6 +214,23 @@ MSBuild projenizi Paketi kullanıyorsanız, aşağıdaki gibi bir komutu kullan�
 msbuild /t:pack <path to .csproj file> /p:NuspecFile=<path to nuspec file> /p:NuspecProperties=<> /p:NuspecBasePath=<Base path> 
 ```
 
+Lütfen bir nuspec paket dotnet.exe veya msbuild kullanarak da varsayılan olarak projeyi oluşturmayı için müşteri adayları olduğunu unutmayın. Bu geçirerek önlenebilir ```--no-build``` ayarı eşdeğerdir dotnet.exe özelliğine ```<NoBuild>true</NoBuild> ``` ayarı ile birlikte, proje dosyanızdaki ```<IncludeBuildOutput>false</IncludeBuildOutput> ``` proje dosyasında
+
+Nuspec dosyası paketlemek için csproj dosyası örneği verilmiştir:
+
+```
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <NoBuild>true</NoBuild>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <NuspecFile>PATH_TO_NUSPEC_FILE</NuspecFile>
+    <NuspecProperties>add nuspec properties here</NuspecProperties>
+    <NuspecBasePath>optional to provide</NuspecBasePath>
+  </PropertyGroup>
+</Project>
+```
+
 ## <a name="restore-target"></a>geri yükleme hedefi
 
 `MSBuild /t:restore` (hangi `nuget restore` ve `dotnet restore` .NET Core projeleriyle kullanmak), proje dosyasında aşağıdaki gibi başvurduğu paketleri yükler:
@@ -223,8 +242,7 @@ msbuild /t:pack <path to .csproj file> /p:NuspecFile=<path to nuspec file> /p:Nu
 1. Paketleri indirin
 1. Varlıklar dosya, hedefleri ve özellik yazma
 
-> [!Note]
-> `restore` MSBuild hedef yalnızca kullanarak projeleri için çalışır `PackageReference` öğeleri ve paketleri kullanarak başvurulan geri yüklemez bir `packages.config` dosyası.
+`restore` Hedef works **yalnızca** PackageReference biçimini kullanarak projeleri için. Mevcut **değil** kullanarak projeleri için iş `packages.config` biçimini; kullanın [nuget restore](../tools/cli-ref-restore.md) yerine.
 
 ### <a name="restore-properties"></a>Özellikler geri yükleme
 

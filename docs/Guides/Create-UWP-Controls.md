@@ -3,7 +3,7 @@ title: "UWP için nasıl NuGet ile denetimleri | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 03/21/2017
+ms.date: 03/14/2018
 ms.topic: get-started-article
 ms.prod: nuget
 ms.technology: 
@@ -12,17 +12,17 @@ keywords: "NuGet UWP denetimleri, Visual Studio XAML Tasarımcısı, harmanlama 
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 3af17121f73b878decd5f0c933696fc1b0c786d7
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 1af5118eb71836d8b8bcfa8ff713d9fef3c86374
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="creating-uwp-controls-as-nuget-packages"></a>NuGet paketleri olarak UWP denetimler oluşturma
 
 Visual Studio 2017 ile NuGet paketlerini teslim UWP denetimleri eklenen özelliklerinin avantajından yararlanabilirsiniz. Bu kılavuzda kullanarak şu olanakları anlatılmaktadır [ExtensionSDKasNuGetPackage örnek](https://github.com/NuGet/Samples/tree/master/ExtensionSDKasNuGetPackage). 
 
-## <a name="pre-requisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 1. Visual Studio 2017
 1. Nasıl yapılır anlayış [UWP paketleri oluşturma](create-uwp-packages.md)
@@ -100,13 +100,7 @@ UWP paketleri, uygulamanın yüklendiği bir işletim sistemi sürümü üst ve 
     \lib\uap10.0\*
     \ref\uap10.0\*
 
-Uygun TPMinV onay zorlamak için oluşturma bir [MSBuild hedefleri dosya](/visualstudio/msbuild/msbuild-targets) ve ("your_assembly_name" belirli derlemenizi adıyla değiştirerek) yapı klasörü altındaki paket:
-
-    \build
-      \uap10.0
-        your_assembly_name.targets
-    \lib
-    \tools
+Uygun TPMinV onay zorlamak için oluşturma bir [MSBuild hedefleri dosya](/visualstudio/msbuild/msbuild-targets) ve altında paket `build\uap10.0" folder as `< your_assembly_name > .targets`, replacing `< your_assembly_name >' özel adı derleme.
 
 Hedef dosyanın aşağıdaki gibi görünmelidir örneği şöyledir:
 
@@ -114,7 +108,7 @@ Hedef dosyanın aşağıdaki gibi görünmelidir örneği şöyledir:
 <?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
-  <Target Name="TPMinVCheck" BeforeTargets="Build;ReBuild" Condition="'$(TargetPlatformMinVersion)' != ''">
+  <Target Name="TPMinVCheck" BeforeTargets="ResolveAssemblyReferences" Condition="'$(TargetPlatformMinVersion)' != ''">
     <PropertyGroup>
       <RequiredTPMinV>10.0.14393</RequiredTPMinV>
       <ActualTPMinV>$(TargetPlatformMinVersion)</ActualTPMinV>
@@ -126,17 +120,15 @@ Hedef dosyanın aşağıdaki gibi görünmelidir örneği şöyledir:
 
 ## <a name="add-design-time-support"></a>Tasarım zamanı desteği ekleme
 
-Burada Özellik denetçisi'nde denetim özelliklerini göster yapılandırmak için özel donatıcıların, vb. yerleştirin ekleyin, `design.dll` içinde dosya `lib\<platform>\Design` klasörü hedef platformu için uygun olarak. Ayrıca, emin olmak için  **[Şablonu Düzenle > bir kopyasını düzenlemek](/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)**  özelliği works içermelidir `Generic.xaml` ve içinde birleştirir tüm kaynak sözlükleri `<AssemblyName>\Themes` klasör. (Bu dosyayı bir denetimin çalışma zamanı davranışını etkisi yoktur.)
+Burada Özellik denetçisi'nde denetim özelliklerini göster yapılandırmak için özel donatıcıların, vb. yerleştirin ekleyin, `design.dll` içinde dosya `lib\uap10.0\Design` klasörü hedef platformu için uygun olarak. Ayrıca, emin olmak için  **[Şablonu Düzenle > bir kopyasını düzenlemek](/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)**  özelliği works içermelidir `Generic.xaml` ve içinde birleştirir tüm kaynak sözlükleri `<your_assembly_name>\Themes` klasörü (yeniden kullanma Gerçek derleme adınız). (Bu dosyayı bir denetimin çalışma zamanı davranışını etkisi yoktur.) Bu nedenle, klasör yapısı şu şekilde görünür:
 
-    \build
     \lib
-      \uap10.0.14393.0
+      \uap10.0
         \Design
           \MyControl.design.dll
         \your_assembly_name
           \Themes
             Generic.xaml
-    \tools
 
 > [!Note]
 > Varsayılan olarak, denetim özelliklerini Özellik denetçisi çeşitli kategorisinde altında gösterilir.
@@ -149,23 +141,15 @@ Bir örnek için bkz [MyCustomControl.cs](https://github.com/NuGet/Samples/blob/
 
 ## <a name="package-content-such-as-images"></a>Paket içeriğini görüntüleri gibi
 
-Denetim veya kaybı UWP projesi tarafından kullanılan görüntüleri gibi paket içeriğini. Bu dosyaları ekleme `lib\uap10.0.14393.0` ("your_assembly_name" belirli denetiminizi yeniden de eşleşmelidir) şekilde klasörü:
+Paket için içeriği denetiminizi veya kaybı UWP projesi tarafından kullanılan görüntüleri gibi bu dosyaları içinde yerleştirmek `lib\uap10.0` klasör.
 
-    \build
-    \lib
-      \uap10.0.14393.0
-        \Design
-          \your_assembly_name
-    \contosoSampleImage.jpg
-    \tools
-
-Ayrıca Yaz bir[MSBuild hedefleri dosya](/visualstudio/msbuild/msbuild-targets) varlık Süren projenin çıkış klasörüne kopyalanır emin olmak için:
+Ayrıca Yaz bir [MSBuild hedefleri dosya](/visualstudio/msbuild/msbuild-targets) varlık Süren projenin çıkış klasörüne kopyalanır emin olmak için:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <ItemGroup Condition="'$(TargetPlatformIdentifier)' == 'UAP'">
-        <Content Include="$(MSBuildThisFileDirectory)..\..\lib\uap10.0.14393.0\contosoSampleImage.jpg">
+        <Content Include="$(MSBuildThisFileDirectory)..\..\lib\uap10.0\contosoSampleImage.jpg">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
     </ItemGroup>

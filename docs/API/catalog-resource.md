@@ -12,15 +12,15 @@ ms.topic: reference
 ms.prod: nuget
 ms.technology: 
 description: "Bir dizin oluşturulur ve üzerinde nuget.org silinen tüm paketlerin kataloğudur."
-keywords: "NuGet V3 API Kataloğu, nuget.org işlem günlüğü, NuGet.org çoğaltmak, NuGet.org, NuGet.org yalnızca append kaydının kopyalama"
+keywords: "NuGet V3 API Kataloğu, nuget.org işlem günlüğü, çoğaltma nuget.org, kopya nuget.org nuget.org yalnızca append kaydı"
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: d1a24be68a60085a40361c374ffb34dc221f09c4
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: be30b21d488c323c439a59fff290a95adaefd902
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="catalog"></a>Katalog
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 02/02/2018
 
 Aşağıdaki `@type` değeri kullanılır:
 
-@typedeğer   | Notlar
+@type Değer   | Notlar
 ------------- | -----
 Catalog/3.0.0 | İlk sürüm
 
@@ -50,7 +50,7 @@ Katalog kaynak desteği yalnızca HTTP yöntemlerini bulunan tüm URL'leri `GET`
 
 ## <a name="catalog-index"></a>Katalog dizini
 
-Cronologically sıralı katalog öğeleri listesini içeren iyi bilinen bir konumdaki bir belge katalog dizinidir. Katalog kaynağının giriş noktasıdır.
+Katalog öğeleri, kronolojik olarak sıralanan listesini içeren iyi bilinen bir konumdaki bir belge katalog dizinidir. Katalog kaynağının giriş noktasıdır.
 
 Dizin Katalog sayfaları oluşur. Her katalog sayfa katalog öğelerini içerir. Her bir katalog öğesi zamanında bir noktada tek bir paket ilgili bir olayı temsil eder. Bir katalog öğesi, paket kaynağından listelenmemiş, relisted ya da silinmiş oluşturulmuş bir paketi temsil edebilir. Katalog öğeleri kronolojik sırada işleyerek istemci V3 paket kaynağı var. her paketin güncel bir görünümü oluşturabilirsiniz.
 
@@ -128,7 +128,7 @@ count           | tamsayı          | Evet      | Sayfadaki öğelerin sayısı
 
 Her bir öğe `items` dizidir katalog öğesi en az bazı ayrıntılarını sahip bir nesne. Bu öğe nesneler katalog öğesi'nin veri içermez. Sayfanın öğelerin sırasını `items` dizi tanımlı değil. Öğeleri göre sıralayarak bellek kullanarak istemci kendi `commitTimeStamp` özelliği.
 
-Katalog öğeleri sayfasında sayısı sunucu uygulaması tarafından tanımlanır. Nuget.org için en fazla 550 öğe yok her sayfasında gerçek sayı zamandaki bazı sayfaları dependong noktada sonraki yürütme toplu iş boyutu için daha küçük olabilir.
+Katalog öğeleri sayfasında sayısı sunucu uygulaması tarafından tanımlanır. Nuget.org için en fazla 550 öğeler var. her sayfasında gerçek sayı zamandaki noktasında sonraki yürütme toplu boyutuna bağlı olarak, bazı sayfaların küçük olabilir ancak.
 
 Yeni öğeler sunulduğu şekilde `count` artırılır ve yeni katalog öğesi nesneleri görünür olan `items` dizi.
 
@@ -164,7 +164,7 @@ Her ne tür, göreceğiniz anlamına gelir hakkında daha fazla ayrıntı için 
 
 ## <a name="catalog-leaf"></a>Katalog yaprak
 
-Katalog yaprak zamanında belirli paket kimliği ve sürüm, belirli bir noktada hakkındaki meta verileri içerir. Kullanarak alınan bir belge olduğu `@id` değeri bir katalog sayfası bulundu. Bir katalog yaprak URL'sine predictedable olması amaçlanmamıştır ve yalnızca bir katalog sayfası kullanarak bulunması gerekir.
+Katalog yaprak zamanında belirli paket kimliği ve sürüm, belirli bir noktada hakkındaki meta verileri içerir. Kullanarak alınan bir belge olduğu `@id` değeri bir katalog sayfası bulundu. Bir katalog yaprak URL'sine tahmin edilebilir olması amaçlanmamıştır ve yalnızca bir katalog sayfası kullanarak bulunması gerekir.
 
 Katalog yaprak belge, aşağıdaki özelliklere sahip bir JSON nesnesidir:
 
@@ -226,16 +226,16 @@ Paket `version` tam, normalleştirilmiş sürüm dizesi bir özelliktir. Bu SemV
 
 `created` Paket ilk katalog öğesi'nin yürütme zaman damgası önce kısa bir süre genellikle olan paket kaynak tarafından alındığını zaman damgası olduğunda.
 
-`packageHashAlgorithm` Olan bir dize üretmek için kullanılan karma algoritma sunucu uygulaması represeting tarafından tanımlanan `packageHash`. her zaman kullanılan nuget.org `packageHashAlgorithm` değerini `SHA512`.
+`packageHashAlgorithm` Üretmek için kullanılan karma algoritma temsil eden sunucu uygulaması tarafından tanımlanan bir dizedir `packageHash`. her zaman kullanılan nuget.org `packageHashAlgorithm` değerini `SHA512`.
 
 `published` Zaman damgası, zaman son dosyasında listelenen paketin süre.
 
 > [!Note]
-> Nuget.org üzerinde `published` değeri yıl paket olduğunda listelenmemiş 1900 ayarlanır.
+> Nuget.org üzerinde `published` değeri paket olduğunda listelenmemiş yılına 1900 ayarlanır.
 
 #### <a name="sample-request"></a>Örnek istek
 
-GET https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.storage.1.0.0.json
+AL https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.storage.1.0.0.json
 
 #### <a name="sample-response"></a>Örnek yanıt
 
@@ -256,7 +256,7 @@ Paket Sil katalog öğeleri sahip herhangi bir ek özellik listelenenlere [tüm 
 
 #### <a name="sample-request"></a>Örnek istek
 
-GET https://api.nuget.org/v3/catalog0/data/2017.11.02.00.40.00/netstandard1.4_lib.1.0.0-test.json
+AL https://api.nuget.org/v3/catalog0/data/2017.11.02.00.40.00/netstandard1.4_lib.1.0.0-test.json
 
 #### <a name="sample-response"></a>Örnek yanıt
 
@@ -307,7 +307,7 @@ Bu temel algoritmayla tam görünümünü kullanılabilir tüm paketler paket ka
 
 ### <a name="dependent-cursors"></a>Bağımlı imleçler
 
-Burada bir istemcinin çıkış başka bir istemcinin Çıkışta bağlıdır inherant bir bağımlılığı olan iki katalog istemcisi vardır varsayalım. 
+Burada bir istemcinin çıkış başka bir istemcinin Çıkışta bağlıdır yapısında bir bağımlılığı olan iki katalog istemcisi vardır varsayalım. 
 
 #### <a name="example"></a>Örnek
 
@@ -317,7 +317,7 @@ Her iki kaynağın arama kaynak güncelleştirmeleri katalog istemci imleci kata
 
 #### <a name="algorithm"></a>Algoritması
 
-Bu kısıtlamayı uygulamak için basit olması için yukarıdaki algoritması değiştirin:
+Bu kısıtlamayı uygulamak için yalnızca olması için yukarıdaki algoritması değiştirin:
 
 1. Kaydedilen imleci değer yerel depodan getirin.
 1. Karşıdan yükle ve Katalog dizinini seri durumdan.

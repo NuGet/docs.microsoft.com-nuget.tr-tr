@@ -12,11 +12,11 @@ keywords: "bir paket, .NET standart paketler, .NET standart eşleme tablosu olu�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c15ffd709856fc9d5b9a9fb2fe87c0029b82650d
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.openlocfilehash: abf6a56cbc84bdd066e31e77c7883825a8456144
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="create-net-standard-packages-with-visual-studio-2015"></a>Visual Studio 2015 ile .NET standart paketleri oluşturma
 
@@ -70,29 +70,29 @@ Bu kılavuzda .NET standart kitaplığı 1.4 hedefleyen bir NuGet paketi oluştu
 
 1. Bir komut istemi açın, içeren klasöre gidin `AppLogger.csproj` klasörü (bir düzey altındaki where `.sln` dosyası), NuGet çalıştırıp `spec` ilk oluşturmak için komutu `AppLogger.nuspec` dosyası:
 
-```cli
-nuget spec
-```
+    ```cli
+    nuget spec
+    ```
 
 1. Açık `AppLogger.nuspec` bir düzenleyicide ve aşağıdaki ile eşleşecek şekilde güncelleştirebilirsiniz adiniz uygun bir değerle değiştirin. `<id>` Değeri, özellikle, benzersiz olmalıdır nuget.org (açıklanan adlandırma kuralları Bkz [paket oluşturma](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number). Ayrıca yazar ve açıklama etiketleri güncelleştirmeniz gerekir veya paket adımı sırasında bir hata alıyorsunuz unutmayın.
 
-```xml
-<?xml version="1.0"?>
-<package >
-    <metadata>
-    <id>AppLogger.YOUR_NAME</id>
-    <version>1.0.0</version>
-    <title>AppLogger</title>
-    <authors>YOUR_NAME</authors>
-    <owners>YOUR_NAME</owners>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Awesome application logging utility</description>
-    <releaseNotes>First release</releaseNotes>
-    <copyright>Copyright 2018 (c) Contoso Corporation. All rights reserved.</copyright>
-    <tags>logger logging logs</tags>
-    </metadata>
-</package>
-```
+    ```xml
+    <?xml version="1.0"?>
+    <package >
+        <metadata>
+        <id>AppLogger.YOUR_NAME</id>
+        <version>1.0.0</version>
+        <title>AppLogger</title>
+        <authors>YOUR_NAME</authors>
+        <owners>YOUR_NAME</owners>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Awesome application logging utility</description>
+        <releaseNotes>First release</releaseNotes>
+        <copyright>Copyright 2018 (c) Contoso Corporation. All rights reserved.</copyright>
+        <tags>logger logging logs</tags>
+        </metadata>
+    </package>
+    ```
 
 1. Başvuru derlemeleri eklemek `.nuspec` dosya, kitaplığın DLL ve IntelliSense XML dosyası:
 

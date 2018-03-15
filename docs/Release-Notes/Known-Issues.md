@@ -12,11 +12,11 @@ keywords: "Bilinen sorunlar, NuGet sorunları NuGet"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 2b9190c058215d9e63894de45c0c55c8ddae0e0f
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: ac00e3f11c54290a31319e7f2946fd965a0a9288
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="known-issues-with-nuget"></a>NuGet ile ilgili bilinen sorunlar
 
@@ -45,7 +45,7 @@ NuGet 3.4 ve 3.4.1, NuGet eklenti kullanırken, herhangi bir kaynağa kullanıla
 
 ![Hiçbir kaynaklarıyla NuGet yapılandırma](./media/knownIssue-34-NoSources.PNG)
 
-`NuGet.Config` Dosyasını, `%AppData%\NuGet\` klasörü yanlışlıkla boşaltılır. Bu sorunu gidermek için: Kapat Visual Studio 2015, silme `NuGet.Config` dosyasını `%AppData%\NuGet\` klasörü ve Visual Studio'yu yeniden başlatın.  Yeni bir `NuGet.Config` dosya oluşturulur ve devam etmek kullanabilirsiniz.
+`NuGet.Config` Dosyasını, `%AppData%\NuGet\` (Windows) veya `~/.nuget/` (Mac/Linux) klasör yanlışlıkla boşaltılır. Bu sorunu gidermek için: (Windows'da, eğer varsa) Visual Studio'yu kapatın, silme `NuGet.Config` dosya ve işlemi yeniden deneyin. NuGet oluşturulan yeni bir `NuGet.Config` ve devam etmek mümkün olması gerekir.
 
 ## <a name="error-installing-packages-with-nuget-27"></a>NuGet 2.7 ile paketler yüklenirken hata oluştu
 
@@ -96,7 +96,7 @@ VS 2010 SP1 çalıştırıyorsanız, yüklü eski bir sürüm varsa, NuGet yüks
 Günlükleri görüntülerken, Bahsetme görebileceğiniz bir `SignatureMismatchException`.
 
 Bu, var olmaması için bir [Visual Studio 2010 SP1 Düzeltmesi](http://bit.ly/vsixcertfix) yükleyebilirsiniz.
-Alternatif olarak, yalnızca NuGet (yönetici olarak Visual Studio çalıştırılırken) kaldırıp VS uzantısı Galeriden yükleme geçici bir çözüm değildir.  Bkz: [http://support.microsoft.com/kb/2581019](http://support.microsoft.com/kb/2581019) daha fazla bilgi için.
+Alternatif olarak, yalnızca NuGet (yönetici olarak Visual Studio çalıştırılırken) kaldırıp VS uzantısı Galeriden yükleme geçici bir çözüm değildir.  Bkz: [ http://support.microsoft.com/kb/2581019 ](http://support.microsoft.com/kb/2581019) daha fazla bilgi için.
 
 ## <a name="package-manager-console-throws-an-exception-when-the-reflector-visual-studio-add-in-is-also-installed"></a>Reflector Visual Studio eklentisi ayrıca yüklendiğinde, Paket Yöneticisi konsolu bir özel durum oluşturur.
 
@@ -165,7 +165,7 @@ NuGet aracılığıyla Visual Studio Uzantı Yöneticisi kaldırmayı denerseniz
 
 ## <a name="the-package-manager-console-crashes-when-i-open-it-in-windows-xp-whats-wrong"></a>Windows XP'de açtığınızda, Paket Yöneticisi konsolu çöker. Ne oldu?
 
-NuGet Powershell 2.0 çalışma zamanını gerektirir. Windows XP, varsayılan olarak, Powershell 2.0 sahip değil. Powershell 2.0 çalışma zamanını şuradan indirebilirsiniz [http://support.microsoft.com/kb/968929](http://support.microsoft.com/kb/968929). Yükledikten sonra Visual Studio'yu yeniden başlatın ve Paket Yöneticisi konsolu yapabiliyor olmanız gerekir.
+NuGet Powershell 2.0 çalışma zamanını gerektirir. Windows XP, varsayılan olarak, Powershell 2.0 sahip değil. Powershell 2.0 çalışma zamanını şuradan indirebilirsiniz [ http://support.microsoft.com/kb/968929 ](http://support.microsoft.com/kb/968929). Yükledikten sonra Visual Studio'yu yeniden başlatın ve Paket Yöneticisi konsolu yapabiliyor olmanız gerekir.
 
 ## <a name="visual-studio-2010-sp1-beta-crashes-on-exit-if-the-package-manager-console-is-open"></a>Paket Yöneticisi konsolu açıksa, visual Studio 2010 SP1 Beta Çıkışta çöküyor.
 
@@ -213,7 +213,7 @@ Bu bilinen bir sorundur. Write-Error çağırmak yerine, throw çağırmayı den
 
 ## <a name="installing-nuget-with-restricted-access-on-windows-2003-can-crash-visual-studio"></a>Windows 2003'te kısıtlı erişime sahip NuGet yükleme Visual Studio çökebilir
 
-Visual Studio Uzantı Yöneticisi'ni kullanarak ve bir yönetici olarak çalışmıyor NuGet yüklemeye çalışırken &#8220; Farklı Çalıştır &#8221; iletişim kutusu etiketli onay kutusunu &#8220;görüntülenir; Kısıtlı erişim &#8221;bu programı çalıştır; Varsayılan olarak işaretli.
+Visual Studio Uzantı Yöneticisi'ni kullanarak ve bir yönetici olarak çalışmıyor NuGet yüklemeye çalışırken &#8220;Çalıştır&#8221; iletişim etiketli onay kutusu ile görüntülenen &#8220;kısıtlı erişime sahip bu programı çalıştır&#8221; tarafından iade Varsayılan.
 
 ![Sınırlı iletişim kutusu olarak çalıştırma](./media/RunAsRestricted.png)
 
@@ -231,4 +231,4 @@ Windows Phone araçları Visual Studio uzantısı Yöneticisi için destek yok. 
 
 ## <a name="reporting-issues"></a>Raporlama konuları
 
-NuGet sorunları bildirmek için ziyaret [https://github.com/nuget/home/issues](https://github.com/nuget/home/issues).
+NuGet sorunları bildirmek için ziyaret [ https://github.com/nuget/home/issues ](https://github.com/nuget/home/issues).

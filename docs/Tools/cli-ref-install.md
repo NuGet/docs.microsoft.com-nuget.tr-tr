@@ -12,11 +12,11 @@ keywords: "nuget başvuru yükleyin, yükleme paketi komutu"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 9e824b08486704371eebefb964f86315d82fc222
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: 8d5f53c833fb42c9fe37d0629eab33e8f0bc70d7
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="install-command-nuget-cli"></a>Yükleme komutu (NuGet CLI)
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/14/2018
 > [!Tip]
 > Paket bir proje bağlamı dışında doğrudan indirmek için üzerinde paketin sayfasını ziyaret [nuget.org](https://www.nuget.org) seçip **karşıdan** bağlantı.
 
-Herhangi bir kaynağa belirtilirse, listelenenler genel yapılandırma dosyasında `%APPDATA%\NuGet\NuGet.Config`, kullanılır. Bkz: [NuGet yapılandırma davranışı](../consume-packages/configuring-nuget-behavior.md) ek ayrıntılar için.
+Herhangi bir kaynağa belirtilirse, listelenenler genel yapılandırma dosyasında `%APPDATA%\NuGet\NuGet.Config` (Windows) veya `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) kullanılır. Bkz: [NuGet yapılandırma davranışı](../consume-packages/configuring-nuget-behavior.md) ek ayrıntılar için.
 
 Özel paket belirtilirse, `install` projenin içinde listelenen tüm paketler yükler `packages.config` dosyasının benzer URL'ini [ `restore` ](cli-ref-restore.md).
 
@@ -47,7 +47,7 @@ Burada `<packageID>` (en son sürümünü kullanarak), yüklenecek paketin adlar
 
 | Seçenek | Açıklama |
 | --- | --- |
-| ConfigFile | Uygulamak için NuGet yapılandırma dosyası. Belirtilmezse, *%AppData%\NuGet\NuGet.Config* kullanılır. |
+| ConfigFile | Uygulamak için NuGet yapılandırma dosyası. Belirtilmezse, `%AppData%\NuGet\NuGet.Config` (Windows) veya `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) kullanılır.|
 | DependencyVersion | *(4.4 +)*  Varsayılan bağımlılık çözümleme davranışı geçersiz kılma, belirli bir sürümünü belirtir. |
 | DisableParallelProcessing | Paralel olarak birden çok paket yüklemeyi devre dışı bırakır. |
 | ExcludeVersion | Yalnızca paket adı ve sürüm numarası ile adlı bir klasöre paketi yükler. |

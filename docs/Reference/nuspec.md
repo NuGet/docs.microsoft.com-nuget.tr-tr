@@ -13,11 +13,11 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c52d0a7c0da507cb9688c8a7b2c4eaf54a8ca5c2
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.openlocfilehash: 90693b09fce966e3bc28ca24360a3fb4e1f73386
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="nuspec-reference"></a>.nuspec başvurusu
 
@@ -94,7 +94,7 @@ Bu öğeler içinde görünebilir bir `<metadata>` öğesi.
 | **Sahipleri** | Nuget.org üzerinde profil adları kullanarak paket oluşturucuları virgülle ayrılmış listesi. Bu genellikle aynı olarak listesidir `authors`ve paket için nuget.org karşıya yüklenirken göz ardı edilir. Bkz: [yönetme paket sahipleri nuget.org üzerinde](../create-packages/publish-a-package.md#managing-package-owners-on-nugetorg). |
 | **projectUrl** | Paketin giriş sayfası, genellikle kullanıcı Arabiriminde gösterilen URL'sini nuget.org yanı sıra görüntüler. |
 | **licenseUrl** | Genellikle nuget.org yanı sıra kullanıcı Arabirimi görüntüler gösterilen paketin lisans URL'sini. |
-| **iconUrl** | UI görüntü paketinde simgesi olarak kullanılacak bir URL 64 x 64 görüntünün saydamlık arka plana sahip. Bu öğe içerdiğinden emin olun *resim URL'si doğrudan* ve görüntüyü içeren bir web sayfasının URL değil. Örneğin, bir görüntü github'dan kullanmak için URL gibi raw dosyasını kullanın *https://github.com/\<kullanıcıadı\>/\<deposu\>/raw/\<şube\> / \<logo.png\>*. |
+| **iconUrl** | UI görüntü paketinde simgesi olarak kullanılacak bir URL 64 x 64 görüntünün saydamlık arka plana sahip. Bu öğe içerdiğinden emin olun *resim URL'si doğrudan* ve görüntüyü içeren bir web sayfasının URL değil. Örneğin, bir görüntü github'dan kullanmak için URL gibi raw dosyasını kullanın  *https://github.com/ \<kullanıcıadı\>/\<deposu\>/raw/\<şube\> / \<logo.png\>*. |
 | **requireLicenseAcceptance** | İstemci paketi lisans paketi yüklemeden önce kabul etmek için tüketici sor olup olmadığını belirten bir Boole değeri. |
 | **DevelopmentDependency** | *(2.8 +)*  Paket olup olmadığını belirten bir Boolean değeri bir geliştirme-yalnızca-paket diğer paketler bağımlılık olarak dahil önleyen bağımlılık olarak işaretlenir. |
 | **Özet** | UI görüntülenmesi için paket kısa bir açıklaması. Atlanırsa, kesilmiş bir sürümünü `description` kullanılır. |
@@ -143,9 +143,10 @@ Dışında `$configuration$`, projedeki değerleri herhangi bir komut satırınd
 
 | Belirteç | Değer kaynağı | Değer
 | --- | --- | ---
-| **$id$** | Proje dosyası | Proje dosyasından AssemblyName |
+| **$id$** | Proje dosyası | Proje dosyasından AssemblyName (başlık) |
 | **$version$** | AssemblyInfo | Assemblyınformationalversion bütünleştirilmiş varsa, aksi takdirde AssemblyVersion |
 | **$author$** | AssemblyInfo | AssemblyCompany |
+| **$title$** | AssemblyInfo | AssemblyTitle |
 | **$description$** | AssemblyInfo | AssemblyDescription |
 | **$copyright$** | AssemblyInfo | AssemblyCopyright |
 | **$configuration$** | Derleme DLL | Hata ayıklama için varsayılan değer olarak, derleme için kullanılan yapılandırma. Bir yayın Yapılandırması'nı kullanarak bir paket oluşturmak için her zaman kullanmanız gerektiğini unutmayın `-properties Configuration=Release` komut satırında. |
@@ -543,7 +544,7 @@ Bu dosyalar, proje sistem içinde bunların nasıl kullanılacağını açıklay
 | **İçerir** | (Gerekli) Dosya veya dosyalar tarafından belirtilen Dışlamalar tabi dahil etmek için konumunu `exclude` özniteliği. Göreli yol olduğundan `.nuspec` mutlak bir yol belirtilmediği sürece dosya. Joker karakter `*` izin verilir ve çift joker karakter `**` özyinelemeli klasör arama anlamına gelir. |
 | **exclude** | Dosya veya dosya desenlerinin ayarlayacağım noktalı virgülle ayrılmış listesini `src` konumu. Joker karakter `*` izin verilir ve çift joker karakter `**` özyinelemeli klasör arama anlamına gelir. |
 | **buildAction** | MSBuild için içerik öğesine gibi atanacak yapı eylemi `Content`, `None`, `Embedded Resource`, `Compile`vb. Varsayılan değer `Compile`. |
-| **copyToOutput** | İçerik öğeleri yapı çıktı klasörüne kopyalanıp kopyalanmayacağını gösteren bir Boole değeri. Varsayılan olarak yanlıştır. |
+| **copyToOutput** | Mı çıkış klasörü için yapı içerik öğeleri kopyalama (veya yayımlamak) gösteren bir Boole değeri. Varsayılan olarak yanlıştır. |
 | **flatten** | İçerik öğeleri yapı çıktı (true) tek bir klasöre kopyalayın veya klasör yapısı (false) paketindeki korumak için gösteren bir Boole değeri. CopyToOutput bayrağı ayarlandığında bu bayrağı yalnızca çalışır true. Varsayılan olarak yanlıştır. |
 
 Bir paket yüklerken, alt öğelerini NuGet geçerlidir `<contentFiles>` yukarıdan aşağıya. Aynı dosyanın eşleşen birden fazla giriş varsa tüm girişleri uygulanır. Aynı öznitelik için bir çakışma varsa en üstteki girişi alt girişleri geçersiz kılar.

@@ -12,11 +12,11 @@ keywords: "NuGet yapılandırma dosyaları, NuGet yapılandırması, NuGet davra
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 2ab3e6dad852214ac9bb93f7df0a8c3fef10b9dc
-ms.sourcegitcommit: df21fe770900644d476d51622a999597a6f20ef8
+ms.openlocfilehash: c46f23fcbec5dfcb6122434d43097212f6230fb0
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="configuring-nuget-behavior"></a>NuGet davranışını yapılandırma
 
@@ -27,8 +27,8 @@ NuGet davranışı güdümlü bir veya daha fazla birikmiş ayarlar tarafından 
 | Kapsam | NuGet.Config dosya konumu | Açıklama |
 | --- | --- | --- |
 | Proje | Geçerli klasör (diğer adıyla proje klasörü) veya sürücü kök kadar herhangi bir klasör.| Bir proje klasöründe ayarlar yalnızca bu proje için geçerlidir. Birden çok proje alt klasör içeren üst klasörlerde ayarlar bu klasörlerdeki tüm projeleri için geçerlidir. |
-| Kullanıcı | Windows: %APPDATA%\NuGet\NuGet.Config<br/>Mac/Linux: ~/.nuget/NuGet.Config | Ayarları tüm işlemleri için geçerlidir, ancak herhangi bir proje düzeyi ayarı tarafından geçersiz kılınır. |
-| Bilgisayar | Windows: %ProgramFiles(x86)%\NuGet\Config<br/>Mac/Linux: $XDG_DATA_HOME (typically ~/.local/share) | Ayarlar bilgisayar üzerinde tüm işlemler için geçerli olan, ancak herhangi bir kullanıcı veya proje düzeyi ayarı tarafından kılınmadı. |
+| Kullanıcı | Windows: `%APPDATA%\NuGet\NuGet.Config`<br/>Mac/Linux: `~/.nuget/NuGet/NuGet.Config` | Ayarları tüm işlemleri için geçerlidir, ancak herhangi bir proje düzeyi ayarı tarafından geçersiz kılınır. |
+| Bilgisayar | Windows: `%ProgramFiles(x86)%\NuGet\Config`<br/>Mac/Linux: `$XDG_DATA_HOME` (genellikle `~/.local/share`) | Ayarlar bilgisayar üzerinde tüm işlemler için geçerli olan, ancak herhangi bir kullanıcı veya proje düzeyi ayarı tarafından kılınmadı. |
 
 NuGet'ın önceki sürümlerini için Notlar:
 - NuGet 3.3 ve daha önce kullanılan bir `.nuget` çözüm genelindeki ayarları için klasör. Bu dosya NuGet 3.4 + kullanılmaz.
@@ -137,7 +137,7 @@ NuGet bu dosyalarda ayarları buldukça, bunlar aşağıdaki gibi uygulanır:
 
 Dört sonra sahip `NuGet.Config` dosyaları aşağıdaki konumlarda verilen içeriğe sahip. (Bilgisayar düzeyinde dosya bu örnekte yer almaz, ancak kullanıcı düzeyinde dosyasına benzer şekilde davranacaktır.)
 
-A. kullanıcı düzeyinde dosyası, (Windows, Mac/Linux'ta ~/.nuget/NuGet.Config %APPDATA%\NuGet\NuGet.Config):
+A. kullanıcı düzeyinde dosyası, (`%APPDATA%\NuGet\NuGet.Config` , Windows'da `~/.nuget/NuGet/NuGet.Config` Mac/Linux'ta):
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

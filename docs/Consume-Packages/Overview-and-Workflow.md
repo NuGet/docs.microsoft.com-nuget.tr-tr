@@ -12,11 +12,11 @@ keywords: "NuGet paket tüketim, NuGet tüketim genel bakış, NuGet tüketim i�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 07a357e5aa378365c5d9654791fbf73e219b76b0
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.openlocfilehash: 731e0d3eb4ccb887624e4e46a18b4cc77857a784
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="package-consumption-workflow"></a>Paket tüketimi iş akışı
 
@@ -26,7 +26,7 @@ Nuget.org ve kuruluşunuzun oluşturabilirsiniz özel paket galerileri arasında
 
 \* _İle dışında `nuget install` komut satırından; bu durumda yapılandırmasını düzenlemek için gereken dosyaları el ile. Bkz: [komut başvurusu yüklemek](../tools/cli-ref-install.md)._
 
-NuGet ya da kaydı yüklü her paket kimliği ve sürüm numarasını hatırlıyor `packages.config` veya proje türü ve NuGet sürümüne bağlı olarak proje dosyası. NuGet 4.0 +, ile [bağımlılıkları proje dosyası veya PackageReference depolama](../consume-packages/package-references-in-project-files.md) bu Visual Studio yapılandırılabilir olsa da, genellikle varsayılan [Paket Yöneticisi kullanıcı Arabirimi seçenekleri](../tools/package-manager-ui.md). Herhangi bir durumda, bağımlılıkları projeniz için tam listesini görmek için herhangi bir zamanda uygun dosyasında da bakabilirsiniz.
+NuGet ya da kaydı yüklü her paket kimliği ve sürüm numarasını hatırlıyor [ `packages.config` ](../reference/packages-config.md) veya proje türü ve NuGet sürümüne bağlı olarak proje dosyası. NuGet 4.0 +, ile [bağımlılıkları proje dosyası veya PackageReference depolama](../consume-packages/package-references-in-project-files.md) bu Visual Studio yapılandırılabilir olsa da, genellikle varsayılan [Paket Yöneticisi kullanıcı Arabirimi seçenekleri](../tools/package-manager-ui.md). Herhangi bir durumda, bağımlılıkları projeniz için tam listesini görmek için herhangi bir zamanda uygun dosyasında da bakabilirsiniz.
 
 > [!Tip]
 > Lisans yazılımınızla kullanmayı düşündüğünüz her paket için her zaman kontrol akıllıca olur. Nuget.org üzerinde bulduğunuz bir **lisans bilgilerini** her paketin açıklaması sayfasının sağ tarafında bağlantı. Bir paketi Lisans Koşulları'nı belirtmiyorsa kullanarak doğrudan paketi sahibine başvurun **sahipleri başvurun** bağlantı paketi sayfasında. Microsoft hiçbir fikri mülkiyet, üçüncü taraf paket sağlayıcılardan lisans değildir ve üçüncü taraflar tarafından sağlanan bilgileri sorumlu değildir.

@@ -12,11 +12,11 @@ keywords: "NuGet soru- cevap, sorular ve yanıtlar, ortak sorunları, NuGet sür
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: ccad93c72ff20ef3bc197280b5602ec2b2d40199
-ms.sourcegitcommit: df7158169e84900d135416cd5e52f937df0beb52
+ms.openlocfilehash: 3782fe5dcf8df002d99446aa7548a6eacc62211c
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="nuget-frequently-asked-questions"></a>NuGet sık sorulan sorular
 
@@ -156,7 +156,7 @@ Her proje dosyası bağımlılıkları kendi listesi içerdiğinden bu bir sorun
 **Nuget.org depoları my listede göremiyorum, nasıl geri sağlarım?**
 
 - Ekleme `https://api.nuget.org/v3/index.json` kaynakları, listenize veya
-- Silme `%appdata%\.nuget\NuGet.Config` ve yeniden oluşturun NuGet izin verin.
+- Silme `%appdata%\.nuget\NuGet.Config` (Windows) veya `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) ve yeniden oluşturun NuGet izin verin.
 
 **Bir paketi belirli lisans bilgileri sağlamazsa koşulları varsayılan lisans nelerdir?**
 
@@ -221,7 +221,7 @@ NuGet paketlerinizi Tüketiciler için toplam yükleme boyutunu küçülterek, b
 
 *MTR yakalamak için:*
 
-- Gelen WinMTR karşıdan [http://winmtr.net/download/](http://winmtr.net/)
+- Gelen WinMTR indirin [http://winmtr.net/download/](http://winmtr.net/)
 - Girin `api.nuget.org` tıklatın ve ana bilgisayar adı olarak **Başlat**.
 - Bekle **gönderilen** sütunu > = 100.
 

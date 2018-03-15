@@ -1,26 +1,26 @@
 ---
-title: "Oluşturma ve yayımlama Visual Studio kullanarak bir NuGet paketi tanıtım Kılavuzu | Microsoft Docs"
+title: "Oluşturma ve bir .NET standart Visual Studio kullanarak yayımlama NuGet paketi tanıtım Kılavuzu | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 02/02/2018
+ms.date: 03/18/2018
 ms.topic: get-started-article
 ms.prod: nuget
 ms.technology: 
-description: "Oluşturma ve yayımlama Visual Studio 2017 kullanarak bir NuGet paketi bir gözden geçirme Öğreticisi."
+description: "Oluşturma ve yayımlama Visual Studio 2017 kullanarak bir .NET standart NuGet paketi bir gözden geçirme Öğreticisi."
 keywords: "NuGet paketini oluşturma, NuGet paketi yayımlama, NuGet öğretici, Visual Studio NuGet paketi, msbuild paketi oluşturma"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 75cc425263447e2ca90db705c3bf314250dacb06
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.openlocfilehash: 733fee616601e1d15d8fb5814b5bfb7905ff4a33
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="create-and-publish-a-package-using-visual-studio"></a>Oluşturma ve Visual Studio kullanarak bir paket yayımlama
+# <a name="create-and-publish-a-package-using-visual-studio-net-standard"></a>Oluşturma ve Visual Studio (.NET standart) kullanarak bir paket yayımlama
 
-Visual Studio'da .NET sınıf kitaplığı NuGet paketi oluşturun ve ardından CLI aracını kullanarak nuget.org yayımlamak için basit bir işlemdir.
+Bir .NET standart sınıf kitaplığı Visual Studio'da NuGet paketi oluşturun ve ardından CLI aracını kullanarak nuget.org yayımlamak için basit bir işlemdir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -34,7 +34,7 @@ Visual Studio'da .NET sınıf kitaplığı NuGet paketi oluşturun ve ardından 
 
 ## <a name="create-a-class-library-project"></a>Sınıf kitaplığı proje oluşturma
 
-Varolan bir .NET sınıf kitaplığı proje paketini veya basit bir şekilde oluşturmak için istediğiniz kodu kullanabilirsiniz:
+Varolan bir .NET standart sınıf kitaplığı proje paketini veya basit bir şekilde oluşturmak için istediğiniz kodu kullanabilirsiniz:
 
 1. Visual Studio'da, **Dosya > Yeni > Proje**, genişletin **Visual C# > .NET standart** düğümü, "Sınıf kitaplığı (.NET standart)" şablonunu seçin, AppLogger proje adı ve **Tamam**.
 
@@ -60,7 +60,7 @@ namespace AppLogger
 
 ## <a name="configure-package-properties"></a>Paket özelliklerini yapılandır
 
-1. Seçin **Proje > Özellikler** menü komutunu ve ardından **paket** sekmesi:
+1. Seçin **Proje > Özellikler** menü komutunu ve ardından **paket** sekmesi. ( **Paket** sekmesi yalnızca .NET standart Sınıf Kitaplığı projelerinde; .NET Framework hedefliyorsanız, görüntülenir [oluşturma ve .NET Framework Paketi Yayımlama](create-and-publish-a-package-using-visual-studio-net-framework.md) yerine.)
 
     ![NuGet paket özelliklerinde bir Visual Studio projesi](media/qs_create-vs-01-package-properties.png)
 
@@ -95,7 +95,7 @@ namespace AppLogger
 
 ### <a name="alternate-option-pack-with-msbuild"></a>Diğer seçenek: MSBuild paketiyle
 
-Kullanmaya alternatif olarak **paketi** menü komutu, NuGet 4.x+ ve MSBuild 15.1 + destekleyen bir `pack` hedef proje gerekli paketi veriler içeriyorsa:
+Kullanmaya alternatif olarak **paketi** menü komutu, NuGet 4.x+ ve MSBuild 15.1 + destekleyen bir `pack` hedef proje gerekli paketi veri içerdiğinde. Bir komut istemi açın, proje klasörüne gidin ve aşağıdaki komutu çalıştırın. (MSBuild için tüm gerekli yollarının yapılandırılacak gibi genellikle "Geliştirici komut istemi için Visual Studio" Başlat menüsünden başlatmak istediğiniz.)
 
 ```cli
 msbuild /t:pack /p:Configuration=Release
@@ -119,7 +119,7 @@ Bulduktan sonra bir `.nupkg` dosyası, yayımlama, kullanarak nuget.org `nuget.e
 
 Bu adım bir alternatifidir `dotnet.exe`.
 
-1. Değiştirmek için içeren klasör `.nupkg` dosya...
+1. Değiştirmek için içeren klasör `.nupkg` dosya.
 
 1. Paket adı belirtme ve API anahtarınızı anahtar değerini değiştirerek aşağıdaki komutu çalıştırın:
 

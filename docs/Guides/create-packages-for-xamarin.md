@@ -1,5 +1,5 @@
 ---
-title: "Platformlar arası NuGet paketlerini (için iOS, Android ve Windows) oluşturma | Microsoft Docs"
+title: "NuGet paketleri için Xamarin (iOS, Android ve Windows için) oluşturma | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
@@ -12,13 +12,13 @@ keywords: "paketler Xamarin, platformlar arası paketleri için bir paket oluşt
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 185a0e1e424d1ceb2d8bacbcc1502b38412c4c41
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.openlocfilehash: 3e1460de060980365a5eaa2ef91c052cc359bb70
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="create-cross-platform-packages"></a>Platformlar arası paketleri oluşturma
+# <a name="create-packages-for-xamarin"></a>Paketleri oluşturmak için Xamarin
 
 Platformlar arası paket çalışma zamanı işletim sistemine bağlı iOS, Android ve Windows, yerel API'lerini kullanan kodu içerir. Bunu yapmak basit olmasına karşın, geliştiricilerin bir PCL paketinden kullanmasına izin vermek için tercih edilir veya ortak bir API üzerinden .NET standart kitaplıkları yüzey alanı.
 
@@ -112,9 +112,9 @@ Platforma özgü uyarlamasını uygulamak için `ILoggingLibrary` arabirimi ve y
 
 1. Bir komut istemi açıp `LoggingLibrary` where bir düzeyin klasörü `.sln` dosyası olduğunu ve NuGet çalıştırın `spec` ilk oluşturmak için komutu `Package.nuspec` dosyası:
 
-```cli
-nuget spec
-```
+    ```cli
+    nuget spec
+    ```
 
 1. Bu dosyayı yeniden adlandırmak `LoggingLibrary.nuspec` ve bir düzenleyicide açın.
 1. Aşağıdaki ile eşleşecek şekilde dosyasını güncelleştirme adiniz uygun bir değerle değiştirin. `<id>` Değeri, özellikle, benzersiz olmalıdır nuget.org (açıklanan adlandırma kuralları Bkz [paket oluşturma](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number)). Ayrıca yazar ve açıklama etiketleri güncelleştirmeniz gerekir veya paket adımı sırasında bir hata alıyorsunuz unutmayın.

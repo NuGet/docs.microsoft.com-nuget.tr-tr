@@ -13,11 +13,11 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 610b20831b17ca5c1bae07546fde6eff3e2e43cc
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: 6cb582c036392ae2792f2fa4d307370e91c4f961
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="publishing-packages"></a>Paketleri yayımlama
 
@@ -72,9 +72,9 @@ Ardından, ya da nuget.org web portalı üzerinden paketini karşıya yükleyin,
 
 ### <a name="package-validation-and-indexing"></a>Paket doğrulama ve dizin oluşturma
 
-NuGet.org için gönderilen paketleri birkaç doğrulamaları geçer. Paketin tüm doğrulama denetimlerini geçtiğinde, sıralanması ve arama sonuçlarında görüntülenmesini biraz sürebilir. Dizin oluşturma işlemi tamamlandıktan sonra paketi başarıyla yayımlandı onaylayan bir e-posta alırsınız. Paket doğrulama denetimi başarısız olursa, ilgili hatayı görüntülemek için Paket ayrıntılarını sayfa güncelleştirilir ve ayrıca hakkında bildiren bir e-posta alırsınız.
+Nuget.org için gönderilen paketleri birkaç doğrulamaları geçer. Paketin tüm doğrulama denetimlerini geçtiğinde, sıralanması ve arama sonuçlarında görüntülenmesini biraz sürebilir. Dizin oluşturma işlemi tamamlandıktan sonra paketi başarıyla yayımlandı onaylayan bir e-posta alırsınız. Paket doğrulama denetimi başarısız olursa, ilgili hatayı görüntülemek için Paket ayrıntılarını sayfa güncelleştirilir ve ayrıca hakkında bildiren bir e-posta alırsınız.
 
-Paket doğrulama ve dizin oluşturma altında 15 dakika genellikle alır. Paket yayımlama beklenenden daha uzun sürüyorsa, ziyaret [status.nuget.org](https://status.nuget.org/) NuGet.org tüm kesintileri yaşayan varsa denetlemek için. Tüm sistemler işletimsel ve paket bir saat içinde başarıyla yayımlanmadı, lütfen NuGet.org oturum açın ve paket sayfasında kişi destek bağlantısı kullanarak bizimle bağlantı kurun.
+Paket doğrulama ve dizin oluşturma altında 15 dakika genellikle alır. Paket yayımlama beklenenden daha uzun sürüyorsa, ziyaret [status.nuget.org](https://status.nuget.org/) nuget.org tüm kesintileri yaşayan varsa denetlemek için. Tüm sistemler işletimsel ve paket bir saat içinde başarıyla yayımlanmadı, lütfen nuget.org oturum açın ve paket sayfasında kişi destek bağlantısı kullanarak bizimle bağlantı kurun.
 
 ### <a name="visual-studio-team-services-cicd"></a>Visual Studio Team Services (CI/CD)
 
