@@ -3,8 +3,9 @@
 # Hızlı Başlangıçlar
 ## [Paket (dotnet CLI) yükleme ve kullanma](quickstart/install-and-use-a-package-using-the-dotnet-cli.md)
 ## [Paket (dotnet CLI) yükleme ve kullanma](quickstart/install-and-use-a-package-in-visual-studio.md)
-## [Paket (dotnet CLI) oluşturma ve yayımlama](quickstart/create-and-publish-a-package-using-the-dotnet-cli.md)
-## [Paket (Visual Studio) oluşturma ve yayımlama](quickstart/create-and-publish-a-package-using-visual-studio.md)
+## [NET Standard paketi (dotnet CLI) oluşturma ve yayımlama](quickstart/create-and-publish-a-package-using-the-dotnet-cli.md)
+## [NET Standard paketi (Visual Studio) oluşturma ve yayımlama](quickstart/create-and-publish-a-package-using-visual-studio.md)
+## [NET Framework paketi (Visual Studio) oluşturma ve yayımlama](quickstart/create-and-publish-a-package-using-visual-studio-net-framework.md)
 # Paketleri kullanma
 ## [Genel bakış ve iş akışı](consume-packages/overview-and-workflow.md)
 ## [Paketleri bulma ve seçme](consume-packages/finding-and-choosing-packages.md)
