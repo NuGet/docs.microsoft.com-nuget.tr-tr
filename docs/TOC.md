@@ -17,7 +17,6 @@
 ## [NuGet önbelleğini yönetme](consume-packages/managing-the-nuget-cache.md)
 ## [NuGet davranışını yapılandırma](consume-packages/configuring-nuget-behavior.md)
 ## [Bağımlılık çözümlemesi](consume-packages/dependency-resolution.md)
-## [Proje dosyalarında paket başvuruları](consume-packages/package-references-in-project-files.md)
 # Paketleri oluşturma
 ## [Genel bakış ve iş akışı](create-packages/overview-and-workflow.md)
 ## [Paket oluşturma](create-packages/creating-a-package.md)
@@ -74,6 +73,7 @@
 ## [dotnet komutları](tools/dotnet-Commands.md)
 # Başvuru
 ## [.nuspec](reference/nuspec.md)
+## [Proje dosyalarında paket başvuruları](consume-packages/package-references-in-project-files.md)
 ## [packages.config](reference/packages-config.md)
 ## [Paket sürümü oluşturma](reference/package-versioning.md)
 ## [Nuget.Config dosyası](reference/nuget-config-file.md)
