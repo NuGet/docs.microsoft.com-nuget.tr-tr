@@ -3,7 +3,7 @@ title: "NuGet PackageReference biçimi (proje dosyalarına paket referansların�
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 07/17/2017
+ms.date: 03/16/2018
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
@@ -12,11 +12,11 @@ keywords: "NuGet Paket bağımlılıklarını, paket referanslarını proje dosy
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 679871a280c158c863e0daf790af1b7cef509943
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.openlocfilehash: e1880c9b294e19ef1b71c7b17b02df8ff1cf1b73
+ms.sourcegitcommit: 718e6cb88e45fa07c85d653f216bf92eaaf81625
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/20/2018
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Proje dosyalarına paket referanslarını (PackageReference)
 
@@ -24,7 +24,7 @@ Paketini kullanarak başvurular `PackageReference` düğümü, NuGet bağımlıl
 
 PackageReference ile hedef framework, yapılandırma, platform veya diğer gruplandırmaları başına paket referanslarını seçmek için MSBuild koşulları kullanabilirsiniz. Bu da bağımlılıkları ve içerik akışı üzerinde ayrıntılı denetim sağlar. (Daha fazla ayrıntı için bkz: [NuGet paketi ve geri yükleme MSBuild hedefleri olarak](../reference/msbuild-targets.md).)
 
-Varsayılan olarak, PackageReference .NET Core projeleri, .NET standart projeleri ve Windows 10 derleme 15063 (oluşturucuları güncelleştirme) hedefleme UWP projeleri için kullanılır ve daha sonra. .NET framework tam projeleri PackageReference destekler, ancak şu anda varsayılan olarak `packages.config`. PackageReference kullanmak için bağımlılıklardan geçirmek `packages.config` proje dosyanıza ardından packages.config kaldırın.
+Varsayılan olarak, PackageReference .NET Core projeleri, .NET standart projeler ve Windows 10 derleme 15063 (oluşturucuları güncelleştirme) hedefleme UWP projeleri için ve daha sonra C++ UWP projeleri hariç olmak üzere kullanılır. .NET framework tam projeleri PackageReference destekler, ancak şu anda varsayılan olarak `packages.config`. PackageReference kullanmak için bağımlılıklardan geçirmek `packages.config` proje dosyanıza ardından packages.config kaldırın.
 
 ## <a name="adding-a-packagereference"></a>Bir PackageReference ekleme
 
@@ -94,7 +94,7 @@ Bu etiketler için izin verilen değerler aşağıdaki gibidir, dışında nokta
 | Değer | Açıklama |
 | --- | ---
 | Derleme | İçeriği `lib` klasörü |
-| çalışma zamanı | İçeriği `runtime` klasörü |
+| çalışma zamanı | İçeriği `runtimes` klasörü |
 | Content dosyaları | İçeriği `contentfiles` klasörü |
 | derleme | Özellik ve içinde hedefler `build` klasörü |
 | Çözümleyiciler | .NET çözümleyiciler |
