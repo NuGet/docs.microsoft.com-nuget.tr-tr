@@ -14,7 +14,7 @@
 ### [Sorun giderme](consume-packages/package-restore-troubleshooting.md)
 ## [Paketleri yeniden yükleme ve güncelleştirme](consume-packages/reinstalling-and-updating-packages.md)
 ## [Paket ve kaynak denetimi](consume-packages/packages-and-source-control.md)
-## [NuGet önbelleğini yönetme](consume-packages/managing-the-nuget-cache.md)
+## [Genel paketleri ve önbellek klasörlerini yönetme](consume-packages/managing-the-global-packages-and-cache-folders.md)
 ## [NuGet davranışını yapılandırma](consume-packages/configuring-nuget-behavior.md)
 ## [Bağımlılık çözümlemesi](consume-packages/dependency-resolution.md)
 # Paketleri oluşturma
@@ -31,8 +31,8 @@
 ## Kılavuzlar
 ### [UWP paketleri oluşturma](guides/create-uwp-packages.md)
 ### [NuGet paketleri olarak UWP denetimleri oluşturma](guides/create-uwp-controls.md)
-### [NET Standart paketleri oluşturma (Visual Studio 2015)](guides/create-net-standard-packages-vs2015.md)
-### [Xamarin için paket oluşturma](guides/create-packages-for-xamarin.md)
+### [Visual Studio 2015 ile NET Standard/NET Framework paketleri oluşturma](guides/create-net-standard-packages-vs2015.md)
+### [Visual Studio 2015 ile Xamarin’e yönelik paketler oluşturma](guides/create-packages-for-xamarin.md)
 # Paketleri barındırma
 ## [Genel bakış](hosting-packages/overview.md)
 ## [Yerel akışlar](hosting-packages/local-feeds.md)
@@ -88,7 +88,7 @@
 ### [Visual Studio için NuGet kimlik bilgileri sağlayıcısı](reference/extensibility/nuget-credential-providers-for-visual-studio.md)
 ### [nuget.exe kimlik bilgileri sağlayıcıları](reference/extensibility/nuget-exe-credential-providers.md)
 ## Arşivlenen içerik
-### [project.json reference format](archive/project-json.md)
+### [project.json yönetim biçimi](archive/project-json.md)
 ### [project.json ve UWP](archive/project-json-and-uwp.md)
 ### [project.json impact](archive/project-json-impact.md)
 # API
