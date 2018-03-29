@@ -1,22 +1,25 @@
 ---
-title: "NuGet Get-Package PowerShell başvurusu | Microsoft Docs"
+title: NuGet Get-Package PowerShell başvurusu | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 12/07/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Visual Studio'da NuGet Paket Yöneticisi konsolunda Get-Package PowerShell komut başvurusu."
-keywords: "NuGet Paket Yöneticisi konsolu, NuGet Powershell komutlarını NuGet Powershell başvurusu, Get-Package"
+ms.technology: ''
+description: Visual Studio'da NuGet Paket Yöneticisi konsolunda Get-Package PowerShell komut başvurusu.
+keywords: NuGet Paket Yöneticisi konsolu, NuGet Powershell komutlarını NuGet Powershell başvurusu, Get-Package
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 01a874ce9ae59dcaeb696a45f23cc5e9f2cfa251
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: ca80d95df309d8afce2ce6cff26c19980affde7a
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="get-package-package-manager-console-in-visual-studio"></a>Get-Package (Visual Studio'da Paket Yöneticisi Konsolu)
 

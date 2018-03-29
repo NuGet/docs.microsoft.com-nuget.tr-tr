@@ -1,22 +1,25 @@
 ---
-title: "dotNet NuGet komutlarını | Microsoft Docs"
+title: dotNet NuGet komutlarını | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/23/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "NuGet ile ilgili komutları dotnet komut satırı arabirimi kullanarak için kısa bir başvuru."
-keywords: "DotNet NuGet komutlarını, dotnet paketi, dotnet geri yükleme, dotnet nuget yerel öğeler, dotnet nuget itme, dotnet nuget Sil"
+ms.technology: ''
+description: NuGet ile ilgili komutları dotnet komut satırı arabirimi kullanarak için kısa bir başvuru.
+keywords: DotNet NuGet komutlarını, dotnet paketi, dotnet geri yükleme, dotnet nuget yerel öğeler, dotnet nuget itme, dotnet nuget Sil
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 2851938cd43b35454d8e4ad595fbd93229d4dd72
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 352145701fba509e21e774a429d227e7427a1f0d
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="dotnet-commands"></a>dotNet komutları
 
@@ -29,7 +32,7 @@ Hakkında tam bilgi için `dotnet`, bkz: [.NET Core komut satırı arabirimi (CL
 - [**DotNet eklemek paket**](/dotnet/core/tools/dotnet-add-package): Proje dosyası için bir paket başvuru ekler ve sonra çalışan `dotnet restore` paketi yüklemek için.
 - [**DotNet kaldırmak paket**](/dotnet/core/tools/dotnet-remove-package): bir paket başvuru proje dosyasından kaldırır.
 - [**DotNet geri yükleme**](/dotnet/core/tools/dotnet-restore?tabs=netcore2x): projenin araçları ve bağımlılıklar geri yükler. NuGet 4.0 itibariyle, bu aynı kodunu çalıştırır `nuget restore`.
-- [**DotNet nuget Yereller**](/dotnet/core/tools/dotnet-nuget-locals): temizler veya http isteği önbelleği, geçici önbelleği ve makine genelinde genel paketler klasörü gibi yerel NuGet kaynakları listeler.
+- [**DotNet nuget Yereller**](/dotnet/core/tools/dotnet-nuget-locals): listeler konumlarını *paketleri genel*, *http önbellek*, ve *temp* klasör ve içeriğini temizler Bu klasörleri.
 
 ## <a name="package-creation"></a>Paket oluşturma
 

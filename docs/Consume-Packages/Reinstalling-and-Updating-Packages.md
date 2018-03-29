@@ -1,23 +1,25 @@
 ---
-title: "Yeniden yüklemeyi ve NuGet paketlerini güncelleştirme | Microsoft Docs"
+title: Yeniden yüklemeyi ve NuGet paketlerini güncelleştirme | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 12/07/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-ms.assetid: 2785879b-97f0-4a85-b3cc-bf4eaa5c39bf
-description: "Visual Studio'da bozuk paket referanslarını gibi ile yeniden yükleyin ve paketleri, güncelleştirmek için gerekli olduğu zaman ayrıntılar."
-keywords: "NuGet paketi yüklemesi, NuGet paketi yeniden, NuGet paket geri yüklemesi, bozuk başvurularda düzelttikten paketleri, geri yükleme paketi, güncelleştirme"
+ms.technology: ''
+description: Visual Studio'da bozuk paket referanslarını gibi ile yeniden yükleyin ve paketleri, güncelleştirmek için gerekli olduğu zaman ayrıntılar.
+keywords: NuGet paketi yüklemesi, NuGet paketi yeniden, NuGet paket geri yüklemesi, bozuk başvurularda düzelttikten paketleri, geri yükleme paketi, güncelleştirme
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: e2875630b24fbe04fc7bcab52335d849e54160de
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 9da385f51abf5877589c29ebdeffefc9a1a20a2e
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>Yeniden yükleme ve güncelleştirme paketleri
 
@@ -48,7 +50,7 @@ Bu makalede:
 
 Varsayılan olarak yeniden yüklemek veya bir paketin güncelleştirilmesi, *her zaman* paket kaynağından en son sürümünü yükler.
 
-Kullanarak projelerinde `packages.config` başvuru biçimi, ancak özellikle sürüm aralığı kısıtlayabilirsiniz. Uygulamanızı çalıştığını biliyorsanız, örneğin, yalnızca sürümüyle 1.x bir paketin ancak değil 2.0 ve üzeri sürümlerde, belki de API paketindeki önemli bir değişiklik nedeniyle, ardından 1.x sürümlerine yükseltme sınırlamak istersiniz. Bu, uygulamanızın çalışmamasına neden yanlışlıkla güncelleştirmelerini engeller.
+Kullanarak projelerinde `packages.config` yönetim biçimi, ancak özellikle sürüm aralığı kısıtlayabilirsiniz. Uygulamanızı çalıştığını biliyorsanız, örneğin, yalnızca sürümüyle 1.x bir paketin ancak değil 2.0 ve üzeri sürümlerde, belki de API paketindeki önemli bir değişiklik nedeniyle, ardından 1.x sürümlerine yükseltme sınırlamak istersiniz. Bu, uygulamanızın çalışmamasına neden yanlışlıkla güncelleştirmelerini engeller.
 
 Bir kısıtlama belirlemek için açık `packages.config` bir metin düzenleyicisinde söz konusu bağımlılık bulmak ve eklemek `allowedVersions` sürüm aralığı özniteliğiyle. Örneğin, güncelleştirmeleri sınırlamak için 1.x, sürüme Ayarla `allowedVersions` için `[1,2)`:
 

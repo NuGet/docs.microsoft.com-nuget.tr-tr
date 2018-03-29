@@ -1,24 +1,27 @@
 ---
-title: "NuGet Paket Yöneticisi konsolu Kılavuzu | Microsoft Docs"
+title: NuGet Paket Yöneticisi konsolu Kılavuzu | Microsoft Docs
 author: kraigb
 hms.author: kraigb
 manager: ghogen
 ms.date: 01/23/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
+ms.technology: ''
 f1_keywords:
 - vs.nuget.packagemanager.console
-description: "Paketlerle çalışmak için Visual Studio'da NuGet Paket Yöneticisi Konsolu kullanma için yönergeler."
-keywords: "NuGet Paket Yöneticisi konsolu, NuGet powershell, NuGet paketlerini yönetme"
+description: Paketlerle çalışmak için Visual Studio'da NuGet Paket Yöneticisi Konsolu kullanma için yönergeler.
+keywords: NuGet Paket Yöneticisi konsolu, NuGet powershell, NuGet paketlerini yönetme
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 60c7edd0497e162cc511424e9acfbbfd6f53fd46
-ms.sourcegitcommit: a40a6ce6897b2d9411397b2e29b1be234eb6e50c
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: af22a524f6b4a41a4c24077fe396846da6fb1ff8
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="package-manager-console"></a>Paket Yöneticisi Konsolu
 
@@ -80,19 +83,10 @@ Install-Package Elmah -ProjectName UtilitiesLib
 
 Bkz: [Install-Package](../tools/ps-ref-install-package.md).
 
-Bir paketi yüklerken aşağıdaki eylemleri gerçekleştirir:
+Konsolunda bir paket yükleme aynı adımları gerçekleştirir açıklandığı gibi [bir paket yüklendiğinde ne olacağını](../consume-packages/ways-to-install-a-package.md#what-happens-when-a-package-is-installed), aşağıdaki eklemelerle:
 
-- Geçerli lisans şartları zımni Sözleşmesi ile Konsol penceresinde görüntüler. Koşulları kabul etmiyorsanız, paketi hemen kaldırmanız gerekir.
-- Her başvuru biçimi kullanımda içinde projesine bir başvuru ekler. Başvuruları daha sonra Çözüm Gezgini ve geçerli başvuru biçim dosyası görünür. Ancak, doğrudan proje dosyasındaki değişiklikleri görmek için projeyi kaydedin gerek PackageReference ile unutmayın.
-- Paketi önbelleğe alır:
-  - PackageReference: Paket konumundaki önbelleğe alınmış `%USERPROFILE%\.nuget\packages` ve kilidi dosya yani `project.assets.json` güncelleştirilir.
-  - `packages.config`: oluşturur bir `packages` klasör paketi dosyalarını içindeki bir alt klasör içine çözüm kök ve kopyalar. `package.config` Dosya güncelleştirilir.
-- Güncelleştirmeleri `app.config` ve/veya `web.config` paketi kullanıyorsa [kaynak ve yapılandırma dosyası dönüşümleri](../create-packages/source-and-config-file-transformations.md).
-- Henüz yoksa projedeki tüm bağımlılıkları yükler. Bu paket işleminde, açıklandığı gibi güncelleştirme sürümleri [bağımlılık çözümlemesi](../consume-packages/dependency-resolution.md).
-- Paketin Benioku dosyası varsa, bir Visual Studio penceresinde görüntüler.
-
-> [!Tip]
-> Paketleri yükleme birincil yararlarından biri `Install-Package` konsolunda komuttur Paket Yöneticisi kullanıcı Arabirimi kullandığınız sanki projesine bir başvuru ekleyen. Buna karşılık, `nuget install` CLI komutu yalnızca paketi indirir ve otomatik olarak bir başvuru eklemez.
+- Konsolu geçerli lisans şartları zımni Sözleşmesi ile kendi penceresinde görüntüler. Koşulları kabul etmiyorsanız, paketi hemen kaldırmanız gerekir.
+- Ayrıca paketine başvuru proje dosyasına eklenir ve görünür **Çözüm Gezgini** altında **başvuruları** düğümü, gereken değişiklikleri proje dosyasında doğrudan görmek için projeyi kaydedin.
 
 ## <a name="uninstalling-a-package"></a>Bir paketi kaldırma
 
@@ -111,12 +105,9 @@ Bkz: [kaldırma paket](../tools/ps-ref-uninstall-package.md). Kullanım [Get-Pac
 
 Bir paketi aşağıdaki eylemleri gerçekleştirir:
 
-- Proje (ve her başvuru biçimi kullanımda) paket başvuruları kaldırır. Başvurular, Çözüm Gezgini'nde artık görünür. (Kaldırılmasını görmek için projeyi yeniden oluşturmanız gerekebilir **Bin** klasörü.)
+- Proje (ve her yönetim biçimi kullanımda) paket başvuruları kaldırır. Başvuruları artık görünür **Çözüm Gezgini**. (Kaldırılmasını görmek için projeyi yeniden oluşturmanız gerekebilir **Bin** klasörü.)
 - Yapılan değişiklikleri geri alır `app.config` veya `web.config` paketin ne zaman yüklendi.
 - Bu bağımlılıklar hiçbir kalan paketleri kullanıyorsanız, önceden yüklenmiş kaldırır bağımlılıkları.
-
-> [!Tip]
-> Gibi `Install-Package`, `Uninstall-Package` komutu aksine projedeki başvuruları yönetme avantajına sahiptir `nuget uninstall` CLI komutu.
 
 ## <a name="updating-a-package"></a>Paket güncelleştirme
 
@@ -159,7 +150,7 @@ Bkz: [Bul paket](../tools/ps-ref-find-package.md). Visual Studio 2013 ve önceki
 
 Visual Studio 2017 içinde NuGet ve NuGet Paket Yöneticisi herhangi seçtiğinizde otomatik olarak yüklenir. NET ilgili iş yükleri; Ayrıca ayrı ayrı kontrol ederek yükleyebilirsiniz **bileşenleri tek tek > kod Araçlar > NuGet Paket Yöneticisi** Visual Studio 2017 yükleyici seçeneği.
 
-Ayrıca, Visual Studio 2015 ve daha önce NuGet Paket Yöneticisi kayıpsa denetleyin **Araçlar > Uzantılar ve güncelleştirmeler...**  NuGet Paket Yöneticisi uzantısı arayın. Visual Studio Uzantıları yükleyici yapamıyorsanız doğrudan uzantısı indirebilirsiniz [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html).
+Ayrıca, Visual Studio 2015 ve daha önce NuGet Paket Yöneticisi kayıpsa denetleyin **Araçlar > Uzantılar ve güncelleştirmeler...**  NuGet Paket Yöneticisi uzantısı arayın. Visual Studio Uzantıları yükleyici yapamıyorsanız doğrudan uzantısı indirebilirsiniz [ https://dist.nuget.org/index.html ](https://dist.nuget.org/index.html).
 
 Paket Yöneticisi konsolu, Visual Studio for Mac ile şu anda kullanılabilir değil. Eşdeğer komutları ancak aracılığıyla kullanılabilir [NuGet CLI](nuget-exe-CLI-reference.md). Mac için Visual Studio, NuGet paketlerini yönetmek için bir kullanıcı Arabirimi yok. Bkz: [dahil olmak üzere bir NuGet paketini projenize](/visualstudio/mac/nuget-walkthrough).
 

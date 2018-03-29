@@ -1,23 +1,26 @@
 ---
-title: "Hedef çerçeveler başvurular için NuGet | Microsoft Docs"
+title: Hedef çerçeveler başvurular için NuGet | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 12/11/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "NuGet hedef framework başvurular tanımlamak ve bir paket framework bağımlı bileşenleri yalıtır."
-keywords: "NuGet paketi, .NET framework hedefleri, .NET framework sürümü hedefleme"
+ms.technology: ''
+description: NuGet hedef framework başvurular tanımlamak ve bir paket framework bağımlı bileşenleri yalıtır.
+keywords: NuGet paketi, .NET framework hedefleri, .NET framework sürümü hedefleme
 ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 7e3621f01312e3b4fdbef116e5044869416b851c
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 0a9c45ef31e27c2242edce48e2cf272e5280dcff
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="target-frameworks"></a>Hedef Çerçeve
 

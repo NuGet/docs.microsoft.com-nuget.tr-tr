@@ -1,22 +1,25 @@
 ---
-title: "Geri yükleme Visual Studio'da NuGet paketi sorunlarını giderme | Microsoft Docs"
+title: Geri yükleme Visual Studio'da NuGet paketi sorunlarını giderme | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 03/13/2018
+ms.date: 03/16/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Visual Studio ve bunları gidermek nasıl hatalar geri yükleme ortak NuGet açıklaması."
-keywords: "NuGet paket geri yüklemesi, geri yükleme paketleri, sorun giderme, sorun giderme"
+ms.technology: ''
+description: Visual Studio ve bunları gidermek nasıl hatalar geri yükleme ortak NuGet açıklaması.
+keywords: NuGet paket geri yüklemesi, geri yükleme paketleri, sorun giderme, sorun giderme
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 8efaed497a596921af3c73ab919831c73bf598e0
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 27a43ceaefdf3a7842183a64ea57d05416d6cb02
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="troubleshooting-package-restore-errors"></a>Paket geri yükleme hatalarını giderme
 
@@ -48,7 +51,10 @@ This project references NuGet package(s) that are missing on this computer.
 Use NuGet Package Restore to download them. The missing file is {name}.
 ```
 
-Bu hata oluşur. bir veya daha fazla NuGet Paketlerine yönelik başvuruları içeren bir projeyi derleme çalışıldı, ancak bu paketleri şu anda projede önbelleğe alınmaz. (Paketler önbelleğe bir `packages` proje kullanıyorsa, çözüm kök klasör `packages.config`, veya `obj/project.assets.json` proje PackageReference biçimi kullanıyorsa, dosya.)
+Bu hata oluşur. bir veya daha fazla NuGet Paketlerine yönelik başvuruları içeren bir projeyi derleme çalışıldı, ancak bu paketleri şu anda bilgisayarda veya projesinde yüklü değil.
+
+- PackageReference yönetim biçimi kullanırken, paket içinde yüklenmedi hata anlamına gelir *paketleri genel* açıklandığı gibi açık açıklandığı gibi klasör [önbellek klasörvegenelpaketleriniyönetme](managing-the-global-packages-and-cache-folders.md).
+- Kullanırken `packages.config`, paket içinde yüklenmedi hata anlamına gelir `packages` çözüm kök klasör.
 
 Bu durum, yaygın olarak kaynak denetimi veya başka bir yükleme projenin kaynak kodu elde oluşur. Paketleri genellikle atlanmış kaynak denetimi veya yüklemeleri bunlar paket akışları nuget.org gibi geri yüklenebileceği olduğundan (bkz [paketler ve kaynak denetimi](Packages-and-Source-Control.md)). Bunları dahil olmak üzere Aksi durumda depo Şişir veya gereksiz yere büyük .zip dosyalarını oluşturun.
 
@@ -59,7 +65,7 @@ Paketler geri yüklemek için aşağıdaki yöntemlerden birini kullanın:
 - Komut satırında çalıştırmak `nuget restore` (ile oluşturulmuş projelerde dışında `dotnet`, bu durumda kullanmak `dotnet restore`).
 - PackageReference biçimi kullanarak projeleri ile komut satırında çalıştırmak `msbuild /t:restore`.
 
-Başarılı bir geri yüklendikten sonra ya da görmeniz gerekir bir `packages` klasörü (kullanırken `packages.config`) veya `obj/project.assets.json` dosya (PackageReference kullanırken). Projeyi şimdi başarıyla oluşturmalısınız. Aksi durumda, [bir sorun Github'da dosya](https://github.com/NuGet/docs.microsoft.com-nuget/issues) biz sizinle izleyecek şekilde.
+Başarılı bir geri yüklendikten sonra paketi mevcut olmalıdır *paketleri genel* klasör. PackageReference kullanarak projeleri için bir geri yükleme yeniden oluşturmanız gerekir `obj/project.assets.json` dosya; kullanarak projeleri için `packages.config`, paket projesinin görünmelidir `packages` klasör. Projeyi şimdi başarıyla oluşturmalısınız. Aksi durumda, [bir sorun Github'da dosya](https://github.com/NuGet/docs.microsoft.com-nuget/issues) biz sizinle izleyecek şekilde.
 
 <a name="assets"></a>
 
@@ -71,7 +77,9 @@ Tam hata iletisi:
 Assets file '<path>\project.assets.json' not found. Run a NuGet package restore to generate this file.
 ```
 
-Bu hata için aynı nedenden dolayı açıklandığı şekilde oluşur. [önceki bölümde](#missing), ve aynı çözümlere sahiptir. Örneğin, çalışan `msbuild` .NET Core üzerinde kaynak denetiminden elde edilen proje otomatik olarak paketler geri olmaz. Bu durumda, çalıştırmak `msbuild /t:restore` arkasından `msbuild`, veya `dotnet build` (hangi geri yükler paketleri otomatik olarak).
+`project.assets.json` Dosyası, tüm gerekli paketleri bilgisayarda yüklü olduğundan emin olmak için kullanılan PackageReference yönetim biçimi kullanırken bir projenin bağımlılık grafiğinin sağlar. Bu dosya paket geri yüklemesi dinamik olarak oluşturulduğundan, kaynak denetimine genellikle eklenmez. Sonuç olarak, aşağıdaki gibi bir araçla proje oluşturma bu hata oluşur `msbuild` , otomatik olarak paketler geri yüklemez.
+
+Bu durumda, çalıştırmak `msbuild /t:restore` arkasından `msbuild`, veya `dotnet build` (hangi geri yükler paketleri otomatik olarak). Paket geri yükleme yöntemlerinden herhangi birini de kullanabilirsiniz [önceki bölümde](#missing).
 
 <a name="consent"></a>
 
@@ -103,11 +111,12 @@ Bu ayarları doğrudan geçerli de düzenleyebilirsiniz `nuget.config` dosyası 
 </configuration>
 ```
 
-Düzenlediğiniz gerçekleştiriyorsanız `packageRestore` ayarlarını doğrudan `nuget.config`, Seçenekler iletişim kutusu geçerli değerleri gösterir böylece Visual Studio'yu yeniden başlatın.
+> [!Important]
+> Düzenlediyseniz `packageRestore` ayarlarını doğrudan `nuget.config`, Seçenekler iletişim kutusu geçerli değerleri gösterir böylece Visual Studio'yu yeniden başlatın.
 
 ## <a name="other-potential-conditions"></a>Diğer olası koşulları
 
-- Derleme hataları eksik dosyalar nedeniyle bunları indirmek için NuGet restore kullanılacağını belirten bir ileti ile karşılaşabilirsiniz. Ancak, bir geri yükleme çalıştıran söyleyin, "tüm paketler zaten yüklendi ve geri yüklenecek bir şey yok." Bu durumda, silme `packages` klasörü (kullanırken `packages.config`) veya `obj/project.assets.json` dosya (PackageReference kullanırken) ve geri yüklemeyi yeniden çalıştırın.
+- Derleme hataları eksik dosyalar nedeniyle bunları indirmek için NuGet restore kullanılacağını belirten bir ileti ile karşılaşabilirsiniz. Ancak, bir geri yükleme çalıştıran söyleyin, "tüm paketler zaten yüklendi ve geri yüklenecek bir şey yok." Bu durumda, silme `packages` klasörü (kullanırken `packages.config`) veya `obj/project.assets.json` dosya (PackageReference kullanırken) ve geri yüklemeyi yeniden çalıştırın. Hata devam ederse kullanmak `nuget locals all -clear` veya `dotnet locals all --clear` temizlemek için komut satırından *paketleri genel* ve açıklandığı gibi klasör önbelleğe [önbellek klasörvegenelpaketleriniyönetme](managing-the-global-packages-and-cache-folders.md).
 
 - Bir proje kaynak denetiminden alırken, proje klasörlerinizi salt okunur ayarlanması. Klasör izinlerini değiştirin ve paketleri geri yüklemeyi yeniden deneyin.
 

@@ -1,23 +1,26 @@
 ---
-title: "NuGet sembol paketlerini oluşturma | Microsoft Docs"
+title: NuGet sembol paketlerini oluşturma | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 09/12/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Diğer NuGet paketleri Visual Studio'da hata ayıklamayı desteklemek için yalnızca sembolleri içeren NuGet paketleri oluşturma"
-keywords: "NuGet sembol paketlerini, hata ayıklama, hata ayıklama, paket sembolleri, sembol paketi kuralları NuGet destekleyen NuGet paketi"
+ms.technology: ''
+description: Diğer NuGet paketleri Visual Studio'da hata ayıklamayı desteklemek için yalnızca sembolleri içeren NuGet paketleri oluşturma
+keywords: NuGet sembol paketlerini, hata ayıklama, hata ayıklama, paket sembolleri, sembol paketi kuralları NuGet destekleyen NuGet paketi
 ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: e1d90009c739a7f358e9581c7032523b8b284936
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 6b6ddb0ca8ac5d7589dc5cb6de66ee3aa5faf8b6
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="creating-symbol-packages"></a>Sembol paketleri oluşturma
 
@@ -130,7 +133,7 @@ Sembol paketi kurallarından önceki bölümde açıklandığı gibi klasör yap
     nuget push MyPackage.nupkg
     ```
 
-Bu durumda, NuGet yayımlayacak `MyPackage.symbols.nupkg`, varsa, https://nuget.smbsrc.net/ (anında iletme URL'si için symbolsource.org) için birincil paketi için nuget.org yayımlar sonra.
+Bu durumda, NuGet yayımlayacak `MyPackage.symbols.nupkg`, için varsa, https://nuget.smbsrc.net/ (gönderme URL'sini symbolsource.org), sonra nuget.org için birincil paketi yayımlar.
 
 ## <a name="see-also"></a>Ayrıca Bkz.
 

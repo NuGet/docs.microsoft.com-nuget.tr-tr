@@ -1,22 +1,25 @@
 ---
-title: "NuGet paketi yazarları Project.JSON etkisini | Microsoft Docs"
+title: NuGet paketi yazarları Project.JSON etkisini | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/18/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Nasıl NuGet 3.x etkiler project.json uygulama paketini desteklenmeyen özellikler, içerik ve paket biçimi gibi yazarlar ayrıntılar."
-keywords: "NuGet ve project.json, project.json etkisi yazma konuları, project.json özellik paketi"
+ms.technology: ''
+description: Nasıl NuGet 3.x etkiler project.json uygulama paketini desteklenmeyen özellikler, içerik ve paket biçimi gibi yazarlar ayrıntılar.
+keywords: NuGet ve project.json, project.json etkisi yazma konuları, project.json özellik paketi
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b732d48b169825764d614c338658f8c6ef45e765
-ms.sourcegitcommit: eabd401616a98dda2ae6293612acb3b81b584967
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 6e8af98504a2866106e84943989aeb91f2e9c1fb
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="impact-of-projectjson-when-creating-packages"></a>Paket oluştururken project.json etkisi
 
@@ -51,7 +54,7 @@ Komut dosyaları ve dönüşümler benzer nedenlerle içerik şu anda devre dı�
 
 İçerik dosyaları hala paketleri aktarılabilen ve şu anda göz ardı edilir, ancak son kullanıcı hala bunları sağ nokta kopyalayabilirsiniz.
 
-İçerik dosyalarını geri getiren teklifleri birine bakın ve ilerleme durumunu, burada izleyin: [https://github.com/NuGet/Home/issues/627](https://github.com/NuGet/Home/issues/627).
+İçerik dosyalarını geri getiren teklifleri birine bakın ve ilerleme durumunu, burada izleyin: [ https://github.com/NuGet/Home/issues/627 ](https://github.com/NuGet/Home/issues/627).
 
 ## <a name="impact-for-package-authors"></a>Paketi yazarları için etkisi
 

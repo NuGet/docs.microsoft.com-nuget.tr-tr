@@ -1,22 +1,25 @@
 ---
-title: "NuGet 2.7 Sürüm Notları | Microsoft Docs"
+title: NuGet 2.7 Sürüm Notları | Microsoft Docs
 author: karann-msft
 ms.author: karann-msft
 manager: ghogen
 ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "NuGet bilinen sorunları, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere 2.7 için sürüm notları."
-keywords: "Özellikler, dcr bilinen sorunlar, NuGet 2.7 Sürüm Notları, hata düzeltmeleri eklendi"
+ms.technology: ''
+description: NuGet bilinen sorunları, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere 2.7 için sürüm notları.
+keywords: Özellikler, dcr bilinen sorunlar, NuGet 2.7 Sürüm Notları, hata düzeltmeleri eklendi
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 43638626661ae034bb0a1cc28958a2e2929f047f
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 71ced70af127c8219001069739a6cec59d7d1684
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-27-release-notes"></a>NuGet 2.7 Sürüm Notları
 
@@ -158,7 +161,7 @@ Bkz: [NuGet yapılandırma varsayılanları](../consume-packages/configuring-nug
 
 ### <a name="renaming-the-default-package-source"></a>Varsayılan paket kaynağı yeniden adlandırma
 
-NuGet her zaman "için nuget.org işaret NuGet resmi bir paket kaynağı" olarak adlandırılan varsayılan paket kaynağına kaydettirildi. Bu ad ayrıntılı ve ayrıca burada da gerçekte işaret eden belirtin alamadık. Bu iki sorunları gidermek için yalnızca "nuget.org" kullanıcı arabiriminde bu paket kaynağına değiştirdiniz. Paket kaynağının URL'sini de "www." içerecek şekilde değiştirildi. önek. NuGet 2.7 kullandıktan sonra varolan "NuGet resmi bir paket kaynağı" otomatik olarak ad olarak "nuget.org" ve "https://www.nuget.org/api/v2/" URL olarak güncelleştirilir.
+NuGet her zaman "için nuget.org işaret NuGet resmi bir paket kaynağı" olarak adlandırılan varsayılan paket kaynağına kaydettirildi. Bu ad ayrıntılı ve ayrıca burada da gerçekte işaret eden belirtin alamadık. Bu iki sorunları gidermek için yalnızca "nuget.org" kullanıcı arabiriminde bu paket kaynağına değiştirdiniz. Paket kaynağının URL'sini de "www." içerecek şekilde değiştirildi. önek. NuGet 2.7 kullandıktan sonra varolan "NuGet resmi bir paket kaynağı" otomatik olarak ad olarak "nuget.org" güncelleştirilecek ve "https://www.nuget.org/api/v2/" URL olarak.
 
 ### <a name="performance-improvements"></a>Performans Geliştirmeleri
 

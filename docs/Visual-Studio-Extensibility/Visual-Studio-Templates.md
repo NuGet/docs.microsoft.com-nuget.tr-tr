@@ -1,22 +1,25 @@
 ---
-title: "Visual Studio şablonları NuGet paketlerine | Microsoft Docs"
+title: Visual Studio şablonları NuGet paketlerine | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/03/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "NuGet paketlerini Visual Studio Proje ve öğe şablonları bir parçası olarak dahil etmek için yönergeler."
+ms.technology: ''
+description: NuGet paketlerini Visual Studio Proje ve öğe şablonları bir parçası olarak dahil etmek için yönergeler.
 keywords: NuGet in Visual Studio, Visual Studio project templates, Visual Studio item templates, packages in project templates, packages in item templates
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 65b914e1fa59c28615f195b470880a12bf80efbb
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 8c1751ba9caf5e71ace7a81575e4e5448b1e4185
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="packages-in-visual-studio-templates"></a>Visual Studio şablonları paketler
 
@@ -50,7 +53,7 @@ Paketleri bir şablona dahil adımlar:
     </WizardExtension>
     ```
 
-    `NuGet.VisualStudio.Interop.dll`yalnızca içeren bir derleme `TemplateWizard` gerçek uygulamasında içine çağıran basit bir sarmalayıcı sınıfı `NuGet.VisualStudio.dll`. Proje/öğe şablonları NuGet yeni sürümleri ile çalışmaya devam derleme sürümünü hiçbir zaman değiştireceksiniz.
+    `NuGet.VisualStudio.Interop.dll` yalnızca içeren bir derleme `TemplateWizard` gerçek uygulamasında içine çağıran basit bir sarmalayıcı sınıfı `NuGet.VisualStudio.dll`. Proje/öğe şablonları NuGet yeni sürümleri ile çalışmaya devam derleme sürümünü hiçbir zaman değiştireceksiniz.
 
 1. Projede yüklemek için olan paketlerin listesini ekleyin:
 
@@ -62,7 +65,7 @@ Paketleri bir şablona dahil adımlar:
     </WizardData>
     ```
 
-    *(NuGet 2.2.1+)*  Birden çok sihirbaz destekler `<package>` öğeleri birden çok paket kaynaklarını destekleyecek şekilde. Hem `id` ve `version` , belirli bir paketin sürümü anlamına yüklenecek daha yeni bir sürümü kullanılabilir olsa bile, öznitelikler gereklidir. Bu, paket güncelleştirmesi şablon kullanılarak Geliştirici paketi güncelleştirmeye seçimi bırakarak şablon bozmasını engeller.
+    Birden çok sihirbaz destekler `<package>` öğeleri birden çok paket kaynaklarını destekleyecek şekilde. Hem `id` ve `version` , belirli bir paketin sürümü anlamına yüklenecek daha yeni bir sürümü kullanılabilir olsa bile, öznitelikler gereklidir. Bu, paket güncelleştirmesi şablon kullanılarak Geliştirici paketi güncelleştirmeye seçimi bırakarak şablon bozmasını engeller.
 
 1. NuGet paketleri aşağıdaki bölümlerde açıklandığı gibi bulabileceğiniz deposu belirtin.
 
@@ -118,7 +121,7 @@ Bir MSI kullanılarak yüklenen SDK'ları doğrudan geliştiricinin makinesinde 
 
 1. Paket konumu tanımlamak için bir kayıt defteri anahtarı yazın:
 
-    - Anahtar konumu: her iki makine genelinde `HKEY_LOCAL_MACHINE\SOFTWARE[\Wow6432Node]\NuGet\Repository` veya kullanıcı başına yüklenmiş şablonlar ve paketleri ise, bunun yerine kullanın`HKEY_CURRENT_USER\SOFTWARE\NuGet\Repository`
+    - Anahtar konumu: her iki makine genelinde `HKEY_LOCAL_MACHINE\SOFTWARE[\Wow6432Node]\NuGet\Repository` veya kullanıcı başına yüklenmiş şablonlar ve paketleri ise, bunun yerine kullanın `HKEY_CURRENT_USER\SOFTWARE\NuGet\Repository`
     - Anahtar adı: için benzersiz bir ad kullanın. Örneğin, VS 2012 kullanmak için ASP.NET MVC 4 şablonları `AspNetMvc4VS11`.
     - Değerler: klasörün tam yolunu paketler.
 

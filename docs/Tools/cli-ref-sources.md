@@ -1,28 +1,31 @@
 ---
-title: "NuGet CLI kaynakları komut | Microsoft Docs"
+title: NuGet CLI kaynakları komut | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Komut nuget.exe için başvuru kaynakları"
-keywords: "nuget başvuru kaynakları, komut kaynakları"
+ms.technology: ''
+description: Komut nuget.exe için başvuru kaynakları
+keywords: nuget başvuru kaynakları, komut kaynakları
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 139a9494e1ea898c90ce79d5990530fbe08642bd
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: f682a5209556ec6741473ccf2648e8f38bb568b9
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="sources-command-nuget-cli"></a>kaynakları komutu (NuGet CLI)
 
 **Uygulandığı öğe:** paket tüketim, yayımlama &bullet; **desteklenen sürümler:** tüm
 
-Kullanıcı kapsam yapılandırma dosyası veya belirtilen yapılandırma dosyasında bulunan kaynakları listesini yönetir. Kullanıcı kapsam yapılandırma dosyası şu konumdadır `%APPDATA%\NuGet\NuGet.Config` (Windows) ve `~/.nuget/NuGet/NuGet.Config` (Mac/Linux).
+Kullanıcı kapsam yapılandırma dosyası veya belirtilen yapılandırma dosyasında bulunan kaynakları listesini yönetir. Kullanıcı kapsam yapılandırma dosyası şu konumdadır `%appdata%\NuGet\NuGet.Config` (Windows) ve `~/.nuget/NuGet/NuGet.Config` (Mac/Linux).
 
 Nuget.org kaynak URL'sini olduğuna dikkat edin `https://api.nuget.org/v3/index.json`.
 

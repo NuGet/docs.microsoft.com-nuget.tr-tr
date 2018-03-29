@@ -1,22 +1,25 @@
 ---
-title: "NuGet davranışını yapılandırma | Microsoft Docs"
+title: NuGet davranışını yapılandırma | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 10/25/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "NuGet.Config dosyaları, hem genel hem de proje başına temelinde NuGet davranışını denetlemek ve nuget config komutu ile değiştirilmelidir."
-keywords: "NuGet yapılandırma dosyaları, NuGet yapılandırması, NuGet davranış ayarları, NuGet ayarları, Nuget.Config, NuGetDefaults.Config, Varsayılanları"
+ms.technology: ''
+description: NuGet.Config dosyaları, hem genel hem de proje başına temelinde NuGet davranışını denetlemek ve nuget config komutu ile değiştirilmelidir.
+keywords: NuGet yapılandırma dosyaları, NuGet yapılandırması, NuGet davranış ayarları, NuGet ayarları, Nuget.Config, NuGetDefaults.Config, Varsayılanları
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c46f23fcbec5dfcb6122434d43097212f6230fb0
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: a575868894d5ca9992b1c9984cf4920bd2858209
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configuring-nuget-behavior"></a>NuGet davranışını yapılandırma
 
@@ -27,7 +30,7 @@ NuGet davranışı güdümlü bir veya daha fazla birikmiş ayarlar tarafından 
 | Kapsam | NuGet.Config dosya konumu | Açıklama |
 | --- | --- | --- |
 | Proje | Geçerli klasör (diğer adıyla proje klasörü) veya sürücü kök kadar herhangi bir klasör.| Bir proje klasöründe ayarlar yalnızca bu proje için geçerlidir. Birden çok proje alt klasör içeren üst klasörlerde ayarlar bu klasörlerdeki tüm projeleri için geçerlidir. |
-| Kullanıcı | Windows: `%APPDATA%\NuGet\NuGet.Config`<br/>Mac/Linux: `~/.nuget/NuGet/NuGet.Config` | Ayarları tüm işlemleri için geçerlidir, ancak herhangi bir proje düzeyi ayarı tarafından geçersiz kılınır. |
+| Kullanıcı | Windows: `%appdata%\NuGet\NuGet.Config`<br/>Mac/Linux: `~/.nuget/NuGet/NuGet.Config` | Ayarları tüm işlemleri için geçerlidir, ancak herhangi bir proje düzeyi ayarı tarafından geçersiz kılınır. |
 | Bilgisayar | Windows: `%ProgramFiles(x86)%\NuGet\Config`<br/>Mac/Linux: `$XDG_DATA_HOME` (genellikle `~/.local/share`) | Ayarlar bilgisayar üzerinde tüm işlemler için geçerli olan, ancak herhangi bir kullanıcı veya proje düzeyi ayarı tarafından kılınmadı. |
 
 NuGet'ın önceki sürümlerini için Notlar:
@@ -94,7 +97,7 @@ nuget config -set repositoryPath= -configfile /home/my.Config
 
 ### <a name="creating-a-new-config-file"></a>Yeni bir yapılandırma dosyası oluşturma
 
-Aşağıdaki şablonu yeni dosyaya kopyalayın ve ardından `nuget config --configFile <filename>` değerlerini ayarlamak için:
+Aşağıdaki şablonu yeni dosyaya kopyalayın ve ardından `nuget config -configFile <filename>` değerlerini ayarlamak için:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -137,7 +140,7 @@ NuGet bu dosyalarda ayarları buldukça, bunlar aşağıdaki gibi uygulanır:
 
 Dört sonra sahip `NuGet.Config` dosyaları aşağıdaki konumlarda verilen içeriğe sahip. (Bilgisayar düzeyinde dosya bu örnekte yer almaz, ancak kullanıcı düzeyinde dosyasına benzer şekilde davranacaktır.)
 
-A. kullanıcı düzeyinde dosyası, (`%APPDATA%\NuGet\NuGet.Config` , Windows'da `~/.nuget/NuGet/NuGet.Config` Mac/Linux'ta):
+A. kullanıcı düzeyinde dosyası, (`%appdata%\NuGet\NuGet.Config` , Windows'da `~/.nuget/NuGet/NuGet.Config` Mac/Linux'ta):
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -220,7 +223,7 @@ Aşağıdaki tabloda nerede tanımlar `NuGetDefaults.Config` dosyasının saklan
 
 ### <a name="nugetdefaultsconfig-settings"></a>NuGetDefaults.Config ayarları
 
-- `packageSources`: Bu koleksiyonun aynı anlamı taşır `packageSources` normal olarak yapılandırma dosyaları ve varsayılan kaynakları belirtir. NuGet kullandığı kaynakları yükleme ya da kullanarak projeleri paketlerinde güncelleştirilirken sırayla `packages.config` başvuru biçimi. PackageReference biçimi kullanarak projeleri için NuGet yerel kaynakları ilk kullanır ve ardından ağ paylaşımları ve yapılandırma dosyalarını sırayla bakılmaksızın HTTP kaynakları üzerindeki kaynakları. NuGet her zaman geri yükleme işlemleri kaynaklarıyla sırasını yok sayar.
+- `packageSources`: Bu koleksiyonun aynı anlamı taşır `packageSources` normal olarak yapılandırma dosyaları ve varsayılan kaynakları belirtir. NuGet kullandığı kaynakları yükleme ya da kullanarak projeleri paketlerinde güncelleştirilirken sırayla `packages.config` yönetim biçimi. PackageReference biçimi kullanarak projeleri için NuGet yerel kaynakları ilk kullanır ve ardından ağ paylaşımları ve yapılandırma dosyalarını sırayla bakılmaksızın HTTP kaynakları üzerindeki kaynakları. NuGet her zaman geri yükleme işlemleri kaynaklarıyla sırasını yok sayar.
 
 - `disabledPackageSources`: Bu koleksiyonun ayrıca olarak ile aynı anlamı taşır `NuGet.Config` dosyaları, burada her etkilenen kaynak listelenir adını ve belirten bir true/false değerine tarafından devre dışı bırakılıp bırakılmayacağını. Bu kaynak adı ve URL içinde kalmasını sağlar `packageSources` gerek kalmadan, varsayılan olarak açıktır. Her bir geliştirici daha sonra tekrar etkinleştirebilirsiniz kaynak false diğer kaynağın değeri ayarlayarak `NuGet.Config` doğru URL'yi yeniden bulmak zorunda kalmadan dosyaları. Bu da geliştiricilerin iç kaynak URL'lerini varsayılan olarak yalnızca tek bir ekibin kaynağı etkinleştirme sırasında bir kuruluş için tam bir listesi ile sağlamak kullanışlıdır.
 

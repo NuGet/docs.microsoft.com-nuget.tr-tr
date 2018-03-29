@@ -1,22 +1,25 @@
 ---
-title: "Yerelleştirilmiş bir NuGet paketi oluşturma | Microsoft Docs"
+title: Yerelleştirilmiş bir NuGet paketi oluşturma | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/18/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Oluşturmanın iki yolu ayrıntıları da tüm derlemelerin tek bir pakete dahil etme veya ayrı derlemeler yayımlama NuGet paketleri yerelleştirilmiş."
-keywords: "NuGet paket yerelleştirme, yerelleştirilmiş paketleri, NuGet yerelleştirme kuralları oluşturma NuGet uydu derlemeleri"
+ms.technology: ''
+description: Oluşturmanın iki yolu ayrıntıları da tüm derlemelerin tek bir pakete dahil etme veya ayrı derlemeler yayımlama NuGet paketleri yerelleştirilmiş.
+keywords: NuGet paket yerelleştirme, yerelleştirilmiş paketleri, NuGet yerelleştirme kuralları oluşturma NuGet uydu derlemeleri
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 5946ba6b43d3c418a1624aeb27d12b385d66b2fb
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 39ff6d300ec1a1f7941cad5953599f25f55117f4
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="creating-localized-nuget-packages"></a>Yerelleştirilmiş NuGet paketleri oluşturma
 

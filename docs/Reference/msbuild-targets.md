@@ -1,21 +1,25 @@
 ---
-title: "NuGet paketi ve geri yükleme MSBuild hedefleri olarak | Microsoft Docs"
+title: NuGet paketi ve geri yükleme MSBuild hedefleri olarak | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 03/13/2018
+ms.date: 03/23/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "NuGet paketi ve geri yükleme, doğrudan NuGet 4.0 + ile MSBuild hedefleri olarak çalışabilir."
-keywords: "NuGet ve MSBuild, NuGet paketi hedef, NuGet geri yükleme hedefi"
+ms.technology: ''
+description: NuGet paketi ve geri yükleme, doğrudan NuGet 4.0 + ile MSBuild hedefleri olarak çalışabilir.
+keywords: NuGet ve MSBuild, NuGet paketi hedef, NuGet geri yükleme hedefi
 ms.reviewer:
 - karann-msft
-ms.openlocfilehash: bb0ade1b0f5f81d7c8822d3c2b2f9dd45745fb8d
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+- unniravindranathan
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: a9c2c2229d717dff8472dce0ba568e4a21900b19
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet paketi ve MSBuild hedefleri olarak geri yükleme
 
@@ -110,7 +114,7 @@ Unutmayın `Owners` ve `Summary` özelliklerinden `.nuspec` MSBuild ile destekle
 
 ### <a name="packageiconurl"></a>PackageIconUrl
 
-Değişikliğin parçası olarak [NuGet sorunu 2582](https://github.com/NuGet/Home/issues/2582), `PackageIconUrl` sonunda değiştirilecek `PackageIconUri` ve sonuçta elde edilen paketin kökünde bulunan bir simge dosyası için göreli bir yol olabilir.
+Değişikliğin parçası olarak [NuGet sorunu 352](https://github.com/NuGet/Home/issues/352), `PackageIconUrl` sonunda değiştirilecek `PackageIconUri` ve sonuçta elde edilen paketin kökünde bulunan bir simge dosyası için göreli bir yol olabilir.
 
 ### <a name="output-assemblies"></a>Çıktı derlemeler
 
@@ -231,6 +235,61 @@ Nuspec dosyası paketlemek için csproj dosyası örneği verilmiştir:
 </Project>
 ```
 
+### <a name="advanced-extension-points-to-create-customized-package"></a>Özelleştirilmiş paketi oluşturmak için uzantı noktaları Gelişmiş
+
+`pack` Hedef iç, hedef framework belirli derlemede çalıştırılan iki uzantı noktaları sağlar. Hedef framework belirli içerik ve derlemeler pakete dahil olmak üzere uzantı noktalarını destekler:
+
+- `TargetsForTfmSpecificBuildOutput` Hedef: kullanım içindeki dosyaları için `lib` klasör veya kullanarak belirtilen bir klasör `BuildOutputTargetFolder`.
+- `TargetsForTfmSpecificContentInPackage` Hedef: dışındaki dosyalara kullanılmak `BuildOutputTargetFolder`.
+
+#### <a name="targetsfortfmspecificbuildoutput"></a>TargetsForTfmSpecificBuildOutput
+
+Özel bir hedef yazma ve değeri olarak belirtin `$(TargetsForTfmSpecificBuildOutput)` özelliği. Gitmesi gereken herhangi bir dosya için `BuildOutputTargetFolder` (lib varsayılan olarak), hedef dosyalar ItemGroup yazmalısınız `BuildOutputInPackage` ve aşağıdaki iki meta veri değerleri ayarlayın:
+
+- `FinalOutputPath`: Mutlak dosyasının yolunu; sağlanmazsa, kimliği kaynak yolu değerlendirmek için kullanılır.
+- `TargetPath`: (İsteğe bağlı) dosya içinde bir alt yerleştirilmesini gerektiğinde ayarlamak `lib\<TargetFramework>` ilgili kültür klasörlerine altında ötesine derlemeleri uydu gibi. Varsayılan olarak dosyasının adı.
+
+Örnek:
+
+```
+<PropertyGroup>
+  <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);GetMyPackageFiles</TargetsForTfmSpecificBuildOutput>
+</PropertyGroup>
+
+<Target Name="GetMyPackageFiles">
+  <ItemGroup>
+    <BuildOutputInPackage Include="$(OutputPath)cs\$(AssemblyName).resources.dll">
+        <TargetPath>cs</TargetPath>
+    </BuildOutputInPackage>
+  </ItemGroup>
+</Target>
+```
+
+#### <a name="targetsfortfmspecificcontentinpackage"></a>TargetsForTfmSpecificContentInPackage
+
+Özel bir hedef yazma ve değeri olarak belirtin `$(TargetsForTfmSpecificContentInPackage)` özelliği. Pakete dahil etmek için tüm dosyaları, hedef ItemGroup bu dosyaları yazmalısınız `TfmSpecificPackageFile` ve aşağıdaki isteğe bağlı meta veriler ayarlayın:
+
+- `PackagePath`: Yolu dosya paketinde çıkış burada olmalıdır. Birden fazla dosya aynı paket yolu eklediyseniz NuGet bir uyarı verir.
+- `BuildAction`: Paket yolu ise dosyasına atamak için derleme eylem yalnızca gerekli `contentFiles` klasör. Varsayılan olarak "None".
+
+Örnek:
+```
+<PropertyGroup>
+    <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);CustomContentTarget</TargetsForTfmSpecificContentInPackage>
+</PropertyGroup>
+
+<Target Name=""CustomContentTarget"">
+    <ItemGroup>
+      <TfmSpecificPackageFile Include=""abc.txt"">
+        <PackagePath>mycontent/$(TargetFramework)</PackagePath>
+      </TfmSpecificPackageFile>
+      <TfmSpecificPackageFile Include=""Extensions/ext.txt"" Condition=""'$(TargetFramework)' == 'net46'"">
+        <PackagePath>net46content</PackagePath>
+      </TfmSpecificPackageFile>  
+    </ItemGroup>
+  </Target>  
+```
+
 ## <a name="restore-target"></a>geri yükleme hedefi
 
 `MSBuild /t:restore` (hangi `nuget restore` ve `dotnet restore` .NET Core projeleriyle kullanmak), proje dosyasında aşağıdaki gibi başvurduğu paketleri yükler:
@@ -254,7 +313,7 @@ Ek geri yükleme ayarlarını MSBuild proje dosyası özelliklerinde alınması.
 | RestorePackagesPath | Kullanıcı paketleri klasör yolu. |
 | RestoreDisableParallel | Bir seferde bir sınır indirir. |
 | RestoreConfigFile | Yol için bir `Nuget.Config` uygulamak için dosya. |
-| RestoreNoCache | TRUE ise, web önbelleği kullanılarak önler. |
+| RestoreNoCache | TRUE ise, önbelleğe alınan paketler kullanarak önler. Bkz: [genel paketleri ve önbellek klasör yönetimi](../consume-packages/managing-the-global-packages-and-cache-folders.md). |
 | RestoreIgnoreFailedSources | TRUE ise, başarısız olan veya eksik paket kaynaklarını yok sayar. |
 | RestoreTaskAssemblyFile | Yolu `NuGet.Build.Tasks.dll`. |
 | RestoreGraphProjectInput | Mutlak yollar içermesi gereken geri yüklemek için projeleri noktalı virgülle ayrılmış listesi. |
@@ -282,7 +341,7 @@ Geri yükleme yapı aşağıdaki dosyaları oluşturur `obj` klasörü:
 
 | Dosya | Açıklama |
 |--------|--------|
-| `project.assets.json` | Daha önce `project.lock.json` |
+| `project.assets.json` | Tüm paket referanslarını bağımlılık grafiğinin içerir. |
 | `{projectName}.projectFileExtension.nuget.g.props` | MSBuild özellik paketlerinde bulunan başvurular |
 | `{projectName}.projectFileExtension.nuget.g.targets` | MSBuild hedefleri paketlerinde bulunan başvurular |
 

@@ -1,18 +1,21 @@
 ---
-title: "NuGet hataları ve Uyarıları başvurusu | Microsoft Docs"
+title: NuGet hataları ve Uyarıları başvurusu | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 03/06/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Uyarıları ve hataları Nuget'ten çeşitli NuGet işlemleri sırasında verilen başvurusunu tamamlayın."
-keywords: "NuGet hatalar, NuGet uyarılar tanılama"
+ms.technology: ''
+description: Uyarıları ve hataları Nuget'ten çeşitli NuGet işlemleri sırasında verilen başvurusunu tamamlayın.
+keywords: NuGet hatalar, NuGet uyarılar tanılama
 ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
+ms.workload:
+- dotnet
+- aspnet
 f1_keywords:
 - NU1000
 - NU1001
@@ -50,11 +53,11 @@ f1_keywords:
 - NU3008
 - NU3018
 - NU3028
-ms.openlocfilehash: 59bbe37d1a965e5167800148603869645fc5e0b2
-ms.sourcegitcommit: df21fe770900644d476d51622a999597a6f20ef8
+ms.openlocfilehash: 020e31dc8646c43b86bcee555f1772e8b1db7761
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="errors-and-warnings"></a>Hatalar ve uyarılar
 
@@ -136,7 +139,7 @@ Hatalar ve uyarılar burada listelenen yalnızca [PackageReference tabanlı](../
 | --- | --- |
 | **Sorunu** | Paket tanımlayıcısı bulundu, ancak belirtilen bağımlılık aralıkta bir sürüm kaynakları hiçbirinde bulunamıyor. Aralığın bir paket ve kullanıcı tarafından belirtilen. |
 | **Örnek ileti** | *Paketi NuGet.Versioning sürümüyle bulunamadı (> 9.0.1 =)<br/> -nuget.org içinde bulunan 30 sürümler [sürüm en yakın: 4.0.0]<br/> -dotnet buildtools içinde bulunan 10 sürümler [sürüm en yakın: 4.0.0-rc-2129]<br/> -9 bulundu NuGetVolatile sürümler [sürüm en yakın: 3.0.0-beta-00032]<br/> -0 sürümler dotnet-çekirdek bulunan<br/> -0 sürümler dotnet-roslyn bulundu* |
-| **Çözüm** | Proje dosyasını düzenleyin veya `packages.config` Paket sürümü düzeltmek için. Ayrıca denetleyin [NuGet Yapılandırması](../consume-packages/Configuring-NuGet-Behavior.md) paket kaynaklarını tanımlar, kullanılmasını bekler. Bu paket proje tarafından doğrudan başvurulduğunda requeted version değiştirmeniz gerekebilir. |
+| **Çözüm** | Paket sürümü düzeltmek için proje dosyasını düzenleyin. Ayrıca denetleyin [NuGet Yapılandırması](../consume-packages/Configuring-NuGet-Behavior.md) paket kaynaklarını tanımlar, kullanılmasını bekler. Bu paket proje tarafından doğrudan başvurulduğunda requeted version değiştirmeniz gerekebilir. |
 
 ### <a name="nu1103"></a>NU1103
 
@@ -144,7 +147,7 @@ Hatalar ve uyarılar burada listelenen yalnızca [PackageReference tabanlı](../
 | --- | --- |
 | **Sorunu** | Proje kararlı bir sürüm bağımlılığı aralığı için belirtilen ancak hiçbir kararlı sürümleri bu aralıkta bulundu. Yayın öncesi sürümleri bulundu, ancak izin verilmez. |
 | **Örnek ileti** | *Sürümüyle kararlı paketi NuGet.Versioning bulunamadı (> 3.0.0 =)<br/> -dotnet buildtools içinde bulunan 10 sürümler [sürüm en yakın: 4.0.0-rc-2129]<br/> -NuGetVolatile içinde bulunan 9 sürümler [sürüm en yakın: 3.0.0-beta-00032] <br/> -0 sürümler dotnet-çekirdek bulunan<br/> -0 sürümler dotnet-roslyn bulundu* |
-| **Çözüm** |  Proje dosyasında sürüm aralığı düzenleyin veya `packages.config` yayın öncesi sürümleri dahil etmek için. Bkz: [paket sürüm](../reference/Package-Versioning.md). |
+| **Çözüm** |  Yayın öncesi sürümleri dahil etmek için proje dosyasında sürüm aralığı düzenleyin. Bkz: [paket sürüm](../reference/Package-Versioning.md). |
 
 ### <a name="nu1104"></a>NU1104
 
@@ -167,8 +170,8 @@ Hatalar ve uyarılar burada listelenen yalnızca [PackageReference tabanlı](../
 | | |
 | --- | --- |
 | **Sorunu** | Bağımlılık kısıtlamalarını çözümlenemiyor. |
-| **Örnek ileti** | *{İd}'için çakışma istekleri giderilemiyor: {çakışma yolu} Framework: {hedef grafik}* 
-| **Çözüm** | Proje dosyasını düzenleyin veya `packages.config` bir tam sürümü yerine bağımlılık daha uçlu aralıklarını belirtmek için. |
+| **Örnek ileti** | *{İd}'için çakışma istekleri giderilemiyor: {çakışma yolu} Framework: {hedef grafik}* |
+| **Çözüm** | Bir tam sürümü yerine bağımlılık daha uçlu aralıklarını belirtmek için proje dosyasını düzenleyin. |
 |
 
 <a name="nu1107"></a>
@@ -179,7 +182,7 @@ Hatalar ve uyarılar burada listelenen yalnızca [PackageReference tabanlı](../
 | --- | --- |
 | **Sorunu** | Bağımlılık kısıtlamalarını paketler arasında çözümlenemiyor. |
 | **Örnek ileti** | *Sürüm çakışması için NuGet.Versioning algılandı. Paket, bu sorunu çözmek için doğrudan projeden başvuru.<br/>  NuGet.Packaging 3.5.0 -> (= 3.5.0) NuGet.Versioning<br/> NuGet.Configuration 4.0.0 -> NuGet.Versioning (= 4.0.0)* |
-| **Çözüm** | Tam sürümleri bağımlılık kısıtlamalar paketlerle sürüm gerekirse artırmak diğer paketleri izin vermez. Doğrudan projesine bir başvuru ekleyin (proje dosyasında veya `packages.config`) gerekli tam sürüm. |
+| **Çözüm** | Tam sürümleri bağımlılık kısıtlamalar paketlerle sürüm gerekirse artırmak diğer paketleri izin vermez. Gerekli tam sürümü ile doğrudan (proje dosyasında) projesine bir başvuru ekleyin. |
 
 <a name="nu1108"></a>
 

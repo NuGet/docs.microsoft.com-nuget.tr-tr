@@ -1,22 +1,25 @@
 ---
-title: "NuGet 2.5 sürüm notları | Microsoft Docs"
+title: NuGet 2.5 sürüm notları | Microsoft Docs
 author: karann-msft
 ms.author: karann-msft
 manager: ghogen
 ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "NuGet bilinen sorunları, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere 2.5 için sürüm notları."
-keywords: "Özellikler, dcr bilinen sorunlar, NuGet 2.5 sürüm notları, hata düzeltmeleri eklendi"
+ms.technology: ''
+description: NuGet bilinen sorunları, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere 2.5 için sürüm notları.
+keywords: Özellikler, dcr bilinen sorunlar, NuGet 2.5 sürüm notları, hata düzeltmeleri eklendi
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 4fb696a1f4d76bdd3461df6af461f279f9f0a8b0
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 4495e1ea9cc4ec13ef330e56d12de1320cf10b24
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-25-release-notes"></a>NuGet 2,5 sürüm notları
 
@@ -129,7 +132,7 @@ Bu özelliği denemek için:
 
 Varsa bir bağımlılık olarak kabul edilmesi başvuruda bulunulan bir proje böylece bir `.nuspec` dosya, aksi takdirde, paketin bir parçası haline gelir.
 
-Daha fazla ayrıntıları buraya: [http://nuget.codeplex.com/workitem/936](http://nuget.codeplex.com/workitem/936)
+Daha fazla ayrıntı burada: [http://nuget.codeplex.com/workitem/936](http://nuget.codeplex.com/workitem/936)
 
 ### <a name="add-a-minimum-nuget-version-property-to-packages"></a>'En az NuGet sürümü' özelliği paketlere Ekle
 

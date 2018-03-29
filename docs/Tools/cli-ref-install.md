@@ -1,22 +1,25 @@
 ---
-title: "NuGet CLI yükleme komutunu | Microsoft Docs"
+title: NuGet CLI yükleme komutunu | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Nuget.exe yükleme komut başvurusu"
-keywords: "nuget başvuru yükleyin, yükleme paketi komutu"
+ms.technology: ''
+description: Nuget.exe yükleme komut başvurusu
+keywords: nuget başvuru yükleyin, yükleme paketi komutu
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 8d5f53c833fb42c9fe37d0629eab33e8f0bc70d7
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 121d7b50767f1d466d6d0d8494f324b02d8ff6f1
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="install-command-nuget-cli"></a>Yükleme komutu (NuGet CLI)
 
@@ -27,7 +30,7 @@ ms.lasthandoff: 03/15/2018
 > [!Tip]
 > Paket bir proje bağlamı dışında doğrudan indirmek için üzerinde paketin sayfasını ziyaret [nuget.org](https://www.nuget.org) seçip **karşıdan** bağlantı.
 
-Herhangi bir kaynağa belirtilirse, listelenenler genel yapılandırma dosyasında `%APPDATA%\NuGet\NuGet.Config` (Windows) veya `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) kullanılır. Bkz: [NuGet yapılandırma davranışı](../consume-packages/configuring-nuget-behavior.md) ek ayrıntılar için.
+Herhangi bir kaynağa belirtilirse, listelenenler genel yapılandırma dosyasında `%appdata%\NuGet\NuGet.Config` (Windows) veya `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) kullanılır. Bkz: [NuGet yapılandırma davranışı](../consume-packages/configuring-nuget-behavior.md) ek ayrıntılar için.
 
 Özel paket belirtilirse, `install` projenin içinde listelenen tüm paketler yükler `packages.config` dosyasının benzer URL'ini [ `restore` ](cli-ref-restore.md).
 
@@ -55,7 +58,7 @@ Burada `<packageID>` (en son sürümünü kullanarak), yüklenecek paketin adlar
 | ForceEnglishOutput | *(3.5 +)*  Değişmez, İngilizce tabanlı kültürü kullanarak çalışacak şekilde nuget.exe zorlar. |
 | Framework | *(4.4 +)*  Hedef framework bağımlılıkları seçmek için kullanılır. Varsayılan olarak 'Any' belirtilmediği takdirde. |
 | Yardım | Bilgi komutu için yardımı görüntüler. |
-| NoCache | NuGet paketleri yerel makine önbellekleri kullanmalarını engeller. |
+| NoCache | NuGet kullanarak önbelleğe alınmış paketleri engeller. Bkz: [genel paketleri ve önbellek klasör yönetimi](../consume-packages/managing-the-global-packages-and-cache-folders.md). |
 | Etkileşimli olmayan | Kullanıcı girişi veya onayı için ister gizler. |
 | Çıktıdizini | Paketleri yüklendiği klasörü belirtir. Bir klasör bulunmadığından belirtilmezse, geçerli klasörde kullanılır. |
 | PackageSaveMode | Paket yüklendikten sonra kaydetmek için dosya türlerini belirtir: biri `nuspec`, `nupkg`, veya `nuspec;nupkg`. |

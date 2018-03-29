@@ -1,22 +1,25 @@
 ---
-title: "NuGet CLI yansıtma komutu | Microsoft Docs"
+title: NuGet CLI yansıtma komutu | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Nuget.exe yansıtma komut başvurusu"
-keywords: "nuget yansıtma başvuru, yansıtma komutu"
+ms.technology: ''
+description: Nuget.exe yansıtma komut başvurusu
+keywords: nuget yansıtma başvuru, yansıtma komutu
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 0c1969cc04b2e2cead5e9dadf9739fdabdf65f6c
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 512bd72d568cda81eb7c6a1555c36ead66b5c438
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="mirror-command-nuget-cli"></a>Yansıtma komutu (NuGet CLI)
 
@@ -45,7 +48,7 @@ Hedef depo açıksa `https://machine/repo` çalıştıran [NuGet.Server](../host
 | --- | --- |
 | ApiKey | Hedef depo API anahtarı. Yoksa, yapılandırma dosyasında belirtilen bir kullanılıp kullanılmadığını (`%AppData%\NuGet\NuGet.Config` (Windows) veya `~/.nuget/NuGet/NuGet.Config` (Mac/Linux)). |
 | Yardım | Bilgi komutu için yardımı görüntüler. |
-| NoCache | NuGet paketleri yerel makine önbellekleri kullanmalarını engeller. |
+| NoCache | NuGet kullanarak önbelleğe alınmış paketleri engeller. Bkz: [genel paketleri ve önbellek klasör yönetimi](../consume-packages/managing-the-global-packages-and-cache-folders.md). |
 | Sekmeyi | Ne uygulanır ancak işlemleri gerçekleştirmez kaydeder; İtme işlemleri için başarı varsayar. |
 | Yayın öncesi | Ön sürüm paketlerini yansıtma işlemi içerir. |
 | Kaynak | Yansıtmak üzere paket kaynaklarının listesi. Dosyalardan herhangi bir kaynağa belirtilirse, tanımlanan yapılandırma dosyası (apikey ile yapılan yukarıdaki bakın) kullanılır, nuget.org için Hiçbiri belirtilmezse, varsayılan olarak ayarlanıyor. |

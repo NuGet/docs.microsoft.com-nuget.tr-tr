@@ -1,35 +1,38 @@
 ---
-title: "Visual Studio 2015 ile birlikte .NET standart NuGet paketlerini oluşturma | Microsoft Docs"
+title: Visual Studio 2015 ile birlikte .NET standart ve .NET Framework NuGet paketleri oluşturma | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 02/02/2018
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.prod: nuget
-ms.technology: 
-description: "NuGet kullanarak .NET standart NuGet paketleri oluşturma bir uçtan uca Kılavuz 3.x ve Visual Studio 2015."
-keywords: "bir paket, .NET standart paketler, .NET standart eşleme tablosu oluşturma"
+ms.technology: ''
+description: NuGet kullanarak .NET standart ve .NET Framework NuGet paketleri oluşturma bir uçtan uca Kılavuz 3.x ve Visual Studio 2015.
+keywords: bir paket, .NET standart paketleri, .NET Framework paketleri oluşturma
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: abf6a56cbc84bdd066e31e77c7883825a8456144
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: dbe0a0788b5fc9ba37f7db601bd51c3e4f78f5b8
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="create-net-standard-packages-with-visual-studio-2015"></a>Visual Studio 2015 ile .NET standart paketleri oluşturma
+# <a name="create-net-standard-and-net-framework-packages-with-visual-studio-2015"></a>Visual Studio 2015 ile .NET standart ve .NET Framework paketleri oluşturma
 
-*Nuget'e geçerlidir 3.x. Bkz: [oluşturma ve Visual Studio 2017 paketiyle yayımlama](../quickstart/create-and-publish-a-package-using-visual-studio.md) NuGet 4.x+ ile çalışmak için.*
+**Not:** .NET standart kitaplıkları geliştirmek için Visual Studio 2017 önerilir. Visual Studio 2015 çalışabilir ancak .NET Core araç yalnızca önizleme duruma getirildi. Bkz: [oluşturma ve Visual Studio 2017 paketiyle yayımlama](../quickstart/create-and-publish-a-package-using-visual-studio.md) NuGet 4.x+ ve Visual Studio 2017 çalışma.
 
 [.NET standart Kitaplığı](/dotnet/articles/standard/library) olduğu .NET API'lerini biçimsel belirtimini hedeflenen böylece büyük bütünlüğünü .NET ekosistemi oluşturma tüm .NET çalışma zamanları üzerinde kullanılabilir olması. .NET standart kitaplığı, iş yükünü bağımsız uygulamak tüm .NET platformları için BCL (temel sınıf kitaplığı) API'leri Tekdüzen kümesini tanımlar. Tüm .NET çalışma zamanları arasında kullanılabilir ve azaltır değilse platforma özgü koşullu derleme yönergeleri paylaşılan kod ortadan kaldıran bir kod oluşturmak geliştiriciler sağlar.
 
-Bu kılavuzda .NET standart kitaplığı 1.4 hedefleyen bir NuGet paketi oluşturmada size anlatılmaktadır. Bu tür bir kitaplığı .NET Framework 4.6.1, Evrensel Windows platformu 10, .NET Core ve Mono/Xamarin çalışır. Ayrıntılar için bkz [.NET standart eşleme tablosu](#net-standard-mapping-table) bu konuda daha sonra.
+Bu kılavuzda .NET standart kitaplığı 1.4 hedefleyen bir NuGet paketi veya .NET Framework 4.6 hedefleyen bir paket oluşturma konusunda anlatılmaktadır. Bir .NET standart 1.4 kitaplığı .NET Framework 4.6.1, Evrensel Windows platformu 10, .NET Core ve Mono/Xamarin çalışır. Ayrıntılar için bkz [.NET standart eşleme tablosu](/dotnet/standard/net-standard#net-implementation-support) (.NET belge). İsterseniz, başka bir sürümünü .NET standart kitaplığı seçebilirsiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 1. Visual Studio 2015 Güncelleştirme 3
-1. [.NET Core SDK](https://www.microsoft.com/net/download/)
+1. (Yalnızca .NET standart) [.NET core SDK](https://www.microsoft.com/net/download/)
 1. NuGet CLI. Nuget.exe en son sürümünü indirme [nuget.org/downloads](https://nuget.org/downloads), tercih ettiğiniz bir konuma kaydetme. Zaten yoksa bu konum, PATH ortam değişkenine ekleyin.
 
     > [!Note]
@@ -37,13 +40,13 @@ Bu kılavuzda .NET standart kitaplığı 1.4 hedefleyen bir NuGet paketi oluştu
 
 ## <a name="create-the-class-library-project"></a>Sınıf kitaplığı proje oluşturma
 
-1. Visual Studio'da **Dosya > Yeni > Proje**, genişletin **Visual C# > Windows** düğümü, select **sınıf kitaplığı (taşınabilir)**AppLogger için adı değiştirin ve Tamam'ı tıklatın.
+1. Visual Studio'da **Dosya > Yeni > Proje**, genişletin **Visual C# > Windows** düğümü, select **sınıf kitaplığı (taşınabilir)**AppLogger için adı değiştirin ve seçin **Tamam**.
 
     ![Yeni sınıf kitaplığı proje oluşturma](media/NetStandard-NewProject.png)
 
-1. İçinde **taşınabilir sınıf kitaplığı eklemek** görünen seçin iletişim `.NET Framework 4.6` ve `ASP.NET Core 1.0` seçenekleri.
+1. İçinde **taşınabilir sınıf kitaplığı eklemek** görünür, iletişim için seçenekleri seçin `.NET Framework 4.6` ve `ASP.NET Core 1.0`. (.NET Framework'ü hedefleme, hangi seçenekleri uygun seçebilirsiniz.)
 
-1. Sağ `AppLogger (Portable)` Çözüm Gezgini'nde seçin **özellikleri**seçin **Kitaplığı** sekmesini ve ardından **hedef .NET Platform standardını** içinde**Hedefleme** bölümü. Bu daha sonra seçebileceğiniz onaylama için ister `.NET Standard 1.4` açılır:
+1. .NET standardını hedefleyen, sağ `AppLogger (Portable)` Çözüm Gezgini'nde seçin **özellikleri**seçin **Kitaplığı** sekmesini ve ardından **hedef .NET Platform standardını** içinde **hedefleme** bölümü. Daha sonra seçebileceğiniz onaylama için bu eylem ister `.NET Standard 1.4` (veya başka bir kullanılabilir sürüm) açılır:
 
     ![Hedef .NET standart 1.4 ayarlama](media/NetStandard-ChangeTarget.png)
 
@@ -96,11 +99,23 @@ Bu kılavuzda .NET standart kitaplığı 1.4 hedefleyen bir NuGet paketi oluştu
 
 1. Başvuru derlemeleri eklemek `.nuspec` dosya, kitaplığın DLL ve IntelliSense XML dosyası:
 
+    .NET standardını hedefleyen girişleri aşağıdakine benzer görünür:
+
     ```xml
     <!-- Insert below <metadata> element -->
     <files>
         <file src="bin\Release\AppLogger.dll" target="lib\netstandard1.4\AppLogger.dll" />
         <file src="bin\Release\AppLogger.xml" target="lib\netstandard1.4\AppLogger.xml" />
+    </files>
+    ```
+
+    .NET Framework'ü hedefleme girişleri aşağıdakine benzer görünür:
+
+    ```xml
+    <!-- Insert below <metadata> element -->
+    <files>
+        <file src="bin\Release\AppLogger.dll" target="lib\net46\AppLogger.dll" />
+        <file src="bin\Release\AppLogger.xml" target="lib\net46\AppLogger.xml" />
     </files>
     ```
 
@@ -146,7 +161,7 @@ Tamamlanan ile `.nuspec` pakete eklemek için gereken tüm dosyaları başvuran,
 nuget pack AppLogger.nuspec
 ```
 
-Bu oluşturur `AppLogger.YOUR_NAME.1.0.0.nupkg`. Gibi bir araç bu dosyayı açmayı [NuGet paketi Gezgini](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer) ve tüm düğümleri genişleterek, aşağıdaki içeriğe bakın:
+Bu oluşturur `AppLogger.YOUR_NAME.1.0.0.nupkg`. Gibi bir araç bu dosyayı açmayı [NuGet paketi Gezgini](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer) ve tüm düğümleri genişleterek, (.NET standart için gösterilen) aşağıdaki içeriğe bakın:
 
 ![NuGet paket AppLogger paket gösteren Gezgini](media/NetStandard-PackageExplorer.png)
 
@@ -156,19 +171,6 @@ Bu oluşturur `AppLogger.YOUR_NAME.1.0.0.nupkg`. Gibi bir araç bu dosyayı açm
 Paketinizi diğer geliştiricileri için kullanılabilir yapmak için yönergeleri izleyin [bir paketi yayımlamaya](../create-packages/publish-a-package.md).
 
 Unutmayın `pack` Mono 4.4.2 Mac OS x gerektirir ve Linux sistemlerinde çalışmaz. Bir Mac üzerinde Windows yol adları olarak da dönüştürmelidir `.nuspec` UNIX stili yollara dosya.
-
-## <a name="net-standard-mapping-table"></a>.NET standart eşleme tablosu
-
-| Platform adı | Alias |
-| --- | --- |
-| .NET Standard | netstandard | 1.0 | 1.1 | 1.2 | 1.3 | 1.4 | 1,5 | 1.6 |
-| .NET Core | netcoreapp | &#x2192; | &#x2192; | &#x2192; | &#x2192; | &#x2192; | &#x2192; | 1.0 |
-| .NET Framework | net | 4,5 | 4.5.1 | 4.6 | 4.6.1 | 4.6.2 | 4.6.3 |
-| Mono/Xamarin platformları | &#x2192; | &#x2192; | &#x2192; | &#x2192; | &#x2192; | &#x2192; |
-| Evrensel Windows Platformu | uap | &#x2192; | &#x2192; | &#x2192; | &#x2192; |10.0 |
-| Windows | Win| &#x2192; | 8.0 | 8.1 |
-| Windows Phone | wpa| &#x2192;| &#x2192; | 8.1 |
-| Windows Phone Silverlight | wp | 8.0 |
 
 ## <a name="related-topics"></a>İlgili konular
 

@@ -1,26 +1,29 @@
 ---
-title: ".NET derleme Platform Çözümleyicisi için NuGet biçimleri | Microsoft Docs"
+title: .NET derleme Platform Çözümleyicisi için NuGet biçimleri | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/09/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Paketlenmiş ve bir API veya kitaplık uygulaması NuGet paketleri ile dağıtılan .NET çözümleyiciler kuralları."
-keywords: "NuGet analyzer kuralları, .NET çözümleyiciler, NuGet ve .NET derleyici platformu, NuGet ve Roslyn"
+ms.technology: ''
+description: Paketlenmiş ve bir API veya kitaplık uygulaması NuGet paketleri ile dağıtılan .NET çözümleyiciler kuralları.
+keywords: NuGet analyzer kuralları, .NET çözümleyiciler, NuGet ve .NET derleyici platformu, NuGet ve Roslyn
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: e44cfa609c14422d50769e512108844cbd2f96a4
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 26e40346b1d76d2f4f0e4177dbe0670f10db164c
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="analyzer-nuget-formats"></a>Çözümleyicisi NuGet biçimleri
 
-.NET derleme Platformu (olarak da bilinen "Roslyn") [çözümleyiciler] oluşturmak geliştiriciler izin yazılmakta gibi (https://github.com/dotnet/roslyn/wiki/How-To-Write-a-C%23-Analyzer-and-Code-Fix), sözdizimi ağacı ve kod semantiği inceleyin. Bu geliştiriciler oluşturmak için bir yol sağlar ve belirli bir API veya kitaplık kullanımını yardımcı olacak olanlar gibi etki alanına özgü çözümleme araçları Kılavuzu. Daha fazla bilgi bulabilirsiniz [.NET/Roslyn](https://github.com/dotnet/roslyn/wiki) GitHub wiki. Ayrıca makalesine bakın [kullanım API için Canlı bir kod Çözümleyicisi yazmak için Roslyn](https://msdn.microsoft.com/magazine/dn879356.aspx) MSDN dergisi içinde.
+.NET derleme Platformu (olarak da bilinen "Roslyn") [çözümleyiciler] oluşturmak geliştiriciler izin ver (https://github.com/dotnet/roslyn/wiki/How-To-Write-a-C%23-Analyzer-and-Code-Fix) , incelemesine sözdizimi ağacı ve kod semantiği yazılmakta gibi. Bu geliştiriciler oluşturmak için bir yol sağlar ve belirli bir API veya kitaplık kullanımını yardımcı olacak olanlar gibi etki alanına özgü çözümleme araçları Kılavuzu. Daha fazla bilgi bulabilirsiniz [.NET/Roslyn](https://github.com/dotnet/roslyn/wiki) GitHub wiki. Ayrıca makalesine bakın [kullanım API için Canlı bir kod Çözümleyicisi yazmak için Roslyn](https://msdn.microsoft.com/magazine/dn879356.aspx) MSDN dergisi içinde.
 
 Çözümleyiciler kendilerini genellikle paketlenmiş ve API veya kitaplık söz konusu uygulamak NuGet paketlerini bir parçası olarak dağıtılır.
 
@@ -51,7 +54,7 @@ Kullanımını `analyzers` klasördür için kullanılan benzer [hedef çerçeve
 
     $/analyzers/{framework_name}{version}/{supported_architecture}/{supported_language}}/{analyzer_name}.dll
 
-- **framework_name**: *isteğe bağlı* kapsanan DLL'leri çalıştırmak için gereken .NET Framework'ün yüzey alanını API. `dotnet`Roslyn çözümleyiciler çalıştırabilirsiniz yalnızca konak olduğundan şu anda yalnızca geçerli değeridir. Hiçbir hedef belirtilirse, DLL'leri uygulamak için varsayılır *tüm* hedefler.
+- **framework_name**: *isteğe bağlı* kapsanan DLL'leri çalıştırmak için gereken .NET Framework'ün yüzey alanını API. `dotnet` Roslyn çözümleyiciler çalıştırabilirsiniz yalnızca konak olduğundan şu anda yalnızca geçerli değeridir. Hiçbir hedef belirtilirse, DLL'leri uygulamak için varsayılır *tüm* hedefler.
 - **supported_language**: DLL uygulandığı, aşağıdakilerden birini dil `cs` (C#) ve `vb` (Visual Basic) ve `fs` (F #). Dil Çözümleyicisi yalnızca o dili kullanarak proje için yüklenmesi gerektiğini belirtir. DLL uygulamak için varsayılır sonra hiçbir dil belirtilmiş olup olmadığını *tüm* çözümleyiciler destek diller.
 - **analyzer_name**: Çözümleyicisi dll belirtir. DLL'leri ötesinde ek dosyalar gerekiyorsa, bunlar hedefler ya da Özellikler dosyalar ile dahil edilmelidir.
 

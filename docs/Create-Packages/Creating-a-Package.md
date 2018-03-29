@@ -1,23 +1,25 @@
 ---
-title: "Bir NuGet paketi oluşturma | Microsoft Docs"
+title: Bir NuGet paketi oluşturma | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 12/12/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-ms.assetid: 456797cb-e3e4-4b88-9b01-8b5153cee802
-description: "Tasarlama ve dosyaları ve sürüm oluşturma gibi temel karar noktaları da dahil olmak üzere bir NuGet paketi oluşturma işlemi için ayrıntılı bir kılavuz."
-keywords: "NuGet paket oluşturma, bir paket, nuspec bildirimi, NuGet paketi kuralları, NuGet Paket sürümü oluşturma"
+ms.technology: ''
+description: Tasarlama ve dosyaları ve sürüm oluşturma gibi temel karar noktaları da dahil olmak üzere bir NuGet paketi oluşturma işlemi için ayrıntılı bir kılavuz.
+keywords: NuGet paket oluşturma, bir paket, nuspec bildirimi, NuGet paketi kuralları, NuGet Paket sürümü oluşturma
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 613e3eb9d08a0da96340f32b13c486508fa32439
-ms.sourcegitcommit: df21fe770900644d476d51622a999597a6f20ef8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 7bb7e16a317aff908effe0b6c603ea53c9e8a563
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="creating-nuget-packages"></a>NuGet paketleri oluşturma
 
@@ -131,7 +133,7 @@ Tipik bir (ancak kurgusal) aşağıdadır `.nuspec` özelliklerini açıklayan y
 
 Bağımlılıklar bildirme ve sürüm numaralarını belirtme hakkında daha fazla bilgi için bkz: [paket sürüm](../reference/package-versioning.md). Ayrıca yüzey varlıklarına bağımlılıkları doğrudan paketindeki gelen kullanarak mümkündür `include` ve `exclude` üzerinde öznitelikleri `dependency` öğesi. Bkz: [.nuspec başvuru - bağımlılıkları](../reference/nuspec.md#dependencies).
 
-Bildirim oluşturulan paketinde yer aldığından herhangi bir sayıda ek örnekler mevcut paketleri inceleyerek bulabilirsiniz. İyi bir kaynak konumu aşağıdaki komutu tarafından döndürülen makinenizde genel paket önbelleğidir:
+Bildirim oluşturulan paketinde yer aldığından herhangi bir sayıda ek örnekler mevcut paketleri inceleyerek bulabilirsiniz. İyi bir kaynaktır *paketleri genel* klasör konumunu aşağıdaki komutu tarafından döndürülen bilgisayarınızda:
 
 ```cli
 nuget locals -list global-packages
@@ -351,7 +353,9 @@ Ardından `.nuspec` dosya, bu dosyaları başvurmak mutlaka `<files>` düğümü
 
 MSBuild özellik ve hedefleri bir pakete dahil edildi [NuGet 2.5 ile sunulan](../release-notes/NuGet-2.5.md#automatic-import-of-msbuild-targets-and-props-files), bu nedenle eklemeniz önerilir `minClientVersion="2.5"` özniteliğini `metadata` için gereken en düşük NuGet İstemcisi sürüm belirtmek için öğesi Paket kullanabilir.
 
-NuGet paketi ile yüklendiğinde `\build` dosyaları, bir MSBuild ekler `<Import>` işaret proje dosyasındaki öğeleri `.targets` ve `.props` dosyaları. (`.props` proje dosyası; en üstte eklenir `.targets` altındaki eklenir.)
+NuGet paketi ile yüklendiğinde `\build` dosyaları MSBuild ekler `<Import>` işaret proje dosyasındaki öğeleri `.targets` ve `.props` dosyaları. (`.props` proje dosyası; en üstte eklenir `.targets` altındaki eklenir.) Ayrı bir koşullu MSBuild `<Import>` öğesi, her hedef çerçeve için eklenir.
+
+MSBuild `.props` ve `.targets` arası framework hedefleme yerleştirilebilir dosyalarının `\buildCrossTargeting` klasör. Karşılık gelen NuGet paketi yüklemesi sırasında ekler `<Import>` hedef Framework'ü ayarlanmamış koşuluyla, proje dosyası öğelerine (MSBuild özelliği `$(TargetFramework)` boş olması gerekir).
 
 NuGet ile 3.x hedefleri projeye eklenmez ancak bunun yerine kullanılabilir hale getirilir `project.lock.json`.
 
@@ -372,7 +376,7 @@ COM birlikte çalışma derlemeleri içeren paketleri uygun bir içermelidir [he
 </Target>
 ```
 
-Kullanırken dikkat edin `packages.config` başvuru biçimi'nın paketlerinden derlemeler başvuruları ekleme neden olan NuGet ve Visual Studio COM birlikte çalışma derlemeleri için denetleyin ve ayarlamak `EmbedInteropTypes` proje dosyasında true. Bu durumda hedefleri kılınmadı ' dir.
+Kullanırken dikkat edin `packages.config` yönetim biçimi'nın paketlerinden derlemeler başvuruları ekleme neden olan NuGet ve Visual Studio COM birlikte çalışma derlemeleri için denetleyin ve ayarlamak `EmbedInteropTypes` proje dosyasında true. Bu durumda hedefleri kılınmadı ' dir.
 
 Ayrıca, varsayılan olarak [yapı varlıklar akan geçişli](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets). Projeyi project başvurusundan geçişli bağımlılık olarak çekildiğinde burada iş farklı bir şekilde açıklandığı gibi yazılan paketler. Paket tüketici yapı içermeyecek şekilde PrivateAssets varsayılan değerini değiştirerek akmasına izin verebilirsiniz.
 

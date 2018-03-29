@@ -1,22 +1,25 @@
 ---
-title: "NuGet paketi bağımlılık çözümleme | Microsoft Docs"
+title: NuGet paketi bağımlılık çözümleme | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 08/14/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Üzerinden bir NuGet paketin bağımlılıklarını çözümlendi ve her iki NuGet yüklü işlemiyle ilgili ayrıntılar 2.x ve NuGet 3.x+."
-keywords: "NuGet Paket bağımlılıklarını, NuGet sürüm oluşturma, bağımlılık sürümleri, sürüm grafiği, sürüm çözünürlüğü, geçişli geri yükleme"
+ms.technology: ''
+description: Üzerinden bir NuGet paketin bağımlılıklarını çözümlendi ve her iki NuGet yüklü işlemiyle ilgili ayrıntılar 2.x ve NuGet 3.x+.
+keywords: NuGet Paket bağımlılıklarını, NuGet sürüm oluşturma, bağımlılık sürümleri, sürüm grafiği, sürüm çözünürlüğü, geçişli geri yükleme
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: aa2537a2538d0ea665944784ef183dc12faa9b38
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: d387acd369c88a64abaa2cb94a913fe211df8da1
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>NuGet Paket bağımlılıklarını nasıl çözümler
 
@@ -24,7 +27,7 @@ Bir parçası olarak yüklenen içeren bir paket yüklü veya yeniden, dilediği
 
 Bu hemen bağımlılıkları da kendi başlarına, için rasgele bir derinliği devam edebilirsiniz bağımlılıkları olabilir. Bu ne adlı üreten bir *bağımlılık grafiğinin* , tüm düzeylerdeki paketleri arasındaki ilişkileri açıklar.
 
-Birden çok paket aynı bağımlılık varsa, daha sonra aynı paket kimliği grafikte birden çok kez olası farklı sürüm kısıtlamalarıyla görünebilir. Ancak, NuGet hangi sürümünün kullanıldığını seçmeniz gerekir böylece bir proje ile belirli bir paket yalnızca bir sürümü kullanılabilir. Tam işlem kullanılan paket başvuru biçimi bağlıdır.
+Birden çok paket aynı bağımlılık varsa, daha sonra aynı paket kimliği grafikte birden çok kez olası farklı sürüm kısıtlamalarıyla görünebilir. Ancak, NuGet hangi sürümünün kullanıldığını seçmeniz gerekir böylece bir proje ile belirli bir paket yalnızca bir sürümü kullanılabilir. Tam işlem kullanılan paket Yönetimi biçimi bağlıdır.
 
 ## <a name="dependency-resolution-with-packagereference"></a>PackageReference bir bağımlılık çözümleme
 
@@ -109,7 +112,7 @@ Bu durumlarda, üst düzey bir tüketici (uygulama veya Paketle) doğrudan bağ�
 
 Varsayılan olarak, en düşük düzeltme eki sürümü NuGet 2.8 görünüyor (bkz [NuGet 2.8 sürüm notları](../release-notes/nuget-2.8.md#patch-resolution-for-dependencies)). Bu ayarı kullanılarak denetleyebilirsiniz `DependencyVersion` özniteliğini `Nuget.Config` ve `-DependencyVersion` komut satırında geçin.  
 
-`packages.config` Bağımlılıkları çözümleniyor büyük bağımlılık grafikleri için karmaşık alır için işlem. Her yeni paket yükleme tüm grafik çapraz geçişi gerektirir ve sürüm çakışmaları için Fırsat başlatır. Bir çakışma oluştuğunda, özellikle proje dosyasına olası değişiklikleri ile belirlenmemiş bir durum proje bırakarak yükleme durdurulur. Bu sorunu diğer paketi başvurusu biçimleri kullanırken değildir.
+`packages.config` Bağımlılıkları çözümleniyor büyük bağımlılık grafikleri için karmaşık alır için işlem. Her yeni paket yükleme tüm grafik çapraz geçişi gerektirir ve sürüm çakışmaları için Fırsat başlatır. Bir çakışma oluştuğunda, özellikle proje dosyasına olası değişiklikleri ile belirlenmemiş bir durum proje bırakarak yükleme durdurulur. Bu sorunu diğer paket Yönetimi biçimleri kullanırken değildir.
 
 ## <a name="managing-dependency-assets"></a>Bağımlılık varlıklarını yönetme
 
@@ -121,7 +124,7 @@ PackageReference biçimi kullanıldığında, en üst düzey proje bağımlılı
 
 İçinde aynı ada sahip birden çok kez bir projede tasarım zamanı ve derleme zamanı hatalarını oluşturan başvurulan derlemeler senaryo vardır. Özel bir sürümünü içeren bir proje göz önünde bulundurun `C.dll`ve ayrıca içeren paket C başvurur `C.dll`. Aynı anda proje de aynı zamanda paket C bağlıdır Paket B bağlıdır ve `C.dll`. Sonuç olarak, NuGet hangi belirleyemiyor `C.dll` kullanmak için ancak Paket B de ona bağımlı olduğundan paket C projenin bağımlılığını yalnızca kaldıramazsınız.
 
-Bu sorunu çözmek için doğrudan başvurmalıdır `C.dll` sizin (veya doğru olanı başvuran başka bir paket kullanmak) ve ardından bir bağımlılık paketi C tüm varlıklarını dışlar ekleyin. Bu paketi başvurusu biçime bağlı olarak şu şekilde gerçekleştirilir:
+Bu sorunu çözmek için doğrudan başvurmalıdır `C.dll` sizin (veya doğru olanı başvuran başka bir paket kullanmak) ve ardından bir bağımlılık paketi C tüm varlıklarını dışlar ekleyin. Bu paket Yönetimi biçime bağlı olarak şu şekilde gerçekleştirilir:
 
 - [PackageReference](../consume-packages/package-references-in-project-files.md): eklemek `Exclude="All"` bağımlılık olarak:
 

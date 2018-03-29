@@ -1,22 +1,25 @@
 ---
-title: "NuGet 3.0 sürüm notları | Microsoft Docs"
+title: NuGet 3.0 sürüm notları | Microsoft Docs
 author: karann-msft
 ms.author: karann-msft
 manager: ghogen
 ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Bilinen sorunlar, hata düzeltmeleri, eklenen özellikleri ve dcr NuGet 3.0.0 dahil etmek için sürüm notları."
-keywords: "Özellikler, dcr bilinen sorunlar, NuGet 3.0.0 sürüm notları, hata düzeltmeleri eklendi"
+ms.technology: ''
+description: Bilinen sorunlar, hata düzeltmeleri, eklenen özellikleri ve dcr NuGet 3.0.0 dahil etmek için sürüm notları.
+keywords: Özellikler, dcr bilinen sorunlar, NuGet 3.0.0 sürüm notları, hata düzeltmeleri eklendi
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 65251b28093d2ac275053b8bfef6620e16e3fb4a
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: fc669e4a8440c295f08eef461186eef5f505df42
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-30-release-notes"></a>NuGet 3.0 sürüm notları
 

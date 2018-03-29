@@ -1,22 +1,25 @@
 ---
-title: "Oluşturma ve yayımlama dotnet CLI kullanarak bir NuGet paketi | Microsoft Docs"
+title: Oluşturma ve yayımlama dotnet CLI kullanarak bir NuGet paketi | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/24/2018
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.prod: nuget
-ms.technology: 
-description: "Oluşturma ve yayımlama dotnet .NET Core CLI kullanarak bir NuGet paketi bir gözden geçirme Öğreticisi."
-keywords: "NuGet paketini oluşturma, NuGet paketi yayımlama, NuGet öğretici dotnet yayımlama NuGet paketi"
+ms.technology: ''
+description: Oluşturma ve yayımlama dotnet .NET Core CLI kullanarak bir NuGet paketi bir gözden geçirme Öğreticisi.
+keywords: NuGet paketini oluşturma, NuGet paketi yayımlama, NuGet öğretici dotnet yayımlama NuGet paketi
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 086de5378fe4ae928e6bd00cd3a87afd7c366a01
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 536e39ae64649ca1c11afa95c20872515e9e4c83
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-and-publish-a-package"></a>Oluşturma ve bir paket yayımlama
 
@@ -59,14 +62,14 @@ Her NuGet paketi paketin içeriği ve bağımlılıkları tanımlayan bir bildir
 
 ## <a name="run-the-pack-command"></a>Paketi komutunu çalıştırın
 
-Bir NuGet paketi oluşturmak için (bir `.nupkg` dosyası) projeden çalıştırmak `dotnet pack` komutu:
+Bir NuGet paketi oluşturmak için (bir `.nupkg` dosyası) projeden çalıştırma `dotnet pack` ayrıca projenin otomatik olarak oluşturur komutu:
 
 ```cli
 # Uses the project file in the current folder by default
 dotnet pack
 ```
 
-Çıkış yolu gösterecektir `.nupkg` dosyası:
+Çıkış yolu gösterir `.nupkg` dosyası:
 
 ```output
 Microsoft (R) Build Engine version 15.5.180.51428 for .NET Core
@@ -75,6 +78,14 @@ Copyright (C) Microsoft Corporation. All rights reserved.
   Restore completed in 29.91 ms for D:\proj\AppLoggerNet\AppLogger\AppLogger.csproj.
   AppLogger -> D:\proj\AppLoggerNet\AppLogger\bin\Debug\netstandard2.0\AppLogger.dll
   Successfully created package 'D:\proj\AppLoggerNet\AppLogger\bin\Debug\AppLogger.1.0.0.nupkg'.
+```
+
+### <a name="automatically-generate-package-on-build"></a>Yapı paketini otomatik olarak oluştur
+
+Otomatik olarak çalışacak şekilde `dotnet pack` çalıştırdığınızda `dotnet build`, proje dosyasında aşağıdaki satırı ekleyin `<PropertyGroup>`:
+
+```xml
+<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 ```
 
 ## <a name="publish-the-package"></a>Paket yayımlama

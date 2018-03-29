@@ -1,5 +1,5 @@
 ---
-title: "Rapor kötüye URL şablonu, NuGet API | Microsoft Docs"
+title: Rapor kötüye URL şablonu, NuGet API | Microsoft Docs
 author:
 - joelverhagen
 - kraigb
@@ -10,17 +10,20 @@ manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Rapor kötüye URL şablonu rapor kötüye bağlantısı kendi kullanıcı Arabiriminde görüntülenecek istemcilerin sağlar."
-keywords: "NuGet API rapor kötüye, NuGet API dosya uyumlu, nuget.org rapor URL şablonu"
+ms.technology: ''
+description: Rapor kötüye URL şablonu rapor kötüye bağlantısı kendi kullanıcı Arabiriminde görüntülenecek istemcilerin sağlar.
+keywords: NuGet API rapor kötüye, NuGet API dosya uyumlu, nuget.org rapor URL şablonu
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: efbe5704e6e6028f9382fea3fe5ec453f573a2e9
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: ded861e3eaf73e45b8d4bd80b96d54bfeb38e9d6
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="report-abuse-url-template"></a>Rapor kötüye URL şablonu
 

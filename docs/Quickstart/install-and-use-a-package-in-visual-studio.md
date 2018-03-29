@@ -1,26 +1,29 @@
 ---
-title: "Visual Studio içinde NuGet paketi kullanarak tanıtım Kılavuzu | Microsoft Docs"
+title: Visual Studio içinde NuGet paketi kullanarak tanıtım Kılavuzu | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/23/2018
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.prod: nuget
-ms.technology: 
-description: "İzlenecek yol öğretici yükleme ve bir NuGet paketi kullanarak bir Visual Studio projesi işleme."
-keywords: "NuGet paketlerini kullanarak NuGet paketleri, NuGet paket referanslarını yükleme NuGet, NuGet paketi tüketim yükleyin"
+ms.technology: ''
+description: İzlenecek yol öğretici yükleme ve bir NuGet paketi kullanarak bir Visual Studio projesi işleme.
+keywords: NuGet paketlerini kullanarak NuGet paketleri, NuGet paket referanslarını yükleme NuGet, NuGet paketi tüketim yükleyin
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: ff905fec6d6af4fa40fd4331cb970121b6eb0879
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 4205893cc02cffff8926513a555393d10c046f43
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="install-and-use-a-package-in-visual-studio"></a>Yükleyin ve Visual Studio'da bir paket kullanın
 
-NuGet paketleri diğer geliştiriciler projelerinizi kullanmak için kullanılabilir hale yeniden kullanılabilir kod içerir. Bkz: [NuGet nedir?](../What-is-NuGet.md) arka planı için. Paketler, Paket Yöneticisi kullanıcı Arabirimi veya Paket Yöneticisi konsolu kullanarak bir Visual Studio projesi yüklenir, popüler için bu makalede açıklanan [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) paket ve bir evrensel Windows Platformu (UWP) projesi.
+NuGet paketleri diğer geliştiriciler projelerinizi kullanmak için kullanılabilir hale yeniden kullanılabilir kod içerir. Bkz: [NuGet nedir?](../What-is-NuGet.md) arka planı için. Paketler, Paket Yöneticisi kullanıcı Arabirimi veya Paket Yöneticisi konsolu kullanarak bir Visual Studio projesi yüklenir. Bu makalede, popüler kullanma işlemi gösterilmektedir [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) paket ve bir evrensel Windows Platformu (UWP) projesi. Aynı işlemde herhangi diğer .NET veya .NET Core proje için de geçerlidir.
 
 Koduyla paketinde yüklendikten sonra başvurmak `using <namespace>` nerede \<ad alanı\> kullanmakta olduğunuz paket özeldir. Başvuru yapıldığında, kendi API aracılığıyla paket çağırabilirsiniz.
 
@@ -36,7 +39,9 @@ Koduyla paketinde yüklendikten sonra başvurmak `using <namespace>` nerede \<ad
 
 ## <a name="create-a-project"></a>Proje oluşturma
 
-NuGet paketlerini tür .NET projeye yüklenebilir. Bu kılavuz için basit bir evrensel Windows (UWP) uygulamasını kullanın. Visual Studio kullanarak bir proje oluşturun. **Dosya > Yeni proje...**  ve seçerek **Windows Evrensel > boş uygulama (Evrensel Windows)**. Hedef sürüm ve Minimum istendiğinde sürüm için varsayılan değerleri kabul.
+Aynı hedef framework projesi olarak paket desteklediğini varsayarak NuGet paketlerini herhangi .NET projeye yüklenebilir.
+
+Bu kılavuz için basit bir evrensel Windows (UWP) uygulamasını kullanın. Visual Studio kullanarak bir proje oluşturun. **Dosya > Yeni proje...**  ve seçerek **Windows Evrensel > boş uygulama (Evrensel Windows)**. Hedef sürüm ve Minimum istendiğinde sürüm için varsayılan değerleri kabul.
 
 ## <a name="add-the-newtonsoftjson-nuget-package"></a>Newtonsoft.Json NuGet paketi ekleme
 
@@ -56,7 +61,7 @@ Paketi yüklemek için Paket Yöneticisi kullanıcı Arabirimi veya Paket Yönet
 
 1. (Visual Studio 2017) Paket Yönetimi biçimi seçin isteyip istemediğiniz sorulduğunda seçin **PackageReference proje dosyasında**:
 
-    ![Bir paket başvuru biçimi seçme](media/QS_Use-03b-SelectFormat.png)
+    ![Paket Yönetimi biçimi seçme](media/QS_Use-03b-SelectFormat.png)
 
 1. Değişiklikleri gözden geçirmek için istenirse seçin **Tamam**.
 

@@ -1,22 +1,25 @@
 ---
-title: "NuGet 1.8 sürüm notları | Microsoft Docs"
+title: NuGet 1.8 sürüm notları | Microsoft Docs
 author: karann-msft
 ms.author: karann-msft
 manager: ghogen
 ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "NuGet bilinen sorunları, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere 1.8 için sürüm notları."
-keywords: "Özellikler, dcr bilinen sorunlar, NuGet 1.8 sürüm notları, hata düzeltmeleri eklendi"
+ms.technology: ''
+description: NuGet bilinen sorunları, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere 1.8 için sürüm notları.
+keywords: Özellikler, dcr bilinen sorunlar, NuGet 1.8 sürüm notları, hata düzeltmeleri eklendi
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 139c30e29d8148eab7298329a07d8e412259e595
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: b94382f79143cac6bd5deccb5e5253ba8c6f60ec
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-18-release-notes"></a>NuGet 1.8 sürüm notları
 
@@ -27,7 +30,7 @@ NuGet 1.8 23 Mayıs 2012'de serbest bırakıldı.
 ## <a name="known-installation-issue"></a>Bilinen yükleme sorunu
 VS 2010 SP1 çalıştırıyorsanız, yüklü eski bir sürüm varsa, NuGet yükseltmeye çalışırken yükleme hatayla karşılaşabilirsiniz.
 
-Yalnızca NuGet kaldırın ve VS uzantısı Galeriden yükleyin için geçici bir çözüm değildir.  Bkz: [http://support.microsoft.com/kb/2581019](http://support.microsoft.com/kb/2581019) daha fazla bilgi için veya [VS düzeltme doğrudan gidin](http://bit.ly/vsixcertfix).
+Yalnızca NuGet kaldırın ve VS uzantısı Galeriden yükleyin için geçici bir çözüm değildir.  Bkz: [ http://support.microsoft.com/kb/2581019 ](http://support.microsoft.com/kb/2581019) daha fazla bilgi için veya [VS düzeltme doğrudan gidin](http://bit.ly/vsixcertfix).
 
 Not: Visual Studio (Kaldır düğmesi devre dışıdır) uzantısını Kaldır izin vermiyor olasılıkla "Yönetici olarak çalıştır" kullanarak Visual Studio yeniden başlatmanız gerekir
 
@@ -60,7 +63,7 @@ Ayrıca, uydu paketi yüklerken, çalışırken NuGet da kültür dize adlandır
 
 Uydu paketlerle not etmek için var olan bir hata olduğundan NuGet yerelleştirilmiş kaynaklar kopyalamaz `bin` Web sitesi projeleri için klasör.  Bu sorunu NuGet sonraki sürümde düzeltilecektir.
 
-Oluşturma ve uydu paketlerini kullanma gösteren tam bir örnek için bkz: [https://github.com/NuGet/SatellitePackageSample](https://github.com/NuGet/SatellitePackageSample).
+Oluşturma ve uydu paketlerini kullanma gösteren tam bir örnek için bkz: [ https://github.com/NuGet/SatellitePackageSample ](https://github.com/NuGet/SatellitePackageSample).
 
 ### <a name="package-restore-consent"></a>Paket geri yükleme onayı
 NuGet 1.8 içinde kullanıcı gizliliğini korumak için paket geri yüklemesi üzerinde önemli bir kısıtlama desteklemek için geçişteki düzenlenir. Bu kısıtlama, projeler ve paket geri yükleme için açıkça onaylaması için paket geri yüklemesi kullanarak çözümler oluşturan geliştiriciler yapılandırılmış paket kaynaklardan paketlerini indirmek için çevrimiçi olma gerektirir.

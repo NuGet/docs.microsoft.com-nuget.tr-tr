@@ -1,26 +1,29 @@
 ---
-title: "NuGet project.json arşiv içerik | Microsoft Docs"
+title: NuGet project.json arşiv içerik | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/17/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Çeşitli BITS project.json içeriğin diğer NuGet belgelerine alanlarından kaldırıldı."
-keywords: "NuGet project.json dosyası"
+ms.technology: ''
+description: Çeşitli BITS project.json içeriğin diğer NuGet belgelerine alanlarından kaldırıldı.
+keywords: NuGet project.json dosyası
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 42a40c6c637839c13effc9e476ac5702a92cfd2a
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 16361fe16d8ecc7064af4b6d636435a31a5663dc
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="projectjson-archive"></a>project.json archive
 
-`project.json` Başvuru biçimi NuGet ile sunulmuştur 3.x ve belirli proje türleri kullanılır. Bağımlılıklar doğrudan proje dosyasında listelenen PackageReference biçimi girişiyle kullanımdan kaldırılmıştır.
+`project.json` Yönetim biçimi NuGet ile sunulmuştur 3.x ve belirli proje türleri kullanılır. Bağımlılıklar doğrudan proje dosyasında listelenen PackageReference biçimi girişiyle kullanımdan kaldırılmıştır.
 
 Ayrıca bkz.:
 
@@ -28,11 +31,11 @@ Ayrıca bkz.:
 - [Paketi yazarları Project.JSON etkisini](project-json-impact.md)
 - [project.json ve UWP](project-json-and-uwp.md)
 
-## <a name="projectjson-reference-format"></a>project.json reference format
+## <a name="projectjson-management-format"></a>project.json management format
 
 *İlk olarak, [paket geri yüklemesi](../what-is-nuget.md).*
 
-Başvuru biçimleri listesinde:
+Yönetim biçimleri listesinde:
 
 - [`project.json`](project-json.md): *(kullanım dışı)* proje bağımlılıkları ile ilişkili bir dosyası bir genel paket grafiğinde bir listesini tutar bir JSON dosyası `project.lock.json`. Bu biçim lehinde PackageReference kullanım dışıdır.
 
@@ -54,7 +57,7 @@ Başvuru biçimleri listesinde:
 
 ## <a name="nuget-cli-commands"></a>NuGet CLI komutları
 
-- `nuget install`ile çalışmaz `project.json`.
+- `nuget install` ile çalışmaz `project.json`.
 - `nuget restore`: kullanarak projeleri ile `project.json`, oluşturan bir `project.lock.json` dosyası ve bir `<project>.nuget.props` gerekirse, dosya. (Her iki dosyası kaynak denetiminden atlanabilir.) `<projectPath>` Bağımsız değişkeni noktası bir `project.json` işaret olarak aynı davranışı sahiptir ve dosya bir `packages.config` veya proje dosyası. Paket klasörler için öncelik sırasına `%userprofile%\.nuget\packages` kullanırken ilk aranır `project.json`.
 - `nuget update`: Mono üzerinde bu komutu kullanarak projeleri ile çalışmıyor `project.json`.
 
@@ -138,7 +141,7 @@ Kullanırken `project.json` biçimi, NuGet ayrıca bir joker karakter gösterimi
 
 *İlk olarak, [NuGet.Config başvuru](../reference/nuget-config-file.md).*
 
-`globalPackagesFolder`yalnızca geçerli `project.json`.
+`globalPackagesFolder` yalnızca geçerli `project.json`. (Not eklendi: PackageReference için de geçerlidir.)
 
 ### <a name="nuspec-file-reference"></a>nuspec dosyası başvurusu
 
@@ -150,7 +153,7 @@ Kullanırken `project.json` biçimi, NuGet ayrıca bir joker karakter gösterimi
 
 *İlk olarak, [Paket Yöneticisi kullanıcı Arabirimi başvurusu](../tools/package-manager-ui.md).*
 
-Kullanarak projeleri `project.json` başvuru biçimi Göster yalnızca **Göster önizleme penceresi** seçeneği.
+Kullanarak projeleri `project.json` yönetim biçimi yalnızca Göster **Göster önizleme penceresi** seçeneği.
 
 ### <a name="visual-studio-templates"></a>Visual Studio şablonları
 

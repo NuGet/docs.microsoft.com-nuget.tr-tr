@@ -1,28 +1,31 @@
 ---
-title: "NuGet paketleri için Xamarin (iOS, Android ve Windows için) oluşturma | Microsoft Docs"
+title: (İçin iOS, Android ve Windows) Xamarin ile Visual Studio 2015 için NuGet paketlerini oluşturma | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/09/2017
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.prod: nuget
-ms.technology: 
-description: "NuGet paketleri için Xamarin oluşturduğunuz bir uçtan uca kılavuz, iOS, Android ve Windows yerel API'leri kullanın."
-keywords: "paketler Xamarin, platformlar arası paketleri için bir paket oluşturun"
+ms.technology: ''
+description: NuGet paketleri için Xamarin oluşturduğunuz bir uçtan uca kılavuz, iOS, Android ve Windows yerel API'leri kullanın.
+keywords: paketler Xamarin, platformlar arası paketleri için bir paket oluşturun
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 3e1460de060980365a5eaa2ef91c052cc359bb70
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: e101ca2d124a19d2cf758776717b3680aa5bbdd8
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="create-packages-for-xamarin"></a>Paketleri oluşturmak için Xamarin
+# <a name="create-packages-for-xamarin-with-visual-studio-2015"></a>Xamarin ile Visual Studio 2015 için paketler oluşturma
 
-Platformlar arası paket çalışma zamanı işletim sistemine bağlı iOS, Android ve Windows, yerel API'lerini kullanan kodu içerir. Bunu yapmak basit olmasına karşın, geliştiricilerin bir PCL paketinden kullanmasına izin vermek için tercih edilir veya ortak bir API üzerinden .NET standart kitaplıkları yüzey alanı.
+Bir paket xamarin çalışma zamanı işletim sistemine bağlı iOS, Android ve Windows, yerel API'lerini kullanan kodu içerir. Bunu yapmak basit olmasına karşın, geliştiricilerin bir PCL paketinden kullanmasına izin vermek için tercih edilir veya ortak bir API üzerinden .NET standart kitaplıkları yüzey alanı.
 
-Bu kılavuzda iOS, Android ve Windows mobil projelerinde kullanılan bir platformlar arası NuGet paketi oluşturun.
+Kullandığınız bu kılavuzda, Visual Studio 2015 iOS, Android ve Windows mobil projelerinde kullanılan bir platformlar arası NuGet paketi oluşturun.
 
 1. [Önkoşulları](#prerequisites)
 1. [Proje yapısı ve Özet kodu oluşturma](#create-the-project-structure-and-abstraction-code)

@@ -1,22 +1,25 @@
 ---
-title: "NuGet 3.0 Preview sürüm notları | Microsoft Docs"
+title: NuGet 3.0 Preview sürüm notları | Microsoft Docs
 author: karann-msft
 ms.author: karann-msft
 manager: ghogen
 ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "NuGet 3.0 bilinen sorunları, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere önizleme için sürüm notları."
-keywords: "Özellikler, dcr bilinen sorunlar, NuGet 3.0 Preview sürüm notları, hata düzeltmeleri eklendi"
+ms.technology: ''
+description: NuGet 3.0 bilinen sorunları, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere önizleme için sürüm notları.
+keywords: Özellikler, dcr bilinen sorunlar, NuGet 3.0 Preview sürüm notları, hata düzeltmeleri eklendi
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: cf7cd17065e1c83beb935fe2969e6ecd8b52aa29
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: f9f979e041ea6c7ba2f61603b1ea5848edc28f0c
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-30-preview-release-notes"></a>NuGet 3.0 Preview sürüm notları
 

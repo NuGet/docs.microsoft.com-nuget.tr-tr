@@ -1,27 +1,30 @@
 ---
-title: "NuGet Paket Yöneticisi kullanıcı Arabirimi başvurusu | Microsoft Docs"
+title: NuGet Paket Yöneticisi kullanıcı Arabirimi başvurusu | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 12/08/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
+ms.technology: ''
 f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager
 - vs.toolsoptionspages.nuget_package_manager.general
 - vs.toolsoptionspages.nuget_package_manager.package_sources
 - vs.nuget.packagemanager.ui
-description: "NuGet paketleri ile çalışmak için Visual Studio'da NuGet Paket Yöneticisi kullanıcı Arabirimi kullanma için yönergeler."
-keywords: "NuGet UI, NuGet Paket Yöneticisi kullanıcı Arabirimi, NuGet Visual Studio'da NuGet paketleri, NuGet kullanıcı arabirimi, Visual Studio'da Paket Yöneticisi yönetme"
+description: NuGet paketleri ile çalışmak için Visual Studio'da NuGet Paket Yöneticisi kullanıcı Arabirimi kullanma için yönergeler.
+keywords: NuGet UI, NuGet Paket Yöneticisi kullanıcı Arabirimi, NuGet Visual Studio'da NuGet paketleri, NuGet kullanıcı arabirimi, Visual Studio'da Paket Yöneticisi yönetme
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 35bb856ccff43c77af7eac67da4614d83dcdc533
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: ad36c2ab0c6e62c7fe624b35d92e852303ecfdfb
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-package-manager-ui"></a>NuGet Paket Yöneticisi kullanıcı Arabirimi
 
@@ -37,7 +40,7 @@ Bu konuda:
 - [Paket Yöneticisi seçeneklerini denetleme](#package-manager-options-control)
 
 > [!Note]
-> Visual Studio 2015'te NuGet Paket Yöneticisi kayıpsa denetleyin **Araçlar > Uzantılar ve güncelleştirmeler...**  arayın ve *NuGet Paket Yöneticisi* uzantısı. Visual Studio Uzantıları yükleyici yapamıyorsanız doğrudan uzantısını [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html).
+> Visual Studio 2015'te NuGet Paket Yöneticisi kayıpsa denetleyin **Araçlar > Uzantılar ve güncelleştirmeler...**  arayın ve *NuGet Paket Yöneticisi* uzantısı. Visual Studio Uzantıları yükleyici yapamıyorsanız doğrudan uzantısını [ https://dist.nuget.org/index.html ](https://dist.nuget.org/index.html).
 >
 > Visual Studio 2017 içinde NuGet ve NuGet Paket Yöneticisi otomatik olarak tüm yüklenir. NET ilgili iş yükleri. Tek tek seçerek yüklemek **bileşenleri tek tek > kod Araçlar > NuGet Paket Yöneticisi** Visual Studio 2017 yükleyici seçeneği.
 
@@ -125,7 +128,7 @@ Paket kaynaklarını yönetmek için:
 
     ![Paket kaynağı seçenekleri](media/options.png)
 
-1. Bir kaynak eklemek için seçin  **+** , ad düzenleme, URL veya yol girin **kaynak** denetlemek ve seçin **güncelleştirme**. Kaynak Seçici açılan artık görünür.
+1. Bir kaynak eklemek için seçin **+**, ad düzenleme, URL veya yol girin **kaynak** denetlemek ve seçin **güncelleştirme**. Kaynak Seçici açılan artık görünür.
 1. Paket kaynağı değiştirmek için seçmek, içinde düzenlemeler **adı** ve **kaynak** kutuları ' nı seçip **güncelleştirme**.
 1. Paket kaynağı devre dışı bırakmak için listeden adı solundaki kutusunu temizleyin.
 1. Paket kaynağı kaldırmak için onu seçin ve ardından **X** düğmesi.

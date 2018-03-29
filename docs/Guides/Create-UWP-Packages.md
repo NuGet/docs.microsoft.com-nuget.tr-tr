@@ -1,22 +1,25 @@
 ---
-title: "Evrensel Windows platformu için NuGet paketlerini oluşturma | Microsoft Docs"
+title: Evrensel Windows platformu için NuGet paketlerini oluşturma | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 03/21/2017
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.prod: nuget
-ms.technology: 
-description: "Windows çalışma zamanı bileşeni için evrensel Windows platformu kullanarak NuGet paketleri oluşturma bir uçtan uca kılavuz."
-keywords: "paketler UWP, Windows çalışma zamanı bileşenleri için bir paket oluşturun"
+ms.technology: ''
+description: Windows çalışma zamanı bileşeni için evrensel Windows platformu kullanarak NuGet paketleri oluşturma bir uçtan uca kılavuz.
+keywords: paketler UWP, Windows çalışma zamanı bileşenleri için bir paket oluşturun
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: af650b6cd67855a67d0f49cdbd9f510bf90a60f6
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 6923cdc87b0a550abb51316e384c79137eeaf63a
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-uwp-packages"></a>UWP paketleri oluşturma
 

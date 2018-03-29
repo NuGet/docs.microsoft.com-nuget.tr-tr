@@ -6,17 +6,20 @@ manager: ghogen
 ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Nuget.exe init komut başvurusu"
-keywords: "nuget init başvuru, Init komutu"
+ms.technology: ''
+description: Nuget.exe init komut başvurusu
+keywords: nuget init başvuru, Init komutu
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6d7710cd024e2c2956fb73aa767c3be55b9fb0f9
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 01a3553622020b5868e33ece09cd7555cb712fd3
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="init-command-nuget-cli"></a>Init komutu (NuGet CLI)
 
@@ -38,7 +41,7 @@ Burada `<source>` paketleri içeren klasör ve `<destination>` yerel klasör vey
 
 | Seçenek | Açıklama |
 | --- | --- |
-| ConfigFile | Uygulamak için NuGet yapılandırma dosyası. Belirtilmezse, *%AppData%\NuGet\NuGet.Config* kullanılır. |
+| ConfigFile | Uygulamak için NuGet yapılandırma dosyası. Belirtilmezse, `%AppData%\NuGet\NuGet.Config` (Windows) veya `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) kullanılır.|
 | ForceEnglishOutput | *(3.5 +)*  Değişmez, İngilizce tabanlı kültürü kullanarak çalışacak şekilde nuget.exe zorlar. |
 | Genişletme | Paket kaynağı eklenen her paketindeki tüm dosyaları ekler; aynı `-Expand` ile `add` komutu. |
 | Yardım | Bilgi komutu için yardımı görüntüler. |

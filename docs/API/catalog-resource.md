@@ -10,17 +10,20 @@ manager: skofman
 ms.date: 10/30/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Bir dizin oluşturulur ve üzerinde nuget.org silinen tüm paketlerin kataloğudur."
-keywords: "NuGet V3 API Kataloğu, nuget.org işlem günlüğü, çoğaltma nuget.org, kopya nuget.org nuget.org yalnızca append kaydı"
+ms.technology: ''
+description: Bir dizin oluşturulur ve üzerinde nuget.org silinen tüm paketlerin kataloğudur.
+keywords: NuGet V3 API Kataloğu, nuget.org işlem günlüğü, çoğaltma nuget.org, kopya nuget.org nuget.org yalnızca append kaydı
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: be30b21d488c323c439a59fff290a95adaefd902
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 61ed502eee498f5ad0a014e3338503f2855396a5
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="catalog"></a>Katalog
 

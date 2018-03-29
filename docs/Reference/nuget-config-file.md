@@ -1,22 +1,25 @@
 ---
-title: "NuGet.Config dosyasındaki başvurusu | Microsoft Docs"
+title: NuGet.Config dosyasındaki başvurusu | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 10/25/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "NuGet.Config dosya başvurusu yapılandırma, bindingRedirects, packageRestore, çözüm ve packageSource bölümler dahil olmak üzere."
-keywords: "NuGet.Config dosyasındaki, NuGet yapılandırma başvurusu, NuGet yapılandırma seçenekleri"
+ms.technology: ''
+description: NuGet.Config dosya başvurusu yapılandırma, bindingRedirects, packageRestore, çözüm ve packageSource bölümler dahil olmak üzere.
+keywords: NuGet.Config dosyasındaki, NuGet yapılandırma başvurusu, NuGet yapılandırma seçenekleri
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6a5be1ebcca0accafcdaf32f0b1b7ca66ec53425
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: e2a9d4f10ac6af4e5bc7386d4f78e18c2a5752c4
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nugetconfig-reference"></a>NuGet.Config başvurusu
 
@@ -48,13 +51,13 @@ Bu konuda:
 
 Kullanılarak ayarlanabilir çeşitli yapılandırma ayarlarını içeren [ `nuget config` komutu](../tools/cli-ref-config.md).
 
-Not: `dependencyVersion` ve `repositoryPath` kullanarak projeleri için geçerli `packages.config`. `globalPackagesFolder` PackageReference biçimini kullanarak projeler için geçerlidir.
+`dependencyVersion` ve `repositoryPath` kullanarak projeleri için geçerli `packages.config`. `globalPackagesFolder` PackageReference biçimini kullanarak projeler için geçerlidir.
 
 | Anahtar | Değer |
 | --- | --- |
 | dependencyVersion (`packages.config` yalnızca) | Varsayılan `DependencyVersion` paketi yükle, geri yükleme ve güncelleştirme için değer olduğunda `-DependencyVersion` anahtar doğrudan belirtilmedi. Bu değer ayrıca NuGet Paket Yöneticisi kullanıcı Arabirimi tarafından kullanılır. Değerler `Lowest`, `HighestPatch`, `HighestMinor`, `Highest`. |
-| globalPackagesFolder (kullanmıyorsa projeleri `packages.config`) | Varsayılan Genel paketler klasörü konumu. Varsayılan değer `%USERPROFILE%\.nuget\packages` (Windows) veya `~/.nuget/packages` (Mac/Linux). Göreli bir yol projeye özgü içinde kullanılabilir `Nuget.Config` dosyaları. |
-| repositoryPath (`packages.config` yalnızca) | NuGet paketleri yerine varsayılan yükleme konumu `$(Solutiondir)/packages` klasörü. Göreli bir yol projeye özgü içinde kullanılabilir `Nuget.Config` dosyaları. |
+| globalPackagesFolder (PackageReference yalnızca kullanarak projeleri) | Varsayılan Genel paketler klasörü konumu. Varsayılan değer `%userprofile%\.nuget\packages` (Windows) veya `~/.nuget/packages` (Mac/Linux). Göreli bir yol projeye özgü içinde kullanılabilir `Nuget.Config` dosyaları. Bu ayar önceliklidir NUGET_PACKAGES ortam değişkeni tarafından geçersiz kılındı. |
+| repositoryPath (`packages.config` yalnızca) | NuGet paketleri yerine varsayılan yükleme konumu `$(Solutiondir)/packages` klasörü. Göreli bir yol projeye özgü içinde kullanılabilir `Nuget.Config` dosyaları. Bu ayar önceliklidir NUGET_PACKAGES ortam değişkeni tarafından geçersiz kılındı. |
 | defaultPushSource | URL veya bir işlem için başka bir paket kaynaklarını bulunursa, varsayılan olarak kullanılması gereken paket kaynağının yolunu tanımlar. |
 | http_proxy http_proxy.user http_proxy.password no_proxy | Proxy ayarlarını; paket kaynaklarına bağlanırken kullanmak için `http_proxy` biçiminde olmalıdır `http://<username>:<password>@<domain>`. Parolaları şifrelenir ve el ile eklenemez. İçin `no_proxy`, değer atlama proxy sunucusu etki alanları virgülle ayrılmış bir listesi verilmiştir. Alternatif olarak, bu değerleri http_proxy ve no_proxy ortam değişkenleri kullanabilirsiniz. Daha fazla bilgi için bkz: [NuGet proxy ayarlarını](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (skolima.blogspot.com). |
 
@@ -64,7 +67,7 @@ Not: `dependencyVersion` ve `repositoryPath` kullanarak projeleri için geçerli
 <config>
     <add key="dependencyVersion" value="Highest" />
     <add key="globalPackagesFolder" value="c:\packages" />
-    <add key="repositoryPath" value="c:\repo" />
+    <add key="repositoryPath" value="c:\installed_packages" />
     <add key="http_proxy" value="http://company-squid:3128@contoso.com" />
 </config>
 ```

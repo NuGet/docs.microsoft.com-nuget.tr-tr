@@ -1,23 +1,26 @@
 ---
-title: "NuGet paketi sürüm başvurusu | Microsoft Docs"
+title: NuGet paketi sürüm başvurusu | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 12/08/2017
+ms.date: 03/23/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Sürüm numaraları ve diğer paketleri, bağlı bir NuGet paketi ve bağımlılıkları nasıl yükleneceğini aralıklarını belirtme hakkında tam ayrıntılar."
-keywords: "sürüm oluşturma, NuGet Paket bağımlılıklarını, NuGet bağımlılık sürümleri, NuGet sürüm numaralarını, NuGet Paket sürümü, sürüm aralıkları, sürüm belirtimleri, normalleştirilmiş sürüm numaraları"
+ms.technology: ''
+description: Sürüm numaraları ve diğer paketleri, bağlı bir NuGet paketi ve bağımlılıkları nasıl yükleneceğini aralıklarını belirtme hakkında tam ayrıntılar.
+keywords: sürüm oluşturma, NuGet Paket bağımlılıklarını, NuGet bağımlılık sürümleri, NuGet sürüm numaralarını, NuGet Paket sürümü, sürüm aralıkları, sürüm belirtimleri, normalleştirilmiş sürüm numaraları
 ms.reviewer:
 - anandr
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 70472d7d97d073009237a047e0fdf528b221dfd0
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 678ad79d9106a9f592ae4f47bc93cc117496e2c9
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="package-versioning"></a>Paket sürümü oluşturma
 
@@ -109,8 +112,8 @@ Paket bağımlılıklarını söz konusu olduğunda NuGet sürümü aralıkları
 
 | Gösterimi | Uygulanan kural | Açıklama |
 |----------|--------------|-------------|
-| 1.0 | 1.0 ≤ x | En düşük sürüm, (bunlar dahil) |
-| (1.0,) | 1.0 < x | En düşük sürüm, özel |
+| 1.0 | x ≥ 1.0 | En düşük sürüm, (bunlar dahil) |
+| (1.0,) | x > 1.0 | En düşük sürüm, özel |
 | [1.0] | x == 1.0 | Tam sürümü eşleşmiyor |
 | (,1.0] | x ≤ 1.0 | En yüksek sürüm, (bunlar dahil) |
 | (,1.0) | x < 1.0 | Özel olarak, en yüksek sürüm |

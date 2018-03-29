@@ -1,22 +1,25 @@
 ---
-title: "NuGet 1.0 ve 1.1 sürüm notları | Microsoft Docs"
+title: NuGet 1.0 ve 1.1 sürüm notları | Microsoft Docs
 author: karann-msft
 ms.author: karann-msft
 manager: ghogen
 ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "NuGet bilinen sorunları, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere 1.1 için sürüm notları."
-keywords: "Özellikler, dcr bilinen sorunlar, NuGet 1.1 sürüm notları, hata düzeltmeleri eklendi"
+ms.technology: ''
+description: NuGet bilinen sorunları, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere 1.1 için sürüm notları.
+keywords: Özellikler, dcr bilinen sorunlar, NuGet 1.1 sürüm notları, hata düzeltmeleri eklendi
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6a596e61f144e7269f703f2dba3dddb4fd338e6a
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: dd320df2d725e58182cd908ce621571ea018b350
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-10-and-11-release-notes"></a>NuGet 1.0 ve 1.1 sürüm notları
 
@@ -49,7 +52,7 @@ Bunu kullanmak için [en son sürüm](http://nuget.codeplex.com/releases/view/52
 
 * Önce eski yapınızın kaldırın. VS Bunu yapmak için yönetici olarak çalıştırmanız gerekir.
 * Sahip olduğunuz tüm mevcut akışları kaldırın.
-* İşaret eden yeni bir akış eklemek [http://go.microsoft.com/fwlink/?LinkId=206669](http://go.microsoft.com/fwlink/?LinkId=206669).
+* İşaret eden yeni bir akış eklemek [ http://go.microsoft.com/fwlink/?LinkId=206669 ](http://go.microsoft.com/fwlink/?LinkId=206669).
 
 ## <a name="nuget-11"></a>NuGet 1.1
 
@@ -135,7 +138,7 @@ Bu Sürüm Adayı'nda CTP 2'den yapılan değişiklikleri şunlardır: Hataları
 
 CTP 2'de yapılan en önemli değişiklikler şunlardır:
 
-* Bir OData Hizmeti uç noktası için ATOM akışı paket anahtarlamalı: NuGet CTP2 sürümüne yükseltirseniz, bir paket kaynağı olarak aşağıdaki URL'yi eklediğinizden emin olun: https://feed.nuget.org/ctp2/odata/v1/.
+* Bir OData Hizmeti uç noktası için ATOM akışı paket anahtarlamalı: NuGet CTP2 sürümüne yükseltirseniz, bir paket kaynağı olarak aşağıdaki URL'yi eklediğinizden emin olun: `https://feed.nuget.org/ctp2/odata/v1/`.
 * Add-Package komutu yeniden adlandırılmış *Install-Package*.
 * Güncelleştirilmiş `.nuspec` biçimi. `.nuspec` Biçimi artık içerir *iconUrl* Paketi Ekle iletişim kutusunda görüntülenecek bir 32 x 32 png simgesi belirtmek için alan. Bu nedenle, paketinizi ayırt etmek için ayarladığınızdan emin olun. `.nuspec` Biçimi de içeren yeni *projectUrl* paketinizi hakkında daha fazla bilgi sağlayan bir web sayfasında işaret etmek için kullanabileceğiniz alan.
 

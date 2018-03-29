@@ -1,23 +1,26 @@
 ---
-title: "NuGet için'.nuspec dosyası başvurusu | Microsoft Docs"
+title: NuGet için'.nuspec dosyası başvurusu | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 08/29/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: ".Nuspec dosyası bir paketi ve paket tüketicilere bilgi sağlamak için oluştururken kullanılan paket meta verileri içerir."
-keywords: "nuspec başvurusu, NuGet paket meta verileri, NuGet paket bildirimi, nuspec şeması"
+ms.technology: ''
+description: .Nuspec dosyası bir paketi ve paket tüketicilere bilgi sağlamak için oluştururken kullanılan paket meta verileri içerir.
+keywords: nuspec başvurusu, NuGet paket meta verileri, NuGet paket bildirimi, nuspec şeması
 ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 90693b09fce966e3bc28ca24360a3fb4e1f73386
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 3cc9ab4e352de9b3fabbfd92303f0d528d804c20
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuspec-reference"></a>.nuspec başvurusu
 

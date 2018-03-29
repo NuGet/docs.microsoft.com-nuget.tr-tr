@@ -1,32 +1,35 @@
 ---
-title: "NuGet için'Project.JSON dosyası başvurusu | Microsoft Docs"
+title: NuGet için'Project.JSON dosyası başvurusu | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 07/27/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Bazı proje türleri project.json projesinde kullanılan NuGet paketleri listesini tutar."
-keywords: "NuGet project.json, NuGet paket referanslarını, NuGet bağımlılıkları, böylece project.lock.json"
+ms.technology: ''
+description: Bazı proje türleri project.json projesinde kullanılan NuGet paketleri listesini tutar.
+keywords: NuGet project.json, NuGet paket referanslarını, NuGet bağımlılıkları, böylece project.lock.json
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 2e2c521b18dd67e49942cc20eafef0be7f91573a
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 21542a219faa3d1fa0c32a838645d4471c5aa935
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="projectjson-reference"></a>project.json reference
 
 *NuGet 3.x+*
 
-`project.json` Dosyası paket başvuru biçimi bilinen bir projesinde kullanılan paketlerin listesini sağlar. Bu yerine geçiyor `packages.config` sırayla yerine geçen ancak [PackageReference](../consume-packages/package-references-in-project-files.md) NuGet 4.0 + ile.
+`project.json` Dosyası paket Yönetimi biçimi bilinen bir projesinde kullanılan paketlerin listesini sağlar. Bu yerine geçiyor `packages.config` sırayla yerine geçen ancak [PackageReference](../consume-packages/package-references-in-project-files.md) NuGet 4.0 + ile.
 
 [ `project.lock.json` ](#projectlockjson) (Aşağıda açıklanmıştır) dosyası da kullanan projelerinde kullanılan `project.json`.
 
-`project.json`aşağıdaki temel yapı dört en üst düzey nesnelerin her biri herhangi bir sayıda bağımlı nesnelere sahip olduğu sahiptir:
+`project.json` aşağıdaki temel yapı dört en üst düzey nesnelerin her biri herhangi bir sayıda bağımlı nesnelere sahip olduğu sahiptir:
 
 ```json
 {
@@ -122,7 +125,7 @@ Proje gibi çalışan çerçeveleri listeler `net45`, `netcoreapp`, `netstandard
     }
  ```
 
-Yalnızca tek bir giriş izin `frameworks` bölümü. (Bir özel durum `project.json` dosyaları yapı için birden çok hedef sağlayan kullanım dışı DNX araç zinciri, sahip olduğunuz ASP.NET projeleri için.)
+Yalnızca tek bir giriş izin `frameworks` bölümü. (Bir özel durum `project.json` dosyaları yapı kullanım dışı DNX ile olan ASP.NET projeleri için araç için birden çok hedef verir zinciri.)
 
 ## <a name="runtimes"></a>Çalışma zamanları
 
@@ -184,4 +187,4 @@ NuGet içinde 3 +, geliştiricilerin el ile düzenleme beklenmez `project.json`V
 
 `project.lock.json` Dosyası kullanmak projelerinde NuGet paketleri geri yüklemeyi sürdürüyor oluşturulur `project.json`. Bir anlık görüntü olarak NuGet paketleri grafik anlatılmaktadır ve sürüm, içeriği ve tüm paketler bağımlılıklarını projenizde içerir oluşturan tüm bilgileri içerir. Derleme sistemi bu paketleri yerine Proje proje yerel paketler klasöründe bağlı olarak oluştururken ilgili genel bir konum seçmek için kullanır. Salt okunur gerekli olduğundan bu daha hızlı derleme performansla sonuçlanır `project.lock.json` birçok yerine ayrı `.nuspec` dosyaları.
 
-`project.lock.json`kaynak denetiminden onu atlanabilir ekleyerek için paket geri yükleme, otomatik olarak oluşturulan `.gitignore` ve `.tfignore` dosyaları (bkz [paketler ve kaynak denetimi](../consume-packages/packages-and-source-control.md). Ancak, kaynak denetiminde dahil, zaman içinde çözümlenen bağımlılıklar değişiklikleri değişiklik geçmişini gösterir.
+`project.lock.json` kaynak denetiminden onu atlanabilir ekleyerek için paket geri yükleme, otomatik olarak oluşturulan `.gitignore` ve `.tfignore` dosyaları (bkz [paketler ve kaynak denetimi](../consume-packages/packages-and-source-control.md). Ancak, kaynak denetiminde dahil, zaman içinde çözümlenen bağımlılıklar değişiklikleri değişiklik geçmişini gösterir.

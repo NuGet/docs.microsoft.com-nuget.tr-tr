@@ -1,22 +1,25 @@
 ---
-title: "NuGet paket PowerShell başvurusu | Microsoft Docs"
+title: NuGet paket PowerShell başvurusu | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 12/07/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Visual Studio'da NuGet Paket Yöneticisi konsolunda güncelleştirme paketini PowerShell komut başvurusu."
-keywords: "NuGet Paket Yöneticisi konsolu, NuGet Powershell komutlarını NuGet Powershell başvurusu, güncelleştirme paketi"
+ms.technology: ''
+description: Visual Studio'da NuGet Paket Yöneticisi konsolunda güncelleştirme paketini PowerShell komut başvurusu.
+keywords: NuGet Paket Yöneticisi konsolu, NuGet Powershell komutlarını NuGet Powershell başvurusu, güncelleştirme paketi
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 293d9a7fdcce633eb5a97e5f76398deb5c13bdb4
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 05772159d62f73e7d25f71ad36809f5ae8ef6aae
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="update-package-package-manager-console-in-visual-studio"></a>Güncelleştirme Paketi (Visual Studio'da Paket Yöneticisi Konsolu)
 
@@ -47,7 +50,7 @@ Update-Package Microsoft.AspNet.MVC -Version 5.0.0.
 | ProjectName | Güncelleştirilecek paketi içeren, tüm projeler için varsayılan değer olarak projesinin adı. |
 | Sürüm | En son sürüm varsayılan değer olarak, yükseltme için kullanılacak sürümü. NuGet içinde 3.0 +, sürüm değeri şunlardan biri olmalıdır *en düşük, en yüksek, HighestMinor*, veya *HighestPatch* (eşdeğer - güvenli). |
 | Güvenli | Yükseltmeleri aynı birincil ve ikincil sürüme yüklü paketi içeren yalnızca sürümlerle kısıtlar. |
-| Kaynak | Aranacak paket kaynağının URL'sini veya klasör yolu. Yerel klasör yolları mutlak veya göreli geçerli klasörde olabilir. Atlanırsa, `Uninstall-Package` şu anda seçili paket kaynağını arar. |
+| Kaynak | Aranacak paket kaynağının URL'sini veya klasör yolu. Yerel klasör yolları mutlak veya göreli geçerli klasörde olabilir. Atlanırsa, `Update-Package` şu anda seçili paket kaynağını arar. |
 | IncludePrerelease | Yayın öncesi paketleri için güncelleştirmeleri içerir. |
 | Yeniden yükleme | Şu anda yüklü sürümlerine kullanarak Resintalls paketler. Bkz: [Reinstalling ve paketleri güncelleştiriliyor](../consume-packages/reinstalling-and-updating-packages.md). |
 | FileConflictAction | Üzerine veya varolan dosyaları proje tarafından başvurulan yoksayar istenir olduğunda gerçekleştirilecek eylem. Olası değerler şunlardır: *üzerine yazma, yoksay, None, OverwriteAll*, ve *IgnoreAll* (3.0 +). |

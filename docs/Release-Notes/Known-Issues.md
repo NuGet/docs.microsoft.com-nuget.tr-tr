@@ -6,17 +6,20 @@ manager: ghogen
 ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Kimlik doğrulama, paket yükleme ve araçlar da dahil olmak üzere NuGet ile ilgili bilinen sorunlar."
-keywords: "Bilinen sorunlar, NuGet sorunları NuGet"
+ms.technology: ''
+description: Kimlik doğrulama, paket yükleme ve araçlar da dahil olmak üzere NuGet ile ilgili bilinen sorunlar.
+keywords: Bilinen sorunlar, NuGet sorunları NuGet
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: ac00e3f11c54290a31319e7f2946fd965a0a9288
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: c36da5dc73dddbd540a36d171583cbf542e0678f
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="known-issues-with-nuget"></a>NuGet ile ilgili bilinen sorunlar
 
@@ -227,7 +230,7 @@ Windows Phone araçları Visual Studio uzantısı Yöneticisi için destek yok. 
 
 ## <a name="changing-the-capitalization-of-nuget-package-ids-breaks-package-restore"></a>Paket geri yüklemesi keser NuGet paket kimliği, büyük/küçük harf değiştirme
 
-Üzerinde en length anlatıldığı gibi [bu GitHub sorunu](https://github.com/Particular/NServiceBus/issues/1271#issuecomment-20865932), NuGet paketleri, büyük/küçük harf değiştirme yapılabilir NuGet destek ancak nedenler zorluklar farklı-ortası, var olan kullanıcılar paketler için paket geri yüklemesi sırasında kendi yerel paket önbelleği. Varolan kullanıcılar, derleme zamanı paket geri yüklemesi oluşabilir sonu hakkında paketinin ile iletişim kurmak için bir yol olduğunda yalnızca büyük/küçük harf değiştirme isteyen öneririz.
+Üzerinde en length anlatıldığı gibi [bu GitHub sorunu](https://github.com/Particular/NServiceBus/issues/1271#issuecomment-20865932), NuGet paketleri, büyük/küçük harf değiştirme yapılabilir NuGet destek ancak nedenler zorluklar farklı-ortası, var olan kullanıcılar paketler için paket geri yüklemesi sırasında kendi *paketleri genel* klasör. Varolan kullanıcılar, derleme zamanı paket geri yüklemesi oluşabilir sonu hakkında paketinin ile iletişim kurmak için bir yol olduğunda yalnızca büyük/küçük harf değiştirme isteyen öneririz.
 
 ## <a name="reporting-issues"></a>Raporlama konuları
 

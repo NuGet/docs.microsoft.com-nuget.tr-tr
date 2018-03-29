@@ -1,22 +1,25 @@
 ---
-title: "NuGet 1.5 sürüm notları | Microsoft Docs"
+title: NuGet 1.5 sürüm notları | Microsoft Docs
 author: karann-msft
 ms.author: karann-msft
 manager: ghogen
 ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "NuGet bilinen sorunları, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere 1.5 için sürüm notları."
-keywords: "Özellikler, dcr bilinen sorunlar, NuGet 1.5 sürüm notları, hata düzeltmeleri eklendi"
+ms.technology: ''
+description: NuGet bilinen sorunları, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere 1.5 için sürüm notları.
+keywords: Özellikler, dcr bilinen sorunlar, NuGet 1.5 sürüm notları, hata düzeltmeleri eklendi
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 9f93000cd5e86cb8f3798e32daf6a4ded0d4e9c3
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: abb044bab5fdc8748b529a2f0072a7271a3674dd
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-15-release-notes"></a>NuGet 1,5 sürüm notları
 

@@ -1,22 +1,25 @@
 ---
-title: "NuGet proje yönetimi | Microsoft Docs"
+title: NuGet proje yönetimi | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/18/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Roller ve sorumluluklar committers, Katkıda Bulunanlar ve kullanıcılar için de dahil olmak üzere NuGet için idare modeli."
-keywords: "NuGet idare, NuGet benevolent dictator, committer sorumlulukları, katkıda bulunan sorumlulukları, kullanıcı sorumlulukları"
+ms.technology: ''
+description: Roller ve sorumluluklar committers, Katkıda Bulunanlar ve kullanıcılar için de dahil olmak üzere NuGet için idare modeli.
+keywords: NuGet idare, NuGet benevolent dictator, committer sorumlulukları, katkıda bulunan sorumlulukları, kullanıcı sorumlulukları
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: ea1ddcc3e145afe3b905b23db37e1e61500200bb
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: aa48b95482c65de47d54daff142402dd2ff6558a
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-governance"></a>NuGet idare
 
@@ -40,7 +43,7 @@ Ayrıca, .NET Foundation Personel proje lideri NuGet iletişim etki alanı kayı
 
 ### <a name="committers"></a>Committers
 
-Committers kimin sürekli değerli Katkıları Nuget'e yaptıysanız ve Benevolent Dictator tarafından tayin katkıda bulunanlar ' dir. Bir tayin, committers üzerine hem depoya doğrudan kod yazmak ve diğer Katkıları ekran dayanıyordu. Committers geliştiriciler genellikle olan ancak diğer yollarla katkıda bulunabilir.
+Committers kimin sürekli değerli Katkıları Nuget'e yaptıysanız ve Benevolent Dictator tarafından tayin katkıda bulunanlar ' dir. Tayin sonra committers üzerine hem depoya doğrudan kod yazmak ve diğer Katkıları ekran dayanıyordu. Committers geliştiriciler genellikle olan ancak diğer yollarla katkıda bulunabilir.
 
 Genellikle, bir committer proje belirli bir yönüne odaklanır ve uzmanlık ve topluluk ve proje lideri saygı kazandığı anlama düzeyini getirir. Committer rol resmi bir değil, yalnızca proje sağlama arar bunlara yönerge ve Destek olarak etkili topluluk üyeleri varsayın bir konum.
 

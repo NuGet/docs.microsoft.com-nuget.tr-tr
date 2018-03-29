@@ -1,22 +1,25 @@
 ---
-title: "NuGet 3.3 sürüm notları | Microsoft Docs"
+title: NuGet 3.3 sürüm notları | Microsoft Docs
 author: karann-msft
 ms.author: karann-msft
 manager: ghogen
 ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "NuGet bilinen sorunları, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere 3.3 için sürüm notları."
-keywords: "Özellikler, dcr bilinen sorunlar, NuGet 3.3 sürüm notları, hata düzeltmeleri eklendi"
+ms.technology: ''
+description: NuGet bilinen sorunları, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere 3.3 için sürüm notları.
+keywords: Özellikler, dcr bilinen sorunlar, NuGet 3.3 sürüm notları, hata düzeltmeleri eklendi
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 4d077fb53abd8033aad6da01ad090297109aa68c
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: ab5e1ca550297c608017cb56dff32f4bd4bbb885
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-33-release-notes"></a>NuGet 3.3 sürüm notları
 
