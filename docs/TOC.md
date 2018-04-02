@@ -102,6 +102,7 @@
 ## [Paket içeriği](api/package-base-address-resource.md)
 ## [Uygunsuz kullanım bildirme URL’si](api/report-abuse-resource.md)
 ## [Katalog](api/catalog-resource.md)
+## [Hız sınırları](api/rate-limits.md)
 ## [nuget.org protokolleri](api/nuget-protocols.md)
 # Visual Studio genişletilebilirliği
 ## [Visual Studio’da NuGet API’si](visual-studio-extensibility/nuget-api-in-visual-studio.md)
