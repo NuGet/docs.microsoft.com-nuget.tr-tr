@@ -15,11 +15,11 @@ ms.reviewer:
 ms.workload:
 - dotnet
 - aspnet
-ms.openlocfilehash: 99caf371ca1bd85e6af4e879741e3e2caab6e860
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 7844ace0565b2e70f8f68e6e61548f0f28171689
+ms.sourcegitcommit: 5b223c5814799caa6309e95792a2d338df692778
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/04/2018
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Proje dosyalarına paket referanslarını (PackageReference)
 
@@ -96,8 +96,8 @@ Bu etiketler için izin verilen değerler aşağıdaki gibidir, dışında nokta
 
 | Değer | Açıklama |
 | --- | ---
-| Derleme | İçeriği `lib` klasörü |
-| çalışma zamanı | İçeriği `runtimes` klasörü |
+| Derleme | İçeriği `lib` klasörü ve denetimleri klasördeki derlemeleri karşı olup projenizi derleme |
+| çalışma zamanı | İçeriği `lib` ve `runtimes` klasörü ve denetimleri bu derlemeler için yapı olup kopyalanacak çıktı dizini |
 | Content dosyaları | İçeriği `contentfiles` klasörü |
 | derleme | Özellik ve içinde hedefler `build` klasörü |
 | Çözümleyiciler | .NET çözümleyiciler |

@@ -15,11 +15,11 @@ ms.reviewer:
 ms.workload:
 - dotnet
 - aspnet
-ms.openlocfilehash: a575868894d5ca9992b1c9984cf4920bd2858209
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 88f10cf15e16013ac99f315e572f932fd3948f73
+ms.sourcegitcommit: ecb598c790d4154366bc92757ec7db1a51c34faf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="configuring-nuget-behavior"></a>NuGet davranışını yapılandırma
 
@@ -30,8 +30,8 @@ NuGet davranışı güdümlü bir veya daha fazla birikmiş ayarlar tarafından 
 | Kapsam | NuGet.Config dosya konumu | Açıklama |
 | --- | --- | --- |
 | Proje | Geçerli klasör (diğer adıyla proje klasörü) veya sürücü kök kadar herhangi bir klasör.| Bir proje klasöründe ayarlar yalnızca bu proje için geçerlidir. Birden çok proje alt klasör içeren üst klasörlerde ayarlar bu klasörlerdeki tüm projeleri için geçerlidir. |
-| Kullanıcı | Windows: `%appdata%\NuGet\NuGet.Config`<br/>Mac/Linux: `~/.nuget/NuGet/NuGet.Config` | Ayarları tüm işlemleri için geçerlidir, ancak herhangi bir proje düzeyi ayarı tarafından geçersiz kılınır. |
-| Bilgisayar | Windows: `%ProgramFiles(x86)%\NuGet\Config`<br/>Mac/Linux: `$XDG_DATA_HOME` (genellikle `~/.local/share`) | Ayarlar bilgisayar üzerinde tüm işlemler için geçerli olan, ancak herhangi bir kullanıcı veya proje düzeyi ayarı tarafından kılınmadı. |
+| Kullanıcı | Windows: `%appdata%\NuGet\NuGet.Config`<br/>Mac/Linux: `~/.config/NuGet/NuGet.Config` veya `~/.nuget/NuGet/NuGet.Config` (işletim sistemi dağıtım göre farklılık gösterir) | Ayarları tüm işlemleri için geçerlidir, ancak herhangi bir proje düzeyi ayarı tarafından geçersiz kılınır. |
+| Bilgisayar | Windows: `%ProgramFiles(x86)%\NuGet\Config`<br/>Mac/Linux: `$XDG_DATA_HOME`. Varsa `$XDG_DATA_HOME` null veya boş, `~/.local/share` veya `/usr/local/share` kullanılacak (işletim sistemi dağıtım göre farklılık gösterir)  | Ayarları, bilgisayarda tüm işlemleri için geçerlidir, ancak herhangi bir kullanıcı veya proje düzeyi ayarı tarafından geçersiz kılınır. |
 
 NuGet'ın önceki sürümlerini için Notlar:
 - NuGet 3.3 ve daha önce kullanılan bir `.nuget` çözüm genelindeki ayarları için klasör. Bu dosya NuGet 3.4 + kullanılmaz.
@@ -140,7 +140,7 @@ NuGet bu dosyalarda ayarları buldukça, bunlar aşağıdaki gibi uygulanır:
 
 Dört sonra sahip `NuGet.Config` dosyaları aşağıdaki konumlarda verilen içeriğe sahip. (Bilgisayar düzeyinde dosya bu örnekte yer almaz, ancak kullanıcı düzeyinde dosyasına benzer şekilde davranacaktır.)
 
-A. kullanıcı düzeyinde dosyası, (`%appdata%\NuGet\NuGet.Config` , Windows'da `~/.nuget/NuGet/NuGet.Config` Mac/Linux'ta):
+A. kullanıcı düzeyinde dosyası, (`%appdata%\NuGet\NuGet.Config` , Windows'da `~/.config/NuGet/NuGet.Config` Mac/Linux'ta):
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -218,8 +218,8 @@ Aşağıdaki tabloda nerede tanımlar `NuGetDefaults.Config` dosyasının saklan
 
 | İşletim sistemi platformu  | NuGetDefaults.Config Location |
 | --- | --- |
-| Windows      | **Visual Studio 2017 veya NuGet 4.x+:** % ProgramFiles (x86) %\NuGet\Config <br />**Visual Studio 2015 ve önceki ya da NuGet 3.x ve daha önceki sürümlerde:** %PROGRAMDATA%\NuGet |
-| Mac/Linux    | $XDG_DATA_HOME (genellikle ~/.local/share)|
+| Windows      | **Visual Studio 2017 veya NuGet 4.x+:** `%ProgramFiles(x86)%\NuGet\Config` <br />**Visual Studio 2015 ve önceki ya da NuGet 3.x ve önceki sürümleri:** `%PROGRAMDATA%\NuGet` |
+| Mac/Linux    | `$XDG_DATA_HOME` (genellikle `~/.local/share` veya `/usr/local/share`işletim sistemi dağıtım bağlı olarak)|
 
 ### <a name="nugetdefaultsconfig-settings"></a>NuGetDefaults.Config ayarları
 

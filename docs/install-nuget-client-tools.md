@@ -15,11 +15,11 @@ ms.reviewer:
 ms.workload:
 - dotnet
 - aspnet
-ms.openlocfilehash: dd9ca3b39c4bc9b00d8fca6fe1479d64016bad86
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: e4dfe1102d1e0e2013136b0ae4975e5036e34642
+ms.sourcegitcommit: ecb598c790d4154366bc92757ec7db1a51c34faf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="installing-nuget-client-tools"></a>NuGet istemci araçlarını yükleme
 
@@ -59,7 +59,7 @@ Yükleme:
 [!INCLUDE[install-cli](includes/install-cli.md)]
 
 > [!Tip]
-> Kullanım `nuget update -self` varolan nuget.exe en son sürüme güncelleştirmek için.
+> Kullanım `nuget update -self` varolan nuget.exe en son sürüme güncelleştirmek için Windows.
 
 > [!Note]
 > NuGet CLI adresinde her zaman en son önerilen `https://dist.nuget.org/win-x86-commandline/latest/nuget.exe`. Eski sürekli tümleştirme sistemleri, önceki bir URL ile uyumluluk amacıyla `https://nuget.org/nuget.exe` şu anda sağlar [2.8.6 kullanım dışı CLI aracı](https://github.com/NuGet/NuGetGallery/issues/5381).

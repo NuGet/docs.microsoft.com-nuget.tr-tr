@@ -74,6 +74,7 @@
 # Başvuru
 ## [.nuspec](reference/nuspec.md)
 ## [Proje dosyalarında paket başvuruları](consume-packages/package-references-in-project-files.md)
+## [Packages.config’i PackageReference’a geçirme](reference/migrate-packages-config-to-package-reference.md)
 ## [packages.config](reference/packages-config.md)
 ## [Paket sürümü oluşturma](reference/package-versioning.md)
 ## [Nuget.Config dosyası](reference/nuget-config-file.md)
