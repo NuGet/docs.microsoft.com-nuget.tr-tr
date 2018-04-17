@@ -12,11 +12,11 @@ keywords: Önbellekleri, NuGet yerel önbelleği, genel NuGet önbelleği, NuGet
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: e9f4383a3f1700b96e3d6fe9ea4c0a7c24daa45a
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 46cd233dcf36745d9ba556c86088f640923cd063
+ms.sourcegitcommit: 55433d3bda7684d978f26d559f801878223675fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="managing-the-global-packages-cache-and-temp-folders"></a>Genel paketler, önbellek ve geçici klasörleri yönetme
 
@@ -99,7 +99,7 @@ nuget locals all -clear
 
 Visual Studio şu anda açık olan projeler tarafından kullanılan herhangi bir paket gelen temizlenmez *paketleri genel* klasör.
 
-Visual Studio'da kullanın **Araçlar > NuGet Paket Yöneticisi > paket yönetimi ayarları** menü komutunu ve ardından **Temizle tüm NuGet önbellekler**. Önbellek yönetme, Paket Yöneticisi konsolu aracılığıyla şu anda kullanılamıyor.
+Visual Studio 2017 ' kullanmak **Araçlar > NuGet Paket Yöneticisi > paket yönetimi ayarları** menü komutunu ve ardından **Temizle tüm NuGet önbellekler**. Önbellek yönetme, Paket Yöneticisi konsolu aracılığıyla şu anda kullanılamıyor. Visual Studio 2015'te, bunun yerine CLI komutları kullanın.
 
 ![Önbellekleri temizlemek için NuGet seçeneği komutu](media/options-clear-caches.png)
 

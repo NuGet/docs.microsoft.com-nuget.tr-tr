@@ -15,11 +15,11 @@ ms.reviewer:
 ms.workload:
 - dotnet
 - aspnet
-ms.openlocfilehash: 9da385f51abf5877589c29ebdeffefc9a1a20a2e
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: fc1417941f1293f39da05552adc3a80352a8c83b
+ms.sourcegitcommit: 55433d3bda7684d978f26d559f801878223675fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>Yeniden yükleme ve güncelleştirme paketleri
 
@@ -81,7 +81,7 @@ Aynı komut olmadan `-reinstall` bir paket varsa daha yeni bir sürüme güncell
 Update-Package <package_name>
 ```
 
-Varsayılan olarak, `Update-Package` bir çözümde tüm paketler etkiler. Belirli bir proje eyleme sınırlandırmak için kullanmak `-ProjectName` anahtarını, Çözüm Gezgini'nde göründüğü gibi projesinin adı kullanma:
+Varsayılan olarak, `Update-Package` bir çözümdeki tüm projeleri etkiler. Belirli bir proje eyleme sınırlandırmak için kullanmak `-ProjectName` anahtarını, Çözüm Gezgini'nde göründüğü gibi projesinin adı kullanma:
 
 ```ps
 # Reinstall the package in just MyProject

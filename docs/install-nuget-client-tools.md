@@ -3,7 +3,7 @@ title: NuGet istemci Araçları'nı yükleme | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 01/24/2018
+ms.date: 04/09/2018
 ms.topic: quickstart
 ms.prod: nuget
 ms.technology: ''
@@ -15,21 +15,21 @@ ms.reviewer:
 ms.workload:
 - dotnet
 - aspnet
-ms.openlocfilehash: e4dfe1102d1e0e2013136b0ae4975e5036e34642
-ms.sourcegitcommit: ecb598c790d4154366bc92757ec7db1a51c34faf
+ms.openlocfilehash: 7976ba94448c15e3d8b45a3630bd49b7ec66b8ae
+ms.sourcegitcommit: 55433d3bda7684d978f26d559f801878223675fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="installing-nuget-client-tools"></a>NuGet istemci araçlarını yükleme
 
 > **Bir paketi yüklemek istiyorsunuz? Bkz: [NuGet paketlerini yüklemek için yol](consume-packages/ways-to-install-a-package.md).**
 
-Bir paket tüketici ya da Oluşturucu, olarak NuGet ile çalışmak için kullanabileceğiniz [komut satırı arabirimi (CLI) araçları](#cli-tools) yanı [Visual Studio'da NuGet özellikleri](#visual-studio). Bu makalede bulunan farklı araçlar özelliklerini kısaca özetler bunları ve bunların karşılaştırmalı nasıl yükleneceği [Özellik kullanılabilirliği](#feature-availability).
+Bir paket tüketici ya da Oluşturucu, olarak NuGet ile çalışmak için kullanabileceğiniz [komut satırı arabirimi (CLI) araçları](#cli-tools) yanı [Visual Studio'da NuGet özellikleri](#visual-studio). Bu makalede bulunan farklı araçlar özelliklerini kısaca özetler bunları ve bunların karşılaştırmalı nasıl yükleneceği [Özellik kullanılabilirliği](#feature-availability). NuGet paketlerini kullanmak için kullanmaya başlamak için bkz: [yükleme ve kullanma (.NET CLI) paket](quickstart/install-and-use-a-package-using-the-dotnet-cli.md) ve [yükleme ve kullanma (Visual Studio) paket](quickstart/install-and-use-a-package-in-visual-studio.md). NuGet paketleri oluşturmaya başlamak için bkz: [oluşturma ve NET standart paket (dotnet CLI) yayımlama](quickstart/create-and-publish-a-package-using-the-dotnet-cli.md) ve [oluşturma ve NET standart paket (Visual Studio) yayımlama](quickstart/create-and-publish-a-package-using-visual-studio.md).
 
 | Aracı&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Açıklama | İndirme&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
 |:------------- |:-------------|:-----|
-| [dotnet.exe](#dotnetexe-cli) | .NET Core SDK'sı ile dahil ve tüm platformlarda core NuGet özellikleri sağlar. | [.NET Core SDK](https://www.microsoft.com/net/download/) |
+| [dotnet.exe](#dotnetexe-cli) | .NET Core SDK'sı ile dahil ve tüm platformlarda core NuGet özellikleri sağlar. | [.NET core SDK](https://www.microsoft.com/net/download/) |
 | [nuget.exe](#nugetexe-cli) | Windows üzerinde tüm NuGet yetenekleri sağlar, özelliklerinin çoğu Mac ve Linux Mono altında çalışması sağlar. | [nuget.exe](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe) |
 | [Visual Studio](#visual-studio) | Windows, Paket Yöneticisi kullanıcı Arabirimi ve Paket Yöneticisi konsolu üzerinden NuGet özellikleri sağlar. ile birlikte verilen. NET ilgili iş yükleri. Mac üzerinde kullanıcı Arabirimi aracılığıyla bazı özellikleri sağlar. Visual Studio Code NuGet özellikleri uzantıları sağlanır. | [Visual Studio 2017](https://www.visualstudio.com/downloads/) |
 
@@ -81,7 +81,7 @@ Yükleme:
 
 ## <a name="feature-availability"></a>Özellik kullanılabilirliği
 
-| Özellik | dotnet CLI | nuget CLI (Windows) | nuget CLI (Mono) | Visual Studio (Windows) | Mac için Visual Studio |
+| Özellik | DotNet CLI | nuget CLI (Windows) | nuget CLI (Mono) | Visual Studio (Windows) | Mac için Visual Studio |
 | --- | --- | --- | --- | --- | --- |
 | Arama paketleri |  | &#10004; | &#10004; | &#10004; | &#10004; |
 | Paketleri yükleme/kaldırma | &#10004;(1) | &#10004;(2) | &#10004; | &#10004; | &#10004; |
