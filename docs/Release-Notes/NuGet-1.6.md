@@ -1,22 +1,16 @@
 ---
-title: "NuGet 1.6 sürüm notları | Microsoft Docs"
+title: NuGet 1.6 sürüm notları
+description: NuGet bilinen sorunları, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere 1.6 için sürüm notları.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "NuGet bilinen sorunları, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere 1.6 için sürüm notları."
-keywords: "Özellikler, dcr bilinen sorunlar, NuGet 1.6 sürüm notları, hata düzeltmeleri eklendi"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 114b03cede24dee520ace1d8aa920a648ad16af1
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 0345e180893a56302385d27792c4e15ba5d96989
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
  # <a name="nuget-16-release-notes"></a>NuGet 1.6 sürüm notları
 
@@ -27,7 +21,7 @@ NuGet 1.6 13 Aralık 2011'de serbest bırakıldı.
 ## <a name="known-installation-issue"></a>Bilinen yükleme sorunu
 VS 2010 SP1 çalıştırıyorsanız, yüklü eski bir sürüm varsa, NuGet yükseltmeye çalışırken yükleme hatayla karşılaşabilirsiniz.
 
-Yalnızca NuGet kaldırın ve VS uzantısı Galeriden yükleyin için geçici bir çözüm değildir.  Bkz: [http://support.microsoft.com/kb/2581019](http://support.microsoft.com/kb/2581019) daha fazla bilgi için.
+Yalnızca NuGet kaldırın ve VS uzantısı Galeriden yükleyin için geçici bir çözüm değildir.  Bkz: [ http://support.microsoft.com/kb/2581019 ](http://support.microsoft.com/kb/2581019) daha fazla bilgi için.
 
 Not: Visual Studio (Kaldır düğmesi devre dışıdır) uzantısını Kaldır izin vermiyor olasılıkla "Yönetici olarak çalıştır" kullanarak Visual Studio yeniden başlatmanız gerekir
 

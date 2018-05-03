@@ -1,25 +1,16 @@
 ---
-title: NuGet CLI restore komutu | Microsoft Docs
+title: NuGet CLI restore komutu
+description: Nuget.exe restore komutu için başvurusu
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/18/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Reference for the nuget.exe restore command
-keywords: nuget başvuru geri yüklemek için restore paketleri komutu
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 64f12fdedc8fbfcee15c1dcddc445148f458c030
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: dd0a74c9ed9b879643ed24cbddacff87310dfd6b
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="restore-command-nuget-cli"></a>Restore komutu (NuGet CLI)
 
@@ -68,24 +59,23 @@ Ayrıca bkz. [ortam değişkenleri](cli-ref-environment-variables.md)
 Restore komutu aşağıdaki adımları gerçekleştirir:
 
 1. Restore komutu, işlem modunu belirler.
-    projectPath dosya türü | Davranış
-    | --- | --- |
-    Çözüm (klasör) | NuGet arar bir `.sln` dosya ve aksi takdirde bir hata verir kullanır. `(SolutionDir)\.nuget` Başlangıç klasörü olarak kullanılır.
-    `.sln` Dosya | Çözümü tarafından tanımlanan paketler geri; bir hata durumunda verir `-SolutionDirectory` kullanılır. `$(SolutionDir)\.nuget` Başlangıç klasörü olarak kullanılır.
-    `packages.config` ya da proje dosyası | Çözümleme ve bağımlılıkları yükleme dosyasında listelenen paketler geri yükleyin.
-    Başka bir dosya türü | Dosya olduğu varsayılır bir `.sln` dosya olarak yukarıdaki; yoksa bir çözüm, bir hata NuGet sağlar.
-    (belirtilmezse projectPath) | -NuGet geçerli klasörde çözüm dosyalarını arar. Tek bir dosyada bulunursa, bir paketlerini geri yüklemek için kullanılır; birden çok çözüm bulunursa, NuGet hata verir.
-    |-Hiçbir çözüm dosya varsa, NuGet arayan bir `packages.config` ve bunu paketlerini geri yüklemek için kullanır.
-    |-Çözüm Eğer veya `packages.config` dosya bulunduğunda, NuGet hata verir.
 
-1. (Hiçbiri bu klasörlerin bulunmazsa NuGet hata verir) aşağıdaki öncelik sırasını kullanarak paketler klasörü belirleyin:
+   | projectPath dosya türü | Davranış |
+   | --- | --- |
+   | Çözüm (klasör) | NuGet arar bir `.sln` dosya ve aksi takdirde bir hata verir kullanır. `(SolutionDir)\.nuget` Başlangıç klasörü olarak kullanılır. |
+   | `.sln` Dosya | Çözümü tarafından tanımlanan paketler geri; bir hata durumunda verir `-SolutionDirectory` kullanılır. `$(SolutionDir)\.nuget` Başlangıç klasörü olarak kullanılır. |
+   | `packages.config` ya da proje dosyası | Çözümleme ve bağımlılıkları yükleme dosyasında listelenen paketler geri yükleyin. |
+   | Başka bir dosya türü | Dosya olduğu varsayılır bir `.sln` dosya olarak yukarıdaki; yoksa bir çözüm, bir hata NuGet sağlar. |
+   | (belirtilmezse projectPath) | <ul><li>NuGet geçerli klasörde çözüm dosyalarını arar. Tek bir dosyada bulunursa, bir paketlerini geri yüklemek için kullanılır; birden çok çözüm bulunursa, NuGet hata verir.</li><li>Çözüm dosya yoksa NuGet arayan bir `packages.config` ve bunu paketlerini geri yüklemek için kullanır.</li><li>Çözüm varsa veya `packages.config` dosya bulunduğunda, NuGet hata verir.</ul> |
+
+2. (Hiçbiri bu klasörlerin bulunmazsa NuGet hata verir) aşağıdaki öncelik sırasını kullanarak paketler klasörü belirleyin:
 
     - İle belirtilen klasör `-PackagesDirectory`.
     - `repositoryPath` Hyperlink içinde `Nuget.Config`
     - İle belirtilen klasör `-SolutionDirectory`
     - `$(SolutionDir)\packages`
 
-1. Bir çözüm için paketleri geri yüklenirken NuGet şunları yapar:
+3. Bir çözüm için paketleri geri yüklenirken NuGet şunları yapar:
     - Çözüm dosyasını yükler.
     - Listelenen çözüm düzeyi paketlerini yükler `$(SolutionDir)\.nuget\packages.config` içine `packages` klasör.
     - Listelenen paketler geri `$(ProjectDir)\packages.config` içine `packages` klasör. Belirtilen her paket için paket paralel sürece geri `-DisableParallelProcessing` belirtilir.

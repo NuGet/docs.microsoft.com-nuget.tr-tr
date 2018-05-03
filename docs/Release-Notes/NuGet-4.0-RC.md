@@ -1,21 +1,17 @@
 ---
-title: "NuGet 4.0 RC sürüm notları | Microsoft Docs"
+title: NuGet 4.0 RC sürüm notları
+description: NuGet 4.0 bilinen sorunları, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere RC sürüm notları.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
-ms.date: 11/17/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "NuGet 4.0 bilinen sorunları, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere RC sürüm notları."
-keywords: "Özellikler, dcr bilinen sorunlar, NuGet 4.0 RC sürüm notları, hata düzeltmeleri eklendi"
-ms.reviewer:
-- kraigb
-ms.openlocfilehash: 9156f75edc9cf72cbb1d122f01d8a071ed56a124
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.author: karann
+manager: unnir
+ms.date: 02/03/2017
+ms.topic: conceptual
+ms.reviewer: ananguar
+ms.openlocfilehash: 8124b11d0489a2c72ffcfdde28e8528c1da1f677
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-40-rc-release-notes"></a>NuGet 4.0 RC sürüm notları
 
@@ -39,13 +35,14 @@ ms.lasthandoff: 02/02/2018
 
 - Normal - yerine yüksek ayrıntı olarak paket kaynaklarını oturum NuGet hedefleri değiştirme [#3719](https://github.com/NuGet/Home/issues/3719)
 
-- Varsayılan olarak - dotnet pack3 XML belgeleri içermelidir [#3698](https://github.com/NuGet/Home/issues/3698)
+- DotNet
+  - Varsayılan olarak - dotnetcore pack3 XML belgeleri içermelidir [#3698](https://github.com/NuGet/Home/issues/3698)
 
 - Toplu güncelleştirme paketi olmadan kaynağıdır ilk ve tüm kaynak seçildiğinde - kullanıcı Arabiriminden başarısız [#3696](https://github.com/NuGet/Home/issues/3696)
 
 - Nuget Paketi komutu tüm dosyaları - içermez [#3678](https://github.com/NuGet/Home/issues/3678)
 
-- OOM issue - [#3661](https://github.com/NuGet/Home/issues/3661)
+- OOM sorunu - [#3661](https://github.com/NuGet/Home/issues/3661)
 
 - Varlıklar dosyasının ProjectFileDependencyGroups bölümü, kitaplık adları - projelerde kullanmalıdır [#3611](https://github.com/NuGet/Home/issues/3611)
 
@@ -59,7 +56,7 @@ ms.lasthandoff: 02/02/2018
 
 - System.Xml.XmlException: Çekirdek özellikler bölümü tanınmayan kök öğe. 2 satır, 2 konum. - [#2718](https://github.com/NuGet/Home/issues/2718)
 
-- `.nuspec`ile kaçışlı &lt; veya &gt; metin alanları artık oluşturur - [#2651](https://github.com/NuGet/Home/issues/2651)
+- `.nuspec` ile kaçışlı &lt; veya &gt; metin alanları artık oluşturur - [#2651](https://github.com/NuGet/Home/issues/2651)
 
 - nuget.exe Sil (etkileşimli olmayan modda olduğundan) kimlik bilgilerini - isteyebilir olmaz [#2626](https://github.com/NuGet/Home/issues/2626)
 
@@ -69,7 +66,8 @@ ms.lasthandoff: 02/02/2018
 
 - Visual Studio kilitlendi seçimi değiştirdikten sonra çalışırken Paket Yöneticisi'nde - [#2551](https://github.com/NuGet/Home/issues/2551)
 
-- DotNet geri yükleme kayan sürümleri kullanıldığında - bu büyük küçük harfe duyarlı kimliği aramaları düz liste yerel depoları üzerinde gerçekleştirir [#2516](https://github.com/NuGet/Home/issues/2516)
+- DotNet
+  - dotnetcore geri yükleme kayan sürümleri kullanıldığında - bu büyük küçük harfe duyarlı kimliği aramaları düz liste yerel depoları üzerinde gerçekleştirir [#2516](https://github.com/NuGet/Home/issues/2516)
 
 - V2 akış için - nuget.exe delete bozulur [#2509](https://github.com/NuGet/Home/issues/2509)
 
@@ -155,7 +153,8 @@ ms.lasthandoff: 02/02/2018
 
 - Tek TargetFramework projeyle geri özellik - değil koşul gerekir [#3588](https://github.com/NuGet/Home/issues/3588)
 
-- DotNet restore3 foo.csproj projectref bağımlılıkları izleyin ve bu çok geri gerekir. Yapı gibi. - [#3577](https://github.com/NuGet/Home/issues/3577)
+- DotNet
+  - dotnetcore restore3 foo.csproj projectref bağımlılıkları izleyin ve bu çok geri gerekir. Yapı gibi. - [#3577](https://github.com/NuGet/Home/issues/3577)
 
 - "type": "platform" bağımlılıkları temsil "türünde": kilit dosyası - "paketi" [#2695](https://github.com/NuGet/Home/issues/2695)
 

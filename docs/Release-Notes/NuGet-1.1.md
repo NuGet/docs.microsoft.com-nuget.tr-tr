@@ -1,25 +1,16 @@
 ---
-title: NuGet 1.0 ve 1.1 sürüm notları | Microsoft Docs
-author: karann-msft
-ms.author: karann-msft
-manager: ghogen
-ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
+title: NuGet 1.0 ve 1.1 sürüm notları
 description: NuGet bilinen sorunları, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere 1.1 için sürüm notları.
-keywords: Özellikler, dcr bilinen sorunlar, NuGet 1.1 sürüm notları, hata düzeltmeleri eklendi
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: dd320df2d725e58182cd908ce621571ea018b350
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+author: karann-msft
+ms.author: karann
+manager: unnir
+ms.date: 11/11/2016
+ms.topic: conceptual
+ms.openlocfilehash: a11248a96109c879946e7e28a50e7753b644f042
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-10-and-11-release-notes"></a>NuGet 1.0 ve 1.1 sürüm notları
 
@@ -191,7 +182,7 @@ NuGet CTP (küçük kod Temizlemeler vb. için hatalar dahil değildir.) 2 için
 * [Ortası .nuspec xml öğesi büyük/küçük harf tutarlı bir şekilde ortası büyük olmak](http://nuget.codeplex.com/workitem/161)
 * ['Yönetici' bit açmak NuPack VSIX'ın bildirimi gerekiyor](http://nuget.codeplex.com/workitem/162)
 * [Hiçbir akışlarıyla paket listeleme çalıştırırsanız, null ref hata Al](http://nuget.codeplex.com/workitem/164)
-* [nuget.exe: specify destination path](http://nuget.codeplex.com/workitem/171)
+* [nuget.exe: hedef yolu belirtin](http://nuget.codeplex.com/workitem/171)
 * [Powershell hataları WinXP paketi Yönetimi konsolunu açma](http://nuget.codeplex.com/workitem/175)
 * [Paket listesi yüklemeye çalışırken VS kilitleniyor](http://nuget.codeplex.com/workitem/176)
 * [Meta paket (hiçbir dosya, yalnızca bağımlılıklar) izin ver](http://nuget.codeplex.com/workitem/180)

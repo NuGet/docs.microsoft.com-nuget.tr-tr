@@ -1,22 +1,16 @@
 ---
-title: "nuget.exe kimlik bilgisi sağlayıcıları | Microsoft Docs"
+title: nuget.exe kimlik bilgisi sağlayıcıları
+description: nuget.exe kimlik bilgisi sağlayıcıları akış ile kimlik doğrulaması ve belirli kurallarına uygun komut satırı yürütülebilir dosyalar uygulanır.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 12/12/2017
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "nuget.exe kimlik bilgisi sağlayıcıları akış ile kimlik doğrulaması ve belirli kurallarına uygun komut satırı yürütülebilir dosyalar uygulanır."
-keywords: "nuget.exe kimlik bilgisi sağlayıcıları, kimlik bilgisi sağlayıcısı API, akış ile kimlik doğrulaması, Galerisi ile kimlik doğrulaması"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 88ce0106ad4e628ba8120f94b7951c7746ab67f3
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 494ea83007895e973585395e0cfe05b7226c4c3e
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="authenticating-feeds-with-nugetexe-credential-providers"></a>Akışları nuget.exe kimlik bilgisi sağlayıcıları ile kimlik doğrulaması
 

@@ -1,22 +1,16 @@
 ---
-title: "NuGet 1.3 sürüm notları | Microsoft Docs"
+title: NuGet 1.3 sürüm notları
+description: NuGet bilinen sorunları, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere 1.3 için sürüm notları.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "NuGet bilinen sorunları, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere 1.3 için sürüm notları."
-keywords: "Özellikler, dcr bilinen sorunlar, NuGet 1.3 sürüm notları, hata düzeltmeleri eklendi"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 59169be5b39ba4436e13e0935a0ad6efa724e08e
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: c0284fe0afb11bf6465897132cccd160674ea3e1
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-13-release-notes"></a>NuGet 1.3 sürüm notları
 
@@ -30,7 +24,7 @@ NuGet 1.3 25 Nisan 2011'de serbest bırakıldı.
 
 NuGet takım işbirliği çok kişi ile [SymbolSource.org](http://www.symbolsource.org/) kaynakları ve PDB'ın yayımlama yanı sıra, paketi gerçekten basit bir yol sunmak için. Bu hata ayıklayıcı paketinize kaynağı adımla tüketicilerin paketinin sağlar. Daha fazla ayrıntı için okuma [oluşturma ve yayımlama sembol paketi](../create-packages/symbol-packages.md) kaynaklarıyla NuGet paketlerini yayımlamak için en kolay yolu. Mix11 konuşun dinamik gösterimini bu özellik derinlemesine NuGet bir parçası olarak da izleyebilirsiniz. Bu özellik, video 20 dakika işaretinde başlatma tam olarak gösterilmiştir.
 
-### <a name="open-packagepage-command"></a>`Open-PackagePage`Komutu
+### <a name="open-packagepage-command"></a>`Open-PackagePage` komutu
 
 Bu komut Paket Yöneticisi Konsolu içinden paketinden proje sayfasına almak kolaylaştırır. Ayrıca, lisans URL'sini ve paketi için rapor kötüye sayfası açmak için seçenekler sağlar.
 Komut sözdizimi aşağıdaki gibidir:

@@ -1,25 +1,16 @@
 ---
-title: Genel bakış ve NuGet paketleri oluşturma iş akışı | Microsoft Docs
+title: Genel bakış ve NuGet paketleri oluşturma iş akışı
+description: Oluşturma ve yayımlama işleminin diğer belirli bölümlerine bağlantılar ile bir NuGet paketi işlemine genel bakış.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 07/26/2017
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: Oluşturma ve yayımlama işleminin diğer belirli bölümlerine bağlantılar ile bir NuGet paketi işlemine genel bakış.
-keywords: NuGet paket oluşturma, NuGet oluşturma genel bakış, NuGet oluşturma iş akışı, paket oluşturma iş akışı, paket oluşturma genel bakış.
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: df08e15c2632a88ea7cc3333d64f4844c78c278d
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.openlocfilehash: a9dd4439f2aa72424187eaa2d9555d5af0e7843d
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="package-creation-workflow"></a>Paket oluşturma iş akışı
 

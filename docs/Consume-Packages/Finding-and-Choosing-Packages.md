@@ -1,25 +1,16 @@
 ---
-title: Bulma ve NuGet paketlerini seçme | Microsoft Docs
+title: Bulma ve NuGet paketlerini seçme
+description: Genel Bakış nasıl bulacağınızı ve Ayrıntılar NuGet arama söz dizimi dahil olmak üzere bir proje için en iyi NuGet paketlerini seçin.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 03/16/2018
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: Genel Bakış nasıl bulacağınızı ve Ayrıntılar NuGet arama söz dizimi dahil olmak üzere bir proje için en iyi NuGet paketlerini seçin.
-keywords: NuGet paketini tüketim, NuGet paketi bulma, en iyi NuGet paketleri, paketler, paket, NuGet arama söz dizimi değerlendirme tüketen paketlerinde karar verme
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 319361623e60b8bdfe3c2dbc9bdcae65783a17e3
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.openlocfilehash: 94d851cfbc860e50b02ca99595ca41bbf4ce21ef
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Bulma ve projenizin NuGet paketlerini değerlendirme
 
@@ -104,6 +95,8 @@ Bir NuGet paketi kullanarak aynı anda emin olmak istediğiniz şekilde bir bağ
 - *Kaynak Katkıları açmak*: birçok paketleri doğrudan hata düzeltmeleri katkıda ve özellik geliştirmeleri bunları bağlı olarak geliştiriciler edinerek açık kaynak depoları korunur. Verilen herhangi bir paket katkı geçmişini ayrıca kaç geliştiriciler etkin olarak dahil edilen, iyi bir göstergesidir.
 
 - *Sahipleri görüşme*: yeni geliştiriciler kesinlikle kullanabilmeniz için harika paketleri oluşturan için eşit olarak kaydedilmiş olabilir ve NuGet ekosistemi yeni bir şey getirme olanağı vermek uygundur. Bu durum dikkate alınarak, doğrudan aracılığıyla paket geliştiricilerin ulaşmak **kişi sahipleri** altında seçeneği **bilgisi** listeleme sayfasında. Olasılığı olan gereksinimlerinizi sunmak için sizinle birlikte çalışma mutluluk!
+
+- *Ayrılmış paket kimliği önekleri*: çok sayıda paket sahipleri için uyguladığınız ve verilmiş bir [ayrılmış paket kimliği öneki](../reference/id-prefix-reservation.md). Üzerinde bir paket kimliği yanındaki visual onay işaretine gördüğünüzde [nuget.org](https://www.nuget.org/), veya Visual Studio'da anlamına paket sahibinden karşıladığı bizim [ölçütleri](../reference/id-prefix-reservation.md#id-prefix-reservation-criteria) kimliği öneki ayırma. Bu, paket sahibinden kendilerini ve bunların paket tanımlamaya Temizle anlamına gelir.
 
 > [!Note]
 > Her zaman seçerek görebileceğiniz bir paketin lisans koşullarını dikkatli olmanızı **lisans bilgilerini** bir paketin listeleme nuget.org sayfasında. Bir paketi Lisans Koşulları'nı belirtmiyorsa kullanarak doğrudan paketi sahibine başvurun **sahipleri başvurun** bağlantı paketi sayfasında. Microsoft hiçbir fikri mülkiyet, üçüncü taraf paket sağlayıcılardan lisans değildir ve üçüncü taraflar tarafından sağlanan bilgileri sorumlu değildir.

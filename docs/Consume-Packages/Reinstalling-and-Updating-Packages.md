@@ -1,25 +1,16 @@
 ---
-title: Yeniden yüklemeyi ve NuGet paketlerini güncelleştirme | Microsoft Docs
+title: Yeniden yüklemeyi ve NuGet paketlerini güncelleştirme
+description: Visual Studio'da bozuk paket referanslarını gibi ile yeniden yükleyin ve paketleri, güncelleştirmek için gerekli olduğu zaman ayrıntılar.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 12/07/2017
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: Visual Studio'da bozuk paket referanslarını gibi ile yeniden yükleyin ve paketleri, güncelleştirmek için gerekli olduğu zaman ayrıntılar.
-keywords: NuGet paketi yüklemesi, NuGet paketi yeniden, NuGet paket geri yüklemesi, bozuk başvurularda düzelttikten paketleri, geri yükleme paketi, güncelleştirme
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: fc1417941f1293f39da05552adc3a80352a8c83b
-ms.sourcegitcommit: 55433d3bda7684d978f26d559f801878223675fa
+ms.topic: conceptual
+ms.openlocfilehash: fc2c1a58f787da61041c644085058355de4f12ea
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>Yeniden yükleme ve güncelleştirme paketleri
 

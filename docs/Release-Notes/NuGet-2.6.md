@@ -1,22 +1,16 @@
 ---
-title: "NuGet 2.6 sürüm notları | Microsoft Docs"
+title: NuGet 2.6 sürüm notları
+description: Bilinen sorunlar, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere WebMatrix için NuGet 2.6.1 için sürüm notları.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "NuGet bilinen sorunları, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere 2.6 için sürüm notları."
-keywords: "Özellikler, dcr bilinen sorunlar, NuGet 2.6 sürüm notları, hata düzeltmeleri eklendi"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: c2df9721e6941c110948af1a2d4ec4b7aeb476dd
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 39ce6ac3d36464d26966b0dabb0893f09ad4afdc
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-26-release-notes"></a>NuGet 2.6 sürüm notları
 

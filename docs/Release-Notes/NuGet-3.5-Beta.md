@@ -1,28 +1,22 @@
 ---
-title: "NuGet 3.5 Beta sürüm notları | Microsoft Docs"
+title: NuGet 3.5 Beta sürüm notları
+description: NuGet 3.5 bilinen sorunları, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere Beta için sürüm notları.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "NuGet 3.5 bilinen sorunları, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere Beta için sürüm notları."
-keywords: "Özellikler, dcr bilinen sorunlar, NuGet 3.5 Beta sürüm notları, hata düzeltmeleri eklendi"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 52e8ac4f14af991c41455aeaa2b0bf163c4ab70b
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: aee2a66101fd7e95ec6240edaeda60ed48d0915a
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-35-beta-release-notes"></a>NuGet 3.5 Beta sürüm notları
 
 [NuGet 3.4 sürüm notları](../release-notes/nuget-3.4.md) | [NuGet 3.5 Beta2 sürüm notları](../release-notes/nuget-3.5-Beta2.md)
 
-NuGet 3.5 Beta 16 Mayıs 2016 ASP.NET Core Önizleme Tooling wave bir parçası olarak yayımlanmıştır. Bu sürüm, .NET Core RC2 ve ASP.NET Core RC2 için destek ekler. Bu sürüm hakkında daha fazla bilgi için lütfen [http://dot.net](http://dot.net).
+NuGet 3.5 Beta 16 Mayıs 2016 ASP.NET Core Önizleme Tooling wave bir parçası olarak yayımlanmıştır. Bu sürüm, .NET Core RC2 ve ASP.NET Core RC2 için destek ekler. Bu sürüm hakkında daha fazla bilgi için lütfen [ http://dot.net ](http://dot.net).
 
 VSIX ve nuget.exe indirebilirsiniz [burada](https://dist.nuget.org/index.html).
 

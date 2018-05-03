@@ -1,31 +1,25 @@
 ---
-title: NuGet CLI doğrulayın komutu | Microsoft Docs
+title: NuGet CLI komutu doğrulayın
+description: Nuget.exe başvurusunu komutu doğrulayın
 author: dtivel
 ms.author: dtivel
 manager: doronm
 ms.date: 03/06/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Nuget.exe başvurusunu komutu doğrulayın
-keywords: nuget başvuru doğrulamak için komut doğrulayın
-ms.reviewer:
-- karann
-- rmpablos
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 4423e491e0ab5dc1e13982440db42bc9b0e85c38
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.reviewer: rmpablos
+ms.openlocfilehash: c2c31b71358bc50a1fb9aab8905c279cd1235b07
+ms.sourcegitcommit: 5fcd6d664749aa720359104ef7a66d38aeecadc2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/27/2018
 ---
 # <a name="verify-command-nuget-cli"></a>verify komutu (NuGet CLI)
 
 **Uygulandığı öğe:** paketini tüketim &bullet; **desteklenen sürümler:** 4.6 +
 
 Bir paket doğrular.
+
+İmzalı paketlerin doğrulama, .NET Core, Mono altında ya da Windows olmayan platformlarında içinde henüz desteklenmiyor.
 
 ## <a name="usage"></a>Kullanım
 

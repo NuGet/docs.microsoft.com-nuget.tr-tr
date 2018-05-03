@@ -1,21 +1,17 @@
 ---
-title: nuget.org protokolleri | Microsoft Docs
+title: nuget.org protokolleri
+description: NuGet istemcileri ile etkileşim kurmak için gelişen nuget.org protokoller.
 author: anangaur
 ms.author: anangaur
-manager: unniravindranathan
+manager: unnir
 ms.date: 10/30/2017
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "NuGet istemcileri ile etkileşim kurmak için gelişen nuget.org protokoller."
-ms.reviewer:
-- kraigb
-- karann-msft
-ms.openlocfilehash: 488a86a36a6bc83c91f0182bf437ddb83e707e31
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.reviewer: kraigb
+ms.openlocfilehash: cc6d52617ea8b69d5b18b831ddf8a1a85dd6798f
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nugetorg-protocols"></a>nuget.org protokolleri
 
@@ -58,7 +54,7 @@ Ad           | İçindeki     | Tür   | Gerekli | Notlar
 -------------- | ------ | ------ | -------- | -----
 Kimlik             | URL    | dize | Evet      | Doğrulama kapsam anahtarı istenen paket identidier
 VERSION        | URL    | dize | Yok       | Paket sürümü
-X-NuGet-ApiKey | Üstbilgi | dize | Evet      | Örneğin, `X-NuGet-ApiKey: {USER_API_KEY}`
+X-NuGet-apikey ile yapılan | Üstbilgi | dize | Evet      | Örneğin, `X-NuGet-ApiKey: {USER_API_KEY}`
 
 #### <a name="response"></a>Yanıt
 
@@ -81,7 +77,7 @@ Ad           | İçindeki     | Tür   | Gerekli | Notlar
 -------------  | ------ | ------ | -------- | -----
 Kimlik             | URL    | dize | Evet      | Doğrulama kapsam anahtarı istenen paket tanımlayıcısı
 VERSION        | URL    | dize | Yok       | Paket sürümü
-X-NuGet-ApiKey | Üstbilgi | dize | Evet      | Örneğin, `X-NuGet-ApiKey: {VERIFY_SCOPE_KEY}`
+X-NuGet-apikey ile yapılan | Üstbilgi | dize | Evet      | Örneğin, `X-NuGet-ApiKey: {VERIFY_SCOPE_KEY}`
 
 > [!Note]
 > Bu doğrulama kapsam API anahtarı bir günün süresi dolduğunda veya ilk kullanımda, hangisi daha önce gerçekleşir.

@@ -1,22 +1,16 @@
 ---
-title: "NuGet 3.2 sürüm notları | Microsoft Docs"
+title: NuGet 3.2 sürüm notları
+description: NuGet bilinen sorunları, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere 3.2 için sürüm notları.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "NuGet bilinen sorunları, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere 3.2 için sürüm notları."
-keywords: "Özellikler, dcr bilinen sorunlar, NuGet 3.2 sürüm notları, hata düzeltmeleri eklendi"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 1728a5c0d83be84686e7ab1394cfc4f8f809987c
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 938104c50fee19ee398de49c786bbb4963ba1429
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-32-release-notes"></a>NuGet 3.2 sürüm notları
 
@@ -45,7 +39,7 @@ Biz yapılan geliştirmeler daha iyi uzaktan NuGet deposu ile çalışmaya çal�
 * NuGet restore komutu bir hata koşulu oluştuğunda - 1 düzgün bir şekilde geri dönmek için düzeltildi [1186](https://github.com/NuGet/Home/issues/1186)
 * Artık ağ bağlantıları yeniden deneniyor HTTP 5xx hataları - söz konusu olduğunda 5 deneme sayısı için her 200 MS [1120](https://github.com/NuGet/Home/issues/1120)
 * Sunucu yeniden yönlendirme yanıtlarını işlenmesi sırasında bir anında iletme komutu - geliştirilmiş [1051](https://github.com/NuGet/Home/issues/1051)
-* `nuget install -source`Şimdi Nuget.Config - bağımsız değişken olarak URL veya depo adından destekler [1046 numaralı](https://github.com/NuGet/Home/issues/1046)
+* `nuget install -source` Şimdi Nuget.Config - bağımsız değişken olarak URL veya depo adından destekler [1046 numaralı](https://github.com/NuGet/Home/issues/1046)
 * Bir geri yükleme sırasında bir havuzda bulunan değil eksik paketleri yerine uyarıları hata olarak rapor artık [1038](https://github.com/NuGet/Home/issues/1038)
 * UNIX/Linux senaryolarında - \r\n multipartwebrequest işlenmesi düzeltilmiştir [776](https://github.com/NuGet/Home/issues/776)
 

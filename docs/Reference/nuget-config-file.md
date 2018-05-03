@@ -1,37 +1,28 @@
 ---
-title: NuGet.Config dosyasındaki başvurusu | Microsoft Docs
+title: nuget.config dosya başvurusu
+description: NuGet.Config dosya başvurusu yapılandırma, bindingRedirects, packageRestore, çözüm ve packageSource bölümler dahil olmak üzere.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 10/25/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: NuGet.Config dosya başvurusu yapılandırma, bindingRedirects, packageRestore, çözüm ve packageSource bölümler dahil olmak üzere.
-keywords: NuGet.Config dosyasındaki, NuGet yapılandırma başvurusu, NuGet yapılandırma seçenekleri
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: e2a9d4f10ac6af4e5bc7386d4f78e18c2a5752c4
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 871cd05ed010d2a31348151de6b7e225ed2dc915
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
-# <a name="nugetconfig-reference"></a>NuGet.Config başvurusu
+# <a name="nugetconfig-reference"></a>nuget.config başvurusu
 
 NuGet davranışı farklı ayarları tarafından denetlenir `NuGet.Config` dosyaları açıklandığı gibi [NuGet davranışını yapılandırma](../consume-packages/configuring-nuget-behavior.md).
 
-`NuGet.Config` bir üst düzey içeren bir XML dosyası `<configuration>` düğümü, bu konuda açıklanan bölümünün öğeleri içerir. Her bölüm sıfır veya daha fazla içerir `<add>` öğeleriyle `key` ve `value` öznitelikleri. Bkz: [örnekler yapılandırma dosyası](#example-config-file). Ayar adları büyük küçük harf duyarsız ve değerleri kullanabilir [ortam değişkenleri](#using-environment-variables).
+`nuget.config` bir üst düzey içeren bir XML dosyası `<configuration>` düğümü, bu konuda açıklanan bölümünün öğeleri içerir. Her bölüm sıfır veya daha fazla içerir `<add>` öğeleriyle `key` ve `value` öznitelikleri. Bkz: [örnekler yapılandırma dosyası](#example-config-file). Ayar adları büyük küçük harf duyarsız ve değerleri kullanabilir [ortam değişkenleri](#using-environment-variables).
 
 Bu konuda:
 
 - [yapılandırma bölümü](#config-section)
 - [bindingRedirects bölümü](#bindingredirects-section)
-- [packageRestore section](#packagerestore-section)
+- [packageRestore bölümü](#packagerestore-section)
 - [Çözüm bölümü](#solution-section)
 - [Paket kaynak bölümler](#package-source-sections):
   - [packageSources](#packagesources)
@@ -56,8 +47,8 @@ Kullanılarak ayarlanabilir çeşitli yapılandırma ayarlarını içeren [ `nug
 | Anahtar | Değer |
 | --- | --- |
 | dependencyVersion (`packages.config` yalnızca) | Varsayılan `DependencyVersion` paketi yükle, geri yükleme ve güncelleştirme için değer olduğunda `-DependencyVersion` anahtar doğrudan belirtilmedi. Bu değer ayrıca NuGet Paket Yöneticisi kullanıcı Arabirimi tarafından kullanılır. Değerler `Lowest`, `HighestPatch`, `HighestMinor`, `Highest`. |
-| globalPackagesFolder (PackageReference yalnızca kullanarak projeleri) | Varsayılan Genel paketler klasörü konumu. Varsayılan değer `%userprofile%\.nuget\packages` (Windows) veya `~/.nuget/packages` (Mac/Linux). Göreli bir yol projeye özgü içinde kullanılabilir `Nuget.Config` dosyaları. Bu ayar önceliklidir NUGET_PACKAGES ortam değişkeni tarafından geçersiz kılındı. |
-| repositoryPath (`packages.config` yalnızca) | NuGet paketleri yerine varsayılan yükleme konumu `$(Solutiondir)/packages` klasörü. Göreli bir yol projeye özgü içinde kullanılabilir `Nuget.Config` dosyaları. Bu ayar önceliklidir NUGET_PACKAGES ortam değişkeni tarafından geçersiz kılındı. |
+| globalPackagesFolder (PackageReference yalnızca kullanarak projeleri) | Varsayılan Genel paketler klasörü konumu. Varsayılan değer `%userprofile%\.nuget\packages` (Windows) veya `~/.nuget/packages` (Mac/Linux). Göreli bir yol projeye özgü içinde kullanılabilir `nuget.config` dosyaları. Bu ayar önceliklidir NUGET_PACKAGES ortam değişkeni tarafından geçersiz kılındı. |
+| repositoryPath (`packages.config` yalnızca) | NuGet paketleri yerine varsayılan yükleme konumu `$(Solutiondir)/packages` klasörü. Göreli bir yol projeye özgü içinde kullanılabilir `nuget.config` dosyaları. Bu ayar önceliklidir NUGET_PACKAGES ortam değişkeni tarafından geçersiz kılındı. |
 | defaultPushSource | URL veya bir işlem için başka bir paket kaynaklarını bulunursa, varsayılan olarak kullanılması gereken paket kaynağının yolunu tanımlar. |
 | http_proxy http_proxy.user http_proxy.password no_proxy | Proxy ayarlarını; paket kaynaklarına bağlanırken kullanmak için `http_proxy` biçiminde olmalıdır `http://<username>:<password>@<domain>`. Parolaları şifrelenir ve el ile eklenemez. İçin `no_proxy`, değer atlama proxy sunucusu etki alanları virgülle ayrılmış bir listesi verilmiştir. Alternatif olarak, bu değerleri http_proxy ve no_proxy ortam değişkenleri kullanabilirsiniz. Daha fazla bilgi için bkz: [NuGet proxy ayarlarını](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (skolima.blogspot.com). |
 
@@ -108,7 +99,7 @@ Denetimleri paket geri yüklemesi sırasında oluşturur.
 
 ## <a name="solution-section"></a>Çözüm bölümü
 
-Denetimleri olup olmadığını `packages` klasörü, çözümün kaynak denetiminde yer almaktadır. Bu bölüm yalnızca çalışır `Nuget.Config` bir çözüm klasördeki dosyaları.
+Denetimleri olup olmadığını `packages` klasörü, çözümün kaynak denetiminde yer almaktadır. Bu bölüm yalnızca çalışır `nuget.config` bir çözüm klasördeki dosyaları.
 
 | Anahtar | Değer |
 | --- | --- |
@@ -249,7 +240,7 @@ Depolar kümesiyle olarak API anahtar kimlik doğrulaması kullanan kaynakları 
 
 ## <a name="using-environment-variables"></a>Ortam değişkenlerini kullanma
 
-Ortam değişkenleri kullanabilirsiniz `NuGet.Config` değerleri (ayarları uygulamak için NuGet 3.4 +) çalışma süresi.
+Ortam değişkenleri kullanabilirsiniz `nuget.config` değerleri (ayarları uygulamak için NuGet 3.4 +) çalışma süresi.
 
 Örneğin, varsa `HOME` Windows ortam değişkeni ayarlanır `c:\users\username`, ardından değeri `%HOME%\NuGetRepository` dosya yapılandırmada çözümler `c:\users\username\NuGetRepository`.
 
@@ -259,7 +250,7 @@ Bir ortam değişkeni bulunmazsa, NuGet yapılandırma dosyasından hazır değe
 
 ## <a name="example-config-file"></a>Örnek yapılandırma dosyası
 
-Aşağıda `NuGet.Config` çeşitli ayarlar gösterilmektedir dosyası:
+Aşağıda `nuget.config` çeşitli ayarlar gösterilmektedir dosyası:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

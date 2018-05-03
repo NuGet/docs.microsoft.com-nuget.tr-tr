@@ -1,25 +1,16 @@
 ---
-title: NuGet 3.0 Preview sürüm notları | Microsoft Docs
-author: karann-msft
-ms.author: karann-msft
-manager: ghogen
-ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
+title: NuGet 3.0 Preview sürüm notları
 description: NuGet 3.0 bilinen sorunları, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere önizleme için sürüm notları.
-keywords: Özellikler, dcr bilinen sorunlar, NuGet 3.0 Preview sürüm notları, hata düzeltmeleri eklendi
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: f9f979e041ea6c7ba2f61603b1ea5848edc28f0c
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+author: karann-msft
+ms.author: karann
+manager: unnir
+ms.date: 11/11/2016
+ms.topic: conceptual
+ms.openlocfilehash: 67c217e52d975ed8f6889cd69f9b7e0d52b3a119
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-30-preview-release-notes"></a>NuGet 3.0 Preview sürüm notları
 
@@ -93,11 +84,11 @@ Ayrıca, içerik dosyaları paketlerinden projeniz zaten dosyalarında çakış�
 
 ![Dosya çakışma eylemi](./media/NuGet-3.0-Preview/file-conflict-action.png)
 
-### <a name="infinite-scrolling"></a>Infinite Scrolling
+### <a name="infinite-scrolling"></a>Sonsuz kaydırma
 
 Bir bit Geri bildiriminiz bizim kullanıcı Arabirimi üzerindeki iki kaydırma sahip almak ve paketleri listelerken örneklerinde disk belleği için kullanılır. Kısa listenin alt kısmına kaydırın, sonraki sayfa numarası tıklayın ve ardından yeniden kaydırın zorunda oldukça ortak. Yeni kullanıcı Arabirimi olmadan yalnızca kaydırma--daha fazla disk belleği gerekir böylece sonsuz paket listesinde kaydırma uyguladık.
 
-![Infinite Scrolling](./media/NuGet-3.0-Preview/infinite-scrolling.png)
+![Sonsuz kaydırma](./media/NuGet-3.0-Preview/infinite-scrolling.png)
 
 ### <a name="make-it-work-make-it-fast-make-it-pretty"></a>İş Oluştur, hızlı, Pretty olun oluştur
 

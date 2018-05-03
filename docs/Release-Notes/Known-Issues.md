@@ -1,25 +1,16 @@
 ---
-title: NuGet bilinen sorunlar | Microsoft Docs
-author: karann-msft
-ms.author: karann-msft
-manager: ghogen
-ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
+title: Bilinen Sorunlar
 description: Kimlik doğrulama, paket yükleme ve araçlar da dahil olmak üzere NuGet ile ilgili bilinen sorunlar.
-keywords: Bilinen sorunlar, NuGet sorunları NuGet
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: c36da5dc73dddbd540a36d171583cbf542e0678f
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+author: karann-msft
+ms.author: karann
+manager: unnir
+ms.date: 11/11/2016
+ms.topic: conceptual
+ms.openlocfilehash: 1f170f377a3394694e953a794f2c814388656c21
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="known-issues-with-nuget"></a>NuGet ile ilgili bilinen sorunlar
 
@@ -182,7 +173,7 @@ NuGet bir yayım öncesi sürümü ile oluşturulan paketler yüklediyseniz, "ad
 
 Herhangi bir nedenle burada VSIX uzantısı kaldırıldı, ancak bazı dosyalar geride tuhaf durumda Visual Studio uzantıları elde edebilirsiniz. Bu soruna geçici bir çözüm bulmak için:
 
-1. Exit Visual Studio
+1. Visual Studio çıkış
 1. (Bu, makinenize farklı bir sürücüde olabilir) şu klasörü açın
 
     C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\Extensions\Microsoft Corporation\NuGet Package Manager\<version>\

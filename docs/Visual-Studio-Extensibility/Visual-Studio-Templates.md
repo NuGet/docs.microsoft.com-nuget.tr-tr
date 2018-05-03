@@ -1,25 +1,16 @@
 ---
-title: Visual Studio şablonları NuGet paketlerine | Microsoft Docs
+title: Visual Studio şablonları NuGet paketleri
+description: NuGet paketlerini Visual Studio Proje ve öğe şablonları bir parçası olarak dahil etmek için yönergeler.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/03/2018
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: NuGet paketlerini Visual Studio Proje ve öğe şablonları bir parçası olarak dahil etmek için yönergeler.
-keywords: NuGet in Visual Studio, Visual Studio project templates, Visual Studio item templates, packages in project templates, packages in item templates
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 8c1751ba9caf5e71ace7a81575e4e5448b1e4185
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.openlocfilehash: 801e107afb498d7a3353bd36d71eb7b0f0201910
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="packages-in-visual-studio-templates"></a>Visual Studio şablonları paketler
 

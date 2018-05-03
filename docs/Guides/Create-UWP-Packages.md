@@ -1,25 +1,16 @@
 ---
-title: Evrensel Windows platformu için NuGet paketlerini oluşturma | Microsoft Docs
+title: Evrensel Windows platformu için NuGet paketleri oluşturma
+description: Windows çalışma zamanı bileşeni için evrensel Windows platformu kullanarak NuGet paketleri oluşturma bir uçtan uca kılavuz.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 03/21/2017
 ms.topic: tutorial
-ms.prod: nuget
-ms.technology: ''
-description: Windows çalışma zamanı bileşeni için evrensel Windows platformu kullanarak NuGet paketleri oluşturma bir uçtan uca kılavuz.
-keywords: paketler UWP, Windows çalışma zamanı bileşenleri için bir paket oluşturun
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 6923cdc87b0a550abb51316e384c79137eeaf63a
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 86fbeea0b815d40ffae016a5f76b96d5baf3ff1b
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="create-uwp-packages"></a>UWP paketleri oluşturma
 
@@ -35,7 +26,7 @@ Bu kılavuzda hem yönetilen hem de yerel projeleri kullanılabilecek (XAML dene
 
 ## <a name="create-a-uwp-windows-runtime-component"></a>UWP Windows çalışma zamanı bileşeni oluşturma
 
-1. Visual Studio'da, **Dosya > Yeni > Proje**, genişletin **Visual C++ > Windows > Evrensel** düğümü, select **Windows çalışma zamanı bileşeni (Evrensel Windows)**şablonu adı için ImageEnhancer değiştirin ve Tamam'ı tıklatın. Hedef sürüm ve Minimum istendiğinde sürüm için varsayılan değerleri kabul.
+1. Visual Studio'da, **Dosya > Yeni > Proje**, genişletin **Visual C++ > Windows > Evrensel** düğümü, select **Windows çalışma zamanı bileşeni (Evrensel Windows)** şablonu adı için ImageEnhancer değiştirin ve Tamam'ı tıklatın. Hedef sürüm ve Minimum istendiğinde sürüm için varsayılan değerleri kabul.
 
     ![Yeni bir UWP Windows çalışma zamanı bileşeni projesi oluşturma](media/UWP-NewProject.png)
 

@@ -1,29 +1,17 @@
 ---
-title: Tüm paketler için sorgu nuget.org için yayımlanan | Microsoft Docs
-author:
-- joelverhagen
-- kraigb
-ms.author:
-- joelverhagen
-- kraigb
+title: Nuget.org için yayımlanan tüm paketler için sorgu
+description: NuGet API'yi kullanarak nuget.org için yayımlanan tüm paketler için sorgu ve zaman içinde güncel kalın.
+author: joelverhagen
+ms.author: jver
 manager: skofman
 ms.date: 11/02/2017
 ms.topic: tutorial
-ms.prod: nuget
-ms.technology: ''
-description: NuGet API'yi kullanarak nuget.org için yayımlanan tüm paketler için sorgu ve zaman içinde güncel kalın.
-keywords: NuGet API listeleme tüm paketleri, NuGet API çoğaltma paketleri nuget.org için en son paketler yayımlandı
-ms.reviewer:
-- karann
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 5ea11e1b4edd87b6d30d3838986ca60aaa77870f
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.reviewer: kraigb
+ms.openlocfilehash: 4190cfb500127f117ea1067f0679e5c248bffb3d
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="query-for-all-packages-published-to-nugetorg"></a>Nuget.org için yayımlanan tüm paketler için sorgu
 

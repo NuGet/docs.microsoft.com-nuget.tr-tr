@@ -1,26 +1,17 @@
 ---
-title: Kimlik öneki ayırma başvurusu | Microsoft Docs
+title: Kimlik öneki ayırma başvurusu
+description: Paket kimliği öneki ayırma özellik açıklaması ve yazar Kılavuzu.
 author: diverdan92
 ms.author: diverdan92
-manager: unniravindranathan
+manager: unnir
 ms.date: 10/09/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Paket kimliği öneki ayırma özellik açıklaması ve yazar Kılavuzu.
-keywords: NuGet paket kimliği, önek, rezervasyonu
-ms.reviewer:
-- ananguar
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 7b1956612bd48a1c59503418f1a4d7d9dee900f5
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.reviewer: ananguar
+ms.openlocfilehash: 63f442ae25b92aacbbf5af7d9b3ea1a5dafe5fc9
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="package-id-prefix-reservation"></a>Paket kimliği öneki ayırma
 
@@ -74,9 +65,9 @@ Bir paket ayrılmış bir önekten geldiğinde, gördüğünüz visual gösterge
 
 1. Kabul gözden [öneki kimliği ayırma ölçütlerine](#id-prefix-reservation-criteria).
 
-1. Herhangi bir ek olarak ayırmak istediğiniz ad alanları belirlemek [Gelişmiş önek ayırma senaryoları](#advanced-prefix-reservation-scenarios) gerektirebilir.
+2. Herhangi bir ek olarak ayırmak istediğiniz ad alanları belirlemek [Gelişmiş önek ayırma senaryoları](#advanced-prefix-reservation-scenarios) gerektirebilir.
 
-1. Bir posta gönderme [ account@nuget.org ](mailto:account@nuget.org) üzerinde görünen adı sahip [nuget.org](https://www.nuget.org/), isteyen herhangi bir ayrılmış önekler yanı sıra. Birden çok sahiplerine önek alt kümelerini temsilci, tüm sahibi görünen adları belirttiğinizden ve alt kümelerini önek emin olun.
+3. Bir posta gönderme [ account@nuget.org ](mailto:account@nuget.org) üzerinde görünen adı sahip [nuget.org](https://www.nuget.org/), isteyen herhangi bir ayrılmış önekler yanı sıra. Birden çok sahiplerine önek alt kümelerini temsilci, tüm sahibi görünen adları belirttiğinizden ve alt kümelerini önek emin olun.
 
 Uygulama gönderildikten sonra kabul veya reddetme (ile reddetme nedeni ölçüt) bildirilir. Sahibinin kimliğini onaylamak için ek tanımlayıcı sorular sormak gerekebilir.
 

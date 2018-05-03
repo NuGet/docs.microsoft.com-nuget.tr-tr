@@ -1,25 +1,16 @@
 ---
-title: NuGet istemci Araçları'nı yükleme | Microsoft Docs
+title: NuGet istemci araçlarını yükleme
+description: İstemci Araçları'nı yükleme konusunda yönergeler dotnet ve nuget komut satırı arabirimi (CLI) ve Visual Studio için Paket Yöneticisi.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 04/09/2018
 ms.topic: quickstart
-ms.prod: nuget
-ms.technology: ''
-description: İstemci Araçları'nı yükleme konusunda yönergeler dotnet ve nuget komut satırı arabirimi (CLI) ve Visual Studio için Paket Yöneticisi.
-keywords: DotNet.exe CLI, nuget.exe CLI, NuGet istemcisi araçları, NuGet Paket Yöneticisi, NuGet Paket Yöneticisi konsolu, NuGet Visual Studio, NuGet beta kanal
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 7976ba94448c15e3d8b45a3630bd49b7ec66b8ae
-ms.sourcegitcommit: 55433d3bda7684d978f26d559f801878223675fa
+ms.openlocfilehash: 6681c910768bc705f5e09340e04e4d368fde5efe
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="installing-nuget-client-tools"></a>NuGet istemci araçlarını yükleme
 
@@ -56,7 +47,7 @@ NuGet CLI `nuget.exe`, komut satırı yardımcı programıdır Windows için tü
 
 Yükleme:
 
-[!INCLUDE[install-cli](includes/install-cli.md)]
+[!INCLUDE [install-cli](includes/install-cli.md)]
 
 > [!Tip]
 > Kullanım `nuget update -self` varolan nuget.exe en son sürüme güncelleştirmek için Windows.

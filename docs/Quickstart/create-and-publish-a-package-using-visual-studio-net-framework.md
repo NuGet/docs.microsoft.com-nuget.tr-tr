@@ -1,24 +1,18 @@
 ---
-title: Oluşturma ve yayımlama Visual Studio kullanarak bir .NET Framework NuGet paketi tanıtım Kılavuzu | Microsoft Docs
+title: Oluşturma ve yayımlama Visual Studio kullanarak bir .NET Framework NuGet paketi tanıtım Kılavuzu
+description: Oluşturma ve yayımlama Visual Studio 2017 kullanarak bir .NET Framework NuGet paketi bir gözden geçirme Öğreticisi.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 03/13/2018
-ms.topic: get-started-article
-ms.prod: nuget
-ms.technology: ''
-description: Oluşturma ve yayımlama Visual Studio 2017 kullanarak bir .NET Framework NuGet paketi bir gözden geçirme Öğreticisi.
-keywords: NuGet paketini oluşturma, NuGet paketi yayımlama, NuGet öğretici, Visual Studio NuGet paketi, msbuild paketi oluşturma
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 613cb6e8cf5762f354d69aa271c1e2f0d4851c97
-ms.sourcegitcommit: 718e6cb88e45fa07c85d653f216bf92eaaf81625
+ms.topic: quickstart
+ms.openlocfilehash: 01760034a121b1ff6f227e006415779898c4cf6d
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="create-and-publish-a-package-using-visual-studio-net-framework"></a>Oluşturma ve Visual Studio (.NET Framework) kullanarak bir paket yayımlama
+# <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework"></a>Hızlı Başlangıç: Oluşturma ve Visual Studio (.NET Framework) kullanarak bir paket yayımlama
 
 Bir NuGet paketi bir .NET Framework Sınıf Kitaplığı'ndan Visual Studio'da DLL oluşturma ve ardından oluşturmak ve paket yayımlamak için nuget.exe komut satırı aracını kullanarak oluşturursunuz.
 
@@ -121,7 +115,7 @@ Bir NuGet paketi içeren bir bildirime (bir `.nuspec` dosyası), paket tanımlay
     - licenseUrl
     - projectUrl
     - iconUrl
-    - releaseNotes
+    - ReleaseNotes
     - etiketler
 
 1. Ortak tüketim için oluşturulan paketler için özellikle dikkat edin **etiketleri** özelliği gibi etiketler başkalarının nuget.org gibi kaynaklarında paketinizi bulun ve neler yaptığını anlamanıza yardımcı olur.
@@ -140,11 +134,11 @@ Bir NuGet paketi içeren bir bildirime (bir `.nuspec` dosyası), paket tanımlay
 
 Bulduktan sonra bir `.nupkg` dosyası, yayımlama, nuget.org kullanmaya `nuget.exe` bir API anahtarı ile nuget.org alınan. Nuget.org için kullanmanız gerekir `nuget.exe` 4.1.0'da ya da daha yüksek.
 
-[!INCLUDE[publish-notes](includes/publish-notes.md)]
+[!INCLUDE [publish-notes](includes/publish-notes.md)]
 
 ### <a name="acquire-your-api-key"></a>API anahtarınızı edinin
 
-[!INCLUDE[publish-api-key](includes/publish-api-key.md)]
+[!INCLUDE [publish-api-key](includes/publish-api-key.md)]
 
 ### <a name="publish-with-nuget-push"></a>Nuget itme ile yayımlama
 
@@ -169,16 +163,17 @@ Bkz: [nuget itme](../tools/cli-ref-push.md).
 
 ### <a name="publish-errors"></a>Hataları yayımlama
 
-[!INCLUDE[publish-errors](includes/publish-errors.md)]
+[!INCLUDE [publish-errors](includes/publish-errors.md)]
 
 ### <a name="manage-the-published-package"></a>Yayımlanan paket yönetme
 
-[!INCLUDE[publish-manage](includes/publish-manage.md)]
+[!INCLUDE [publish-manage](includes/publish-manage.md)]
 
 ## <a name="related-topics"></a>İlgili konular
 
 - [Bir paket oluşturun](../create-packages/creating-a-package.md)
 - [Paket Yayımlama](../create-packages/publish-a-package.md)
+- [Ön yayın paketleri](../create-packages/Prerelease-Packages.md)
 - [Birden çok hedef çerçeveyi desteği](../create-packages/supporting-multiple-target-frameworks.md)
 - [Paket sürümü oluşturma](../reference/package-versioning.md)
 - [Yerelleştirilmiş paketler oluşturma](../create-packages/creating-localized-packages.md)

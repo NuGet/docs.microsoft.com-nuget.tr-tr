@@ -1,26 +1,17 @@
 ---
-title: Arama, NuGet API | Microsoft Docs
-author:
-- joelverhagen
-- kraigb
-ms.author:
-- joelverhagen
-- kraigb
+title: Arama, NuGet API
+description: Arama hizmeti istemcileri anahtar sözcüğüyle paketler için sorgu ve bazı paket alanları sonuçlarına filtre sağlar.
+author: joelverhagen
+ms.author: jver
 manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: 
-description: "Arama hizmeti istemcileri anahtar sözcüğüyle paketler için sorgu ve bazı paket alanları sonuçlarına filtre sağlar."
-keywords: "NuGet arama API, NuGet paketleri, sorgu NuGet paketlerini API'sine NuGet paketlerini göz atmak için API Bul"
-ms.reviewer:
-- karann
-- unniravindranathan
-ms.openlocfilehash: 612ce0f46b654335a29bb36a64b27525994162ed
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.reviewer: kraigb
+ms.openlocfilehash: 76600ee916305ee01ddfb675c83c184e980c5a42
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="search"></a>Ara
 
@@ -30,11 +21,11 @@ V3 API kullanarak bir paket kaynağındaki paketleri aramak mümkündür. Aramak
 
 Aşağıdaki `@type` değerler kullanılır:
 
-@typedeğer                   | Notlar
+@type Değer                   | Notlar
 ----------------------------- | -----
 SearchQueryService            | İlk sürüm
-SearchQueryService/3.0.0-beta | Diğer adı`SearchQueryService`
-SearchQueryService/3.0.0-rc   | Diğer adı`SearchQueryService`
+SearchQueryService/3.0.0-beta | Diğer adı `SearchQueryService`
+SearchQueryService/3.0.0-rc   | Diğer adı `SearchQueryService`
 
 ## <a name="base-url"></a>Temel URL
 
@@ -59,7 +50,7 @@ Ad        | İçindeki     | Tür    | Gerekli | Notlar
 q           | URL    | dize  | Yok       | Filtre paketleri için kullanılan için arama terimleri
 Atla        | URL    | tamsayı | Yok       | Sayfa numaralandırma için atlamayı sonuç sayısı
 Al        | URL    | tamsayı | Yok       | Sayfa numaralandırma için döndürülecek sonuç sayısı
-yayın öncesi  | URL    | Boole değeri | Yok       | `true`veya `false` dahil edilip edilmeyeceğini belirlemek [yayın öncesi paketleri](../create-packages/prerelease-packages.md)
+yayın öncesi  | URL    | Boole değeri | Yok       | `true` veya `false` dahil edilip edilmeyeceğini belirlemek [yayın öncesi paketleri](../create-packages/prerelease-packages.md)
 semVerLevel | URL    | dize  | Yok       | SemVer 1.0.0 sürüm dizesi 
 
 Arama sorgusu `q` sunucu uygulaması tarafından tanımlanan bir şekilde ayrıştırılır. nuget.org destekleyen temel süzme bir [çeşitli alanları](../consume-packages/finding-and-choosing-packages.md#search-syntax). Öyle değilse `q` tüm paketler, atlama ve alma tarafından uygulanan sınırları içinde döndürülmelidir sağlanır. Bu "Gözat" sekmesinde NuGet Visual Studio deneyimi sağlar.
@@ -82,7 +73,7 @@ Kök JSON nesnesi aşağıdaki özelliklere sahiptir:
 
 Ad      | Tür             | Gerekli | Notlar
 --------- | ---------------- | -------- | -----
-totalHits | tamsayı          | Evet      | Atlayıp eşleşirse, toplam sayısı `skip` ve`take`
+totalHits | tamsayı          | Evet      | Atlayıp eşleşirse, toplam sayısı `skip` ve `take`
 veri      | Nesne dizisi | Evet      | İstek tarafından eşleşen arama sonuçları
 
 ### <a name="search-result"></a>arama sonucu
@@ -104,7 +95,7 @@ projectUrl     | dize                     | Yok       |
 kayıt   | dize                     | Yok       | İlişkili için mutlak URL [kayıt dizini](registration-base-url-resource.md#registration-index)
 özet        | dize                     | Yok       | 
 etiketler           | dize veya dize dizisi | Yok       | 
-title          | dize                     | Yok       | 
+Başlık          | dize                     | Yok       | 
 totalDownloads | tamsayı                    | Yok       | Bu değer yüklemeler toplamına çıkarsanabileceği `versions` dizisi
 Doğrulandı       | Boole değeri                    | Yok       | Paket olup olmadığını belirten bir JSON Boole [doğrulandı](../reference/id-prefix-reservation.md)
 

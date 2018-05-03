@@ -1,22 +1,16 @@
 ---
-title: "3.5 RC sürüm notları | Microsoft Docs"
+title: 3.5 RC sürüm notları
+description: NuGet 3.5 bilinen sorunları, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere RC sürüm notları.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "NuGet 3.5 bilinen sorunları, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere RC sürüm notları."
-keywords: "Özellikler, dcr bilinen sorunlar, NuGet 3.5 RC sürüm notları, hata düzeltmeleri eklendi"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: fdb84da5f1648ce4508afe6ddcf04bddd41284d3
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: d620a8b8d97f9a52cb2bc93a91eb393130a42898
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="nuget-35-rc-release-notes"></a>NuGet 3.5 RC sürüm notları
 
@@ -24,7 +18,7 @@ ms.lasthandoff: 02/02/2018
 
 NuGet istemcileri, kalite ve performansını geliştirmeye 3.5 sürüm odaklanmıştır. Ayrıca, biz desteği gibi birkaç özellikleri gönderilen [geri dönüş klasörleri](https://github.com/NuGet/Home/issues/2899), [PackageType](https://github.com/NuGet/Home/issues/2476) desteklemek `.nuspec` ve daha fazlası.
 
-[Konu listesi](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%223.5 RC")
+[Konu listesi](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%223.5%20RC")
 
 ## <a name="bug-fixes"></a>Hata Düzeltmeleri
 
@@ -46,7 +40,7 @@ NuGet istemcileri, kalite ve performansını geliştirmeye 3.5 sürüm odaklanm�
 
 * Dosya -> Yeni Proje VS2015 ve Dev15 - sınıf kitaplığı (taşınabilir) proje başarısız -> [#3094](https://github.com/NuGet/Home/issues/3094)
 
-* NuGet hata - 1.0.0-* geçerli bir sürüm dizesi - değil [#3070](https://github.com/NuGet/Home/issues/3070)
+* nuGet hata - 1.0.0-* geçerli bir sürüm dizesi - değil [#3070](https://github.com/NuGet/Home/issues/3070)
 
 * Bul-Package başarısız görünen ancak Install-Package works - [#3068](https://github.com/NuGet/Home/issues/3068)
 

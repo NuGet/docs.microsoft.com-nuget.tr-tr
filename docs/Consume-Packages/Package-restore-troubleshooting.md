@@ -1,25 +1,16 @@
 ---
-title: Geri yükleme Visual Studio'da NuGet paketi sorunlarını giderme | Microsoft Docs
+title: Visual Studio'da NuGet paket geri yükleme sorunlarını giderme
+description: Visual Studio ve bunları gidermek nasıl hatalar geri yükleme ortak NuGet açıklaması.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 03/16/2018
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: Visual Studio ve bunları gidermek nasıl hatalar geri yükleme ortak NuGet açıklaması.
-keywords: NuGet paket geri yüklemesi, geri yükleme paketleri, sorun giderme, sorun giderme
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 27a43ceaefdf3a7842183a64ea57d05416d6cb02
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.openlocfilehash: c552941c896d1a7136310c0a8bc6755d5974809a
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="troubleshooting-package-restore-errors"></a>Paket geri yükleme hatalarını giderme
 

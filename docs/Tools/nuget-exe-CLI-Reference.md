@@ -1,22 +1,16 @@
 ---
-title: "NuGet komut satırı arabirimi (CLI) başvurusu | Microsoft Docs"
+title: NuGet komut satırı arabirimi (CLI) başvurusu
+description: CLI nuget.exe için komut satırı başvurusu dizini
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/23/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: 
-description: "CLI nuget.exe için komut satırı başvurusu dizini"
-keywords: "nuget.exe başvurusu dizini, nuget.exe komut satırı arabirimi, nuget.exe CLI, nuget komutu"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 8b1ee17702f5a54a77dc2cd663e13729a9b4a39f
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: ed91a31505ab1de9447cdbeb87c8ad08f7ba56d8
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="nuget-cli-reference"></a>NuGet CLI başvurusu
 
@@ -26,9 +20,9 @@ Herhangi bir komutu kullanmak için bir komut penceresi açın veya kabuk bash a
 
 Bu belge NuGet CLI en son sürümünü yansıtır. Kullanmakta olduğunuz herhangi belirli bir sürümü için tam Ayrıntılar için Çalıştır `nuget help` istenen komutu.
 
-## <a name="installing-nugetexe"></a>Installing nuget.exe
+## <a name="installing-nugetexe"></a>Nuget.exe yükleme
 
-[!INCLUDE[install-cli](../includes/install-cli.md)]
+[!INCLUDE [install-cli](../includes/install-cli.md)]
 
 > [!Tip]
 > NuGet CLI Visual Studio'da Paket Yöneticisi konsolu içinde kullanılabilir yapmak için bkz: [konsolunda nuget.exe CLI kullanarak](package-manager-console.md#using-the-nugetexe-cli-in-the-console).
@@ -51,8 +45,8 @@ Kullanılabilir komutlar ve paket oluşturma, paket tüketim ve/veya bir ana bil
 | [push](cli-ref-push.md) | Yayımlama | Tümü | Bir paket için paket kaynağı yayımlar. |
 | [config](cli-ref-config.md) | Tümü | Tümü | Alır veya NuGet yapılandırma değerlerini ayarlar. |
 | [help or ?](cli-ref-help.md) | Tümü | Tümü | Bilgi veya bir komutla ilgili Yardım yardımını görüntüler. |
-| [locals](cli-ref-locals.md) | Tüketim | 3.3+ | Temizler çeşitli önbellekleri veya genel paketler klasörü paketleri listeler veya bu klasörleri tanımlar. |
-| [restore](cli-ref-restore.md) | Tüketim | 2.7+ | Paket başvuru biçime tarafından başvurulan tüm paketler geri yükler. Mono üzerinde çalışırken, PackageReference biçimi kullanarak paketleri geri yüklenmesi desteklenmez. |
+| [locals](cli-ref-locals.md) | Tüketim | 3.3+ | Listeler konumlarını *paketleri genel*, *http önbellek*, ve *temp* klasörleri ve bu klasörleri içeriğini temizler. |
+| [restore](cli-ref-restore.md) | Tüketim | 2.7+ | Paket Yönetimi biçime tarafından başvurulan tüm paketler geri yükler. Mono üzerinde çalışırken, PackageReference biçimi kullanarak paketleri geri yüklenmesi desteklenmez. |
 | [setapikey](cli-ref-setapikey.md) | Yayımlama, tüketim | Tümü | Bu paket kaynağına erişimi için bir anahtar gerektirdiğinde verilen paket kaynağı için bir API anahtarı kaydeder. |
 | [spec](cli-ref-spec.md) | Oluşturma | Tümü | Oluşturan bir `.nuspec` dosya, bir Visual Studio Proje dosyası oluşturma belirteçleri kullanarak. |
 

@@ -1,26 +1,17 @@
 ---
-title: "Paket içeriği, NuGet API | Microsoft Docs"
-author:
-- joelverhagen
-- kraigb
-ms.author:
-- joelverhagen
-- kraigb
+title: Paket içeriğini, NuGet API
+description: Paket taban adresi paket yakalama için basit bir arabirimdir.
+author: joelverhagen
+ms.author: jver
 manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: 
-description: "Paket taban adresi paket yakalama için basit bir arabirimdir."
-keywords: "NuGet düz kapsayıcı, NuGet paketi temel adres, NuGet nupkg API, NuGet API paketi sürümleri, NuGet API listelenmemiş paketleri, NuGet API indirme nuspec"
-ms.reviewer:
-- karann
-- unniravindranathan
-ms.openlocfilehash: c2e631dc0bba95ac849430d77142f27ef591f741
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.reviewer: kraigb
+ms.openlocfilehash: a6ac40368f30d33f35d4ca0b6cc18ce4bd6efee5
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="package-content"></a>Paket içeriği
 
@@ -32,7 +23,7 @@ Bu kaynak genellikle ya da "paketi taban adresi" veya "düz kapsayıcı" olarak 
 
 Aşağıdaki `@type` değeri kullanılır:
 
-@typedeğer              | Notlar
+@type Değer              | Notlar
 ------------------------ | -----
 PackageBaseAddress/3.0.0 | İlk sürüm
 

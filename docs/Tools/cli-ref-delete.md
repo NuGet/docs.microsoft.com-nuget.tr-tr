@@ -1,25 +1,16 @@
 ---
-title: NuGet CLI Sil komut | Microsoft Docs
+title: NuGet CLI delete komutu
+description: Nuget.exe delete komutu için başvurusu
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/18/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Reference for the nuget.exe delete command
-keywords: nuget delete reference, delete package command
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 9445042c46ef41721def1fbbb8dcebf4afc14d1b
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 1db00a32d777f1c0247f855bf57a0dcf1c6734ae
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="delete-command-nuget-cli"></a>delete komutu (NuGet CLI)
 
@@ -39,7 +30,7 @@ Burada `<packageID>` ve `<packageVersion>` unlist veya silmek için tam paketi b
 
 | Seçenek | Açıklama |
 | --- | --- |
-| ApiKey | Hedef depo API anahtarı. Yoksa, yapılandırma dosyasında belirtilen bir kullanılır. |
+| apikey ile yapılan | Hedef depo API anahtarı. Yoksa, yapılandırma dosyasında belirtilen bir kullanılır. |
 | ConfigFile | Uygulamak için NuGet yapılandırma dosyası. Belirtilmezse, `%AppData%\NuGet\NuGet.Config` (Windows) veya `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) kullanılır.|
 | ForceEnglishOutput | *(3.5 +)*  Değişmez, İngilizce tabanlı kültürü kullanarak çalışacak şekilde nuget.exe zorlar. |
 | Yardım | Bilgi komutu için yardımı görüntüler. |

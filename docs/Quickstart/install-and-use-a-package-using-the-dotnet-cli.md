@@ -1,27 +1,18 @@
 ---
-title: Tanıtım kılavuzu kullanarak NuGet paketleri yoluyla için CLI dotnet | Microsoft Docs
+title: Tanıtım kılavuzu kullanarak NuGet paketleri yoluyla CLI dotnet
+description: İzlenecek yol öğretici yüklenmesi ve .NET Core projede bir NuGet paketi kullanarak işleme.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/23/2018
 ms.topic: quickstart
-ms.prod: nuget
-ms.technology: ''
-description: İzlenecek yol öğretici yüklenmesi ve .NET Core projede bir NuGet paketi kullanarak işleme.
-keywords: NuGet paketlerini kullanarak NuGet paketleri, NuGet paket referanslarını yükleme NuGet, NuGet paketi tüketim yükleyin
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 87a37a733ebbbbf9bc161247b657a69f30ed4fb3
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 41a249394a8a0504cc8841d3bdb67ad29ec2dc26
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="install-and-use-a-package-using-the-dotnet-cli"></a>Yükleme ve dotnet CLI kullanarak bir paket kullanma
+# <a name="quickstart-install-and-use-a-package-using-the-dotnet-cli"></a>Hızlı Başlangıç: Yükleme ve dotnet CLI kullanarak bir paket kullanma
 
 NuGet paketleri diğer geliştiriciler projelerinizi kullanmak için kullanılabilir hale yeniden kullanılabilir kod içerir. Bkz: [NuGet nedir?](../What-is-NuGet.md) arka planı için. Paketler, .NET Core kullanarak projesi içine yüklenir `dotnet add package` komutu popüler için bu makalede açıklanan [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) paket.
 
@@ -56,12 +47,12 @@ NuGet paketlerini tür .NET projeye yüklenebilir. Bu kılavuzda gibi basit bir 
     dotnet add package Newtonsoft.Json
     ```
 
-1. Komut tamamlandıktan sonra açmak `.csproj` dosya eklenen başvurusuna bakın:
+2. Komut tamamlandıktan sonra açmak `.csproj` dosya eklenen başvurusuna bakın:
 
     ```xml
-  <ItemGroup>
+   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
-  </ItemGroup>
+   </ItemGroup>
     ```
 
 ## <a name="use-the-newtonsoftjson-api-in-the-app"></a>' % S ' Newtonsoft.Json API uygulamasında kullanma

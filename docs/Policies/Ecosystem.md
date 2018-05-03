@@ -1,22 +1,16 @@
 ---
-title: "NuGet ekosistemine genel bakış | Microsoft Docs"
+title: NuGet ekosistemine genel bakış
+description: Kapsamlı kaynaklar NuGet kaynakları, Microsoft olmayan NuGet projeleri, yardımcı programlar ve eğitim malzemelerinizin de dahil olmak üzere NuGet ekosistemindeki.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/18/2018
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Kapsamlı kaynaklar NuGet kaynakları, Microsoft olmayan NuGet projeleri, yardımcı programlar ve eğitim malzemelerinizin de dahil olmak üzere NuGet ekosistemindeki."
-keywords: "NuGet ekosistemi, Microsoft olmayan NuGet projeleri, NuGet açık kaynak, NuGet yardımcı programlar, NuGet eğitim malzemelerini"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 7c1e457c034f239fbea4e75f24851ea38182a294
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: c2ad662659487bf3875dbdaf76529f1834ca82ca
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="an-overview-of-the-nuget-ecosystem"></a>NuGet ekosistemine genel bakış
 
@@ -51,7 +45,7 @@ Diğer birçok kişiler ve şirketler NuGet ekosistemi önemli ölçüde katkıd
 - [MinimalNugetServer](https://github.com/TanukiSharp/MinimalNugetServer)
 - [MyGet (veya hizmet olarak NuGet)](http://www.myget.org/)
 - [NuGet paketi Gezgini](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer)
-- [NuGet Server](http://nugetserver.net/)
+- [NuGet sunucu](http://nugetserver.net/)
 - [OctopusDeploy](https://octopus.com/)
 - [Paket](https://fsprojects.github.io/Paket/)
 - [ProGet (Inedo)](http://inedo.com/proget)
@@ -78,8 +72,8 @@ Genellikle bir yeni aracın veya teknoloji kullanarak bir öğrenme eğrisi ile 
 
 Başka bir deyişle, paketleri yazma – ve özellikle iyi paketleri – otomatik derleme ve dağıtım işlemleri NuGet benimsemenin ile birlikte, aşağıdaki kaynaklarla biraz daha uzun harcama gerektirir:
 
-- [NuGet Blog](http://blog.nuget.org/)
-- [NuGet takım Twitter'da@nuget](http://twitter.com/nuget)
+- [NuGet blogu](http://blog.nuget.org/)
+- [NuGet takım Twitter'da @nuget](http://twitter.com/nuget)
 - Kitaplar:
   - [Apress Pro NuGet](http://bit.ly/ProNuGet)
   - [NuGet 2 temelleri](http://www.amazon.com/NuGet-2-Essentials-Damir-Arh-ebook/dp/B00GTQD5M4)

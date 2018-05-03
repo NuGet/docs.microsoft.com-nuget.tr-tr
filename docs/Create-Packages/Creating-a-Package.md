@@ -1,25 +1,16 @@
 ---
-title: Bir NuGet paketi oluşturma | Microsoft Docs
+title: Bir NuGet paketi oluşturma
+description: Tasarlama ve dosyaları ve sürüm oluşturma gibi temel karar noktaları da dahil olmak üzere bir NuGet paketi oluşturma işlemi için ayrıntılı bir kılavuz.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 12/12/2017
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: Tasarlama ve dosyaları ve sürüm oluşturma gibi temel karar noktaları da dahil olmak üzere bir NuGet paketi oluşturma işlemi için ayrıntılı bir kılavuz.
-keywords: NuGet paket oluşturma, bir paket, nuspec bildirimi, NuGet paketi kuralları, NuGet Paket sürümü oluşturma
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 7bb7e16a317aff908effe0b6c603ea53c9e8a563
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.openlocfilehash: c1e3bfd1c7e80c7deb505ef732d73c2edf3e32f7
+ms.sourcegitcommit: 5fcd6d664749aa720359104ef7a66d38aeecadc2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/27/2018
 ---
 # <a name="creating-nuget-packages"></a>NuGet paketleri oluşturma
 
@@ -27,7 +18,7 @@ Konular paketinizi yaptığı veya ne kod içerir, kullandığınız `nuget.exe`
 
 Teknik olarak konuşarak bir NuGet paketi yalnızca ile adlandırılmış bir ZIP dosyası olan `.nupkg` uzantısı ve içerikleri belirli kuralları eşleşmesi. Bu konu, bu kuralları karşılayan paket oluşturma ayrıntılı işlemi açıklanır. Odaklanmış bir anlatım için başvurmak [hızlı başlangıç: oluşturma ve bir paket yayımlama](../quickstart/create-and-publish-a-package.md).
 
-Paketleme derlenmiş kod (derlemeler), simgeler ve/veya paket olarak teslim etmek istediğiniz diğer dosyaları şununla başlar (bkz [genel bakış ve iş akışı](overview-and-workflow.md)). Bu işlem derleme veya aksi halde pakete Git dosyalar oluşturma bağımsız, derlenmiş derlemeler ve paketleri eşitlenmiş tutmak için bir proje dosyası'ndan kullanabilirsiniz ancak çizin.
+Paketleme derlenmiş kod (derlemeler), simgeler ve/veya paket olarak teslim etmek istediğiniz diğer dosyaları şununla başlar (bkz [genel bakış ve iş akışı](overview-and-workflow.md)). Bu işlem, derleme veya derlenmiş derlemeler ve paketleri eşitlenmiş tutmak için bir proje dosyası'ndan çizebilirsiniz rağmen pakete Git dosyalar Aksi takdirde oluşturma bağımsızdır.
 
 > [!Note]
 > Bu konu, Visual Studio 2017 ve NuGet 4.0 + kullanarak .NET Core projeleri dışında proje türleri için geçerlidir. .NET Core projelerdeki NuGet bilgileri proje dosyasında doğrudan kullanır. Ayrıntılar için bkz [oluşturma .NET standart paketlerle Visual Studio 2017](../guides/create-net-standard-packages-vs2017.md) ve [NuGet paketi ve geri yükleme MSBuild hedefleri olarak](../reference/msbuild-targets.md).
@@ -81,47 +72,53 @@ Tipik bir (ancak kurgusal) aşağıdadır `.nuspec` özelliklerini açıklayan y
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
     <metadata>
-    <!-- The identifier that must be unique within the hosting gallery -->
-    <id>Contoso.Utility.UsefulStuff</id>
+        <!-- The identifier that must be unique within the hosting gallery -->
+        <id>Contoso.Utility.UsefulStuff</id>
 
-    <!-- The package version number that is used when resolving dependencies -->
-    <version>1.8.3-beta</version>
+        <!-- The package version number that is used when resolving dependencies -->
+        <version>1.8.3-beta</version>
 
-    <!-- Authors contain text that appears directly on the gallery -->
-    <authors>Dejana Tesic, Rajeev Dey</authors>
+        <!-- Authors contain text that appears directly on the gallery -->
+        <authors>Dejana Tesic, Rajeev Dey</authors>
 
-    <!-- Owners are typically nuget.org identities that allow gallery
-            users to easily find other packages by the same owners.  -->
-    <owners>dejanatc, rjdey</owners>
+        <!-- 
+            Owners are typically nuget.org identities that allow gallery
+            users to easily find other packages by the same owners.  
+        -->
+        <owners>dejanatc, rjdey</owners>
 
-    <!-- License and project URLs provide links for the gallery -->
-    <licenseUrl>http://opensource.org/licenses/MS-PL</licenseUrl>
-    <projectUrl>http://github.com/contoso/UsefulStuff</projectUrl>
+         <!-- License and project URLs provide links for the gallery -->
+        <licenseUrl>http://opensource.org/licenses/MS-PL</licenseUrl>
+        <projectUrl>http://github.com/contoso/UsefulStuff</projectUrl>
 
-    <!-- The icon is used in Visual Studio's package manager UI -->
-    <iconUrl>http://github.com/contoso/UsefulStuff/nuget_icon.png</iconUrl>
+        <!-- The icon is used in Visual Studio's package manager UI -->
+        <iconUrl>http://github.com/contoso/UsefulStuff/nuget_icon.png</iconUrl>
 
-    <!-- If true, this value prompts the user to accept the license when
-            installing the package. -->
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <!-- 
+            If true, this value prompts the user to accept the license when
+            installing the package. 
+        -->
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
 
-    <!-- Any details about this particular release -->
-    <releaseNotes>Bug fixes and performance improvements</releaseNotes>
+        <!-- Any details about this particular release -->
+        <releaseNotes>Bug fixes and performance improvements</releaseNotes>
 
-    <!-- The description can be used in package manager UI. Note that the
-            nuget.org gallery uses information you add in the portal. -->
-    <description>Core utility functions for web applications</description>
+        <!-- 
+            The description can be used in package manager UI. Note that the
+            nuget.org gallery uses information you add in the portal. 
+        -->
+        <description>Core utility functions for web applications</description>
 
-    <!-- Copyright information -->
-    <copyright>Copyright ©2016 Contoso Corporation</copyright>
+        <!-- Copyright information -->
+        <copyright>Copyright ©2016 Contoso Corporation</copyright>
 
-    <!-- Tags appear in the gallery and can be used for tag searches -->
-    <tags>web utility http json url parsing</tags>
+        <!-- Tags appear in the gallery and can be used for tag searches -->
+        <tags>web utility http json url parsing</tags>
 
-    <!-- Dependencies are automatically installed when the package is installed -->
-    <dependencies>
-        <dependency id="Newtonsoft.Json" version="9.0" />
-    </dependencies>
+        <!-- Dependencies are automatically installed when the package is installed -->
+        <dependencies>
+            <dependency id="Newtonsoft.Json" version="9.0" />
+        </dependencies>
     </metadata>
 
     <!-- A readme.txt to display when the package is installed -->
@@ -150,7 +147,7 @@ Tam bildirim genellikle oluşturma başlar ile temel bir `.nuspec` aşağıdaki 
 
 - [Bir kurala dayalı çalışma dizini](#from-a-convention-based-working-directory)
 - [DLL derleme](#from-an-assembly-dll)
-- [A Visual Studio project](#from-a-visual-studio-project)    
+- [Visual Studio projesi](#from-a-visual-studio-project)    
 - [Varsayılan değerlerle yeni dosya](#new-file-with-default-values)
 
 Böylece son paketinde istediğiniz tam içeriğini açıklayan, sonra dosyayı el ile düzenleyin.
@@ -173,7 +170,7 @@ Klasör kuralları aşağıdaki gibidir:
 | Klasör | Açıklama | Paketi Yükle üzerine gerçekleştirilecek eylemi |
 | --- | --- | --- |
 | (kök) | Readme.txt konumu | Paketi yüklendiğinde, visual Studio Paketi kök dizininde readme.txt dosyasına görüntüler. |
-| lib/{tfm} | Derleme (`.dll`), belgeleri (`.xml`) ve simge (`.pdb`) dosyaları belirtilen hedef Framework bilinen ad (TFM) için | Derlemeleri başvuru olarak eklenir; `.xml` ve `.pdb` proje klasörlerine kopyalanır. Bkz: [birden çok hedef çerçeveyi destekleyen](supporting-multiple-target-frameworks.md) framework hedef özgü alt klasörleri oluşturmak için. |
+| LIB / {tfm} | Derleme (`.dll`), belgeleri (`.xml`) ve simge (`.pdb`) dosyaları belirtilen hedef Framework bilinen ad (TFM) için | Derlemeleri başvuru olarak eklenir; `.xml` ve `.pdb` proje klasörlerine kopyalanır. Bkz: [birden çok hedef çerçeveyi destekleyen](supporting-multiple-target-frameworks.md) framework hedef özgü alt klasörleri oluşturmak için. |
 | Çalışma zamanları | Mimariye özel derleme (`.dll`), simge (`.pdb`) ve yerel kaynak (`.pri`) dosyaları | Derlemeleri başvuru olarak eklenir; diğer dosyalar proje klasörlerine kopyalanır. Bkz: [birden çok hedef çerçeveyi destekleyen](supporting-multiple-target-frameworks.md). |
 | içerik | İsteğe bağlı dosyalar | İçeriği proje kök dizinine kopyalanır. Düşünün **içerik** sonuçta paket tüketir hedef uygulama kökü olarak klasör. Paketi uygulamanın bir görüntüsünü Ekle olmasını */görüntüleri* klasörü, paketin içinde yerleştirin *içeriği/görüntüleri* klasör. |
 | derleme | MSBuild `.targets` ve `.props` dosyaları | Otomatik olarak proje dosyasına eklenen veya `project.lock.json` (NuGet 3.x+). |
@@ -300,11 +297,11 @@ Doğrudan pakete eklenecek dosyaları belirtmek için kullanın `<files>` düğ�
     <!-- ... -->
     </metadata>
     <files>
-    <!-- Add a readme -->
-    <file src="readme.txt" target="" />
+        <!-- Add a readme -->
+        <file src="readme.txt" target="" />
 
-    <!-- Add files from an arbitrary folder that's not necessarily in the project -->
-    <file src="..\..\SomeRoot\**\*.*" target="" />
+        <!-- Add files from an arbitrary folder that's not necessarily in the project -->
+        <file src="..\..\SomeRoot\**\*.*" target="" />
     </files>
 </package>
 ```
@@ -342,11 +339,11 @@ Ardından `.nuspec` dosya, bu dosyaları başvurmak mutlaka `<files>` düğümü
     <!-- ... -->
     </metadata>
     <files>
-    <!-- Include everything in \build -->
-    <file src="build\**" target="build" />
+        <!-- Include everything in \build -->
+        <file src="build\**" target="build" />
 
-    <!-- Other files -->
-    <!-- ... -->
+        <!-- Other files -->
+        <!-- ... -->
     </files>
 </package>
 ```

@@ -1,25 +1,16 @@
 ---
-title: NuGet 2.5 sürüm notları | Microsoft Docs
-author: karann-msft
-ms.author: karann-msft
-manager: ghogen
-ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
+title: NuGet 2,5 sürüm notları
 description: NuGet bilinen sorunları, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere 2.5 için sürüm notları.
-keywords: Özellikler, dcr bilinen sorunlar, NuGet 2.5 sürüm notları, hata düzeltmeleri eklendi
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 4495e1ea9cc4ec13ef330e56d12de1320cf10b24
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+author: karann-msft
+ms.author: karann
+manager: unnir
+ms.date: 11/11/2016
+ms.topic: conceptual
+ms.openlocfilehash: accea5033e44927259537b5047a4a821babc6146
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="nuget-25-release-notes"></a>NuGet 2,5 sürüm notları
 
@@ -33,28 +24,28 @@ Aşağıdaki dış Katkıda Bulunanlar, önemli ölçüde katkıda NuGet 2.5 iç
 
 1. [Daniel Plaisted](https://www.codeplex.com/site/users/view/dsplaisted) ([@dsplaisted](https://twitter.com/dsplaisted))
     - [#2847](https://nuget.codeplex.com/workitem/2847) -MonoAndroid eklemek, MonoTouch ve bilinen hedef framework tanımlayıcıları listesine MonoMac.
-1. [Andres G. Aragoneses](https://www.codeplex.com/site/users/view/knocte) ([@knocte](https://twitter.com/knocte))
+2. [Andres G. Aragoneses](https://www.codeplex.com/site/users/view/knocte) ([@knocte](https://twitter.com/knocte))
     - [#2865](https://nuget.codeplex.com/workitem/2865) -yazımını düzeltme `NuGet.targets` büyük küçük harfe duyarlı bir işletim sistemi için
-1. [David Fowler](https://www.codeplex.com/site/users/view/dfowler) ([@davidfowl](https://twitter.com/davidfowl))
+3. [David Fowler](https://www.codeplex.com/site/users/view/dfowler) ([@davidfowl](https://twitter.com/davidfowl))
     - Mono üzerinde yapı çözümü haline getirmiştir.
-1. [Barış Theken](https://www.codeplex.com/site/users/view/atheken) ([@atheken](https://twitter.com/atheken))
+4. [Barış Theken](https://www.codeplex.com/site/users/view/atheken) ([@atheken](https://twitter.com/atheken))
     - Mono üzerinde başarısız olan birim testleri düzeltin.
-1. [Olivier Dagenais](https://www.codeplex.com/site/users/view/OliIsCool) ([@OliIsCool](https://twitter.com/oliiscool))
+5. [Olivier Dagenais](https://www.codeplex.com/site/users/view/OliIsCool) ([@OliIsCool](https://twitter.com/oliiscool))
     - [#2920](https://nuget.codeplex.com/workitem/2920) -nuget.exe paketi komutu MSBuild özelliklerine yayılması değil
-1. [Miroslav Bajtos](https://www.codeplex.com/site/users/view/MiroslavBajtos) ([@bajtos](https://twitter.com/bajtos))
+6. [Miroslav Bajtos](https://www.codeplex.com/site/users/view/MiroslavBajtos) ([@bajtos](https://twitter.com/bajtos))
     - [#1511](https://nuget.codeplex.com/workitem/1511) - biçimlendirmesini korumak için işleme kodunu XML değiştirdi.
-1. [Adam Ralph](http://www.codeplex.com/site/users/view/adamralph) ([@adamralph](https://twitter.com/adamralph))
+7. [ADAM Ralph](http://www.codeplex.com/site/users/view/adamralph) ([@adamralph](https://twitter.com/adamralph))
     - Tanınan sözcükler başarılı olması build.cmd izin vermek için özel sözlüğe eklendi.
-1. [Bruno Roggeri](https://www.codeplex.com/site/users/view/broggeri)
+8. [Bruno Roggeri](https://www.codeplex.com/site/users/view/broggeri)
     - Birim testleri yerelleştirilmiş VS üzerinde çalışırken düzeltin.
-1. [Gareth Evans](https://www.codeplex.com/site/users/view/garethevans)
+9. [Gareth Evans](https://www.codeplex.com/site/users/view/garethevans)
     - PackageService ayıklanan arabirimi
-1. [Maxime Brugidou](https://www.codeplex.com/site/users/view/brugidou) ([@brugidou](https://twitter.com/brugidou))
-    - [#936](https://nuget.codeplex.com/workitem/936) -sevk proje bağımlılıkları işleme
-1. [Xavier Decoster](https://www.codeplex.com/site/users/view/XavierDecoster) ([@XavierDecoster](https://twitter.com/xavierdecoster))
-    - [#2991](https://nuget.codeplex.com/workitem/2991), [#3164](https://nuget.codeplex.com/workitem/3164) -destek metin paket kaynağı kimlik bilgileri nuget.cofig dosyalarında depolarken Parolayı Temizle
-1. [Ahmet Manning](http://www.codeplex.com/site/users/view/jmanning) ([@manningj](https://twitter.com/manningj))
-    - [#3190](http://nuget.codeplex.com/workitem/3190), [#3191](http://nuget.codeplex.com/workitem/3191) -Get-paket düzeltme Yardım açıklaması
+10. [Maxime Brugidou](https://www.codeplex.com/site/users/view/brugidou) ([@brugidou](https://twitter.com/brugidou))
+     - [#936](https://nuget.codeplex.com/workitem/936) -sevk proje bağımlılıkları işleme
+11. [Xavier Decoster](https://www.codeplex.com/site/users/view/XavierDecoster) ([@XavierDecoster](https://twitter.com/xavierdecoster))
+     - [#2991](https://nuget.codeplex.com/workitem/2991), [#3164](https://nuget.codeplex.com/workitem/3164) -destek metin paket kaynağı kimlik bilgileri nuget.cofig dosyalarında depolarken Parolayı Temizle
+12. [Ahmet Manning](http://www.codeplex.com/site/users/view/jmanning) ([@manningj](https://twitter.com/manningj))
+     - [#3190](http://nuget.codeplex.com/workitem/3190), [#3191](http://nuget.codeplex.com/workitem/3191) -Get-paket düzeltme Yardım açıklaması
 
 Ayrıca şu kişilere hataları ile NuGet 2.5 Beta/onaylanmış ve son yayımlanmasından önce sabit RC bulmak için değer veriyoruz:
 

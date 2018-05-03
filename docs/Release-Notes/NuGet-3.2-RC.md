@@ -1,22 +1,16 @@
 ---
-title: "NuGet 3.2 RC sürüm notları | Microsoft Docs"
+title: NuGet 3.2 RC sürüm notları
+description: NuGet 3.2 bilinen sorunları, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere RC sürüm notları.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "NuGet 3.2 bilinen sorunları, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere RC sürüm notları."
-keywords: "Özellikler, dcr bilinen sorunlar, NuGet 3.2 RC sürüm notları, hata düzeltmeleri eklendi"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: b19f62217ed79689ce067107dd64dfffe2c59291
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 0310bac6fdb3ef92176f9224ace1620a230664af
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-32-rc-release-notes"></a>NuGet 3.2 RC sürüm notları
 
@@ -27,7 +21,7 @@ NuGet 3.2 Sürüm Adayı yayımlanan 2 Eylül 2015 geliştirmeleri ve 3.1.1 yön
 ## <a name="new-features"></a>Yeni Özellikler
 
 * Aynı klasörde Canlı projeler artık farklı olabilir `project.json` her proje için belirli o klasördeki dosyaları.  Her proje için ad `project.json` dosya `{ProjectName}.project.json` NuGet düzgün başvuru ve içeriğin her proje için uygun şekilde kullanabilirsiniz.  Bu yeni bir özellik destekler [1102](https://github.com/NuGet/Home/issues/1102)
-* `NuGet.Config`Şimdi globalPackagesFolder göreli bir yol - olarak destekleyen [1062](https://github.com/NuGet/Home/issues/1062)
+* `NuGet.Config` Şimdi globalPackagesFolder göreli bir yol - olarak destekleyen [1062](https://github.com/NuGet/Home/issues/1062)
 
 ## <a name="command-line-updates"></a>Komut satırı güncelleştirmeleri
 
@@ -45,7 +39,7 @@ Bu NuGet v3 sunucuları destekler nuget.exe istemcisinin ilk sürümünü ve yö
 * NuGet restore komutu bir hata koşulu oluştuğunda - 1 düzgün bir şekilde geri dönmek için düzeltildi [1186](https://github.com/NuGet/Home/issues/1186)
 * Artık ağ bağlantıları yeniden deneniyor HTTP 5xx hataları - söz konusu olduğunda 5 deneme sayısı için her 200 MS [1120](https://github.com/NuGet/Home/issues/1120)
 * Sunucu yeniden yönlendirme yanıtlarını işlenmesi sırasında bir anında iletme komutu - geliştirilmiş [1051](https://github.com/NuGet/Home/issues/1051)
-* `nuget install -source`Şimdi Nuget.Config - bağımsız değişken olarak URL veya depo adından destekler [1046 numaralı](https://github.com/NuGet/Home/issues/1046)
+* `nuget install -source` Şimdi Nuget.Config - bağımsız değişken olarak URL veya depo adından destekler [1046 numaralı](https://github.com/NuGet/Home/issues/1046)
 * Bir geri yükleme sırasında bir havuzda bulunan değil eksik paketleri yerine uyarıları hata olarak rapor artık [1038](https://github.com/NuGet/Home/issues/1038)
 * UNIX/Linux senaryolarında - \r\n multipartwebrequest işlenmesi düzeltilmiştir [776](https://github.com/NuGet/Home/issues/776)
 

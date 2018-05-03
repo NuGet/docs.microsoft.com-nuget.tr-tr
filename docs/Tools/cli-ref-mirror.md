@@ -1,25 +1,16 @@
 ---
-title: NuGet CLI yansıtma komutu | Microsoft Docs
+title: NuGet CLI yansıtma komutu
+description: Nuget.exe yansıtma komut başvurusu
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/18/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Nuget.exe yansıtma komut başvurusu
-keywords: nuget yansıtma başvuru, yansıtma komutu
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 512bd72d568cda81eb7c6a1555c36ead66b5c438
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 5ba13196d385abf42a5af2faa3fe6f0e80fb59d8
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="mirror-command-nuget-cli"></a>Yansıtma komutu (NuGet CLI)
 
@@ -46,7 +37,7 @@ Hedef depo açıksa `https://machine/repo` çalıştıran [NuGet.Server](../host
 
 | Seçenek | Açıklama |
 | --- | --- |
-| ApiKey | Hedef depo API anahtarı. Yoksa, yapılandırma dosyasında belirtilen bir kullanılıp kullanılmadığını (`%AppData%\NuGet\NuGet.Config` (Windows) veya `~/.nuget/NuGet/NuGet.Config` (Mac/Linux)). |
+| apikey ile yapılan | Hedef depo API anahtarı. Yoksa, yapılandırma dosyasında belirtilen bir kullanılıp kullanılmadığını (`%AppData%\NuGet\NuGet.Config` (Windows) veya `~/.nuget/NuGet/NuGet.Config` (Mac/Linux)). |
 | Yardım | Bilgi komutu için yardımı görüntüler. |
 | NoCache | NuGet kullanarak önbelleğe alınmış paketleri engeller. Bkz: [genel paketleri ve önbellek klasör yönetimi](../consume-packages/managing-the-global-packages-and-cache-folders.md). |
 | Sekmeyi | Ne uygulanır ancak işlemleri gerçekleştirmez kaydeder; İtme işlemleri için başarı varsayar. |

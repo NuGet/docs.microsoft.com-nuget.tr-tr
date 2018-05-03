@@ -1,29 +1,20 @@
 ---
-title: .NET derleme Platform Çözümleyicisi için NuGet biçimleri | Microsoft Docs
+title: NuGet için .NET derleyici Platform Çözümleyicisi biçimleri
+description: Paketlenmiş ve bir API veya kitaplık uygulaması NuGet paketleri ile dağıtılan .NET çözümleyiciler kuralları.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/09/2017
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: Paketlenmiş ve bir API veya kitaplık uygulaması NuGet paketleri ile dağıtılan .NET çözümleyiciler kuralları.
-keywords: NuGet analyzer kuralları, .NET çözümleyiciler, NuGet ve .NET derleyici platformu, NuGet ve Roslyn
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 26e40346b1d76d2f4f0e4177dbe0670f10db164c
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.openlocfilehash: 57ab485c8062b0515c292b68ecb5a3628b6e3e9d
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="analyzer-nuget-formats"></a>Çözümleyicisi NuGet biçimleri
 
-.NET derleme Platformu (olarak da bilinen "Roslyn") [çözümleyiciler] oluşturmak geliştiriciler izin ver (https://github.com/dotnet/roslyn/wiki/How-To-Write-a-C%23-Analyzer-and-Code-Fix) , incelemesine sözdizimi ağacı ve kod semantiği yazılmakta gibi. Bu geliştiriciler oluşturmak için bir yol sağlar ve belirli bir API veya kitaplık kullanımını yardımcı olacak olanlar gibi etki alanına özgü çözümleme araçları Kılavuzu. Daha fazla bilgi bulabilirsiniz [.NET/Roslyn](https://github.com/dotnet/roslyn/wiki) GitHub wiki. Ayrıca makalesine bakın [kullanım API için Canlı bir kod Çözümleyicisi yazmak için Roslyn](https://msdn.microsoft.com/magazine/dn879356.aspx) MSDN dergisi içinde.
+.NET derleme Platformu (olarak da bilinen "Roslyn") oluşturmak geliştiriciler izin [çözümleyiciler](https://github.com/dotnet/roslyn/wiki/How-To-Write-a-C%23-Analyzer-and-Code-Fix) , incelemesine sözdizimi ağacı ve kod semantiği yazılmakta gibi. Bu geliştiriciler oluşturmak için bir yol sağlar ve belirli bir API veya kitaplık kullanımını yardımcı olacak olanlar gibi etki alanına özgü çözümleme araçları Kılavuzu. Daha fazla bilgi bulabilirsiniz [.NET/Roslyn](https://github.com/dotnet/roslyn/wiki) GitHub wiki. Ayrıca makalesine bakın [kullanım API için Canlı bir kod Çözümleyicisi yazmak için Roslyn](https://msdn.microsoft.com/magazine/dn879356.aspx) MSDN dergisi içinde.
 
 Çözümleyiciler kendilerini genellikle paketlenmiş ve API veya kitaplık söz konusu uygulamak NuGet paketlerini bir parçası olarak dağıtılır.
 
@@ -32,7 +23,7 @@ ms.lasthandoff: 03/28/2018
 - analyzers\dotnet\System.Runtime.Analyzers.dll
 - analyzers\dotnet\cs\System.Runtime.CSharp.Analyzers.dll
 - analyzers\dotnet\vb\System.Runtime.VisualBasic.Analyzers.dll
-- build\System.Runtime.Analyzers.Common.props
+- build\System.Runtime.Analyzers.common.props
 - build\System.Runtime.Analyzers.props
 - build\System.Runtime.CSharp.Analyzers.props
 - build\System.Runtime.VisualBasic.Analyzers.props

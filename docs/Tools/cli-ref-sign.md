@@ -1,25 +1,17 @@
 ---
-title: NuGet CLI oturum komutu | Microsoft Docs
+title: NuGet CLI oturum komutu
+description: Nuget.exe oturum komut başvurusu
 author: dtivel
 ms.author: dtivel
 manager: doronm
 ms.date: 03/06/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Nuget.exe oturum komut başvurusu
-keywords: nuget oturum başvuru, oturum komutu
-ms.reviewer:
-- karann
-- rmpablos
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 9c83e5abae0e70cdc62917861c1febfce4f792c7
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.reviewer: rmpablos
+ms.openlocfilehash: 7e84d794b802cfd69c785f720280fd5c022a46f6
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="sign-command-nuget-cli"></a>oturum komutu (NuGet CLI)
 
@@ -27,7 +19,7 @@ ms.lasthandoff: 03/28/2018
 
 İlk bağımsız değişkeni bir sertifika ile eşleşen tüm paketler imzalar. Sertifikanın özel anahtarı olan bir dosya ya da bir konu adı veya bir parmak izi sağlayarak bir sertifika deposunda yüklü bir sertifika elde edilebilir.
 
-Paket imzalama, Mono altında veya Windows olmayan platformlarında henüz desteklenmiyor.
+Paket imzalama henüz içinde .NET Core, Mono altında ya da Windows olmayan platformlarda desteklenmiyor.
 
 ## <a name="usage"></a>Kullanım
 
@@ -45,7 +37,7 @@ Burada `<package(s)>` bir veya daha fazla `.nupkg` dosyaları.
 | CertificatePassword | Sertifika parolası gerekirse belirtir. Parola korumalı bir sertifikadır, ancak hiçbir parola sağlanan komutu için bir parola çalışma zamanında sürece ister etkileşimli olmayan seçeneği geçirilir. |
 | CertificatePath | Paketin imzalanması kullanılmak üzere sertifika dosya yolunu belirtir. |
 | CertificateStoreLocation | Sertifikayı aramak için X.509 Sertifika deposu kullanımı adını belirtir. Varsayılan olarak "Currentuser'a", geçerli bir kullanıcı tarafından kullanılan X.509 Sertifika deposu. Bu seçenek, sertifikayı CertificateSubjectName - veya - CertificateFingerprint seçenekleri aracılığıyla belirtirken kullanılmalıdır. |
-| CertificateStoreName | Sertifika bulmak için kullanılacak X.509 Sertifika deposu adını belirtir. Varsayılan olarak "Benim", kişisel sertifikalar için X.509 Sertifika deposu. Bu seçenek, sertifikayı CertificateSubjectName - veya - CertificateFingerprint seçenekleri aracılığıyla belirtirken kullanılmalıdır. |
+| SertifikaDeposuAdı | Sertifika bulmak için kullanılacak X.509 Sertifika deposu adını belirtir. Varsayılan olarak "Benim", kişisel sertifikalar için X.509 Sertifika deposu. Bu seçenek, sertifikayı CertificateSubjectName - veya - CertificateFingerprint seçenekleri aracılığıyla belirtirken kullanılmalıdır. |
 | CertificateSubjectName | Sertifika için bir yerel sertifika deposu aramak için kullanılan sertifikanın konu adını belirtir.  Arama diğer konu değerlerinden bağımsız olarak o dizeyi içeren konu adına sahip tüm sertifikaların bulur sağlanan değer kullanarak büyük küçük harf duyarlı dize karşılaştırmasının olur.  Sertifika deposu - SertifikaDeposuAdı ve - CertificateStoreLocation seçenekleri ile belirtilebilir. |
 | ConfigFile | Uygulamak için NuGet yapılandırma dosyası. Belirtilmezse, `%AppData%\NuGet\NuGet.Config` (Windows) veya `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) kullanılır.|
 | ForceEnglishOutput | Bir sabit, İngilizce tabanlı kültürü kullanarak çalışacak şekilde nuget.exe zorlar. |

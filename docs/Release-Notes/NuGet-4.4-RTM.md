@@ -1,26 +1,17 @@
 ---
-title: NuGet 4.4 RTM sürüm notları | Microsoft Docs
-author: karann-msft
-ms.author: karann-msft
-manager: unniravindranathan
-ms.date: 08/14/2017
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
+title: NuGet 4,4 RTM sürüm notları
 description: Bilinen sorunlar, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere NuGet 4.3 RTM için sürüm notları.
-keywords: Özellikler, dcr bilinen sorunlar, NuGet 4.3 RTM sürüm notları, hata düzeltmeleri eklendi
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-- anangaur
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 6c122dc3d9b576a2ea5f094746a830e5fab5637e
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+author: karann-msft
+ms.author: karann
+manager: unnir
+ms.date: 08/14/2017
+ms.topic: conceptual
+ms.reviewer: anangaur
+ms.openlocfilehash: 3e969274e69de03ca9851d31a627919dcc46bb7d
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-44-rtm-release-notes"></a>NuGet 4,4 RTM sürüm notları
 
@@ -118,7 +109,8 @@ Bazen, bir derlemeyi imzası geçersiz olan veya paket sürümü ile 'DateTime' 
 
 - GetRestoreDotnetCliToolsTask başarısız eksik sürüm meta verileri - [#5716](https://github.com/NuGet/Home/issues/5716)
 
-- DotNet eklemek paket csproj - boş satırları temizlemek [#5697](https://github.com/NuGet/Home/issues/5697)
+- DotNet
+  - dotnetcore ekleme paket csproj - boş satırları temizlemek [#5697](https://github.com/NuGet/Home/issues/5697)
 
 - NuGet.Config kimlik bilgisi ayarları kaynak adları büyük küçük harf duyarlı - [#5695](https://github.com/NuGet/Home/issues/5695)
 
@@ -132,7 +124,8 @@ Bazen, bir derlemeyi imzası geçersiz olan veya paket sürümü ile 'DateTime' 
 
 - Güncelleştirme paketleri çözüm güncelleştirmeleri/yüklemelerinde tüm projeleri - adresindeki [#5508](https://github.com/NuGet/Home/issues/5508)
 
-- DotNet paketi TargetFramework vs TargetFrameworks - bağlı olarak farklı şekilde davranan [#5281](https://github.com/NuGet/Home/issues/5281)
+- DotNet
+  - dotnetcore paketi TargetFramework vs TargetFrameworks - bağlı olarak farklı şekilde davranan [#5281](https://github.com/NuGet/Home/issues/5281)
 
 - DLL'leri içinde Araçlar klasörü throw uyarılar - dahil [#5020](https://github.com/NuGet/Home/issues/5020)
 
@@ -166,7 +159,7 @@ Bazen, bir derlemeyi imzası geçersiz olan veya paket sürümü ile 'DateTime' 
 
 - Farklı msbuild görev UserAgent dizeleri (netcore vs Masaüstü msbuild) - eklemek [#5709](https://github.com/NuGet/Home/issues/5709)
 
-- PackagePathResolver.GetPackageDirectoryName should be virtual - [#5700](https://github.com/NuGet/Home/issues/5700)
+- PackagePathResolver.GetPackageDirectoryName sanal - [#5700](https://github.com/NuGet/Home/issues/5700)
 
 - [DesignConsistency] Bir NuGet paketi - eklerken ileti kafa karıştırıcı [#5641](https://github.com/NuGet/Home/issues/5641)
 

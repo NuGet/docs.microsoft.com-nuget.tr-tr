@@ -1,30 +1,21 @@
 ---
-title: NuGet Paket Yöneticisi kullanıcı Arabirimi başvurusu | Microsoft Docs
+title: NuGet Paket Yöneticisi kullanıcı Arabirimi başvurusu
+description: NuGet paketleri ile çalışmak için Visual Studio'da NuGet Paket Yöneticisi kullanıcı Arabirimi kullanma için yönergeler.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 12/08/2017
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
+ms.topic: conceptual
 f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager
 - vs.toolsoptionspages.nuget_package_manager.general
 - vs.toolsoptionspages.nuget_package_manager.package_sources
 - vs.nuget.packagemanager.ui
-description: NuGet paketleri ile çalışmak için Visual Studio'da NuGet Paket Yöneticisi kullanıcı Arabirimi kullanma için yönergeler.
-keywords: NuGet UI, NuGet Paket Yöneticisi kullanıcı Arabirimi, NuGet Visual Studio'da NuGet paketleri, NuGet kullanıcı arabirimi, Visual Studio'da Paket Yöneticisi yönetme
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: ad36c2ab0c6e62c7fe624b35d92e852303ecfdfb
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 99bd51798460a56cb8515d46791a9e75d9e630cc
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="nuget-package-manager-ui"></a>NuGet Paket Yöneticisi kullanıcı Arabirimi
 
@@ -59,7 +50,7 @@ Bu konuda:
     ![Çözüm Gezgini'nde başvuruların](media/References.png)
 
 > [!Tip]
-    > Yayın öncesi sürümler dahil ve yayın öncesi sürümler açılan sürümünde kullanılabilir hale getirmek seçin **dahil et** seçeneği.
+> Yayın öncesi sürümler dahil ve yayın öncesi sürümler açılan sürümünde kullanılabilir hale getirmek seçin **dahil et** seçeneği.
 
 ## <a name="uninstalling-a-package"></a>Bir paketi kaldırma
 

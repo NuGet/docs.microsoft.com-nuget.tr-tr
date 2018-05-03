@@ -1,25 +1,16 @@
 ---
-title: NuGet davranışını yapılandırma | Microsoft Docs
+title: NuGet davranışını yapılandırma
+description: NuGet.Config dosyaları, hem genel hem de proje başına temelinde NuGet davranışını denetlemek ve nuget config komutu ile değiştirilmelidir.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 10/25/2017
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: NuGet.Config dosyaları, hem genel hem de proje başına temelinde NuGet davranışını denetlemek ve nuget config komutu ile değiştirilmelidir.
-keywords: NuGet yapılandırma dosyaları, NuGet yapılandırması, NuGet davranış ayarları, NuGet ayarları, Nuget.Config, NuGetDefaults.Config, Varsayılanları
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 88f10cf15e16013ac99f315e572f932fd3948f73
-ms.sourcegitcommit: ecb598c790d4154366bc92757ec7db1a51c34faf
+ms.topic: conceptual
+ms.openlocfilehash: c8cc78be1bd48adc603b9447282a6c4bef7f942f
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="configuring-nuget-behavior"></a>NuGet davranışını yapılandırma
 
@@ -151,7 +142,7 @@ A. kullanıcı düzeyinde dosyası, (`%appdata%\NuGet\NuGet.Config` , Windows'da
 </configuration>
 ```
 
-File B. disk_drive_2/NuGet.Config:
+B. disk_drive_2/NuGet.Config dosya:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -165,7 +156,7 @@ File B. disk_drive_2/NuGet.Config:
 </configuration>
 ```
 
-File C. disk_drive_2/Project1/NuGet.Config:
+C. dosya disk_drive_2/Project1/NuGet.Config:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -181,7 +172,7 @@ File C. disk_drive_2/Project1/NuGet.Config:
 </configuration>
 ```
 
-File D. disk_drive_2/Project2/NuGet.Config:
+Dosya D. disk_drive_2/Project2/NuGet.Config:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -216,7 +207,7 @@ NuGet sonra yükler ve burada çağrılır bağlı olarak aşağıdaki gibi ayar
 
 Aşağıdaki tabloda nerede tanımlar `NuGetDefaults.Config` dosyasının saklanması gereken, işletim sistemi hedef bağlı olarak:
 
-| İşletim sistemi platformu  | NuGetDefaults.Config Location |
+| İşletim sistemi platformu  | NuGetDefaults.Config konumu |
 | --- | --- |
 | Windows      | **Visual Studio 2017 veya NuGet 4.x+:** `%ProgramFiles(x86)%\NuGet\Config` <br />**Visual Studio 2015 ve önceki ya da NuGet 3.x ve önceki sürümleri:** `%PROGRAMDATA%\NuGet` |
 | Mac/Linux    | `$XDG_DATA_HOME` (genellikle `~/.local/share` veya `/usr/local/share`işletim sistemi dağıtım bağlı olarak)|

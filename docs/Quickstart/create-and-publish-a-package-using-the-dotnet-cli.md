@@ -1,27 +1,18 @@
 ---
-title: Oluşturma ve yayımlama dotnet CLI kullanarak bir NuGet paketi | Microsoft Docs
+title: Oluşturma ve yayımlama dotnet CLI kullanarak bir NuGet paketi
+description: Oluşturma ve yayımlama dotnet .NET Core CLI kullanarak bir NuGet paketi bir gözden geçirme Öğreticisi.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/24/2018
 ms.topic: quickstart
-ms.prod: nuget
-ms.technology: ''
-description: Oluşturma ve yayımlama dotnet .NET Core CLI kullanarak bir NuGet paketi bir gözden geçirme Öğreticisi.
-keywords: NuGet paketini oluşturma, NuGet paketi yayımlama, NuGet öğretici dotnet yayımlama NuGet paketi
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 536e39ae64649ca1c11afa95c20872515e9e4c83
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: e47eb5f9b3cd7e915db82f043ebb6190b656fb28
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="create-and-publish-a-package"></a>Oluşturma ve bir paket yayımlama
+# <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>Hızlı Başlangıç: Oluşturma ve bir paket (dotnet CLI) yayımlama
 
 Bir .NET sınıf kitaplığı'ndan bir NuGet paketi oluşturmak ve nuget.org kullanarak yayımlamak için basit bir işlemdir `dotnet` komut satırı arabirimi (CLI).
 
@@ -92,28 +83,29 @@ Otomatik olarak çalışacak şekilde `dotnet pack` çalıştırdığınızda `d
 
 Bulduktan sonra bir `.nupkg` dosyası, yayımlama, nuget.org kullanmaya `dotnet nuget push` nuget.org alınan bir API anahtarı ile birlikte komutu.
 
-[!INCLUDE[publish-notes](includes/publish-notes.md)]
+[!INCLUDE [publish-notes](includes/publish-notes.md)]
 
 ### <a name="acquire-your-api-key"></a>API anahtarınızı edinin
 
-[!INCLUDE[publish-api-key](includes/publish-api-key.md)]
+[!INCLUDE [publish-api-key](includes/publish-api-key.md)]
 
 ### <a name="publish-with-dotnet-nuget-push"></a>DotNet nuget itme ile yayımlama
 
-[!INCLUDE[publish-dotnet](includes/publish-dotnet.md)]
+[!INCLUDE [publish-dotnet](includes/publish-dotnet.md)]
 
 ### <a name="publish-errors"></a>Hataları yayımlama
 
-[!INCLUDE[publish-errors](includes/publish-errors.md)]
+[!INCLUDE [publish-errors](includes/publish-errors.md)]
 
 ### <a name="manage-the-published-package"></a>Yayımlanan paket yönetme
 
-[!INCLUDE[publish-manage](includes/publish-manage.md)]
+[!INCLUDE [publish-manage](includes/publish-manage.md)]
 
 ## <a name="related-topics"></a>İlgili konular
 
 - [Bir paket oluşturun](../create-packages/creating-a-package.md)
 - [Paket Yayımlama](../create-packages/publish-a-package.md)
+- [Ön yayın paketleri](../create-packages/Prerelease-Packages.md)
 - [Birden çok hedef çerçeveyi desteği](../create-packages/supporting-multiple-target-frameworks.md)
 - [Paket sürümü oluşturma](../reference/package-versioning.md)
 - [Yerelleştirilmiş paketler oluşturma](../create-packages/creating-localized-packages.md)

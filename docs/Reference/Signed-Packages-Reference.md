@@ -1,26 +1,17 @@
 ---
-title: Paketleri başvuru imzalı | Microsoft Docs
+title: NuGet paketleri başvuru imzalı
+description: NuGet paket imzalama gereksinimleri.
 author: rido-min
 ms.author: rido-min
-manager: unniravindranathan
-ms.date: 03/06/2018
+manager: unnir
+ms.date: 04/24/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Paketleri özellik açıklaması imzalanmış.
-keywords: NuGet paket oturum, imza sertifikası
-ms.reviewer:
-- ananguar
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: a2a338596f7d98ded11da6fb02bafba3521249ab
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.reviewer: ananguar
+ms.openlocfilehash: 751a8ff14bdc3a647985da4f908ad1a0fd0def9a
+ms.sourcegitcommit: 5fcd6d664749aa720359104ef7a66d38aeecadc2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/27/2018
 ---
 # <a name="signed-packages"></a>İmzalı Paketleri
 
@@ -39,6 +30,9 @@ Ayrıca, imzalama sertifikasının süresi öncesinde kaydedilmesi gerektiğinde
 > [!Important]
 > nuget.org imzalı paketleri şu anda kabul etmiyor. Paketleri yayımlama özel akışları için oturum açabilirsiniz.
 
+> [!Important]
+> Paket imzalama, şu anda yalnızca nuget.exe Windows kullanıldığında desteklenir. İmzalı paketlerin doğrulama şu anda yalnızca, Windows nuget.exe veya Visual Studio kullanıldığında desteklenir.
+
 ## <a name="certificate-requirements"></a>Sertifika gereksinimleri
 
 Paketin imzalanması bir kod imzalama için geçerli olan sertifika bir özel tür sertifikası gerektirir `id-kp-codeSigning` amacı [[RFC 5280 bölüm 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)]. Ayrıca, sertifikanın bir RSA ortak anahtar uzunluğu 2048 bit veya üstü olmalıdır.
@@ -49,7 +43,7 @@ Geçerli sertifikalar gibi ortak sertifika yetkililerinden alınabilir:
 
 - [Symantec](https://trustcenter.websecurity.symantec.com/process/trust/productOptions?productType=SoftwareValidationClass3)
 - [DigiCert](https://www.digicert.com/code-signing/)
-- [Go Daddy](https://www.godaddy.com/web-security/code-signing-certificate)
+- [Daddy gidin](https://www.godaddy.com/web-security/code-signing-certificate)
 - [Genel oturum](https://www.globalsign.com/en/code-signing-certificate/)
 - [Comodo](https://www.comodo.com/e-commerce/code-signing/code-signing-certificate.php)
 - [Certum](https://www.certum.eu/certum/cert,offer_en_open_source_cs.xml) 

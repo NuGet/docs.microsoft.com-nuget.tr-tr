@@ -1,25 +1,16 @@
 ---
-title: Visual Studio 2015 ile birlikte .NET standart ve .NET Framework NuGet paketleri oluşturma | Microsoft Docs
+title: Visual Studio 2015 ile birlikte .NET standart ve .NET Framework NuGet paketleri oluşturma
+description: NuGet kullanarak .NET standart ve .NET Framework NuGet paketleri oluşturma bir uçtan uca Kılavuz 3.x ve Visual Studio 2015.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 02/02/2018
 ms.topic: tutorial
-ms.prod: nuget
-ms.technology: ''
-description: NuGet kullanarak .NET standart ve .NET Framework NuGet paketleri oluşturma bir uçtan uca Kılavuz 3.x ve Visual Studio 2015.
-keywords: bir paket, .NET standart paketleri, .NET Framework paketleri oluşturma
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: dbe0a0788b5fc9ba37f7db601bd51c3e4f78f5b8
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: a77d977b2abc4cfd8be48e97e4c811e68e09bd61
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="create-net-standard-and-net-framework-packages-with-visual-studio-2015"></a>Visual Studio 2015 ile .NET standart ve .NET Framework paketleri oluşturma
 
@@ -40,7 +31,7 @@ Bu kılavuzda .NET standart kitaplığı 1.4 hedefleyen bir NuGet paketi veya .N
 
 ## <a name="create-the-class-library-project"></a>Sınıf kitaplığı proje oluşturma
 
-1. Visual Studio'da **Dosya > Yeni > Proje**, genişletin **Visual C# > Windows** düğümü, select **sınıf kitaplığı (taşınabilir)**AppLogger için adı değiştirin ve seçin **Tamam**.
+1. Visual Studio'da **Dosya > Yeni > Proje**, genişletin **Visual C# > Windows** düğümü, select **sınıf kitaplığı (taşınabilir)** AppLogger için adı değiştirin ve seçin **Tamam**.
 
     ![Yeni sınıf kitaplığı proje oluşturma](media/NetStandard-NewProject.png)
 

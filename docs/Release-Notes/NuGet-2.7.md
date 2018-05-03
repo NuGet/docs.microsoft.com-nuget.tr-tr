@@ -1,25 +1,16 @@
 ---
-title: NuGet 2.7 Sürüm Notları | Microsoft Docs
-author: karann-msft
-ms.author: karann-msft
-manager: ghogen
-ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
+title: NuGet 2.7 Sürüm Notları
 description: NuGet bilinen sorunları, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere 2.7 için sürüm notları.
-keywords: Özellikler, dcr bilinen sorunlar, NuGet 2.7 Sürüm Notları, hata düzeltmeleri eklendi
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 71ced70af127c8219001069739a6cec59d7d1684
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+author: karann-msft
+ms.author: karann
+manager: unnir
+ms.date: 11/11/2016
+ms.topic: conceptual
+ms.openlocfilehash: 4b7cea360764e1b069afacabadd9b94d87e21ecc
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="nuget-27-release-notes"></a>NuGet 2.7 Sürüm Notları
 
@@ -31,38 +22,38 @@ NuGet 2.7 22 Ağustos 2013'te yayımlanmıştır.
 
 Aşağıdaki dış Katkıda Bulunanlar, önemli ölçüde katkıda NuGet 2.7 için teşekkür ederiz ister misiniz:
 
-1. [Mike Roth](http://www.codeplex.com/site/users/view/mxrss) ([@mxrss](https://twitter.com/mxrss))
+1. [Can Roth](http://www.codeplex.com/site/users/view/mxrss) ([@mxrss](https://twitter.com/mxrss))
     - Paketler ve ayrıntı listeleme zaman ayrıntılı lisans URL'sini gösterir.
-1. [Adam Ralph](http://www.codeplex.com/site/users/view/adamralph) ([@adamralph](https://twitter.com/adamralph))
+2. [ADAM Ralph](http://www.codeplex.com/site/users/view/adamralph) ([@adamralph](https://twitter.com/adamralph))
     - [#1956](http://nuget.codeplex.com/workitem/1956) -developmentDependency özniteliğe eklemek `packages.config` ve yalnızca çalışma zamanı paketleri dahil etmek paketi komutunu kullanın
-1. [Rafael Nicoletti](http://www.codeplex.com/site/users/view/tkrafael) ([@tkrafael](https://twitter.com/tkrafael))
+3. [Rafael Nicoletti](http://www.codeplex.com/site/users/view/tkrafael) ([@tkrafael](https://twitter.com/tkrafael))
     - Yinelenen özellikler anahtar nuget.exe paketi komutta kaçının.
-1. [Ben Phegan](http://www.codeplex.com/site/users/view/benphegan) ([@BenPhegan](https://twitter.com/benphegan))
+4. [Ben Phegan](http://www.codeplex.com/site/users/view/benphegan) ([@BenPhegan](https://twitter.com/benphegan))
     - [#2610](http://nuget.codeplex.com/workitem/2610) -200 makine önbellek boyutunu artırın.
-1. [Slava Trenogin](http://www.codeplex.com/site/users/view/derigel) ([@derigel](https://twitter.com/derigel))
+5. [Slava Trenogin](http://www.codeplex.com/site/users/view/derigel) ([@derigel](https://twitter.com/derigel))
     - [#3217](http://nuget.codeplex.com/workitem/3217) -yanlış sekmede güncelleştirmeleri gösteren düzeltme NuGet iletişim
     - Düzeltme Project.TargetFramework ProjectManager içinde null olabilir
-    - [#3248](http://nuget.codeplex.com/workitem/3248) - Fix SharedPackageRepository FindPackage/FindPackagesById will fail on non-existent packageId
-1. [Kevin Boyle](http://www.codeplex.com/site/users/view/KevinBoyleRG) ([@kevfromireland](https://twitter.com/kevfromireland))
+    - [#3248](http://nuget.codeplex.com/workitem/3248) -SharedPackageRepository FindPackage/FindPackagesById düzeltme üzerinde mevcut olmayan PackageId başarısız olur
+6. [Kevin Boyle](http://www.codeplex.com/site/users/view/KevinBoyleRG) ([@kevfromireland](https://twitter.com/kevfromireland))
     - [#3234](http://nuget.codeplex.com/workitem/3234) -Nomad proje desteğini etkinleştir
-1. [Corin Blaikie](http://www.codeplex.com/site/users/view/corinblaikie) ([@corinblaikie](https://twitter.com/corinblaikie))
+7. [Corin Blaikie](http://www.codeplex.com/site/users/view/corinblaikie) ([@corinblaikie](https://twitter.com/corinblaikie))
     - [#3252](http://nuget.codeplex.com/workitem/3252) -düzeltme itme komutu başarısız çıkış kodu 0 dosya yok olduğunda.
-1. [Martin Veselý](http://www.codeplex.com/site/users/view/veselkamartin)
+8. [Martin Veselý](http://www.codeplex.com/site/users/view/veselkamartin)
     - [#3226](http://nuget.codeplex.com/workitem/3226) -proje veritabanı projesi başvurduğunda Ekle BindingRedirect komutuyla düzeltme hata.
-1. [Miroslav Bajtos](http://www.codeplex.com/site/users/view/miroslavbajtos) ([@bajtos](https://twitter.com/bajtos))
+9. [Miroslav Bajtos](http://www.codeplex.com/site/users/view/miroslavbajtos) ([@bajtos](https://twitter.com/bajtos))
     - [#2891](http://nuget.codeplex.com/workitem/2891) -joker 'dışlama' özniteliğinde yanlış ayrıştırma nuget.pack, düzeltme hata.
-1. [Justin Dearing](http://www.codeplex.com/site/users/view/zippy1981) ([@zippy1981](https://twitter.com/zippy1981))
-    - [#3307](http://nuget.codeplex.com/workitem/3307) -düzeltme hata `NuGet.targets` $(Platform) nuget.exe için paketler geri yüklerken iletmez.
-1. [Brian Federici](http://www.codeplex.com/site/users/view/benerdin)
-    - [#3294](http://nuget.codeplex.com/workitem/3294) -düzeltme hatada sonunda "Öğe zaten var." özel duruma neden farklı büyük/küçük harf, ancak aynı adı dosyalarıyla ekleme izin nuget.exe paket komutu.
-1. [Daniel Cazzulino](http://www.codeplex.com/site/users/view/dcazzulino) ([@kzu](https://twitter.com/kzu))
-    - [#2990](http://nuget.codeplex.com/workitem/2990) -NetPortableProfile sınıfına sürüm ekleme özelliği.
-1. [David Simner](https://www.codeplex.com/site/users/view/DavidSimner)
-    - [#3460](https://nuget.codeplex.com/workitem/3460) -hata NullReferenceException varsa düzeltme requireApiKey = true ancak üst bilgisi X-NUGET-apikey ile yapılan mevcut değil
-1. [Michael Friis](https://www.codeplex.com/site/users/view/friism) ([@friism](https://twitter.com/friism))
-    - [#3278](https://nuget.codeplex.com/workitem/3278) -MonoDevelop üzerinde doğru şekilde çalışmasını giderir NuGet.Build hedefleri dosya
-1. [Pranav Krishnamoorthy](https://www.codeplex.com/site/users/view/pranavkm) ([@pranav_km](https://twitter.com/pranav_km))
-    - Geri yükleme komutu paralelleştirme artırarak performansı
+10. [Justin Dearing](http://www.codeplex.com/site/users/view/zippy1981) ([@zippy1981](https://twitter.com/zippy1981))
+     - [#3307](http://nuget.codeplex.com/workitem/3307) -düzeltme hata `NuGet.targets` $(Platform) nuget.exe için paketler geri yüklerken iletmez.
+11. [Brian Federici](http://www.codeplex.com/site/users/view/benerdin)
+     - [#3294](http://nuget.codeplex.com/workitem/3294) -düzeltme hatada sonunda "Öğe zaten var." özel duruma neden farklı büyük/küçük harf, ancak aynı adı dosyalarıyla ekleme izin nuget.exe paket komutu.
+12. [Daniel Cazzulino](http://www.codeplex.com/site/users/view/dcazzulino) ([@kzu](https://twitter.com/kzu))
+     - [#2990](http://nuget.codeplex.com/workitem/2990) -NetPortableProfile sınıfına sürüm ekleme özelliği.
+13. [David Simner](https://www.codeplex.com/site/users/view/DavidSimner)
+     - [#3460](https://nuget.codeplex.com/workitem/3460) -hata NullReferenceException varsa düzeltme requireApiKey = true ancak üst bilgisi X-NUGET-apikey ile yapılan mevcut değil
+14. [Michael Friis](https://www.codeplex.com/site/users/view/friism) ([@friism](https://twitter.com/friism))
+     - [#3278](https://nuget.codeplex.com/workitem/3278) -MonoDevelop üzerinde doğru şekilde çalışmasını giderir NuGet.Build hedefleri dosya
+15. [Pranav Krishnamoorthy](https://www.codeplex.com/site/users/view/pranavkm) ([@pranav_km](https://twitter.com/pranav_km))
+     - Geri yükleme komutu paralelleştirme artırarak performansı
 
 ## <a name="notable-features-in-the-release"></a>Sürümdeki dikkat çekici özellikleri
 
@@ -79,7 +70,7 @@ NuGet 2.7 ile başlayarak, paket geri yükleme izni üzerinde varsayılan olarak
 * Visual Studio 2013 Preview
 * Visual Studio 2012
 * Visual Studio 2010
-* nuget.exe Command-Line Utility
+* nuget.exe komut satırı yardımcı programı
 
 #### <a name="automatic-package-restore-in-visual-studio"></a>Visual Studio'da otomatik paket geri yüklemesi
 
@@ -105,9 +96,9 @@ NuGet 2.7 nuget.exe için yeni bir özellik sunar: `nuget.exe restore`
 
 Bu yeni Restore komutu kolayca tüm paketleri tek bir komutla bir çözüm için çözüm dosya veya klasör bağımsız değişken olarak kabul ederek geri yüklemenize olanak sağlar. Ayrıca, geçerli klasörde yalnızca tek bir çözüm olduğunda bu bağımsız değişken uygulanmaktadır. Aşağıdaki tüm tek çözüm dosyasını (MySolution.sln) içeren bir klasörden iş anlamına gelir:
 
-1. nuget.exe restore MySolution.sln
-1. nuget.exe restore .
-1. nuget.exe restore
+1. nuget.exe geri yükleme MySolution.sln
+1. nuget.exe geri yükleme.
+1. nuget.exe geri yükleme
 
 Restore komutu, çözüm dosyasını açın ve tüm projeleri çözüm içinde bulun. Buradan, onu bulacaksınız `packages.config` dosyaları her proje ve geri yükleme tüm paketler bulunamadı. Ayrıca bulunan çözüm düzeyi paketleri geri yükler `.nuget\packages.config` dosya. Yeni Restore komutu hakkında daha fazla bilgi bulunabilir [komut satırı başvurusu](../tools/cli-ref-restore.md).
 
@@ -161,7 +152,7 @@ Bkz: [NuGet yapılandırma varsayılanları](../consume-packages/configuring-nug
 
 ### <a name="renaming-the-default-package-source"></a>Varsayılan paket kaynağı yeniden adlandırma
 
-NuGet her zaman "için nuget.org işaret NuGet resmi bir paket kaynağı" olarak adlandırılan varsayılan paket kaynağına kaydettirildi. Bu ad ayrıntılı ve ayrıca burada da gerçekte işaret eden belirtin alamadık. Bu iki sorunları gidermek için yalnızca "nuget.org" kullanıcı arabiriminde bu paket kaynağına değiştirdiniz. Paket kaynağının URL'sini de "www." içerecek şekilde değiştirildi. önek. NuGet 2.7 kullandıktan sonra varolan "NuGet resmi bir paket kaynağı" otomatik olarak ad olarak "nuget.org" güncelleştirilecek ve "https://www.nuget.org/api/v2/" URL olarak.
+NuGet her zaman "için nuget.org işaret NuGet resmi bir paket kaynağı" olarak adlandırılan varsayılan paket kaynağına kaydettirildi. Bu ad ayrıntılı ve ayrıca burada da gerçekte işaret eden belirtin alamadık. Bu iki sorunları gidermek için yalnızca "nuget.org" kullanıcı arabiriminde bu paket kaynağına değiştirdiniz. Paket kaynağının URL'sini de "www." içerecek şekilde değiştirildi. önek. NuGet 2.7 kullandıktan sonra varolan "NuGet resmi bir paket kaynağı" otomatik olarak ad olarak "nuget.org" güncelleştirilecek ve "<https://www.nuget.org/api/v2/>" URL olarak.
 
 ### <a name="performance-improvements"></a>Performans Geliştirmeleri
 

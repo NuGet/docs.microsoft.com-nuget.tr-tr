@@ -1,25 +1,17 @@
 ---
-title: NuGet paketlerini imzalama | Microsoft Docs
-author: rido-min
-ms.author: rido-min
-manager: unniravindranathan
-ms.date: 03/06/2018
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
+title: NuGet paketlerini imzalama
 description: İmzalı Paketleri açıklar içerik bütünlüğü doğrulamasını etkinleştirmek için kullanılabilir.
-keywords: İmzalama, NuGet güvenlik, imzalı paketleri oluşturma NuGet paketi
-ms.reviewer:
-- karann-msft
-- anangaur
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 61d90066e8cf75c8f49c7cc9390d45e1cd8afd0d
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+author: rido-min
+ms.author: rmpablos
+manager: unnir
+ms.date: 03/06/2018
+ms.topic: conceptual
+ms.reviewer: anangaur
+ms.openlocfilehash: a469cbdd218a0e9c18950bb0d36faf4dbcb42a01
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="signing-nuget-packages"></a>NuGet paketlerini imzalama
 

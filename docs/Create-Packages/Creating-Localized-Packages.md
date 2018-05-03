@@ -1,25 +1,16 @@
 ---
-title: Yerelleştirilmiş bir NuGet paketi oluşturma | Microsoft Docs
+title: Yerelleştirilmiş bir NuGet paketi oluşturma
+description: Oluşturmanın iki yolu ayrıntıları da tüm derlemelerin tek bir pakete dahil etme veya ayrı derlemeler yayımlama NuGet paketleri yerelleştirilmiş.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/18/2018
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: Oluşturmanın iki yolu ayrıntıları da tüm derlemelerin tek bir pakete dahil etme veya ayrı derlemeler yayımlama NuGet paketleri yerelleştirilmiş.
-keywords: NuGet paket yerelleştirme, yerelleştirilmiş paketleri, NuGet yerelleştirme kuralları oluşturma NuGet uydu derlemeleri
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 39ff6d300ec1a1f7941cad5953599f25f55117f4
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.openlocfilehash: 017957a349f3c53822225f885e32b7068f1c1c34
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="creating-localized-nuget-packages"></a>Yerelleştirilmiş NuGet paketleri oluşturma
 
@@ -129,8 +120,8 @@ Tüm bu kuralları karşılandığında, NuGet paketi uydu paket olarak tanımak
 Desteklenen her dil için aynı şekilde ek uydu derlemelerini oluşturursunuz. Örneğin, ASP.NET MVC paket kümesini inceleyin:
 
 - [Microsoft.AspNet.Mvc](http://nuget.org/packages/Microsoft.AspNet.Mvc) (İngilizce birincil)
-- [Microsoft.AspNet.Mvc.de](http://nuget.org/packages/Microsoft.AspNet.Mvc.de) (German)
-- [Microsoft.AspNet.Mvc.ja](http://nuget.org/packages/Microsoft.AspNet.Mvc.ja) (Japanese)
+- [Microsoft.AspNet.Mvc.de](http://nuget.org/packages/Microsoft.AspNet.Mvc.de) (Almanca)
+- [Microsoft.AspNet.Mvc.ja](http://nuget.org/packages/Microsoft.AspNet.Mvc.ja) (Japonca)
 - [Microsoft.AspNet.Mvc.zh atanır](http://nuget.org/packages/Microsoft.AspNet.Mvc.zh-Hans) (Çince (Basitleştirilmiş))
 - [Microsoft.AspNet.Mvc.zh Hant](http://nuget.org/packages/Microsoft.AspNet.Mvc.zh-Hant) (Çince (Geleneksel))
 

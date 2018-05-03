@@ -1,29 +1,17 @@
 ---
-title: Genel bakış, NuGet API | Microsoft Docs
-author:
-- joelverhagen
-- kraigb
-ms.author:
-- joelverhagen
-- kraigb
+title: API NuGet genel bakış
+description: NuGet paketlerini indirmek, meta veri Getir, yeni paketler, vb. yayımlamak için kullanılan HTTP uç noktalar kümesi API'dir.
+author: joelverhagen
+ms.author: jver
 manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: NuGet paketlerini indirmek, meta veri Getir, yeni paketler, vb. yayımlamak için kullanılan HTTP uç noktalar kümesi API'dir.
-keywords: NuGet V3 API, NuGet V2 API, NuGet JSON, NuGet registration API, NuGet API flat container, NuGet nupkg API, NuGet metadata API, NuGet search API, NuGet push API, NuGe publish API, NuGet delete API, NuGet unlist API, NuGet protocol
-ms.reviewer:
-- karann
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 7053a971c80a94cf035e8f149c332b36e66a9ea9
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.reviewer: kraigb
+ms.openlocfilehash: a638dba005c14bff4b2e668e2d6ca527a67b94a9
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-api"></a>NuGet API
 
@@ -80,7 +68,7 @@ API tarafından döndürülen tüm zaman damgaları UTC ya da aksi takdirde kull
 
 ## <a name="http-methods"></a>HTTP yöntemleri
 
-Verb   | Bir yönetim grubuna bağlanmak veya bağlı bir yönetim grubunun özelliklerini düzenlemek için Yönetim çalışma alanında
+Fiil   | Bir yönetim grubuna bağlanmak veya bağlı bir yönetim grubunun özelliklerini düzenlemek için Yönetim çalışma alanında
 ------ | -----------
 AL    | Genellikle veri alma salt okunur bir işlemi gerçekleştirir.
 HEAD   | Karşılık gelen için yanıt üstbilgilerini getirir `GET` isteği.
@@ -113,9 +101,9 @@ Tüm `GET` API uç noktasına yapılan istek HTTP yeniden yönlendirmesi (301 ve
 
 Ad                     | Açıklama
 ------------------------ | -----------
-X-NuGet-ApiKey           | Anında iletme ve silme için gerekir, bkz: [ `PackagePublish` kaynak](package-publish-resource.md)
+X-NuGet-apikey ile yapılan           | Anında iletme ve silme için gerekir, bkz: [ `PackagePublish` kaynak](package-publish-resource.md)
 X-NuGet-Client-Version   | **Kullanım dışı** ve tarafından değiştirildi `X-NuGet-Protocol-Version`
-X-NuGet-Protocol-Version | Bazı durumlarda yalnızca nuget.org üzerinde gerekli, bkz: [nuget.org protokolleri](NuGet-Protocols.md)
+X-NuGet-Protocol-sürüm | Bazı durumlarda yalnızca nuget.org üzerinde gerekli, bkz: [nuget.org protokolleri](NuGet-Protocols.md)
 X-NuGet-Session-Id       | *İsteğe bağlı*. NuGet istemcileri v4.7 + aynı NuGet istemci oturumunun parçası olan HTTP isteklerini tanımlayın. İçin `PackageReference` geri yükleme işlemleri var olan otomatik tamamlama, gibi diğer senaryolar için bir tek oturum kimliği ve `packages.config` geri yükleme kodu nasıl katılır nedeniyle birkaç farklı oturum kimliği olabilir.
 
 ## <a name="authentication"></a>Kimlik doğrulaması

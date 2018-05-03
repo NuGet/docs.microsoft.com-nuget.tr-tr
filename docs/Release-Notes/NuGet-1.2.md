@@ -1,25 +1,16 @@
 ---
-title: NuGet 1.2 sürüm notları | Microsoft Docs
-author: karann-msft
-ms.author: karann-msft
-manager: ghogen
-ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
+title: NuGet 1.2 sürüm notları
 description: Bilinen sorunlar, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere NuGet 1.2 için sürüm notları.
-keywords: Özellikler, dcr bilinen sorunlar, NuGet 1.2 sürüm notları, hata düzeltmeleri eklendi
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 0d95f41c5bc5d490764c9f128ee621e1037cef66
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+author: karann-msft
+ms.author: karann
+manager: unnir
+ms.date: 11/11/2016
+ms.topic: conceptual
+ms.openlocfilehash: 9267374775887889b063c844063988504a541a38
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-12-release-notes"></a>NuGet 1.2 sürüm notları
 
@@ -51,7 +42,7 @@ Bunlar .NET Framework'ün bir parçası olarak her makinede olduğu varsayılır
 
 |Öznitelik |Açıklama|
 |----------------|-----------|
-|**assemblyName**|*Gerekli*. Gibi derlemenin adını `System.Net`.|
+|**AssemblyName**|*Gerekli*. Gibi derlemenin adını `System.Net`.|
 |**targetFramework**|*İsteğe bağlı*. Framework ve profil adı (veya diğer) belirtebilirsiniz, "net40" veya "sl4" gibi bu framework derleme uygulanır. Açıklanan aynı biçimi kullanır [destekleyen birden çok hedef çerçeveyi](../create-packages/supporting-multiple-target-frameworks.md).|
 
 ```xml

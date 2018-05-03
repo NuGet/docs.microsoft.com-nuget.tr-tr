@@ -1,26 +1,17 @@
 ---
-title: "Anında iletme ve Delete, NuGet API | Microsoft Docs"
-author:
-- joelverhagen
-- kraigb
-ms.author:
-- joelverhagen
-- kraigb
+title: Anında iletme ve Delete, NuGet API
+description: Yayımlama hizmeti, istemcilerin yeni paketleri yayımlama ve unlist veya var olan paketleri silmek olanak tanır.
+author: joelverhagen
+ms.author: jver
 manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: 
-description: "Yayımlama hizmeti, istemcilerin yeni paketleri yayımlama ve unlist veya var olan paketleri silmek olanak tanır."
-keywords: "NuGet API itme paket NuGet API Sil paket, NuGet API unlist paketi, NuGet API karşıya yükleme paketi, NuGet API'si paketi oluşturma"
-ms.reviewer:
-- karann
-- unniravindranathan
-ms.openlocfilehash: f8051ca57fccae77917567d8c9f2f8a120a8d884
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.reviewer: kraigb
+ms.openlocfilehash: 911c8238624f806b1fbb5c7938d02b6bdfbd8614
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="push-and-delete"></a>Anında iletme ve silin
 
@@ -30,7 +21,7 @@ Anında iletme Sil (veya unlist, bağlı sunucu uygulaması) mümkündür ve rel
 
 Aşağıdaki `@type` değeri kullanılır:
 
-@typedeğer          | Notlar
+@type Değer          | Notlar
 -------------------- | -----
 PackagePublish/2.0.0 | İlk sürüm
 
@@ -57,7 +48,7 @@ nuget.org aşağıdaki API kullanarak koymadan yeni paketlerini destekler. Sağl
 
 Ad           | İçindeki     | Tür   | Gerekli | Notlar
 -------------- | ------ | ------ | -------- | -----
-X-NuGet-ApiKey | Üstbilgi | dize | Evet      | Örneğin, `X-NuGet-ApiKey: {USER_API_KEY}`
+X-NuGet-apikey ile yapılan | Üstbilgi | dize | Evet      | Örneğin, `X-NuGet-ApiKey: {USER_API_KEY}`
 
 API anahtarını paket kaynağından kullanıcı tarafından onayınızı ve istemciyi yapılandırılmış donuk bir dizedir. Hiçbir belirli dize biçimi zorunlu ancak API anahtarı uzunluğu HTTP üstbilgi değerleri için makul bir boyut aşamaz.
 
@@ -91,7 +82,7 @@ Ad           | İçindeki     | Tür   | Gerekli | Notlar
 -------------- | ------ | ------ | -------- | -----
 Kimlik             | URL    | dize | Evet      | Silmek için paket kimliği
 VERSION        | URL    | dize | Evet      | Silmek için paketin sürümü
-X-NuGet-ApiKey | Üstbilgi | dize | Evet      | Örneğin, `X-NuGet-ApiKey: {USER_API_KEY}`
+X-NuGet-apikey ile yapılan | Üstbilgi | dize | Evet      | Örneğin, `X-NuGet-ApiKey: {USER_API_KEY}`
 
 ### <a name="response"></a>Yanıt
 
@@ -114,7 +105,7 @@ Ad           | İçindeki     | Tür   | Gerekli | Notlar
 -------------- | ------ | ------ | -------- | -----
 Kimlik             | URL    | dize | Evet      | Relist paket kimliği
 VERSION        | URL    | dize | Evet      | Relist Paket sürümü
-X-NuGet-ApiKey | Üstbilgi | dize | Evet      | Örneğin, `X-NuGet-ApiKey: {USER_API_KEY}`
+X-NuGet-apikey ile yapılan | Üstbilgi | dize | Evet      | Örneğin, `X-NuGet-ApiKey: {USER_API_KEY}`
 
 ### <a name="response"></a>Yanıt
 

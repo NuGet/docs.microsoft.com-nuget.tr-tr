@@ -1,27 +1,18 @@
 ---
-title: Oluşturma ve bir .NET standart Visual Studio kullanarak yayımlama NuGet paketi tanıtım Kılavuzu | Microsoft Docs
+title: Oluşturma ve bir .NET standart Visual Studio kullanarak yayımlama NuGet paketi tanıtım Kılavuzu
+description: Oluşturma ve yayımlama Visual Studio 2017 kullanarak bir .NET standart NuGet paketi bir gözden geçirme Öğreticisi.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 03/18/2018
 ms.topic: quickstart
-ms.prod: nuget
-ms.technology: ''
-description: Oluşturma ve yayımlama Visual Studio 2017 kullanarak bir .NET standart NuGet paketi bir gözden geçirme Öğreticisi.
-keywords: NuGet paketini oluşturma, NuGet paketi yayımlama, NuGet öğretici, Visual Studio NuGet paketi, msbuild paketi oluşturma
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: f7c5fb7911edcbbd3413a8836d20e7f108751f79
-ms.sourcegitcommit: 55433d3bda7684d978f26d559f801878223675fa
+ms.openlocfilehash: c5d58aa6312eae801607ca44a81bc092a7a7c15f
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="create-and-publish-a-package-using-visual-studio-net-standard"></a>Oluşturma ve Visual Studio (.NET standart) kullanarak bir paket yayımlama
+# <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard"></a>Hızlı Başlangıç: Oluşturma ve Visual Studio (.NET standart) kullanarak bir NuGet Paketi Yayımlama
 
 Bir .NET standart sınıf kitaplığı Visual Studio'da NuGet paketi oluşturun ve ardından CLI aracını kullanarak nuget.org yayımlamak için basit bir işlemdir.
 
@@ -112,11 +103,11 @@ Ek seçeneklerle için `msbuild /t:pack`, bkz: [NuGet paketi ve geri yükleme MS
 
 Bulduktan sonra bir `.nupkg` dosyası, yayımlama, kullanarak nuget.org `nuget.exe` CLI veya `dotnet.exe` CLI nuget.org alınan bir API anahtarı ile birlikte.
 
-[!INCLUDE[publish-notes](includes/publish-notes.md)]
+[!INCLUDE [publish-notes](includes/publish-notes.md)]
 
 ### <a name="acquire-your-api-key"></a>API anahtarınızı edinin
 
-[!INCLUDE[publish-api-key](includes/publish-api-key.md)]
+[!INCLUDE [publish-api-key](includes/publish-api-key.md)]
 
 ### <a name="publish-with-nuget-push"></a>Nuget itme ile yayımlama
 
@@ -145,20 +136,21 @@ Bkz: [nuget itme](../tools/cli-ref-push.md).
 
 Bu adım bir alternatifidir `nuget.exe`.
 
-[!INCLUDE[publish-dotnet](includes/publish-dotnet.md)]
+[!INCLUDE [publish-dotnet](includes/publish-dotnet.md)]
 
 ### <a name="publish-errors"></a>Hataları yayımlama
 
-[!INCLUDE[publish-errors](includes/publish-errors.md)]
+[!INCLUDE [publish-errors](includes/publish-errors.md)]
 
 ### <a name="manage-the-published-package"></a>Yayımlanan paket yönetme
 
-[!INCLUDE[publish-manage](includes/publish-manage.md)]
+[!INCLUDE [publish-manage](includes/publish-manage.md)]
 
 ## <a name="related-topics"></a>İlgili konular
 
 - [Bir paket oluşturun](../create-packages/creating-a-package.md)
 - [Paket Yayımlama](../create-packages/publish-a-package.md)
+- [Ön yayın paketleri](../create-packages/Prerelease-Packages.md)
 - [Birden çok hedef çerçeveyi desteği](../create-packages/supporting-multiple-target-frameworks.md)
 - [Paket sürümü oluşturma](../reference/package-versioning.md)
 - [Yerelleştirilmiş paketler oluşturma](../create-packages/creating-localized-packages.md)

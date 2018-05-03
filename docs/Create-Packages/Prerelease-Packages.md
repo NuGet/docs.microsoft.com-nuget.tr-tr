@@ -1,25 +1,16 @@
 ---
-title: NuGet paketlerini sürümlerde sürüm öncesi | Microsoft Docs
+title: Yayın öncesi sürümlerde NuGet paketleri
+description: Yayın öncesi paketleri oluşturmak için yönergeler
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 08/14/2017
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: Yayın öncesi paketleri oluşturmak için yönergeler
-keywords: sürüm oluşturma, NuGet paketini sürüm oluşturma, NuGet yayın öncesi sürümler, NuGet ön sürüm paketlerini, Önizleme paketi sürümleri, RC paketi sürümleri, Beta paketi sürümleri, NuGet anlamsal sürüm oluşturma
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 57f59e3906e2d49b6b6e078f530885a601553b06
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.openlocfilehash: a4540d29d9ca01f98ee5d1786e8a175ee0ea79f4
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="building-pre-release-packages"></a>Yayın öncesi paketleri oluşturma
 

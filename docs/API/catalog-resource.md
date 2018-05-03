@@ -1,29 +1,17 @@
 ---
-title: Katalog, NuGet V3 API | Microsoft Docs
-author:
-- joelverhagen
-- kraigb
-ms.author:
-- joelverhagen
-- kraigb
+title: Kaynak, NuGet V3 API katalog
+description: Bir dizin oluşturulur ve üzerinde nuget.org silinen tüm paketlerin kataloğudur.
+author: joelverhagen
+ms.author: jver
 manager: skofman
 ms.date: 10/30/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Bir dizin oluşturulur ve üzerinde nuget.org silinen tüm paketlerin kataloğudur.
-keywords: NuGet V3 API Kataloğu, nuget.org işlem günlüğü, çoğaltma nuget.org, kopya nuget.org nuget.org yalnızca append kaydı
-ms.reviewer:
-- karann
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 61ed502eee498f5ad0a014e3338503f2855396a5
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.reviewer: kraigb
+ms.openlocfilehash: 464b252ca318a5bd3487c723dbf4c7062e4698a3
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="catalog"></a>Katalog
 
@@ -213,16 +201,16 @@ isPrerelease            | Boole değeri                    | Evet      | Paket s
 dil                | dize                     | Yok       |
 licenseUrl              | dize                     | Yok       |
 listelenen                  | Boole değeri                    | Yok       | Paket listede olmayan
-minClientVersion        | dize                     | Yok       |
+MinClientVersion        | dize                     | Yok       |
 packageHash             | dize                     | Evet      | Kullanarak kodlama paket karmasını [standart base 64](https://tools.ietf.org/html/rfc4648#section-4)
 packageHashAlgorithm    | dize                     | Evet      |
 packageSize             | tamsayı                    | Evet      | Paket .nupkg bayt cinsinden boyutu
 projectUrl              | dize                     | Yok       |
-releaseNotes            | dize                     | Yok       |
+ReleaseNotes            | dize                     | Yok       |
 requireLicenseAgreement | Boole değeri                    | Yok       | Varsayın `false` dışlanan varsa
 özet                 | dize                     | Yok       |
 etiketler                    | Dize dizisi           | Yok       |
-title                   | dize                     | Yok       |
+Başlık                   | dize                     | Yok       |
 verbatimVersion         | dize                     | Yok       | Sürüm dizesi olarak başlangıçta .nuspec bulundu
 
 Paket `version` tam, normalleştirilmiş sürüm dizesi bir özelliktir. Bu SemVer 2.0.0 yapılandırma verilerini buraya dahil olabileceği anlamına gelir.

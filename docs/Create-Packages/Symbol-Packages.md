@@ -1,26 +1,17 @@
 ---
-title: NuGet sembol paketlerini oluşturma | Microsoft Docs
+title: NuGet simgesi paketleri oluşturma
+description: Diğer NuGet paketleri Visual Studio'da hata ayıklamayı desteklemek için yalnızca sembolleri içeren NuGet paketleri oluşturma
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 09/12/2017
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: Diğer NuGet paketleri Visual Studio'da hata ayıklamayı desteklemek için yalnızca sembolleri içeren NuGet paketleri oluşturma
-keywords: NuGet sembol paketlerini, hata ayıklama, hata ayıklama, paket sembolleri, sembol paketi kuralları NuGet destekleyen NuGet paketi
-ms.reviewer:
-- anangaur
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 6b6ddb0ca8ac5d7589dc5cb6de66ee3aa5faf8b6
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.reviewer: anangaur
+ms.openlocfilehash: cf8761ac4c994d864cd49a8fb31b3be626d4c0a6
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="creating-symbol-packages"></a>Sembol paketleri oluşturma
 
@@ -113,21 +104,22 @@ Sembol paketi kurallarından önceki bölümde açıklandığı gibi klasör yap
     nuget SetApiKey Your-API-Key
     ```
 
-1. Birincil paketiniz için nuget.org yayımlandıktan sonra simge paketini aşağıdaki gibi otomatik olarak symbolsource.org nedeniyle hedefi olarak kullanacak anında `.symbols` dosya:
+2. Birincil paketiniz için nuget.org yayımlandıktan sonra simge paketini aşağıdaki gibi otomatik olarak symbolsource.org nedeniyle hedefi olarak kullanacak anında `.symbols` dosya:
 
     ```cli
     nuget push MyPackage.symbols.nupkg
     ```
-> [!Note]
-> Nuget.exe 4.5.0 veya üzeri, simgeler paketleri otomatik olarak symbolsource.org için gönderilen değil. Sonraki adımda açıklandığı gibi ayrı ayrı simgeleri paketleri göndermek gerekir.
 
-1. Farklı simge depoya yayımlamak ya da adlandırma kuralı IU bir sembol paketi göndermek için kullanmak `-Source` seçeneği:
+   > [!Note]
+   > Nuget.exe 4.5.0 veya üzeri, simgeler paketleri otomatik olarak symbolsource.org için gönderilen değil. Sonraki adımda açıklandığı gibi ayrı ayrı simgeleri paketleri göndermek gerekir.
+
+3. Farklı simge depoya yayımlamak ya da adlandırma kuralı IU bir sembol paketi göndermek için kullanmak `-Source` seçeneği:
 
     ```cli
     nuget push MyPackage.symbols.nupkg -source https://nuget.smbsrc.net/
     ```
 
-1. Ayrıca, hem birincil hem de anında ve aşağıdakileri kullanarak aynı anda hem depoları paketlere simge:
+4. Ayrıca, hem birincil hem de anında ve aşağıdakileri kullanarak aynı anda hem depoları paketlere simge:
 
     ```cli
     nuget push MyPackage.nupkg

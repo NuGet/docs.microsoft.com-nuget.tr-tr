@@ -1,22 +1,16 @@
 ---
-title: "NuGet 3.5 Beta sürüm notları | Microsoft Docs"
+title: NuGet 3.5 Beta sürüm notları
+description: NuGet bilinen sorunları, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere 3.5 için sürüm notları.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "NuGet bilinen sorunları, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere 3.5 için sürüm notları."
-keywords: "Özellikler, dcr bilinen sorunlar, NuGet 3.5 sürüm notları, hata düzeltmeleri eklendi"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: ee78ceb2ff032c05c0f8ef9a6623b94cc56ee0a9
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: cdb540229cae0e6e952ac2a0c00c8801ccbbb28d
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-35-release-notes"></a>NuGet 3.5 sürüm notları
 
@@ -80,7 +74,7 @@ ms.lasthandoff: 02/02/2018
 
 * Proje sırasında nuget.exe güncelleştirme *.csproj çağırma olmadığı zaman hiçbir bilgi verilen bir `packages.config`  -  [#1496](https://github.com/NuGet/Home/issues/1496)
 
-* `packages.config`geri yükleme 5xx durum kodları V2 kaynaklardan - yeniden [#1217](https://github.com/NuGet/Home/issues/1217)
+* `packages.config` geri yükleme 5xx durum kodları V2 kaynaklardan - yeniden [#1217](https://github.com/NuGet/Home/issues/1217)
 
 * Dosya src çift nokta `.nuspec` çalışmıyor - [#2947](https://github.com/NuGet/Home/issues/2947)
 
@@ -148,7 +142,7 @@ ms.lasthandoff: 02/02/2018
 
 * Tek bir kaynak yetkilendirme - blokları yükleyin [#2034](https://github.com/NuGet/Home/issues/2034)
 
-* `.nuspec`Aralık - IncludeReferencedProjects sürümü - geçersiz kıl sürüm [#1983](https://github.com/NuGet/Home/issues/1983)
+* `.nuspec` Aralık - IncludeReferencedProjects sürümü - geçersiz kıl sürüm [#1983](https://github.com/NuGet/Home/issues/1983)
 
 * Güncelleştirme paketi Süper yavaş - "bağımlılık bilgileri toplanmaya çalışılıyor" - [#1909](https://github.com/NuGet/Home/issues/1909)
 
@@ -196,7 +190,7 @@ ms.lasthandoff: 02/02/2018
 
 * Dosya -> Yeni Proje VS2015 ve Dev15 - sınıf kitaplığı (taşınabilir) proje başarısız -> [#3094](https://github.com/NuGet/Home/issues/3094)
 
-* NuGet hata - 1.0.0-* geçerli bir sürüm dizesi - değil [#3070](https://github.com/NuGet/Home/issues/3070)
+* nuGet hata - 1.0.0-* geçerli bir sürüm dizesi - değil [#3070](https://github.com/NuGet/Home/issues/3070)
 
 * Bul-Package başarısız görünen ancak Install-Package works - [#3068](https://github.com/NuGet/Home/issues/3068)
 
@@ -226,7 +220,7 @@ ms.lasthandoff: 02/02/2018
 
 * Kimlik Bilgisi Eklentisi -1 hata ile çıkıldı / hata indirme paketini kimlik bilgisi sağlayıcıları birden çok kaynaklarıyla - kullanırken [#2885](https://github.com/NuGet/Home/issues/2885)
 
-* `project.json`nuget restore neden olan bir şey olduğunda değiştirilen - yeniden derlenmek [#2817](https://github.com/NuGet/Home/issues/2817)
+* `project.json` nuget restore neden olan bir şey olduğunda değiştirilen - yeniden derlenmek [#2817](https://github.com/NuGet/Home/issues/2817)
 
 * Simgeler paketleri hiç olmamalıdır yükleme veya güncelleştirme - kullanılan [#2807](https://github.com/NuGet/Home/issues/2807)
 
@@ -275,7 +269,7 @@ ms.lasthandoff: 02/02/2018
 
 ## <a name="dcrs"></a>Dcr
 
-* nuget.exe push - timeout parameter doesn't work  - [#2785](https://github.com/NuGet/Home/issues/2785)
+* nuget.exe push - zaman aşımı parametresi işe yaramazsa - [#2785](https://github.com/NuGet/Home/issues/2785)
 
 * Paket açıklama metnini seçilebilir - [#1769](https://github.com/NuGet/Home/issues/1769)
 

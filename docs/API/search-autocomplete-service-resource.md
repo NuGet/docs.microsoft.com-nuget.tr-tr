@@ -1,26 +1,17 @@
 ---
-title: Otomatik Tamamlama, NuGet API | Microsoft Docs
-author:
-- joelverhagen
-- kraigb
-ms.author:
-- joelverhagen
-- kraigb
+title: Otomatik Tamamlama, NuGet API
+description: Arama otomatik tamamlama hizmeti paketi kimlikleri etkileşimli bulma ve sürümleri destekler.
+author: joelverhagen
+ms.author: jver
 manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: 
-description: "Arama otomatik tamamlama hizmeti paketi kimlikleri etkileşimli bulma ve sürümleri destekler."
-keywords: "NuGet otomatik tamamlama API, NuGet arama paket kimliği, substring paket kimliği"
-ms.reviewer:
-- karann
-- unniravindranathan
-ms.openlocfilehash: 7c984ca61799293d7832851b80cf3fefc4734288
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.reviewer: kraigb
+ms.openlocfilehash: d5e1936c6c5406a1a376c16b2bad5351320dfb4f
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="autocomplete"></a>Otomatik Tamamlama
 
@@ -30,11 +21,11 @@ V3 API kullanarak bir paket Kimliğini ve sürümünü otomatik tamamlama deneyi
 
 Aşağıdaki `@type` değerler kullanılır:
 
-@typedeğer                          | Notlar
+@type Değer                          | Notlar
 ------------------------------------ | -----
 SearchAutocompleteService            | İlk sürüm
-SearchAutocompleteService/3.0.0-beta | Diğer adı`SearchAutocompleteService`
-SearchAutocompleteService/3.0.0-rc   | Diğer adı`SearchAutocompleteService`
+SearchAutocompleteService/3.0.0-beta | Diğer adı `SearchAutocompleteService`
+SearchAutocompleteService/3.0.0-rc   | Diğer adı `SearchAutocompleteService`
 
 ## <a name="base-url"></a>Temel URL
 
@@ -59,7 +50,7 @@ Ad        | İçindeki     | Tür    | Gerekli | Notlar
 q           | URL    | dize  | Yok       | Paket kimlikleri karşı karşılaştırmak için dize
 Atla        | URL    | tamsayı | Yok       | Sayfa numaralandırma için atlamayı sonuç sayısı
 Al        | URL    | tamsayı | Yok       | Sayfa numaralandırma için döndürülecek sonuç sayısı
-yayın öncesi  | URL    | Boole değeri | Yok       | `true`veya `false` dahil edilip edilmeyeceğini belirlemek [yayın öncesi paketleri](../create-packages/prerelease-packages.md)
+yayın öncesi  | URL    | Boole değeri | Yok       | `true` veya `false` dahil edilip edilmeyeceğini belirlemek [yayın öncesi paketleri](../create-packages/prerelease-packages.md)
 semVerLevel | URL    | dize  | Yok       | SemVer 1.0.0 sürüm dizesi 
 
 Otomatik Tamamlama sorgu `q` sunucu uygulaması tarafından tanımlanan bir şekilde ayrıştırılır. nuget.org spliting tarafından üretilen kimliği parçalarıdır paket kimliği belirteçleri önek özgün ortası büyük harf ve sembol karakterlerinin sorgulanırken destekler.
@@ -82,12 +73,12 @@ Kök JSON nesnesi aşağıdaki özelliklere sahiptir:
 
 Ad      | Tür             | Gerekli | Notlar
 --------- | ---------------- | -------- | -----
-totalHits | tamsayı          | Evet      | Atlayıp eşleşirse, toplam sayısı `skip` ve`take`
+totalHits | tamsayı          | Evet      | Atlayıp eşleşirse, toplam sayısı `skip` ve `take`
 veri      | Dize dizisi | Evet      | Paket kimlikleri istek tarafından eşleşti.
 
 ### <a name="sample-request"></a>Örnek istek
 
-GET https://api-v2v3search-0.nuget.org/autocomplete?q=storage&prerelease=true
+AL https://api-v2v3search-0.nuget.org/autocomplete?q=storage&prerelease=true
 
 ### <a name="sample-response"></a>Örnek yanıt
 
@@ -106,7 +97,7 @@ Listede bulunmayan bir paket sürümü sonuçlarında görünmez.
 Ad        | İçindeki     | Tür    | Gerekli | Notlar
 ----------- | ------ | ------- | -------- | -----
 kimlik          | URL    | dize  | Evet      | Sürümleri için getirmek için paket kimliği
-yayın öncesi  | URL    | Boole değeri | Yok       | `true`veya `false` dahil edilip edilmeyeceğini belirlemek [yayın öncesi paketleri](../create-packages/prerelease-packages.md)
+yayın öncesi  | URL    | Boole değeri | Yok       | `true` veya `false` dahil edilip edilmeyeceğini belirlemek [yayın öncesi paketleri](../create-packages/prerelease-packages.md)
 semVerLevel | URL    | dize  | Yok       | SemVer 2.0.0 sürüm dizesi 
 
 Varsa `prerelease` olmayan ön sürüm paketlerini hariç tutulan sağlanır.

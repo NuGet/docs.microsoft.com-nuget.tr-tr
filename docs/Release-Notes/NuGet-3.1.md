@@ -1,22 +1,16 @@
 ---
-title: "NuGet 3.1 sürüm notları | Microsoft Docs"
+title: NuGet 3.1 sürüm notları
+description: NuGet bilinen sorunları, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere 3.1 için sürüm notları.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "NuGet bilinen sorunları, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere 3.1 için sürüm notları."
-keywords: "Özellikler, dcr bilinen sorunlar, NuGet 3.1 sürüm notları, hata düzeltmeleri eklendi"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: a7aa43b8701b3bbef8f6ebce9a5d636ee1bc6abe
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: d14455da6f8af4db92f7105ea1b0e88eb9e71600
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-31-release-notes"></a>NuGet 3.1 sürüm notları
 
@@ -26,13 +20,13 @@ NuGet 3.1 27 Temmuz 2015 tarihinde Visual Studio 2015 için evrensel Windows Pla
 
 Visual Studio Galerisi güncelleştirme biz her zaman hata düzeltmeleri ve yeni özelliklerle güncelleştirmeleri yayımlama olarak kullanılabilir olan, en son sürüme erişimi bu geliştiriciler öneririz.
 
-## <a name="nuget-visual-studio-extension"></a>NuGet Visual Studio Extension
+## <a name="nuget-visual-studio-extension"></a>NuGet Visual Studio uzantısı
 
 Sorunlar ve bu sürümdeki özellikleri etiketli ile github'da ["3.1 RTM UWP geçişli desteği" Kilometre Taşı](https://github.com/NuGet/Home/issues?utf8=%E2%9C%93&q=is%3Aclosed+milestone%3A%223.1+RTM+UWP+transitive+support%22+) toplam, biz 3.1 sürümdeki 67 sorunlara kapalı.
 
 ### <a name="new-features"></a>Yeni Özellikler
 
-* `project.json`Windows UWP ve ASP.NET 5 desteği için destek
+* `project.json` Windows UWP ve ASP.NET 5 desteği için destek
 * Geçişli paket yükleme
 
 Başka bir yerde açıklama ve bu özelliklerin tanımı belgelerinde bulunabilir.
@@ -45,7 +39,7 @@ Aşağıdaki özellikler artık Visual Studio 2015 için kullanılabilir:
 
 Aşağıdaki özellikleri artık Visual Studio 2015 ve kullanmak projeleri için kullanılabilir `project.json` belirtimi
 
-* `install.ps1`ve `uninstall.ps1` -bu komut dosyalarını paket yükleme sırasında yok sayılacak, geri yükleme, güncelleştirme ve kaldırma
+* `install.ps1` ve `uninstall.ps1` -bu komut dosyalarını paket yükleme sırasında yok sayılacak, geri yükleme, güncelleştirme ve kaldırma
 * Yapılandırma dönüşümler göz ardı edilir
 * İçeriği taşınan ancak bir projeye kopyalanmaz.
     * Bu özellik yeniden uygulamak, tartışmayı izlemek ve adresindeki ilerleme takım çalışma: [https://github.com/NuGet/Home/issues/627](https://github.com/NuGet/Home/issues/627)
@@ -75,4 +69,4 @@ Bu şablon izleyen bir klasör yapısı ile dist.nuget.org ana bilgisayarda yeni
 1.    Paketi karşı yürütülemiyor bir `project.json` dosyası - [928](https://github.com/NuGet/Home/issues/928)
 2.    Mono üzerinde - desteklenmeyen [1059](https://github.com/NuGet/Home/issues/1059)
 3.    Yerelleştirilmiş değil - [1058](https://github.com/NuGet/Home/issues/1058), [1057](https://github.com/NuGet/Home/issues/1057)
-4.    , Yalnızca mevcut http://nuget.org/nuget.exe gibi - imzalanmamış [1073](https://github.com/NuGet/Home/issues/1073)
+4.    , Yalnızca var olan gibi imzalanmamış http://nuget.org/nuget.exe - [1073](https://github.com/NuGet/Home/issues/1073)

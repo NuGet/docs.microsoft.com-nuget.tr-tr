@@ -1,26 +1,17 @@
 ---
-title: NuGet paketi sürüm başvurusu | Microsoft Docs
+title: NuGet paketi sürüm başvurusu
+description: Sürüm numaraları ve diğer paketleri, bağlı bir NuGet paketi ve bağımlılıkları nasıl yükleneceğini aralıklarını belirtme hakkında tam ayrıntılar.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 03/23/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Sürüm numaraları ve diğer paketleri, bağlı bir NuGet paketi ve bağımlılıkları nasıl yükleneceğini aralıklarını belirtme hakkında tam ayrıntılar.
-keywords: sürüm oluşturma, NuGet Paket bağımlılıklarını, NuGet bağımlılık sürümleri, NuGet sürüm numaralarını, NuGet Paket sürümü, sürüm aralıkları, sürüm belirtimleri, normalleştirilmiş sürüm numaraları
-ms.reviewer:
-- anandr
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 678ad79d9106a9f592ae4f47bc93cc117496e2c9
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.reviewer: anangaur
+ms.openlocfilehash: d17d964ac73075f05678b9727e90d481a30da62e
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="package-versioning"></a>Paket sürümü oluşturma
 
@@ -96,11 +87,12 @@ Nuget.org için SemVer v2.0.0 özgü paketini karşıya yükleyin, paketin eski 
 - NuGet 4.3.0+
 - Visual Studio 2017 sürüm 15.3 +
 - Visual Studio 2015 ile birlikte [NuGet VSIX v3.6.0](https://dist.nuget.org/visualstudio-2015-vsix/latest/NuGet.Tools.vsix)
-- dotnet.exe (.NET SDK 2.0.0+)
+- DotNet
+  - dotnetcore.exe (.NET SDK'sı 2.0.0+)
 
 Üçüncü taraf istemciler:
 
-- JetBrains Rider
+- JetBrains binici
 - Paket sürüm 5.0 +
 
 <!-- For compatibility with previous dependency-versions page -->
@@ -113,10 +105,10 @@ Paket bağımlılıklarını söz konusu olduğunda NuGet sürümü aralıkları
 | Gösterimi | Uygulanan kural | Açıklama |
 |----------|--------------|-------------|
 | 1.0 | x ≥ 1.0 | En düşük sürüm, (bunlar dahil) |
-| (1.0,) | x > 1.0 | En düşük sürüm, özel |
-| [1.0] | x == 1.0 | Tam sürümü eşleşmiyor |
+| (1.0,) | > 1.0 x | En düşük sürüm, özel |
+| [1.0] | x 1.0 == | Tam sürümü eşleşmiyor |
 | (,1.0] | x ≤ 1.0 | En yüksek sürüm, (bunlar dahil) |
-| (,1.0) | x < 1.0 | Özel olarak, en yüksek sürüm |
+| (,1.0) | < 1.0 x | Özel olarak, en yüksek sürüm |
 | [1.0,2.0] | 1.0 ≤ x ≤ 2.0 | Tam aralık, (bunlar dahil) |
 | (1.0,2.0) | 1.0 < < 2.0 x | Tam aralık, özel |
 | [1.0,2.0) | 1.0 ≤ < 2.0 x | Karma (bunlar dahil) en düşük ve özel en yüksek sürüm |

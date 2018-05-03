@@ -1,26 +1,16 @@
 ---
-title: NuGet 4.6 RTM sürüm notları | Microsoft Docs
+title: NuGet 4.6 RTM sürüm notları
+description: Bilinen sorunlar, hata düzeltmeleri, eklenen özellikleri ve dcr NuGet 4.6.0 dahil etmek için sürüm notları.
 author: anangaur
 ms.author: anangaur
 manager: unnir
 ms.date: 3/7/2018
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: Bilinen sorunlar, hata düzeltmeleri, eklenen özellikleri ve dcr NuGet 4.6.0 dahil etmek için sürüm notları.
-keywords: Özellikler, dcr bilinen sorunlar, NuGet 4.6.0 sürüm notları, hata düzeltmeleri eklendi
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-- anangaur
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 004ad16018443292840b00fa88aa78350e371414
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.openlocfilehash: d8fc374167e5c7f601c41887c4844854d0177ccb
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-46-rtm-release-notes"></a>NuGet 4.6 RTM sürüm notları
 

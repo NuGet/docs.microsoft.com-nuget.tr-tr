@@ -1,25 +1,16 @@
 ---
-title: NuGet paketleri ve kaynak denetimi | Microsoft Docs
+title: NuGet paketleri ve kaynak denetimi
+description: Sürüm denetimi ve kaynak denetim sistemleri içindeki NuGet paketleri kabul etme ve git ve TFVC'yi paketlerle atlayın durumları.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 03/16/2018
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: Sürüm denetimi ve kaynak denetim sistemleri içindeki NuGet paketleri kabul etme ve git ve TFVC'yi paketlerle atlayın durumları.
-keywords: Depoları NuGet kaynak denetimi, NuGet sürüm denetimi, NuGet ve git, NuGet ve TFS, NuGet ve TFVC'yi, atlama paketleri, kaynak denetimi depoları, sürüm denetimi
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 43fc1653616091b0f974903147645c0c99c8f57b
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.openlocfilehash: 5a36b886c3de1943b99b10faff63f4e244166ceb
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="omitting-nuget-packages-in-source-control-systems"></a>Kaynak Denetim sistemleri NuGet paketlerini atlama
 

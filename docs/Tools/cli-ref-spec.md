@@ -1,22 +1,16 @@
 ---
-title: NuGet CLI belirtim komutu | Microsoft Docs
+title: NuGet CLI belirtim komutu
+description: Nuget.exe belirtim komut başvurusu
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/18/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: 
-description: "Nuget.exe belirtim komut başvurusu"
-keywords: "nuget belirtim başvurusu, belirtim komutu"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: cc7e772e737a0f74929d13e2b126f7796b6d0dc7
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 68d661030ce7bcff7d7a3a1c96c07e149ad4ffea
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="spec-command-nuget-cli"></a>belirtim komutu (NuGet CLI)
 
@@ -37,7 +31,7 @@ Burada `<packageID>` kaydetmek için bir isteğe bağlı paket tanımlayıcısı
 | Seçenek | Açıklama |
 | --- | --- |
 | AssemblyPath | Meta veriler için kullanmak için derleme yolunu belirtir. |
-| Force | Var olan üzerine yazar `.nuspec` dosya. |
+| Zorla | Var olan üzerine yazar `.nuspec` dosya. |
 | ForceEnglishOutput | *(3.5 +)*  Değişmez, İngilizce tabanlı kültürü kullanarak çalışacak şekilde nuget.exe zorlar. |
 | Yardım | Bilgi komutu için yardımı görüntüler. |
 | Etkileşimli olmayan | Kullanıcı girişi veya onayı için ister gizler. |

@@ -1,29 +1,20 @@
 ---
-title: NuGet paketi ve geri yükleme MSBuild hedefleri olarak | Microsoft Docs
+title: NuGet paketi ve MSBuild hedefleri olarak geri yükleme
+description: NuGet paketi ve geri yükleme, doğrudan NuGet 4.0 + ile MSBuild hedefleri olarak çalışabilir.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 03/23/2018
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: NuGet paketi ve geri yükleme, doğrudan NuGet 4.0 + ile MSBuild hedefleri olarak çalışabilir.
-keywords: NuGet ve MSBuild, NuGet paketi hedef, NuGet geri yükleme hedefi
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: a9c2c2229d717dff8472dce0ba568e4a21900b19
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.openlocfilehash: e922da94a02450d4ea476c828209fa0cd4305725
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet paketi ve MSBuild hedefleri olarak geri yükleme
 
-*NuGet 4.0+*
+*NuGet 4.0 +*
 
 PackageReference biçimiyle NuGet 4.0 + doğrudan ayrı bir kullanmak yerine bir proje dosyası içinde tüm bildirim meta veri depolayabilirsiniz `.nuspec` dosya.
 
@@ -54,7 +45,7 @@ Unutmayın `Owners` ve `Summary` özelliklerinden `.nuspec` MSBuild ile destekle
 
 | Öznitelik/NuSpec değeri | MSBuild özelliği | Varsayılan | Notlar |
 |--------|--------|--------|--------|
-| Kimliği | PackageId | AssemblyName | MSBuild gelen $(AssemblyName) |
+| Kimliği | Paket kimliği | AssemblyName | MSBuild gelen $(AssemblyName) |
 | Sürüm | PackageVersion | Sürüm | Bu semver örnek "1.0.0", "1.0.0-beta" veya "1.0.0-beta-00345" için uyumlu değil |
 | VersionPrefix | PackageVersionPrefix | empty | PackageVersionPrefix PackageVersion ayarını geçersiz kılar |
 | VersionSuffix | PackageVersionSuffix | empty | MSBuild gelen $(VersionSuffix). PackageVersionSuffix PackageVersion ayarını geçersiz kılar |
@@ -64,9 +55,9 @@ Unutmayın `Owners` ve `Summary` özelliklerinden `.nuspec` MSBuild ile destekle
 | Açıklama | PackageDescription | "Paketi" | |
 | Telif Hakkı | Telif Hakkı | empty | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | false | |
-| LicenseUrl | PackageLicenseUrl | empty | |
-| ProjectUrl | PackageProjectUrl | empty | |
-| IconUrl | PackageIconUrl | empty | |
+| licenseUrl | PackageLicenseUrl | empty | |
+| projectUrl | PackageProjectUrl | empty | |
+| iconUrl | PackageIconUrl | empty | |
 | Etiketler | PackageTags | empty | Etiketleri noktalı virgülle ayrılmış olan. |
 | ReleaseNotes | PackageReleaseNotes | empty | |
 | Depo/URL'si | RepositoryUrl | empty | Depo URL'si kopyalama veya kaynak kodu almak için kullanılır. Örnek: *https://github.com/NuGet/NuGet.Client.git* |
@@ -80,7 +71,7 @@ Unutmayın `Owners` ve `Summary` özelliklerinden `.nuspec` MSBuild ile destekle
 
 - IsPackable
 - PackageVersion
-- PackageId
+- Paket kimliği
 - Yazarlar
 - Açıklama
 - Telif Hakkı
@@ -332,7 +323,7 @@ Proje dosyası:
 ```xml
 <PropertyGroup>
     <RestoreIgnoreFailedSource>true</RestoreIgnoreFailedSource>
-<PropertyGroup>
+</PropertyGroup>
 ```
 
 ### <a name="restore-outputs"></a>Çıkış geri yükleme

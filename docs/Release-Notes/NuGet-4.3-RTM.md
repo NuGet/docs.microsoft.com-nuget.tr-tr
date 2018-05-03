@@ -1,26 +1,17 @@
 ---
-title: NuGet 4.3 RTM sürüm notları | Microsoft Docs
-author: karann-msft
-ms.author: karann-msft
-manager: unniravindranathan
-ms.date: 08/14/2017
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
+title: NuGet 4.3 RTM sürüm notları
 description: Bilinen sorunlar, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere NuGet 4.3 RTM için sürüm notları.
-keywords: Özellikler, dcr bilinen sorunlar, NuGet 4.3 RTM sürüm notları, hata düzeltmeleri eklendi
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-- anangaur
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 3c798bde11548b866cad62697315e907dea91aa5
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+author: karann-msft
+ms.author: karann
+manager: unnir
+ms.date: 08/14/2017
+ms.topic: conceptual
+ms.reviewer: anangaur
+ms.openlocfilehash: cb44f47ef0b3bd086f0a681cb2fedc7c5afc42fa
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-43-rtm-release-notes"></a>NuGet 4.3 RTM sürüm notları
 
@@ -104,7 +95,8 @@ El ile geri yükleme yapın.
 
 - RestoreManagerPackage yükleniyor zaman uyumlu olarak engellenen kullanıcı Arabirimi iş parçacığı ve VS - karşılıklı [#4679](https://github.com/NuGet/Home/issues/4679)
 
-- DotNet geri yükleme (ve bu nedenle msbuild /t:restore) bir açık çözüm proje bağımlılığı projelerle atlar [#4578](https://github.com/NuGet/Home/issues/4578)
+- DotNet
+  - dotnetcore geri yükleme (ve bu nedenle msbuild /t:restore) bir açık çözüm proje bağımlılığı projelerle atlar [#4578](https://github.com/NuGet/Home/issues/4578)
 
 - Çözümünüzü farklı büyük/küçük harf, aynı projenin başvurduğu projectreferences varsa geri yükleme çalışmayabilir. Bu da büyük/küçük harf - fark olmadan farklı göreli yollar etkiler [#4574](https://github.com/NuGet/Home/issues/4574)
 

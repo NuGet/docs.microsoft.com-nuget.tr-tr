@@ -1,25 +1,16 @@
 ---
-title: Visual Studio'da NuGet API | Microsoft Docs
+title: Visual Studio'da NuGet API
+description: Visual Studio'da Yönetilen Genişletilebilirlik Çerçevesi aracılığıyla NuGet aktarır API için arabirimi başvurusu
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/09/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Visual Studio'da Yönetilen Genişletilebilirlik Çerçevesi aracılığıyla NuGet aktarır API için arabirimi başvurusu
-keywords: NuGet API, NuGet Visual Studio'da NuGet programlama arabirimleri
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 1b23535ae3ec1ea490b513a11906ff1338d1997c
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: c6259f77263ff83ec7161f9422ef8e2f8d601d90
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-api-in-visual-studio"></a>Visual Studio'da NuGet API
 
@@ -99,7 +90,7 @@ public interface IRegistryKey
 }
 ```
 
-## <a name="ivspackageinstaller-interface"></a>IVsPackageInstaller interface
+## <a name="ivspackageinstaller-interface"></a>IVsPackageInstaller arabirimi
 
 ```cs
 public interface IVsPackageInstaller
@@ -309,7 +300,7 @@ public interface IVsPackageInstallerEvents
 }
 ```
 
-## <a name="ivspackageinstallerprojectevents-interface"></a>IVsPackageInstallerProjectEvents interface
+## <a name="ivspackageinstallerprojectevents-interface"></a>IVsPackageInstallerProjectEvents arabirimi
 
 ```cs
 public interface IVsPackageInstallerProjectEvents
@@ -326,7 +317,7 @@ public interface IVsPackageInstallerProjectEvents
 }
 ```
 
-## <a name="ivspackageinstallerservices-interface"></a>IVsPackageInstallerServices interface
+## <a name="ivspackageinstallerservices-interface"></a>IVsPackageInstallerServices arabirimi
 
 ```cs
 public interface IVsPackageInstallerServices
@@ -417,7 +408,7 @@ public interface IVsPackageManagerProvider
 }
 ```
 
-## <a name="ivspackagemetadata-interface"></a>IVsPackageMetadata interface
+## <a name="ivspackagemetadata-interface"></a>IVsPackageMetadata arabirimi
 
 ```cs
 public interface IVsPackageMetadata
@@ -488,7 +479,7 @@ public interface IVsPackageProjectMetadata
 }
 ```
 
-## <a name="ivspackagerestorer-interface"></a>IVsPackageRestorer interface
+## <a name="ivspackagerestorer-interface"></a>IVsPackageRestorer arabirimi
 
 ```cs
 public interface IVsPackageRestorer

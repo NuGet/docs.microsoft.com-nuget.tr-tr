@@ -1,27 +1,18 @@
 ---
-title: dotNet NuGet komutlarını | Microsoft Docs
+title: DotNet NuGet komutları
+description: NuGet ile ilgili komutları dotnet komut satırı arabirimi kullanarak için kısa bir başvuru.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/23/2018
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: NuGet ile ilgili komutları dotnet komut satırı arabirimi kullanarak için kısa bir başvuru.
-keywords: DotNet NuGet komutlarını, dotnet paketi, dotnet geri yükleme, dotnet nuget yerel öğeler, dotnet nuget itme, dotnet nuget Sil
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 352145701fba509e21e774a429d227e7427a1f0d
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.openlocfilehash: fe49274af339c987d5e090c99edd78f62f59ce47
+ms.sourcegitcommit: 5fcd6d664749aa720359104ef7a66d38aeecadc2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/27/2018
 ---
-# <a name="dotnet-commands"></a>dotNet komutları
+# <a name="dotnet-commands"></a>DotNet komutları
 
 `dotnet` Windows, Mac OS X ve Linux üzerinde çalışır, komut satırı arabirimi, aşağıda listelenen gerekli nuget.exe komutları sayısını sağlar. DotNet gereksinimlerinizi karşılamazsa, kullanmak ise gerekli değildir `nuget.exe`.
 

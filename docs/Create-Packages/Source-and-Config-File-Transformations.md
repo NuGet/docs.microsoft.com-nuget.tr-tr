@@ -1,26 +1,17 @@
 ---
-title: Kaynak ve yapılandırma dosyası dönüştürmeleri için NuGet paketleri | Microsoft Docs
+title: Kaynak ve yapılandırma dosyası dönüştürmeleri için NuGet paketleri
+description: Kaynak kodu ve yapılandırması dönüştürmesini NuGet paketlerini yeteneğine yüklendiğinde (XML) dosyaları ayrıntılarını verir.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 04/24/2017
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: Kaynak kodu ve yapılandırması dönüştürmesini NuGet paketlerini yeteneğine yüklendiğinde (XML) dosyaları ayrıntılarını verir.
-keywords: NuGet paket yükleme, yapılandırma dosyalarını, kaynak kodun değiştirilmesiyle değiştirme NuGet paketi dönüşümleri
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-- anangaur
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: b2c25acdd37489a2965d29356742a826b62afa2c
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.reviewer: anangaur
+ms.openlocfilehash: 863bf22780313a34690617dd6a1604531272808b
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="transforming-source-code-and-configuration-files"></a>Kaynak kodu ve yapılandırma dosyaları dönüştürme
 

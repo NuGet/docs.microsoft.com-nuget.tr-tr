@@ -1,21 +1,12 @@
 ---
-title: NuGet hataları ve Uyarıları başvurusu | Microsoft Docs
+title: NuGet hataları ve Uyarıları başvurusu
+description: Uyarıları ve hataları Nuget'ten çeşitli NuGet işlemleri sırasında verilen başvurusunu tamamlayın.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 03/06/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Uyarıları ve hataları Nuget'ten çeşitli NuGet işlemleri sırasında verilen başvurusunu tamamlayın.
-keywords: NuGet hatalar, NuGet uyarılar tanılama
-ms.reviewer:
-- anangaur
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
+ms.reviewer: anangaur
 f1_keywords:
 - NU1000
 - NU1001
@@ -53,11 +44,11 @@ f1_keywords:
 - NU3008
 - NU3018
 - NU3028
-ms.openlocfilehash: 020e31dc8646c43b86bcee555f1772e8b1db7761
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: dcff20e35adc0a3dbcc7bef482f81a937cf059c5
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="errors-and-warnings"></a>Hatalar ve uyarılar
 
@@ -70,7 +61,7 @@ Hatalar ve uyarılar burada listelenen yalnızca [PackageReference tabanlı](../
 | Grup | Hata numaraları |
 | --- | --- |
 | [Geçersiz giriş hataları](#invalid-input-errors) | [NU1001](#nu1001), [NU1002](#nu1002), [NU1003](#nu1003) |
-| [Eksik paket ve proje hataları](#missing-package-and-project-errors) | [NU1100](#nu1100), [NU1101](#nu1101), [NU1102](#nu1102), [NU1103](#nu1103), [NU1104](#nu1104), [NU1105](#nu1105), [NU1106](#nu1106), [NU1107](#nu1107) (previously NU1607), [NU1108](#nu1108) (previously NU1606) |
+| [Eksik paket ve proje hataları](#missing-package-and-project-errors) | [NU1100](#nu1100), [NU1101](#nu1101), [NU1102](#nu1102), [NU1103](#nu1103), [NU1104](#nu1104), [NU1105](#nu1105), [NU1106](#nu1106), [NU1107](#nu1107) (daha önce NU1607) [NU1108](#nu1108) (daha önce NU1606) |
 | [Uyumluluk hataları](#compatibility-errors) | [NU1201](#nu1201), [NU1202](#nu1202), [NU1203](#nu1203), [NU1401](#nu1401) |
 
 **Uyarıları**
@@ -154,7 +145,7 @@ Hatalar ve uyarılar burada listelenen yalnızca [PackageReference tabanlı](../
 | | |
 | --- | --- |
 | **Sorunu** | Bir ProjectReference mevcut olmayan bir dosyaya işaret eder. |
-| **Örnek ileti** | *Project reference does not exist 'c:\a.csproj'. Proje başvurusu geçerli olduğunu ve proje dosyasının varolduğunu kontrol edin.* |
+| **Örnek ileti** | *Proje Başvurusu 'c:\a.csproj' yok. Proje başvurusu geçerli olduğunu ve proje dosyasının varolduğunu kontrol edin.* |
 | **Çözüm** | Proje dosyası ya da başvuruda bulunulan proje yolunu düzeltin veya başvuruyu kaldırmak üzere Düzenle artık ihtiyaç duyduğunuzda değerlerinin. |
 
 ### <a name="nu1105"></a>NU1105
@@ -211,7 +202,7 @@ Hatalar ve uyarılar burada listelenen yalnızca [PackageReference tabanlı](../
 | | |
 | --- | --- |
 | **Sorunu** | Bir bağımlılık paketi projeyle uyumlu tüm varlıkları içermiyor. |
-| **Örnek ileti** | *Package System.ComponentModel.EventBasedAsync 4.0.11 is not compatible with netstandard1.3 (.NETStandard,Version=v1.3). Package System.ComponentModel.EventBasedAsync 4.0.11 supports:<br/>  - monoandroid10 (MonoAndroid,Version=v1.0)<br/>  - monotouch10 (MonoTouch,Version=v1.0)<br/>  - net45 (.NETFramework,Version=v4.5)<br/>  - netcore50 (.NETCore,Version=v5.0)<br/>  - netstandard1.0 (.NETStandard,Version=v1.0)<br/>  - portable-net45+win8+wp8+wpa81 (.NETPortable,Version=v0.0,Profile=Profile259)<br/>  - win8 (Windows,Version=v8.0)<br/>  - wp8 (WindowsPhone,Version=v8.0)<br/>  - wpa81 (WindowsPhoneApp,Version=v8.1)<br/>  - xamarinios10 (Xamarin.iOS,Version=v1.0)<br/>  - xamarinmac20 (Xamarin.Mac,Version=v2.0)<br/>  - xamarintvos10 (Xamarin.TVOS,Version=v1.0)<br/>  - xamarinwatchos10 (Xamarin.WatchOS,Version=v1.0)*|
+| **Örnek ileti** | *Paket System.ComponentModel.EventBasedAsync 4.0.11 netstandard1.3 ile uyumlu değil (. NETStandard, sürüm = v1.3). Paket System.ComponentModel.EventBasedAsync 4.0.11 destekler:<br/> -monoandroid10 (MonoAndroid, sürüm = v1.0)<br/> -monotouch10 (MonoTouch, sürüm = v1.0)<br/> -net45 (. NETFramework, sürümü v4.5 =)<br/> -netcore50 (. NETCore, sürüm = v5.0)<br/> -netstandard1.0 (. NETStandard, sürüm = v1.0)<br/> -taşınabilir net45 olduğu win8 + wp8 + wpa81 (. NETPortable, sürüm v0.0, profil = Profile259 =)<br/> -olduğu win8 (Windows, sürüm = v8.0)<br/> -wp8 (WindowsPhone, sürüm v8.0 =)<br/> -wpa81 (WindowsPhoneApp, sürüm v8.1 =)<br/> -xamarinios10 () Xamarin.iOS,Version=v1.0)<br/> -xamarinmac20 (Xamarin.Mac,Version=v2.0)<br/> -xamarintvos10 (Xamarin.TVOS,Version=v1.0)<br/> -xamarinwatchos10 (Xamarin.WatchOS,Version=v1.0)*|
 | **Çözüm** | Projenin hedef çerçevesi paket destekleyen bir değiştirin. |
 
 ### <a name="nu1203"></a>NU1203
@@ -354,7 +345,7 @@ Hatalar ve uyarılar burada listelenen yalnızca [PackageReference tabanlı](../
 
 *NuGet 4.6.0+*
 
-[NU3000](#nu3000) | [NU3001](#nu3001) | [NU3002](#nu3002) | [NU3004](#nu3004) | [NU3008](#nu3008) | [NU3018](#nu3018) | [NU3028](#nu3028)
+[NU3000](#nu3000) | [NU3001](#nu3001) | [NU3002](#nu3002) | [NU3004](#nu3004) | [NU3008](#nu3008)  |  [NU3018](#nu3018) | [NU3028](#nu3028)
 
 ### <a name="nu3000"></a>NU3000
 

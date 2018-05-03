@@ -1,26 +1,17 @@
 ---
-title: Bir NuGet Paketi Yayımlama | Microsoft Docs
+title: Bir NuGet Paketi Yayımlama
+description: Ayrıntılı yönergeler için NuGet paketi nuget.org veya özel akışları yayımlama ve nuget.org paket sahipliği yönetme.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 03/19/2018
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: Ayrıntılı yönergeler için NuGet paketi nuget.org veya özel akışları yayımlama ve nuget.org paket sahipliği yönetme.
-keywords: NuGet Paketi Yayımlama NuGet paketi, NuGet paketinin sahipliği yayınlamak için NuGet akışlarını nuget.org, özel yayımlama
-ms.reviewer:
-- anangaur
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 68db25276297353fab03258adecd9169149dbe51
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.reviewer: anangaur
+ms.openlocfilehash: 539ac9485e6062a0bdc3bb86dac0f028a2de7821
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="publishing-packages"></a>Paketleri yayımlama
 
@@ -59,11 +50,11 @@ Anında iletme paketlere kullanmalısınız nuget.org için [nuget.exe v4.1.0 ve
 
 #### <a name="create-api-keys"></a>API anahtarları oluşturma
 
-[!INCLUDE[publish-api-key](../quickstart/includes/publish-api-key.md)]
+[!INCLUDE [publish-api-key](../quickstart/includes/publish-api-key.md)]
 
 #### <a name="publish-with-dotnet-nuget-push"></a>DotNet nuget itme ile yayımlama
 
-[!INCLUDE[publish-dotnet](../quickstart/includes/publish-dotnet.md)]
+[!INCLUDE [publish-dotnet](../quickstart/includes/publish-dotnet.md)]
 
 #### <a name="publish-with-nuget-push"></a>Nuget itme ile yayımlama
 

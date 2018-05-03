@@ -1,37 +1,28 @@
 ---
-title: NuGet project.json arşiv içerik | Microsoft Docs
+title: NuGet project.json arşiv içeriği
+description: Çeşitli BITS project.json içeriğin diğer NuGet belgelerine alanlarından kaldırıldı.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/17/2018
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: Çeşitli BITS project.json içeriğin diğer NuGet belgelerine alanlarından kaldırıldı.
-keywords: NuGet project.json dosyası
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 16361fe16d8ecc7064af4b6d636435a31a5663dc
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.openlocfilehash: cd0f4bc44c1acaeed3b3ed0241c501ddd281628d
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
-# <a name="projectjson-archive"></a>project.json archive
+# <a name="projectjson-archive"></a>Project.JSON arşiv
 
 `project.json` Yönetim biçimi NuGet ile sunulmuştur 3.x ve belirli proje türleri kullanılır. Bağımlılıklar doğrudan proje dosyasında listelenen PackageReference biçimi girişiyle kullanımdan kaldırılmıştır.
 
 Ayrıca bkz.:
 
-- [project.json schema](project-json.md)
+- [Project.JSON şeması](project-json.md)
 - [Paketi yazarları Project.JSON etkisini](project-json-impact.md)
 - [project.json ve UWP](project-json-and-uwp.md)
 
-## <a name="projectjson-management-format"></a>project.json management format
+## <a name="projectjson-management-format"></a>Project.JSON yönetim biçimi
 
 *İlk olarak, [paket geri yüklemesi](../what-is-nuget.md).*
 

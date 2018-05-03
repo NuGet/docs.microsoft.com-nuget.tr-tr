@@ -1,26 +1,16 @@
 ---
-title: NuGet 4.5 RTM sürüm notları | Microsoft Docs
+title: NuGet 4.5 RTM sürüm notları
+description: Bilinen sorunlar, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere NuGet 4.5 RTM için sürüm notları.
 author: anangaur
 ms.author: anangaur
-manager: unniravindranathan
+manager: unnir
 ms.date: 12/4/2017
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: Bilinen sorunlar, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere NuGet 4.5 RTM için sürüm notları.
-keywords: Özellikler, dcr bilinen sorunlar, NuGet 4.5 RTM sürüm notları, hata düzeltmeleri eklendi
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-- anangaur
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: dbde7256ed5526761107272792d7c7cdc324a3ef
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.openlocfilehash: 1d04c508d029a6d92bbd480fe3bd7dc14727970e
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-45-rtm-release-notes"></a>NuGet 4.5 RTM sürüm notları
 
@@ -76,7 +66,8 @@ Bazen, bir derlemeyi imzası geçersiz olan veya paket sürümü ile 'DateTime' 
 - Paketleri varlıklarından geri yüklendikten sonra - eksik [#5995](https://github.com/NuGet/Home/issues/5995)
 - Eklentisi kimlik bilgisi sağlayıcıları URI'ler içeren alanları ile - çalışmıyor [#5982](https://github.com/NuGet/Home/issues/5982)
 - Paket geri yükleme işlemi başarısız olursa hata en az ayrıntı ON - çıkışıyla bile yazdırılacağı [#5658](https://github.com/NuGet/Home/issues/5658)
-- Çözüm düzeyinde dotnet geri yükleme için rastgele derleme hataları - false başında ReferenceOutputAssembly ile ProjectReference izleyin değil [#5490](https://github.com/NuGet/Home/issues/5490)
+- DotNet
+  - Çözüm düzeyinde dotnetcore geri yükleme için rastgele derleme hataları - false başında ReferenceOutputAssembly ile ProjectReference izleyin değil [#5490](https://github.com/NuGet/Home/issues/5490)
 - Otomatik Tamamlama PMC işe yanlış yöntemleriyle nesnesi - [#4800](https://github.com/NuGet/Home/issues/4800)
 - nuget.exe geri yükleme başarısız ile Visual Studio 2015 araç takımı - [#4713](https://github.com/NuGet/Home/issues/4713)
 - perf - pmc vs2017 içinde - örneği pahalı [#4205](https://github.com/NuGet/Home/issues/4205)

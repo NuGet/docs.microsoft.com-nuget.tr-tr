@@ -1,25 +1,16 @@
 ---
-title: NuGet 4.0 RC sürüm notları | Microsoft Docs
+title: NuGet 4.0 RC sürüm notları
+description: Bilinen sorunlar, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere NuGet 4.0 RTM için sürüm notları.
 author: anangaur
 ms.author: anangaur
-manager: unniravindranathan
+manager: unnir
 ms.date: 03/03/2017
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: Bilinen sorunlar, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere NuGet 4.0 RTM için sürüm notları.
-keywords: Özellikler, dcr bilinen sorunlar, NuGet 4.0 RTM sürüm notları, hata düzeltmeleri eklendi
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 75ce757c209afd74f8d4f45d58d4e13a23b3b743
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.openlocfilehash: f1c5408f75966068e8fa11e63118426bbf562047
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="nuget-40-rtm-release-notes"></a>NuGet 4.0 RTM sürüm notları
 
@@ -165,7 +156,8 @@ El ile geri yükleme yapın.
 
 - Paketi komutu sürüm öğesi - yerine özniteliği olarak ekleyin [#4325](https://github.com/NuGet/Home/issues/4325)
 
-- Foo.sln--dotnet geri yükleme başarısız olur SLN yapılandırmalarında (ancak, fark config) yinelenen projeleri geri yükleme grafiğinde - neden [#4316](https://github.com/NuGet/Home/issues/4316)
+- DotNet
+  - dotnetcore geri yükleme foo.sln--başarısız SLN yapılandırmalarında (ancak, fark config) yinelenen projeleri geri yükleme grafiğinde - neden olduğunda [#4316](https://github.com/NuGet/Home/issues/4316)
 
 - Yalnızca paketler - içerik [#3668](https://github.com/NuGet/Home/issues/3668)
 
@@ -183,7 +175,8 @@ El ile geri yükleme yapın.
 
 - Bir NuGet paketi için boş ASP.NET Core web uygulaması - eklenmeye çalışılırken PathTooLongException [#4391](https://github.com/NuGet/Home/issues/4391)
 
-- Paketi çalıştıran çok sık--orada ile dotnet paketi başarısız olduğu hedef bağımlılık grafiği içeren hedef "Paketi" - Döngüsel bir bağımlılıkla [#4381](https://github.com/NuGet/Home/issues/4381)
+- Paketi çok sık sık--dotnet çalışır
+  - Orada ile dotnetcore paketi başarısız olduğu hedef bağımlılık grafiği içeren hedef "Paketi" - Döngüsel bir bağımlılıkla [#4381](https://github.com/NuGet/Home/issues/4381)
 
 - Paketi çalıştıran çok sık--oluşturmak NuGet paketi, tüm yapılandırmaları - içermez [#4380](https://github.com/NuGet/Home/issues/4380)
 
@@ -231,7 +224,8 @@ El ile geri yükleme yapın.
 
 - NuGet 3.5.0 değil paketi açılırken `.targets` - paketten [#4171](https://github.com/NuGet/Home/issues/4171)
 
-- DotNet paketi başlığında desteklemediği `.csproj`  -  [#4150](https://github.com/NuGet/Home/issues/4150)
+- DotNet
+  - dotnetcore paketi başlığında desteklemediği `.csproj`  -  [#4150](https://github.com/NuGet/Home/issues/4150)
 
 - Hata iletişim kutusunda VS2017 RC - Install-Package sonuçlanıyor [#4127](https://github.com/NuGet/Home/issues/4127)
 
@@ -239,7 +233,8 @@ El ile geri yükleme yapın.
 
 - Çözümlenmemiş başvuru uyarısı - artırmak [#3955](https://github.com/NuGet/Home/issues/3955)
 
-- DotNet paketi - ProjectReference kaybeder sürüm bilgilerini - [#3953](https://github.com/NuGet/Home/issues/3953)
+- DotNet
+  - dotnetcore paketi - ProjectReference kaybeder sürüm bilgilerini - [#3953](https://github.com/NuGet/Home/issues/3953)
 
 - UWP uygulaması oluşturma projesi oluşturun ve geçen toplam süre gerileme - yeniden [#3873](https://github.com/NuGet/Home/issues/3873)
 
@@ -277,7 +272,8 @@ El ile geri yükleme yapın.
 
 - Geçiş oluşturur "nesne başvurusu özel durumu NuGet.PackageManagement.VisualStudio.SolutionRestoreWorker içinde - nesnenin" [#4067](https://github.com/NuGet/Home/issues/4067)
 
-- DotNet pack Araçları Paketi karşı - oluşturulan sürümlerle [#4063](https://github.com/NuGet/Home/issues/4063)
+- DotNet
+  - dotnetcore pack Araçları Paketi karşı - oluşturulan sürümlerle [#4063](https://github.com/NuGet/Home/issues/4063)
 
 - Yeni arka plan geri yükleme durum çubuğunda zaman geri yüklemek için - saniye sürer milisaniye Yazar [#4036](https://github.com/NuGet/Home/issues/4036)
 
@@ -287,7 +283,8 @@ El ile geri yükleme yapın.
 
 - Yüklü paketler Yöneticisi kullanıcı Arabirimi - paketinde bulunamıyor [#4015](https://github.com/NuGet/Home/issues/4015)
 
-- DotNet paketi başarısız ise PackagePath boş - olduğunda [#3993](https://github.com/NuGet/Home/issues/3993)
+- DotNet
+  - dotnetcore paketi başarısız ise PackagePath boş - olduğunda [#3993](https://github.com/NuGet/Home/issues/3993)
 
 - Bir Çoklu kullanıcı senaryosunda - görev başarısız geri [#3897](https://github.com/NuGet/Home/issues/3897)
 
@@ -301,9 +298,11 @@ El ile geri yükleme yapın.
 
 - Paketi görevi koyar içerik dosyalarının ikisi de ' içeriği /' ve ' Content dosyaları /'- [#3718](https://github.com/NuGet/Home/issues/3718)
 
-- DotNet pack3 çok etiket bölme - [#3701](https://github.com/NuGet/Home/issues/3701)
+- DotNet
+  - dotnetcore pack3 çok etiket bölme - [#3701](https://github.com/NuGet/Home/issues/3701)
 
-- DotNet paketi: Paket projelerle sevk başvuran yinelenen alma uyarı - sonuçlarında [#3665](https://github.com/NuGet/Home/issues/3665)
+- DotNet
+  - dotnetcore paketi: Paket projelerle sevk başvuran yinelenen alma uyarı - sonuçlarında [#3665](https://github.com/NuGet/Home/issues/3665)
 
 - Geri yükleme VS günlüğü değil her zaman göster - [#3633](https://github.com/NuGet/Home/issues/3633)
 
@@ -311,7 +310,7 @@ El ile geri yükleme yapın.
 
 - Restore3 PackageReferences TargetFrameworks ile tüm çiftler. - [#3504](https://github.com/NuGet/Home/issues/3504)
 
-- Nuget Çekmeleri MSBuild beklenmeyen sürümü VS "15" Preview 4 istisnası command prompt - [#3408](https://github.com/NuGet/Home/issues/3408)
+- Nuget Çekmeleri MSBuild beklenmeyen sürümü VS "15" Preview 4 istisnası Komut İstemi - [#3408](https://github.com/NuGet/Home/issues/3408)
 
 - Hedefleri/özellik dosyaları geri yükleme başarısız - out yazma [#3399](https://github.com/NuGet/Home/issues/3399)
 
@@ -331,13 +330,16 @@ El ile geri yükleme yapın.
 
 - Başında veya sonunda boşluk - sorunlarını PackTask incelemek [#3906](https://github.com/NuGet/Home/issues/3906)
 
-- DotNet paketi obj değil depo - paket [#3880](https://github.com/NuGet/Home/issues/3880)
+- DotNet
+  - dotnetcore paketi obj değil depo - paket [#3880](https://github.com/NuGet/Home/issues/3880)
 
-- DotNet paketi her zaman görünüyor ProjectReference sürümü 1.0.0 için - Ayarla [#3874](https://github.com/NuGet/Home/issues/3874)
+- DotNet
+  - dotnetcore paketi her zaman görünüyor ProjectReference sürümü 1.0.0 için - Ayarla [#3874](https://github.com/NuGet/Home/issues/3874)
 
-- DotNet paketi proje başvuruları ile başarısız olur ve <TargetFramework>  -  [#3865](https://github.com/NuGet/Home/issues/3865)
+- DotNet
+  - dotnetcore paketi proje başvuruları ile başarısız olur ve <TargetFramework>  -  [#3865](https://github.com/NuGet/Home/issues/3865)
 
-- LockRecursionException in ProjectSystemCache.TryGetProjectNameByShortName - [#3861](https://github.com/NuGet/Home/issues/3861)
+- ProjectSystemCache.TryGetProjectNameByShortName - LockRecursionException [#3861](https://github.com/NuGet/Home/issues/3861)
 
 - MSBuild özellikleri - boşlukları kırpma [#3819](https://github.com/NuGet/Home/issues/3819)
 
@@ -386,8 +388,8 @@ El ile geri yükleme yapın.
 - NuGet.Clients çözümü derleme - yalıtmak VSSDK sürümünde [#3890](https://github.com/NuGet/Home/issues/3890)
 
 ## <a name="links-to-github-issues-fixed-in-rtm"></a>GitHub sorunları RTM'de sabit bağlantılar
-[Konu listesi 1](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.0 RTM")  
-[Konu listesi 2](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.0 RC4")  
-[Konu listesi 3](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.0 RC3")  
-[Konu listesi 4](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.0 RC2")  
-[Konu listesi 5](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.0 RC")
+[Konu listesi 1](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.0%20RTM")  
+[Konu listesi 2](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.0%20RC4")  
+[Konu listesi 3](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.0%20RC3")  
+[Konu listesi 4](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.0%20RC2")  
+[Konu listesi 5](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.0%20RC")

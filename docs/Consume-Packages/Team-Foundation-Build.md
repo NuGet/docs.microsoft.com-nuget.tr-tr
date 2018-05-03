@@ -1,25 +1,16 @@
 ---
-title: İzlenecek yol NuGet paketinin geri yükleme ile Team Foundation derlemesi | Microsoft Docs
+title: İzlenecek yol NuGet paket geri yükleme ile Team Foundation derlemesi
+description: Nasıl NuGet paket geri yükleme işlemi ile Team Foundation Build (TFS ve Visual Studio Team Services) ile bir gözden geçirme.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/09/2017
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: Nasıl NuGet paket geri yükleme işlemi ile Team Foundation Build (TFS ve Visual Studio Team Services) ile bir gözden geçirme.
-keywords: NuGet paket geri yüklemesi, NuGet ve TFS, NuGet ve VSTS, NuGet yapı sistemleri, team foundation derlemesi, özel MSBuild projelerine bulut yapı, sürekli tümleştirme
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: f46a7402214bf965918a5195605027913a8c60c2
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.openlocfilehash: 5eb8e68b800f623ef41a164f18efff2281e7c7cc
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="setting-up-package-restore-with-team-foundation-build"></a>Paket geri yüklemesi Team Foundation Build ile ayarlama
 
@@ -135,7 +126,7 @@ TF sürüm denetimi destekleyen çok benzer bir mekanizma aracılığıyla [.tfi
     project.lock.json
     project.assets.json
 
-## <a name="buildproj"></a>build.proj
+## <a name="buildproj"></a>Build.proj
 
 Kendi tanıtımı için biz oluşturma işlemi oldukça basit tutun. Çözümler oluşturulmadan önce paketleri geri yüklendiğini emin olmasını sağlarken tüm çözümler oluşturan MSBuild Projesi oluşturacağız.
 

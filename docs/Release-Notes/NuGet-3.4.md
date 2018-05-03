@@ -1,22 +1,16 @@
 ---
-title: "NuGet 3.4 sürüm notları | Microsoft Docs"
+title: NuGet 3.4 sürüm notları
+description: Bilinen sorunlar, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere NuGet 3.4 için sürüm notları.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Bilinen sorunlar, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere NuGet 3.4 için sürüm notları."
-keywords: "Özellikler, dcr bilinen sorunlar, NuGet 3.4 sürüm notları, hata düzeltmeleri eklendi"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 515fb888aca2a8eb138c8fea1fb5b3f5a8f4e275
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 3f2a945b628022bdcc6e69a7a4b1be6c53b65626
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-34-release-notes"></a>NuGet 3.4 sürüm notları
 
@@ -24,9 +18,9 @@ ms.lasthandoff: 02/02/2018
 
 NuGet 3.4 30 Mart 2016 Visual Studio 2015 güncelleştirme 2 ve Visual Studio 15 Preview sürümü bir parçası olarak yayımlanmıştır ve minds içinde birkaç tenets ile oluşturuldu:
 
-*  Platformlar arası desteği
-*  Performans iyileştirmeleri
-*  İkincil UI geliştirmeleri
+* Platformlar arası desteği
+* Performans iyileştirmeleri
+* İkincil UI geliştirmeleri
 
 Aşağıdaki özellikler RC önceden eklendi ve güncelleştirildi veya 3.4 sürüm için tamamlandı:
 

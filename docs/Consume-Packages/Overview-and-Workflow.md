@@ -1,25 +1,16 @@
 ---
-title: Genel bakış ve NuGet paketleri kullanma iş akışı | Microsoft Docs
+title: Genel bakış ve NuGet paketleri kullanma iş akışı
+description: NuGet paketlerini bir projede işleminin diğer belirli bölümlerine bağlantılar ile kullanma işlemi bir genel bakış.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 03/22/2018
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: NuGet paketlerini bir projede işleminin diğer belirli bölümlerine bağlantılar ile kullanma işlemi bir genel bakış.
-keywords: NuGet paket tüketim, NuGet tüketim genel bakış, NuGet tüketim iş akışı, paket tüketimi iş akışı, paket tüketimi genel bakış
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: e79b09fe8131f25c6bbed650e1927425dcc5d409
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.openlocfilehash: 765b48b474aee17415f53491514bf6e9d50af010
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="package-consumption-workflow"></a>Paket tüketimi iş akışı
 

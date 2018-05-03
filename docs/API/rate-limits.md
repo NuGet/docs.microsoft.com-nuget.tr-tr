@@ -1,28 +1,20 @@
 ---
-title: Oran sınırları | Microsoft Docs
-author:
-- cmanu
-- anangaur
-ms.author:
-- cmanu
+title: Sınırları, NuGet API oranı
+description: NuGet API'ları kötüye önlemek üzere oran sınırları zorunlu.
+author: cmanu
+ms.author: cmanu
 manager: skofman
 ms.date: 03/20/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: NuGet API'ları kötüye önlemek üzere oran sınırları zorunlu.
-keywords: NuGet API, oran sınırlama
 ms.reviewer:
 - skofman
 - anangaur
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: f7891d5e4c008219d9f4808f223f3e5e7ae06ced
-ms.sourcegitcommit: fa40be739d093a37d5f7072b62ebdb4f595f4110
+- kraigb
+ms.openlocfilehash: 3aaebef8fff670759c6484a5a8f90a2f4dd58c66
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="rate-limits"></a>Oran sınırları
 
@@ -55,4 +47,4 @@ Aşağıdaki tablolarda NuGet.org API'si için oran sınırları listelenmektedi
 | API | Sınır türü | Sınır değeri | APU kullanım durumu | 
 |:---|:---|:---|:--- |
 **PUT** `/api/v2/package` | API anahtarı | 100 / dakika | V2 itme uç noktası aracılığıyla yeni bir NuGet paketi (sürüm) yükleme 
-**DELETE** `/api/v2/package/{id}/{version}` | API anahtarı | 100 / dakika | NuGet paketi (sürüm) v2 uç nokta üzerinden unlist 
+**SİL** `/api/v2/package/{id}/{version}` | API anahtarı | 100 / dakika | NuGet paketi (sürüm) v2 uç nokta üzerinden unlist 

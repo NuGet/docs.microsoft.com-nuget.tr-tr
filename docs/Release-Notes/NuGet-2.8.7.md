@@ -1,22 +1,16 @@
 ---
-title: "NuGet 2.8.7 Sürüm Notları | Microsoft Docs"
+title: NuGet 2.8.7 Sürüm Notları
+description: Bilinen sorunlar, hata düzeltmeleri, eklenen özellikleri ve dcr NuGet 2.8.7 dahil etmek için sürüm notları.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Bilinen sorunlar, hata düzeltmeleri, eklenen özellikleri ve dcr NuGet 2.8.7 dahil etmek için sürüm notları."
-keywords: "Özellikler, dcr bilinen sorunlar, NuGet 2.8.7 Sürüm Notları, hata düzeltmeleri eklendi"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: bfce53cb983bbf531dc93770e1fc40b6608d0d27
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: b61a57242fe05d82b48dc80603aeffda562ada2c
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-287-release-notes"></a>NuGet 2.8.7 Sürüm Notları
 
