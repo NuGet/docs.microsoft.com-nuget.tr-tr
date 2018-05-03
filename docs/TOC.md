@@ -77,7 +77,7 @@
 ## [Packages.config’i PackageReference’a geçirme](reference/migrate-packages-config-to-package-reference.md)
 ## [packages.config](reference/packages-config.md)
 ## [Paket sürümü oluşturma](reference/package-versioning.md)
-## [Nuget.Config dosyası](reference/nuget-config-file.md)
+## [nuget.config file](reference/nuget-config-file.md)
 ## [MSBuild hedefleri](reference/msbuild-targets.md)
 ## [Hedef çerçeveler](reference/target-frameworks.md)
 ## [Çözümleyici kuralları](reference/analyzers-conventions.md)
@@ -85,6 +85,7 @@
 ## [Kimlik ön eki ayırma](reference/id-prefix-reservation.md)
 ## [NuGet istemci SDK’sı](reference/nuget-client-sdk.md)
 ## [İmzalı paket başvurusu](reference/signed-packages-reference.md)
+## [nuget.org üzerindeki kuruluşlar](reference/organizations-on-nuget-org.md)
 ## Genişletilebilirlik
 ### [Visual Studio için NuGet kimlik bilgileri sağlayıcısı](reference/extensibility/nuget-credential-providers-for-visual-studio.md)
 ### [nuget.exe kimlik bilgileri sağlayıcıları](reference/extensibility/nuget-exe-credential-providers.md)
