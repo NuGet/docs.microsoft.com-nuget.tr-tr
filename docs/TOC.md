@@ -114,6 +114,7 @@
 ## [NuGet hakkında SSS](policies/nuget-faq.md)
 ## [İdare](policies/governance.md)
 ## [Ekosistem](policies/ecosystem.md)
+## [Veri İstekleri](policies/Data-requests.md)
 ## [İtiraz çözümleme](policies/dispute-resolution.md)
 ## [Paketleri silme](policies/deleting-packages.md)
 # Sürüm notları
