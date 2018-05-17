@@ -6,11 +6,11 @@ ms.author: kraigb
 manager: douge
 ms.date: 12/12/2017
 ms.topic: conceptual
-ms.openlocfilehash: df1673875441ea3274ba0826c4cef168b74583d1
-ms.sourcegitcommit: 055248d790051774c892b220eca12015babbd668
-ms.translationtype: HT
+ms.openlocfilehash: 1657479e1a87f7022caa2fd991127b4ca702cdac
+ms.sourcegitcommit: 00c4c809c69c16fcf4d81012eb53ea22f0691d0b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="creating-nuget-packages"></a>NuGet paketleri oluşturma
 
@@ -157,7 +157,7 @@ Böylece son paketinde istediğiniz tam içeriğini açıklayan, sonra dosyayı 
 
 ### <a name="from-a-convention-based-working-directory"></a>Bir kurala dayalı çalışma dizininden
 
-Bir NuGet paketi yalnızca ile adlandırılmış bir ZIP dosyası olduğundan `.nupkg` uzantısı, kendi genellikle en kolay dosya sisteminde istediğiniz klasör yapısını oluşturun ardından oluşturma `.nuspec` yapıyı doğrudan dosyasından. `nuget pack` Komut sonra otomatik olarak ekler tüm dosyaları bu klasör yapısındaki (ile başlayan tüm klasörleri hariç `.`, aynı yapısında özel dosyaları tutmak izin vererek).
+Bir NuGet paketi yalnızca ile adlandırılmış bir ZIP dosyası olduğundan `.nupkg` uzantısı, kendi genellikle en kolay, yerel dosya sisteminde istediğiniz klasör yapısını oluşturun ardından oluşturma `.nuspec` yapıyı doğrudan dosyasından. `nuget pack` Komut sonra otomatik olarak ekler tüm dosyaları bu klasör yapısındaki (ile başlayan tüm klasörleri hariç `.`, aynı yapısında özel dosyaları tutmak izin vererek).
 
 Bu yaklaşımın avantajı, hangi dosyaların paketin içinde (Bu konunun ilerleyen bölümlerinde açıklandığı gibi) dahil etmek istediğiniz bildiriminde belirtmeniz gerekmez ' dir. Pakete gider tam klasör yapısı oluşturmak, oluşturma işlemi yalnızca olabilir ve bir projenin parçası Aksi durumda olmayabilir diğer dosyaları kolayca ekleyebilirsiniz:
 
@@ -170,7 +170,7 @@ Klasör kuralları aşağıdaki gibidir:
 | Klasör | Açıklama | Paketi Yükle üzerine gerçekleştirilecek eylemi |
 | --- | --- | --- |
 | (kök) | Readme.txt konumu | Paketi yüklendiğinde, visual Studio Paketi kök dizininde readme.txt dosyasına görüntüler. |
-| LIB / {tfm} | Derleme (`.dll`), belgeleri (`.xml`) ve simge (`.pdb`) dosyaları belirtilen hedef Framework bilinen ad (TFM) için | Derlemeleri başvuru olarak eklenir; `.xml` ve `.pdb` proje klasörlerine kopyalanır. Bkz: [birden çok hedef çerçeveyi destekleyen](supporting-multiple-target-frameworks.md) framework hedef özgü alt klasörleri oluşturmak için. |
+| lib/{tfm} | Derleme (`.dll`), belgeleri (`.xml`) ve simge (`.pdb`) dosyaları belirtilen hedef Framework bilinen ad (TFM) için | Derlemeleri başvuru olarak eklenir; `.xml` ve `.pdb` proje klasörlerine kopyalanır. Bkz: [birden çok hedef çerçeveyi destekleyen](supporting-multiple-target-frameworks.md) framework hedef özgü alt klasörleri oluşturmak için. |
 | Çalışma zamanları | Mimariye özel derleme (`.dll`), simge (`.pdb`) ve yerel kaynak (`.pri`) dosyaları | Derlemeleri başvuru olarak eklenir; diğer dosyalar proje klasörlerine kopyalanır. Bkz: [birden çok hedef çerçeveyi destekleyen](supporting-multiple-target-frameworks.md). |
 | içerik | İsteğe bağlı dosyalar | İçeriği proje kök dizinine kopyalanır. Düşünün **içerik** sonuçta paket tüketir hedef uygulama kökü olarak klasör. Paketi uygulamanın bir görüntüsünü Ekle olmasını */görüntüleri* klasörü, paketin içinde yerleştirin *içeriği/görüntüleri* klasör. |
 | derleme | MSBuild `.targets` ve `.props` dosyaları | Otomatik olarak proje dosyasına eklenen veya `project.lock.json` (NuGet 3.x+). |
@@ -378,7 +378,7 @@ Ayrıca, varsayılan olarak [yapı varlıklar akan geçişli](../consume-package
 
 ## <a name="running-nuget-pack-to-generate-the-nupkg-file"></a>.Nupkg dosyasını oluşturmak için nuget paketi çalıştırma
 
-Bir derlemeyi ya da kurala dayalı çalışma dizini kullanarak, bir paket çalıştırarak oluşturduğunuzda `nuget pack` ile `.nuspec` dosya, değiştirme `<manifest-name>` , belirli dosya adı:
+Bir derlemeyi ya da kurala dayalı çalışma dizini kullanarak, bir paket çalıştırarak oluşturduğunuzda `nuget pack` ile `.nuspec` dosya, değiştirme `<project-name>` , belirli dosya adı:
 
 ```cli
 nuget pack <project-name>.nuspec
@@ -441,7 +441,7 @@ Otomatik test için temel işlem aşağıdaki gibidir:
 1. Kopya `.nupkg` dosyasını bir yerel klasöre.
 1. Paket kaynaklarınızın kullanarak klasörü Ekle `nuget sources add -name <name> -source <path>` komutu (bkz [nuget kaynakları](../tools/cli-ref-sources.md)). Yalnızca bu yerel kaynağı kez verilen herhangi bir bilgisayarda ayarlamanız unutmayın.
 1. Bu kaynak kullanarak paketi yükleyin `nuget install <packageID> -source <name>` nerede `<name>` verilen kaynak adıyla eşleşen `nuget sources`. Kaynağını belirterek, bu kaynak paketinin yüklü olduğu sağlar.
-1. Dosyaların doğru yüklü olduğunu denetlemek için dosya sistemini inceleyin.
+1. Dosyaların doğru yüklü olduğunu denetlemek için dosya sisteminizi inceleyin.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 

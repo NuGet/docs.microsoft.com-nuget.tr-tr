@@ -6,11 +6,11 @@ ms.author: kraigb
 manager: douge
 ms.date: 10/25/2017
 ms.topic: conceptual
-ms.openlocfilehash: c8cc78be1bd48adc603b9447282a6c4bef7f942f
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 02d9c0b20d3660d94ac4d80b7325f747675b0c12
+ms.sourcegitcommit: 00c4c809c69c16fcf4d81012eb53ea22f0691d0b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="configuring-nuget-behavior"></a>NuGet davranışını yapılandırma
 
@@ -54,7 +54,7 @@ nuget config -set repositoryPath=c:\packages -configfile c:\my.Config
 nuget config -set repositoryPath=c:\packages -configfile .\myApp\NuGet.Config
 
 # Set repositoryPath in the computer-level file (requires elevation)
-nuget config -set repositoryPath=c:\packages -configfile %ProgramFiles(x86)%\NuGet\NuGet.Config
+nuget config -set repositoryPath=c:\packages -configfile %ProgramFiles(x86)%\NuGet\Config\NuGet.Config
 ```
 
 Mac/Linux:
@@ -142,7 +142,7 @@ A. kullanıcı düzeyinde dosyası, (`%appdata%\NuGet\NuGet.Config` , Windows'da
 </configuration>
 ```
 
-B. disk_drive_2/NuGet.Config dosya:
+File B. disk_drive_2/NuGet.Config:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -172,7 +172,7 @@ C. dosya disk_drive_2/Project1/NuGet.Config:
 </configuration>
 ```
 
-Dosya D. disk_drive_2/Project2/NuGet.Config:
+File D. disk_drive_2/Project2/NuGet.Config:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -207,7 +207,7 @@ NuGet sonra yükler ve burada çağrılır bağlı olarak aşağıdaki gibi ayar
 
 Aşağıdaki tabloda nerede tanımlar `NuGetDefaults.Config` dosyasının saklanması gereken, işletim sistemi hedef bağlı olarak:
 
-| İşletim sistemi platformu  | NuGetDefaults.Config konumu |
+| İşletim sistemi platformu  | NuGetDefaults.Config Location |
 | --- | --- |
 | Windows      | **Visual Studio 2017 veya NuGet 4.x+:** `%ProgramFiles(x86)%\NuGet\Config` <br />**Visual Studio 2015 ve önceki ya da NuGet 3.x ve önceki sürümleri:** `%PROGRAMDATA%\NuGet` |
 | Mac/Linux    | `$XDG_DATA_HOME` (genellikle `~/.local/share` veya `/usr/local/share`işletim sistemi dağıtım bağlı olarak)|

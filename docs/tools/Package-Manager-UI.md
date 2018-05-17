@@ -11,13 +11,13 @@ f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager.general
 - vs.toolsoptionspages.nuget_package_manager.package_sources
 - vs.nuget.packagemanager.ui
-ms.openlocfilehash: 99bd51798460a56cb8515d46791a9e75d9e630cc
-ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
+ms.openlocfilehash: 1d8cb8186b9cedb29918d48539bdf45b130030c0
+ms.sourcegitcommit: 00c4c809c69c16fcf4d81012eb53ea22f0691d0b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
-# <a name="nuget-package-manager-ui"></a>NuGet Paket Yöneticisi kullanıcı Arabirimi
+# <a name="nuget-package-manager-ui"></a>NuGet Package Manager UI
 
 Windows Visual Studio'da NuGet Paket Yöneticisi kullanıcı Arabirimi, kolayca yüklemek, kaldırmak ve projeler ve çözümler, NuGet paketlerini güncelleştirmeyi olanak sağlar. Visual Studio'da Mac için deneyimi için bkz: [dahil olmak üzere bir NuGet paketini projenize](/visualstudio/mac/nuget-walkthrough). Paket Yöneticisi kullanıcı Arabirimi ile Visual Studio Code dahil değildir.
 
@@ -70,7 +70,7 @@ Bu konuda:
 
     ![Paket güncelleştirme](media/UpdatePackages.png)
 
-1. <a name="implicit_reference"></a>Bazı paketler için **güncelleştirme** düğmesi devre dışıdır ve bunu "örtük olarak bir SDK'sı tarafından başvurulduğundan" bildiren bir ileti görüntülenir (veya "AutoReferenced"). İleti Microsoft.NETCore.App veya Microsoft.NETStandard.Library, gibi paket daha büyük bir çerçeve veya SDK parçasıdır ve bağımsız olarak güncellenmemelidir gösterir. (Gibi paketlerin dahili olarak işaretlenir `<IsImplicitlyDefined>True</IsImplicitlyDefined>`.) Güncelleştirme Paketi için ait olduğu SDK güncelleştirin.
+1. <a name="implicit_reference"></a>Bazı paketler için **güncelleştirme** düğmesi devre dışıdır ve bunu "örtük olarak bir SDK'sı tarafından başvurulduğundan" bildiren bir ileti görüntülenir (veya "AutoReferenced"). İleti Microsoft.NETCore.App veya Microsoft.NETStandard.Library, gibi paket daha büyük bir çerçeve veya SDK parçasıdır ve bağımsız olarak güncellenmemelidir gösterir. (Gibi paketlerin dahili olarak işaretlenir `<IsImplicitlyDefined>True</IsImplicitlyDefined>`.) Güncelleştirme Paketi için paket adını içeren SDK'dan çıkarımını yapma ait olduğu, SDK güncelleştirin. Örneğin, .NET Core SDK parçası paketidir Microsoft.NETCore.App gibi bu nedenle, .NET Core SDK yükleme güncelleştirmeniz gerekir.
 
     ![Örnek paket başvuruları veya AutoReferenced dolaylı olarak işaretli](media/PackageManagerUIAutoReferenced.png)
 

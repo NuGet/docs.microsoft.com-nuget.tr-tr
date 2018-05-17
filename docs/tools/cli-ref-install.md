@@ -6,11 +6,11 @@ ms.author: kraigb
 manager: douge
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 615f2beca1eb288417f2345fcdf25e323942d300
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
-ms.translationtype: HT
+ms.openlocfilehash: 1c6ec1181f2f619eb8a4f2d87f7910f25b98e0f4
+ms.sourcegitcommit: 00c4c809c69c16fcf4d81012eb53ea22f0691d0b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="install-command-nuget-cli"></a>install komutu (NuGet CLI)
 
@@ -27,7 +27,7 @@ Herhangi bir kaynağa belirtilirse, listelenenler genel yapılandırma dosyasın
 
 `install` Komutu bir proje dosyası değiştirilmez veya `packages.config`; bu şekilde, benzer `restore` yalnızca diske paketleri ekler ancak bir projenin bağımlılıkları değiştirmez.
 
-Bir bağımlılık eklemek için Visual Studio'da Paket Yöneticisi kullanıcı Arabirimi veya konsol üzerinden bir proje eklemek veya değiştirmek `packages.config` ve ardından çalıştırın `install` veya `restore`.
+Bir bağımlılık eklemek için Visual Studio'da Paket Yöneticisi kullanıcı Arabirimi veya konsol üzerinden paket ekleme veya değiştirme `packages.config` ve ardından çalıştırın `install` veya `restore`.
 
 ## <a name="usage"></a>Kullanım
 
@@ -50,8 +50,8 @@ Burada `<packageID>` (en son sürümünü kullanarak), yüklenecek paketin adlar
 | Framework | *(4.4 +)*  Hedef framework bağımlılıkları seçmek için kullanılır. Varsayılan olarak 'Any' belirtilmediği takdirde. |
 | Yardım | Bilgi komutu için yardımı görüntüler. |
 | NoCache | NuGet kullanarak önbelleğe alınmış paketleri engeller. Bkz: [genel paketleri ve önbellek klasör yönetimi](../consume-packages/managing-the-global-packages-and-cache-folders.md). |
-| Etkileşimli olmayan | Kullanıcı girişi veya onayı için ister gizler. |
-| Çıktıdizini | Paketleri yüklendiği klasörü belirtir. Bir klasör bulunmadığından belirtilmezse, geçerli klasörde kullanılır. |
+| NonInteractive | Kullanıcı girişi veya onayı için ister gizler. |
+| OutputDirectory | Paketleri yüklendiği klasörü belirtir. Bir klasör bulunmadığından belirtilmezse, geçerli klasörde kullanılır. |
 | PackageSaveMode | Paket yüklendikten sonra kaydetmek için dosya türlerini belirtir: biri `nuspec`, `nupkg`, veya `nuspec;nupkg`. |
 | Yayın öncesi | Yayın öncesi paketlerin yüklenmesini sağlar. Bu bayrak paketleri geri yüklenirken gerekli değil `packages.config`. |
 | RequireConsent | Paketleri geri indirme ve yükleme paketleri önce etkin olduğunu doğrular. Ayrıntılar için bkz [paketi geri yüklemesi](../consume-packages/package-restore.md). |

@@ -6,15 +6,15 @@ ms.author: kraigb
 manager: douge
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 73885256c5d5ea67140051bf63ff470991978928
-ms.sourcegitcommit: 055248d790051774c892b220eca12015babbd668
-ms.translationtype: HT
+ms.openlocfilehash: 00d763bcfdd2f3db50378a1e7774eae7a2e1fcd1
+ms.sourcegitcommit: 00c4c809c69c16fcf4d81012eb53ea22f0691d0b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet paketi ve MSBuild hedefleri olarak geri yükleme
 
-*NuGet 4.0 +*
+*NuGet 4.0+*
 
 PackageReference biçimiyle NuGet 4.0 + doğrudan ayrı bir kullanmak yerine bir proje dosyası içinde tüm bildirim meta veri depolayabilirsiniz `.nuspec` dosya.
 
@@ -45,19 +45,19 @@ Unutmayın `Owners` ve `Summary` özelliklerinden `.nuspec` MSBuild ile destekle
 
 | Öznitelik/NuSpec değeri | MSBuild özelliği | Varsayılan | Notlar |
 |--------|--------|--------|--------|
-| Kimliği | Paket kimliği | AssemblyName | MSBuild gelen $(AssemblyName) |
+| Kimliği | PackageId | AssemblyName | MSBuild gelen $(AssemblyName) |
 | Sürüm | PackageVersion | Sürüm | Bu semver örnek "1.0.0", "1.0.0-beta" veya "1.0.0-beta-00345" için uyumlu değil |
 | VersionPrefix | PackageVersionPrefix | empty | PackageVersionPrefix PackageVersion ayarını geçersiz kılar |
 | VersionSuffix | PackageVersionSuffix | empty | MSBuild gelen $(VersionSuffix). PackageVersionSuffix PackageVersion ayarını geçersiz kılar |
 | Yazarlar | Yazarlar | Geçerli kullanıcının kullanıcı adı | |
 | Sahipleri | Yok | NuSpec içinde mevcut olmayan | |
 | Başlık | Başlık | Paket kimliği| |
-| Açıklama | PackageDescription | "Paketi" | |
+| Açıklama | Açıklama | "Paketi" | |
 | Telif Hakkı | Telif Hakkı | empty | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | false | |
-| licenseUrl | PackageLicenseUrl | empty | |
-| projectUrl | PackageProjectUrl | empty | |
-| iconUrl | PackageIconUrl | empty | |
+| LicenseUrl | PackageLicenseUrl | empty | |
+| ProjectUrl | PackageProjectUrl | empty | |
+| IconUrl | PackageIconUrl | empty | |
 | Etiketler | PackageTags | empty | Etiketleri noktalı virgülle ayrılmış olan. |
 | ReleaseNotes | PackageReleaseNotes | empty | |
 | Depo/URL'si | RepositoryUrl | empty | Depo URL'si kopyalama veya kaynak kodu almak için kullanılır. Örnek: *https://github.com/NuGet/NuGet.Client.git* |
@@ -71,7 +71,7 @@ Unutmayın `Owners` ve `Summary` özelliklerinden `.nuspec` MSBuild ile destekle
 
 - IsPackable
 - PackageVersion
-- Paket kimliği
+- PackageId
 - Yazarlar
 - Açıklama
 - Telif Hakkı
