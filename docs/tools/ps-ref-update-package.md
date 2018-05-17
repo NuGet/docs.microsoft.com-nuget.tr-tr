@@ -12,7 +12,7 @@ ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/26/2018
 ---
-# <a name="update-package-package-manager-console-in-visual-studio"></a>Güncelleştirme Paketi (Visual Studio'da Paket Yöneticisi Konsolu)
+# <a name="update-package-package-manager-console-in-visual-studio"></a>Update-Package (Visual Studio'da Paket Yöneticisi Konsolu)
 
 *Yalnızca içinde kullanılabilir [NuGet Paket Yöneticisi Konsolu](package-manager-console.md) Windows Visual Studio'da.*
 

@@ -12,7 +12,7 @@ ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/26/2018
 ---
-# <a name="update-command-nuget-cli"></a>güncelleştirme komutu (NuGet CLI)
+# <a name="update-command-nuget-cli"></a>update komutu (NuGet CLI)
 
 **Uygulandığı öğe:** paketini tüketim &bullet; **desteklenen sürümler:** tüm
 

@@ -12,7 +12,7 @@ ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/26/2018
 ---
-# <a name="locals-command-nuget-cli"></a>Yerel öğeler komutu (NuGet CLI)
+# <a name="locals-command-nuget-cli"></a>locals komutu (NuGet CLI)
 
 **Uygulandığı öğe:** paketini tüketim &bullet; **desteklenen sürümler:** 3.3 +
 

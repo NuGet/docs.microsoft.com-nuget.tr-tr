@@ -12,7 +12,7 @@ ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/26/2018
 ---
-# <a name="pack-command-nuget-cli"></a>Paketi komut (NuGet CLI)
+# <a name="pack-command-nuget-cli"></a>pack komutu (NuGet CLI)
 
 **Uygulandığı öğe:** paketini oluşturma &bullet; **desteklenen sürümler:** 2.7 +
 

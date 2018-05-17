@@ -12,7 +12,7 @@ ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/26/2018
 ---
-# <a name="sources-command-nuget-cli"></a>kaynakları komutu (NuGet CLI)
+# <a name="sources-command-nuget-cli"></a>sources komutu (NuGet CLI)
 
 **Uygulandığı öğe:** paket tüketim, yayımlama &bullet; **desteklenen sürümler:** tüm
 

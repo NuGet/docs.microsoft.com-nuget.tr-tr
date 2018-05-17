@@ -12,7 +12,7 @@ ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/26/2018
 ---
-# <a name="add-command-nuget-cli"></a>Ekle komutu (NuGet CLI)
+# <a name="add-command-nuget-cli"></a>add komutu (NuGet CLI)
 
 **Uygulandığı öğe**: paketini yayımlama &bullet; **desteklenen sürümleri**: 3.3 +
 

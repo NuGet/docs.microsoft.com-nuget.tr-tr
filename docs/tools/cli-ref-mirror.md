@@ -12,7 +12,7 @@ ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/26/2018
 ---
-# <a name="mirror-command-nuget-cli"></a>Yansıtma komutu (NuGet CLI)
+# <a name="mirror-command-nuget-cli"></a>mirror komutu (NuGet CLI)
 
 **Uygulandığı öğe:** paketini yayımlama &bullet; **desteklenen sürümler:** 3.2 +'da kullanım dışıdır
 

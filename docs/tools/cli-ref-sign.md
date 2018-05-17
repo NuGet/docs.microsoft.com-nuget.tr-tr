@@ -13,7 +13,7 @@ ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/26/2018
 ---
-# <a name="sign-command-nuget-cli"></a>oturum komutu (NuGet CLI)
+# <a name="sign-command-nuget-cli"></a>sign komutu (NuGet CLI)
 
 **Uygulandığı öğe:** paketini oluşturma &bullet; **desteklenen sürümler:** 4.6 +
 
