@@ -6,11 +6,11 @@ ms.author: karann
 manager: unnir
 ms.date: 5/14/2018
 ms.topic: conceptual
-ms.openlocfilehash: a37b7fd9cb44d485250deb18d7630d47c68e0517
-ms.sourcegitcommit: 00c4c809c69c16fcf4d81012eb53ea22f0691d0b
+ms.openlocfilehash: f23cc2973fa6370d9b7513d415fd8151b822c104
+ms.sourcegitcommit: 8f0bb8bb9cb91d27d660963ed9b0f32642f420fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="nuget-47-rtm-release-notes"></a>NuGet 4.7 RTM sürüm notları
 
@@ -23,6 +23,22 @@ ms.lasthandoff: 05/16/2018
 * Visual Studio sürümü 15.7 ile yeteneği gösterdiğimizi [packages.config biçimi PackageReference kullanmayı mevcut projeleri geçirmek](https://docs.microsoft.com/en-us/nuget/reference/migrate-packages-config-to-package-reference) yerine.
 
 ## <a name="known-issues"></a>Bilinen sorunlar
+
+### <a name="the-migrate-packagesconfig-to-packagereference-option-is-not-available-in-the-right-click-context-menu"></a>`Migrate packages.config to PackageReference...` Seçeneği sağ bağlam menüsünde kullanılabilir değil
+
+#### <a name="issue"></a>Sorun
+
+Bir proje ilk kez açıldığında bir NuGet işlemi gerçekleştirilene kadar NuGet başlatılmamış. Bu geçiş seçeneği sağ bağlam menüsü üzerinde gösterme neden `packages.config` veya `References`.
+
+#### <a name="workaround"></a>Geçici Çözüm
+
+SPN'i aşağıdaki NuGet eylemlerden herhangi birini:
+* Paket Yöneticisi kullanıcı Arabirimi - açık sağ `References` ve seçin `Manage NuGet Packages...`
+* Gelen Paket Yöneticisi konsolu - açmak `Tools > NuGet Package Manager`seçin `Package Manager Console`
+* Çalışma NuGet geri yükleme - Çözüm Gezgini'nde çözüm düğümüne sağ tıklayın ve seçin `Restore NuGet Packages`
+* Ayrıca NuGet restore tetikler projeyi derleme
+
+Şimdi geçiş seçeneği görüyor olmalısınız. Bu seçenek desteklenmiyor ve ASP.NET ve C++ proje türleri için gösterilmez unutmayın.
 
 ### <a name="issues-with-net-standard-20-with-net-framework--nuget"></a>.NET Framework & NuGet ile .NET standart 2.0 ile ilgili sorunları
 

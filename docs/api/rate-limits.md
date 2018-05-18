@@ -10,11 +10,11 @@ ms.reviewer:
 - skofman
 - anangaur
 - kraigb
-ms.openlocfilehash: e236d685a700d0f47480336cece8edfd44c28863
-ms.sourcegitcommit: 68c8a494a11c892ac671fec3170ba7be97fb044d
+ms.openlocfilehash: c5d3cf68ac6a96a6c14eb5e652bcf72698b6a8e8
+ms.sourcegitcommit: 8f0bb8bb9cb91d27d660963ed9b0f32642f420fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="rate-limits"></a>Oran sınırları
 
@@ -46,5 +46,5 @@ Aşağıdaki tablolarda NuGet.org API'si için oran sınırları listelenmektedi
 
 | API | Sınır türü | Sınır değeri | API kullanım durumu | 
 |:---|:---|:---|:--- |
-**PUT** `/api/v2/package` | API anahtarı | 100 / dakika | V2 itme uç noktası aracılığıyla yeni bir NuGet paketi (sürüm) yükleme 
-**SİL** `/api/v2/package/{id}/{version}` | API anahtarı | 100 / dakika | NuGet paketi (sürüm) v2 uç nokta üzerinden unlist 
+**PUT** `/api/v2/package` | API anahtarı | 250 / saat | V2 itme uç noktası aracılığıyla yeni bir NuGet paketi (sürüm) yükleme 
+**SİL** `/api/v2/package/{id}/{version}` | API anahtarı | 250 / saat | NuGet paketi (sürüm) v2 uç nokta üzerinden unlist 
