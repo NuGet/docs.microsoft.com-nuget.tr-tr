@@ -7,11 +7,11 @@ manager: douge
 ms.date: 08/29/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: c11b50aa1637c00f0f0e71a6e20ce5d435db402b
-ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
+ms.openlocfilehash: c0717418e1efcdcaf407bec6ab50f43e5396421e
+ms.sourcegitcommit: 8f0bb8bb9cb91d27d660963ed9b0f32642f420fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="nuspec-reference"></a>.nuspec başvurusu
 
@@ -88,7 +88,7 @@ Bu öğeler içinde görünebilir bir `<metadata>` öğesi.
 | **Sahipleri** | Nuget.org üzerinde profil adları kullanarak paket oluşturucuları virgülle ayrılmış listesi. Bu genellikle aynı olarak listesidir `authors`ve paket için nuget.org karşıya yüklenirken göz ardı edilir. Bkz: [yönetme paket sahipleri nuget.org üzerinde](../create-packages/publish-a-package.md#managing-package-owners-on-nugetorg). |
 | **projectUrl** | Paketin giriş sayfası, genellikle kullanıcı Arabiriminde gösterilen URL'sini nuget.org yanı sıra görüntüler. |
 | **licenseUrl** | Genellikle nuget.org yanı sıra kullanıcı Arabirimi görüntüler gösterilen paketin lisans URL'sini. |
-| **iconUrl** | UI görüntü paketinde simgesi olarak kullanılacak bir URL 64 x 64 görüntünün saydamlık arka plana sahip. Bu öğe içerdiğinden emin olun *resim URL'si doğrudan* ve görüntüyü içeren bir web sayfasının URL değil. Örneğin, bir görüntü github'dan kullanmak için URL gibi raw dosyasını kullanın  <em>https://github.com/ \<kullanıcıadı\>/\<deposu\>/raw/\<şube\> / \<logo.png\></em>. |
+| **iconUrl** | UI görüntü paketinde simgesi olarak kullanılacak bir URL 64 x 64 görüntünün saydamlık arka plana sahip. Bu öğe içerdiğinden emin olun *resim URL'si doğrudan* ve görüntüyü içeren bir web sayfasının URL değil. Örneğin, bir görüntü github'dan kullanmak için URL gibi raw dosyasını kullanın <em>https://github.com/\<username\>/\<repository\>/raw/\<branch\>/\<logo.png\></em>. |
 | **RequireLicenseAcceptance** | İstemci paketi lisans paketi yüklemeden önce kabul etmek için tüketici sor olup olmadığını belirten bir Boole değeri. |
 | **DevelopmentDependency** | *(2.8 +)*  Paket olup olmadığını belirten bir Boolean değeri bir geliştirme-yalnızca-paket diğer paketler bağımlılık olarak dahil önleyen bağımlılık olarak işaretlenir. |
 | **Özet** | UI görüntülenmesi için paket kısa bir açıklaması. Atlanırsa, kesilmiş bir sürümünü `description` kullanılır. |
@@ -388,9 +388,10 @@ Her `<file>` öğesi aşağıdaki özniteliklere belirtir:
 **Dosyaları dışlama**
 
     Source files:
-        \tools\*.bak
-        \tools\*.log
-        \tools\build\*.log
+        \tools\fileA.bak
+        \tools\fileB.bak
+        \tools\fileA.log
+        \tools\build\fileB.log
 
     .nuspec entries:
         <file src="tools\*.*" target="tools" exclude="tools\*.bak" />
