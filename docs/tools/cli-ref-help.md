@@ -12,7 +12,7 @@ ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/26/2018
 ---
-# <a name="help-or--command-nuget-cli"></a>Yardım veya? komutu (NuGet CLI)
+# <a name="help-or--command-nuget-cli"></a>help or ? komutu (NuGet CLI)
 
 **Uygulandığı öğe:** tüm &bullet; **desteklenen sürümleri**: tüm
 
