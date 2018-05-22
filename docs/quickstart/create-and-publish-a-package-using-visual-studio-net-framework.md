@@ -1,20 +1,23 @@
 ---
-title: Oluşturma ve yayımlama Visual Studio kullanarak bir .NET Framework NuGet paketi tanıtım Kılavuzu
-description: Oluşturma ve yayımlama Visual Studio 2017 kullanarak bir .NET Framework NuGet paketi bir gözden geçirme Öğreticisi.
+title: Oluşturma ve Windows Visual Studio kullanarak .NET Framework paket yayımlama
+description: Oluşturma ve yayımlama Windows Visual Studio 2017 kullanarak .NET Framework NuGet paketi bir gözden geçirme Öğreticisi.
 author: kraigb
 ms.author: kraigb
 manager: douge
-ms.date: 03/13/2018
+ms.date: 05/13/2018
 ms.topic: quickstart
-ms.openlocfilehash: 01760034a121b1ff6f227e006415779898c4cf6d
-ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
+ms.openlocfilehash: ba02b53c6ac0b4172b8611958775980ce401bf9b
+ms.sourcegitcommit: f0b31af805183cf3a98eabb504e16d9b05223cfe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/22/2018
 ---
-# <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework"></a>Hızlı Başlangıç: Oluşturma ve Visual Studio (.NET Framework) kullanarak bir paket yayımlama
+# <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>Hızlı Başlangıç: Oluşturma ve Visual Studio (.NET Framework, Windows) kullanarak bir paket yayımlama
 
-Bir NuGet paketi bir .NET Framework Sınıf Kitaplığı'ndan Visual Studio'da DLL oluşturma ve ardından oluşturmak ve paket yayımlamak için nuget.exe komut satırı aracını kullanarak oluşturursunuz.
+Bir NuGet paketi bir .NET Framework Sınıf Kitaplığı'ndan Windows Visual Studio'da DLL oluşturma ve ardından oluşturmak ve paket yayımlamak için nuget.exe komut satırı aracını kullanarak oluşturursunuz.
+
+> [!Note]
+> Bu Hızlı Başlangıç, Visual Studio 2017 yalnızca Windows için geçerlidir. Mac için Visual Studio burada açıklanan özellikleri içermez. Kullanım [dotnet CLI araçlarını](create-and-publish-a-package-using-the-dotnet-cli.md) yerine.
 
 ## <a name="prerequisites"></a>Önkoşullar
 

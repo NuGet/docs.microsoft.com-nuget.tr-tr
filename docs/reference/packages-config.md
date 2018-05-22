@@ -4,17 +4,21 @@ description: Bazı proje türleri packages.config projesinde kullanılan NuGet p
 author: kraigb
 ms.author: kraigb
 manager: douge
-ms.date: 12/07/2017
+ms.date: 05/21/2018
 ms.topic: reference
-ms.openlocfilehash: 73234f79cb9eb30327c4e206a5bc51c5bc1c6f1d
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: e10bc1625bc4cea7b7befe18caa22d33a876489b
+ms.sourcegitcommit: f0b31af805183cf3a98eabb504e16d9b05223cfe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="packagesconfig-reference"></a>Packages.config başvurusu
 
 `packages.config` Dosyası, projenin başvurduğu paketlerin listesini korumak için bazı proje türleri kullanılır. Bu projenin bağımlılıkları kolayca geri yüklemek NuGet sağlar, bu tüm paketler olmadan yapı sunucu gibi başka bir makine aktarılmasını projesi.
+
+Kullandıysanız, `packages.config` genellikle bir proje kök dizininde bulunur. İlk NuGet işlemi çalıştırılır, ancak aynı zamanda el ile gibi herhangi bir komut çalıştırmadan önce oluşturulabilir otomatik olarak oluşturulur `nuget restore`.
+
+Projeleri kullanan [PackageReference](../consume-packages/Package-References-in-Project-Files.md) kullanmayın `packages.config`.
 
 ## <a name="schema"></a>Şema
 

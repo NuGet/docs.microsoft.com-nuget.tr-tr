@@ -1,20 +1,23 @@
 ---
-title: Oluşturma ve bir .NET standart Visual Studio kullanarak yayımlama NuGet paketi tanıtım Kılavuzu
-description: Oluşturma ve yayımlama Visual Studio 2017 kullanarak bir .NET standart NuGet paketi bir gözden geçirme Öğreticisi.
+title: Oluşturma ve Windows Visual Studio kullanarak .NET standart paket yayımlama
+description: Oluşturma ve yayımlama Windows Visual Studio 2017 kullanarak bir .NET standart NuGet paketi bir gözden geçirme Öğreticisi.
 author: kraigb
 ms.author: kraigb
 manager: douge
-ms.date: 03/18/2018
+ms.date: 05/18/2018
 ms.topic: quickstart
-ms.openlocfilehash: c5d58aa6312eae801607ca44a81bc092a7a7c15f
-ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
+ms.openlocfilehash: f4e6473d307f2f71016f6926abbcdb1295abc7b5
+ms.sourcegitcommit: f0b31af805183cf3a98eabb504e16d9b05223cfe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/22/2018
 ---
-# <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard"></a>Hızlı Başlangıç: Oluşturma ve Visual Studio (.NET standart) kullanarak bir NuGet Paketi Yayımlama
+# <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Hızlı Başlangıç: Oluşturma ve Visual Studio (.NET standart, yalnızca Windows) kullanarak bir NuGet Paketi Yayımlama
 
-Bir .NET standart sınıf kitaplığı Visual Studio'da NuGet paketi oluşturun ve ardından CLI aracını kullanarak nuget.org yayımlamak için basit bir işlemdir.
+Bir .NET standart sınıf kitaplığı Windows Visual Studio'da NuGet paketi oluşturun ve ardından CLI aracını kullanarak nuget.org yayımlamak için basit bir işlemdir.
+
+> [!Note]
+> Bu Hızlı Başlangıç, Visual Studio 2017 yalnızca Windows için geçerlidir. Mac için Visual Studio burada açıklanan özellikleri içermez. Kullanım [dotnet CLI araçlarını](create-and-publish-a-package-using-the-dotnet-cli.md) yerine.
 
 ## <a name="prerequisites"></a>Önkoşullar
 

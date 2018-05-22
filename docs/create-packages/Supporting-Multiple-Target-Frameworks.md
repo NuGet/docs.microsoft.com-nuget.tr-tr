@@ -6,11 +6,11 @@ ms.author: kraigb
 manager: douge
 ms.date: 09/27/2017
 ms.topic: conceptual
-ms.openlocfilehash: d1a64c61954381b7ab3a7ecc8aa5a812cfa14e8b
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 9bdcff8210c192a695a5645f28ef88087469ec52
+ms.sourcegitcommit: f0b31af805183cf3a98eabb504e16d9b05223cfe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="supporting-multiple-net-framework-versions"></a>Birden çok .NET framework sürümleri destekleme
 
@@ -28,7 +28,7 @@ Bir kitaplık veya hedef yalnızca bir sürümü içeren bir paket birden çok �
 
 Desteklenen ad tam bir listesi için bkz: [hedef çerçeveyi başvuru](../reference/target-frameworks.md#supported-frameworks).
 
-Hiçbir zaman bir çerçeve özgüdür ve doğrudan kök olarak yerleştirilen kitaplığı bir sürümüne sahip olmalıdır `lib` klasör. (Bu özellik yalnızca destekleniyordu `packages.config`). Ve tüm hedef framework ile uyumlu hale olması izin verin Bunun yapılması her yerden, büyük olasılıkla beklenmeyen çalışma zamanı hataları kaynaklanan yüklü. Kök klasöründe derlemeler ekleme (gibi `lib\abc.dll`) veya alt klasörlerinde (gibi `lib\abc\abc.dll`) kullanım dışı bırakıldı ve PackagesReference biçimi kullanılırken göz ardı edilir.
+Hiçbir zaman bir çerçeve özgüdür ve doğrudan kök olarak yerleştirilen kitaplığı bir sürümüne sahip olmalıdır `lib` klasör. (Bu özellik yalnızca destekleniyordu `packages.config`). Bunun yapılması kitaplığı herhangi bir hedef framework ile uyumlu hale getirmek ve herhangi bir yere, yüklenecek büyük olasılıkla beklenmeyen çalışma zamanı hataları kaynaklanan verin. Kök klasöründe derlemeler ekleme (gibi `lib\abc.dll`) veya alt klasörlerinde (gibi `lib\abc\abc.dll`) kullanım dışı bırakıldı ve PackagesReference biçimi kullanılırken göz ardı edilir.
 
 Örneğin, aşağıdaki klasör yapısını bir derlemeyi çerçeveye özel dört sürümlerini destekler:
 
