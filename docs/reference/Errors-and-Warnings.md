@@ -4,7 +4,7 @@ description: Uyarıları ve hataları Nuget'ten çeşitli NuGet işlemleri sıra
 author: kraigb
 ms.author: kraigb
 manager: douge
-ms.date: 03/06/2018
+ms.date: 05/18/2018
 ms.topic: reference
 ms.reviewer: anangaur
 f1_keywords:
@@ -44,11 +44,11 @@ f1_keywords:
 - NU3008
 - NU3018
 - NU3028
-ms.openlocfilehash: dcff20e35adc0a3dbcc7bef482f81a937cf059c5
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 748c2746a61886617e2eefe3e6c4a2e2a5b9d4d3
+ms.sourcegitcommit: 8127dd73ff8481a1a01acd9b7004dd131a9d84e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="errors-and-warnings"></a>Hatalar ve uyarılar
 
@@ -122,7 +122,7 @@ Hatalar ve uyarılar burada listelenen yalnızca [PackageReference tabanlı](../
 | --- | --- |
 | **Sorunu** | Paketin tüm kaynakları bulunamıyor. |
 | **Örnek ileti** | *Paket System.Missing bulunamıyor. Bu kimlikle kaynakları hiç paket yok: dotnet çekirdekli, dotnet roslyn, nuget.org* |
-| **Çözüm** | Doğru paket tanımlayıcısı ve sürüm numarasını kullandığınızdan emin olmak için Visual Studio Proje bağımlılıkları inceleyin. Ayrıca denetleyin [NuGet Yapılandırması](../consume-packages/Configuring-NuGet-Behavior.md) paket kaynaklarını tanımlar, kullanılmasını bekler. Sahip paketleri kullanıyorsanız [anlamsal sürüm oluşturma 2.0.0](https://docs.microsoft.com/en-us/nuget/reference/package-versioning#semantic-versioning-200), Lütfen, kullandığınızdan emin olun [akış V3](https://api.nuget.org/v3/index.json) içinde [NuGet Yapılandırması](../consume-packages/Configuring-NuGet-Behavior.md). |
+| **Çözüm** | Doğru paket tanımlayıcısı ve sürüm numarasını kullandığınızdan emin olmak için Visual Studio Proje bağımlılıkları inceleyin. Ayrıca denetleyin [NuGet Yapılandırması](../consume-packages/Configuring-NuGet-Behavior.md) paket kaynaklarını tanımlar, kullanılmasını bekler. Sahip paketleri kullanıyorsanız [anlamsal sürüm oluşturma 2.0.0](../reference/package-versioning.md#semantic-versioning-200), lütfen akışı, V3 kullandığınızdan emin olun `https://api.nuget.org/v3/index.json`, [NuGet Yapılandırması](../consume-packages/Configuring-NuGet-Behavior.md). |
 
 ### <a name="nu1102"></a>NU1102
 

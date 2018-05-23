@@ -6,22 +6,24 @@ ms.author: anangaur
 manager: unnir
 ms.date: 3/7/2018
 ms.topic: conceptual
-ms.openlocfilehash: d8fc374167e5c7f601c41887c4844854d0177ccb
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 11e604ad9a28ac2b22880a13ef9d8b41d8c09507
+ms.sourcegitcommit: 8127dd73ff8481a1a01acd9b7004dd131a9d84e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="nuget-46-rtm-release-notes"></a>NuGet 4.6 RTM sürüm notları
 
 [Visual Studio 2017 15,6 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) birlikte [NuGet 4.6.0](https://dist.nuget.org/win-x86-commandline/v4.6.0/nuget.exe).
 
 ## <a name="summary-whats-new-in-this-release"></a>Özet: Bu Yayındaki Yenilikler
-* İçin destek ekledik [paketleri imzalama](https://docs.microsoft.com/en-us/nuget/create-packages/sign-a-package).  
-* Visual Studio 2017 nuget.exe şimdi doğrular ve paket bütünlüğü yüklemeden önce paketleri geri yükleniyor [paketleri imzalı](https://docs.microsoft.com/en-us/nuget/reference/signed-packages-reference).
+
+* İçin destek ekledik [paketleri imzalama](../create-packages/sign-a-package.md).
+* Visual Studio 2017 nuget.exe şimdi doğrular ve paket bütünlüğü yüklemeden önce paketleri geri yükleniyor [paketleri imzalı](../reference/signed-packages-reference.md).
 * Biz art arda geri yüklemeler performansı geliştirilmiştir.
 
 ## <a name="known-issues"></a>Bilinen sorunlar
+
 ### <a name="issues-with-net-standard-20-with-net-framework--nuget"></a>.NET Framework & NuGet ile .NET standart 2.0 ile ilgili sorunları 
 
 .NET standart & kendi araç proje .NET Framework 4.6.1 hedefleme NuGet paketlerini & Proje .NET Standard 2.0 veya önceki sürümünü hedefleme tüketebileceği şekilde tasarlanmıştır. [Bu belge](https://github.com/dotnet/standard/issues/481) sorunlarını bu senaryo, bunları ve geçici çözümler bugünün araç durumuyla dağıtabileceğiniz adresleme planı geçici özetler.
@@ -29,11 +31,13 @@ ms.lasthandoff: 04/26/2018
 ## <a name="top-issues-fixed-in-this-release"></a>Bu sürümde sabit üst sorunları
 
 **Performans düzeltmeleri**
+
 * Herhangi bir değişiklik - olduğunda varlık dosyaları yazmayın [#6491](https://github.com/NuGet/Home/issues/6491)
 * Geri yükleme neden olan ek MSBuild değerlendirmeleri alt projeleri TFM eşleşmiyor, üst projenin ile - [#6311](https://github.com/NuGet/Home/issues/6311)
 * Bağımlılık iyileştirerek sekmeyi geri yükleme perf artırmak grafik belirtim oluşturma - [#6252](https://github.com/NuGet/Home/issues/6252)
 
 **Hataları**
+
 * Yerel klasöre itme bırakır kilitli - nupkg [#6325](https://github.com/NuGet/Home/issues/6325)
 * NuGet eklentisi uygulama: birden çok sorunları - [#6149](https://github.com/NuGet/Home/issues/6149)
 * UIHang - Kaldır sorgu hizmet çağrısından VSSolutionManager MEF başlatma - [#6110](https://github.com/NuGet/Home/issues/6110)
@@ -60,6 +64,5 @@ ms.lasthandoff: 04/26/2018
 * Nuget ekleme askıda CentOS üzerinde - [#2708](https://github.com/NuGet/Home/issues/2708)
 * Packagesavemode - nupkg ile geri yükleme başarısız için json.net - [#2706](https://github.com/NuGet/Home/issues/2706)
 * Paket Yöneticisi filtresi vs üzerinde kullanılamaz çıktı penceresi için restore komutu - [#2704](https://github.com/NuGet/Home/issues/2704)
-
 
 [Bu sürümde giderilen tüm sorunların listesi](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.6")
