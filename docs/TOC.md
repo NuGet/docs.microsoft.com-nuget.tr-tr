@@ -84,7 +84,7 @@
 ## [Hatalar ve uyarılar](reference/errors-and-warnings.md)
 ## [Kimlik ön eki ayırma](reference/id-prefix-reservation.md)
 ## [NuGet istemci SDK’sı](reference/nuget-client-sdk.md)
-## [İmzalı paket başvurusu](reference/signed-packages-reference.md)
+## [İmzalanmış Paketleri](reference/signed-packages-reference.md)
 ## [nuget.org üzerindeki kuruluşlar](reference/organizations-on-nuget-org.md)
 ## Genişletilebilirlik
 ### [Visual Studio için NuGet kimlik bilgileri sağlayıcısı](reference/extensibility/nuget-credential-providers-for-visual-studio.md)
