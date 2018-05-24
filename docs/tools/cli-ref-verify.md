@@ -7,11 +7,11 @@ manager: doronm
 ms.date: 03/06/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: c2c31b71358bc50a1fb9aab8905c279cd1235b07
-ms.sourcegitcommit: 5fcd6d664749aa720359104ef7a66d38aeecadc2
+ms.openlocfilehash: c80334104f7d8b2ccbf16ea2c11dc37b39408eeb
+ms.sourcegitcommit: c8485dc61469511485367d2067b97d6f74b49f6e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2018
+ms.lasthandoff: 05/23/2018
 ---
 # <a name="verify-command-nuget-cli"></a>verify komutu (NuGet CLI)
 
@@ -24,22 +24,32 @@ Bir paket doğrular.
 ## <a name="usage"></a>Kullanım
 
 ```cli
-nuget verify <package(s)> [options]
+nuget verify <-All|-Signatures> <package(s)> [options]
 ```
 
 Burada `<package(s)>` bir veya daha fazla `.nupkg` dosyaları.
+
+## <a name="nuget-verify--all"></a>nuget doğrulama - tüm
+
+Tüm Doğrulamalar olası paketler üzerinde gerçekleştirilmelidir belirtir.
+
+## <a name="nuget-verify--signatures"></a>nuget doğrulama - imzaları
+
+Paket imza doğrulaması gerçekleştirilmesi gerektiğini belirtir.
+
+## <a name="options-for-verify--signatures"></a>"Doğrulama - imzaları" seçenekleri
+
+| Seçenek | Açıklama |
+| --- | --- |
+| CertificateFingerprint | Bir veya daha fazla SHA-256 sertifika parmak izi imzalı hangi paketlerin imzalanmalıdır sertifikaların (s) belirtir. SHA-256 sertifika parmak izi sertifika SHA-256 karmasıdır. Birden çok girişi noktalı virgülle ayrılmış olması gerekir. |
 
 ## <a name="options"></a>Seçenekler
 
 | Seçenek | Açıklama |
 | --- | --- |
-| Tümü | Tüm Doğrulamalar olası paketler üzerinde gerçekleştirilmelidir belirtir. |
-| CertificateFingerprint | Bir veya daha fazla SHA-256 sertifika parmak izi imzalı hangi paketlerin imzalanmalıdır sertifikaların (s) belirtir. SHA-256 sertifika parmak izi sertifika SHA-256 karmasıdır. Birden çok girişi noktalı virgülle ayrılmış olması gerekir. |
 | ConfigFile | Uygulamak için NuGet yapılandırma dosyası. Belirtilmezse, `%AppData%\NuGet\NuGet.Config` (Windows) veya `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) kullanılır.|
 | ForceEnglishOutput | Bir sabit, İngilizce tabanlı kültürü kullanarak çalışacak şekilde nuget.exe zorlar. |
 | Yardım | Bilgi komutu için yardımı görüntüler. |
-| Etkileşimli olmayan | Kullanıcı girişi veya onayı için ister gizler. |
-| İmzalar | Paket imza doğrulaması gerçekleştirilmesi gerektiğini belirtir. |
 | Ayrıntı Düzeyi | Çıktıda görüntülenen ayrıntı miktarını belirtir: *normal*, *sessiz*, *ayrıntılı*. |
 
 ## <a name="examples"></a>Örnekler
@@ -52,4 +62,7 @@ nuget verify -Signatures c:\packages\MyPackage.nupkg -CertificateFingerprint CE4
 nuget verify -Signatures MyPackage.nupkg -Verbosity quiet
 
 nuget verify -Signatures .\*.nupkg
+
+nuget verify -All .\*.nupkg
+
 ```
