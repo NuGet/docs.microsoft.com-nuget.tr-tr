@@ -1,16 +1,17 @@
 ---
 title: (İçin iOS, Android ve Windows) Xamarin ile Visual Studio 2015 için NuGet paketleri oluşturma
 description: NuGet paketleri için Xamarin oluşturduğunuz bir uçtan uca kılavuz, iOS, Android ve Windows yerel API'leri kullanın.
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 01/09/2017
 ms.topic: tutorial
-ms.openlocfilehash: 1189151b04da6dc4c7b680f759b6a8ca7c5bd85f
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 5215650ee69741ee83f76cadb6c38f9a9c3e2e0c
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818012"
 ---
 # <a name="create-packages-for-xamarin-with-visual-studio-2015"></a>Xamarin ile Visual Studio 2015 için paketler oluşturma
 

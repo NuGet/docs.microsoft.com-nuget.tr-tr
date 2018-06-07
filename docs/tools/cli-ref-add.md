@@ -1,18 +1,19 @@
 ---
 title: NuGet CLI Ekle komutu
 description: Nuget.exe için başvuru Ekle komutu
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 4a4201a321ffe0f7fb61f4e98012a1a2d7d8fda4
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: f229ca100463c556f9c4cefc49f52724a9c4ba77
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34817616"
 ---
-# <a name="add-command-nuget-cli"></a>add komutu (NuGet CLI)
+# <a name="add-command-nuget-cli"></a>Ekle komutu (NuGet CLI)
 
 **Uygulandığı öğe**: paketini yayımlama &bullet; **desteklenen sürümleri**: 3.3 +
 
@@ -45,7 +46,7 @@ Burada `<packagePath>` eklemek için paket için yol adı ve `<sourcePath>` içi
 | Genişletme | Tüm dosyalar paket kaynağına pakette ekler. |
 | ForceEnglishOutput | *(3.5 +)*  Değişmez, İngilizce tabanlı kültürü kullanarak çalışacak şekilde nuget.exe zorlar. |
 | Yardım | Bilgi komutu için yardımı görüntüler. |
-| Etkileşimli olmayan | Kullanıcı girişi veya onayı için ister gizler. |
+| NonInteractive | Kullanıcı girişi veya onayı için ister gizler. |
 | Ayrıntı Düzeyi | Çıktıda görüntülenen ayrıntı miktarını belirtir: *normal*, *sessiz*, *ayrıntılı*. |
 
 Ayrıca bkz. [ortam değişkenleri](cli-ref-environment-variables.md)

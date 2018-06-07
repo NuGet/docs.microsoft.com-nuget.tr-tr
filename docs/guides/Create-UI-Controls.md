@@ -1,16 +1,17 @@
 ---
 title: NuGet paketi UI denetimleriyle nasıl
 description: UWP ya da WPF içeren NuGet paketleri oluşturmak nasıl destek dosyaları için Visual Studio ve harmanlama tasarımcıları ve gerekli meta veriler dahil olmak üzere denetler.
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 05/23/2018
 ms.topic: tutorial
-ms.openlocfilehash: fc6ab9e45d18807a6d69bb50ad5bac94b662a638
-ms.sourcegitcommit: 80c1a37d8794e9219e310a21a6a6885a65d24e53
+ms.openlocfilehash: ab7499c415f63319fd314f33607f74d400b5f957
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818664"
 ---
 # <a name="creating-ui-controls-as-nuget-packages"></a>NuGet paketleri UI denetimleri oluşturma
 

@@ -1,16 +1,17 @@
 ---
 title: Çoklu sürüm desteği için NuGet paketleri
 description: Tek bir NuGet paketi birden çok .NET Framework sürümü hedeflemek için çeşitli yöntemler açıklaması.
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 09/27/2017
 ms.topic: conceptual
-ms.openlocfilehash: 9bdcff8210c192a695a5645f28ef88087469ec52
-ms.sourcegitcommit: f0b31af805183cf3a98eabb504e16d9b05223cfe
+ms.openlocfilehash: 429b9743ea678cd500b6f51630d03aac7812441e
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/22/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34816962"
 ---
 # <a name="supporting-multiple-net-framework-versions"></a>Birden çok .NET framework sürümleri destekleme
 

@@ -1,16 +1,17 @@
 ---
 title: Visual Studio'da NuGet paket geri yükleme sorunlarını giderme
 description: Visual Studio ve bunları gidermek nasıl hatalar geri yükleme ortak NuGet açıklaması.
-author: kraigb
-ms.author: kraigb
-manager: douge
-ms.date: 03/16/2018
+author: karann-msft
+ms.author: karann
+manager: unnir
+ms.date: 05/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: c552941c896d1a7136310c0a8bc6755d5974809a
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 8e817b8e95c53d27120bf56db52b45b69a5ff973
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34816982"
 ---
 # <a name="troubleshooting-package-restore-errors"></a>Paket geri yükleme hatalarını giderme
 
@@ -49,8 +50,11 @@ Bu hata oluşur. bir veya daha fazla NuGet Paketlerine yönelik başvuruları i�
 
 Bu durum, yaygın olarak kaynak denetimi veya başka bir yükleme projenin kaynak kodu elde oluşur. Paketleri genellikle atlanmış kaynak denetimi veya yüklemeleri bunlar paket akışları nuget.org gibi geri yüklenebileceği olduğundan (bkz [paketler ve kaynak denetimi](Packages-and-Source-Control.md)). Bunları dahil olmak üzere Aksi durumda depo Şişir veya gereksiz yere büyük .zip dosyalarını oluşturun.
 
+Hata, paket konumlara mutlak yollar proje dosyanızı içeren ve projeye taşırsanız de oluşabilir.
+
 Paketler geri yüklemek için aşağıdaki yöntemlerden birini kullanın:
 
+- Proje dosyası taşıdıysanız doğrudan paket referanslarını güncelleştirmek için dosyayı düzenleyin.
 - Visual Studio'da paket geri yüklemesi seçerek etkinleştirin **Araçlar > NuGet Paket Yöneticisi > paket yönetimi ayarları** menü komutu, her iki seçenek altında ayarı **paketi geri yüklemesi**ve seçme **Tamam**. Ardından çözümü yeniden oluşturun.
 - .NET Core projelerde çalıştırmak `dotnet restore` veya `dotnet build` (otomatik olarak çalıştığı geri yükleme).
 - Komut satırında çalıştırmak `nuget restore` (ile oluşturulmuş projelerde dışında `dotnet`, bu durumda kullanmak `dotnet restore`).

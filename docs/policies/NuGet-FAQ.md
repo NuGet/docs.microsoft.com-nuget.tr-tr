@@ -1,16 +1,17 @@
 ---
 title: NuGet sık sorulan sorular
 description: Ortak sorular ve yanıtlar NuGet komut satırında ve Visual Studio kullanarak ve NuGet Galerisi ile çalışmak için.
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 01/11/2018
 ms.topic: conceptual
-ms.openlocfilehash: bcdb4e8971ee4e742e6cf37f8b662e50a77604f0
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: e3c52f1e49a53b89d7e5c0728c02a7915db2aeb9
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34817986"
 ---
 # <a name="nuget-frequently-asked-questions"></a>NuGet sık sorulan sorular
 
@@ -160,9 +161,9 @@ Bir paketi Lisans Koşulları'nı belirtmiyorsa kullanarak doğrudan paketi sahi
 
 ## <a name="managing-packages-on-nugetorg"></a>Nuget.org paketlerini yönetme
 
-**Paket meta verileri, karşıya yüklendikten sonra düzenleyebilir miyim? Neden nuspec düzenleme ve meta veri paketini değişiklik yapmak için yeni bir paket karşıya yükleme gerekiyor mu?**
+**Paket meta verileri, karşıya yüklendikten sonra düzenleyebilir miyim?**
 
-NuGet tüm paketler imzalanmasını gerektirir. Paketin imzalanması bir tasarım prensibi imzalı paket içeriğini nuspec içeren değişmez, olmanızın gerekmesidir. Paket meta verileri düzenleme değişiklikleri varolan imza geçersiz kılmalarını nuspec için sonuçlanır. Paket oluşturulduktan sonra paket meta verileri düzenleme gerektirmeyecek şekilde var olan iş akışları değiştirme öneririz.
+NuGet imzalanacak tüm paketler önerir. Paketin imzalanması bir tasarım prensibi imzalı paket içeriğini nuspec içeren değişmez, olmanızın gerekmesidir. Paket meta verileri düzenleme değişiklikleri varolan imza geçersiz kılmalarını nuspec için sonuçlanır. Paket oluşturulduktan sonra paket meta verileri düzenleme gerektirmeyecek şekilde var olan iş akışları değiştirme öneririz.
 
 Not paketiniz için listelenen bağımlılıkları paketinden otomatik olarak oluşturulur ve düzenlenemez.
 

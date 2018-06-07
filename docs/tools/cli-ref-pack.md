@@ -1,18 +1,19 @@
 ---
 title: NuGet CLI Paketi komutu
 description: Nuget.exe paketi komut başvurusu
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: a2468b099a822e69298ea78c80cfd1d5d5c09938
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 3140d56ac827d932c2323182ad040b8a4d14da5c
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818045"
 ---
-# <a name="pack-command-nuget-cli"></a>pack komutu (NuGet CLI)
+# <a name="pack-command-nuget-cli"></a>Paketi komut (NuGet CLI)
 
 **Uygulandığı öğe:** paketini oluşturma &bullet; **desteklenen sürümler:** 2.7 +
 
@@ -45,7 +46,7 @@ Burada `<nuspecPath>` ve `<projectPath>` belirtin `.nuspec` veya proje dosyası,
 | MSBuildVersion | *(3.2 +)*  Bu komutla birlikte kullanılacak MSBuild sürümünü belirtir. Değerleri, 4, 12, 14, 15 desteklenir. MSBuild yolda çekilir varsayılan olarak, aksi takdirde MSBuild yüksek yüklü sürümü varsayar. |
 | NoDefaultExcludes | Varsayılan dışlama olan NuGet engelleyen paket dosyaları, dosya ve klasörleri gibi bir noktayla başlayan `.svn` ve `.gitignore`. |
 | NoPackageAnalysis | Paketi paket analiz paketi oluşturduktan sonra çalışmayacağını belirtir. |
-| Çıktıdizini | Oluşturulan paket depolandığı klasörü belirtir. Bir klasör bulunmadığından belirtilmezse, geçerli klasörde kullanılır. |
+| OutputDirectory | Oluşturulan paket depolandığı klasörü belirtir. Bir klasör bulunmadığından belirtilmezse, geçerli klasörde kullanılır. |
 | Özellikler | Diğer Seçenekler sonra komut satırında son görüntülenmesi gerekir. Proje dosyasında değerleri geçersiz kılmak özellikler listesini belirtir; bkz: [yaygın MSBuild proje özellikleri](/visualstudio/msbuild/common-msbuild-project-properties) özellik adları. Burada özellikleri bağımsız değişkeni bir belirteç listesidir noktalı virgülle ayrılmış değer çiftleri = burada her oluşumu `$token$` içinde `.nuspec` dosya verilen değer ile değiştirilecek. Değerleri tırnak işaretleri içindeki dizeleri olabilir. "Hata ayıklama" "Yapılandırma" özelliği için varsayılan olduğunu unutmayın. Bir yayın yapılandırmasını değiştirmek için kullanın `-Properties Configuration=Release`. |
 | Son eki | *(3.4.4+)*  Genellikle yapı ya da diğer yayın öncesi tanımlayıcıları ekleme için kullanılan dahili olarak oluşturulan sürüm numarası bir sonek ekler. Örneğin, kullanarak `-suffix nightly` ile bir sürüm numarası benzer bir paket oluşturacak `1.2.3-nightly`. Sonekleri uyarılar, hatalar ve farklı sürümlerini NuGet ve NuGet Paket Yöneticisi ile olası uyumsuzlukları önlemek için bir harf ile başlamalıdır. |
 | Simgeleri | Paket kaynaklarını ve simgeleri içerdiğini belirtir. İle kullanıldığında bir `.nuspec` dosyası, bu bir normal NuGet paket dosyası oluşturur ve karşılık gelen paket simgeler. |

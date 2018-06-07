@@ -1,16 +1,17 @@
 ---
 title: Yerelleştirilmiş bir NuGet paketi oluşturma
 description: Oluşturmanın iki yolu ayrıntıları da tüm derlemelerin tek bir pakete dahil etme veya ayrı derlemeler yayımlama NuGet paketleri yerelleştirilmiş.
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 017957a349f3c53822225f885e32b7068f1c1c34
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 1088f174c6a1ec21f876ccc3d79c9b40eee4758f
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34817798"
 ---
 # <a name="creating-localized-nuget-packages"></a>Yerelleştirilmiş NuGet paketleri oluşturma
 

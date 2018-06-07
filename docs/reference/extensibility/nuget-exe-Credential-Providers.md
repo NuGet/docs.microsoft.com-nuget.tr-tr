@@ -1,16 +1,17 @@
 ---
 title: nuget.exe kimlik bilgisi sağlayıcıları
 description: nuget.exe kimlik bilgisi sağlayıcıları akış ile kimlik doğrulaması ve belirli kurallarına uygun komut satırı yürütülebilir dosyalar uygulanır.
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 12/12/2017
 ms.topic: conceptual
-ms.openlocfilehash: 494ea83007895e973585395e0cfe05b7226c4c3e
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: ebd3354c298eae8bc8158a987327374ac4a8d4f0
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818766"
 ---
 # <a name="authenticating-feeds-with-nugetexe-credential-providers"></a>Akışları nuget.exe kimlik bilgisi sağlayıcıları ile kimlik doğrulaması
 
@@ -52,7 +53,7 @@ Bir sağlayıcı aşağıdakileri yapmanız gerekir:
 | Parametre/anahtarı |Açıklama|
 |----------------|-----------|
 | URI {value} | Paket Kaynak URI gerektiren kimlik bilgileri.|
-| Etkileşimli olmayan | Varsa, sağlayıcı etkileşimli istemleri kesmez. |
+| NonInteractive | Varsa, sağlayıcı etkileşimli istemleri kesmez. |
 | IsRetry | Varsa, bu deneme daha önce başarısız girişim yinelenmesini olduğunu gösterir. Sağlayıcılar genellikle tüm mevcut önbelleği atlama ve yeni kimlik bilgilerini mümkünse sormasına emin olmak için bu bayrağı kullanın.|
 | Ayrıntı {value} | Varsa, aşağıdaki değerlerden birini: "normal", "quiet" veya "ayrıntılı". Herhangi bir değer belirtilirse, "normal" varsayılan olarak ayarlanır. Sağlayıcıları bu isteğe bağlı günlüğe kaydetme düzeyini belirtisi standart hata akışı yaymak üzere kullanmanız gerekir. |
 

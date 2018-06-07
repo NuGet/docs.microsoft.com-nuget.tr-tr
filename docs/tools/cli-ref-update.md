@@ -1,18 +1,19 @@
 ---
 title: NuGet CLI güncelleştirme komutu
 description: Nuget.exe güncelleştirme komut başvurusu
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: e6964d92436ce1bac9e6af85f6dae75fcf40378d
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 39e269b10a0cf144d5971d2af9f82a606e0b6904
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34817713"
 ---
-# <a name="update-command-nuget-cli"></a>update komutu (NuGet CLI)
+# <a name="update-command-nuget-cli"></a>güncelleştirme komutu (NuGet CLI)
 
 **Uygulandığı öğe:** paketini tüketim &bullet; **desteklenen sürümler:** tüm
 
@@ -43,7 +44,7 @@ Burada `<configPath>` ya da tanımlayan bir `packages.config` veya proje bağım
 | Kimliği | Paketi güncelleştirmeye kimlikleri listesini belirtir. |
 | MSBuildPath | *(4.0 +)*  Öncelik Alma komutuyla kullanmak için MSBuild yolunu belirtir `-MSBuildVersion`. |
 | MSBuildVersion | *(3.2 +)*  Bu komutla birlikte kullanılacak MSBuild sürümünü belirtir. Değerleri, 4, 12, 14, 15 desteklenir. MSBuild yolda çekilir varsayılan olarak, aksi takdirde MSBuild yüksek yüklü sürümü varsayar. |
-| Etkileşimli olmayan | Kullanıcı girişi veya onayı için ister gizler. |
+| NonInteractive | Kullanıcı girişi veya onayı için ister gizler. |
 | Yayın öncesi | Yayın öncesi sürümler için güncelleştirme sağlar. Bu bayrak, yüklü olan yayın öncesi paket güncelleştirilirken gerekli değildir. |
 | RepositoryPath | Paketleri yüklendiği yerel klasörü belirtir. |
 | Güvenli | Yüklü paketin yüklü olarak yalnızca aynı birincil ve ikincil sürüm içinde kullanılabilir en yüksek sürüm ile güncelleştirmelerinin belirtir. |

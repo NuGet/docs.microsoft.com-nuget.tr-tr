@@ -1,16 +1,17 @@
 ---
 title: Bulma ve NuGet paketlerini seçme
 description: Genel Bakış nasıl bulacağınızı ve Ayrıntılar NuGet arama söz dizimi dahil olmak üzere bir proje için en iyi NuGet paketlerini seçin.
-author: kraigb
-ms.author: kraigb
-manager: douge
-ms.date: 03/16/2018
+author: karann-msft
+ms.author: karann
+manager: unnir
+ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 94d851cfbc860e50b02ca99595ca41bbf4ce21ef
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: f1bb145229b0db0e8fdb7fdb31a59aa50bd1d57b
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34817908"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Bulma ve projenizin NuGet paketlerini değerlendirme
 
@@ -105,7 +106,7 @@ Bir NuGet paketi kullanarak aynı anda emin olmak istediğiniz şekilde bir bağ
 
 NuGet paket arama aynı nuget.org, NuGet clı'dan ve Visual Studio'da NuGet Paket Yöneticisi uzantısı içinde çalışır. Genel olarak, arama paket açıklamaları yanı sıra anahtar sözcükleri uygulanır.
 
-- **Anahtar sözcükler**: arama için sağlanan tüm anahtar sözcükler içeren ilgili paketleri arar. Örnek: `modern UI javascript`
+- **Anahtar sözcükler**: arama için sağlanan anahtar sözcükler içeremez ilgili paketleri arar. Örnek: `modern UI`. Terimler arasındaki tüm sağlanan anahtar sözcükleri içermediğinden, paketler için "+" gibi aramak için `modern+UI`.
 - **Tümcecikleri**: tırnak işaretleri içindeki koşulları girmeniz arar bu koşulları büyük küçük harf duyarsız tam eşleşme. Örnek: `"modern UI" package`
 - **Filtreleme**: sözdizimini kullanarak belirli bir özellik için bir arama terimi uygulayabilirsiniz `<property>:<term>` nerede `<property>` (büyük küçük harf duyarsız) olabilir `id`, `packageid`, `version`, `title`, `tags`, `author`, `description`, `summary`, ve `owner`. Koşulları gerekirse tırnak içine bulunabilir ve aynı anda birden çok özellikleri için arama yapabilirsiniz. Ayrıca, üzerinde arar `id` özelliği olan eşleşmelerini, ancak `packageid` tam bir eşleşme kullanır. Örnekler:
 

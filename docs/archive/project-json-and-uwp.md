@@ -1,25 +1,17 @@
 ---
-title: NuGet project.json dosyası UWP projeleri | Microsoft Docs
-author: kraigb
-ms.author: kraigb
-manager: ghogen
-ms.date: 07/17/2017
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
+title: NuGet project.json dosyası UWP projeleri
 description: Evrensel Windows Platformu (UWP) projelerinde NuGet bağımlılıkları izlemek için project.json dosyasına nasıl kullanıldığı açıklaması.
-keywords: NuGet bağımlılıkları, NuGet ve UWP, UWP ve project.json, NuGet project.json dosyası
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 453a38456670db850d3d2845b23bd4ad36fc8fd2
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+author: karann-msft
+ms.author: karann
+manager: unnir
+ms.date: 07/17/2017
+ms.topic: conceptual
+ms.openlocfilehash: bd66f0afd6380a18118847d1da02285f5f3ded5d
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818733"
 ---
 # <a name="projectjson-and-uwp"></a>Project.JSON ve UWP
 
@@ -66,7 +58,7 @@ NuGet paketlerini bu biçimi kullanarak aşağıdaki bilinen klasör ve davranı
 | Derleme | MSBuild içeren hedefleri ve özellik dosyalarını bu klasöre farklı projeye tümleşik ancak Aksi halde değişiklik yoktur. |
 | Araçlar | `install.ps1` ve `uninstall.ps1` çalıştırılamaz. `init.ps1` her zaman olduğu gibi çalışır. |
 | İçerik | İçeriği otomatik olarak bir kullanıcının projeye kopyalanmaz. Projedeki içerik ekleme desteği için sonraki bir sürümü planlanmaktadır. |
-| Lib | Çoğu paketlere ilişkin `lib` NuGet içinde mevcut aynı şekilde çalışır 2.x, ancak hangi adları için genişletilmiş seçenekleriyle kullanılabilir ve daha iyi mantığı içinde doğru alt klasörü paketler kullanırken çekme. Ancak, ile birlikte kullanıldığında `ref`, `lib` klasörde derlemelerde tarafından tanımlanan yüzey alanını uygulamak derlemeler `ref` klasör. |
+| LIB | Çoğu paketlere ilişkin `lib` NuGet içinde mevcut aynı şekilde çalışır 2.x, ancak hangi adları için genişletilmiş seçenekleriyle kullanılabilir ve daha iyi mantığı içinde doğru alt klasörü paketler kullanırken çekme. Ancak, ile birlikte kullanıldığında `ref`, `lib` klasörde derlemelerde tarafından tanımlanan yüzey alanını uygulamak derlemeler `ref` klasör. |
 | Ref | `ref` Ortak tanımlama .NET derlemelerini içeren bir isteğe bağlı klasördür karşı derlemek bir uygulama için yüzey (Genel türleri ve yöntemleri). Bu klasör derlemelerde uygulaması olabilir, bunlar tamamen derleyici yüzey alanını tanımlamak için kullanılır. Paket Hayır varsa `ref` klasörü, sonra `lib` referans derlemesini ve uygulaması derleme. |
 | Çalışma zamanları | `runtimes` CPU mimarisi ve işletim sistemi belirli veya başka türlü platforma bağımlı ikili dosyaları gibi belirli işletim sistemi kodu içeren bir isteğe bağlı klasördür. |
 

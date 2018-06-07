@@ -1,16 +1,17 @@
 ---
 title: NuGet komut satırı arabirimi (CLI) başvurusu
 description: CLI nuget.exe için komut satırı başvurusu dizini
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 01/23/2018
 ms.topic: reference
-ms.openlocfilehash: ed91a31505ab1de9447cdbeb87c8ad08f7ba56d8
-ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
+ms.openlocfilehash: 477883ce1579ba3e4b586dff2cf01e31e7afdb3f
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34817882"
 ---
 # <a name="nuget-cli-reference"></a>NuGet CLI başvurusu
 

@@ -6,11 +6,12 @@ ms.author: karann
 manager: unnir
 ms.date: 03/27/2018
 ms.topic: conceptual
-ms.openlocfilehash: 2b15d60d4f71fb2777e36c6a948ad72b4e2bc594
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: e0a4363a2807874ec8e2693c5b1c1a0eb2e8af0e
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818792"
 ---
 # <a name="migrate-from-packagesconfig-to-packagereference"></a>Packages.config PackageReference için geçirme
 
@@ -29,6 +30,24 @@ Visual Studio 2017 sürüm 15.7 Preview 3 ve sonraki destekler projeden geçirme
 * NuGet PackageReference, Visual Studio 2015'te kullanılabilir ve önceki değil. Geçirilen projeleri yalnızca Visual Studio 2017 açılabilir.
 * Geçiş C++ ve ASP.NET projesi için şu anda kullanılabilir değil.
 * Bazı paketler PackageReference ile tamamen uyumlu olmayabilir. Daha fazla bilgi için bkz: [paketini uyumluluk sorunları](#package-compatibility-issues).
+
+### <a name="known-issues"></a>Bilinen Sorunlar
+
+1. `Migrate packages.config to PackageReference...` Seçeneği sağ bağlam menüsünde kullanılabilir değil 
+
+#### <a name="issue"></a>Sorun 
+ 
+Bir proje ilk kez açıldığında bir NuGet işlemi gerçekleştirilene kadar NuGet başlatılmamış. Bu geçiş seçeneği sağ bağlam menüsü üzerinde gösterme neden `packages.config` veya `References`. 
+
+#### <a name="workaround"></a>Geçici Çözüm 
+
+SPN'i aşağıdaki NuGet eylemlerden herhangi birini: 
+* Paket Yöneticisi kullanıcı Arabirimi - açık sağ `References` ve seçin `Manage NuGet Packages...` 
+* Gelen Paket Yöneticisi konsolu - açmak `Tools > NuGet Package Manager`seçin `Package Manager Console` 
+* Çalışma NuGet geri yükleme - Çözüm Gezgini'nde çözüm düğümüne sağ tıklayın ve seçin `Restore NuGet Packages` 
+* Ayrıca NuGet restore tetikler projeyi derleme 
+
+Şimdi geçiş seçeneği görüyor olmalısınız. Bu seçenek desteklenmiyor ve ASP.NET ve C++ proje türleri için gösterilmez unutmayın. 
 
 ## <a name="migration-steps"></a>Geçiş adımları
 
@@ -58,7 +77,7 @@ Visual Studio 2017 sürüm 15.7 Preview 3 ve sonraki destekler projeden geçirme
 
 1. Geçirilen projeyi kapatın.
 
-1. Proje dosyasını kopyalayın ve `packages.config` yedekten (genellikle `<solution_root>\MigrationBackup\<unique_guid>\<project_name>\`) proje klasörüne.
+1. Proje dosyasını kopyalayın ve `packages.config` yedekten (genellikle `<solution_root>\MigrationBackup\<unique_guid>\<project_name>\`) proje klasörüne. Proje kök dizininde varsa obj klasörü silin.
 
 1. Projeyi açın.
 

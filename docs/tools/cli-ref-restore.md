@@ -1,16 +1,17 @@
 ---
 title: NuGet CLI restore komutu
 description: Nuget.exe restore komutu için başvurusu
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: dd0a74c9ed9b879643ed24cbddacff87310dfd6b
-ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
+ms.openlocfilehash: 4df7685883fea78428c6744bdbf4c66d83e469bc
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34817924"
 ---
 # <a name="restore-command-nuget-cli"></a>Restore komutu (NuGet CLI)
 
@@ -41,8 +42,8 @@ Burada `<projectPath>` bir çözüm konumunu belirtir veya `packages.config` dos
 | MSBuildPath | *(4.0 +)*  Öncelik Alma komutuyla kullanmak için MSBuild yolunu belirtir `-MSBuildVersion`. |
 | MSBuildVersion | *(3.2 +)*  Bu komutla birlikte kullanılacak MSBuild sürümünü belirtir. Değerleri, 4, 12, 14, 15 desteklenir. MSBuild yolda çekilir varsayılan olarak, aksi takdirde MSBuild yüksek yüklü sürümü varsayar. |
 | NoCache | NuGet kullanarak önbelleğe alınmış paketleri engeller. Bkz: [genel paketleri ve önbellek klasör yönetimi](../consume-packages/managing-the-global-packages-and-cache-folders.md). |
-| Etkileşimli olmayan | Kullanıcı girişi veya onayı için ister gizler. |
-| Çıktıdizini | Paketleri yüklendiği klasörü belirtir. Bir klasör bulunmadığından belirtilmezse, geçerli klasörde kullanılır. İle geri yüklerken gerekli bir `packages.config` sürece dosya `PackagesDirectory` veya `SolutionDirectory` kullanılır.|
+| NonInteractive | Kullanıcı girişi veya onayı için ister gizler. |
+| OutputDirectory | Paketleri yüklendiği klasörü belirtir. Bir klasör bulunmadığından belirtilmezse, geçerli klasörde kullanılır. İle geri yüklerken gerekli bir `packages.config` sürece dosya `PackagesDirectory` veya `SolutionDirectory` kullanılır.|
 | PackageSaveMode | Paket yüklendikten sonra kaydetmek için dosya türlerini belirtir: biri `nuspec`, `nupkg`, veya `nuspec;nupkg`. |
 | PackagesDirectory | Aynı `OutputDirectory`. İle geri yüklerken gerekli bir `packages.config` sürece dosya `OutputDirectory` veya `SolutionDirectory` kullanılır. |
 | Project2ProjectTimeOut | Proje proje başvurularını çözümlemek için saniye cinsinden zaman aşımı. |

@@ -1,16 +1,17 @@
 ---
 title: NuGet paketleri ve kaynak denetimi
 description: Sürüm denetimi ve kaynak denetim sistemleri içindeki NuGet paketleri kabul etme ve git ve TFVC'yi paketlerle atlayın durumları.
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: bc2c6d5e9933f2f6103363a2e69fbb9b47f80ecf
-ms.sourcegitcommit: 8127dd73ff8481a1a01acd9b7004dd131a9d84e7
+ms.openlocfilehash: 9392e3b6f0e9e64935ec27c28806b27a133bbfe8
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/22/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34817538"
 ---
 # <a name="omitting-nuget-packages-in-source-control-systems"></a>Kaynak Denetim sistemleri NuGet paketlerini atlama
 

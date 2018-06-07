@@ -1,27 +1,19 @@
 ---
-title: NuGet için'Project.JSON dosyası başvurusu | Microsoft Docs
-author: kraigb
-ms.author: kraigb
-manager: ghogen
+title: NuGet için'Project.JSON dosyası başvurusu
+description: Bazı proje türleri project.json projesinde kullanılan NuGet paketleri listesini tutar.
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 07/27/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Bazı proje türleri project.json projesinde kullanılan NuGet paketleri listesini tutar.
-keywords: NuGet project.json, NuGet paket referanslarını, NuGet bağımlılıkları, böylece project.lock.json
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 21542a219faa3d1fa0c32a838645d4471c5aa935
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: e558bdb969d4c70f85a3c89a426f1c7b11525402
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34817131"
 ---
-# <a name="projectjson-reference"></a>project.json reference
+# <a name="projectjson-reference"></a>Project.JSON başvurusu
 
 *NuGet 3.x+*
 

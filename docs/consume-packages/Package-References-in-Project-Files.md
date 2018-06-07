@@ -1,16 +1,17 @@
 ---
 title: NuGet PackageReference biçimi (proje dosyalarına paket referanslarını)
 description: NuGet PackageReference NuGet 4.0 + ve VS2017 ve .NET Core 2.0 tarafından desteklenen gibi proje dosyalarına ayrıntıları
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8f277a8af7f988d6fdcfa75c43a10b3792c2ae22
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 61f447877459764906cf9a2b88b32a8bc0553689
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34817677"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Proje dosyalarına paket referanslarını (PackageReference)
 
@@ -45,6 +46,17 @@ Bir paketin sürümü belirtmek için aynı kullanırken kuraldır `packages.con
 ```
 
 Yukarıdaki örnekte, 3.6.0 olan herhangi bir sürümü anlamına gelir. > açıklandığı gibi en düşük sürüm tercihini ile 3.6.0 = [paket sürüm](../reference/package-versioning.md#version-ranges-and-wildcards).
+
+## <a name="using-packagereference-for-a-project-with-no-packagereferences"></a>Hiçbir PackageReferences sahip bir proje için PackageReference kullanma
+Gelişmiş: (PackageReferences proje dosyasında) ve hiçbir packages.config dosyasına projede yüklü hiç paket var ancak PackageReference stil olarak geri yüklenmesini istediğiniz projesinin proje özelliği RestoreProjectStyle PackageReference için ayarlayabileceğiniz içinde Proje dosyanızı.
+```xml
+<PropertyGroup>
+    <!--- ... -->
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+    <!--- ... -->
+</PropertyGroup>    
+```
+(Mevcut csproj veya SDK stili projeleri) stilde PackageReference olan projeler başvuru durumlarda yararlı olabilir. Bu, bu proje için "geçişli" projeniz tarafından başvuruda başvurmak paketleri olanak tanır.
 
 ## <a name="floating-versions"></a>Kayan sürümleri
 

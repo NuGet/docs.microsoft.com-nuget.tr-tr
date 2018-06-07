@@ -1,18 +1,19 @@
 ---
 title: NuGet CLI Yereller komutu
 description: Nuget.exe Yereller komut başvurusu
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 03/19/2018
 ms.topic: reference
-ms.openlocfilehash: ac07dc306bc23c2fedd33c5627e8d34a6098387c
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 90e8c85e7a3e0e9520933e2ddd6dd84447475f2b
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818207"
 ---
-# <a name="locals-command-nuget-cli"></a>locals komutu (NuGet CLI)
+# <a name="locals-command-nuget-cli"></a>Yerel öğeler komutu (NuGet CLI)
 
 **Uygulandığı öğe:** paketini tüketim &bullet; **desteklenen sürümler:** 3.3 +
 
@@ -35,7 +36,7 @@ Burada `<folder>` biri `all`, `http-cache`, `packages-cache` *(3.5 ve önceki)*,
 | ForceEnglishOutput | *(3.5 +)*  Değişmez, İngilizce tabanlı kültürü kullanarak çalışacak şekilde nuget.exe zorlar. |
 | Yardım | Bilgi komutu için yardımı görüntüler. |
 | List | Belirtilen klasör konumunu veya kullanıldığında tüm klasör konumlarını listeler *tüm*. |
-| Etkileşimli olmayan | Kullanıcı girişi veya onayı için ister gizler. |
+| NonInteractive | Kullanıcı girişi veya onayı için ister gizler. |
 | Ayrıntı Düzeyi | Çıktıda görüntülenen ayrıntı miktarını belirtir: *normal*, *sessiz*, *ayrıntılı*. |
 
 Ayrıca bkz. [ortam değişkenleri](cli-ref-environment-variables.md)

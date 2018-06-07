@@ -1,16 +1,17 @@
 ---
 title: NuGet PowerShell başvurusu
 description: Visual Studio'da NuGet Paket Yöneticisi konsolunda kullanılabilir PowerShell komutlarını tam referansı.
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 10/02/2017
 ms.topic: reference
-ms.openlocfilehash: 455787d3c8701f5275ace4ed0dcb605213bfbf29
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: ba9f5dc2b570298d9011f62a081631ec31623701
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34817009"
 ---
 # <a name="powershell-reference"></a>PowerShell başvurusu
 

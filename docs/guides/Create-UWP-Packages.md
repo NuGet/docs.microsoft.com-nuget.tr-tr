@@ -1,16 +1,17 @@
 ---
 title: Evrensel Windows platformu için NuGet paketleri oluşturma
 description: Windows çalışma zamanı bileşeni için evrensel Windows platformu kullanarak NuGet paketleri oluşturma bir uçtan uca kılavuz.
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 03/21/2017
 ms.topic: tutorial
-ms.openlocfilehash: 86fbeea0b815d40ffae016a5f76b96d5baf3ff1b
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: c5d5bf72b99f6c2fe1b0a708ddb314d5711bc73d
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818288"
 ---
 # <a name="create-uwp-packages"></a>UWP paketleri oluşturma
 
