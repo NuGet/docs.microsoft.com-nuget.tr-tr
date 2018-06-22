@@ -12,6 +12,7 @@ ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/26/2018
+ms.locfileid: "31821674"
 ---
 # <a name="nuget-44-rtm-release-notes"></a><span data-ttu-id="16c21-103">NuGet 4,4 RTM sürüm notları</span><span class="sxs-lookup"><span data-stu-id="16c21-103">NuGet 4.4 RTM Release Notes</span></span>
 

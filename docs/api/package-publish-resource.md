@@ -12,6 +12,7 @@ ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/26/2018
+ms.locfileid: "31819487"
 ---
 # <a name="push-and-delete"></a><span data-ttu-id="b46a2-103">Anında iletme ve silin</span><span class="sxs-lookup"><span data-stu-id="b46a2-103">Push and Delete</span></span>
 

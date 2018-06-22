@@ -12,6 +12,7 @@ ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/26/2018
+ms.locfileid: "31822245"
 ---
 # <a name="package-metadata"></a><span data-ttu-id="d757b-103">Paket meta verileri</span><span class="sxs-lookup"><span data-stu-id="d757b-103">Package metadata</span></span>
 

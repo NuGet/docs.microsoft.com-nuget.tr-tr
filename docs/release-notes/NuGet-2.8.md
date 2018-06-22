@@ -11,6 +11,7 @@ ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32044696"
 ---
 # <a name="nuget-28-release-notes"></a><span data-ttu-id="c3b32-103">NuGet 2.8 sürüm notları</span><span class="sxs-lookup"><span data-stu-id="c3b32-103">NuGet 2.8 Release Notes</span></span>
 

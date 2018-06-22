@@ -11,6 +11,7 @@ ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/26/2018
+ms.locfileid: "31822129"
 ---
 # <a name="nuget-10-and-11-release-notes"></a><span data-ttu-id="6542e-103">NuGet 1.0 ve 1.1 sürüm notları</span><span class="sxs-lookup"><span data-stu-id="6542e-103">NuGet 1.0 and 1.1 Release Notes</span></span>
 

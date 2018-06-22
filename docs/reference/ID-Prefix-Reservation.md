@@ -12,6 +12,7 @@ ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32044858"
 ---
 # <a name="package-id-prefix-reservation"></a><span data-ttu-id="16417-103">Paket kimliği öneki ayırma</span><span class="sxs-lookup"><span data-stu-id="16417-103">Package ID prefix reservation</span></span>
 

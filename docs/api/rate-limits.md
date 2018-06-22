@@ -15,6 +15,7 @@ ms.sourcegitcommit: 8f0bb8bb9cb91d27d660963ed9b0f32642f420fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34225950"
 ---
 # <a name="rate-limits"></a><span data-ttu-id="0557f-103">Oran sınırları</span><span class="sxs-lookup"><span data-stu-id="0557f-103">Rate Limits</span></span>
 
