@@ -1,87 +1,87 @@
 ---
-title: Package.config PackageReference biçimlerine geçirme
-description: Bir proje package.config yönetim biçiminden NuGet 4.0 + ve VS2017 ve .NET Core 2.0 tarafından desteklenen gibi PackageReference nasıl geçirileceği hakkında ayrıntılar
+title: PackageReference biçimlerine Package.config geçiş
+description: Bir proje olarak NuGet 4.0 + ve VS2017 ve .NET Core 2.0 tarafından desteklenen PackageReference package.config yönetim biçiminden geçirilecek hakkında ayrıntılar
 author: karann-msft
 ms.author: karann
 manager: unnir
 ms.date: 03/27/2018
 ms.topic: conceptual
-ms.openlocfilehash: e0a4363a2807874ec8e2693c5b1c1a0eb2e8af0e
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 1ca97e1c2dfba876aefe6b06eab10def67b8d848
+ms.sourcegitcommit: 8e3546ab630a24cde8725610b6a68f8eb87afa47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818792"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37843400"
 ---
-# <a name="migrate-from-packagesconfig-to-packagereference"></a>Packages.config PackageReference için geçirme
+# <a name="migrate-from-packagesconfig-to-packagereference"></a>Packages.config'i Packagereference'a geçirme
 
-Visual Studio 2017 sürüm 15.7 Preview 3 ve sonraki destekler projeden geçirme [packages.config](./packages-config.md) yönetim biçimine [PackageReference](../consume-packages/Package-References-in-Project-Files.md) biçimi.
+Visual Studio 2017 sürüm 15.7 ve üzeri destekler bir projeden geçirme [packages.config](./packages-config.md) yönetim biçimi [PackageReference](../consume-packages/Package-References-in-Project-Files.md) biçimi.
 
-## <a name="benefits-of-using-packagereference"></a>PackageReference kullanmanın yararları
+## <a name="benefits-of-using-packagereference"></a>PackageReference kullanmanın avantajları
 
-* **Tek bir yerde tüm proje bağımlılıklarını yönetme**: Proje için proje başvuruları ve derleme başvurularını yalnızca gibi NuGet paketi başvuruyor (kullanarak `PackageReference` düğüm) ayrı bir kullanmak yerine doğrudan proje dosyalarını içinde yönetilir Packages.config dosyası.
-* **Üst düzey bağımlılıkları KARMAŞASIZ görünümünü**: packages.config PackageReference projede doğrudan yüklü NuGet paketlerini listeler. Sonuç olarak, NuGet Paket Yöneticisi kullanıcı Arabirimi ve proje dosyası ile alt düzey bağımlılıkları kalabalık değil.
-* **Performans iyileştirmeleri**: PackageReference kullanırken, paket içinde korunur *paketleri genel* klasörü (açıklandığı gibi [genel paketleri ve önbellek klasörleri yönetme](../consume-packages/managing-the-global-packages-and-cache-folders.md) yerine, bir `packages` çözüm klasördeki. Sonuç olarak, PackageReference daha hızlı gerçekleştirir ve daha az disk alanı kullanır.
-* **İnce bağımlılıkları ve içerik akışı üzerinde denetim**: MSBuild varolan özelliklerini kullanarak olanak tanır [koşullu bir NuGet paketi başvuru](../consume-packages/Package-References-in-Project-Files.md#adding-a-packagereference-condition) ve paket referanslarını başına hedef Framework'ü seçin yapılandırması Platform veya diğer özetlere.
-* **PackageReference etkin geliştirilmekte olan**: bkz [PackageReference sorunları Github'da](https://aka.ms/nuget-pr-improvements). Packages.config artık etkin geliştirilme aşamasındadır.
+* **Tüm proje bağımlılıkları tek bir yerden yönetmek**: projeden projeye başvurular ve derleme başvurularını hemen gibi NuGet paket başvuruları (kullanarak `PackageReference` düğümü) ayrı bir kullanmak yerine doğrudan proje dosyaları içinde yönetilir Packages.config dosyası.
+* **Üst düzey bağımlılıkları sade görünümünü**: packages.config PackageReference doğrudan yüklediğiniz projedeki NuGet paketlerini listeler. Sonuç olarak, NuGet Paket Yöneticisi UI ve proje dosyası ile alt düzey bağımlılıkları dağınıktır değildir.
+* **Performans iyileştirmeleri**: PackageReference kullanırken, paketleri içinde korunur *genel paketleri* klasörü (üzerinde açıklandığı [genel paketleri ve önbellek klasörlerini yönetme](../consume-packages/managing-the-global-packages-and-cache-folders.md) yerine bir `packages` çözüm içinde klasör. Sonuç olarak, PackageReference daha hızlı gerçekleştirir ve daha az disk alanı kullanır.
+* **İnce bağımlılıkları ve içerik akışı üzerinde denetim**: mevcut MSBuild özelliklerini kullanmaya izin verir [koşullu olarak NuGet paketine başvuru](../consume-packages/Package-References-in-Project-Files.md#adding-a-packagereference-condition) ve paket başvuruları hedef çerçeve başına yapılandırması Platform veya diğer özetler.
+* **PackageReference olan etkin geliştirilme**: bkz [PackageReference sorunları Github'da](https://aka.ms/nuget-pr-improvements). Packages.config artık etkin geliştirilme aşamasındadır.
 
 ### <a name="limitations"></a>Sınırlamalar
 
-* NuGet PackageReference, Visual Studio 2015'te kullanılabilir ve önceki değil. Geçirilen projeleri yalnızca Visual Studio 2017 açılabilir.
-* Geçiş C++ ve ASP.NET projesi için şu anda kullanılabilir değil.
-* Bazı paketler PackageReference ile tamamen uyumlu olmayabilir. Daha fazla bilgi için bkz: [paketini uyumluluk sorunları](#package-compatibility-issues).
+* NuGet Packagereference'a önceki ve Visual Studio 2015'te kullanılabilir değil. Geçirilen projeleri yalnızca Visual Studio 2017'de açılabilir.
+* Geçiş için C++ ve ASP.NET projesi şu anda kullanılabilir değil.
+* Bazı paketler PackageReference ile tam olarak uyumlu olmayabilir. Daha fazla bilgi için [paketini uyumluluk sorunlarını](#package-compatibility-issues).
 
 ### <a name="known-issues"></a>Bilinen Sorunlar
 
-1. `Migrate packages.config to PackageReference...` Seçeneği sağ bağlam menüsünde kullanılabilir değil 
+1. `Migrate packages.config to PackageReference...` Sağ bağlam menüsü seçeneği kullanılamaz 
 
 #### <a name="issue"></a>Sorun 
  
-Bir proje ilk kez açıldığında bir NuGet işlemi gerçekleştirilene kadar NuGet başlatılmamış. Bu geçiş seçeneği sağ bağlam menüsü üzerinde gösterme neden `packages.config` veya `References`. 
+Bir projeyi ilk defa açıldığında, NuGet işlemi gerçekleştirilene kadar NuGet başlatılmamış. Bu geçiş seçeneği sağ bağlam menüsü üzerinde görünmesini değil neden `packages.config` veya `References`. 
 
 #### <a name="workaround"></a>Geçici Çözüm 
 
 SPN'i aşağıdaki NuGet eylemlerden herhangi birini: 
-* Paket Yöneticisi kullanıcı Arabirimi - açık sağ `References` ve seçin `Manage NuGet Packages...` 
-* Gelen Paket Yöneticisi konsolu - açmak `Tools > NuGet Package Manager`seçin `Package Manager Console` 
+* Paket Yöneticisi UI - açık sağ `References` seçin `Manage NuGet Packages...` 
+* Paket Yöneticisi konsolu - açık `Tools > NuGet Package Manager`seçin `Package Manager Console` 
 * Çalışma NuGet geri yükleme - Çözüm Gezgini'nde çözüm düğümüne sağ tıklayın ve seçin `Restore NuGet Packages` 
-* Ayrıca NuGet restore tetikler projeyi derleme 
+* Ayrıca NuGet geri yükleme tetikler projeyi derleyin 
 
-Şimdi geçiş seçeneği görüyor olmalısınız. Bu seçenek desteklenmiyor ve ASP.NET ve C++ proje türleri için gösterilmez unutmayın. 
+Artık geçiş seçeneği görmeye olmalıdır. Bu seçenek desteklenmez ve ASP.NET ve C++ proje türleri için gösterilmez unutmayın. 
 
 ## <a name="migration-steps"></a>Geçiş adımları
 
 > [!Note]
-> Geçiş başlamadan önce Visual Studio olanak tanımak için bir yedek projenin oluşturur [packages.config dönmeyi](#how-to-roll-back-to-packagesconfig) gerekiyorsa.
+> Geçiş başlamadan önce Visual Studio olanak tanımak için bir yedekleme projenin oluşturur [packages.config dönmeyi](#how-to-roll-back-to-packagesconfig) gerekirse.
 
-1. Project'i kullanarak içeren bir çözüm açmak `packages.config`.
+1. Project kullanarak içeren bir çözüm açın `packages.config`.
 
-1. İçinde **Çözüm Gezgini**, sağ tıklayın **başvuruları** düğümü veya `packages.config` dosya ve seçin **PackageReference için packages.config geçirmek...** .
+1. İçinde **Çözüm Gezgini**, sağ **başvuruları** düğümü veya `packages.config` seçin ve dosya **Packages.config'i Packagereference'a geçirme...** .
 
-1. Migrator projenin NuGet paket referanslarını analiz eder ve bunları kategorilere ayırma girişiminde **en üst düzey bağımlılıkları** (NuGet paketleri bu yüklediğiniz dizine) ve **geçişli bağımlılıkları**(en üst düzey paketler bağımlılık olarak yüklü olan paketleri).
+1. Migrator projenin NuGet paket başvuruları analiz eder ve bunları kategorilere dener **en üst düzey bağımlılıkları** (NuGet paketleri bu yüklediğiniz dizine) ve **geçişli bağımlılıkları**(üst düzey paket bağımlılıkları olarak yüklenen paketler).
 
    > [!Note]
-   > PackageReference geçişli paket geri yüklemesi destekler ve geçişli bağımlılıkları açıkça yüklü olması değil anlamına bağımlılıkları dinamik olarak çözer.
+   > PackageReference, geçişli paket geri yükleme destekler ve bağımlılıkları geçişli bağımlılıkları açıkça yüklenmemesi, yani dinamik olarak çözer.
 
-1. (İsteğe bağlı) Seçerek en üst düzey bir bağımlılık olarak geçişli bağımlılık olarak sınıflandırılmış bir NuGet paketi işlemek seçebilirsiniz **en üst düzey** paketi için seçeneği. Bu seçenek geçişli geçmez varlıklar içeren paketler için otomatik olarak ayarlanır (de `build`, `buildCrossTargeting`, `contentFiles`, veya `analyzers` klasörleri) ve geliştirme bağımlılık olarak işaretlenmiş olanlar (`developmentDependency = "true"`).
+1. (İsteğe bağlı) Geçişli bağımlılık olarak en üst düzey bir bağımlılık olarak sınıflandırılan seçerek bir NuGet paketi değerlendirilecek seçebilirsiniz **en üst düzey** paketi için seçeneği. Bu seçenek, geçişli geçmez varlıkları içeren paketleri için otomatik olarak ayarlanır (penceresindekilerle `build`, `buildCrossTargeting`, `contentFiles`, veya `analyzers` klasörleri) ve bu bir geliştirme bağımlılığı işaretlendi (`developmentDependency = "true"`).
 
-1. Gözden [paketini uyumluluk sorunları](#package-compatibility-issues).
+1. Gözden [paketini uyumluluk sorunlarını](#package-compatibility-issues).
 
 1. Seçin **Tamam** geçişi başlatmak için.
 
-1. Geçiş işleminin sonunda, Visual Studio bir yola sahip bir rapor yedekleme, (üst düzey bağımlılıkları) yüklü olan paketlerin listesini, geçişli bağımlılıklar olarak başvurulan paketlerin listesini ve uyumluluk sorunları başlangıcında tanımlanan listesini sağlar geçiş. Rapor yedekleme klasörüne kaydedilir.
+1. Yedekleme, yüklü paketleri (üst düzey bağımlılıkları) listesinde, geçişli bağımlılıkları olarak başvurulan paketlerin bir listesi ve başında tanımlanan uyumluluk sorunların bir listesini geçiş sonunda, Visual Studio bir yola sahip bir rapor sağlar geçiş. Rapor yedekleme klasörüne kaydedilir.
 
-1. Çözüm oluşturur ve çalıştırır doğrulayın. Sorunlar karşılaşırsanız [bir sorun Github'da dosya](https://github.com/NuGet/Home/issues/).
+1. Çözüm derlenir ve çalışır olduğunu doğrulayın. Sorunlar karşılaşırsanız [Github'da sorun kaydedebilir](https://github.com/NuGet/Home/issues/).
 
-## <a name="how-to-roll-back-to-packagesconfig"></a>Packages.config için geri almak nasıl
+## <a name="how-to-roll-back-to-packagesconfig"></a>Nasıl packages.config için geri alma
 
-1. Geçirilen projeyi kapatın.
+1. Geçirilen proje kapatın.
 
 1. Proje dosyasını kopyalayın ve `packages.config` yedekten (genellikle `<solution_root>\MigrationBackup\<unique_guid>\<project_name>\`) proje klasörüne. Proje kök dizininde varsa obj klasörü silin.
 
 1. Projeyi açın.
 
-1. Paket Yöneticisi konsolunu kullanarak açmak **Araçlar > NuGet Paket Yöneticisi > Paket Yöneticisi Konsolu** menü komutu.
+1. Paket Yöneticisi Konsolu'nu kullanarak açmak **Araçlar > NuGet Paket Yöneticisi > Paket Yöneticisi Konsolu** menü komutu.
 
 1. Konsolunda aşağıdaki komutu çalıştırın:
 
@@ -91,36 +91,36 @@ SPN'i aşağıdaki NuGet eylemlerden herhangi birini:
 
 ## <a name="package-compatibility-issues"></a>Paket uyumluluk sorunları
 
-Packages.config içinde desteklenen bazı yönleri PackageReference içinde desteklenmez. Migrator analiz eder ve bu tür sorunları algılar. Bir veya daha fazla aşağıdaki sorunlardan biri olan herhangi bir paket geçişten sonra beklendiği gibi çalışmayabilir.
+Packagereference v Packages.config dosyasının içinde desteklenen bazı yönleri desteklenmez. Migrator analiz eder ve bu tür sorunları algılar. Bir veya daha fazla aşağıdaki sorunlardan biri olan herhangi bir paket, geçişten sonra beklendiği gibi çalışmayabilir.
 
-### <a name="installps1-scripts-are-ignored-when-the-package-is-installed-after-the-migration"></a>Geçişten sonra paketi yüklendiğinde "install.ps1" betikleri göz ardı edilir
-
-| | |
-| --- | --- |
-| **Açıklama** | PackageReference ile install.ps1 ve uninstall.ps1 PowerShell komut dosyaları, yükleme veya bir paket kaldırma sırasında yürütülmez. |
-| **Olası etkisini** | Hedef projesindeki bazı davranışı yapılandırmak için bu komut dosyalarını bağımlı paketler beklendiği gibi çalışmayabilir. |
-
-### <a name="content-assets-are-not-available-when-the-package-is-installed-after-the-migration"></a>Geçişten sonra paketi yüklendiğinde "içerik" varlıklar kullanılabilir değil
+### <a name="installps1-scripts-are-ignored-when-the-package-is-installed-after-the-migration"></a>Geçişten sonra paketi yüklendiğinde "install.ps1" komut dosyaları göz ardı edilir
 
 | | |
 | --- | --- |
-| **Açıklama** | Bir paketin varlıkları `content` klasörü ile PackageReference desteklenmez ve yok sayılır. PackageReference için destek ekler `contentFiles` daha iyi geçişli desteği ve paylaşılan içeriği sağlamak için.  |
-| **Olası etkisini** | Varlıkları `content` değil kopyalanır proje ve proje yeniden düzenleme bu varlıkları varlığına bağlıdır kodu gerektirir.  |
+| **Açıklama** | PackageReference ile yüklemeden veya kaldırmadan bir paket install.ps1 ve uninstall.ps1 PowerShell betikleri yürütülmez. |
+| **Olası etki** | Hedef projesinde bazı davranışını yapılandırmak için bu betikleri bağımlı paketler beklendiği gibi çalışmayabilir. |
 
-### <a name="xdt-transforms-are-not-applied-when-the-package-is-installed-after-the-upgrade"></a>Yükseltmeden sonra paketi yüklendiğinde XDT dönüşümler uygulanmaz
-
-| | |
-| --- | --- |
-| **Açıklama** | XDT dönüşümler ile PackageReference desteklenmiyor ve `.xdt` dosyaları yüklerken veya bir paket kaldırma yoksayılır.   |
-| **Olası etkisini** | XDT dönüşümler tüm proje XML dosyaları için en yaygın olarak uygulanmaz `web.config.install.xdt` ve `web.config.uninstall.xdt`, başka bir deyişle, projenin` web.config` dosya paket eklendiğinde veya kaldırıldığında güncelleştirilmez. |
-
-### <a name="assemblies-in-the-lib-root-are-ignored-when-the-package-is-installed-after-the-migration"></a>Geçişten sonra paketi yüklendiğinde lib kök derlemelerde göz ardı edilir
+### <a name="content-assets-are-not-available-when-the-package-is-installed-after-the-migration"></a>Geçişten sonra paketi yüklendiğinde "içerik" varlıkları kullanılabilir değil
 
 | | |
 | --- | --- |
-| **Açıklama** | PackageReference ile derlemeleri sunmak kökünde `lib` klasörü hedef framework belirli bir alt klasör olmadan yok sayılır. NuGet projenin hedef çerçevesi için karşılık gelen hedef framework bilinen ad (TFM) eşleşen bir alt klasöre arar ve eşleşen derlemeleri projeye yükler. |
-| **Olası etkisini** | Projenin hedef çerçevesi için karşılık gelen hedef framework bilinen ad (TFM) eşleşen bir alt klasörünüz yoksa paketleri değil geçişten sonra beklendiği gibi davranır veya geçirme sırasında yükleme başarısız |
+| **Açıklama** | Bir paketin varlıkları `content` klasörü ile PackageReference desteklenmez ve yok sayılır. PackageReference için destek ekler `contentFiles` daha iyi geçişli desteği ve paylaşılan içeriği.  |
+| **Olası etki** | Varlıkları `content` kopyalanmaz proje ve proje bu varlıkları varlığını temel bağlı olan kod yeniden düzenlemeyi gerektirir.  |
 
-## <a name="found-an-issue-report-it"></a>Bir sorun bulundu? Bu rapor!
+### <a name="xdt-transforms-are-not-applied-when-the-package-is-installed-after-the-upgrade"></a>Yükseltmeden sonra paketi yüklendiğinde XDT dönüşüm uygulanmaz
 
-Geçiş deneyimi ile ilgili bir sorun alıyorsanız, lütfen [NuGet GitHub deposunu bir sorun dosya](https://github.com/NuGet/Home/issues/).
+| | |
+| --- | --- |
+| **Açıklama** | XDT dönüşümler ile PackageReference desteklenmez ve `.xdt` dosyalar yok sayılır yüklerken veya bir paket kaldırılıyor.   |
+| **Olası etki** | XDT dönüşümler hiçbir proje XML dosyaları çoğunlukla uygulanmaz `web.config.install.xdt` ve `web.config.uninstall.xdt`, projenin anlamına gelir` web.config` dosya paketi eklendiğinde veya kaldırıldığında güncelleştirilmez. |
+
+### <a name="assemblies-in-the-lib-root-are-ignored-when-the-package-is-installed-after-the-migration"></a>LIB kök derlemeleri, geçişten sonra paketi yüklendiğinde göz ardı edilir
+
+| | |
+| --- | --- |
+| **Açıklama** | PackageReference ile derlemeleri sunmak kökünde `lib` klasörü hedef framework belirli bir alt klasör olmadan yok sayılır. NuGet, projenin hedef çerçevesi için karşılık gelen hedef çerçeve adı (TFM) eşleşen bir alt klasöre arar ve eşleşen derlemeleri projeye yükler. |
+| **Olası etki** | Projenin hedef çerçevesi için karşılık gelen hedef çerçeve adı (TFM) eşleşen bir alt klasörü olmayan paketleri değil geçişten sonra beklendiği gibi davranmaya veya geçirme sırasında yükleme başarısız |
+
+## <a name="found-an-issue-report-it"></a>Bir sorun buldunuz? Rapor!
+
+Geçiş deneyimi ile ilgili bir sorun yaşarsanız lütfen [sorun NuGet GitHub deposuna kaydedebilir](https://github.com/NuGet/Home/issues/).
