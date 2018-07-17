@@ -6,12 +6,12 @@ ms.author: karann
 manager: unnir
 ms.date: 01/24/2018
 ms.topic: quickstart
-ms.openlocfilehash: c50c92f966cd68477cd3f29ab99857911299b7ea
-ms.sourcegitcommit: 6cffa6ef59b922df2d87aa9c24034d00542983cd
+ms.openlocfilehash: 0f71da0be27369712f718a7ab80d952a467aff2a
+ms.sourcegitcommit: a76ecc58f41c2c5b3536ff4a3f3fcbdf5258177c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37963061"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069680"
 ---
 # <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>Hızlı Başlangıç: Oluşturma ve yayımlama paket (dotnet CLI)
 
@@ -35,7 +35,7 @@ Mevcut bir .NET sınıf kitaplığı projesi paketini veya basit bir şekilde ol
 
 Her bir NuGet paketi paketin içeriği ve bağımlılıkları tanımlayan bir bildirim gerekiyor. Son bir pakette bildirimidir bir `.nuspec` proje dosyasına eklenecek NuGet meta verileri özelliklerinden oluşturulan dosya.
 
-1. Proje dosyanızı açın (`.csproj`) ve çıkma içinde en az aşağıdaki özellikleri ekleyin `<PropertyGroup>` değerleri uygun şekilde değiştirerek etiketi:
+1. Proje dosyanızı açın (`.csproj`) ve mevcut içinde en az aşağıdaki özellikleri ekleyin `<PropertyGroup>` değerleri uygun şekilde değiştirerek etiketi:
 
     ```xml
     <PackageId>AppLogger</PackageId>

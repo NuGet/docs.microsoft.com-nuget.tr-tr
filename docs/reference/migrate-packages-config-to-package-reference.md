@@ -6,12 +6,12 @@ ms.author: karann
 manager: unnir
 ms.date: 03/27/2018
 ms.topic: conceptual
-ms.openlocfilehash: 1ca97e1c2dfba876aefe6b06eab10def67b8d848
-ms.sourcegitcommit: 8e3546ab630a24cde8725610b6a68f8eb87afa47
+ms.openlocfilehash: 4f42403abbf07c2c48ce13c70c49f7f3c15c40e4
+ms.sourcegitcommit: a76ecc58f41c2c5b3536ff4a3f3fcbdf5258177c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37843400"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072372"
 ---
 # <a name="migrate-from-packagesconfig-to-packagereference"></a>Packages.config'i Packagereference'a geçirme
 
@@ -41,7 +41,7 @@ Bir projeyi ilk defa açıldığında, NuGet işlemi gerçekleştirilene kadar N
 
 #### <a name="workaround"></a>Geçici Çözüm 
 
-SPN'i aşağıdaki NuGet eylemlerden herhangi birini: 
+Aşağıdaki NuGet eylemlerden birini gerçekleştirin: 
 * Paket Yöneticisi UI - açık sağ `References` seçin `Manage NuGet Packages...` 
 * Paket Yöneticisi konsolu - açık `Tools > NuGet Package Manager`seçin `Package Manager Console` 
 * Çalışma NuGet geri yükleme - Çözüm Gezgini'nde çözüm düğümüne sağ tıklayın ve seçin `Restore NuGet Packages` 
@@ -58,7 +58,7 @@ Artık geçiş seçeneği görmeye olmalıdır. Bu seçenek desteklenmez ve ASP.
 
 1. İçinde **Çözüm Gezgini**, sağ **başvuruları** düğümü veya `packages.config` seçin ve dosya **Packages.config'i Packagereference'a geçirme...** .
 
-1. Migrator projenin NuGet paket başvuruları analiz eder ve bunları kategorilere dener **en üst düzey bağımlılıkları** (NuGet paketleri bu yüklediğiniz dizine) ve **geçişli bağımlılıkları**(üst düzey paket bağımlılıkları olarak yüklenen paketler).
+1. Migrator projenin NuGet paket başvuruları analiz eder ve bunları kategorilere dener **en üst düzey bağımlılıkları** (doğrudan yüklü NuGet paketlerini) ve **geçişli bağımlılıkları** (üst düzey paket bağımlılıkları olarak yüklenen paketler).
 
    > [!Note]
    > PackageReference, geçişli paket geri yükleme destekler ve bağımlılıkları geçişli bağımlılıkları açıkça yüklenmemesi, yani dinamik olarak çözer.
