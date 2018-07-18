@@ -58,6 +58,7 @@
 ### [update](tools/cli-ref-update.md)
 ### [verify](tools/cli-ref-verify.md)
 ### [Ortam değişkenleri](tools/cli-ref-environment-variables.md)
+### [Uzun yol desteği](tools/cli-ref-long-path.md)
 ## [Paket Yöneticisi UI](tools/package-manager-ui.md)
 ## [Paket Yöneticisi Konsolu](tools/package-manager-console.md)
 ## [PowerShell başvurusu](tools/powershell-reference.md)
