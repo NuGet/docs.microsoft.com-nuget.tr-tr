@@ -1,41 +1,29 @@
 ---
-title: NuGet PackageReference biçimi (proje dosyalarına paket referanslarını)
-description: NuGet PackageReference NuGet 4.0 + ve VS2017 ve .NET Core 2.0 tarafından desteklenen gibi proje dosyalarına ayrıntıları
+title: NuGet Packagereference'a biçimi (proje dosyalarında paket başvuruları)
+description: NuGet 4.0 + ve VS2017 ve .NET Core 2.0 tarafından desteklenen proje dosyalarında NuGet PackageReference hakkında ayrıntılar
 author: karann-msft
 ms.author: karann
 manager: unnir
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 61f447877459764906cf9a2b88b32a8bc0553689
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 48930701f1bb5f13718505b85b293f38d37d19fb
+ms.sourcegitcommit: 4d139cb54a46616ae48d1768fa108ae3bf450d5b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817677"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39508354"
 ---
-# <a name="package-references-packagereference-in-project-files"></a><span data-ttu-id="cd675-103">Proje dosyalarına paket referanslarını (PackageReference)</span><span class="sxs-lookup"><span data-stu-id="cd675-103">Package references (PackageReference) in project files</span></span>
+# <a name="package-references-packagereference-in-project-files"></a><span data-ttu-id="91862-103">Proje dosyalarında paket başvuruları (PackageReference)</span><span class="sxs-lookup"><span data-stu-id="91862-103">Package references (PackageReference) in project files</span></span>
 
-<span data-ttu-id="cd675-104">Paketini kullanarak başvurular `PackageReference` düğümü, NuGet bağımlılıkları doğrudan proje dosyalarını Yönet (ayrı bir aksine `packages.config` dosyası).</span><span class="sxs-lookup"><span data-stu-id="cd675-104">Package references, using the `PackageReference` node, manage NuGet dependencies directly within project files (as opposed to a separate `packages.config` file).</span></span> <span data-ttu-id="cd675-105">Denir, PackageReference, kullanarak NuGet diğer yönlerini etkilemez; Örneğin, ayarlarında `NuGet.Config` açıklandığı gibi dosyaları (paket kaynaklarını dahil) uygulanan hala [NuGet davranışını yapılandırma](configuring-nuget-behavior.md).</span><span class="sxs-lookup"><span data-stu-id="cd675-105">Using PackageReference, as it's called, doesn't affect other aspects of NuGet; for example, settings in `NuGet.Config` files (including package sources) are still applied as explained in [Configuring NuGet Behavior](configuring-nuget-behavior.md).</span></span>
+<span data-ttu-id="91862-104">Paket başvuruları kullanılarak, `PackageReference` düğümü, NuGet bağımlılıklarını doğrudan proje dosyaları içinde yönetme (ayrı bir aksine `packages.config` dosya).</span><span class="sxs-lookup"><span data-stu-id="91862-104">Package references, using the `PackageReference` node, manage NuGet dependencies directly within project files (as opposed to a separate `packages.config` file).</span></span> <span data-ttu-id="91862-105">PackageReference, kullanarak çağrılır, NuGet diğer yönleri etkilemez; Örneğin, ayarlarında `NuGet.Config` (paket kaynaklarını dahil) dosyaları yine de açıklandığı gibi uygulanan [NuGet davranışını yapılandırma](configuring-nuget-behavior.md).</span><span class="sxs-lookup"><span data-stu-id="91862-105">Using PackageReference, as it's called, doesn't affect other aspects of NuGet; for example, settings in `NuGet.Config` files (including package sources) are still applied as explained in [Configuring NuGet Behavior](configuring-nuget-behavior.md).</span></span>
 
-<span data-ttu-id="cd675-106">PackageReference ile hedef framework, yapılandırma, platform veya diğer gruplandırmaları başına paket referanslarını seçmek için MSBuild koşulları kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="cd675-106">With PackageReference, you can also use MSBuild conditions to choose package references per target framework, configuration, platform, or other groupings.</span></span> <span data-ttu-id="cd675-107">Bu da bağımlılıkları ve içerik akışı üzerinde ayrıntılı denetim sağlar.</span><span class="sxs-lookup"><span data-stu-id="cd675-107">It also allows for fine-grained control over dependencies and content flow.</span></span> <span data-ttu-id="cd675-108">(Daha fazla ayrıntı için bkz: [NuGet paketi ve geri yükleme MSBuild hedefleri olarak](../reference/msbuild-targets.md).)</span><span class="sxs-lookup"><span data-stu-id="cd675-108">(See For more details [NuGet pack and restore as MSBuild targets](../reference/msbuild-targets.md).)</span></span>
+<span data-ttu-id="91862-106">PackageReference ile paket başvuruları her hedef çerçeve, yapılandırma, platform veya diğer grupları seçmek için MSBuild koşulları kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="91862-106">With PackageReference, you can also use MSBuild conditions to choose package references per target framework, configuration, platform, or other groupings.</span></span> <span data-ttu-id="91862-107">Ayrıca bağımlılıkları ve içerik akışı üzerinde ayrıntılı denetim sağlar.</span><span class="sxs-lookup"><span data-stu-id="91862-107">It also allows for fine-grained control over dependencies and content flow.</span></span> <span data-ttu-id="91862-108">(Daha fazla ayrıntı için [NuGet paketi ve geri yükleme, MSBuild hedefleri](../reference/msbuild-targets.md).)</span><span class="sxs-lookup"><span data-stu-id="91862-108">(See For more details [NuGet pack and restore as MSBuild targets](../reference/msbuild-targets.md).)</span></span>
 
-<span data-ttu-id="cd675-109">Varsayılan olarak, PackageReference .NET Core projeleri, .NET standart projeler ve Windows 10 derleme 15063 (oluşturucuları güncelleştirme) hedefleme UWP projeleri için ve daha sonra C++ UWP projeleri hariç olmak üzere kullanılır.</span><span class="sxs-lookup"><span data-stu-id="cd675-109">By default, PackageReference is used for .NET Core projects, .NET Standard projects, and UWP projects targeting Windows 10 Build 15063 (Creators Update) and later, with the exception of C++ UWP projects.</span></span> <span data-ttu-id="cd675-110">.NET framework tam projeleri PackageReference destekler, ancak şu anda varsayılan olarak `packages.config`.</span><span class="sxs-lookup"><span data-stu-id="cd675-110">.NET full framework projects support PackageReference, but currently default to `packages.config`.</span></span> <span data-ttu-id="cd675-111">PackageReference kullanmak için bağımlılıklardan geçirmek `packages.config` proje dosyanıza ardından packages.config kaldırın.</span><span class="sxs-lookup"><span data-stu-id="cd675-111">To use PackageReference, migrate the dependencies from `packages.config` into your project file, then remove packages.config.</span></span>
+<span data-ttu-id="91862-109">Varsayılan olarak, .NET Core projeleri, .NET Standard projelerine ve Windows 10 derleme 15063 (Creators Update) hedefleyen UWP projeleri için ve sonraki sürümlerinde, C++ UWP projeleri hariç PackageReference kullanılır.</span><span class="sxs-lookup"><span data-stu-id="91862-109">By default, PackageReference is used for .NET Core projects, .NET Standard projects, and UWP projects targeting Windows 10 Build 15063 (Creators Update) and later, with the exception of C++ UWP projects.</span></span> <span data-ttu-id="91862-110">.NET Framework'ün tamamını projeleri PackageReference destekler, ancak şu anda varsayılan `packages.config`.</span><span class="sxs-lookup"><span data-stu-id="91862-110">.NET full framework projects support PackageReference, but currently default to `packages.config`.</span></span> <span data-ttu-id="91862-111">PackageReference kullanmak için bağımlılıklardan geçirme `packages.config` proje dosyanıza ardından packages.config kaldırın.</span><span class="sxs-lookup"><span data-stu-id="91862-111">To use PackageReference, migrate the dependencies from `packages.config` into your project file, then remove packages.config.</span></span>
 
-## <a name="adding-a-packagereference"></a><span data-ttu-id="cd675-112">Bir PackageReference ekleme</span><span class="sxs-lookup"><span data-stu-id="cd675-112">Adding a PackageReference</span></span>
+## <a name="adding-a-packagereference"></a><span data-ttu-id="91862-112">PackageReference ekleme</span><span class="sxs-lookup"><span data-stu-id="91862-112">Adding a PackageReference</span></span>
 
-<span data-ttu-id="cd675-113">Bir bağımlılık aşağıdaki sözdizimini kullanarak, proje dosyasında ekleyin:</span><span class="sxs-lookup"><span data-stu-id="cd675-113">Add a dependency in your project file using the following syntax:</span></span>
-
-```xml
-<ItemGroup>
-    <!-- ... -->
-    <PackageReference Include="Contoso.Utility.UsefulStuff" Version="3.6.0" />
-    <!-- ... -->
-</ItemGroup>
-```
-
-## <a name="controlling-dependency-version"></a><span data-ttu-id="cd675-114">Bağımlılık sürümünü denetleme</span><span class="sxs-lookup"><span data-stu-id="cd675-114">Controlling dependency version</span></span>
-
-<span data-ttu-id="cd675-115">Bir paketin sürümü belirtmek için aynı kullanırken kuraldır `packages.config`:</span><span class="sxs-lookup"><span data-stu-id="cd675-115">The convention for specifying the version of a package is the same as when using `packages.config`:</span></span>
+<span data-ttu-id="91862-113">Bir bağımlılık aşağıdaki sözdizimini kullanarak proje dosyanıza ekleyin:</span><span class="sxs-lookup"><span data-stu-id="91862-113">Add a dependency in your project file using the following syntax:</span></span>
 
 ```xml
 <ItemGroup>
@@ -45,10 +33,22 @@ ms.locfileid: "34817677"
 </ItemGroup>
 ```
 
-<span data-ttu-id="cd675-116">Yukarıdaki örnekte, 3.6.0 olan herhangi bir sürümü anlamına gelir. > açıklandığı gibi en düşük sürüm tercihini ile 3.6.0 = [paket sürüm](../reference/package-versioning.md#version-ranges-and-wildcards).</span><span class="sxs-lookup"><span data-stu-id="cd675-116">In the example above, 3.6.0 means any version that is >=3.6.0 with preference for the lowest version, as described on [Package versioning](../reference/package-versioning.md#version-ranges-and-wildcards).</span></span>
+## <a name="controlling-dependency-version"></a><span data-ttu-id="91862-114">Bağımlılık sürümünü denetleme</span><span class="sxs-lookup"><span data-stu-id="91862-114">Controlling dependency version</span></span>
 
-## <a name="using-packagereference-for-a-project-with-no-packagereferences"></a><span data-ttu-id="cd675-117">Hiçbir PackageReferences sahip bir proje için PackageReference kullanma</span><span class="sxs-lookup"><span data-stu-id="cd675-117">Using PackageReference for a project with no PackageReferences</span></span>
-<span data-ttu-id="cd675-118">Gelişmiş: (PackageReferences proje dosyasında) ve hiçbir packages.config dosyasına projede yüklü hiç paket var ancak PackageReference stil olarak geri yüklenmesini istediğiniz projesinin proje özelliği RestoreProjectStyle PackageReference için ayarlayabileceğiniz içinde Proje dosyanızı.</span><span class="sxs-lookup"><span data-stu-id="cd675-118">Advanced: If you have no packages installed in a project (no PackageReferences in project file and no packages.config file), but want the project to be restored as PackageReference style, you can set a Project property RestoreProjectStyle to PackageReference in your project file.</span></span>
+<span data-ttu-id="91862-115">Bir paketin sürümü belirtmek için kural aynı kullanıldığında `packages.config`:</span><span class="sxs-lookup"><span data-stu-id="91862-115">The convention for specifying the version of a package is the same as when using `packages.config`:</span></span>
+
+```xml
+<ItemGroup>
+    <!-- ... -->
+    <PackageReference Include="Contoso.Utility.UsefulStuff" Version="3.6.0" />
+    <!-- ... -->
+</ItemGroup>
+```
+
+<span data-ttu-id="91862-116">Yukarıdaki örnekte, 3.6.0 olan herhangi bir sürümü anlamına gelir > üzerinde açıklandığı 3.6.0 tercih en düşük sürümü ile = [Paket sürümü oluşturma](../reference/package-versioning.md#version-ranges-and-wildcards).</span><span class="sxs-lookup"><span data-stu-id="91862-116">In the example above, 3.6.0 means any version that is >=3.6.0 with preference for the lowest version, as described on [Package versioning](../reference/package-versioning.md#version-ranges-and-wildcards).</span></span>
+
+## <a name="using-packagereference-for-a-project-with-no-packagereferences"></a><span data-ttu-id="91862-117">Hiçbir packagereferences'ı içeren bir proje için PackageReference kullanma</span><span class="sxs-lookup"><span data-stu-id="91862-117">Using PackageReference for a project with no PackageReferences</span></span>
+<span data-ttu-id="91862-118">Gelişmiş: sahip paket yüklü bir projede (proje dosyasında hiçbir PackageReferences) ve hiçbir packages.config dosyası yok, ancak stili Packagereference'a geri yüklenmesini istediğiniz projesinin, proje özelliği RestoreProjectStyle Packagereference'a ayarlayabileceğiniz içinde Proje dosyanız.</span><span class="sxs-lookup"><span data-stu-id="91862-118">Advanced: If you have no packages installed in a project (no PackageReferences in project file and no packages.config file), but want the project to be restored as PackageReference style, you can set a Project property RestoreProjectStyle to PackageReference in your project file.</span></span>
 ```xml
 <PropertyGroup>
     <!--- ... -->
@@ -56,11 +56,11 @@ ms.locfileid: "34817677"
     <!--- ... -->
 </PropertyGroup>    
 ```
-<span data-ttu-id="cd675-119">(Mevcut csproj veya SDK stili projeleri) stilde PackageReference olan projeler başvuru durumlarda yararlı olabilir.</span><span class="sxs-lookup"><span data-stu-id="cd675-119">This may be useful, if you reference projects which are PackageReference styled (existing csproj or SDK-style projects).</span></span> <span data-ttu-id="cd675-120">Bu, bu proje için "geçişli" projeniz tarafından başvuruda başvurmak paketleri olanak tanır.</span><span class="sxs-lookup"><span data-stu-id="cd675-120">This will enable packages that those projects refer to, to be "transitively" referenced by your project.</span></span>
+<span data-ttu-id="91862-119">(Mevcut csproj veya SDK stili projeleri) stili Packagereference'a olan projeleri başvuruyorsa yararlı olabilir.</span><span class="sxs-lookup"><span data-stu-id="91862-119">This may be useful, if you reference projects which are PackageReference styled (existing csproj or SDK-style projects).</span></span> <span data-ttu-id="91862-120">Bu projelerdeki "geçişli" projeniz tarafından başvurulabilmesi için başvuran paketleri olanak sağlar.</span><span class="sxs-lookup"><span data-stu-id="91862-120">This will enable packages that those projects refer to, to be "transitively" referenced by your project.</span></span>
 
-## <a name="floating-versions"></a><span data-ttu-id="cd675-121">Kayan sürümleri</span><span class="sxs-lookup"><span data-stu-id="cd675-121">Floating Versions</span></span>
+## <a name="floating-versions"></a><span data-ttu-id="91862-121">Kayan sürümleri</span><span class="sxs-lookup"><span data-stu-id="91862-121">Floating Versions</span></span>
 
-<span data-ttu-id="cd675-122">[Sürümleri kayan](../consume-packages/dependency-resolution.md#floating-versions) ile desteklenen `PackageReference`:</span><span class="sxs-lookup"><span data-stu-id="cd675-122">[Floating versions](../consume-packages/dependency-resolution.md#floating-versions) are supported with `PackageReference`:</span></span>
+<span data-ttu-id="91862-122">[Kayan sürümleri](../consume-packages/dependency-resolution.md#floating-versions) ile desteklenen `PackageReference`:</span><span class="sxs-lookup"><span data-stu-id="91862-122">[Floating versions](../consume-packages/dependency-resolution.md#floating-versions) are supported with `PackageReference`:</span></span>
 
 ```xml
 <ItemGroup>
@@ -71,9 +71,9 @@ ms.locfileid: "34817677"
 </ItemGroup>
 ```
 
-## <a name="controlling-dependency-assets"></a><span data-ttu-id="cd675-123">Bağımlılık varlıklar denetleme</span><span class="sxs-lookup"><span data-stu-id="cd675-123">Controlling dependency assets</span></span>
+## <a name="controlling-dependency-assets"></a><span data-ttu-id="91862-123">Bağımlılık varlıkları denetleme</span><span class="sxs-lookup"><span data-stu-id="91862-123">Controlling dependency assets</span></span>
 
-<span data-ttu-id="cd675-124">Bir bağımlılık tamamen geliştirme bandı kullanıyor olabilir ve paketinizi tüketir projelerine kullanıma istemeyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="cd675-124">You might be using a dependency purely as a development harness and might not want to expose that to projects that will consume your package.</span></span> <span data-ttu-id="cd675-125">Bu senaryoda kullanabileceğiniz `PrivateAssets` bu davranışı denetlemek için meta verileri.</span><span class="sxs-lookup"><span data-stu-id="cd675-125">In this scenario, you can use the `PrivateAssets` metadata to control this behavior.</span></span>
+<span data-ttu-id="91862-124">Bir bağımlılık yalnızca bir geliştirme bandı kullanabilecek ve, paketiniz tüketecektir projeler için kullanıma sunmak istemeyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="91862-124">You might be using a dependency purely as a development harness and might not want to expose that to projects that will consume your package.</span></span> <span data-ttu-id="91862-125">Bu senaryoda kullanabileceğiniz `PrivateAssets` bu davranışını denetlemek için meta verileri.</span><span class="sxs-lookup"><span data-stu-id="91862-125">In this scenario, you can use the `PrivateAssets` metadata to control this behavior.</span></span>
 
 ```xml
 <ItemGroup>
@@ -87,28 +87,28 @@ ms.locfileid: "34817677"
 </ItemGroup>
 ```
 
-<span data-ttu-id="cd675-126">Aşağıdaki meta veri etiketlerini bağımlılık varlıklar kontrol edin:</span><span class="sxs-lookup"><span data-stu-id="cd675-126">The following metadata tags control dependency assets:</span></span>
+<span data-ttu-id="91862-126">Şu meta veri etiketleri bağımlılık varlıklar kontrol edin:</span><span class="sxs-lookup"><span data-stu-id="91862-126">The following metadata tags control dependency assets:</span></span>
 
-| <span data-ttu-id="cd675-127">Etiket</span><span class="sxs-lookup"><span data-stu-id="cd675-127">Tag</span></span> | <span data-ttu-id="cd675-128">Açıklama</span><span class="sxs-lookup"><span data-stu-id="cd675-128">Description</span></span> | <span data-ttu-id="cd675-129">Varsayılan Değer</span><span class="sxs-lookup"><span data-stu-id="cd675-129">Default Value</span></span> |
+| <span data-ttu-id="91862-127">Etiket</span><span class="sxs-lookup"><span data-stu-id="91862-127">Tag</span></span> | <span data-ttu-id="91862-128">Açıklama</span><span class="sxs-lookup"><span data-stu-id="91862-128">Description</span></span> | <span data-ttu-id="91862-129">Varsayılan Değer</span><span class="sxs-lookup"><span data-stu-id="91862-129">Default Value</span></span> |
 | --- | --- | --- |
-| <span data-ttu-id="cd675-130">IncludeAssets</span><span class="sxs-lookup"><span data-stu-id="cd675-130">IncludeAssets</span></span> | <span data-ttu-id="cd675-131">Bu varlıklar kullanılır</span><span class="sxs-lookup"><span data-stu-id="cd675-131">These assets will be consumed</span></span> | <span data-ttu-id="cd675-132">tüm</span><span class="sxs-lookup"><span data-stu-id="cd675-132">all</span></span> |
-| <span data-ttu-id="cd675-133">ExcludeAssets</span><span class="sxs-lookup"><span data-stu-id="cd675-133">ExcludeAssets</span></span> | <span data-ttu-id="cd675-134">Bu varlıklar tüketilen değil</span><span class="sxs-lookup"><span data-stu-id="cd675-134">These assets will not be consumed</span></span> | <span data-ttu-id="cd675-135">yok</span><span class="sxs-lookup"><span data-stu-id="cd675-135">none</span></span> |
-| <span data-ttu-id="cd675-136">PrivateAssets</span><span class="sxs-lookup"><span data-stu-id="cd675-136">PrivateAssets</span></span> | <span data-ttu-id="cd675-137">Bu varlıklar kullanılır, ancak üst projeye akış olmaz</span><span class="sxs-lookup"><span data-stu-id="cd675-137">These assets will be consumed but won't flow to the parent project</span></span> | <span data-ttu-id="cd675-138">Content dosyaları, çözümleyiciler; derleme</span><span class="sxs-lookup"><span data-stu-id="cd675-138">contentfiles;analyzers;build</span></span> |
+| <span data-ttu-id="91862-130">IncludeAssets</span><span class="sxs-lookup"><span data-stu-id="91862-130">IncludeAssets</span></span> | <span data-ttu-id="91862-131">Bu varlıklar tarafından kullanılabilir</span><span class="sxs-lookup"><span data-stu-id="91862-131">These assets will be consumed</span></span> | <span data-ttu-id="91862-132">tüm</span><span class="sxs-lookup"><span data-stu-id="91862-132">all</span></span> |
+| <span data-ttu-id="91862-133">ExcludeAssets</span><span class="sxs-lookup"><span data-stu-id="91862-133">ExcludeAssets</span></span> | <span data-ttu-id="91862-134">Bu varlıklar tüketilir değil</span><span class="sxs-lookup"><span data-stu-id="91862-134">These assets will not be consumed</span></span> | <span data-ttu-id="91862-135">yok</span><span class="sxs-lookup"><span data-stu-id="91862-135">none</span></span> |
+| <span data-ttu-id="91862-136">PrivateAssets</span><span class="sxs-lookup"><span data-stu-id="91862-136">PrivateAssets</span></span> | <span data-ttu-id="91862-137">Bu varlıklar tarafından kullanılabilir ancak üst projeye akış olmaz</span><span class="sxs-lookup"><span data-stu-id="91862-137">These assets will be consumed but won't flow to the parent project</span></span> | <span data-ttu-id="91862-138">contentfiles, çözümleyiciler; derleme</span><span class="sxs-lookup"><span data-stu-id="91862-138">contentfiles;analyzers;build</span></span> |
 
-<span data-ttu-id="cd675-139">Bu etiketler için izin verilen değerler aşağıdaki gibidir, dışında noktalı virgül ile ayırarak birden çok değerlerle `all` ve `none` gerekir göründüğü tek başına:</span><span class="sxs-lookup"><span data-stu-id="cd675-139">Allowable values for these tags are as follows, with multiple values separated by a semicolon except with `all` and `none` which must appear by themselves:</span></span>
+<span data-ttu-id="91862-139">Bu etiketler için izin verilen değerler aşağıdaki gibidir, dışında noktalı virgül ile ayırarak birden çok değer ile `all` ve `none` gerekir göründüğü başlarına:</span><span class="sxs-lookup"><span data-stu-id="91862-139">Allowable values for these tags are as follows, with multiple values separated by a semicolon except with `all` and `none` which must appear by themselves:</span></span>
 
-| <span data-ttu-id="cd675-140">Değer</span><span class="sxs-lookup"><span data-stu-id="cd675-140">Value</span></span> | <span data-ttu-id="cd675-141">Açıklama</span><span class="sxs-lookup"><span data-stu-id="cd675-141">Description</span></span> |
+| <span data-ttu-id="91862-140">Değer</span><span class="sxs-lookup"><span data-stu-id="91862-140">Value</span></span> | <span data-ttu-id="91862-141">Açıklama</span><span class="sxs-lookup"><span data-stu-id="91862-141">Description</span></span> |
 | --- | ---
-| <span data-ttu-id="cd675-142">Derleme</span><span class="sxs-lookup"><span data-stu-id="cd675-142">compile</span></span> | <span data-ttu-id="cd675-143">İçeriği `lib` klasörü ve denetimleri klasördeki derlemeleri karşı olup projenizi derleme</span><span class="sxs-lookup"><span data-stu-id="cd675-143">Contents of the `lib` folder and controls whether your project can compile against the assemblies within the folder</span></span> |
-| <span data-ttu-id="cd675-144">çalışma zamanı</span><span class="sxs-lookup"><span data-stu-id="cd675-144">runtime</span></span> | <span data-ttu-id="cd675-145">İçeriği `lib` ve `runtimes` klasörü ve denetimleri bu derlemeler için yapı olup kopyalanacak çıktı dizini</span><span class="sxs-lookup"><span data-stu-id="cd675-145">Contents of the `lib` and `runtimes` folder and controls whether these assemblies will be copied out to the build output directory</span></span> |
-| <span data-ttu-id="cd675-146">Content dosyaları</span><span class="sxs-lookup"><span data-stu-id="cd675-146">contentFiles</span></span> | <span data-ttu-id="cd675-147">İçeriği `contentfiles` klasörü</span><span class="sxs-lookup"><span data-stu-id="cd675-147">Contents of the `contentfiles` folder</span></span> |
-| <span data-ttu-id="cd675-148">derleme</span><span class="sxs-lookup"><span data-stu-id="cd675-148">build</span></span> | <span data-ttu-id="cd675-149">Özellik ve içinde hedefler `build` klasörü</span><span class="sxs-lookup"><span data-stu-id="cd675-149">Props and targets in the `build` folder</span></span> |
-| <span data-ttu-id="cd675-150">Çözümleyiciler</span><span class="sxs-lookup"><span data-stu-id="cd675-150">analyzers</span></span> | <span data-ttu-id="cd675-151">.NET çözümleyiciler</span><span class="sxs-lookup"><span data-stu-id="cd675-151">.NET analyzers</span></span> |
-| <span data-ttu-id="cd675-152">yerel</span><span class="sxs-lookup"><span data-stu-id="cd675-152">native</span></span> | <span data-ttu-id="cd675-153">İçeriği `native` klasörü</span><span class="sxs-lookup"><span data-stu-id="cd675-153">Contents of the `native` folder</span></span> |
-| <span data-ttu-id="cd675-154">yok</span><span class="sxs-lookup"><span data-stu-id="cd675-154">none</span></span> | <span data-ttu-id="cd675-155">Yukarıdakilerin hiçbiri kullanılır.</span><span class="sxs-lookup"><span data-stu-id="cd675-155">None of the above are used.</span></span> |
-| <span data-ttu-id="cd675-156">tüm</span><span class="sxs-lookup"><span data-stu-id="cd675-156">all</span></span> | <span data-ttu-id="cd675-157">Yukarıdakilerin tümü (dışında `none`)</span><span class="sxs-lookup"><span data-stu-id="cd675-157">All of the above (except `none`)</span></span> |
+| <span data-ttu-id="91862-142">Derleme</span><span class="sxs-lookup"><span data-stu-id="91862-142">compile</span></span> | <span data-ttu-id="91862-143">İçeriğini `lib` klasörü ve denetimleri klasördeki derlemelere karşı olup projenizi derleyin</span><span class="sxs-lookup"><span data-stu-id="91862-143">Contents of the `lib` folder and controls whether your project can compile against the assemblies within the folder</span></span> |
+| <span data-ttu-id="91862-144">çalışma zamanı</span><span class="sxs-lookup"><span data-stu-id="91862-144">runtime</span></span> | <span data-ttu-id="91862-145">İçeriğini `lib` ve `runtimes` klasörü ve denetimleri bu derlemeler için derleme olup kopyalanacak çıktı dizini</span><span class="sxs-lookup"><span data-stu-id="91862-145">Contents of the `lib` and `runtimes` folder and controls whether these assemblies will be copied out to the build output directory</span></span> |
+| <span data-ttu-id="91862-146">contentFiles</span><span class="sxs-lookup"><span data-stu-id="91862-146">contentFiles</span></span> | <span data-ttu-id="91862-147">İçeriğini `contentfiles` klasörü</span><span class="sxs-lookup"><span data-stu-id="91862-147">Contents of the `contentfiles` folder</span></span> |
+| <span data-ttu-id="91862-148">derleme</span><span class="sxs-lookup"><span data-stu-id="91862-148">build</span></span> | <span data-ttu-id="91862-149">Özellikler ve hedeflediğini `build` klasörü</span><span class="sxs-lookup"><span data-stu-id="91862-149">Props and targets in the `build` folder</span></span> |
+| <span data-ttu-id="91862-150">Çözümleyiciler</span><span class="sxs-lookup"><span data-stu-id="91862-150">analyzers</span></span> | <span data-ttu-id="91862-151">.NET çözümleyiciler</span><span class="sxs-lookup"><span data-stu-id="91862-151">.NET analyzers</span></span> |
+| <span data-ttu-id="91862-152">yerel</span><span class="sxs-lookup"><span data-stu-id="91862-152">native</span></span> | <span data-ttu-id="91862-153">İçeriğini `native` klasörü</span><span class="sxs-lookup"><span data-stu-id="91862-153">Contents of the `native` folder</span></span> |
+| <span data-ttu-id="91862-154">yok</span><span class="sxs-lookup"><span data-stu-id="91862-154">none</span></span> | <span data-ttu-id="91862-155">Yukarıdakilerin hiçbiri kullanılır.</span><span class="sxs-lookup"><span data-stu-id="91862-155">None of the above are used.</span></span> |
+| <span data-ttu-id="91862-156">tüm</span><span class="sxs-lookup"><span data-stu-id="91862-156">all</span></span> | <span data-ttu-id="91862-157">Yukarıdakilerin tümü (dışında `none`)</span><span class="sxs-lookup"><span data-stu-id="91862-157">All of the above (except `none`)</span></span> |
 
-<span data-ttu-id="cd675-158">Aşağıdaki örnekte, paket içerik dosyalarını dışında her şeyi proje tarafından tüketilen ve içerik dosyaları ve çözümleyiciler dışında her şeyi üst projeye akış.</span><span class="sxs-lookup"><span data-stu-id="cd675-158">In the following example, everything except the content files from the package would be consumed by the project and everything except content files and analyzers would flow to the parent project.</span></span>
+<span data-ttu-id="91862-158">Aşağıdaki örnekte, içerik dosyalarını paketinden dışında her şeyi proje tarafından tüketilen ve içerik dosyaları ve çözümleyiciler dışında her şeyi üst projeye akış.</span><span class="sxs-lookup"><span data-stu-id="91862-158">In the following example, everything except the content files from the package would be consumed by the project and everything except content files and analyzers would flow to the parent project.</span></span>
 
 ```xml
 <ItemGroup>
@@ -124,32 +124,32 @@ ms.locfileid: "34817677"
 </ItemGroup>
 ```
 
-<span data-ttu-id="cd675-159">Çünkü unutmayın `build` ile dahil edilmeyen `PrivateAssets`, hedefleri ve özellik *olacak* üst projeye akış.</span><span class="sxs-lookup"><span data-stu-id="cd675-159">Note that because `build` is not included with `PrivateAssets`, targets and props *will* flow to the parent project.</span></span> <span data-ttu-id="cd675-160">Örneğin, yukarıdaki başvuru AppLogger adlı bir NuGet paketi derlemeler bir projede kullanıldığını değerlendirin.</span><span class="sxs-lookup"><span data-stu-id="cd675-160">Consider, for example, that the reference above is used in a project that builds a NuGet package called AppLogger.</span></span> <span data-ttu-id="cd675-161">Hedefleri ve özellik gelen AppLogger tüketebileceği `Contoso.Utility.UsefulStuff`AppLogger tüketen projelerini gibi.</span><span class="sxs-lookup"><span data-stu-id="cd675-161">AppLogger can consume the targets and props from `Contoso.Utility.UsefulStuff`, as can projects that consume AppLogger.</span></span>
+<span data-ttu-id="91862-159">Dikkat edin çünkü `build` ile bulunmaz `PrivateAssets`, hedeflerini ve özellik *olur* üst projeye akış.</span><span class="sxs-lookup"><span data-stu-id="91862-159">Note that because `build` is not included with `PrivateAssets`, targets and props *will* flow to the parent project.</span></span> <span data-ttu-id="91862-160">Örneğin, yukarıdaki başvuru AppLogger adlı bir NuGet paketi oluşturan bir projesinde kullanıldığını düşünün.</span><span class="sxs-lookup"><span data-stu-id="91862-160">Consider, for example, that the reference above is used in a project that builds a NuGet package called AppLogger.</span></span> <span data-ttu-id="91862-161">AppLogger hedeflerini ve özellik gelen kullanabileceği `Contoso.Utility.UsefulStuff`, AppLogger kullanan projeler gibi.</span><span class="sxs-lookup"><span data-stu-id="91862-161">AppLogger can consume the targets and props from `Contoso.Utility.UsefulStuff`, as can projects that consume AppLogger.</span></span>
 
-## <a name="adding-a-packagereference-condition"></a><span data-ttu-id="cd675-162">PackageReference koşul ekleme</span><span class="sxs-lookup"><span data-stu-id="cd675-162">Adding a PackageReference condition</span></span>
+## <a name="adding-a-packagereference-condition"></a><span data-ttu-id="91862-162">PackageReference koşul ekleme</span><span class="sxs-lookup"><span data-stu-id="91862-162">Adding a PackageReference condition</span></span>
 
-<span data-ttu-id="cd675-163">Koşullar herhangi bir MSBuild değişkeni kullanabilirsiniz veya bir değişkeni hedefler ya da özellik dosyasında tanımlanan bir paket dahil olup olmadığını denetlemek için bir koşul kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="cd675-163">You can use a condition to control whether a package is included, where conditions can use any MSBuild variable or a variable defined in the targets or props file.</span></span> <span data-ttu-id="cd675-164">Ancak, şu anda yalnızca `TargetFramework` değişkeni desteklenir.</span><span class="sxs-lookup"><span data-stu-id="cd675-164">However, at presently, only the `TargetFramework` variable is supported.</span></span>
+<span data-ttu-id="91862-163">Koşullar herhangi bir MSBuild değişken kullanabilirsiniz veya bir değişkeni hedefler ya da Özellikler dosyasında tanımlanan bir paket dahil olup olmadığını denetlemek için bir koşul kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="91862-163">You can use a condition to control whether a package is included, where conditions can use any MSBuild variable or a variable defined in the targets or props file.</span></span> <span data-ttu-id="91862-164">Ancak, şu anda, yalnızca `TargetFramework` değişkeni desteklenir.</span><span class="sxs-lookup"><span data-stu-id="91862-164">However, at presently, only the `TargetFramework` variable is supported.</span></span>
 
-<span data-ttu-id="cd675-165">Örneğin, hedefleme deyin `netstandard1.4` yanı `net452` ancak yalnızca için geçerli bir bağımlılığı olan `net452`.</span><span class="sxs-lookup"><span data-stu-id="cd675-165">For example, say you're targeting `netstandard1.4` as well as `net452` but have a dependency that is applicable only for `net452`.</span></span> <span data-ttu-id="cd675-166">Bu durumda istemediğiniz bir `netstandard1.4` gereksiz bu bağımlılığı eklemek için paket tüketen projesi.</span><span class="sxs-lookup"><span data-stu-id="cd675-166">In this case you don't want a `netstandard1.4` project that's consuming your package to add that unnecessary dependency.</span></span> <span data-ttu-id="cd675-167">Bunu önlemek için bir koşul üzerinde belirttiğiniz `PackageReference` gibi:</span><span class="sxs-lookup"><span data-stu-id="cd675-167">To prevent this, you specify a condition on the `PackageReference` as follows:</span></span>
+<span data-ttu-id="91862-165">Örneğin, hedefleyen düşünelim `netstandard1.4` yanı `net452` ancak yalnızca için geçerli olan bir bağımlılığa sahip `net452`.</span><span class="sxs-lookup"><span data-stu-id="91862-165">For example, say you're targeting `netstandard1.4` as well as `net452` but have a dependency that is applicable only for `net452`.</span></span> <span data-ttu-id="91862-166">Bu durumda istemediğiniz bir `netstandard1.4` paketiniz, gereksiz bağımlılık eklemek için kullanan bir proje.</span><span class="sxs-lookup"><span data-stu-id="91862-166">In this case you don't want a `netstandard1.4` project that's consuming your package to add that unnecessary dependency.</span></span> <span data-ttu-id="91862-167">Bunu önlemek için bir koşul belirttiğiniz `PackageReference` gibi:</span><span class="sxs-lookup"><span data-stu-id="91862-167">To prevent this, you specify a condition on the `PackageReference` as follows:</span></span>
 
 ```xml
 <ItemGroup>
     <!-- ... -->
-    <PackageReference Include="Newtonsoft.json" Version="9.0.1" Condition="'$(TargetFramework)' == 'net452'" />
+    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" Condition="'$(TargetFramework)' == 'net452'" />
     <!-- ... -->
 </ItemGroup>
 ```
 
-<span data-ttu-id="cd675-168">Bu proje kullanılarak oluşturulmuş bir paketin Newtonsoft.json yalnızca için bağımlılık olarak dahil olduğunu göstermek bir `net452` hedef:</span><span class="sxs-lookup"><span data-stu-id="cd675-168">A package built using this project will show that Newtonsoft.json is included as a dependency only for a `net452` target:</span></span>
+<span data-ttu-id="91862-168">Bu proje kullanılarak oluşturulan bir paket Newtonsoft.Json yalnızca bağımlılık olarak dahil olduğunu gösterir bir `net452` hedef:</span><span class="sxs-lookup"><span data-stu-id="91862-168">A package built using this project will show that Newtonsoft.Json is included as a dependency only for a `net452` target:</span></span>
 
-![Bir koşul VS2017 ile PackageReference üzerinde uygulamanın sonucu](media/PackageReference-Condition.png)
+![Bir koşul ile VS2017 PackageReference üzerinde sonucu](media/PackageReference-Condition.png)
 
-<span data-ttu-id="cd675-170">Koşullar da uygulanabilir adresindeki `ItemGroup` düzey ve tüm alt öğelerine uygulanır `PackageReference` öğeleri:</span><span class="sxs-lookup"><span data-stu-id="cd675-170">Conditions can also be applied at the `ItemGroup` level and will apply to all children `PackageReference` elements:</span></span>
+<span data-ttu-id="91862-170">Koşul da uygulanabilir `ItemGroup` düzeyi ve tüm alt öğelere uygulanacak `PackageReference` öğeleri:</span><span class="sxs-lookup"><span data-stu-id="91862-170">Conditions can also be applied at the `ItemGroup` level and will apply to all children `PackageReference` elements:</span></span>
 
 ```xml
 <ItemGroup Condition = "'$(TargetFramework)' == 'net452'">
     <!-- ... -->
-    <PackageReference Include="Newtonsoft.json" Version="9.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
     <PackageReference Include="Contoso.Utility.UsefulStuff" Version="3.6.0" />
     <!-- ... -->
 </ItemGroup>
