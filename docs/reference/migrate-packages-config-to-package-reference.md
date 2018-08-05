@@ -6,12 +6,12 @@ ms.author: karann
 manager: unnir
 ms.date: 03/27/2018
 ms.topic: conceptual
-ms.openlocfilehash: 4f42403abbf07c2c48ce13c70c49f7f3c15c40e4
-ms.sourcegitcommit: a76ecc58f41c2c5b3536ff4a3f3fcbdf5258177c
+ms.openlocfilehash: b05192038bff071ca7a5b8f2e0f735696d09bef6
+ms.sourcegitcommit: 4d139cb54a46616ae48d1768fa108ae3bf450d5b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072372"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39508276"
 ---
 # <a name="migrate-from-packagesconfig-to-packagereference"></a>Packages.config'i Packagereference'a geçirme
 
@@ -28,7 +28,7 @@ Visual Studio 2017 sürüm 15.7 ve üzeri destekler bir projeden geçirme [packa
 ### <a name="limitations"></a>Sınırlamalar
 
 * NuGet Packagereference'a önceki ve Visual Studio 2015'te kullanılabilir değil. Geçirilen projeleri yalnızca Visual Studio 2017'de açılabilir.
-* Geçiş için C++ ve ASP.NET projesi şu anda kullanılabilir değil.
+* Geçiş, C++ ve ASP.NET projeleri için şu anda kullanılabilir değil.
 * Bazı paketler PackageReference ile tam olarak uyumlu olmayabilir. Daha fazla bilgi için [paketini uyumluluk sorunlarını](#package-compatibility-issues).
 
 ### <a name="known-issues"></a>Bilinen Sorunlar

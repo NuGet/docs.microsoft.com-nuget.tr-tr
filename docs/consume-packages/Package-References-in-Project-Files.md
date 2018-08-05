@@ -1,29 +1,29 @@
 ---
-title: NuGet PackageReference biçimi (proje dosyalarına paket referanslarını)
-description: NuGet PackageReference NuGet 4.0 + ve VS2017 ve .NET Core 2.0 tarafından desteklenen gibi proje dosyalarına ayrıntıları
+title: NuGet Packagereference'a biçimi (proje dosyalarında paket başvuruları)
+description: NuGet 4.0 + ve VS2017 ve .NET Core 2.0 tarafından desteklenen proje dosyalarında NuGet PackageReference hakkında ayrıntılar
 author: karann-msft
 ms.author: karann
 manager: unnir
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 61f447877459764906cf9a2b88b32a8bc0553689
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 48930701f1bb5f13718505b85b293f38d37d19fb
+ms.sourcegitcommit: 4d139cb54a46616ae48d1768fa108ae3bf450d5b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817677"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39508354"
 ---
-# <a name="package-references-packagereference-in-project-files"></a>Proje dosyalarına paket referanslarını (PackageReference)
+# <a name="package-references-packagereference-in-project-files"></a>Proje dosyalarında paket başvuruları (PackageReference)
 
-Paketini kullanarak başvurular `PackageReference` düğümü, NuGet bağımlılıkları doğrudan proje dosyalarını Yönet (ayrı bir aksine `packages.config` dosyası). Denir, PackageReference, kullanarak NuGet diğer yönlerini etkilemez; Örneğin, ayarlarında `NuGet.Config` açıklandığı gibi dosyaları (paket kaynaklarını dahil) uygulanan hala [NuGet davranışını yapılandırma](configuring-nuget-behavior.md).
+Paket başvuruları kullanılarak, `PackageReference` düğümü, NuGet bağımlılıklarını doğrudan proje dosyaları içinde yönetme (ayrı bir aksine `packages.config` dosya). PackageReference, kullanarak çağrılır, NuGet diğer yönleri etkilemez; Örneğin, ayarlarında `NuGet.Config` (paket kaynaklarını dahil) dosyaları yine de açıklandığı gibi uygulanan [NuGet davranışını yapılandırma](configuring-nuget-behavior.md).
 
-PackageReference ile hedef framework, yapılandırma, platform veya diğer gruplandırmaları başına paket referanslarını seçmek için MSBuild koşulları kullanabilirsiniz. Bu da bağımlılıkları ve içerik akışı üzerinde ayrıntılı denetim sağlar. (Daha fazla ayrıntı için bkz: [NuGet paketi ve geri yükleme MSBuild hedefleri olarak](../reference/msbuild-targets.md).)
+PackageReference ile paket başvuruları her hedef çerçeve, yapılandırma, platform veya diğer grupları seçmek için MSBuild koşulları kullanabilirsiniz. Ayrıca bağımlılıkları ve içerik akışı üzerinde ayrıntılı denetim sağlar. (Daha fazla ayrıntı için [NuGet paketi ve geri yükleme, MSBuild hedefleri](../reference/msbuild-targets.md).)
 
-Varsayılan olarak, PackageReference .NET Core projeleri, .NET standart projeler ve Windows 10 derleme 15063 (oluşturucuları güncelleştirme) hedefleme UWP projeleri için ve daha sonra C++ UWP projeleri hariç olmak üzere kullanılır. .NET framework tam projeleri PackageReference destekler, ancak şu anda varsayılan olarak `packages.config`. PackageReference kullanmak için bağımlılıklardan geçirmek `packages.config` proje dosyanıza ardından packages.config kaldırın.
+Varsayılan olarak, .NET Core projeleri, .NET Standard projelerine ve Windows 10 derleme 15063 (Creators Update) hedefleyen UWP projeleri için ve sonraki sürümlerinde, C++ UWP projeleri hariç PackageReference kullanılır. .NET Framework'ün tamamını projeleri PackageReference destekler, ancak şu anda varsayılan `packages.config`. PackageReference kullanmak için bağımlılıklardan geçirme `packages.config` proje dosyanıza ardından packages.config kaldırın.
 
-## <a name="adding-a-packagereference"></a>Bir PackageReference ekleme
+## <a name="adding-a-packagereference"></a>PackageReference ekleme
 
-Bir bağımlılık aşağıdaki sözdizimini kullanarak, proje dosyasında ekleyin:
+Bir bağımlılık aşağıdaki sözdizimini kullanarak proje dosyanıza ekleyin:
 
 ```xml
 <ItemGroup>
@@ -35,7 +35,7 @@ Bir bağımlılık aşağıdaki sözdizimini kullanarak, proje dosyasında ekley
 
 ## <a name="controlling-dependency-version"></a>Bağımlılık sürümünü denetleme
 
-Bir paketin sürümü belirtmek için aynı kullanırken kuraldır `packages.config`:
+Bir paketin sürümü belirtmek için kural aynı kullanıldığında `packages.config`:
 
 ```xml
 <ItemGroup>
@@ -45,10 +45,10 @@ Bir paketin sürümü belirtmek için aynı kullanırken kuraldır `packages.con
 </ItemGroup>
 ```
 
-Yukarıdaki örnekte, 3.6.0 olan herhangi bir sürümü anlamına gelir. > açıklandığı gibi en düşük sürüm tercihini ile 3.6.0 = [paket sürüm](../reference/package-versioning.md#version-ranges-and-wildcards).
+Yukarıdaki örnekte, 3.6.0 olan herhangi bir sürümü anlamına gelir > üzerinde açıklandığı 3.6.0 tercih en düşük sürümü ile = [Paket sürümü oluşturma](../reference/package-versioning.md#version-ranges-and-wildcards).
 
-## <a name="using-packagereference-for-a-project-with-no-packagereferences"></a>Hiçbir PackageReferences sahip bir proje için PackageReference kullanma
-Gelişmiş: (PackageReferences proje dosyasında) ve hiçbir packages.config dosyasına projede yüklü hiç paket var ancak PackageReference stil olarak geri yüklenmesini istediğiniz projesinin proje özelliği RestoreProjectStyle PackageReference için ayarlayabileceğiniz içinde Proje dosyanızı.
+## <a name="using-packagereference-for-a-project-with-no-packagereferences"></a>Hiçbir packagereferences'ı içeren bir proje için PackageReference kullanma
+Gelişmiş: sahip paket yüklü bir projede (proje dosyasında hiçbir PackageReferences) ve hiçbir packages.config dosyası yok, ancak stili Packagereference'a geri yüklenmesini istediğiniz projesinin, proje özelliği RestoreProjectStyle Packagereference'a ayarlayabileceğiniz içinde Proje dosyanız.
 ```xml
 <PropertyGroup>
     <!--- ... -->
@@ -56,11 +56,11 @@ Gelişmiş: (PackageReferences proje dosyasında) ve hiçbir packages.config dos
     <!--- ... -->
 </PropertyGroup>    
 ```
-(Mevcut csproj veya SDK stili projeleri) stilde PackageReference olan projeler başvuru durumlarda yararlı olabilir. Bu, bu proje için "geçişli" projeniz tarafından başvuruda başvurmak paketleri olanak tanır.
+(Mevcut csproj veya SDK stili projeleri) stili Packagereference'a olan projeleri başvuruyorsa yararlı olabilir. Bu projelerdeki "geçişli" projeniz tarafından başvurulabilmesi için başvuran paketleri olanak sağlar.
 
 ## <a name="floating-versions"></a>Kayan sürümleri
 
-[Sürümleri kayan](../consume-packages/dependency-resolution.md#floating-versions) ile desteklenen `PackageReference`:
+[Kayan sürümleri](../consume-packages/dependency-resolution.md#floating-versions) ile desteklenen `PackageReference`:
 
 ```xml
 <ItemGroup>
@@ -71,9 +71,9 @@ Gelişmiş: (PackageReferences proje dosyasında) ve hiçbir packages.config dos
 </ItemGroup>
 ```
 
-## <a name="controlling-dependency-assets"></a>Bağımlılık varlıklar denetleme
+## <a name="controlling-dependency-assets"></a>Bağımlılık varlıkları denetleme
 
-Bir bağımlılık tamamen geliştirme bandı kullanıyor olabilir ve paketinizi tüketir projelerine kullanıma istemeyebilirsiniz. Bu senaryoda kullanabileceğiniz `PrivateAssets` bu davranışı denetlemek için meta verileri.
+Bir bağımlılık yalnızca bir geliştirme bandı kullanabilecek ve, paketiniz tüketecektir projeler için kullanıma sunmak istemeyebilirsiniz. Bu senaryoda kullanabileceğiniz `PrivateAssets` bu davranışını denetlemek için meta verileri.
 
 ```xml
 <ItemGroup>
@@ -87,28 +87,28 @@ Bir bağımlılık tamamen geliştirme bandı kullanıyor olabilir ve paketinizi
 </ItemGroup>
 ```
 
-Aşağıdaki meta veri etiketlerini bağımlılık varlıklar kontrol edin:
+Şu meta veri etiketleri bağımlılık varlıklar kontrol edin:
 
 | Etiket | Açıklama | Varsayılan Değer |
 | --- | --- | --- |
-| IncludeAssets | Bu varlıklar kullanılır | tüm |
-| ExcludeAssets | Bu varlıklar tüketilen değil | yok |
-| PrivateAssets | Bu varlıklar kullanılır, ancak üst projeye akış olmaz | Content dosyaları, çözümleyiciler; derleme |
+| IncludeAssets | Bu varlıklar tarafından kullanılabilir | tüm |
+| ExcludeAssets | Bu varlıklar tüketilir değil | yok |
+| PrivateAssets | Bu varlıklar tarafından kullanılabilir ancak üst projeye akış olmaz | contentfiles, çözümleyiciler; derleme |
 
-Bu etiketler için izin verilen değerler aşağıdaki gibidir, dışında noktalı virgül ile ayırarak birden çok değerlerle `all` ve `none` gerekir göründüğü tek başına:
+Bu etiketler için izin verilen değerler aşağıdaki gibidir, dışında noktalı virgül ile ayırarak birden çok değer ile `all` ve `none` gerekir göründüğü başlarına:
 
 | Değer | Açıklama |
 | --- | ---
-| Derleme | İçeriği `lib` klasörü ve denetimleri klasördeki derlemeleri karşı olup projenizi derleme |
-| çalışma zamanı | İçeriği `lib` ve `runtimes` klasörü ve denetimleri bu derlemeler için yapı olup kopyalanacak çıktı dizini |
-| Content dosyaları | İçeriği `contentfiles` klasörü |
-| derleme | Özellik ve içinde hedefler `build` klasörü |
+| Derleme | İçeriğini `lib` klasörü ve denetimleri klasördeki derlemelere karşı olup projenizi derleyin |
+| çalışma zamanı | İçeriğini `lib` ve `runtimes` klasörü ve denetimleri bu derlemeler için derleme olup kopyalanacak çıktı dizini |
+| contentFiles | İçeriğini `contentfiles` klasörü |
+| derleme | Özellikler ve hedeflediğini `build` klasörü |
 | Çözümleyiciler | .NET çözümleyiciler |
-| yerel | İçeriği `native` klasörü |
+| yerel | İçeriğini `native` klasörü |
 | yok | Yukarıdakilerin hiçbiri kullanılır. |
 | tüm | Yukarıdakilerin tümü (dışında `none`) |
 
-Aşağıdaki örnekte, paket içerik dosyalarını dışında her şeyi proje tarafından tüketilen ve içerik dosyaları ve çözümleyiciler dışında her şeyi üst projeye akış.
+Aşağıdaki örnekte, içerik dosyalarını paketinden dışında her şeyi proje tarafından tüketilen ve içerik dosyaları ve çözümleyiciler dışında her şeyi üst projeye akış.
 
 ```xml
 <ItemGroup>
@@ -124,32 +124,32 @@ Aşağıdaki örnekte, paket içerik dosyalarını dışında her şeyi proje ta
 </ItemGroup>
 ```
 
-Çünkü unutmayın `build` ile dahil edilmeyen `PrivateAssets`, hedefleri ve özellik *olacak* üst projeye akış. Örneğin, yukarıdaki başvuru AppLogger adlı bir NuGet paketi derlemeler bir projede kullanıldığını değerlendirin. Hedefleri ve özellik gelen AppLogger tüketebileceği `Contoso.Utility.UsefulStuff`AppLogger tüketen projelerini gibi.
+Dikkat edin çünkü `build` ile bulunmaz `PrivateAssets`, hedeflerini ve özellik *olur* üst projeye akış. Örneğin, yukarıdaki başvuru AppLogger adlı bir NuGet paketi oluşturan bir projesinde kullanıldığını düşünün. AppLogger hedeflerini ve özellik gelen kullanabileceği `Contoso.Utility.UsefulStuff`, AppLogger kullanan projeler gibi.
 
 ## <a name="adding-a-packagereference-condition"></a>PackageReference koşul ekleme
 
-Koşullar herhangi bir MSBuild değişkeni kullanabilirsiniz veya bir değişkeni hedefler ya da özellik dosyasında tanımlanan bir paket dahil olup olmadığını denetlemek için bir koşul kullanabilirsiniz. Ancak, şu anda yalnızca `TargetFramework` değişkeni desteklenir.
+Koşullar herhangi bir MSBuild değişken kullanabilirsiniz veya bir değişkeni hedefler ya da Özellikler dosyasında tanımlanan bir paket dahil olup olmadığını denetlemek için bir koşul kullanabilirsiniz. Ancak, şu anda, yalnızca `TargetFramework` değişkeni desteklenir.
 
-Örneğin, hedefleme deyin `netstandard1.4` yanı `net452` ancak yalnızca için geçerli bir bağımlılığı olan `net452`. Bu durumda istemediğiniz bir `netstandard1.4` gereksiz bu bağımlılığı eklemek için paket tüketen projesi. Bunu önlemek için bir koşul üzerinde belirttiğiniz `PackageReference` gibi:
+Örneğin, hedefleyen düşünelim `netstandard1.4` yanı `net452` ancak yalnızca için geçerli olan bir bağımlılığa sahip `net452`. Bu durumda istemediğiniz bir `netstandard1.4` paketiniz, gereksiz bağımlılık eklemek için kullanan bir proje. Bunu önlemek için bir koşul belirttiğiniz `PackageReference` gibi:
 
 ```xml
 <ItemGroup>
     <!-- ... -->
-    <PackageReference Include="Newtonsoft.json" Version="9.0.1" Condition="'$(TargetFramework)' == 'net452'" />
+    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" Condition="'$(TargetFramework)' == 'net452'" />
     <!-- ... -->
 </ItemGroup>
 ```
 
-Bu proje kullanılarak oluşturulmuş bir paketin Newtonsoft.json yalnızca için bağımlılık olarak dahil olduğunu göstermek bir `net452` hedef:
+Bu proje kullanılarak oluşturulan bir paket Newtonsoft.Json yalnızca bağımlılık olarak dahil olduğunu gösterir bir `net452` hedef:
 
-![Bir koşul VS2017 ile PackageReference üzerinde uygulamanın sonucu](media/PackageReference-Condition.png)
+![Bir koşul ile VS2017 PackageReference üzerinde sonucu](media/PackageReference-Condition.png)
 
-Koşullar da uygulanabilir adresindeki `ItemGroup` düzey ve tüm alt öğelerine uygulanır `PackageReference` öğeleri:
+Koşul da uygulanabilir `ItemGroup` düzeyi ve tüm alt öğelere uygulanacak `PackageReference` öğeleri:
 
 ```xml
 <ItemGroup Condition = "'$(TargetFramework)' == 'net452'">
     <!-- ... -->
-    <PackageReference Include="Newtonsoft.json" Version="9.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
     <PackageReference Include="Contoso.Utility.UsefulStuff" Version="3.6.0" />
     <!-- ... -->
 </ItemGroup>

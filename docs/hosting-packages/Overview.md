@@ -7,12 +7,12 @@ manager: unnir
 ms.date: 08/25/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: b72369efb906f6d186c914fa3d8dd1da0be94641
-ms.sourcegitcommit: 6cffa6ef59b922df2d87aa9c24034d00542983cd
+ms.openlocfilehash: 95750bc926c242c02112f68a5aebf43c5fdb9a46
+ms.sourcegitcommit: 4d139cb54a46616ae48d1768fa108ae3bf450d5b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37948375"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39508302"
 ---
 # <a name="hosting-your-own-nuget-feeds"></a>Barındırma kendi NuGet akışları
 
@@ -32,7 +32,7 @@ Aşağıdakiler dahil olmak üzere uzaktan özel akışlarını destekleyen ür�
 - [NuGet sunucusu](http://nugetserver.net/), Inedo topluluk projeden
 - [NuGet sunucusu (açık kaynak)](http://nuget-server.net), Inedo'nın NuGet sunucusu için benzer bir açık kaynak uygulama
 - [LiGet](https://github.com/ai-traders/liget), açık kaynak uygulaması kestrel docker'da çalışan NuGet V2 sunucusu
-- [BaGet](https://github.com/loic-sharma/BaGet), .NET Core kullanarak NuGet V3 sunucusunun açık kaynak uygulama
+- [BaGet](https://github.com/loic-sharma/BaGet), ASP.NET Core üzerine yapılandırılan NuGet V3 sunucusu açık kaynak uygulaması
 - [Artifactory](https://www.jfrog.com/artifactory/) JFrog öğesinden.
 - [Nexus](http://www.sonatype.org/nexus/) Sonatype öğesinden.
 - [TeamCity](https://www.jetbrains.com/teamcity/) JetBrains öğesinden.

@@ -6,12 +6,12 @@ ms.author: karann
 manager: unnir
 ms.date: 05/13/2018
 ms.topic: quickstart
-ms.openlocfilehash: ffa2128b577673e980f4115f37f8685858c36250
-ms.sourcegitcommit: 6cffa6ef59b922df2d87aa9c24034d00542983cd
+ms.openlocfilehash: c537ee97b79648428df2c1b52894f536f5626a9e
+ms.sourcegitcommit: 4d139cb54a46616ae48d1768fa108ae3bf450d5b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37963165"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39508263"
 ---
 # <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>Hızlı Başlangıç: Oluşturma ve Visual Studio (.NET Framework, Windows) kullanarak bir paket yayımlama
 
@@ -114,12 +114,12 @@ Bir NuGet paketi içeren bir bildirime (bir `.nuspec` dosyası), içeren uygulam
 
 ## <a name="edit-the-manifest"></a>Bildirimi düzenleyin
 
-1. NuGet, varsayılan değerleri içeren bir paket oluşturmayı denerseniz bir hata üretir, `.nuspec` dosya için devam etmeden önce aşağıdaki alanları düzenlemeniz gerekir. Bkz: [.nuspec dosyası başvurusu - tek öğeleri](../reference/nuspec.md#single-elements) için bunların nasıl kullanıldığı bir açıklama.
+1. NuGet, varsayılan değerleri içeren bir paket oluşturmayı denerseniz bir hata üretir, `.nuspec` dosya için devam etmeden önce aşağıdaki alanları düzenlemeniz gerekir. Bkz: [.nuspec dosyası başvurusu - isteğe bağlı meta veri öğeleri](../reference/nuspec.md#optional-metadata-elements) için bunların nasıl kullanıldığı bir açıklama.
 
-    - licenseUrl
-    - projectUrl
-    - iconUrl
-    - releaseNotes
+    - LicenseUrl
+    - ProjectUrl
+    - IconUrl
+    - ReleaseNotes
     - etiketler
 
 1. Ortak tüketim için oluşturulan paketler için özel dikkat **etiketleri** özelliği etiketleri diğerlerinin nuget.org gibi kaynaklar üzerinde paketinizi bulun ve ne yaptığını anlamanıza yardımcı olarak.

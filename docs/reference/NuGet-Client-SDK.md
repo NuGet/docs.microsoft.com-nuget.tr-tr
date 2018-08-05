@@ -1,28 +1,39 @@
 ---
-title: NuGet v3 istemci ve NuGetGallery API'leri
-description: NuGet ve NuGetGallery API'leri gelişen ve henüz belgelenen ancak örnekler Dave Glick'ın blogunda kullanılabilir.
+title: NuGet istemci SDK'sı
+description: Geliştirilmekte olan ve henüz belgelenmiş API'si, ancak örnekler Dave Glick'ın blogunda kullanılabilir.
 author: karann-msft
 ms.author: karann
 manager: unnir
 ms.date: 01/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: b3b912b4af388a578378c15ad9241ed8ec0de75e
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: f814b0c0e7fac719e4221a8d8e945de703348aba
+ms.sourcegitcommit: 4d139cb54a46616ae48d1768fa108ae3bf450d5b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817118"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39508068"
 ---
 # <a name="nuget-client-sdk"></a>NuGet istemci SDK'sı
 
-NuGet v3 istemci ve NuGetGallery API'ler sürekli olarak artmaktadır ve biz yakında belge kararlı bir yüzey alanını sahip çalışıyoruz.
+> [!Note]
+> İle karıştırılmamalıdır [NuGet *Web* API](https://docs.microsoft.com/en-us/nuget/api/overview)
 
-Bu arada, örnekler ve bazı API belgelerine Dave Glick tarafından aşağıdaki blog dizisini bulabilirsiniz:
+*NuGet istemci SDK'sı* .NET kitaplıkları etrafında ortalanmış bir grup başvurduğu [NuGet.Client](https://www.nuget.org/packages/NuGet.Client), [Nuget.Packaging](https://www.nuget.org/packages/NuGet.Packaging), ve [NuGet.Protocol](https://www.nuget.org/packages/NuGet.Protocol). Bu paketler önceki değiştirin [NuGet.Core](https://www.nuget.org/packages/NuGet.Core/) kitaplığı.
 
-- [1. Bölüm NuGet v3 kitaplıkları keşfetme: giriş ve kavramları](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-1)
-- [NuGet v3 kitaplıkları, bölüm 2 keşfetme: paketler aranıyor](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-2)
-- [NuGet v3 kitaplıkları, bölümü 3 keşfetme: paketleri yükleniyor](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-3)
+Size en kısa sürede belgelemeye kararlı bir yüzey alanı olması çalışıyoruz.
+
+## <a name="source-code"></a>Kaynak kodu
+
+Kaynak kodu Github'da projede yayımlanan [NuGet/NuGet.Client](https://github.com/NuGet/NuGet.Client).
+
+## <a name="third-party-documentation"></a>Üçüncü taraf belgeleri
+
+Örnekler ve belgeler için bazı API 2016 yayımlanan Dave Glick tarafından aşağıdaki blog dizisini bulabilirsiniz:
+
+- [Keşfetmeye NuGet v3 kitaplıkları, 1. Bölüm: giriş ve kavramları](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-1)
+- [2. Bölüm NuGet v3 kitaplıkları keşfetme: paketlerini arama](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-2)
+- [3. Kısım NuGet v3 kitaplıkları keşfetme: paketlerini yükleme](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-3)
 
 > [!Note]
-> Bu Web günlüğü postaları kısa süre sonra yazılmış **3.4.3** istemci SDK paketleri çıkarılan NuGet sürümü.
-> Paketleri daha yeni sürümleri blog gönderileri bilgileri ile uyumlu olmayabilir.
+> Bu blog gönderileri, kısa süre sonra yazılmış **3.4.3** istemci SDK paketleri kullanıma sunulan NuGet sürümü.
+> Paketlerin daha yeni sürümlerini blog gönderilerini bilgileri ile uyumlu olmayabilir.
