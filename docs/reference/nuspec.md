@@ -7,12 +7,12 @@ manager: unnir
 ms.date: 08/29/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 142f82386395b8ab2ed1d57218db9bc1d2e98638
-ms.sourcegitcommit: 8e3546ab630a24cde8725610b6a68f8eb87afa47
+ms.openlocfilehash: 6d190d9fdb26d76fa8e46b7d283c1857cfab26e9
+ms.sourcegitcommit: 4d139cb54a46616ae48d1768fa108ae3bf450d5b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37843452"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39508042"
 ---
 # <a name="nuspec-reference"></a>.nuspec başvurusu
 
@@ -27,7 +27,7 @@ Bu konuda:
 - [Framework'te derleme başvuruları](#framework-assembly-references)
 - [Derleme dosyaları da dahil olmak üzere](#including-assembly-files)
 - [İçerik dosyaları dahil](#including-content-files)
-- [Örnekler](#examples)
+- [Örneğin nuspec dosyaları](#example-nuspec-files)
 
 ## <a name="general-form-and-schema"></a>Genel form ve şema
 
@@ -58,12 +58,6 @@ Bu şema içinde bir `.nuspec` dosyası aşağıdaki genel form vardır:
 
 ### <a name="metadata-attributes"></a>Meta veri öznitelikleri
 
-`<metadata>` Öğesi aşağıdaki tabloda açıklanan öznitelikleri destekler.
-
-| Öznitelik | Gerekli | Açıklama |
-| --- | --- | --- | 
-| **minClientVersion** | Hayır | Nuget.exe ve Visual Studio Paket Yöneticisi tarafından zorlanan, bu paketi yüklemek NuGet istemci en düşük sürümünü belirtir. Bu paket belirli özelliklere bağımlı olduğunda kullanılır `.nuspec` belirli bir NuGet istemcisi sürümünde eklenen dosya. Örneğin, bir paketini kullanarak `developmentDependency` özniteliği için "2.8" belirtmelidir `minClientVersion`. Benzer şekilde, bir paketini kullanarak `contentFiles` öğesi (sonraki bölüme bakın) ayarlamalıdır `minClientVersion` "3.3" için. Bu bayrak, 2.5 önce NuGet istemcileri algılanmadığı için de unutmayın bunlar *her zaman* ne olursa olsun paketi yüklemek Reddet `minClientVersion` içerir. |
-
 ### <a name="required-metadata-elements"></a>Gerekli meta veri öğeleri
 
 Aşağıdaki öğeleri bir paket için en düşük gereksinimler olsa da, eklemeyi düşünmelidir [isteğe bağlı meta veri öğeleri](#optional-metadata-elements) genel deneyimini iyileştirmek için paketinizle birlikte geliştiricileri sahiptir.
@@ -74,44 +68,56 @@ Bu öğeleri içinde görünmelidir bir `<metadata>` öğesi.
 | --- | --- |
 | **id** | Nuget.org veya ne olursa olsun arasında benzersiz olması gereken büyük küçük harf duyarsız paket tanımlayıcısı galeri paketi bulunduğu. Kimlikleri değil boşluk ya da bir URL için geçerli olmayan karakterler içeren ve genellikle .NET ad alanı kuralları uygulayın. Bkz: [benzersiz paket tanımlayıcısı seçme](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number) Kılavuzu. |
 | **Sürüm** | Aşağıdaki Paket sürümü *ana.İkincil.yama* deseni. Sürüm numaraları, yayın öncesi son içerebilir, açıklandığı [Paket sürümü oluşturma](../reference/package-versioning.md#pre-release-versions). |
-| **açıklaması** | Kullanıcı Arabirimi ekranı için paketinin uzun açıklaması. |
-| **yazarları** | Nuget.org profil adları eşleşen paketleri yazar, virgülle ayrılmış listesi. Bunlar nuget.org NuGet galerisinde görüntülenir ve paketleri çapraz başvuru için aynı yazarları tarafından kullanılır. |
+| **Açıklaması** | Kullanıcı Arabirimi ekranı için paketinin uzun açıklaması. |
+| **Yazarları** | Nuget.org profil adları eşleşen paketleri yazar, virgülle ayrılmış listesi. Bunlar nuget.org NuGet galerisinde görüntülenir ve paketleri çapraz başvuru için aynı yazarları tarafından kullanılır. |
 
 ### <a name="optional-metadata-elements"></a>İsteğe bağlı meta veri öğeleri
 
-Bu öğe içindeki görünebilir bir `<metadata>` öğesi.
+#### <a name="title"></a>Başlık
+Nuget.org ve Visual Studio'da Paket Yöneticisi UI görünümlerde genellikle kullanılan paket bir insan dostu başlığı. Belirtilmezse, paket kimliği kullanılır. 
+#### <a name="owners"></a>Sahipleri
+Nuget.org adresinden profil adları kullanarak paket creators virgülle ayrılmış listesi. Bu genellikle aynı liste olarak olur `authors`ve nuget.org için paket karşıya yüklenirken göz ardı edilir. Bkz: [yönetme paket sahipleri nuget.org](../create-packages/publish-a-package.md#managing-package-owners-on-nugetorg). 
+#### <a name="projecturl"></a>ProjectUrl
+Genellikle kullanıcı Arabiriminde gösterilir paketin giriş sayfası için bir URL yanı sıra nuget.org görüntüler. 
+#### <a name="licenseurl"></a>LicenseUrl
+Genellikle kullanıcı Arabirimi görüntüler yanı sıra nuget.org adresinde gösterilir, paketi lisansının URL'si.
+#### <a name="iconurl"></a>IconUrl
+Kullanıcı Arabirimi ekranı pakette için simge olarak kullanılacak bir URL saydam arka plana sahip 64 x 64 görüntüsü. Bu öğe içerdiğinden emin olun *resim URL'si doğrudan* ve görüntü içeren bir web sayfasının URL'si değil. Örneğin, github'dan bir görüntüyü kullanmak için URL gibi ham dosyasını kullanın. <em>https://github.com/\<username\>/\<repository\>/raw/\<branch\>/\<logo.png\></em>. 
 
-#### <a name="single-elements"></a>Tek öğeleri
-
-| Öğe | Açıklama |
-| --- | --- |
-| **Başlık** | Nuget.org ve Visual Studio'da Paket Yöneticisi UI görünümlerde genellikle kullanılan paket bir insan dostu başlığı. Belirtilmezse, paket kimliği kullanılır. |
-| **sahipleri** | Nuget.org adresinden profil adları kullanarak paket creators virgülle ayrılmış listesi. Bu genellikle aynı liste olarak olur `authors`ve nuget.org için paket karşıya yüklenirken göz ardı edilir. Bkz: [yönetme paket sahipleri nuget.org](../create-packages/publish-a-package.md#managing-package-owners-on-nugetorg). |
-| **projectUrl** | Genellikle kullanıcı Arabiriminde gösterilir paketin giriş sayfası için bir URL yanı sıra nuget.org görüntüler. |
-| **licenseUrl** | Genellikle kullanıcı Arabirimi görüntüler yanı sıra nuget.org adresinde gösterilir, paketi lisansının URL'si. |
-| **iconUrl** | Kullanıcı Arabirimi ekranı pakette için simge olarak kullanılacak bir URL saydam arka plana sahip 64 x 64 görüntüsü. Bu öğe içerdiğinden emin olun *resim URL'si doğrudan* ve görüntü içeren bir web sayfasının URL'si değil. Örneğin, github'dan bir görüntüyü kullanmak için URL gibi ham dosyasını kullanın. <em>https://github.com/\<username\>/\<repository\>/raw/\<branch\>/\<logo.png\></em>. |
-| **requireLicenseAcceptance** | İstemci paketi yüklemeden önce paket lisansını kabul etmek için tüketici sor olup olmadığını belirten bir Boole değeri. |
-| **developmentDependency** | *(2.8 +)*  Paket olup olmadığını belirten bir Boole değeri, bir geliştirme-yalnızca-paket bağımlılık diğer paketleri olarak eklenmesini engelleyen bağımlılık olarak işaretlenir. |
-| **Özeti** | Kullanıcı Arabirimi ekranı için paket kısa bir açıklaması. Atlanırsa, kesilmiş bir sürümünü `description` kullanılır. |
-| **releaseNotes** | *(1.5 +)*  Kullanıcı arabiriminde gibi sık kullanılan paketin bu sürümde yapılan değişikliklerin bir açıklaması **güncelleştirmeleri** sekmesini, Visual Studio Paket Yöneticisi ve Paket açıklaması yerine. |
-| **Telif Hakkı** | *(1.5 +)*  Ayrıntıları paketi için telif hakkı. |
-| **Dil** | Paket için yerel ayar kimliği. Bkz: [yerelleştirilmiş paketler oluşturma](../create-packages/creating-localized-packages.md). |
-| **etiketleri**  | Etiketleri ve arama ve filtreleme yoluyla paketleri paket ve ürettiği bulunabilirliğini tanımlayan anahtar sözcükleri boşlukla ayrılmış listesi. |
-| **tutulabilmesi** | *(3.3 +)*  Yalnızca iç NuGet için kullanın. |
-| **Depo** | Depo meta verileri, dört isteğe bağlı özniteliklerden oluşan: *türü* ve *url* *(4.0 +)*, ve *dal* ve  *işleme* *(4.6 +)*. Bu öznitelikler, alma olasılığı ile oluşturulan depo .nupkg eşlemek izin tek tek bir dalı veya da paket yerleşik işleme olarak ayrıntılı. |
+#### <a name="requirelicenseacceptance"></a>RequireLicenseAcceptance
+İstemci paketi yüklemeden önce paket lisansını kabul etmek için tüketici sor olup olmadığını belirten bir Boole değeri.
+#### <a name="developmentdependency"></a>DevelopmentDependency
+*(2.8 +)*  Paket olup olmadığını belirten bir Boole değeri, bir geliştirme-yalnızca-paket bağımlılık diğer paketleri olarak eklenmesini engelleyen bağımlılık olarak işaretlenir.
+#### <a name="summary"></a>özet
+Kullanıcı Arabirimi ekranı için paket kısa bir açıklaması. Atlanırsa, kesilmiş bir sürümünü `description` kullanılır.
+#### <a name="releasenotes"></a>ReleaseNotes
+*(1.5 +)*  Kullanıcı arabiriminde gibi sık kullanılan paketin bu sürümde yapılan değişikliklerin bir açıklaması **güncelleştirmeleri** sekmesini, Visual Studio Paket Yöneticisi ve Paket açıklaması yerine.
+#### <a name="copyright"></a>telif hakkı
+*(1.5 +)*  Ayrıntıları paketi için telif hakkı.
+#### <a name="language"></a>dil
+Paket için yerel ayar kimliği. Bkz: [yerelleştirilmiş paketler oluşturma](../create-packages/creating-localized-packages.md).
+#### <a name="tags"></a>etiketler
+Etiketleri ve arama ve filtreleme yoluyla paketleri paket ve ürettiği bulunabilirliğini tanımlayan anahtar sözcükleri boşlukla ayrılmış listesi. 
+#### <a name="serviceable"></a>tutulabilmesi 
+*(3.3 +)*  Yalnızca iç NuGet için kullanın.
+#### <a name="repository"></a>depo
+Depo meta verileri, dört isteğe bağlı özniteliklerden oluşan: *türü* ve *url* *(4.0 +)*, ve *dal* ve  *işleme* *(4.6 +)*. Bu öznitelikler, alma olasılığı ile oluşturulan depo .nupkg eşlemek izin tek tek bir dalı veya da paket yerleşik işleme olarak ayrıntılı. Bu, doğrudan bir sürüm denetim yazılımı tarafından çağrılabilen genel kullanıma açık bir url olmalıdır. Bu bilgisayar için tasarlanmıştır olarak html sayfasından olmamalıdır. Proje sayfasına bağlamak için kullanın `projectUrl` alan, bunun yerine. |
+#### <a name="minclientversion"></a>MinClientVersion
+Nuget.exe ve Visual Studio Paket Yöneticisi tarafından zorlanan, bu paketi yüklemek NuGet istemci en düşük sürümünü belirtir. Bu paket belirli özelliklere bağımlı olduğunda kullanılır `.nuspec` belirli bir NuGet istemcisi sürümünde eklenen dosya. Örneğin, bir paketini kullanarak `developmentDependency` özniteliği için "2.8" belirtmelidir `minClientVersion`. Benzer şekilde, bir paketini kullanarak `contentFiles` öğesi (sonraki bölüme bakın) ayarlamalıdır `minClientVersion` "3.3" için. Bu bayrak, 2.5 önce NuGet istemcileri algılanmadığı için de unutmayın bunlar *her zaman* ne olursa olsun paketi yüklemek Reddet `minClientVersion` içerir.
 
 #### <a name="collection-elements"></a>Koleksiyon öğeleri
 
-| Öğe | Açıklama |
-| --- | --- |
-**packageTypes** | *(3.5 +)*  Sıfır veya daha fazla koleksiyonu `<packageType>` dışında geleneksel bağımlılık paket, paketin türünü belirleyen öğeleri. Her bir packageType öznitelikleri *adı* ve *sürüm*. Bkz: [ayar paket türü](../create-packages/creating-a-package.md#setting-a-package-type). |
-| **bağımlılıkları** | Sıfır veya daha fazla koleksiyonu `<dependency>` paket için bağımlılıkları belirtme öğeleri. Her bir bağımlılığı özniteliklerini *kimliği*, *sürüm*, *dahil* (3.x+) ve *hariç* (3.x+). Bkz: [bağımlılıkları](#dependencies) aşağıda. |
-| **frameworkAssemblies** | *(1.2 +)*  Sıfır veya daha fazla koleksiyonu `<frameworkAssembly>` öğeleri, bu paket gerekli .NET Framework derleme başvurularını tanımlamak da sağlar başvurular paketi kullanan projeler için eklenir. Her frameworkAssembly sahip *assemblyName* ve *targetFramework* öznitelikleri. Bkz: [framework derlemesi belirterek başvuran GAC](#specifying-framework-assembly-references-gac) aşağıda. |
-| **başvuruları** | *(1.5 +)*  Sıfır veya daha fazla koleksiyonu `<reference>` paketin derlemelerde adlandırma öğeleri `lib` proje başvuru olarak eklediğiniz klasörü. Her başvuru bir *dosya* özniteliği. `<references>` de içerebilir bir `<group>` öğesi ile bir *targetFramework* ardından içeren öznitelik `<reference>` öğeleri. Atlanırsa, tüm başvuruları `lib` dahil edilir. Bkz: [açık derleme başvurularını belirtme](#specifying-explicit-assembly-references) aşağıda. |
-| **contentFiles** | *(3.3 +)*  Koleksiyonunu `<files>` alıcı projeye eklenecek içerik dosyaları tanımlayan öğeleri. Bu dosyaları nasıl bunlar içinde proje sisteminin kullanılması gerektiğini açıklayan öznitelikler kümesi ile belirtilir. Bkz: [dosyalar paket içerisine dâhil etmek belirtme](#specifying-files-to-include-in-the-package) aşağıda. |
-
-### <a name="files-element"></a>Dosyalar öğesi
-
+#### <a name="packagetypes"></a>PackageTypes
+*(3.5 +)*  Sıfır veya daha fazla koleksiyonu `<packageType>` dışında geleneksel bağımlılık paket, paketin türünü belirleyen öğeleri. Her bir packageType öznitelikleri *adı* ve *sürüm*. Bkz: [ayar paket türü](../create-packages/creating-a-package.md#setting-a-package-type).
+#### <a name="dependencies"></a>bağımlılıklar
+Sıfır veya daha fazla koleksiyonu `<dependency>` paket için bağımlılıkları belirtme öğeleri. Her bir bağımlılığı özniteliklerini *kimliği*, *sürüm*, *dahil* (3.x+) ve *hariç* (3.x+). Bkz: [bağımlılıkları](#dependencies-element) aşağıda.
+#### <a name="frameworkassemblies"></a>frameworkAssemblies
+*(1.2 +)*  Sıfır veya daha fazla koleksiyonu `<frameworkAssembly>` öğeleri, bu paket gerekli .NET Framework derleme başvurularını tanımlamak da sağlar başvurular paketi kullanan projeler için eklenir. Her frameworkAssembly sahip *assemblyName* ve *targetFramework* öznitelikleri. Bkz: [framework derlemesi belirterek başvuran GAC](#specifying-framework-assembly-references-gac) aşağıda. |
+#### <a name="references"></a>başvurular
+*(1.5 +)*  Sıfır veya daha fazla koleksiyonu `<reference>` paketin derlemelerde adlandırma öğeleri `lib` proje başvuru olarak eklediğiniz klasörü. Her başvuru bir *dosya* özniteliği. `<references>` de içerebilir bir `<group>` öğesi ile bir *targetFramework* ardından içeren öznitelik `<reference>` öğeleri. Atlanırsa, tüm başvuruları `lib` dahil edilir. Bkz: [açık derleme başvurularını belirtme](#specifying-explicit-assembly-references) aşağıda.
+#### <a name="contentfiles"></a>contentFiles
+*(3.3 +)*  Koleksiyonunu `<files>` alıcı projeye eklenecek içerik dosyaları tanımlayan öğeleri. Bu dosyaları nasıl bunlar içinde proje sisteminin kullanılması gerektiğini açıklayan öznitelikler kümesi ile belirtilir. Bkz: [dosyalar paket içerisine dâhil etmek belirtme](#specifying-files-to-include-in-the-package) aşağıda.
+#### <a name="files"></a>dosyaları 
 `<package>` Düğüm içerebilir bir `<files>` düğümü bir eşdüzeyi olarak `<metadata>`ve bir ya da `<contentFiles>` altında alt `<metadata>`paket içerisine dâhil etmek hangi derleme ve içerik dosyaları belirtmek için. Bkz: [derleme dosyaları da dahil olmak üzere](#including-assembly-files) ve [içerik dosyaları dahil olmak üzere](#including-content-files) Ayrıntılar için bu konuda daha sonra.
 
 ## <a name="replacement-tokens"></a>Belirteçleri değiştirme
@@ -163,7 +169,7 @@ Ve bir derleme, `AssemblyName` olduğu `LoggingLibrary` ile `Release` MSBuild, s
 </files>
 ```
 
-## <a name="dependencies"></a>Bağımlılıkları
+## <a name="dependencies-element"></a>Bağımlılıklar öğesi
 
 `<dependencies>` Öğesiyle `<metadata>` içeren herhangi bir sayıda `<dependency>` en üst düzey paket olduğu diğer paketleri tanımlayan öğeleri. Her öznitelik `<dependency>` aşağıdaki gibidir:
 
@@ -178,7 +184,7 @@ Ve bir derleme, `AssemblyName` olduğu `LoggingLibrary` ile `Release` MSBuild, s
 | --- | --- |
 | contentFiles | İçerik |
 | çalışma zamanı | Çalışma zamanı, kaynaklar ve FrameworkAssemblies |
-| derleme | lib |
+| Derleme | lib |
 | derleme | derleme (MSBuild özellikler ve hedefler) |
 | yerel | yerel |
 | yok | Klasör yok |
@@ -293,7 +299,7 @@ Framework derlemeleri, .NET framework'ün bir parçasıdır ve herhangi bir maki
 
 | Öznitelik | Açıklama |
 | --- | --- |
-| **assemblyName** | (Gerekli) Tam derleme adı. |
+| **AssemblyName** | (Gerekli) Tam derleme adı. |
 | **targetFramework** | (İsteğe bağlı) Bu başvuru uygulandığı hedef Framework'ü belirtir. Atlanırsa, başvuru için tüm çerçeveleri geçerli olduğunu gösterir. Bkz: [hedef çerçeveyi](../reference/target-frameworks.md) tam framework tanımlayıcıları için. |
 
 Aşağıdaki örnek, bir başvuru gösterir `System.Net` için tüm çerçeveleri ve başvuru hedef `System.ServiceModel` yalnızca .NET Framework 4.0 için:
@@ -335,7 +341,7 @@ Her `<file>` öğesi aşağıdaki öznitelikleri belirtir:
 | --- | --- |
 | **src** | Tarafından belirtilen dışlamaları tabi dahil edilecek dosyalar ve dosya konumunu `exclude` özniteliği. Yolun göreli olduğu `.nuspec` mutlak bir yol belirtilmezse dosya. Joker karakter `*` izin verilir ve çift joker `**` özyinelemeli klasör arama anlamına gelir. |
 | **Hedef** | Klasörün başlamalıdır. burada kaynak dosyaları yerleştirilir, paket içindeki göreli yolu `lib`, `content`, `build`, veya `tools`. Bkz: [kural tabanlı bir çalışma dizininden bir .nuspec oluşturma](../create-packages/creating-a-package.md#from-a-convention-based-working-directory). |
-| **hariç tutma** | Dışlanacak dosya desenlerinin veya dosyaların noktalı virgülle ayrılmış listesi `src` konumu. Joker karakter `*` izin verilir ve çift joker `**` özyinelemeli klasör arama anlamına gelir. |
+| **Hariç tutma** | Dışlanacak dosya desenlerinin veya dosyaların noktalı virgülle ayrılmış listesi `src` konumu. Joker karakter `*` izin verilir ve çift joker `**` özyinelemeli klasör arama anlamına gelir. |
 
 ### <a name="examples"></a>Örnekler
 
@@ -538,8 +544,8 @@ Bu dosyaları nasıl bunlar içinde proje sisteminin kullanılması gerektiğini
 
 | Öznitelik | Açıklama |
 | --- | --- |
-| **içerir** | (Gerekli) Tarafından belirtilen dışlamaları tabi dahil edilecek dosyalar ve dosya konumunu `exclude` özniteliği. Yolun göreli olduğu `.nuspec` mutlak bir yol belirtilmezse dosya. Joker karakter `*` izin verilir ve çift joker `**` özyinelemeli klasör arama anlamına gelir. |
-| **hariç tutma** | Dışlanacak dosya desenlerinin veya dosyaların noktalı virgülle ayrılmış listesi `src` konumu. Joker karakter `*` izin verilir ve çift joker `**` özyinelemeli klasör arama anlamına gelir. |
+| **İçerir** | (Gerekli) Tarafından belirtilen dışlamaları tabi dahil edilecek dosyalar ve dosya konumunu `exclude` özniteliği. Yolun göreli olduğu `.nuspec` mutlak bir yol belirtilmezse dosya. Joker karakter `*` izin verilir ve çift joker `**` özyinelemeli klasör arama anlamına gelir. |
+| **Hariç tutma** | Dışlanacak dosya desenlerinin veya dosyaların noktalı virgülle ayrılmış listesi `src` konumu. Joker karakter `*` izin verilir ve çift joker `**` özyinelemeli klasör arama anlamına gelir. |
 | **buildAction** | Derleme eylemi gibi MSBuild için içerik öğesinin atanacağı `Content`, `None`, `Embedded Resource`, `Compile`vb. Varsayılan, `Compile` değeridir. |
 | **copyToOutput** | Çıkış klasörü yapı içerik öğeleri kopyalama (veya yayımlamak) belirten bir Boole değeri. Varsayılan olarak yanlıştır. |
 | **flatten** | İçerik öğeleri derleme çıktı (true) tek bir klasöre kopyalamak ya da klasör yapısını (false) paketindeki korumak için etkinleştirilip etkinleştirilmeyeceğini gösteren bir Boole değeri. Bu bayrağı yalnızca copyToOutput bayrak ayarlandığında çalışır true. Varsayılan olarak yanlıştır. |
@@ -594,7 +600,7 @@ Boş klasörler kullanabileceğiniz `.` örneğin dil ve TxM, belirli bir kombin
 </contentFiles>
 ```
 
-## <a name="example-nuspec-files"></a>Örneğin .nuspec dosyaları
+## <a name="example-nuspec-files"></a>Örneğin nuspec dosyaları
 
 **Basit bir `.nuspec` , bağımlılıklar veya dosyaları belirtmiyor**
 
