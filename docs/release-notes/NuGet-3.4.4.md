@@ -30,7 +30,7 @@ VSIX ve nuget.exe indirebilirsiniz [burada](https://dist.nuget.org/index.html).
 ### <a name="changes"></a>Değişiklikler
 
 - Paketi iyileştirmeleri: ile paket sembolleri sevk geliştirmeleri `project.json` ve daha fazla [ \#606](https://github.com/NuGet/NuGet.Client/pull/606)
-- Güncelleştirme komutunda projeleri bulunurken bir hata olduğunda özel durumu görüntüleme [\#605] ()https://github.com/NuGet/NuGet.Client/pull/605
+- Güncelleştirme komutunda projeleri bulunurken bir hata olduğunda özel durumu görüntüleme [\#605](https://github.com/NuGet/NuGet.Client/pull/605)
 - Paket türü girdiden okunan `.nuspec` ve `project.json` sevk [ \#603](https://github.com/NuGet/NuGet.Client/pull/603)
 - Bir proje NuGet.Shared olun. [\#602](https://github.com/NuGet/NuGet.Client/pull/602)
 - HTTP yanıtı zaman aşımı olarak gönderme zaman aşımı kullanmak [ \#599](https://github.com/NuGet/NuGet.Client/pull/599)
