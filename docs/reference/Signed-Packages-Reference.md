@@ -1,5 +1,5 @@
 ---
-title: Paketleri imzalı
+title: İmzalı paketlerin
 description: NuGet paket imzalama gereksinimleri.
 author: rido-min
 ms.author: rmpablos
@@ -7,48 +7,48 @@ manager: unnir
 ms.date: 05/18/2018
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: 72fb1a87c13160c53f632d2ef87a12a4e9bc02a3
-ms.sourcegitcommit: 8127dd73ff8481a1a01acd9b7004dd131a9d84e7
+ms.openlocfilehash: 992097281e21cd8cf37edf67fb1968b70c2b359b
+ms.sourcegitcommit: e9c58dbfc1af2876337dcc37b1b070e8ddec0388
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34449597"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40020524"
 ---
-# <a name="signed-packages"></a>İmzalı Paketleri
+# <a name="signed-packages"></a>İmzalanmış paketleri
 
-*NuGet 4.6.0+ ve Visual Studio 2017 15.6 ve sonraki sürümleri*
+*NuGet 4.6.0+ ve Visual Studio 2017 sürüm 15.6 ve üzeri*
 
-NuGet paketleri, üzerinde oynanmış içerik karşı koruma sağlayan dijital bir imza içerebilir. Bu imza, ayrıca paket gerçek kaynak için Orijinallik sağlamaları ekler bir X.509 Sertifika oluşturulur.
+NuGet paketlerini, üzerinde oynanmış bir içerik karşı koruma sağlayan dijital bir imza içerebilir. Bu imza de gerçek paket kaynağı için kimlik doğrulaması kanıtları ekleyen bir X.509 Sertifika oluşturulur.
 
-İmzalı paketleri en güçlü uçtan uca doğrulama sağlar. Bir yazar imzası Yazar paket bağımsız imzalıdan beri'nın paket değiştirilmemiş güvence altına alır, deposu veya ne paket teslim yöntemi taşıma.
+İmzalanmış paketleri güçlü bir uçtan uca doğrulama sağlar. NuGet imzaları iki farklı tür vardır:
+- **Yazar imza**. Bir yazar imzası yazarı paketin olursa olsun gelen upraven'ın paket değiştirilmedi garanti eder, depo veya ne paket teslim yöntemi taşıma. Ayrıca, imzalama sertifikasının önceden kayıtlı olması gerekir çünkü Yazar imzalanmış paketleri nuget.org yayımlama işlem hattı için ek kimlik doğrulama mekanizması sağlar. Daha fazla bilgi için [kayıt sertifikaları](#register-certificate-on-nugetorg).
+- **Depo imza**. Depo imzaları sağlamak için bir bütünlük garantisi **tüm** bile bu paketleri nerede oldukları özgün deposu farklı bir konumdan elde edilen yazar, imzalanmış olup bir depoda paketleri imzalanmış.   
 
-Ayrıca, imzalama sertifikasının süresi öncesinde kaydedilmesi gerektiğinden Yazar imzalanan paketleri nuget.org yayımlama ardışık düzeni için ek kimlik doğrulama mekanizması sağlar. Daha fazla bilgi için bkz: [kayıt sertifikaları](#register-certificate-on-nugetorg).
-
-İmzalı paket oluşturma hakkında daha fazla bilgi için bkz: [imzalama paketleri](../create-packages/Sign-a-package.md) ve [nuget oturum komutu](../tools/cli-ref-sign.md).
+Bir yazar imzalı paket oluşturma hakkında daha fazla bilgi edinmek için bkz. [imzalama paketleri](../create-packages/Sign-a-package.md) ve [nuget oturum komutu](../tools/cli-ref-sign.md).
 
 > [!Important]
-> Paket imzalama, şu anda yalnızca nuget.exe Windows kullanıldığında desteklenir. İmzalı paketlerin doğrulama şu anda yalnızca, Windows nuget.exe veya Visual Studio kullanıldığında desteklenir.
+> Paket imzalama, şu anda yalnızca nuget.exe Windows üzerinde kullanılırken desteklenir. İmzalı paketlerin doğrulama şu anda yalnızca, Windows üzerinde nuget.exe veya Visual Studio kullanılırken desteklenir.
 
 ## <a name="certificate-requirements"></a>Sertifika gereksinimleri
 
-Paketin imzalanması bir kod imzalama için geçerli olan sertifika bir özel tür sertifikası gerektirir `id-kp-codeSigning` amacı [[RFC 5280 bölüm 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)]. Ayrıca, sertifikanın bir RSA ortak anahtar uzunluğu 2048 bit veya üstü olmalıdır.
+Paket imzalama gerektiren bir kod imzalama sertifikası, özel bir türü için geçerli sertifika olan `id-kp-codeSigning` amaçlı [[RFC 5280 bölüm 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)]. Ayrıca, sertifika bir RSA ortak anahtar uzunluğu 2048 bit ya da daha yüksek olmalıdır.
 
 ## <a name="get-a-code-signing-certificate"></a>Bir kod imzalama sertifikası alın
 
-Gibi bir ortak sertifika yetkilisinden geçerli sertifikalar alınabilir:
+Geçerli sertifikalar gibi bir ortak sertifika yetkilisinden elde edilebilir:
 
 - [Symantec](https://trustcenter.websecurity.symantec.com/process/trust/productOptions?productType=SoftwareValidationClass3)
 - [DigiCert](https://www.digicert.com/code-signing/)
-- [Daddy gidin](https://www.godaddy.com/web-security/code-signing-certificate)
+- [Go Daddy](https://www.godaddy.com/web-security/code-signing-certificate)
 - [Genel oturum](https://www.globalsign.com/en/code-signing-certificate/)
 - [Comodo](https://www.comodo.com/e-commerce/code-signing/code-signing-certificate.php)
 - [Certum](https://www.certum.eu/certum/cert,offer_en_open_source_cs.xml) 
 
 Windows tarafından güvenilen sertifika yetkilileri tam listesi elde edilebilir [ http://aka.ms/trustcertpartners ](http://aka.ms/trustcertpartners).
 
-## <a name="create-a-test-certificate"></a>Bir test sertifikası oluşturma
+## <a name="create-a-test-certificate"></a>Bir test sertifikası oluştur
 
-Kendi kendine verilen sertifikaların test amacıyla kullanabilirsiniz. Kendi kendine verilen bir sertifika oluşturmak için kullanmak [yeni SelfSignedCertificate PowerShell komutunu](/powershell/module/pkiclient/new-selfsignedcertificate.md).
+Kendi kendine verilen sertifikaların test amacıyla kullanabilirsiniz. Kendi kendine verilen bir sertifika oluşturmak için kullanın [New-SelfSignedCertificate PowerShell komutunu](/powershell/module/pkiclient/new-selfsignedcertificate.md).
 
 ```ps
 New-SelfSignedCertificate -Subject "CN=NuGet Test Developer, OU=Use for testing purposes ONLY" `
@@ -62,57 +62,57 @@ New-SelfSignedCertificate -Subject "CN=NuGet Test Developer, OU=Use for testing 
                           -CertStoreLocation "Cert:\CurrentUser\My" 
 ```
 
-Bu komut, geçerli kullanıcının kişisel sertifika deposunda bir test sertifikası oluşturur. Sertifika deposu çalıştırarak açabilirsiniz `certmgr.msc` yeni oluşturulan sertifikayı görmek için.
+Bu komut, geçerli kullanıcının kişisel sertifika deposunda kullanılabilir bir test sertifikası oluşturur. Sertifika deposu çalıştırarak açabileceğiniz `certmgr.msc` yeni oluşturulan sertifikayı görmek için.
 
 > [!Warning]
-> nuget.org paketleri kabul etmiyor kendi kendine verilen sertifikaları ile imzalanmış.
+> paketleri nuget.org kabul etmez ile şirket içinde verilen sertifikalara güvenmeyecektir.
 
 ## <a name="timestamp-requirements"></a>Zaman damgası gereksinimleri
 
-İmzalı Paketleri sertifikanın geçerlilik süresi imzalama paket ötesinde imza doğruluğundan emin olmak için bir RFC 3161 zaman damgası içermelidir. Zaman damgası imzalamak için kullanılan sertifikanın geçerli `id-kp-timeStamping` amacı [[RFC 5280 bölüm 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)]. Ayrıca, sertifikanın bir RSA ortak anahtar uzunluğu 2048 bit veya üstü olmalıdır.
+İmzalanmış paketleri paketi imzalama sertifikasının geçerlilik süresini aşan geçerlilik imzası emin olmak için bir RFC 3161 zaman damgası içermelidir. Zaman damgası imzalamak için kullanılan sertifika geçerli olmalıdır `id-kp-timeStamping` amaçlı [[RFC 5280 bölüm 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)]. Ayrıca, sertifika bir RSA ortak anahtar uzunluğu 2048 bit ya da daha yüksek olmalıdır.
 
-Ek teknik ayrıntılar bulunabilir [imza teknik belirtimlerin paketini](https://github.com/NuGet/Home/wiki/Package-Signatures-Technical-Details) (GitHub).
+Ek teknik ayrıntılar bulunabilir [imza teknik özellikleri paketini](https://github.com/NuGet/Home/wiki/Package-Signatures-Technical-Details) (GitHub).
 
 ## <a name="signature-requirements-on-nugetorg"></a>Nuget.org imza gereksinimleri
 
-nuget.org imzalı bir paket kabul etmek için ek gereksinimler vardır:
+nuget.org imzalı paket kabul etmek için ek gereksinimlere sahiptir:
 
-- Birincil imza Yazar imza olması gerekir.
-- Birincil imza geçerli tek bir zaman damgası olmalıdır.
-- X.509 sertifikaları Yazar imza ve zaman damgası imzası için:
-  - Bir RSA ortak anahtar 2048 bit olmalıdır veya daha büyük.
-  - Paket doğrulama nuget.org üzerinde her zaman geçerli UTC saati, geçerlilik süresi içinde olmalıdır.
-  - Windows üzerinde varsayılan olarak güvenilen bir güvenilir kök yetkilisi zincir gerekir. Kendi kendine verilen sertifikalarla imzalanan paketleri reddedilir.
+- Bir yazar imza birincil imza olmalıdır.
+- Birincil bir imza geçerli tek bir zaman damgası olmalıdır.
+- X.509 sertifikaları Yazar imza hem de zaman damgası imzası için:
+  - 2048 bit RSA ortak anahtarını olmalıdır veya büyük.
+  - Paket doğrulaması nuget.org üzerindeki her zaman geçerli UTC saati, geçerlilik süresi içinde olması gerekir.
+  - Windows üzerinde varsayılan olarak güvenilen bir güvenilir kök yetkilisi zincir şeklinde olmalıdır. Kendi kendine verilen sertifikalarla imzalanmış paketleri reddedilir.
   - Amacı için geçerli olmalıdır: 
-    - Sertifika imzalama yazar kod imzalama için geçerli olmalıdır.
+    - İmzalama sertifikası yazar, kod imzalama için geçerli olmalıdır.
     - Zaman damgası sertifika için zaman damgası geçerli olmalıdır.
-  - Zaman imzalarken iptal edilmiş olmalıdır değil. (Nuget.org iptal durumunu düzenli aralıklarla yeniden denetler şekilde bu gönderimi zamanında knowable olmayabilir).
+  - Zaman imzalarken iptal edilmiş olmalıdır değil. (Nuget.org iptal durumunu düzenli aralıklarla yeniden denetler şekilde bu gönderme sırasında knowable olmayabilir).
 
 ## <a name="register-certificate-on-nugetorg"></a>Nuget.org sertifikayı kaydetme
 
-İmzalı bir paket göndermek için önce sertifika nuget.org ile kaydetmeniz gerekir. Sertifikası olarak gereken bir `.cer` ikili DER biçimi dosyasında. Sertifika Verme Sihirbazı'nı kullanarak bir ikili DER biçimine varolan bir sertifikayı dışarı aktarabilirsiniz.
+İmzalı paket göndermek için bir sertifika ile nuget.org kaydetmeniz gerekir. Sertifikayı gereken bir `.cer` dosyayı ikili bir DER biçiminde. Sertifika Dışarı Aktarma Sihirbazı'nı kullanarak ikili bir DER biçimine var olan bir sertifikayı dışarı aktarabilirsiniz.
 
-![Sertifika Verme Sihirbazı](media/CertificateExportWizard.png)
+![Sertifika Dışarı Aktarma Sihirbazı](media/CertificateExportWizard.png)
 
-İleri düzey kullanıcılar, sertifikayı kullanarak verebilirsiniz [sertifika verme PowerShell komutunu](/powershell/module/pkiclient/export-certificate.md).
+İleri düzey kullanıcılar kullanarak sertifikayı dışarı aktarabilir [sertifika dışarı aktarma PowerShell komutunu](/powershell/module/pkiclient/export-certificate.md).
 
-Sertifika nuget.org ile kaydetmek için Git `Certificates` bölümünde `Account settings` (veya kuruluş ayarları sayfasını) seçip `Register new certificate`.
+Nuget.org ile sertifikayı kaydetmek için Git `Certificates` bölümünde `Account settings` sayfasında (veya kuruluşun Ayarları sayfası) seçip `Register new certificate`.
 
 ![Kayıtlı sertifikaları](media/registered-certs.png)
 
 > [!Tip]
-> Bir kullanıcı birden fazla sertifika ve aynı sertifikayı birden çok kullanıcı tarafından kaydedilebilir gönderebilirsiniz.
+> Bir kullanıcı birden çok sertifika ve aynı sertifikayı birden çok kullanıcı tarafından kaydedilebilir gönderebilirsiniz.
 
-Bir kullanıcının bir kez bir sertifika kayıtlı tüm gelecekteki paket gönderileri **gerekir** , imzalanmış bir sertifika.
+Bir kullanıcı sonra bir sertifika kayıtlı tüm gelecekteki paket gönderimleri **gerekir** , imzalı bir sertifika.
 
-Kullanıcılar ayrıca hesabından kayıtlı sertifika kaldırabilirsiniz. Bir sertifika kaldırıldıktan sonra bu sertifikayla imzalanan paketleri gönderimi başarısız. Mevcut paketleri etkilenmez.
+Kullanıcılar ayrıca kayıtlı bir sertifika hesaptan kaldırın. Bir sertifika kaldırıldıktan sonra bu sertifika ile imzalanmış paketleri gönderimi başarısız. Var olan paketleri etkilenmez.
 
 ## <a name="configure-package-signing-requirements"></a>Paket imzalama gereksinimlerini yapılandırma
 
-Bir paketi tek sahibiyseniz, gerekli imzalayan demektir. Diğer bir deyişle, tüm kayıtlı sertifikaları paketlerinizi imzalamak ve nuget.org için göndermek için kullanabilirsiniz.
+Bir paketi tek sahip siz olursunuz gerekli imzalayan vardır. Diğer bir deyişle, paketlerinizi imzalamak ve nuget.org için göndermek için herhangi bir kayıtlı sertifikaları kullanabilirsiniz.
 
-Bir paketi varsayılan olarak birden çok sahipleri, varsa, "Herhangi" sahibinin sertifikalar paketi imzalamak için kullanılabilir. Paket ortak sahibi olarak, "Tüm" kendiniz veya gerekli imzalayan olmasını herhangi diğer ortak sahibi geçersiz kılabilirsiniz. Kayıtlı herhangi bir sertifika yok bir sahibi yaparsanız, imzasız paketleri izin verilir. 
+Bir paket birden çok sahipleri, varsayılan olarak varsa, "Tüm" sahibinin sertifikalar paketi imzalamak için kullanılabilir. Paket bir ortak sahip olarak, kendiniz ile "tümü" ya da gerekli imzalayan olmasını herhangi diğer ortak sahibi geçersiz kılabilirsiniz. Kayıtlı herhangi bir sertifika yok. bir sahip yaparsanız, işaretsiz paketleri izin verilir. 
 
-"Tüm" seçeneğinin işaretli bir sahip bir sertifika kayıtlı olduğu bir paket ve başka bir sahip için varsayılan kayıtlı herhangi bir sertifika yoksa, benzer şekilde, ardından nuget.org imzalı bir paket sahiplerinden biri kayıtlı imzayla kabul eder ya da İmzasız (sahiplerinden biri kayıtlı herhangi bir sertifika olmadığından) paketi.
+"Tüm" seçeneğinin işaretli bir sahip bir sertifika kayıtlı olduğu bir paket ve başka bir sahip için varsayılan kayıtlı herhangi bir sertifika yoksa, benzer şekilde, ardından nuget.org imzalı bir paket, sahiplerinden biri kayıtlı bir imza ile kabul eder ya da İmzasız (sahiplerinden biri kayıtlı herhangi bir sertifika olmadığından) paketi.
 
 ![Paket İmzalayanları yapılandırın](media/configure-package-signers.png)
