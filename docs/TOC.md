@@ -161,6 +161,7 @@
 ## [Paket meta verileri](api/registration-base-url-resource.md)
 ## [Paket içeriği](api/package-base-address-resource.md)
 ## [Uygunsuz kullanım bildirme URL’si](api/report-abuse-resource.md)
+## [Depo imzaları](api/repository-signatures-resource.md)
 ## [Katalog](api/catalog-resource.md)
 ## [Hız sınırları](api/rate-limits.md)
 ## [nuget.org protokolleri](api/nuget-protocols.md)
