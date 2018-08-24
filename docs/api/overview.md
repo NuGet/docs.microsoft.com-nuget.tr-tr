@@ -7,12 +7,12 @@ manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: fe843a121e2f1aae376f3e30a7b911792057688f
-ms.sourcegitcommit: e9c58dbfc1af2876337dcc37b1b070e8ddec0388
+ms.openlocfilehash: 0cb40a640a0bab63a63b3b690a34f1f8cbf7fcb8
+ms.sourcegitcommit: c643dd2c44e085601551ff7079d696bcc3ad2b49
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40020537"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42793602"
 ---
 # <a name="nuget-api"></a>NuGet API'si
 
@@ -21,6 +21,8 @@ NuGet paketlerini indirin, meta verileri getirir, yeni paket yayımlamasına ve 
 Bu API gibi NuGet işlemleri gerçekleştirmek için Visual Studio, nuget.exe ve .NET CLI NuGet istemci tarafından kullanılır [ `dotnet restore` ](/dotnet/articles/core/preview3/tools/dotnet-restore), Visual Studio kullanıcı arabiriminde, arama ve [ `nuget.exe push` ](../tools/cli-ref-push.md).
 
 Not Bazı durumlarda, nuget.org başka bir paket kaynak tarafından zorlanmaz ek gereksinimleri vardır. Bu farklar tarafından belgelenen [nuget.org protokolleri](nuget-protocols.md).
+
+Basit bir numaralandırma ve indirme kullanılabilir nuget.exe sürümleri için bkz [tools.json](tools-json.md) uç noktası.
 
 ## <a name="service-index"></a>Hizmet dizini
 

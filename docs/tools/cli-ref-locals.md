@@ -6,18 +6,18 @@ ms.author: karann
 manager: unnir
 ms.date: 03/19/2018
 ms.topic: reference
-ms.openlocfilehash: 90e8c85e7a3e0e9520933e2ddd6dd84447475f2b
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 38d8b9366fb2749b77c987c950da3aa9e7f029fc
+ms.sourcegitcommit: 8d5121af528e68789485405e24e2100fda2868d6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818207"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42794141"
 ---
-# <a name="locals-command-nuget-cli"></a>Yerel öğeler komutu (NuGet CLI)
+# <a name="locals-command-nuget-cli"></a>Yerel öğeler komut (NuGet CLI)
 
-**Uygulandığı öğe:** paketini tüketim &bullet; **desteklenen sürümler:** 3.3 +
+**İçin geçerlidir:** paketini tüketim &bullet; **desteklenen sürümler:** 3.3 +
 
-Temizler veya yerel NuGet kaynaklar gibi listeler *http önbellek*, *paketleri genel* klasörü ve geçici klasör. `locals` Komut ayrıca konumların bir listesini görüntülemek için kullanılabilir. Daha fazla bilgi için bkz: [genel paketleri ve önbellek klasör yönetimi](../consume-packages/managing-the-global-packages-and-cache-folders.md).
+Temizler veya yerel NuGet kaynakları gibi listeler *http önbellek*, *genel paketleri* klasör ve geçici klasör. `locals` Komutu ayrıca kullanılabilir konumların bir listesini görüntüleyin. Daha fazla bilgi için [genel paketleri ve önbellek klasörlerini yönetme](../consume-packages/managing-the-global-packages-and-cache-folders.md).
 
 ## <a name="usage"></a>Kullanım
 
@@ -25,7 +25,7 @@ Temizler veya yerel NuGet kaynaklar gibi listeler *http önbellek*, *paketleri g
 nuget locals <folder> [options]
 ```
 
-Burada `<folder>` biri `all`, `http-cache`, `packages-cache` *(3.5 ve önceki)*, `global-packages`, ve `temp` *(3.4 +)*.
+Burada `<folder>` biri `all`, `http-cache`, `packages-cache` *(3.5 ve önceki)*, `global-packages`, `temp` *(3.4 ve üzeri)*, ve `plugins-cache` *(4.8 +)*.
 
 ## <a name="options"></a>Seçenekler
 
@@ -33,13 +33,13 @@ Burada `<folder>` biri `all`, `http-cache`, `packages-cache` *(3.5 ve önceki)*,
 | --- | --- |
 | Temizle | Belirtilen klasör temizler. |
 | ConfigFile | Uygulamak için NuGet yapılandırma dosyası. Belirtilmezse, `%AppData%\NuGet\NuGet.Config` (Windows) veya `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) kullanılır.|
-| ForceEnglishOutput | *(3.5 +)*  Değişmez, İngilizce tabanlı kültürü kullanarak çalışacak şekilde nuget.exe zorlar. |
-| Yardım | Bilgi komutu için yardımı görüntüler. |
-| List | Belirtilen klasör konumunu veya kullanıldığında tüm klasör konumlarını listeler *tüm*. |
-| NonInteractive | Kullanıcı girişi veya onayı için ister gizler. |
-| Ayrıntı Düzeyi | Çıktıda görüntülenen ayrıntı miktarını belirtir: *normal*, *sessiz*, *ayrıntılı*. |
+| ForceEnglishOutput | *(3.5 +)*  Nuget.exe sabit, İngilizce tabanlı bir kültürü kullanarak çalışmaya zorlar. |
+| Yardım | Bilgi komut için yardımı görüntüler. |
+| List | Belirtilen klasör konumunu veya ile kullanıldığında tüm klasör konumlarını listeler *tüm*. |
+| NonInteractive | Kullanıcı girişini veya onaylar ister bastırır. |
+| Ayrıntı Düzeyi | Çıktıda gösterilen ayrıntı miktarını belirtir: *normal*, *sessiz*, *ayrıntılı*. |
 
-Ayrıca bkz. [ortam değişkenleri](cli-ref-environment-variables.md)
+Ayrıca bkz: [ortam değişkenleri](cli-ref-environment-variables.md)
 
 ## <a name="examples"></a>Örnekler
 
@@ -48,4 +48,4 @@ nuget locals all -list
 nuget locals http-cache -clear
 ```
 
-Ek örnekler için bkz: [genel paketleri ve önbellek klasör yönetimi](../consume-packages/managing-the-global-packages-and-cache-folders.md).
+Diğer örnekler için [genel paketleri ve önbellek klasörlerini yönetme](../consume-packages/managing-the-global-packages-and-cache-folders.md).

@@ -7,12 +7,12 @@ manager: unnir
 ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 8bbbc785a50e49530bbbd4e88bbd71a8a7bfe911
-ms.sourcegitcommit: 4d139cb54a46616ae48d1768fa108ae3bf450d5b
+ms.openlocfilehash: 0679b60179760d6626e7ce42bfdbdfa266677ce6
+ms.sourcegitcommit: c643dd2c44e085601551ff7079d696bcc3ad2b49
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39508185"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42793586"
 ---
 # <a name="signing-nuget-packages"></a>NuGet paketlerini imzalama
 
@@ -56,7 +56,7 @@ nuget verify -signature MyPackage.nupkg
 
 ## <a name="install-a-signed-package"></a>İmzalı paket yükleme
 
-İmzalı paketlerin yüklenmesi için herhangi bir özel işlem gerektirmez; Ancak, yükleme içeriği imzalandıktan sonra değiştirilmiş, olması üretir ve engellenen bir [hata NU3008](../reference/errors-and-warnings/NU3008.md).
+İmzalı paketlerin yüklenmesi için herhangi bir özel işlem gerektirmez; Ancak, içeriği imzalandıktan sonra değiştirilmiş, yükleme engellenir ve üreten bir [hata NU3008](../reference/errors-and-warnings/NU3008.md).
 
 > [!Warning]
 > Güvenilmeyen Sertifikalar ile imzalanmış paketleri olarak kabul edilir olarak imzalanmamış ve uyarıları veya hataları gibi diğer herhangi bir işaretsiz paket olmadan yüklenir.

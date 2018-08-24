@@ -16,12 +16,12 @@ keywords: NuGet API'si depo imzaları, sertifikaları, imzalama nuget.org nuget.
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 27c572a482fef791f19b3d32e816a41d8dc40b53
-ms.sourcegitcommit: e9c58dbfc1af2876337dcc37b1b070e8ddec0388
+ms.openlocfilehash: 32dd2ee19261488a2b1b92724095a11ced69ae68
+ms.sourcegitcommit: c643dd2c44e085601551ff7079d696bcc3ad2b49
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40020573"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42793553"
 ---
 # <a name="repository-signatures"></a>Depo imzaları
 
@@ -59,7 +59,7 @@ Depo imzaları dizin iki bilgi parçasını içerir:
 
 Çoğu durumda, sertifikaların listesini her zaman sadece eklenir. Önceki imzalama sertifikasının süresi doldu ve yeni bir imzalama sertifikası kullanmaya başlamak paket kaynağı gerektiğinde yeni sertifikalar listesine eklenir. Listeden bir sertifika kaldırılırsa, kaldırılan imzalama sertifikası ile oluşturulan tüm paket imzaları artık istemci tarafından geçerli kabul edilmesi, anlamına gelir. Bu durumda, paket imzası (ancak mutlaka paket) geçersiz. Paketin imzasız olarak yüklemeden istemci ilkesini izin verebilir.
 
-Sertifika iptalini (örneğin anahtar güvenliğinin aşılması) söz konusu olduğunda, paket kaynağı etkilenen sertifika tarafından imzalanmış tüm paketleri çekilmeye beklenir. Ayrıca, paket kaynağına etkilenen sertifika imzalama sertifikası listeden kaldırmanız gerekir.
+(Örneğin anahtar güvenliğinin aşılması) sertifika iptal olması durumunda, etkilenen bir sertifika tarafından imzalanmış tüm paketleri yeniden imzalamak için paket kaynağı bekleniyor. Ayrıca, paket kaynağına etkilenen sertifika imzalama sertifikası listeden kaldırmanız gerekir.
 
 Aşağıdaki isteği, depo imzaları dizin getirir.
 

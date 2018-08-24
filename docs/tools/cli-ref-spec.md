@@ -1,23 +1,23 @@
 ---
-title: NuGet CLI belirtim komutu
-description: Nuget.exe belirtim komut başvurusu
+title: Özel NuGet CLI komutu
+description: Nuget.exe özel komut başvurusu
 author: karann-msft
 ms.author: karann
 manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 17d3c5fc083f52fd9ab4a854ad358995bc55293b
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: cd1dc66676898e2be1c64698886a5ba29a07f88f
+ms.sourcegitcommit: 8d5121af528e68789485405e24e2100fda2868d6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817092"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42794157"
 ---
-# <a name="spec-command-nuget-cli"></a>belirtim komutu (NuGet CLI)
+# <a name="spec-command-nuget-cli"></a>özel komut (NuGet CLI)
 
-**Uygulandığı öğe:** paketini oluşturma &bullet; **desteklenen sürümler:** tüm
+**İçin geçerlidir:** paket oluşturma &bullet; **desteklenen sürümler:** tüm
 
-Oluşturan bir `.nuspec` dosyası yeni bir paket için. Proje dosyası ile aynı klasörde çalıştırırsanız (`.csproj`, `.vbproj`, `.fsproj`), `spec` bir parçalanmış oluşturur `.nuspec` dosya. Ek bilgi için bkz: [paket oluşturma](../create-packages/creating-a-package.md).
+Oluşturur bir `.nuspec` için yeni bir paket dosyası. Bir proje dosyası ile aynı klasörde çalıştırırsanız (`.csproj`, `.vbproj`, `.fsproj`), `spec` bir simgeleştirilmiş oluşturur `.nuspec` dosya. Ek bilgi için bkz: [paket oluşturma](../create-packages/creating-a-package.md).
 
 ## <a name="usage"></a>Kullanım
 
@@ -31,14 +31,14 @@ Burada `<packageID>` kaydetmek için bir isteğe bağlı paket tanımlayıcısı
 
 | Seçenek | Açıklama |
 | --- | --- |
-| AssemblyPath | Meta veriler için kullanmak için derleme yolunu belirtir. |
-| Zorla | Var olan üzerine yazar `.nuspec` dosya. |
-| ForceEnglishOutput | *(3.5 +)*  Değişmez, İngilizce tabanlı kültürü kullanarak çalışacak şekilde nuget.exe zorlar. |
-| Yardım | Bilgi komutu için yardımı görüntüler. |
-| NonInteractive | Kullanıcı girişi veya onayı için ister gizler. |
-| Ayrıntı Düzeyi | Çıktıda görüntülenen ayrıntı miktarını belirtir: *normal*, *sessiz*, *ayrıntılı*. |
+| AssemblyPath | Meta verileri için kullanılacak derleme yolunu belirtir. |
+| Zorla | Var olan tüm üzerine yazar `.nuspec` dosya. |
+| ForceEnglishOutput | *(3.5 +)*  Nuget.exe sabit, İngilizce tabanlı bir kültürü kullanarak çalışmaya zorlar. |
+| Yardım | Bilgi komut için yardımı görüntüler. |
+| NonInteractive | Kullanıcı girişini veya onaylar ister bastırır. |
+| Ayrıntı Düzeyi | Çıktıda gösterilen ayrıntı miktarını belirtir: *normal*, *sessiz*, *ayrıntılı*. |
 
-Ayrıca bkz. [ortam değişkenleri](cli-ref-environment-variables.md)
+Ayrıca bkz: [ortam değişkenleri](cli-ref-environment-variables.md)
 
 ## <a name="examples"></a>Örnekler
 
@@ -47,5 +47,5 @@ nuget spec
 
 nuget spec MyPackage
 
-nuget spec -a MyAssembly.dll
+nuget spec -AssemblyPath MyAssembly.dll
 ```

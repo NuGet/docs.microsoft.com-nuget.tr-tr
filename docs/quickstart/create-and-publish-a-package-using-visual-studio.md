@@ -6,12 +6,12 @@ ms.author: karann
 manager: unnir
 ms.date: 05/18/2018
 ms.topic: quickstart
-ms.openlocfilehash: e97773d79b22db1f08d868190895a9417b12c924
-ms.sourcegitcommit: 6cffa6ef59b922df2d87aa9c24034d00542983cd
+ms.openlocfilehash: af6e6e015f2e4adccd99171abb37e7291551351c
+ms.sourcegitcommit: 8d5121af528e68789485405e24e2100fda2868d6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37963093"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42794105"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Hızlı Başlangıç: Oluşturma ve Visual Studio (.NET Standard, yalnızca Windows) kullanarak bir NuGet paketi Yayımla
 
@@ -149,6 +149,26 @@ Bu adım bir alternatifidir `nuget.exe`.
 ### <a name="manage-the-published-package"></a>Yayımlanan paket yönetme
 
 [!INCLUDE [publish-manage](includes/publish-manage.md)]
+
+## <a name="adding-a-readme-and-other-files"></a>Benioku ve diğer dosyaları ekleme
+
+Pakete dahil edilecek dosyalar doğrudan belirtmek için proje dosyasını düzenleyin ve kullanın `content` özelliği:
+
+```xml
+<ItemGroup>
+  <Content Include="readme.txt">
+    <Pack>true</Pack>
+    <PackagePath>\</PackagePath>
+  </Content>
+</ItemGroup>
+```
+
+Bu adlı bir dosya dahil eder `readme.txt` paket kökünde. Visual Studio, hemen paket doğrudan yüklendikten sonra düz metin olarak bu dosyanın içeriğini görüntüler. (Benioku dosyaları bağımlılıkların yüklü paketler için görüntülenmez). Örneğin, işte HtmlAgilityPack paketinin Benioku dosyasını nasıl görünür:
+
+![Yükleme sonrasında bir NuGet paketi için bir benioku dosyası görüntüsü](../create-packages/media/Create_01-ShowReadme.png)
+
+> [!Note]
+> Yalnızca proje kök dizininde readme.txt ekleme sonuç paketine dahil açmayacaktır.
 
 ## <a name="related-topics"></a>İlgili konular
 

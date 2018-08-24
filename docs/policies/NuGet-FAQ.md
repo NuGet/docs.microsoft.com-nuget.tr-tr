@@ -1,244 +1,244 @@
 ---
 title: NuGet sık sorulan sorular
-description: Ortak sorular ve yanıtlar NuGet komut satırında ve Visual Studio kullanarak ve NuGet Galerisi ile çalışmak için.
+description: Sık sorulan sorular ve komut satırında ve Visual Studio'da NuGet kullanma ve NuGet Galerisi ile çalışmaya yönelik yanıtlar.
 author: karann-msft
 ms.author: karann
 manager: unnir
 ms.date: 01/11/2018
 ms.topic: conceptual
-ms.openlocfilehash: e3c52f1e49a53b89d7e5c0728c02a7915db2aeb9
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 3fe59ef03632053182b034052e93a5f2e6f444bd
+ms.sourcegitcommit: c643dd2c44e085601551ff7079d696bcc3ad2b49
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817986"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42793603"
 ---
 # <a name="nuget-frequently-asked-questions"></a>NuGet sık sorulan sorular
 
 **NuGet çalıştırmak için gereken nedir?**
 
-Kullanıcı Arabirimi ve komut satırı araçları geçici tüm bilgileri kullanılabilir [Yükleme Kılavuzu](../install-nuget-client-tools.md).
+Hem kullanıcı Arabirimi ve komut satırı araçları tüm bilgileri kullanılabilir [Yükleme Kılavuzu](../install-nuget-client-tools.md).
 
-**NuGet Mono destekliyor mu?**
+**NuGet, Mono destekliyor mu?**
 
-Komut satırı aracı `nuget.exe`, oluşturur ve Mono altında 3.2 + çalıştırır ve paketleri Mono olarak oluşturabilirsiniz.
+Komut satırı aracı `nuget.exe`, yapılar ve Mono altında 3.2 + çalıştırır ve paketleri Mono'da oluşturabilirsiniz.
 
-Ancak `nuget.exe` çalışır tam olarak Windows, bilinen sorunlar vardır Linux ve OS x bakın [Mono sorunları](https://github.com/NuGet/Home/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+mono) github'da.
+Ancak `nuget.exe` çalışır tamamen Windows üzerinde bilinen sorunlar vardır Linux ve OS x başvurun [Mono sorunları](https://github.com/NuGet/Home/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+mono) GitHub üzerinde.
 
 A [grafik istemci](https://github.com/mrward/monodevelop-nuget-addin) MonoDevelop için bir eklenti olarak kullanılabilir.
 
-**Ne bir paket içerir ve kararlı ve Uygulamam için yararlı olup nasıl belirleyebilirim?**
+**Bir paketi ne içerir ve kararlı ve Uygulamam için yararlı olup nasıl belirleyebilirim?**
 
-Birincil bir paketi hakkında bilgi almak için kendi nuget.org listeleme sayfasında kaynağıdır (veya başka bir özel akış). Her bir paket nuget.org sayfasında paketi, sürüm geçmişi ve kullanım istatistiklerini açıklamasını içerir. **Bilgisi** paketi sayfasında bölüm ayrıca projenin web genellikle bulabileceğiniz birçok örnekler ve paket nasıl kullanıldığını öğrenmenize yardımcı olacak diğer belgelerin siteye bir bağlantı içerir.
+Bir paketi hakkında bilgi almak için birincil kaynağı kendi nuget.org listeleme sayfasıdır (veya başka özel akış). Her bir paket nuget.org sayfasında, paket, sürüm geçmişi ve kullanım istatistiklerini açıklamasını içerir. **Bilgisi** bölüm paketi sayfasında, ayrıca projenin web sitesine, genelde nerede birçok örnekler ve diğer belgeler paket nasıl kullanıldığını öğrenmenize yardımcı olması için bir bağlantı içerir.
 
-Daha fazla bilgi için bkz: [bulma ve paketleri seçme](../consume-packages/finding-and-choosing-packages.md).
+Daha fazla bilgi için [bulma ve seçme paketleri](../consume-packages/finding-and-choosing-packages.md).
 
 ## <a name="nuget-in-visual-studio"></a>Visual Studio'da NuGet
 
-**Nasıl NuGet farklı Visual Studio ürünlerinde destekleniyor mu?**
+**NuGet farklı Visual Studio ürünleri nasıl destekleniyor mu?**
 
-- Visual Studio Windows destekler [Paket Yöneticisi kullanıcı Arabirimi](../tools/package-manager-ui.md) ve [Paket Yöneticisi Konsolu](../tools/package-manager-console.md).
-- Mac için Visual Studio açıklandığı gibi yerleşik NuGet özellikleri olan [dahil olmak üzere bir NuGet paketini projenize](/visualstudio/mac/nuget-walkthrough).
-- Visual Studio Code (tüm platformlar) doğrudan herhangi NuGet tümleştirme yok. Kullanım [NuGet CLI](../tools/nuget-exe-cli-reference.md) veya [dotnet CLI](../tools/dotnet-commands.md).
-- Visual Studio Team Services sağlar [NuGet paketlerini geri yüklemek için bir derleme adımı](/vsts/build-release/tasks/package/nuget). Ayrıca [konak özel NuGet paketi akışları Team Services](https://www.visualstudio.com/docs/package/nuget/publish).
+- Windows üzerinde Visual Studio destekleyen [Paket Yöneticisi UI](../tools/package-manager-ui.md) ve [Paket Yöneticisi Konsolu](../tools/package-manager-console.md).
+- Mac için Visual Studio sahip yerleşik NuGet özellikleri üzerinde açıklandığı [dahil olmak üzere bir NuGet paketini projenize](/visualstudio/mac/nuget-walkthrough).
+- Visual Studio Code (tüm platformlar) doğrudan bir NuGet tümleştirmesi yok. Kullanım [NuGet CLI](../tools/nuget-exe-cli-reference.md) veya [dotnet CLI](../tools/dotnet-commands.md).
+- Visual Studio Team Services sağlar [NuGet paketlerini geri yüklemek için bir derleme adımı](/vsts/build-release/tasks/package/nuget). Ayrıca [konak özel NuGet paket akışları Team Services üzerinde](https://www.visualstudio.com/docs/package/nuget/publish).
 
-**Yüklü olan NuGet Araçlar'ün tam sürümünü nasıl kontrol edilsin mi?**
+**Yüklü olan NuGet Araçları'nın tam sürümünü nasıl kontrol edebilirim?**
 
-Visual Studio'da kullanın **Yardım > Microsoft Visual Studio hakkında** komut ve yanında görüntülenen sürümünde arayın **NuGet Paket Yöneticisi**.
+Visual Studio'da kullanmak **Yardım > Microsoft Visual Studio hakkında** komut ve görüntülendiğini sürümde Ara **NuGet Paket Yöneticisi**.
 
-Alternatif olarak, Paket Yöneticisi konsolu başlatın (**Araçlar > NuGet Paket Yöneticisi > Paket Yöneticisi Konsolu**) ve girin `$host` NuGet sürümü de dahil olmak üzere hakkındaki bilgileri görmek için.
+Alternatif olarak, Paket Yöneticisi konsolu başlatın (**Araçlar > NuGet Paket Yöneticisi > Paket Yöneticisi Konsolu**) girin `$host` NuGet sürümü dahil olmak üzere hakkındaki bilgileri görmek için.
 
 **Hangi programlama dillerini NuGet tarafından destekleniyor mu?**
 
-NuGet genellikle .NET diller için kullanılabilir ve .NET kitaplıkları bir projeye duruma getirmek için tasarlanmıştır. Ayrıca bazı proje türleri MSBuild ve Visual Studio Otomasyon desteklediği için diğer projeler ve çeşitli derece dilleri de destekler.
+NuGet, genellikle .NET dilleri için çalışır ve bir projeye .NET kitaplıkları getirmek için tasarlanmıştır. Ayrıca bazı proje türlerinde MSBuild ve Visual Studio Otomasyonu desteklediği için diğer projeleri ve çeşitli dereceye dilleri de destekler.
 
-C#, Visual Basic, F #, WiX ve C++ NuGet en son sürümünü destekler.
+C#, Visual Basic, F #, WiX ve C++ en son NuGet sürümünü destekler.
 
-**Hangi proje şablonları NuGet tarafından destekleniyor mu?**
+**Hangi proje şablonları, NuGet tarafından destekleniyor mu?**
 
-NuGet proje şablonları Windows, Web, bulut, SharePoint, Wix vb. gibi çeşitli için tam destek vardır.
+NuGet, çeşitli Windows, Web, bulut, SharePoint, Wix ve benzeri gibi proje şablonları için tam destek sunar.
 
-**Visual Studio şablonları parçası olan paketleri nasıl güncelleştiririm?**
+**Visual Studio şablonları parçası olan paketleri nasıl güncelleştirebilirim?**
 
-Git **güncelleştirmeleri** sekmesinde Paket Yöneticisi Arabiriminde ve seçin **Tümünü Güncelleştir**, veya [ `Update-Package` komutu](../tools/ps-ref-update-package.md) Paket Yöneticisi Konsolu'ndan.
+Git **güncelleştirmeleri** sekmesinde Paket Yöneticisi UI ve seçin **Tümünü Güncelleştir**, veya [ `Update-Package` komut](../tools/ps-ref-update-package.md) Paket Yöneticisi konsolu.
 
-Şablonu güncelleştirmek için şablon depo el ile güncelleştirmeniz gerekir. Bkz: [Xavier Decoster'ın blogu](http://www.xavierdecoster.com/update-project-template-to-latest-nuget-packages) Bu konu hakkında. Tüm bağımlılıklarını en son sürümünü birbirleri ile uyumlu değilse el ile güncelleştirmeleri şablona bozulmasına neden olabilir çünkü bu, kendi risk yapılır unutmayın.
+Şablonu güncelleştirmek için şablon deposu el ile güncelleştirmeniz gerekir. Bkz: [Xavier Decoster'ın blog](http://www.xavierdecoster.com/update-project-template-to-latest-nuget-packages) bu konuda. Tüm bağımlılıkları en son sürümünü birbiriyle uyumlu değilse, el ile güncelleştirmeler şablonu bozulmasına neden olabilir çünkü kendi sorumluluğunuzdadır yapıldığını unutmayın.
 
-**NuGet Visual Studio dışında kullanabilir miyim?**
+**Visual Studio dışında NuGet kullanabilir miyim?**
 
-Evet, NuGet doğrudan komut satırından çalışır. Bkz: [Yükleme Kılavuzu](../install-nuget-client-tools.md) ve [CLI başvuru](../tools/nuget-exe-cli-reference.md).
+Evet, NuGet doğrudan komut satırından çalışır. Bkz: [Yükleme Kılavuzu](../install-nuget-client-tools.md) ve [CLI başvurusu](../tools/nuget-exe-cli-reference.md).
 
 ## <a name="nuget-command-line"></a>NuGet komut satırı
 
-**NuGet komut satırı aracının en son sürümünü nasıl sağlarım?**
+**NuGet komut satırı aracının en son sürümünü nasıl alabilirim?**
 
 Bkz: [Yükleme Kılavuzu](../install-nuget-client-tools.md).
 
-**Nuget.exe lisansını nedir?**
+**Nuget.exe lisansı nedir?**
 
-MIT lisans koşullarına nuget.exe yeniden dağıtmak için izin verilir. Güncelleştirme ve yeniden dağıtmak için seçtiğiniz nuget.exe tüm kopyalarını bakım sorumlu.
+Nuget.exe MIT lisansı koşulları altında yeniden dağıtmanız izin verilir. Güncelleştirme ve yeniden dağıtmak için seçtiğiniz nuget.exe tüm kopyalarını bakım için sorumlu olursunuz.
 
-**NuGet komut satırı aracı genişletmek mümkün mü?**
+**NuGet komut satırı aracını genişletmek mümkündür?**
 
-Evet, özel komut eklemek olası `nuget.exe`açıklandığı gibi [Ramiz Reynold'ın post](http://geekswithblogs.net/robz/archive/2011/07/15/extend-nuget-command-line.aspx).
+Evet, özel komutları eklemek mümkündür `nuget.exe`anlatılan şekilde [Rob Reynold'ın post](http://geekswithblogs.net/robz/archive/2011/07/15/extend-nuget-command-line.aspx).
 
 ## <a name="nuget-package-manager-console-visual-studio-on-windows"></a>NuGet Paket Yöneticisi Konsolu (Windows için Visual Studio)
 
-**Paket Yöneticisi Konsolu'nda DTE nesneye erişimi nasıl sağlarım?**
+**Paket Yöneticisi Konsolu'nda DTE nesnesine erişimi nasıl edinebilirim?**
 
-Visual Studio Otomasyon nesne modeli en üst düzey nesnesinde DTE (geliştirme araçları ortamı) nesne adı verilir. Konsol bu adlı bir değişken üzerinden sağlar `$DTE`. Daha fazla bilgi için bkz: [Otomasyon modeline genel bakış](/visualstudio/extensibility/internals/automation-model-overview) Visual Studio genişletilebilirliğini belgelerinde.
+Visual Studio Otomasyon nesne modelindeki üst düzey nesnesi (geliştirme araçları ortamı) DTE nesnesi olarak adlandırılır. Konsol bu adlı bir değişken üzerinden sağlar `$DTE`. Daha fazla bilgi için [Otomasyon modeline genel bakış](/visualstudio/extensibility/internals/automation-model-overview) Visual Studio genişletilebilirlik belgelerinde.
 
-**DTE2 türü $DTE değişkenine cast deneyin, ancak bir hata iletisi: "" EnvDTE80.DTE2"türü için EnvDTE.DTEClass" türündeki "EnvDTE.DTEClass" değeri dönüştürülemiyor. Ne oldu?**
+**$DTE değişkeni DTE2 türüne dönüştürme deneyin ancak bir hata alıyorum: "" EnvDTE80.DTE2"türüne EnvDTE.DTEClass" türünün "EnvDTE.DTEClass" değeri dönüştürülemiyor. Ne oldu?**
 
-Bu, PowerShell COM nesnesi ile nasıl etkileşim kurduğu ile bilinen bir sorundur. Aşağıdakileri deneyin:
+Bu PowerShell bir COM nesnesi ile nasıl etkileştiğini ile bilinen bir sorundur. Şunları deneyin:
 
 ```ps
 `$dte2 = Get-Interface $dte ([EnvDTE80.DTE2])`
 ```
 
-`Get-Interface` yardımcı işlevi NuGet PowerShell ana bilgisayar tarafından eklenir.
+`Get-Interface` yardımcı işlevi, NuGet PowerShell ana bilgisayar tarafından eklenir.
 
 ## <a name="creating-and-publishing-packages"></a>Oluşturma ve paketleri yayımlama
 
-**Bir akış my paketinde nasıl listesinde?**
+**Bir akışta paketimle nasıl listelensin mi?**
 
-Bkz: [oluşturma ve yayımlama bir paketi](../quickstart/create-and-publish-a-package.md).
+Bkz: [oluşturma ve bir paket yayımlama](../quickstart/create-and-publish-a-package.md).
 
-**.NET Framework'ün farklı sürümlerini hedefleyen birden fazla sürümünü Kitaplığı'mdan var. Bunu destekleyen tek bir paket nasıl oluşturulacağına?**
+**My kitaplığının .NET Framework'ün farklı sürümlerini hedefleyen birden çok sürümü var. Bunu destekleyen tek bir paket nasıl oluşturabilirim?**
 
 Bkz: [birden çok .NET Framework sürümleri ve profillerini destekleyen](../create-packages/supporting-multiple-target-frameworks.md).
 
-**Kendi deposu veya akış nasıl ayarlarım?**
+**Kendi depo veya akış yukarı nasıl ayarlayabilirim?**
 
 Bkz: [paketleri genel bakış barındırma](../hosting-packages/overview.md).
 
-**Nasıl ı toplu olarak akış my NuGet paketleri yükleyebilir?**
+**Nasıl miyim toplu olarak akış my NuGet paketlerini yükleyebilir?**
 
 Bkz: [toplu NuGet paketleri yayımlama](http://jeffhandley.com/archive/2012/12/13/Bulk-Publishing-NuGet-Packages.aspx) (jeffhandly.com).
 
 ## <a name="working-with-packages"></a>Paketleri ile çalışma
 
-**Proje düzeyi paketi ve bir çözüm düzeyi paketi arasındaki fark nedir?**
+**Proje düzeyi paketi ve çözüm düzeyinde paket arasındaki fark nedir?**
 
-Bir çözüm düzeyi paketi (NuGet 3.x+) bir çözümde yalnızca bir kez yüklenir ve ardından Çözümdeki tüm projeleri için kullanılabilir hale gelir. Proje düzeyi paketi kullandığı her projede yüklü. Bir çözüm düzeyi paket gelen paket Yöneticisi konsolu çağrılabilen yeni komutları da yükleyebilirsiniz.
+Bir çözüm düzeyinde paketi (NuGet 3.x+) bir çözümde yalnızca bir kez yüklenir ve ardından iş Çözümdeki tüm projeleri için kullanılabilir hale gelir. Proje düzeyi paket kullandığı her projede yüklenir. Bir çözüm düzeyinde paketi, gelen paket Yöneticisi konsolu çağrılabilen yeni komutlar da yükleyebilirsiniz.
 
-**Internet bağlantısı olmadan NuGet paketlerini yüklemek mümkün mü?**
+**NuGet paketleri Internet bağlantısı olmadan yüklemek mümkündür?**
 
-Evet, Scott Hanselman'ın Blog Gönderisi bkz [NuGet nuget.org aşağı (veya üzerinde bir düzlemi olduğunuz olduğunda) erişmek nasıl](http://www.hanselman.com/blog/HowToAccessNuGetWhenNuGetorgIsDownOrYoureOnAPlane.aspx) (hanselman.com).
+Evet, Scott Hanselman'ın Blog yayınına bakın [NuGet nuget.org aşağı (veya gezmeyi İşiniz olduğunda) erişmek nasıl](http://www.hanselman.com/blog/HowToAccessNuGetWhenNuGetorgIsDownOrYoureOnAPlane.aspx) (hanselman.com).
 
 **Varsayılan paket klasöründen farklı bir konumda paketleri nasıl yüklerim?**
 
 Ayarlama [ `repositoryPath` ](../reference/nuget-config-file.md#config-section) ayarı `Nuget.Config` kullanarak `nuget config -set repositoryPath=<path>`.
 
-**NuGet paketleri klasörüne kaynak denetimine ekleme nasıl kaçının?**
+**NuGet paketleri klasörüne kaynak denetimine eklemeye nasıl kaçınabilirim?**
 
-Ayarlama [ `disableSourceControlIntegration` ](../reference/nuget-config-file.md#solution-section) içinde `Nuget.Config` için `true`. Çözüm, bu anahtar çalışır düzeyde ve bu nedenle gereksinim eklenecek `$(Solutiondir)\.nuget\Nuget.Config` dosya. Paket geri yüklemesi Visual Studio'dan etkinleştirme bu dosyayı otomatik olarak oluşturur.
+Ayarlama [ `disableSourceControlIntegration` ](../reference/nuget-config-file.md#solution-section) içinde `Nuget.Config` için `true`. Çözüm, bu anahtar çalışır düzeyi ve bu nedenle gerek eklenecek `$(Solutiondir)\.nuget\Nuget.Config` dosya. Visual Studio'da paket geri yükleme etkinleştirme bu dosya otomatik olarak oluşturur.
 
 **Paket geri yükleme'yi nasıl kapatırım?**
 
-Bkz: [etkinleştirme ve paket geri yüklemesi devre dışı bırakma](../consume-packages/package-restore.md#enabling-and-disabling-package-restore).
+Bkz: [etkinleştirme ve devre dışı paket geri yükleme](../consume-packages/package-restore.md#enabling-and-disabling-package-restore).
 
-**Neden alabilirim "bağımlılık hatası bir çözümlenemiyor" ne zaman uzaktan bağımlılıkları olan yerel bir paketi yükleniyor?**
+**Neden alabilirim "bağımlılık hatayı gidermek için yapılandırılamıyor" ne zaman yerel paket ile uzak Bağımlılıkların yüklenmesi?**
 
-Seçmenize gerek **tüm** bir yerel paket projeye yüklerken kaynak. Bu yalnızca bir kullanmak yerine tüm akışları toplar. Bu hata görünür kullanıcıların yerel bir depo genellikle yanlışlıkla önlemek istediğiniz nedeni şirket nedeniyle uzak bir paket yükleme ilkeleri.
+Seçmenize gerek **tüm** projeye yerel bir paket yükleme sırasında kaynak. Bu, yalnızca bir tane yerine tüm akışları toplar. Bu hatanın görünür bir yerel depo kullanıcıları genellikle yanlışlıkla önlemek istediğiniz nedeni Kurumsal nedeniyle uzak bir paketi yükleme ilkeleri.
 
-**Birden çok proje aynı klasörde sahibim, ayrı packages.config dosyaları her proje için nasıl kullanabilirim?**
+**Aynı klasörde birden çok proje sahibim, ayrı packages.config dosyaları her proje için nasıl kullanabilirim?**
 
-NuGet tanımlayan gibi burada ayrı projeler Canlı ayrı klasörlerde çoğu projelerde, bu bir sorun teşkil etmez `packages.config` her proje dosyaları. NuGet 3.3 + ve birden fazla ile projeleri ile aynı klasörde projeye adını ekleyebilirsiniz `packages.config` dosya adlarını kullanın düzeni `packages.{project-name}.config`, ve NuGet bu dosyasını kullanır.
+NuGet tanımlar burada ayrı projeler Canlı ayrı klasörlerde çoğu projelerinde, bu bir sorun değildir `packages.config` her proje dosyaları. NuGet 3.3 + ve birden çok ile aynı klasörde yer alan projeler, projeye adı ekleyebilirsiniz `packages.config` dosya adlarını desenini kullanın `packages.{project-name}.config`, ve bu dosyayı NuGet kullanır.
 
-Her proje dosyası bağımlılıkları kendi listesi içerdiğinden bu bir sorun PackageReference, kullanırken değildir.
+Her proje dosyası kendi listesi bağımlılıklar içerdiğinden bu soruna PackageReference, kullanırken değil.
 
-**Nuget.org depoları my listede göremiyorum, nasıl geri sağlarım?**
+**Depolarımın listesini nuget.org göremiyorum, nasıl geri alabilirim?**
 
-- Ekleme `https://api.nuget.org/v3/index.json` kaynakları, listenize veya
-- Silme `%appdata%\.nuget\NuGet.Config` (Windows) veya `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) ve yeniden oluşturun NuGet izin verin.
+- Ekleme `https://api.nuget.org/v3/index.json` listenize kaynakları, veya
+- Silme `%appdata%\.nuget\NuGet.Config` (Windows) veya `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) ve NuGet yeniden oluşturun.
 
-**Bir paketi belirli lisans bilgileri sağlamazsa koşulları varsayılan lisans nelerdir?**
+**Bir paketi belirli bir lisans bilgileri sağlamıyorsa koşulları varsayılan lisans nelerdir?**
 
-Her paket paketine dahil terimleri tabidir. Erişim, indirme ya da herhangi bir paket alınırken önce hüküm gözden geçirmelidir. Nuget.org üzerinde kullanmak **lisans bilgilerini** bağlantı paketi sayfasında.
+Her bir paketi paket ile birlikte gelen koşulları tabidir. Erişim, indirme veya herhangi bir paket alınırken önce hüküm gözden geçirmeniz gerekir. Nuget.org kullanın **lisans bilgilerini** bağlantı paketi sayfasında.
 
-Bir paketi Lisans Koşulları'nı belirtmiyorsa kullanarak doğrudan paketi sahibine başvurun **sahipleri başvurun** nuget.org paketi sayfasında bağlantı. Microsoft hiçbir fikri mülkiyet, üçüncü taraf paket sağlayıcılardan lisans değildir ve üçüncü taraflar tarafından sağlanan bilgileri sorumlu değildir.
+Bir paketi lisans koşulları belirtmezse kullanarak doğrudan paket sahibiyle iletişime geçin **sahipleriyle temas** nuget.org paketi sayfasında bağlantı. Microsoft hiçbir fikri mülkiyet, üçüncü taraf paketi sağlayıcılarından lisans değil ve üçüncü taraflarca sağlanan bilgileri sorumlu değildir.
 
-## <a name="managing-packages-on-nugetorg"></a>Nuget.org paketlerini yönetme
+## <a name="managing-packages-on-nugetorg"></a>Paketleri nuget.org üzerinde yönetme
 
 **Paket meta verileri, karşıya yüklendikten sonra düzenleyebilir miyim?**
 
-NuGet imzalanacak tüm paketler önerir. Paketin imzalanması bir tasarım prensibi imzalı paket içeriğini nuspec içeren değişmez, olmanızın gerekmesidir. Paket meta verileri düzenleme değişiklikleri varolan imza geçersiz kılmalarını nuspec için sonuçlanır. Paket oluşturulduktan sonra paket meta verileri düzenleme gerektirmeyecek şekilde var olan iş akışları değiştirme öneririz.
+NuGet imzalanması için tüm paketleri önerir. Paket imzalama tasarımı prensibi imzalı paket içeriğini nuspec içeren değişmezse, olmasıdır. Paket meta verileri düzenleme, mevcut imza geçersiz kılmalarını nuspec için değişiklikle sonuçlanır. Paket oluşturulduktan sonra paket meta verileri düzenleme gerektirmeyecek şekilde mevcut iş akışları değiştirme öneririz.
 
-Not paketiniz için listelenen bağımlılıkları paketinden otomatik olarak oluşturulur ve düzenlenemez.
+Paketiniz için listelenen bağımlılıkları paketinden otomatik olarak oluşturulur ve düzenlenemez unutmayın.
 
-Ayrıca, paketler karşıya [staging.nuget.org](http://staging.nuget.org) sınamak ve bir paket genel bir galeride kullanıma olmadan paketinizi doğrulamak için harika bir yoludur.
+Ayrıca, paketler için karşıya yükleme [staging.nuget.org](http://staging.nuget.org) test edin ve bir paket kullanılabilir genel galeride yapmadan paketinizi doğrulamak için harika bir yoludur.
 
-**Gelecekte yayımlanacak paketler için adları ayırmak mümkün mü?**
+**Bu ad gelecekte yayımlanacak paketleri için ayrılacak mümkün mü?**
 
-Evet. Üzerinde paketler için kimlikleri ayırabilirsiniz [nuget.org](https://www.nuget.org/) hesabınız için bir paket kimliği önek isteyen tarafından. Bir paket kimliği öneki istemek için yönergeleri izleyin [belgelerine](https://docs.microsoft.com/nuget/reference/id-prefix-reservation).
+Evet. Şirket için paket kimlikleri ayırabilirsiniz [nuget.org](https://www.nuget.org/) hesabınız için bir paket kimliği öneki isteyerek. Bir paket kimliği öneki isteğinde bulunmak için yönergeleri izleyin. [belgeleri](https://docs.microsoft.com/nuget/reference/id-prefix-reservation).
 
-**Paketler için sahipliğini talep nasıl?**
+**Paketler için mülkiyeti üzerine hak iddia nasıl?**
 
-Bkz: [yönetme paket sahipleri nuget.org üzerinde](../create-packages/publish-a-package.md#managing-package-owners-on-nugetorg).
+Bkz: [yönetme paket sahipleri nuget.org](../create-packages/publish-a-package.md#managing-package-owners-on-nugetorg).
 
-**My yazılım lisansı ihlal eden bir paket sahibi ile nasıl ilgilenir?**
+**Yazılım lisansımın ihlal bir paket sahibi ile nasıl dağıtılsın mı?**
 
-Paket sahipleri ve diğer yazılımların sahipleri arasında kaynaklanabilecek itirazları çözümlemek için birlikte çalışmak üzere NuGet topluluk öneririz. Biz hazırlanmış bir [itiraz çözümleme işlemi](../policies/dispute-resolution.md) nuget.org yöneticilerin intercede soran önce izlemek için.
+Paket sahipleri ve diğer yazılımların sahipleri arasında kaynaklanabilecek herhangi Anlaşmazlıkların çözüm yeri birlikte çalışmak için NuGet topluluk öneririz. Biz hazırlanmış bir [itiraz çözümleme işlemi](../policies/dispute-resolution.md) nuget.org yöneticilerin intercede isteyen önce izlemek için.
 
-**My sınama paketlerini nuget.org için karşıya yükleme önerilir?**
+**Benim test paketleri nuget.org için karşıya yüklemek için tavsiye edilir?**
 
-Test amaçları için kullandığınız [staging.nuget.org](http://staging.nuget.org), veya alternatif ortak NuGet sunucularını [myget.org](https://myget.org) veya [Visual Studio Team Services](https://blogs.msdn.microsoft.com/visualstudioalm/2015/08/27/announcing-package-management-support-for-vsotfs/).
+Test amaçları için kullanabileceğiniz [staging.nuget.org](http://staging.nuget.org), veya diğer genel NuGet sunucularını [myget.org](https://myget.org) veya [Visual Studio Team Services](https://blogs.msdn.microsoft.com/visualstudioalm/2015/08/27/announcing-package-management-support-for-vsotfs/).
 
 Paketler için Staging.nuget.org karşıya korunmaz unutmayın. Bkz: [güle güle Önizleme](http://blog.nuget.org/20130419/goodbye-preview.html).
 
-**Paketler için nuget.org karşıya yükleyebilir en büyük boyutu nedir?**
+**Paketleri nuget.org için karşıya yükleyebilirsiniz boyutu üst sınırı nedir?**
 
-nuget.org sağlayan paketler en fazla 250MB, ancak paketleri birbirine bağlamak için bağımlılıkları kullanarak ve paketleri 1 MB'den mümkünse tutulması önerilir. Altın kural, çakışmaları önlemek için yalnızca bir derleme paketleri içerir.
+nuget.org sağlayan paketler en fazla 250MB, ancak paketleri 1 MB'den mümkünse tutulması ve paketleri birbirine bağlamak için bağımlılıklar kullanarak önerilir. Bir kural karşısında, paketler çarpışmalardan kaçınmak için yalnızca bir derleme içerir.
 
-NuGet paketleri, başarısız yükler olasılığı daha küçük olanları daha büyük paketleriniz varsa şekilde indirmek için HTTP kullanır.
+NuGet paketleri başarısız yüklemeler olasılığı daha küçük parçalara değerinden daha büyük paketleriniz varsa bu nedenle indirmek için HTTP kullanır.
 
-NuGet paketlerinizi Tüketiciler için toplam yükleme boyutunu küçülterek, birden çok paket arasındaki bağımlılıkları paylaşmak da mümkündür.
+Toplam yükleme boyutu için NuGet paketlerinizi tüketicilerinin küçülterek birden çok paketleri arasındaki bağımlılıkları paylaşmak da mümkündür.
 
-Çoğunlukla statik ve hiçbir zaman değişikliği bağımlılıklardır. Kodda bir hata düzeltme, bağımlılıkları güncelleştirilmesi gerekmeyebilir. Bağımlılıklar paketini, her zaman büyük paketler reshipping yukarı sonlandırın. NuGet paketleri ilgili bağımlılıkları bölerek yükseltme paketinizi Tüketiciler için çok daha ayrıntılı sağlar.
+Çoğunlukla statik ve hiçbir zaman değişiklik bağımlılıklardır. Kodda bir hatayı düzeltirken, bağımlılıkları güncelleştirilmesi gerekmez. Bağımlılıkları paketlerseniz, her zaman büyük paketler reshipping yukarı bitmelidir. NuGet paketlerini ilgili bağımlılıklarınızı bölerek yükseltme paketinin Tüketiciler için çok daha ayrıntılı sağlar.
 
 ## <a name="nugetorg-not-accessible"></a>nuget.org erişilebilir değil
 
-**Neden paketleri indirme veya paketler için nuget.org karşıya?**
+**Neden paketleri indirin veya paketleri nuget.org için Yükle?**
 
-Öncelikle, NuGet'ın en son sürümlerini kullandığınızdan emin olun. Bu sürüm başarısız olmaya devam ederse [desteğine başvurun](https://www.nuget.org/policies/Contact) ve sorun giderme bilgileri de dahil olmak üzere ek bağlantı sağlayın:
+İlk olarak, en son NuGet sürümlerini kullandığınızdan emin olun. Bu sürüm başarısız devam ederseniz [Destek ekibiyle iletişime geçin](https://www.nuget.org/policies/Contact) ve sorun giderme bilgileri de dahil olmak üzere ek bağlantı sağlayın:
 
 - Kullanmakta olduğunuz NuGet sürümü
-- Kullanmakta olduğunuz paket kaynaklarını
-- Ayrıntılı ayrıntı düzeyine sahip bir geri yükleme günlüğü
+- Kullanmakta olduğunuz paket kaynakları
+- Ayrıntılı ayrıntı düzeyi içeren bir geri yükleme günlüğü
 - MTR veya Fiddler izlemeleri (aşağıya bakın)
 - Coğrafi konuma
-- İşletim sistemi sürümü
-- Makine Yapılandırma (CPU, ağ, sabit sürücü)
-- Makinenizde bir proxy veya güvenlik duvarı arkasında olup
+- İşletim sistemi sürümünüz
+- Makine Yapılandırması (CPU, ağ, sabit sürücü)
+- Makinenizde bir proxy veya güvenlik duvarı olup
 - Makinede yüklü .NET sürümlerini
-- Platformlar arası araçlarının .NET CLI ya da kullandığınız DNU gibi sürümleri
+- .NET CLI veya kullanmakta olduğunuz DNU gibi platformlar arası araçları sürümleri
 
 *MTR yakalamak için:*
 
 - Gelen WinMTR indirin [http://winmtr.net/download/](http://winmtr.net/)
-- Girin `api.nuget.org` tıklatın ve ana bilgisayar adı olarak **Başlat**.
-- Bekle **gönderilen** sütunu > = 100.
+- Girin `api.nuget.org` tıklayın ve ana bilgisayar adı olarak **Başlat**.
+- Bekle **gönderilen** sütun > = 100.
 
     ![MTR yakalama](media/mtr.png)
 
-- Metni panoya kopyalayın.
+- Metin Panoya kopyalayın.
 
 *Fiddler yakalamak için:*
 
-- En son sürümünü yüklemek [Fiddler](http://www.telerik.com/download/fiddler).
-- Fiddler'ı başlatın ve yakalama trafiği kullanılarak devre dışı bırakma **Dosya > trafiği Yakala** menüsü.
-- Tüm oturumları kaldırın (tüm öğeleri listesinde, basın seçme **silmek** anahtar).
-- HTTPS trafiğini denetleyerek yakalamak için fiddler'ı yapılandırma **şifresini HTTPS trafiği** içinde **HTTPS** sekmesinde **Araçlar > Fiddler seçenekleri...**  menüsü.
+- En son sürümünü yükleyin [Fiddler](http://www.telerik.com/download/fiddler).
+- Fiddler'ı başlatın ve trafik yakalama kullanarak devre dışı **Dosya > trafik yakalama** menüsü.
+- Tüm oturumlar kaldırın (tüm öğeleri listesinde, tuşuna seçin **Sil** anahtar).
+- HTTPS trafiğini denetleyerek yakalamak için fiddler'ı yapılandırma **şifresini HTTPS trafiğini** içinde **HTTPS** sekmesinde **Araçlar > Fiddler seçenekleri...**  menüsü.
 - Visual Studio’yu kapatın.
-- Etkinleştirme **Dosya > trafiği Yakala** menüsü.
-- Visual Studio ya da nuget.exe .exe başlatmak ve çalışmıyor eylemleri gerçekleştirebilirsiniz. Bu eylemleri tarafından oluşturulan trafiğin Fiddler'da göstermelidir.
-- Eylemler çalıştırdıktan sonra kullanmak **Dosya > Kaydet > tüm oturumları** yakalanan oturumları depolamak için.
+- Etkinleştirme **Dosya > trafik yakalama** menüsü.
+- Visual Studio ya da nuget.exe .exe başlatın ve çalışmıyor eylemleri gerçekleştirebilirsiniz. Bu eylemler tarafından oluşturulan trafiğin Fiddler'da göstermelidir.
+- Bir eylem gerçekleştirdikten sonra kullanmak **Dosya > Kaydet > tüm oturumları** yakalanan oturumları depolamak için.
 
-Not: Bunu ayarlamak için gerekli olabilecek `HTTP_PROXY` ortam değişkenine `http://127.0.0.1:8888` Fiddler aracılığıyla yönlendirme NuGet trafiği için.
+Not: Bunu ayarlamak için gerekli olabilecek `HTTP_PROXY` ortam değişkenine `http://127.0.0.1:8888` için fiddler'ı aracılığıyla NuGet trafiği yönlendirme.
 
-Başarısız olursa, deneyin [bu StackOverflow postasında belirtilen ipuçları](http://stackoverflow.com/questions/21049908/using-fiddler-to-sniff-visual-studio-2013-requests-proxy-firewall).
+Bu başarısız olursa deneyin [ipuçları bu StackOverflow gönderide bahsedilen](http://stackoverflow.com/questions/21049908/using-fiddler-to-sniff-visual-studio-2013-requests-proxy-firewall).
 
-**Nuget.org için API uç noktaları nelerdir?**
+**Nuget.org API uç noktaları nelerdir?**
 
 V3: `https://api.nuget.org/v3/index.json` V2: `https://www.nuget.org/api/v2/` (V2 API kullanım dışıdır ve NuGet ile 4 + çalışmaz unutmayın.)
