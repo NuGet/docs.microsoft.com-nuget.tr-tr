@@ -87,19 +87,19 @@ Kullanıcı Arabirimi ekranı pakette için simge olarak kullanılacak bir URL s
 #### <a name="requirelicenseacceptance"></a>RequireLicenseAcceptance
 İstemci paketi yüklemeden önce paket lisansını kabul etmek için tüketici sor olup olmadığını belirten bir Boole değeri.
 #### <a name="developmentdependency"></a>DevelopmentDependency
-*(2.8 +)*  Paket olup olmadığını belirten bir Boole değeri, bir geliştirme-yalnızca-paket bağımlılık diğer paketleri olarak eklenmesini engelleyen bağımlılık olarak işaretlenir.
+*(2.8+)* Paket olup olmadığını belirten bir Boole değeri, bir geliştirme-yalnızca-paket bağımlılık diğer paketleri olarak eklenmesini engelleyen bağımlılık olarak işaretlenir.
 #### <a name="summary"></a>özet
 Kullanıcı Arabirimi ekranı için paket kısa bir açıklaması. Atlanırsa, kesilmiş bir sürümünü `description` kullanılır.
 #### <a name="releasenotes"></a>ReleaseNotes
-*(1.5 +)*  Kullanıcı arabiriminde gibi sık kullanılan paketin bu sürümde yapılan değişikliklerin bir açıklaması **güncelleştirmeleri** sekmesini, Visual Studio Paket Yöneticisi ve Paket açıklaması yerine.
+*(1.5+)* Kullanıcı arabiriminde gibi sık kullanılan paketin bu sürümde yapılan değişikliklerin bir açıklaması **güncelleştirmeleri** sekmesini, Visual Studio Paket Yöneticisi ve Paket açıklaması yerine.
 #### <a name="copyright"></a>telif hakkı
-*(1.5 +)*  Ayrıntıları paketi için telif hakkı.
+*(1.5+)* Ayrıntıları paketi için telif hakkı.
 #### <a name="language"></a>dil
 Paket için yerel ayar kimliği. Bkz: [yerelleştirilmiş paketler oluşturma](../create-packages/creating-localized-packages.md).
 #### <a name="tags"></a>etiketler
 Etiketleri ve arama ve filtreleme yoluyla paketleri paket ve ürettiği bulunabilirliğini tanımlayan anahtar sözcükleri boşlukla ayrılmış listesi. 
 #### <a name="serviceable"></a>tutulabilmesi 
-*(3.3 +)*  Yalnızca iç NuGet için kullanın.
+*(3.3+)* Yalnızca iç NuGet için kullanın.
 #### <a name="repository"></a>depo
 Depo meta verileri, dört isteğe bağlı özniteliklerden oluşan: *türü* ve *url* *(4.0 +)*, ve *dal* ve  *işleme* *(4.6 +)*. Bu öznitelikler, alma olasılığı ile oluşturulan depo .nupkg eşlemek izin tek tek bir dalı veya da paket yerleşik işleme olarak ayrıntılı. Bu, doğrudan bir sürüm denetim yazılımı tarafından çağrılabilen genel kullanıma açık bir url olmalıdır. Bu bilgisayar için tasarlanmıştır olarak html sayfasından olmamalıdır. Proje sayfasına bağlamak için kullanın `projectUrl` , bunun yerine alan.
 
