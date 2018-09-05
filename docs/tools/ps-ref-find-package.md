@@ -1,23 +1,22 @@
 ---
 title: NuGet Bul-Package PowerShell başvurusu
-description: Visual Studio'da NuGet Paket Yöneticisi konsolunda Bul-Package PowerShell komut başvurusu.
+description: Visual Studio'da NuGet Paket Yöneticisi konsolu Bul-Package PowerShell komutunda referansı.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 6/1/2017
 ms.topic: reference
-ms.openlocfilehash: ebecb3818c063d11a2d613a85e2b7baef649dee6
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: c6797e3778c7095a9abfc6cd87e2337313988c20
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34816929"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43550984"
 ---
 # <a name="find-package-package-manager-console-in-visual-studio"></a>Find-Package (Visual Studio'da Paket Yöneticisi Konsolu)
 
-*Sürüm 3.0 +; Bu konu içindeki komut açıklar [NuGet Paket Yöneticisi Konsolu](package-manager-console.md) Windows Visual Studio'da. Genel PowerShell Bul-Package komutu için bkz: [PowerShell PackageManagement başvuru](/powershell/module/packagemanagement/?view=powershell-6).*
+*Sürüm 3.0 +; Bu konu içindeki komut açıklar [NuGet Paket Yöneticisi Konsolu](package-manager-console.md) Windows üzerinde Visual Studio'da. Genel PowerShell Bul-Package komutu için bkz: [PowerShell PackageManagement başvuru](/powershell/module/packagemanagement/?view=powershell-6).*
 
-Belirtilen kimliği veya anahtar sözcükleri sahip uzak paket kümesini paket kaynağından alır.
+Belirtilen kimliği veya anahtar sözcükleri ile uzak paketleri paket kaynağından alır.
 
 ## <a name="syntax"></a>Sözdizimi
 
@@ -30,20 +29,20 @@ Find-Package [-Id] <keywords> -Source <string> [-AllVersions] [-First [<int>]]
 
 | Parametre | Açıklama |
 | --- | --- |
-| Kimliği &lt;anahtar sözcükler&gt; | (Gerekli) Paket kaynağı ararken kullanılacak anahtar sözcükler. Yalnızca paket Kimliğine anahtar sözcüklerle eşleşen paketleri döndürmek için - ExactMatch kullanın. Hiçbir anahtar sözcükleri verilirse, `Find-Package` ilk belirtilen-yüklemeleri veya sayı ilk 20 paketlerin listesini döndürür. Kimliği isteğe bağlıdır ve no-op a - unutmayın. |
-| Kaynak | Aranacak paket kaynağının URL'sini veya klasör yolu. Yerel klasör yolları mutlak veya göreli geçerli klasörde olabilir. Atlanırsa, `Find-Package` şu anda seçili paket kaynağını arar. |
-| AllVersions | Yalnızca en son sürümü yerine her paketin tüm kullanılabilir sürümlerini görüntüler. |
-| ilk | Listenin başlangıcından döndürülecek paket sayısı; Varsayılan değer 20'dir. |
-| Atla | İlk atlar &lt;int&gt; görüntülenen listeden paketler.  |
-| IncludePrerelease | Sonuçlarda Önsürüm paketlerinin içerir. |
-| ExactMatch | Kullanmak için belirtilen &lt;anahtar sözcükleri&gt; büyük küçük harfe duyarlı paket kimliği olarak |
-| StartWith | Döndürür paketler, paket kimliği ile başlayıp &lt;anahtar sözcükleri&gt;. |
+| Kimliği &lt;anahtar sözcükleri&gt; | (Gerekli) Paket kaynağı ararken kullanmak için anahtar sözcükler. Paket kimliği anahtar sözcüklerle eşleşen paketleri döndürülecek - ExactMatch kullanın. Anahtar sözcük verilirse `Find-Package` ilk belirtilen-ilk 20 paketleri indirme veya sayı listesi döndürür. Kimliği isteğe bağlıdır ve İşlemsiz - unutmayın. |
+| Kaynak | Aranacak paket kaynağı için URL veya klasör yolu. Yerel klasör yol mutlak veya göreli geçerli klasörde olabilir. Atlanırsa, `Find-Package` seçili paket kaynağı arar. |
+| AllVersions | Tüm kullanılabilir sürümlerin her paketin yerine yalnızca en son sürümünü görüntüler. |
+| ilk | Listeye başlangıcından itibaren döndürülecek paket sayısı; Varsayılan değer 20'dir. |
+| Atla | İlk atlar &lt;int&gt; görüntülenen listeden paketleri.  |
+| IncludePrerelease | Yayın öncesi paketleri sonuçları içerir. |
+| ExactMatch | Belirtilen kullanılacak &lt;anahtar sözcükleri&gt; olarak büyük küçük harfe duyarlı paket kimliği |
+| StartWith | Paketler, paket kimliği ile başlayan döndürür &lt;anahtar sözcükleri&gt;. |
 
-Hiçbiri bu parametre ardışık düzen giriş veya joker karakter kabul edin.
+Hiçbiri bu parametre ardışık düzen giriş veya joker karakterler kabul edin.
 
 ## <a name="common-parameters"></a>Ortak parametreleri
 
-`Find-Package` Aşağıdaki destekleyen [ortak PowerShell parametrelerini](http://go.microsoft.com/fwlink/?LinkID=113216): hata ayıklama, hata eylemi, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, ayrıntı, WarningAction ve WarningVariable.
+`Find-Package` şunları desteklemektedir [ortak PowerShell parametrelerini](http://go.microsoft.com/fwlink/?LinkID=113216): hata ayıklama, hata eylemi, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, ayrıntılı, WarningAction ve WarningVariable.
 
 ## <a name="examples"></a>Örnekler
 

@@ -1,25 +1,24 @@
 ---
 title: NuGet ekleme BindingRedirect PowerShell başvurusu
-description: Visual Studio'da NuGet Paket Yöneticisi konsolunda Ekle BindingRedirect PowerShell komut başvurusu.
+description: Visual Studio'da NuGet Paket Yöneticisi konsolu Ekle BindingRedirect PowerShell komutunda referansı.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: f3addd95b64d78eac201deeb2c64915ea935cd71
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: dec7db04c5cf239863b9c00e9f5bc0dde42c7e47
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817629"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43551663"
 ---
 # <a name="add-bindingredirect-package-manager-console-in-visual-studio"></a>Add-BindingRedirect (Visual Studio'da Paket Yöneticisi Konsolu)
 
-*Yalnızca içinde kullanılabilir [NuGet Paket Yöneticisi Konsolu](package-manager-console.md) Windows Visual Studio'da.*
+*Yalnızca içinde kullanılabilir [NuGet Paket Yöneticisi Konsolu](package-manager-console.md) Windows üzerinde Visual Studio'da.*
 
-Bir proje için çıkış yolu içindeki tüm derlemelerde arar ve gerektiğinde uygulama veya web yapılandırma dosyasına bağlama yeniden yönlendirmelerini ekler. Bu komut, bir paket yüklerken otomatik olarak çalıştırılır.
+Çıkış yolu için bir proje içindeki tüm derlemeleri inceler ve gerektiğinde uygulama veya web yapılandırma dosyasına bağlama yeniden yönlendirmeleri ekler. Bu komut, bir paket yükleme sırasında otomatik olarak çalıştırılır.
 
-Bağlama yeniden yönlendirmeleri ve neden kullanıldıkları hakkında ayrıntılar için bkz: [derleme sürümlerini yönlendirme](/dotnet/framework/configure-apps/redirect-assembly-versions) .NET belgelerinde.
+Yeniden yönlendirir ve neden kullanılır bağlama hakkında daha fazla bilgi için bkz [derleme sürümlerini yeniden yönlendirme](/dotnet/framework/configure-apps/redirect-assembly-versions) .NET belgelerinde.
 
 ## <a name="syntax"></a>Sözdizimi
 
@@ -31,13 +30,13 @@ Add-BindingRedirect [-ProjectName] <string> [<CommonParameters>]
 
 | Parametre | Açıklama |
 | --- | --- |
-| ProjectName | (Gerekli) Bağlama yeniden yönlendirmeleri eklenecek projesi. -ProjectName anahtar isteğe bağlıdır. |
+| ProjectName | (Gerekli) Hangi bağlama yeniden yönlendirmeleri eklemek proje. -ProjectName anahtar isteğe bağlıdır. |
 
-Hiçbiri bu parametre ardışık düzen giriş veya joker karakter kabul edin.
+Hiçbiri bu parametre ardışık düzen giriş veya joker karakterler kabul edin.
 
 ## <a name="common-parameters"></a>Ortak parametreleri
 
-`Add-BindingRedirect` Aşağıdaki destekleyen [ortak PowerShell parametrelerini](http://go.microsoft.com/fwlink/?LinkID=113216): hata ayıklama, hata eylemi, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, ayrıntı, WarningAction ve WarningVariable.
+`Add-BindingRedirect` şunları desteklemektedir [ortak PowerShell parametrelerini](http://go.microsoft.com/fwlink/?LinkID=113216): hata ayıklama, hata eylemi, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, ayrıntılı, WarningAction ve WarningVariable.
 
 ## <a name="examples"></a>Örnekler
 

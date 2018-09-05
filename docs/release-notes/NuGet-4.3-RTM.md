@@ -1,22 +1,21 @@
 ---
 title: NuGet 4.3 RTM sürüm notları
-description: Bilinen sorunlar, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere NuGet 4.3 RTM için sürüm notları.
+description: NuGet bilinen sorunları, hata düzeltmeleri yapıldı, eklenen özellikler ve dcr 4.3 RTM için sürüm notları.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 08/14/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: cb44f47ef0b3bd086f0a681cb2fedc7c5afc42fa
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 4bee32995884f4c003ebb963d2fd5b2d04363bab
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/26/2018
-ms.locfileid: "31822662"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43551630"
 ---
 # <a name="nuget-43-rtm-release-notes"></a>NuGet 4.3 RTM sürüm notları
 
-[Visual Studio 2017 15.3 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) NuGet 4.3 .NET standart 2.0/.NET Core 2.0 gibi yeni senaryolara desteği birçok kalite düzeltmeleri içerir ve performansı artırır ekleyen RTM ile birlikte gelir. Bu sürüm ayrıca anlamsal sürüm oluşturma 2.0.0, MSBuild tümleştirme için destek gibi çeşitli iyileştirmeler NuGet uyarıları ve hataları ve daha fazla getirir.
+[Visual Studio 2017 15.3 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) NuGet 4.3 desteği gibi .NET Standard 2.0/.NET Core 2.0, yeni senaryolar için birçok kalite düzeltmeleri içerir ve performansı geliştirir ekleyen RTM ile birlikte gelir. Bu sürüm ayrıca NuGet uyarıları ve hataları ve daha fazlasını Semantic Versioning 2.0.0, MSBuild tümleştirmesi için destek gibi çeşitli iyileştirmeler getirir.
 
 ## <a name="known-issues"></a>Bilinen sorunlar
 
@@ -24,9 +23,9 @@ ms.locfileid: "31822662"
 
 #### <a name="issue"></a>Sorun
 
-Aşağıdaki geri yükleme komut satırı teknikleri devre dışı bırakılan paketler kaynakları etkin olarak kabul eder. [NuGet#5704](https://github.com/NuGet/Home/issues/5704)
+Aşağıdaki geri yükleme komut satırı teknikleri, devre dışı paket kaynaklarını etkin olarak değerlendirin. [NuGet#5704](https://github.com/NuGet/Home/issues/5704)
 - `msbuild /t:restore`
-- `dotnet restore` (VS veya bir ile birlikte dotnet.exe ile birlikte gelen 2.0.0 NetCore SDK ile birlikte)
+- `dotnet restore` (VS ile birlikte gelen dotnet.exe veya NetCore SDK 2.0.0 ile birlikte gelen bir ikisiyle)
 
 #### <a name="workaround"></a>Geçici Çözüm
 
@@ -42,9 +41,9 @@ Bazen Paket Yöneticisi Konsolu’nda Enter tuşu çalışmıyor. Bunu görürse
 
 #### <a name="workaround"></a>Geçici Çözüm
 
-Visual Studio’yu yeniden başlatın ve çözümü açmadan önce PMC’yi açın. Alternatif olarak, silmeyi deneyin `project.lock.json` ve yeniden geri yükleme.
+Visual Studio’yu yeniden başlatın ve çözümü açmadan önce PMC’yi açın. Alternatif olarak, silmeyi deneyin `project.lock.json` ve yeniden geri yüklemeyi.
 
-### <a name="you-are-unable-to-view-add-or-update-dotnetclitools-using-nuget-package-manager"></a>Görüntüleme, ekleme ya da DotNetCLITools, Nuget Paket Yöneticisi'ni kullanarak güncelleştirme
+### <a name="you-are-unable-to-view-add-or-update-dotnetclitools-using-nuget-package-manager"></a>Görüntülenemiyor, eklenemiyor veya Nuget Paket Yöneticisi'ni kullanarak dotnetclıtools'u başlatamadı
 
 #### <a name="issue"></a>Sorun
 
@@ -70,59 +69,59 @@ El ile geri yükleme yapın.
 
 ### <a name="features"></a>Özellikler
 
-- NuGet Restore Perf - uygulama akıllı sekmeyi komut satırı geri yükleme - ve VS artırmak [#5080](https://github.com/NuGet/Home/issues/5080)
+- NuGet geri yükleme Perf - komut satırı geri yüklemeler için uygulama daha akıllı NoOp - ve VS geliştirmek [#5080](https://github.com/NuGet/Home/issues/5080)
 
-- NET çekirdek 2.0: VS/Dotnet CLI varolan NuGet işlevini kullanarak başlamanız gerekir: geri dönüş klasörleri - [#4939](https://github.com/NuGet/Home/issues/4939)
+- NET Core 2.0: VS/Dotnet CLI mevcut NuGet işlevini kullanarak başlamanız gerekir: geri dönüş klasörleri - [#4939](https://github.com/NuGet/Home/issues/4939)
 
-- NET çekirdek 2.0: Etkinleştirmek belirli geri yükleme uyarılarını gözardı (veya hata yükseltmek) - kullanıcılar [#4898](https://github.com/NuGet/Home/issues/4898)
+- NET Core 2.0: Belirli bir geri yükleme uyarılarını gözardı (veya hataya yükseltmek) - kullanıcılar etkinleştirme [#4898](https://github.com/NuGet/Home/issues/4898)
 
-- NET çekirdek 2.0: CLI yerelleştirilmiş derlemeler - [#4896](https://github.com/NuGet/Home/issues/4896)
+- NET Core 2.0: CLI yerelleştirilmiş derlemeleri - [#4896](https://github.com/NuGet/Home/issues/4896)
 
-- NET çekirdek 2.0: tüm uyarılar/hataları (PackageTargetFallback dahil) - varlıklar dosyaya Kaydet [#4895](https://github.com/NuGet/Home/issues/4895)
+- NET Core 2.0: tüm uyarılar/hatalar (PackageTargetFallback dahil) - varlıklar dosyaya Kaydet [#4895](https://github.com/NuGet/Home/issues/4895)
 
-- TFM desteğini etkinleştirin: NetStandard2.0, Tizen - [#4892](https://github.com/NuGet/Home/issues/4892)
+- TFM desteğini etkinleştir: NetStandard2.0, Tizen - [#4892](https://github.com/NuGet/Home/issues/4892)
 
-- NuGet.Core NuGet.Client projeleri (ve dolayısıyla DLL'ler) - sayısını azaltın [#2446](https://github.com/NuGet/Home/issues/2446)
+- NuGet.Core NuGet.Client projeleri (ve bu nedenle DLL'ler) - sayısını azaltın [#2446](https://github.com/NuGet/Home/issues/2446)
 
-- Nuget uyarıları hata - olarak işaretlemek için özelliğini ekler [#2395](https://github.com/NuGet/Home/issues/2395)
+- Nuget uyarıları hata - olarak işaretlemek için yapabilmenizi [#2395](https://github.com/NuGet/Home/issues/2395)
 
 ### <a name="bugs"></a>Hatalar
 
-- MSBuild /t:pack başarısız "DevelopmentDependency" parametresi "PackTask" görevi tarafından - desteklenmiyor [#5584](https://github.com/NuGet/Home/issues/5584)
+- MSBuild /t:pack başarısız "DevelopmentDependency" parametresi "PackTask" görev tarafından - desteklenmeyen [#5584](https://github.com/NuGet/Home/issues/5584)
 
-- İçerik dosyaları için dizin yapısını düzleştirilmiş Windows dizin ayırıcı ise PackagePath - sonunda eklenmiyor varsa [#4795](https://github.com/NuGet/Home/issues/4795)
+- İçerik dosyaları için dizin yapısı, Windows dizin ayırıcı PackagePath - sonunda değil ekliyorsanız düzleştirilmiş [#4795](https://github.com/NuGet/Home/issues/4795)
 
 - netcore projeleri ayarı developmentDependency - olarak desteklemez [#4694](https://github.com/NuGet/Home/issues/4694)
 
-- RestoreManagerPackage yükleniyor zaman uyumlu olarak engellenen kullanıcı Arabirimi iş parçacığı ve VS - karşılıklı [#4679](https://github.com/NuGet/Home/issues/4679)
+- RestoreManagerPackage yüklenme zaman uyumlu olarak engellenen kullanıcı Arabirimi iş parçacığı ve VS - kilitlendiğini [#4679](https://github.com/NuGet/Home/issues/4679)
 
 - DotNet
-  - dotnetcore geri yükleme (ve bu nedenle msbuild /t:restore) bir açık çözüm proje bağımlılığı projelerle atlar [#4578](https://github.com/NuGet/Home/issues/4578)
+  - dotnetcore geri yükleme (ve bu nedenle msbuild/t: Restore) bir açık çözüm proje bağımlılığı projeleriyle atlar [#4578](https://github.com/NuGet/Home/issues/4578)
 
-- Çözümünüzü farklı büyük/küçük harf, aynı projenin başvurduğu projectreferences varsa geri yükleme çalışmayabilir. Bu da büyük/küçük harf - fark olmadan farklı göreli yollar etkiler [#4574](https://github.com/NuGet/Home/issues/4574)
+- Aynı projeye farklı büyük/küçük harf, başvuran başvuruları çözümünüz varsa, geri yükleme çalışmayabilir. Bu da büyük/küçük harf - fark olmadan farklı göreli yollarla etkiler [#4574](https://github.com/NuGet/Home/issues/4574)
 
-- NuGet paketleri geri yürütülebilir .NET Core 2.0 ile - yürütülebilir dosyalar artık [#4424](https://github.com/NuGet/Home/issues/4424)
+- NuGet paketleri geri yürütülebilir ile .NET Core 2.0 - yürütülebilir dosyalar artık [#4424](https://github.com/NuGet/Home/issues/4424)
 
-- Çözüm dosyası - ayrıştırılırken özel durum ayrıntılarını NuGet.exe yuttuğu [#4411](https://github.com/NuGet/Home/issues/4411)
+- NuGet.exe - çözüm dosyası ayrıştırılırken özel durumun ayrıntılarını bastırır [#4411](https://github.com/NuGet/Home/issues/4411)
 
-- Paketi Windows - '/' ile biten bir yolu ContentTargetFolders içeriyorsa, bu içerik dosyalarını yanlış konuma yerleştirir [#4407](https://github.com/NuGet/Home/issues/4407)
+- Paketi ContentTargetFolders üzerinde Windows - '/' ile biten bir yolu içeriyorsa, bu içerik dosyalarını yanlış konuma koyar [#4407](https://github.com/NuGet/Home/issues/4407)
 
 - Bu hedefleri netcoreapp1.1 - bir Araçları Paketi için bir DotNetCliToolReference geri yükleyemezsiniz [#4396](https://github.com/NuGet/Home/issues/4396)
 
-- Proje dosyası (C++) - Nuget güncelleştirme CLI bırakır eski Paket sürümü koşulu [#2449](https://github.com/NuGet/Home/issues/2449)
+- Nuget güncelleştirme CLI (C++) - proje dosyasında eski Paket sürümü koşul bırakır [#2449](https://github.com/NuGet/Home/issues/2449)
 
 ### <a name="dcrs"></a>Dcr
 
 - CPS nomation - gelen okuma DotnetCliToolTargetFramework [#5397](https://github.com/NuGet/Home/issues/5397)
 
-- TPMinV onay pj stili UWP - çalışmalıdır [#4763](https://github.com/NuGet/Home/issues/4763)
+- UWP - pj stili TPMinV onay iş [#4763](https://github.com/NuGet/Home/issues/4763)
 
-- AutoReferenced paketler - UI açıklamasını artırmak [#4471](https://github.com/NuGet/Home/issues/4471)
+- Kullanıcı Arabirimi açıklama AutoReferenced paketlerinin - geliştirmek [#4471](https://github.com/NuGet/Home/issues/4471)
 
-- NuGet restore derleme varlıklar çalışma zamanı bölümünden seçmektir. - [#4207](https://github.com/NuGet/Home/issues/4207)
+- NuGet geri yükleme, çalışma zamanı bölümünden derleme varlıklar seçmektir. - [#4207](https://github.com/NuGet/Home/issues/4207)
 
-- Bağımlılık tanılama kilit dosyası - put [#1599](https://github.com/NuGet/Home/issues/1599)
+- Bağımlılık tanılama kilit dosyasında - put [#1599](https://github.com/NuGet/Home/issues/1599)
 
 ## <a name="links-to-github-issues-fixed-in-43-rtm"></a>GitHub sorunları 4.3 RTM'de sabit bağlantılar
 
-[Konu listesi](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.3")
+[Sorun listesi](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.3")

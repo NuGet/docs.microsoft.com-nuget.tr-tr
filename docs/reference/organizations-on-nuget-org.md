@@ -1,106 +1,105 @@
 ---
-title: Kuruluşların nuget.org üzerinde
-description: Nuget.org üzerinde kuruluşlar, şirket ortamında bir ekip veya grup tarafından yayımlanan paketlerini yönetmek için yardımcı olur.
+title: Nuget.org üzerindeki kuruluşlar
+description: Nuget.org üzerindeki kuruluşlar şirket ortamı bir takım veya grup tarafından yayımlanmış paketleri yönetmenize yardımcı olur.
 author: anangaur
 ms.author: anangaur
-manager: unnir
 ms.date: 04/10/2018
 ms.topic: conceptual
 ms.reviewer:
 - kraigb
 - camsoper
-ms.openlocfilehash: 7f40654a08ac221c5ec3a90c86387b6760b28994
-ms.sourcegitcommit: 8127dd73ff8481a1a01acd9b7004dd131a9d84e7
+ms.openlocfilehash: ea1ca607f169cd31c0a1b59d575d1a743763420c
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34449584"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43551234"
 ---
-# <a name="organization-on-nugetorg"></a>Nuget.org kuruluşunda
+# <a name="organization-on-nugetorg"></a>Nuget.org kuruluş
 
-Kuruluşlar, işletmelerin ve paketleri tek nuget.org kimliğini kullanarak işbirliği yapmak için açık kaynaklı proje etkinleştirin. Bir paket tüketici için bir kuruluş hesabı nuget.org var olan bir kullanıcı hesabı ile aynı görünür.
+Kuruluşlar, işletmelerin ve açık kaynaklı projelerin paketleri nuget.org tek kimlik kullanarak işbirliği yapmak için etkinleştirin. Bir paket kullanıcısı için bir kuruluş hesabı nuget.org üzerinde var olan bir kullanıcı hesabı ile aynı görünür.
 
 ## <a name="user-accounts-vs-organization-accounts"></a>Kuruluş hesapları ve kullanıcı hesapları
 
-Kullanıcı hesabınızın nuget.org kimliğinizi ve kuruluşların herhangi bir sayıda üyesi olabilir. Bir paket, bir kullanıcı hesabına ait olabilir gibi bir kuruluş hesabına ait olabilir. Paket Tüketiciler, bir kullanıcı hesabı veya kuruluş hesabı arasındaki fark görmüyorum: hem paket olarak görünür `owners`.
+Kullanıcı hesabınızın kimliğinizi nuget.org ve kuruluşların herhangi bir sayıda üyesi olabilir. Bir paket, bir kullanıcı hesabına ait olabilir gibi bir kuruluş hesabına ait olabilir. Paketi tüketicileri bir kullanıcı hesabı veya kuruluş hesabı arasındaki fark görmüyorum: her ikisi de paketi olarak görünen `owners`.
 
-Bir kuruluş hesabı bir veya daha fazla kullanıcı hesapları üyeleri sahiptir. Bu üyeler, sahipliği için tek bir kimlik korurken paket kümesini yönetebilirsiniz.
+Bir kuruluş hesabı bir veya daha fazla kullanıcı hesabı, üyelere sahiptir. Bu üyeleri, sahipliği için tek bir kimlik korurken bir dizi paketleri yönetebilirsiniz.
 
-## <a name="adding-a-new-organization"></a>Yeni bir kuruluş ekleme
+## <a name="adding-a-new-organization"></a>Yeni kuruluş ekleniyor
 
-Yeni bir kuruluş eklemek için nuget.org hesabınızdaki seçin, ardından seçin **kuruluşlar Yönet...**  menü komutu:
+Yeni bir kuruluş eklemek için nuget.org hesabınızı seçin ve ardından **kuruluşlar Yönet...**  menü komutu:
 
-![Nuget.org Yöneticisi kuruluşlar için menü seçeneği](media/org-manage-option.png)
+![Nuget.org Manager kuruluşlar için menü seçeneği](media/org-manage-option.png)
 
-Sonraki sayfada seçin **yeni bir kuruluş eklemek** düğmesi:
+Sonraki sayfada seçin **yeni kuruluş Ekle** düğmesi:
 
-![Düğme nuget.org üzerinde yeni bir kuruluş oluşturun](media/org-add-new-option.png)
+![Nuget.org yeni bir kuruluş oluşturmak için](media/org-add-new-option.png)
 
-Sonraki sayfada kuruluş adı ve e-posta adresini belirtin. Kullanıcı hesapları aynı ad kuruluş hesaplarında paylaşmak olduğundan, kuruluş adını diğer tüm var olan kuruluş veya kullanıcı hesapları farklı olmalıdır. E-posta adresi, ayrıca tüm hesapları arasında benzersiz olmalıdır.
+Sonraki sayfada kuruluş adı ve e-posta adresini belirtin. Kullanıcı hesapları olarak aynı ad kuruluş hesapları paylaşma olduğundan, kuruluş adını diğer tüm mevcut kuruluş veya kullanıcı hesapları farklı olması gerekir. E-posta adresi, ayrıca tüm hesapları arasında benzersiz olmalıdır.
 
-![Nuget.org üzerinde yeni bir kuruluş sayfa ekleyin](media/org-add-new-page.png)
+![Nuget.org yeni bir kuruluş sayfası ekleyin](media/org-add-new-page.png)
 
-Kuruluş hesap oluşturulduktan sonra yönetici ve kuruluş için paketleri göndermek ve kuruluş üye ekleyebilirsiniz.
+Kuruluş hesabı oluşturulduktan sonra yönetici kuruluş için paketleri göndermek ve kuruluş üyeleri ekleyin.
 
-### <a name="transform-existing-account-to-an-organization"></a>Bir kuruluş için mevcut hesap dönüştürme
+### <a name="transform-existing-account-to-an-organization"></a>Var olan bir kuruluş hesabına dönüştürme
 
 > [!Warning]
-> Hesap dönüştürme işlemi geri alınamaz: kuruluş bir kullanıcı hesabı için geri dönüştürülemez.
+> Hesap dönüştürme bir işlemdir: bir kuruluş için bir kullanıcı hesabı için bir geri dönüştürülemez.
 
-Paketleri tek bir kullanıcı hesabı kullanarak bir ekip halinde yönetme ve bu hesap bir kuruluşa, kullanım dönüştürmek istiyorsanız **kuruluş hesabınıza dönüştürme** seçeneği **kuruluşlarınyönetme** sayfa:
+Paketleri tek bir kullanıcı hesabı kullanarak bir takım olarak yönettiğiniz ve bu hesabı bir kuruluşa, kullanım dönüştürmek istiyorsanız **kuruluş hesabınıza dönüştürme** seçeneğini **kuruluşlaryönetme** sayfası:
 
-![Var olan bir hesap bir kuruluşa dönüştürmek için nuget.org seçeneği](media/org-transform-option.png)
+![Nuget.org seçeneği var olan bir kuruluş hesabına dönüştürmek için](media/org-transform-option.png)
 
-Sonraki sayfada kuruluş yöneticisi olarak atayın ve sonra seçmek için farklı bir kullanıcı hesabı belirtin **dönüştürme**.
+Sonraki sayfada, kuruluş yöneticisi olarak atamak ve ardından farklı bir kullanıcı hesabı belirtmek **dönüştürme**.
 
-![Bir kuruluş için bir kullanıcı hesabı dönüştürme bilgilerini girme](media/org-transform-page.png)
+![Bir kuruluş için bir kullanıcı hesabı dönüştürme bilgileri girme](media/org-transform-page.png)
 
 ## <a name="managing-organization-members"></a>Kuruluş üyeleri yönetme
 
-Kuruluş yöneticisi olarak, her üyenin nuget.org sağlayarak üye ekleyebilir *kullanıcı hesabı adı*; e-posta adresleri kullanılamaz. Ardından her üye bir ortak çalışanı veya aşağıdaki izinlere sahip yönetici olarak işaretleyin:
+Kuruluş yöneticisi olarak, her üyenin nuget.org sağlayarak üyeler ekleyebilirsiniz *kullanıcı hesabı adı*; e-posta adresleri kullanılamaz. Ardından her üye bir ortak çalışanı veya aşağıdaki izinlere sahip yönetici olarak işaretleyin:
 
 | İzin | Ortak çalışanı | Yönetici |
 | --- | --- | --- |
-| Kuruluşun paketlerini yönetme<br/>(yeni paketleri göndermek, güncelleştirmek veya var olan paketler unlist) | Evet | Evet |
+| Kuruluşun paketlerini yönetme<br/>(yeni bir paket gönderin, güncelleştirmek veya mevcut paketlerini listeden Kaldır) | Evet | Evet |
 | Değişiklik kuruluş meta verileri<br/>(e-posta adresi, bildirim ayarları) | Hayır | Evet |
-| Kuruluş üyeleri yönetme | Hayır | Evet |
-| İstek veya kuruluş paketler için co-ownership istekleri hareket | Hayır | Evet |
+| Kuruluş üyelerini Yönet | Hayır | Evet |
+| İstek veya kuruluş paketleri co-ownership isteklerinde ile harekete geçme | Hayır | Evet |
 
-## <a name="managing-packages"></a>Paketlerini yönetme
+## <a name="managing-packages"></a>Paketleri yönetme
 
-Hesabınızın ve hangisinin kullandığınız üyesi tüm kuruluşlar arasında tüm paketleri görüntüleyebilirsiniz [paketlerini Yönet](https://www.nuget.org/account/Packages) sayfası. Belirli bir kuruluş veya hesabınız için belirli paketleri görüntülemek için üst hesapları filtresini kullanma sağ sayfasının.
+Hesabınızı ve hangi kullandığınız üyesi tüm kuruluşlar arasında tüm paketleri görüntüleyebilirsiniz [paketlerini Yönet](https://www.nuget.org/account/Packages) sayfası. Hesabınız veya belirli kuruluşlarla özgü paketleri görüntülemek için üst kısımdaki hesapları filtreyi kullanın sayfanın sağ.
 
-![Hesap filtresiyle paketlerini yönetme](media/org-manage-packages-option.png)
+![Hesap filtreyle paketlerini yönetme](media/org-manage-packages-option.png)
 
-### <a name="transferring-packages-to-an-organization"></a>Kuruluş için paketler aktarma
-Bazı paketlerinizin yeni oluşturulan bir kuruluşa aktarmak istiyorsanız, bunu paket birlikte kendi kuruluş hesabı isteyen ve kendiniz sahibi olarak kaldırarak yapabilirsiniz. Kuruluşun bir yöneticiyseniz sahipliği kabul etmek için gerekli onay yok yok. Ancak, bir ortak çalışanı varsa, kuruluşunuzun sahibi olarak ekleme sahipliği kabul etmek için Yöneticiler birini gerektirir.
+### <a name="transferring-packages-to-an-organization"></a>Bir kuruluş için paketleri aktarma
+Yeni oluşturulan bir kuruluş bazı paketlerinizi aktarmak istiyorsanız, kuruluş hesabı paket birlikte kendi isteyen ve ardından kendiniz sahibi olarak kaldırarak bunu yapabilirsiniz. Kuruluşun bir yöneticiyseniz sahipliği kabul etmek için gerekli bir onay yok yoktur. Ancak, bir ortak çalışanı varsa, sahibi olarak kuruluş ekleme sahipliği kabul etmek için Yöneticiler birini gerektirir.
 
-## <a name="publishing-packages"></a>Paketleri yayımlama
+## <a name="publishing-packages"></a>Paket yayımlama
 
-Bir kullanıcı hesabına paketleri yayımlama gibi kuruluş için paketleri yayımlama: doğrudan nuget.org için paket yüklemek veya paket Ftp'den `nuget push` veya `dotnet nuget push` CLI komutları.
+Bir kullanıcı hesabına paketleri gibi bir kuruluşa paketlerini Yayımla: doğrudan nuget.org için paket yüklemek veya paket gönderme `nuget push` veya `dotnet nuget push` CLI komutları.
 
-### <a name="uploading-packages"></a>Karşıya yükleme paketleri
+### <a name="uploading-packages"></a>Paket karşıya yükleniyor
 
-Ne zaman doğrudan karşıya yüklediğiniz yeni bir paket üzerinde [nuget.org karşıya yükleme](https://www.nuget.org/packages/manage/upload) sayfasında atadığınız paket sahibi bir kullanıcı ya da kuruluş hesabı:
+Karşıya yüklerken, doğrudan yeni bir paket üzerinde [nuget.org karşıya yükleme](https://www.nuget.org/packages/manage/upload) sayfasında, atadığınız paket sahibi bir kullanıcı veya kuruluş hesabı:
 
-![Hesap seçeneğiyle paketi yükleme](media/org-upload-option.png)
+![Hesap seçeneği ile paketini karşıya yükleyin](media/org-upload-option.png)
 
 ### <a name="using-api-keys"></a>API anahtarları kullanma
 
-Bir paketi göndermeyi `nuget push` veya `dotnet nuget push` CLI komutları, bu komutları tarafından gerekli bir API anahtarı alması gerekir. Ayrıntılar için bkz [bir paketi yayımlamaya](../quickstart/create-and-publish-a-package-using-visual-studio.md#publish-the-package).
+Bir paket göndermeyi `nuget push` veya `dotnet nuget push` CLI komutları, bu komutlar tarafından gereken bir API anahtarı alması gerekir. Ayrıntılar için bkz [paket yayımlama](../quickstart/create-and-publish-a-package-using-visual-studio.md#publish-the-package).
 
-Yeni bir API anahtarı oluştururken uygun kuruluşta seçin **paket sahibinden** açılır. Oluşturduğunuz tüm API anahtarı yalnızca seçilen kuruluşa geçerlidir:
+Yeni bir API anahtarı oluştururken, uygun kuruluştaki seçin **paket sahibinden** açılır. Oluşturduğunuz herhangi bir API anahtarı yalnızca seçilen kuruluş için geçerlidir:
 
-![Hesap seçeneğiyle API anahtarı](media/org-apikey-option.png)
+![Hesap seçeneği sahip API anahtarı](media/org-apikey-option.png)
 
-## <a name="removing-an-organization"></a>Bir kuruluş kaldırma
+## <a name="removing-an-organization"></a>Bir kuruluş kaldırılıyor
 
-Bir kullanıcı olarak, kendiniz bir kuruluştan seçerek silebilirsiniz `X` kuruluş üyeliğinizi tarafından gösterilen düğmesi:
+Bir kullanıcı olarak, kendiniz bir kuruluştan seçerek kaldırabilirsiniz `X` kuruluş üyeliğinizin tarafından gösterilen düğmesi:
 
-![Bir kuruluştan bir kullanıcı hesabını kaldırma](media/org-remove-self-option.png)
+![Bir kuruluştan bir kullanıcı hesabı kaldırma](media/org-remove-self-option.png)
 
-Yöneticiler, diğer yöneticiler de dahil olmak üzere kuruluş tarafından herhangi bir üyesi kaldırabilir. Bir kuruluş için tek Yönetici sizseniz, yönetici olarak başka bir üye eklemek sürece kendiniz kaldıramazsınız.
+Yöneticiler, diğer yöneticiler dahil kuruluştan herhangi bir üyesi kaldırabilir. Tek bir kuruluş yöneticisi değilseniz, başka bir üyesi bir yönetici eklemediğiniz sürece kendiniz kaldırılamıyor.
 
-### <a name="deleting-an-organization-account"></a>Bir kuruluş hesabı silme
+### <a name="deleting-an-organization-account"></a>Bir kuruluş hesabı siliniyor
 
-Bu özellik yakında çıkıyor.
+Bu özellik yakında kullanıma sunulacaktır.

@@ -1,23 +1,22 @@
 ---
 title: NuGet Get-Package PowerShell başvurusu
-description: Visual Studio'da NuGet Paket Yöneticisi konsolunda Get-Package PowerShell komut başvurusu.
+description: Visual Studio'da NuGet Paket Yöneticisi konsolu Get-Package PowerShell komutunda referansı.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: f4b71fc44e44dcbd5d123a0e2fed63adb79964b5
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: a28b29614dfe5abdeb24438b3451d96634a120db
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818509"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43551448"
 ---
 # <a name="get-package-package-manager-console-in-visual-studio"></a>Get-Package (Visual Studio'da Paket Yöneticisi Konsolu)
 
-*Bu konu içindeki komut açıklar [NuGet Paket Yöneticisi Konsolu](package-manager-console.md) Windows Visual Studio'da. Genel PowerShell Get-Package komutu için bkz: [PowerShell PackageManagement başvuru](/powershell/module/packagemanagement/?view=powershell-6).*
+*Bu konu içindeki komut açıklar [NuGet Paket Yöneticisi Konsolu](package-manager-console.md) Windows üzerinde Visual Studio'da. Genel PowerShell Get-Package komutu için bkz: [PowerShell PackageManagement başvuru](/powershell/module/packagemanagement/?view=powershell-6).*
 
-Yerel depoda yüklü olan paketlerin listesini alır, - listavailable birlikte anahtarıyla birlikte kullanıldığında bir paket kaynağındaki paketleri listeler veya güncelleştirme anahtarıyla birlikte kullanıldığında kullanılabilir güncelleştirmeleri listeler.
+Yerel depoda yüklü paketler listesini alır, - ListAvailable anahtarla kullanıldığında bir paket kaynağından paketleri listeler veya güncelleştirme anahtarıyla birlikte kullanıldığında kullanılabilir güncelleştirmeleri listeler.
 
 ## <a name="syntax"></a>Sözdizimi
 
@@ -27,28 +26,28 @@ Get-Package -Source <string> [-ListAvailable] [-Updates] [-ProjectName <string>]
     [-PageSize] [<CommonParameters>]
 ```
 
-Hiçbir parametre `Get-Package` varsayılan projede yüklü olan paketlerin listesini görüntüler.
+Parametre olmadan `Get-Package` varsayılan projede yüklü paketler listesini görüntüler.
 
 ## <a name="parameters"></a>Parametreler
 
 | Parametre | Açıklama |
 | --- | --- |
-| Kaynak | Paket URL'si veya klasör yolu. Yerel klasör yolları mutlak veya göreli geçerli klasörde olabilir. Atlanırsa, `Get-Package` şu anda seçili paket kaynağını arar. -Listavailable ile birlikte, nuget.org varsayılanlara kullanıldığında. |
-| Listavailable birlikte | Nuget.org için varsayılan değer olarak, bir paket kaynağındaki paketleri listeler. -PageSize ve/veya - ilk belirtilmediği sürece varsayılan 50 paketlerin gösterir. |
-| Güncelleştirmeler | Paket kaynağındaki güncelleştirmeye sahip paketleri listeler. |
-| ProjectName | Yüklü paketler alınacağı projesi. Atlanırsa, çözümün tamamı için projeleri döndürür yüklü. |
-| Filtrele | Paket kimliği, açıklamada ve etiketlerde uygulayarak paket listesini daraltmak için kullanılan bir filtre dizesi. |
-| ilk | Listenin başlangıcından döndürülecek paket sayısı. Belirtilmezse, 50'ye varsayılan olur. |
-| Atla | İlk atlar &lt;int&gt; görüntülenen listeden paketler.  |
-| AllVersions | Yalnızca en son sürümü yerine her paketin tüm kullanılabilir sürümlerini görüntüler. |
-| IncludePrerelease | Sonuçlarda Önsürüm paketlerinin içerir. |
-| PageSize | *(3.0 +)*  -(Gerekli) listavailable ile birlikte, devam etmek için bir istem vermeden önce listelemek için paket sayısı kullanıldığında. |
+| Kaynak | Paket URL'si veya klasör yolu. Yerel klasör yol mutlak veya göreli geçerli klasörde olabilir. Atlanırsa, `Get-Package` seçili paket kaynağı arar. -ListAvailable ile nuget.org varsayılan olarak kullanıldığında. |
+| ListAvailable | Nuget.org için varsayılan bir paket kaynağından paketleri listeler. -PageSize ve/veya - ilk belirtilmediği sürece varsayılan olarak 50 paketler gösterilmektedir. |
+| Güncelleştirmeler | Paket kaynağından bir güncelleştirmenin kullanılabilir olduğu paketleri listeler. |
+| ProjectName | Yüklü paketleri alınmaya başlanacağı proje. Atlanırsa, tüm çözüm için projeleri döndürür yüklü. |
+| Filtrele | Paket kimliği, açıklama ve etiket uygulayarak paketlerin listesini sınırlamak için kullanılan bir filtre dizesi. |
+| ilk | Listeye başlangıcından itibaren döndürülecek paket sayısı. 50'ye belirtilmezse, varsayılan olarak. |
+| Atla | İlk atlar &lt;int&gt; görüntülenen listeden paketleri.  |
+| AllVersions | Tüm kullanılabilir sürümlerin her paketin yerine yalnızca en son sürümünü görüntüler. |
+| IncludePrerelease | Yayın öncesi paketleri sonuçları içerir. |
+| PageSize | *(3.0 +)*  - İle ListAvailable (gerekli), devam etmek için bir istem yapmadan önce listelemek için paket sayısı kullanıldığında. |
 
-Hiçbiri bu parametre ardışık düzen giriş veya joker karakter kabul edin.
+Hiçbiri bu parametre ardışık düzen giriş veya joker karakterler kabul edin.
 
 ## <a name="common-parameters"></a>Ortak parametreleri
 
-`Get-Package` Aşağıdaki destekleyen [ortak PowerShell parametrelerini](http://go.microsoft.com/fwlink/?LinkID=113216): hata ayıklama, hata eylemi, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, ayrıntı, WarningAction ve WarningVariable.
+`Get-Package` şunları desteklemektedir [ortak PowerShell parametrelerini](http://go.microsoft.com/fwlink/?LinkID=113216): hata ayıklama, hata eylemi, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, ayrıntılı, WarningAction ve WarningVariable.
 
 ## <a name="examples"></a>Örnekler
 

@@ -3,16 +3,15 @@ title: NuGet sembol paketleri oluşturma
 description: NuGet paketi Visual Studio'da hata ayıklamayı desteklemek için yalnızca sembolleri içeren NuGet paketleri oluşturma
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 09/12/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: e917895d0fa6ed6dc4bc24b72afc7fa0770f2dd0
-ms.sourcegitcommit: 8e3546ab630a24cde8725610b6a68f8eb87afa47
+ms.openlocfilehash: ad1cf08437b4802d981f8c1a96ab9dc75425a2f0
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37843374"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43550621"
 ---
 # <a name="creating-symbol-packages"></a>Sembol paketleri oluşturma
 

@@ -1,36 +1,35 @@
 ---
 title: NuGet paketleri ve kaynak denetimi
-description: Sürüm denetimi ve kaynak denetim sistemleri içindeki NuGet paketleri kabul etme ve git ve TFVC'yi paketlerle atlayın durumları.
+description: İçin nasıl işlemesi gerektiğini NuGet paketleri içinde sürüm denetimi ve kaynak denetimi sistemlerini ve git ve TFVC paketlerle atlamak nasıl konuları.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 9392e3b6f0e9e64935ec27c28806b27a133bbfe8
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 0338c3445b2a3d8169158171d97d1e874533a80a
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817538"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43551805"
 ---
-# <a name="omitting-nuget-packages-in-source-control-systems"></a>Kaynak Denetim sistemleri NuGet paketlerini atlama
+# <a name="omitting-nuget-packages-in-source-control-systems"></a>NuGet paketlerini kaynak denetimi sistemlerini atlama
 
-Geliştiriciler genellikle kendi kaynak denetimi depoları NuGet paketleri atlayın ve bunun yerine Bel [paket geri yükleme](package-restore.md) bir yapı önce bir proje bağımlılıklarınızı yeniden yüklemek için.
+Geliştiriciler genellikle kendi kaynak denetim depolarından NuGet paketlerini atlayın ve bunun yerine dayanır [geri yükleme paketini](package-restore.md) bir yapıdan önce bir proje bağımlılıklarınızı yeniden yüklemek için.
 
-Paket geri yükleme bağlı nedenleri şunlardır:
+Paket geri yükleme'yi bağlı olan nedenleri şunlardır:
 
-1. Git gibi dağıtılmış sürüm denetim sistemleri her sürüm deposu içinde her dosyanın tam kopyalarını içerir. Sık sık güncelleştirilen ikili dosyaları için önemli oluşan şişirmeyi sağlama ve depoyu kopyalayın süresini düşey çizgi ise uzar.
-1. Paketleri depoya eklendiğinde, geliştiricilerin, doğrudan paket içeriğini başvuru paketler sabit kodlanmış yol adları projesinde açabilir NuGet aracılığıyla yerine disk eklemek zararlardan önerilir.
-1. Paket klasörleri hala kullanımda silmeyin emin olmak gereksinim duyduğunuz çözümünüzün herhangi kullanılmayan paket klasörlerinin temiz zor olur.
-1. Paketleri kaldırarak sahipliği temiz sınırlarının kodunuzu, bağlı diğer paketleri arasındaki korur. Birçok NuGet paketleri kendi kaynak denetimi depoları zaten saklanır.
+1. Dağıtılmış sürüm denetim sistemleri, Git gibi tam kopyasını havuz içindeki her dosyanın her sürümünü içerir. Sık sık güncelleştirilir ikili dosyalar için önemli bir şişmeye neden ve uygulamanın deposunu kopyalamak için geçen süreyi düşey çizgi ise uzar.
+1. Paketleri depoda eklendiğinde, geliştiricilerin doğrudan paket içeriğini, proje adlarında sabit kodlanmış bir yol açabilir ve NuGet aracılığıyla başvuran paketleri yerine disk eklemek için önerilir.
+1. Hala kullanımda paket klasörleri silme emin olmak gerek duyduğunuz tüm kullanılmayan paket klasörlerinin çözümünüzü temizlemek daha zor hale gelir.
+1. Paketleri gt;(yok) sahiplik temiz sınırları kodunuzu, bağlı diğer paketlerden arasındaki korur. Birçok NuGet paketi zaten kendi kaynak denetimi depoları saklanır.
 
-Paket geri yüklemesi varsayılan davranışı NuGet ile el ile bazı iş paketleri atlamak gerekli olsa da&mdash;öğesine, `packages` projenizdeki klasöre&mdash;kaynak denetiminden bu makalede anlatıldığı gibi.
+Paket geri yükleme ile NuGet varsayılan davranışı olsa da, bazı el ile iş paketleri atlamak gerekli olan&mdash;yani `packages` projenizdeki klasöre&mdash;kaynak denetiminden bu makalede açıklandığı gibi.
 
-## <a name="omitting-packages-with-git"></a>Git paketlerle atlama
+## <a name="omitting-packages-with-git"></a>Git ile paketleri atlama
 
-Kullanım [.gitignore dosyası](https://git-scm.com/docs/gitignore) NuGet paketlerini yoksaymak için (`.nupkg`) `packages` klasörünü ve `project.assets.json`, başka şeylerin. Başvuru için bkz: [örnek `.gitignore` Visual Studio projeleri için](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore):
+Kullanım [.gitignore dosyası](https://git-scm.com/docs/gitignore) NuGet paketlerini yok saymak için (`.nupkg`) `packages` klasöründe ve `project.assets.json`, başka şeylerin yanında. Başvuru için bkz: [örnek `.gitignore` Visual Studio projeleri için](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore):
 
-Önemli kısımlarını `.gitignore` dosyası:
+Önemli bölümleri `.gitignore` dosyası:
 
 ```gitignore
 # Ignore NuGet Packages
@@ -59,16 +58,16 @@ project.assets.json
 ## <a name="omitting-packages-with-team-foundation-version-control"></a>Team Foundation sürüm denetimi paketlerle atlama
 
 > [!Note]
-> Bu yönergeleri mümkünse *önce* projenizi kaynak denetimine ekleme. Aksi takdirde, el ile silmeniz `packages` klasöründen depo ve devam etmeden önce bu değişikliği denetleyin.
+> Mümkünse bu yönergeleri izleyin *önce* kaynak denetimine projenize ekleme. Aksi takdirde, el ile silmeniz `packages` depo ve devam etmeden önce bu değişikliği iade klasöründen.
 
-Seçili dosyaları için TFVC'yi kaynak denetimi tümleştirmesi devre dışı bırakmak için:
+Seçili dosyaları için TFVC ile kaynak denetimi tümleştirmesi devre dışı bırakmak için:
 
-1. Adlı bir klasör oluşturun `.nuget` çözüm klasördeki (burada `.sln` dosyası).
-    - İpucu: Kullanın adı, Windows bu klasörü Windows Gezgini'nde oluşturmak için `.nuget.` *ile* sondaki noktayı.
+1. Adlı bir klasör oluşturun `.nuget` çözüm klasöründe (burada `.sln` dosyasıdır).
+    - İpucu: Windows üzerinde bu klasörü Windows Gezgini'nde oluşturmak için adı kullanın `.nuget.` *ile* nokta karakteri.
 
-1. Bu klasörde adlı bir dosya oluşturun `NuGet.Config` ve düzenlemek için açın.
+1. Bu klasörde adlı bir dosya oluşturun `NuGet.Config` ve düzenleme için açın.
 
-1. Minimum olarak aşağıdaki metni ekleyin nerede [disableSourceControlIntegration](../reference/nuget-config-file.md#solution-section) ayarı bildirir her şeyi atlamak için Visual Studio `packages` klasörü:
+1. Minimum olarak aşağıdaki metni ekleyin burada [disableSourceControlIntegration](../reference/nuget-config-file.md#solution-section) ayarı bildirir her şeyi atlamak için Visual Studio `packages` klasörü:
 
    ```xml
    <?xml version="1.0" encoding="utf-8"?>
@@ -79,9 +78,9 @@ Seçili dosyaları için TFVC'yi kaynak denetimi tümleştirmesi devre dışı b
    </configuration>
    ```
 
-1. TFS 2010 veya önceki bir sürümünü kullanıyorsanız, gizlemek `packages` çalışma eşlemelerinizin klasöründe.
+1. TFS 2010 veya önceki bir sürümü kullanıyorsanız, gizlemek `packages` klasöründe, çalışma alanı eşlemeleri.
 
-1. TFS 2012 veya sonraki sürümünü veya Visual Studio Team Services ile oluşturma bir `.tfignore` dosya açıklandığı gibi [AddFiles sunucuya](/vsts/tfvc/add-files-server.md?view=vsts#tfignore). Bu dosyada yapılan değişiklikler açıkça yoksaymak için aşağıdaki içerik `\packages` depo düzeyi ve diğer birkaç Ara dosyaları klasörü. (Dosya adını kullanarak Windows Gezgini'nde oluşturabileceğiniz bir `.tfignore.` sondaki noktayı, ancak ile devre dışı bırakmak için "Bilinen dosya uzantılarını gizle" ilk seçenek.):
+1. TFS 2012 veya sonraki sürümünü veya Visual Studio Team Services ile oluşturma bir `.tfignore` dosya çubuğunda açıklandığı [sunucuya AddFiles](/vsts/tfvc/add-files-server.md?view=vsts#tfignore). Bu dosyada, açıkça Değişiklikleri yoksaymak için aşağıdaki içeriği içerir `\packages` depo düzey ve diğer birkaç Ara dosyaları klasörü. (Dosya adını kullanarak Windows Gezgini'nde oluşturabileceğiniz bir `.tfignore.` sondaki noktayı ancak siz ile devre dışı bırakmak için "Bilinen dosya uzantıları gizle" ilk seçenek.):
 
    ```cli
    # Ignore NuGet Packages
@@ -100,4 +99,4 @@ Seçili dosyaları için TFVC'yi kaynak denetimi tümleştirmesi devre dışı b
    *.nuget.props
    ```
 
-1. Ekleme `NuGet.Config` ve `.tfignore` kaynak denetimi ve yaptığınız değişiklikleri denetlemek için.
+1. Ekleme `NuGet.Config` ve `.tfignore` kaynak denetimi ve değişikliklerinizi iade edin.

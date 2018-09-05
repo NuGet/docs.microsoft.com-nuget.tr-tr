@@ -1,25 +1,24 @@
 ---
-title: NuGet CLI init komutu
+title: NuGet CLI init komutunu
 description: Nuget.exe init komut başvurusu
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: f4fda33aabd51fbbf0e5559baaa42af065366ba4
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 4441dc3cc35a96736b51867c196313fc9ccfdac2
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817824"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43551416"
 ---
-# <a name="init-command-nuget-cli"></a>Init komutu (NuGet CLI)
+# <a name="init-command-nuget-cli"></a>init komutunu (NuGet CLI)
 
-**Uygulandığı öğe:** paketini oluşturma &bullet; **desteklenen sürümler:** 3.3 +
+**İçin geçerlidir:** paket oluşturma &bullet; **desteklenen sürümler:** 3.3 +
 
-Tüm paketler için açıklandığı gibi hiyerarşik bir düzen kullanarak bir hedef klasöre düz bir klasörden kopyalar [Ekle komutu](cli-ref-add.md). Diğer bir deyişle, kullanarak `init` kullanmakla eşdeğerdir `add` klasöründeki her paketinizdeki komutu.
+Tüm paketler için açıklandığı gibi bir hiyerarşik yerleşim kullanarak bir hedef klasöre kopyalama yapan düz bir klasörden [Ekle komutu](cli-ref-add.md). Diğer bir deyişle, kullanarak `init` kullanmakla eşdeğerdir `add` klasöründeki her paket komutu.
 
-İle `add`, hedef bir yerel klasör veya bir UNC yolu; olmalıdır HTTP paket depoları nuget.org veya özel sunucuları gibi desteklenmez.
+Olduğu gibi `add`, hedef, yerel bir klasöre ya da bir UNC yolu; olmalıdır. Nuget.org veya özel sunucuları gibi HTTP paketinin depoları desteklenmez.
 
 ## <a name="usage"></a>Kullanım
 
@@ -27,20 +26,20 @@ Tüm paketler için açıklandığı gibi hiyerarşik bir düzen kullanarak bir 
 nuget init <source> <destination> [options]
 ```
 
-Burada `<source>` paketleri içeren klasör ve `<destination>` yerel klasör veya UNC pathname paketleri kopyalanır.
+Burada `<source>` paketleri içeren klasör ve `<destination>` yerel klasör veya UNC pathname paketler kopyalanır.
 
 ## <a name="options"></a>Seçenekler
 
 | Seçenek | Açıklama |
 | --- | --- |
 | ConfigFile | Uygulamak için NuGet yapılandırma dosyası. Belirtilmezse, `%AppData%\NuGet\NuGet.Config` (Windows) veya `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) kullanılır.|
-| ForceEnglishOutput | *(3.5 +)*  Değişmez, İngilizce tabanlı kültürü kullanarak çalışacak şekilde nuget.exe zorlar. |
-| Genişletme | Paket kaynağı eklenen her paketindeki tüm dosyaları ekler; aynı `-Expand` ile `add` komutu. |
-| Yardım | Bilgi komutu için yardımı görüntüler. |
-| NonInteractive | Kullanıcı girişi veya onayı için ister gizler. |
-| Ayrıntı Düzeyi | Çıktıda görüntülenen ayrıntı miktarını belirtir: *normal*, *sessiz*, *ayrıntılı*. |
+| ForceEnglishOutput | *(3.5 +)*  Nuget.exe sabit, İngilizce tabanlı bir kültürü kullanarak çalışmaya zorlar. |
+| Genişletin | Paket kaynağı için eklenen her paketteki tüm dosyaları ekler; aynı `-Expand` ile `add` komutu. |
+| Yardım | Bilgi komut için yardımı görüntüler. |
+| NonInteractive | Kullanıcı girişini veya onaylar ister bastırır. |
+| Ayrıntı Düzeyi | Çıktıda gösterilen ayrıntı miktarını belirtir: *normal*, *sessiz*, *ayrıntılı*. |
 
-Ayrıca bkz. [ortam değişkenleri](cli-ref-environment-variables.md)
+Ayrıca bkz: [ortam değişkenleri](cli-ref-environment-variables.md)
 
 ## <a name="examples"></a>Örnekler
 

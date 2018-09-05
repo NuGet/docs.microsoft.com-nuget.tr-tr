@@ -1,38 +1,37 @@
 ---
 title: NuGet 1.3 sürüm notları
-description: NuGet bilinen sorunları, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere 1.3 için sürüm notları.
+description: NuGet bilinen sorunları, hata düzeltmeleri yapıldı, eklenen özellikler ve dcr 1.3 için sürüm notları.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: c0284fe0afb11bf6465897132cccd160674ea3e1
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: fa89af100096356c2ffb4d6c501c4a34296ad0ea
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/26/2018
-ms.locfileid: "31821154"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43551357"
 ---
 # <a name="nuget-13-release-notes"></a>NuGet 1.3 sürüm notları
 
-[NuGet 1.2 sürüm notları](../release-notes/nuget-1.2.md) | [NuGet 1.4 sürüm notları](../release-notes/nuget-1.4.md)
+[NuGet 1.2 sürüm notları](../release-notes/nuget-1.2.md) | [1.4 NuGet sürüm notları](../release-notes/nuget-1.4.md)
 
-NuGet 1.3 25 Nisan 2011'de serbest bırakıldı.
+NuGet 1.3 25 Nisan 2011'de yayınlanmıştır.
 
 ## <a name="new-features"></a>Yeni Özellikler
 
-### <a name="streamlined-package-creation-with-symbol-server-integration"></a>Sembol sunucu Tümleştirmesi ile kolaylaştırılmış paketi oluşturma
+### <a name="streamlined-package-creation-with-symbol-server-integration"></a>Sembol sunucusu tümleştirme kolaylaştırılmış paket oluşturma
 
-NuGet takım işbirliği çok kişi ile [SymbolSource.org](http://www.symbolsource.org/) kaynakları ve PDB'ın yayımlama yanı sıra, paketi gerçekten basit bir yol sunmak için. Bu hata ayıklayıcı paketinize kaynağı adımla tüketicilerin paketinin sağlar. Daha fazla ayrıntı için okuma [oluşturma ve yayımlama sembol paketi](../create-packages/symbol-packages.md) kaynaklarıyla NuGet paketlerini yayımlamak için en kolay yolu. Mix11 konuşun dinamik gösterimini bu özellik derinlemesine NuGet bir parçası olarak da izleyebilirsiniz. Bu özellik, video 20 dakika işaretinde başlatma tam olarak gösterilmiştir.
+NuGet takım iş Birliği yaparak yeni başlayanlar ile [SymbolSource.org](http://www.symbolsource.org/) kaynakları ve PDB'ın yanı sıra, paket yayımlama gerçekten çok basit bir yol sunuyor. Bu, paket hata ayıklayıcı kaynağı adımla tüketicilerin paketinizin sağlar. Daha fazla bilgi edinmek için [oluşturma ve bir sembol Paketi Yayımlama](../create-packages/symbol-packages.md) kaynaklarıyla NuGet paketlerini yayımlamak için kolay bir yol. Mix11 konuşma bir canlı tanıtım bu özelliğin NuGet derinlemesine bir parçası olarak da izleyebilirsiniz. Bu özellik, tam olarak 20 dakikalık video işaretinde gösterilmiştir.
 
-### <a name="open-packagepage-command"></a>`Open-PackagePage` komutu
+### <a name="open-packagepage-command"></a>`Open-PackagePage` Komutu
 
-Bu komut Paket Yöneticisi Konsolu içinden paketinden proje sayfasına almak kolaylaştırır. Ayrıca, lisans URL'sini ve paketi için rapor kötüye sayfası açmak için seçenekler sağlar.
-Komut sözdizimi aşağıdaki gibidir:
+Bu komut Paket Yöneticisi Konsolu içinden bir paket için proje sayfasına ulaşmak kolaylaştırır. Ayrıca, lisans URL'sini ve paket için rapor kötüye sayfasını açmak için seçenekler sağlar.
+Komutu için sözdizimi aşağıdaki gibidir:
 
     Open-PackagePage -Id <string> [-Version] [-Source] [-License] [-ReportAbuse] [-PassThru]
 
-`-PassThru` Seçeneği, belirtilen URL değeri döndürmek için kullanılır.
+`-PassThru` Seçeneği, belirtilen URL değerini döndürmek için kullanılır.
 
 Örnekler:
 
@@ -46,36 +45,36 @@ Ninject paketinde belirtilen lisans URL'sini bir tarayıcı açar.
 
     PM> Open-PackagePage Ninject -ReportAbuse
 
-Rapor Uygunsuz kullanım için belirtilen paket için kullanılan geçerli paket kaynağında URL'sini bir tarayıcı penceresinde açar.
+Uygunsuz kullanımı için belirtilen paket için kullanılan geçerli paket kaynağı URL'SİNDE bir tarayıcı açar.
 
     PM> $url = Open-PackagePage Ninject -License -WhatIf -PassThru
 
-Lisans URL'sini $url değişkenine URL'yi bir tarayıcıda açmadan atar.
+Lisans URL'sini bir tarayıcıda URL'yi açmaya gerek kalmadan $url, değişkenine atar.
 
 ### <a name="performance-improvements"></a>Performans Geliştirmeleri
 
-NuGet 1.3 çok fazla performans geliştirmeleri tanıtır. NuGet 1.3 bir yerel kullanıcı başına önbellek dahil olmak üzere birden çok kez aynı bir paketin sürümü indirme önler. Önbellek erişilen ve paket Yönetimi Ayarları iletişim kutusu temizlenmiş:
+NuGet 1.3 birçok performans geliştirmeleri sunar. Bir yerel kullanıcı başına önbellek dahil olmak üzere birden çok kez aynı sürümüne sahip bir paket indiriliyor NuGet 1.3 önler. Önbellek, erişilebilir ve Paket Yöneticisi Ayarları iletişim kutusu temizlenmiş:
 
-![Paket önbelleği ayarları ile NuGet Seçenekleri iletişim kutusu](./media/nuget-options.png)
+![Paket önbelleği ayarları ile NuGet Seçenekleri iletişim](./media/nuget-options.png)
 
-HTTP sıkıştırma desteği ekleme ve Visual Studio içindeki paketi yükleme hızı artırma diğer performans iyileştirmeleri içerir.
+Diğer performans geliştirmelerine, HTTP sıkıştırma desteği eklemeyi ve Visual Studio içindeki paketi yükleme hızını geliştirmek içerir.
 
-### <a name="visual-studio-and-nugetexe-uses-the-same-list-of-package-sources"></a>Visual Studio ve nuget.exe kullanan paket kaynaklarını aynı listesi
+### <a name="visual-studio-and-nugetexe-uses-the-same-list-of-package-sources"></a>Visual Studio ve nuget.exe kullandığı aynı paket kaynaklarının listesi
 
-NuGet 1.3 önce nuget.exe ve NuGet Visual Studio eklentisi tarafından kullanılan paket kaynaklarını listesi depolanmadığını aynı yerde. NuGet 1.3 artık her iki yerde de aynı listesini kullanır. Listenin depolanan `NuGet.Config` ve AppData klasöründe depolanır.
+NuGet 1.3 önce nuget.exe ve NuGet Visual Studio eklentisi tarafından kullanılan paket kaynaklarının listesi depolanmamış aynı yerde. NuGet 1.3, artık her iki yerde de aynı listesini kullanır. Listenin depolanan `NuGet.Config` ve AppData klasöründe depolanır.
 
-### <a name="nugetexe-ignores-files-and-folders-that-start-with--by-default"></a>nuget.exe yoksayar dosyaları ve başlayın klasörleri '.' varsayılan olarak
+### <a name="nugetexe-ignores-files-and-folders-that-start-with--by-default"></a>nuget.exe dosyaları yoksayar ve ile başlayan Klasörler '.' varsayılan olarak
 
-Bu tür alt sürüme ve Mercurial de kaynak denetimi sistemleriyle iş NuGet yapmak için nuget.exe ile başlayan dosya ve klasörleri yoksayar '.' karakteri paket oluştururken. Bu iki yeni bayrakları kullanılarak geçersiz kılınabilir:
+NuGet Subversion ve Mercurial gibi kaynak denetimi sistemleriyle de çalışır hale getirmek için nuget.exe başlayan dosya ve klasörler yoksayar '.' karakteri paket oluştururken. Bu iki yeni bayrakları kullanılarak geçersiz kılınabilir:
 
-* __-NoDefaultExcludes__ bu ayarını geçersiz kılmak ve tüm dosyaları dahil etmek için kullanılır.
-* __-Hariç__ diğer dosyalar/desen kullanarak hariç tutulacak klasörleri eklemek için kullanılır. Örneğin, '.bak' dosya uzantısına sahip tüm dosyaları dışlayın
+* __-NoDefaultExcludes__ tüm dosyaları içerir ve bu ayarı geçersiz kılmak için kullanılır.
+* __-Hariç__ diğer dosyaları/bir desen kullanarak hariç tutulacak klasörler eklemek için kullanılır. Örneğin, '.bak' dosya uzantısına sahip tüm dosyaları dışarıda bırak
 
 ```
 nuget Pack MyPackage.nuspec -Exclude **\*.bak
 ```  
 
-_Not: düzeni varsayılan özyinelemeli değil._
+_Not: desen varsayılan özyinelemeli değildir._
 
 ### <a name="support-for-wix-projects-and-the-net-micro-framework"></a>WiX projeleri ve mikro .NET Framework desteği
 
@@ -83,9 +82,9 @@ Topluluk Katkıları sayesinde NuGet .NET mikro Framework yanı sıra WiX proje 
 
 ## <a name="bug-fixes"></a>Hata Düzeltmeleri
 
-Hata düzeltmeleri tam bir listesi için lütfen görüntülemek [NuGet sorun İzleyicisi bu sürüm için](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=All&type=All&priority=All&release=NuGet%201.3&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0).
+Hata düzeltmeleri tam bir listesi için lütfen [bu sürüm için NuGet sorun İzleyicisi](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=All&type=All&priority=All&release=NuGet%201.3&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0).
 
-## <a name="bug-fixes-worth-noting"></a>Eşitlenmeyeceği hata düzeltmeleri
+## <a name="bug-fixes-worth-noting"></a>Önemli hata düzeltmeleri
 
-* Her iki Web siteleri ve Web Uygulama projeleri paket kaynak dosyaları ile çalışır.
+* Her iki Web siteleri ve Web Uygulama projeleri paket kaynak dosyaları ile çalışma.
 Web siteleri için kaynak dosyaları içine kopyalanır `App_Code` klasörü

@@ -1,49 +1,48 @@
 ---
-title: NuGet 2.8.2 sürüm notları
-description: Bilinen sorunlar, hata düzeltmeleri, eklenen özellikleri ve dcr NuGet 2.8.2 dahil etmek için sürüm notları.
+title: 2.8.2 NuGet sürüm notları
+description: NuGet 2.8.2 dahil etmek için sürüm notları, sorunları, hata düzeltmeleri, eklenen özellikler ve dcr bilinir.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: a004c250d60a4ed1ca8dede1e83b2a68e10299bf
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: ed22aef6766bbe8e4b688e0587304a18eaeb8895
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/26/2018
-ms.locfileid: "31821336"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43551154"
 ---
-# <a name="nuget-282-release-notes"></a>NuGet 2.8.2 sürüm notları
+# <a name="nuget-282-release-notes"></a>2.8.2 NuGet sürüm notları
 
-[NuGet 2.8.1 ile sürüm notları](../release-notes/nuget-2.8.1.md) | [NuGet 2.8.3 sürüm notları](../release-notes/nuget-2.8.3.md)
+[2.8.1 NuGet sürüm notları](../release-notes/nuget-2.8.1.md) | [NuGet 2.8.3 sürüm notları](../release-notes/nuget-2.8.3.md)
 
-NuGet 2.8.2 22 Mayıs 2014'te yayımlanmıştır.  Bu sürüm yalnızca komut satırı nuget.exe, NuGet.Server paket ve diğer NuGet paketleri yapılan değişiklikler dahil.  Yayın güncelleştirilmiş Visual Studio uzantısı veya WebMatrix genişletmesi içermiyordu.
+NuGet 2.8.2 22 Mayıs 2014'te yayımlanmıştır.  Bu sürüm yalnızca değişiklikleri nuget.exe komut satırı, NuGet.Server paket ve diğer NuGet paketleri dahil.  Yayın, bir Visual Studio Uzantısı'nı güncelleştirilmiş veya WebMatrix genişletmesi içermiyordu.
 
-## <a name="notable-updates"></a>Önemli güncelleştirmeleri
+## <a name="notable-updates"></a>Önemli güncelleştirmeler
 
-Komut satırı nuget.exe ve NuGet.Server paket (kendi kendini barındıran NuGet akışlarını için) en önemli güncelleştirmeleri yoktu.
+Nuget.exe komut satırı ve NuGet.Server paket (şirket içinde barındırılan NuGet akışları için) en önemli güncelleştirmeler yoktu.
 
 ### <a name="important-nugetexe-bug-fixes"></a>Önemli nuget.exe hata düzeltmeleri
 
 1. [nuget.exe gönderme başarısız olur ve yeniden deneniyor tutar](https://nuget.codeplex.com/workitem/4000)
-1. [nuget.exe itme temel kimlik doğrulama kimlik bilgileri doğru biçimde göndermez](https://nuget.codeplex.com/workitem/4109)
-1. [nuget.exe itme geçici yeniden yönlendirme izleyin olmaz](https://nuget.codeplex.com/workitem/4050)
+1. [Temel kimlik doğrulama kimlik bilgileri doğru biçimde göndermez nuget.exe anında iletme](https://nuget.codeplex.com/workitem/4109)
+1. [nuget.exe anında iletme geçici yeniden yönlendirme izleyin gerekmez](https://nuget.codeplex.com/workitem/4050)
 
 ### <a name="important-nugetserver-bug-fix"></a>Önemli NuGet.Server hata düzeltmesi
 
-1. [NuGet.Server tarafından döndürülen IsAbsoluteLatestVersion yanlış değeri](https://nuget.codeplex.com/workitem/4147)
+1. [Yanlış değerini NuGet.Server tarafından döndürülen IsAbsoluteLatestVersion](https://nuget.codeplex.com/workitem/4147)
 
 ## <a name="packages-updated"></a>Güncelleştirme paketleri
 
-NuGet.Server düzeltmeler ve komut satırı nuget.exe NuGet paketi güncelleştirme gönderilir.  Diğer paketleri de 2.8.2 ile güncelleştirilmiş vardı.
+Nuget.exe komut satırı ve NuGet.Server düzeltmeleri NuGet paket güncelleştirmelerini gönderilir.  Diğer paketler de 2.8.2 ile güncelleştirildi vardı.
 
-Güncelleştirilmiş paketleri listesi aşağıdadır:
+Güncelleştirilmiş paket listesi aşağıda verilmiştir:
 
 1. [NuGet.Core](https://www.nuget.org/packages/NuGet.Core/)
 1. [NuGet.CommandLine](https://www.nuget.org/packages/NuGet.CommandLine/)
 1. [NuGet.Server](https://www.nuget.org/packages/NuGet.Server/)
 1. [NuGet.Build](https://www.nuget.org/packages/NuGet.Build/)
-1. [NuGet.VisualStudio](https://www.nuget.org/packages/NuGet.VisualStudio/) (paket, uzantısını değil)
+1. [NuGet.VisualStudio](https://www.nuget.org/packages/NuGet.VisualStudio/) (paket, uzantı)
 
-## <a name="all-changes"></a>Tüm değişiklikleri
-Sürümde ele 10 sorunları vardı. Tam bir listesi için iş öğeleri NuGet 2.8.2, lütfen Görünüm sabit [NuGet sorun İzleyicisi bu sürüm için](https://nuget.codeplex.com/workitem/list/advanced?keyword=&status=All&type=All&priority=All&release=NuGet%202.8.2&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0&reasonClosed=All).
+## <a name="all-changes"></a>Tüm değişiklikler
+Sürümünde giderilen 10 sorunlar oluştu. Tam bir listesi için iş öğeleri Nuget'te 2.8.2, lütfen görünümü sabit [bu sürüm için NuGet sorun İzleyicisi](https://nuget.codeplex.com/workitem/list/advanced?keyword=&status=All&type=All&priority=All&release=NuGet%202.8.2&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0&reasonClosed=All).

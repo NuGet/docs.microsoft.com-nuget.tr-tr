@@ -1,30 +1,29 @@
 ---
 title: NuGet paket adı itiraz çözümleme
-description: NuGet paket yayımcılar markası, ticari markaları ve diğer çakışma durumlarında ilgili arasındaki uyuşmazlıkların çözümü çözmek için işlemi.
+description: NuGet paket yayımlayanlar markası, ticari markalar ve diğer çakışma durumlarında ilgili arasında Anlaşmazlıkların işlemi.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: f7749dec0726162f122db91397e9581cfad23890
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: a2f1fed578f1635296892ab925219f0f27883c02
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817551"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43550378"
 ---
-# <a name="resolving-disputes-over-nuget-package-names"></a>NuGet paket adlarının Anlaşmazlıkların
+# <a name="resolving-disputes-over-nuget-package-names"></a>NuGet paket adları üzerinde Anlaşmazlıkların
 
-Bu makale, topluluk üyeleri olan diğer NuGet yayımcı itirazları çözmek için önerilen çözümleme işlemi sağlar.
+Bu makalede bir önerilen çözümleme işlemi ile diğer NuGet yayımcılar Anlaşmazlıkların çözüm yeri topluluk üyeleri için sunulmaktadır.
 
-Örneğin, Northwind Traders, istemci sürücüleri kendi Web sitesinden indirilebilir bir MSI olarak sağladıkları CRM sistemine yapar varsayalım. Nancy, bağımsız bir geliştirici, Northwind'ın istemci kitaplığı kullanmayı daha kolay yapmak ister ve adlı bir NuGet paketi renge `NorthwindTraders.Client`. Daha sonra Northwind kendi istemci kitaplığı için kendi resmi bir NuGet paketi oluşturmak istiyor ve bu nedenle paket adı Nancy'nin sahipliğini itiraz etmek istiyor musunuz.
+Örneğin, Northwind Traders'ın kendisi için istemci sürücüleri, Web sitesinden indirilebilir bir MSI olarak sağladıkları bir CRM sistemine yapar varsayalım. Nancy, bağımsız bir geliştirici, Northwind'ın istemci kitaplığını kullanmak daha kolay hale getirmek istediği ve adlı bir NuGet paketi kapatır `NorthwindTraders.Client`. Daha sonra Northwind kendi istemci kitaplığı kendi resmi bir NuGet paketi oluşturmak istiyor ve böylece paket adı Nancy'nin sahipliğini itiraz istiyorsunuz.
 
-Bu senaryoda, Nancy kötü amaçları ile hareket görünmez, ancak yerine Northwind'ın Araçlar ve müşteriler kendi saat ve kod katkıda bulunarak destekliyor. Aynı anda Northwind Northwind adı yasal sahibidir.
+Bu senaryoda, Nancy kötü amaçları ile çalışan olması için görünmez, ancak yerine Northwind'ın araçları ve müşterilerin kendi saat ve kod katkıda bulunarak destekliyor. Aynı zamanda, Northwind Northwind adının yasal sahibi ' dir.
 
-Geliştirici topluluğu hizmet veren her ikisi de ilgileniyor çünkü aşağıdaki işlemi izleyerek, Northwind ve Nancy birlikte uygun bir çözüm çalışabilirsiniz. Genellikle söz konusu hale gelmesi için NuGet ekibi gerekli değildir; İşbirliği genellikle en iyi çalışır. Aslında, tarih NuGet ekibinin dikkatini için duruma her itiraz karar geçmesi gerek takım çalışmıştır.
+Her ikisi de Geliştirici topluluğu hizmet içinde ilgilenen çünkü aşağıdaki işlemi izleyerek, Northwind ve Nancy birlikte uygun bir çözüm için çalışabilir. Genellikle dahil olmak NuGet ekibi için gerekli değildir; işbirliği, genellikle en iyi çalışır. Aslında, tarih NuGet takımın dikkat için her itiraz yükümlülükten geçmesi gerek olmayan takım yarar.
 
 ## <a name="process"></a>İşlem
 
-1. Sahipleri başvurun paketi kullanarak itiraz sahip **kişi sahipleri** bağlantı paketi ayrıntıları sayfasında. Tür ve doğrudan şekilde sorununuzu açıklayın.
-2. İletinin bir kopyasını göndermek [ support@nuget.org ](mailto:support@nuget.org) NuGet ve .NET Foundation, itiraz farkında olmasını sağlamak.
-3. En fazla bir çözüm için 30 gün bekleyin, sonra bildirim [ support@nuget.org ](mailto:support@nuget.org) yeniden. Nuget.org destek ekibi katın ve İtiraz her iki taraf ile çalışmak deneyin.
+1. Sahipleriyle temas paketi kullanarak itiraz sahip **kişi sahipleri** Paket Ayrıntıları sayfasındaki bağlantı. Sorununuzu bir tür ve doğrudan bir şekilde açıklamaktadır.
+2. İletiniz için bir kopyasını gönderip [ support@nuget.org ](mailto:support@nuget.org) NuGet ve .NET Foundation, itiraz uyumlu olmasını sağlamak.
+3. En fazla 30 gün içinde bir çözüm için bekleyin ve sonra bildirim [ support@nuget.org ](mailto:support@nuget.org) yeniden. Nuget.org Destek ekibine katılın ve İtiraz her iki taraf ile çalışacak şekilde deneyin.

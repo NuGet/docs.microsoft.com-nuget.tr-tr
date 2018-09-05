@@ -1,23 +1,22 @@
 ---
 title: NuGet CLI Listele komutu
-description: Başvuru için nuget.exe Listele komutu
+description: Nuget.exe Listele komutu için başvuru
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: b0f144d8abbba7388fe39cd113e4eeddccbca2c6
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 61294f4c9d85336dc8b718fd66b236c692bab00e
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818444"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43549807"
 ---
-# <a name="list-command-nuget-cli"></a>LIST komutu (NuGet CLI)
+# <a name="list-command-nuget-cli"></a>Liste komut (NuGet CLI)
 
-**Uygulandığı öğe:** paket tüketim, yayımlama &bullet; **desteklenen sürümler:** tüm
+**İçin geçerlidir:** paket tüketim, yayımlama &bullet; **desteklenen sürümler:** tüm
 
-Belirli bir kaynaktan alınan paketlerin listesini görüntüler. Herhangi bir kaynağa belirtilirse, genel yapılandırma dosyasında tanımlanmış tüm kaynakları `%AppData%\NuGet\NuGet.Config` (Windows) veya `~/.nuget/NuGet/NuGet.Config`, kullanılır. Varsa `NuGet.Config` herhangi bir kaynağa sonra belirtir `list` varsayılan akışı (nuget.org) kullanır.
+Paketlerin belirli bir kaynaktan bir listesini görüntüler. Kaynağı yok belirtilirse, genel yapılandırma dosyasında tanımlanan tüm kaynakları `%AppData%\NuGet\NuGet.Config` (Windows) veya `~/.nuget/NuGet/NuGet.Config`, kullanılır. Varsa `NuGet.Config` kaynağı yok, ardından belirtir `list` varsayılan akışı (nuget.org) kullanır.
 
 ## <a name="usage"></a>Kullanım
 
@@ -25,23 +24,23 @@ Belirli bir kaynaktan alınan paketlerin listesini görüntüler. Herhangi bir k
 nuget list [search terms] [options]
 ```
 
-Burada isteğe bağlı arama terimleri görüntülenen listeyi filtrelemek. Nuget.org üzerinde kullanırken, olduğu gibi arama terimlerini paketler, etiketler ve paket açıklamaları adlarını uygulanır.
+İsteğe bağlı arama terimlerini görüntülenen listeyi filtrelemek burada. Bunları nuget.org adresinden kullanırken olduğu gibi arama terimlerini paketleri, etiketleri ve açıklamaları paket adları için uygulanır.
 
 ## <a name="options"></a>Seçenekler
 
 | Seçenek | Açıklama |
 | --- | --- |
-| AllVersions | Bir paketin tüm sürümleri listelenir. Varsayılan olarak, yalnızca son Paket sürümü görüntülenir. |
+| AllVersions | Bir paketin tüm sürümlerini listeler. Varsayılan olarak, yalnızca en son Paket sürümü görüntülenir. |
 | ConfigFile | Uygulamak için NuGet yapılandırma dosyası. Belirtilmezse, `%AppData%\NuGet\NuGet.Config` (Windows) veya `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) kullanılır.|
-| ForceEnglishOutput | *(3.5 +)*  Değişmez, İngilizce tabanlı kültürü kullanarak çalışacak şekilde nuget.exe zorlar. |
-| Yardım | Bilgi komutu için yardımı görüntüler. |
+| ForceEnglishOutput | *(3.5 +)*  Nuget.exe sabit, İngilizce tabanlı bir kültürü kullanarak çalışmaya zorlar. |
+| Yardım | Bilgi komut için yardımı görüntüler. |
 | IncludeDelisted | *(3.2 +)*  Listelenmemiş paketleri görüntüler. |
-| NonInteractive | Kullanıcı girişi veya onayı için ister gizler. |
-| Yayın öncesi | Ön sürüm paketlerini listede içerir. |
-| Kaynak | Aranacak paket kaynaklarının listesini belirtir. |
-| Ayrıntı Düzeyi | Çıktıda görüntülenen ayrıntı miktarını belirtir: *normal*, *sessiz*, *ayrıntılı*. |
+| NonInteractive | Kullanıcı girişini veya onaylar ister bastırır. |
+| Yayın öncesi | Yayın öncesi paketleri listesine ekler. |
+| Kaynak | Aranacak paket kaynaklarını listesini belirtir. |
+| Ayrıntı Düzeyi | Çıktıda gösterilen ayrıntı miktarını belirtir: *normal*, *sessiz*, *ayrıntılı*. |
 
-Ayrıca bkz. [ortam değişkenleri](cli-ref-environment-variables.md)
+Ayrıca bkz: [ortam değişkenleri](cli-ref-environment-variables.md)
 
 ## <a name="examples"></a>Örnekler
 

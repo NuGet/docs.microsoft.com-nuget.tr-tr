@@ -1,70 +1,69 @@
 ---
 title: NuGet 3.4 sürüm notları
-description: Bilinen sorunlar, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere NuGet 3.4 için sürüm notları.
+description: NuGet 3.4 bilinen sorunları, hata düzeltmeleri yapıldı, eklenen özellikler ve dcr için sürüm notları.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 3f2a945b628022bdcc6e69a7a4b1be6c53b65626
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 77c0117fc40031a327e8dcb0aac5cd4045239e97
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/26/2018
-ms.locfileid: "31820478"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43551197"
 ---
 # <a name="nuget-34-release-notes"></a>NuGet 3.4 sürüm notları
 
-[NuGet 3.4 RC sürüm notları](../release-notes/nuget-3.4-RC.md) | [NuGet 3.4.1 sürüm notları](../release-notes/nuget-3.4.1.md)
+[NuGet 3.4 RC sürüm notları](../release-notes/nuget-3.4-RC.md) | [3.4.1 NuGet sürüm notları](../release-notes/nuget-3.4.1.md)
 
-NuGet 3.4 30 Mart 2016 Visual Studio 2015 güncelleştirme 2 ve Visual Studio 15 Preview sürümü bir parçası olarak yayımlanmıştır ve minds içinde birkaç tenets ile oluşturuldu:
+NuGet 3.4, 30 Mart 2016'dan Visual Studio 2015 güncelleştirme 2 ve Visual Studio 15 Preview sürümü bir parçası olarak yayımlanmıştır ve aklını içinde birkaç sacayakları derlendiği:
 
-* Platformlar arası desteği
+* Platformlar arası destek
 * Performans iyileştirmeleri
-* İkincil UI geliştirmeleri
+* Küçük bir kullanıcı Arabirimi geliştirmeleri
 
-Aşağıdaki özellikler RC önceden eklendi ve güncelleştirildi veya 3.4 sürüm için tamamlandı:
+Aşağıdaki özellikler RC'de daha önce eklenen ve güncelleştirildi veya 3.4 sürümü için tamamlandı:
 
 ## <a name="new-features"></a>Yeni Özellikler
 
-* Gzip içerik kodlamasına depoları gelen NuGet istemcileri artık destekler
+* NuGet istemcileri artık gzip içerik kodlamasını depolarından destekler
 * Xproj projelerindeki paketlerden PDB'leri için destek
-* İOS ve Android derleme eylemleri contentFiles öğesindeki desteği
-* Netstandard ve netstandardapp bilinen adları framework adları için destek
+* Derleme eylemleri contentFiles öğesinde iOS ve Android desteği
+* Netstandard ve netstandardapp framework bilinen adlar için destek
 
 ## <a name="new-user-interface-features"></a>Yeni kullanıcı arabirimi özellikleri
 
-* Özellikle, yüklü, güncelleştirmeleri ve birleştirme sekmelerde önemli performans geliştirmeleri
-* Birleşik 'Tüm paket kaynaklarını' kaynak uygun arama sonucu birleştirme ile kullanılabilir
-* Yüklü ve güncelleştirmeleri sekmeler şimdi alfabetik olarak sıralanır.
-* Yenilenecek bir arama özelliğine imkan tanıyan bir Yenile düğmesini eklendi
-* Sürüm listenin en son derleme seçenekleri
+* Yüklü, güncelleştirmeleri ve birleştirme sekmelerinde özellikle önemli performans geliştirmeleri
+* Toplama 'Tüm paket kaynakları' kaynak uygun arama sonucu birleştirme ile kullanılabilir
+* Yüklü ve güncelleştirmeleri sekmeleri artık alfabetik olarak sıralanır.
+* Sağlayan bir arama yenilenmesi yenile düğmesine eklendi
+* Sürüm listenin üst kısmındaki en son derleme seçenekleri
 
-## <a name="updates-and-improvements"></a>Güncelleştirmeleri ve geliştirmeleri
+## <a name="updates-and-improvements"></a>Güncelleştirmeler ve iyileştirmeler
 
-* Başvurulan paketleri `project.json` sahip bir kayan sürüm üzerinde her yapı güncelleştirmez. Bunun yerine, bunlar yalnızca geri yükleme, temizleme, yeniden oluşturmak veya değiştirmek için zorlandığında güncelleştirecektir `project.json`.
-* NuGet yapılandırma kullanıcı Arabirimi kullandığınızda nuget.org depo kaynakları artık bir proje yapılandırma zorlanır.
-* Artık NuGet paketleri paylaşılan projelerinde yükler veya kilit dosyası yazar.
-* Biz, ağ hatası geliştirildi ve işleme erişilemiyor veya yanıt ile yavaş sunucuları için yeniden deneyin.
-* Klavye ve fare davranışları Visual Studio Paket Yöneticisi Arabiriminde geliştirildi.
-* En son artık desteklenmektedir `project.json` DNX şemada.
+* Başvurulan paketleri `project.json` sahip kayan sürüm her derleme üzerinde güncelleştirmez. Bunun yerine, bunlar yalnızca geri yükleme, temizleme, yeniden oluşturmak veya değiştirmek için zorlandığında güncelleştirecek `project.json`.
+* NuGet Yapılandırması kullanıcı Arabirimi kullandığınızda nuget.org depo kaynakları artık bir proje yapılandırması zorlanır.
+* NuGet artık paylaşılan projelerde paketleri geri yükler veya bir kilit dosyası yazar.
+* Biz, ağ hatası geliştirdik ve işleme erişilemiyor veya yanıt ile yavaş sunucuları için yeniden deneyin.
+* Klavye ve fare davranışlar Visual Studio Paket Yöneticisi Arabiriminde geliştirildi.
+* En son artık desteklenmektedir `project.json` DNX şemasında.
 
 ## <a name="breaking-changes"></a>Yeni Değişiklikler
 
-* Paket sürüm numaralarını şimdi biçimine normalleştirilmiş *ana*. *küçük*. *Düzeltme Eki*-*ön* her birincil, ikincil ve düzeltme eki tamsayı olarak kabul edilir ve hiçbir 2f3b bırakın.  Yayın öncesi bilgiler bir dize olarak kabul edilir ve hiçbir değişiklik için uygulanır. Bu sayı sorgularda NuGet istemcileri ve nuget.org hizmeti tarafından sağlanan arama tarafından kullanılır.  Daha fazla ayrıntı NuGet belgeleri altında bulunabilir [yayın öncesi sürümleri](../create-packages/prerelease-packages.md).
+* Paket sürüm numaraları artık biçimine normalleştirilmiş *ana*. *küçük*. *Düzeltme Eki*-*ön* her birincil, ikincil ve düzeltme eki tamsayı olarak kabul edilir ve hiçbir 2f3b bırakın.  Yayın öncesi bilgiler bir dize olarak kabul edilir ve değişiklikler için uygulanmaz. Bu numaraları NuGet istemcileri ve nuget.org hizmet tarafından sağlanan arama sorguları kullanılır.  NuGet belgeleri altında daha fazla ayrıntı bulunabilir [yayın öncesi sürümler](../create-packages/prerelease-packages.md).
 
 ## <a name="known-issues"></a>Bilinen Sorunlar
 
-* **Sorun:** sorunları veya hatta bir Visual Studio kilitlenme Visual Studio'da Powershell ile aşağıdaki senaryolarda Windows 10 v1511 kullanıcılar karşılaşabilirsiniz:
-    * Yükleme / kaldırma install.ps1 sahip paketleri / uninstall.ps1 komut dosyaları
-    * Init.ps1 betiği (gibi EntityFramework) projeleri yükleniyor
-    * Yayımlama web içeriği
+* **Sorun:** sorunları veya hatta bir Visual Studio kilitlenmesi Visual Studio'da Powershell ile aşağıdaki senaryolarda Windows 10 v1511 kullanıcıları karşılaşabilirsiniz:
+    * Yükleme / kaldırma install.ps1 olan paketleri / uninstall.ps1 betikleri
+    * (EntityFramework gibi) bir init.ps1 betiği içeren projeleri yükleniyor
+    * Web içerik yayımlama
 
-* **Geçici çözüm:** Windows 10 yüklemenizi uygulanan en son düzeltme eklerini, expecially (KB 3124263) Ocak 2016 veya sonraki bir güncelleştirme olduğundan emin olun.  Daha fazla ayrıntı kullanılabilir [GitHub sorunu #1638](http://github.com/nuget/home/issues/1638)
+* **Geçici çözüm:** Windows 10 yüklemenizi uygulanan en son düzeltme eklerinin, expecially Ocak 2016 (KB 3124263) veya daha yeni bir güncelleştirme olduğundan emin olun.  Daha fazla bilgi edinilebilir [GitHub sorunu #1638](http://github.com/nuget/home/issues/1638)
 
 * **Sorun:** NuGet v2 protokolü yeniden yönlendirmeleri bozuk.
 İstekleri alternatif bir konağa yönlendiren özel NuGet depoları, yeniden yönlendirme isteğini yerine getirmiyor.
-* **Geçici çözüm:** bu sorunu çözmek için ayarlardaki Paket Deposu URI yeniden yönlendirilen sunucu konumunu gösterecek şekilde yapılandırın.
-Daha fazla bilgi için bkz: [GitHub çekme isteği #387](https://github.com/NuGet/NuGet.Client/pull/387).
+* **Geçici çözüm:** bu sorunu çözmek için yeniden yönlendirilen sunucu konumunu gösterecek şekilde ayarlardaki Paket Deposu URI yapılandırın.
+Daha fazla bilgi için [GitHub çekme isteği #387](https://github.com/NuGet/NuGet.Client/pull/387).
 
-Bizim GitHub sorunları listedeki konumunda bulunan sorunları izlemek devam: [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)
+Şurada bulunabilir bizim GitHub sorunlar listesinde sorunları izlemek devam ediyoruz: [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)

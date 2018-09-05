@@ -1,25 +1,24 @@
 ---
-title: NuGet CLI restore komutu
-description: Nuget.exe restore komutu için başvurusu
+title: CLI NuGet restore komutu
+description: Nuget.exe restore komutu için başvuru
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 4df7685883fea78428c6744bdbf4c66d83e469bc
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 06e3a26863761b7e7a42752866e7fe369f5be4ef
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817924"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43550358"
 ---
 # <a name="restore-command-nuget-cli"></a>Restore komutu (NuGet CLI)
 
-**Uygulandığı öğe:** paketini tüketim &bullet; **desteklenen sürümler:** 2.7 +
+**İçin geçerlidir:** paketini tüketim &bullet; **desteklenen sürümler:** 2.7 +
 
-İndirir ve gelen eksik paketleri yükler `packages` klasör. NuGet 4.0 + ve PackageReference biçimi ile kullanıldığında, oluşturan bir `<project>.nuget.props` , gerekirse, dosya `obj` klasör. (Dosyası kaynak denetiminden atlanabilir.)
+İndirir ve yükler gelen eksik herhangi bir paket `packages` klasör. NuGet 4.0 + ve PackageReference biçimi ile kullanıldığında, oluşturur bir `<project>.nuget.props` buna gerekirse dosya `obj` klasör. (Dosyanın kaynak denetiminden atlanabilir.)
 
-Mac OSX ve Linux Mono üzerinde CLI ile paketleri geri PackageReference ile desteklenmiyor.
+Mac OSX ve Linux üzerinde Mono CLI ile paketleri geri yükleme ile PackageReference desteklenmiyor.
 
 ## <a name="usage"></a>Kullanım
 
@@ -27,59 +26,59 @@ Mac OSX ve Linux Mono üzerinde CLI ile paketleri geri PackageReference ile dest
 nuget restore <projectPath> [options]
 ```
 
-Burada `<projectPath>` bir çözüm konumunu belirtir veya `packages.config` dosyası. Bkz: [açıklamalar](#remarks) aşağıda davranış Ayrıntılar için.
+Burada `<projectPath>` çözümün konumunu belirtir veya `packages.config` dosya. Bkz: [açıklamalar](#remarks) aşağıdaki davranış Ayrıntılar için.
 
 ## <a name="options"></a>Seçenekler
 
 | Seçenek | Açıklama |
 | --- | --- |
 | ConfigFile | Uygulamak için NuGet yapılandırma dosyası. Belirtilmezse, `%AppData%\NuGet\NuGet.Config` (Windows) veya `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) kullanılır.|
-| DirectDownload | *(4.0 +)*  Doğrudan önbellekleri herhangi bir ikili dosyaları veya meta veri ile doldurma olmadan paketleri yükler. |
-| DisableParallelProcessing | Paralel olarak birden çok paket geri yükleme devre dışı bırakır. |
-| FallbackSource | *(3.2 +)*  Paket birincil bulunamadığında durumunda geri dönüşler kullanmak için paket kaynaklarının listesi veya varsayılan kaynak. |
-| ForceEnglishOutput | *(3.5 +)*  Değişmez, İngilizce tabanlı kültürü kullanarak çalışacak şekilde nuget.exe zorlar. |
-| Yardım | Bilgi komutu için yardımı görüntüler. |
-| MSBuildPath | *(4.0 +)*  Öncelik Alma komutuyla kullanmak için MSBuild yolunu belirtir `-MSBuildVersion`. |
-| MSBuildVersion | *(3.2 +)*  Bu komutla birlikte kullanılacak MSBuild sürümünü belirtir. Değerleri, 4, 12, 14, 15 desteklenir. MSBuild yolda çekilir varsayılan olarak, aksi takdirde MSBuild yüksek yüklü sürümü varsayar. |
-| NoCache | NuGet kullanarak önbelleğe alınmış paketleri engeller. Bkz: [genel paketleri ve önbellek klasör yönetimi](../consume-packages/managing-the-global-packages-and-cache-folders.md). |
-| NonInteractive | Kullanıcı girişi veya onayı için ister gizler. |
-| OutputDirectory | Paketleri yüklendiği klasörü belirtir. Bir klasör bulunmadığından belirtilmezse, geçerli klasörde kullanılır. İle geri yüklerken gerekli bir `packages.config` sürece dosya `PackagesDirectory` veya `SolutionDirectory` kullanılır.|
-| PackageSaveMode | Paket yüklendikten sonra kaydetmek için dosya türlerini belirtir: biri `nuspec`, `nupkg`, veya `nuspec;nupkg`. |
-| PackagesDirectory | Aynı `OutputDirectory`. İle geri yüklerken gerekli bir `packages.config` sürece dosya `OutputDirectory` veya `SolutionDirectory` kullanılır. |
-| Project2ProjectTimeOut | Proje proje başvurularını çözümlemek için saniye cinsinden zaman aşımı. |
-| Özyinelemeli | *(4.0 +)*  UWP ve .NET Core projeleri için tüm başvurular projeleri geri yükler. Kullanarak projeleri için geçerli değildir `packages.config`. |
-| RequireConsent | Paketleri geri indirme ve yükleme paketleri önce etkin olduğunu doğrular. Ayrıntılar için bkz [paketi geri yüklemesi](../consume-packages/package-restore.md). |
-| SolutionDirectory | Çözüm klasörü belirtir. Bir çözüm için paketleri geri yüklenirken geçerli değil. İle geri yüklerken gerekli bir `packages.config` sürece dosya `PackagesDirectory` veya `OutputDirectory` kullanılır. |
-| Kaynak | Paket kaynaklarını listesini geri yüklemek için kullanılacak (URL'ler olarak) belirtir. Belirtilmezse, komut yapılandırma dosyalarında sağlanan kaynakları kullanır, bkz: [NuGet yapılandırma davranışı](../consume-packages/configuring-nuget-behavior.md). |
-| Ayrıntı Düzeyi |> çıktıda görüntülenen ayrıntı miktarını belirtir: *normal*, *sessiz*, *ayrıntılı*. |
+| DirectDownload | *(4.0 +)*  Doğrudan önbellekler herhangi bir ikili dosyaları veya meta veri ile doldurma olmadan paketleri indirir. |
+| DisableParallelProcessing | Paralel birden çok paket geri yüklemeyi devre dışı bırakır. |
+| FallbackSource | *(3.2 +)*  Paketi birincil bulunamadığında durumunda geri dönüşler kullanmak için paket kaynaklarının bir listesini ya da varsayılan kaynak. |
+| ForceEnglishOutput | *(3.5 +)*  Nuget.exe sabit, İngilizce tabanlı bir kültürü kullanarak çalışmaya zorlar. |
+| Yardım | Bilgi komut için yardımı görüntüler. |
+| MSBuildPath | *(4.0 +)*  Önceliği alma komutu ile kullanılacak MSBuild yolunu belirtir `-MSBuildVersion`. |
+| MSBuildVersion | *(3.2 +)*  Bu komutla birlikte kullanılacak MSBuild sürümünü belirtir. Desteklenen değerler şunlardır: 4, 12, 14, 15. Yolunuza Msbuild'de çekilir varsayılan olarak, aksi takdirde MSBuild yüksek yüklü sürümü varsayar. |
+| NoCache | NuGet, önbelleğe eklenen paketler kullanmasını önler. Bkz: [genel paketleri ve önbellek klasörlerini yönetme](../consume-packages/managing-the-global-packages-and-cache-folders.md). |
+| NonInteractive | Kullanıcı girişini veya onaylar ister bastırır. |
+| OutputDirectory | Paket yüklendiği klasörünü belirtir. Klasör belirtilirse, geçerli klasörde kullanılır. İle geri yükleme sırasında gerekli bir `packages.config` sürece dosya `PackagesDirectory` veya `SolutionDirectory` kullanılır.|
+| PackageSaveMode | Paket yükleme sonrasında kaydedilecek dosya türlerini belirtir: biri `nuspec`, `nupkg`, veya `nuspec;nupkg`. |
+| PackagesDirectory | Aynı `OutputDirectory`. İle geri yükleme sırasında gerekli bir `packages.config` sürece dosya `OutputDirectory` veya `SolutionDirectory` kullanılır. |
+| Project2ProjectTimeOut | Projeden projeye başvuruları çözümlemek için saniye cinsinden zaman aşımı. |
+| özyinelemeli | *(4.0 +)*  UWP ve .NET Core projeleri için tüm başvuruları projeleri geri yükler. Kullanarak projeleri için geçerli değildir `packages.config`. |
+| RequireConsent | Paketleri geri yükleme ve paketleri yüklemeden önce etkin olduğunu doğrular. Ayrıntılar için bkz [paketi geri yüklemeyi](../consume-packages/package-restore.md). |
+| SolutionDirectory | Çözüm klasörü belirtir. Bir çözüm için paketler geri yüklenirken geçerli değil. İle geri yükleme sırasında gerekli bir `packages.config` sürece dosya `PackagesDirectory` veya `OutputDirectory` kullanılır. |
+| Kaynak | Paket kaynaklarının listesi, geri yüklemek için kullanılacak (URL'ler) belirtir. Atlanırsa, komut yapılandırma dosyalarında sağlanan kaynakları kullanır, bkz: [yapılandırma NuGet davranışını](../consume-packages/configuring-nuget-behavior.md). |
+| Ayrıntı Düzeyi |> çıktıda gösterilen ayrıntı miktarını belirtir: *normal*, *sessiz*, *ayrıntılı*. |
 
-Ayrıca bkz. [ortam değişkenleri](cli-ref-environment-variables.md)
+Ayrıca bkz: [ortam değişkenleri](cli-ref-environment-variables.md)
 
 ## <a name="remarks"></a>Açıklamalar
 
-Restore komutu aşağıdaki adımları gerçekleştirir:
+Restore komutu, aşağıdaki adımları gerçekleştirir:
 
 1. Restore komutu, işlem modunu belirler.
 
    | projectPath dosya türü | Davranış |
    | --- | --- |
-   | Çözüm (klasör) | NuGet arar bir `.sln` dosya ve aksi takdirde bir hata verir kullanır. `(SolutionDir)\.nuget` Başlangıç klasörü olarak kullanılır. |
-   | `.sln` Dosya | Çözümü tarafından tanımlanan paketler geri; bir hata durumunda verir `-SolutionDirectory` kullanılır. `$(SolutionDir)\.nuget` Başlangıç klasörü olarak kullanılır. |
-   | `packages.config` ya da proje dosyası | Çözümleme ve bağımlılıkları yükleme dosyasında listelenen paketler geri yükleyin. |
-   | Başka bir dosya türü | Dosya olduğu varsayılır bir `.sln` dosya olarak yukarıdaki; yoksa bir çözüm, bir hata NuGet sağlar. |
-   | (belirtilmezse projectPath) | <ul><li>NuGet geçerli klasörde çözüm dosyalarını arar. Tek bir dosyada bulunursa, bir paketlerini geri yüklemek için kullanılır; birden çok çözüm bulunursa, NuGet hata verir.</li><li>Çözüm dosya yoksa NuGet arayan bir `packages.config` ve bunu paketlerini geri yüklemek için kullanır.</li><li>Çözüm varsa veya `packages.config` dosya bulunduğunda, NuGet hata verir.</ul> |
+   | Çözüm (klasör) | NuGet arar bir `.sln` dosya ve aksi takdirde bir hata verir kullanır. `(SolutionDir)\.nuget` Başlangıç klasörü kullanılır. |
+   | `.sln` Dosya | Çözüm tarafından tanımlanan paketleri geri yüklenmesi; varsa bir hata verir `-SolutionDirectory` kullanılır. `$(SolutionDir)\.nuget` Başlangıç klasörü kullanılır. |
+   | `packages.config` ya da proje dosyası | Çözümleme ve Bağımlılıkların yüklenmesi dosyada listelenen paketleri geri yükleyin. |
+   | Başka bir dosya türü | Dosya olduğu varsayılır bir `.sln` dosya olarak yukarıdaki; NuGet verir hata bir çözüm değilse. |
+   | (belirtilmemiş projectPath) | <ul><li>NuGet, geçerli klasörde çözüm dosyalarını arar. Tek bir dosya bulunamazsa, bu paketleri geri yüklemek için kullanılır; birden fazla çözüm bulundu, NuGet bir hata verir.</li><li>Hiçbir çözüm dosyası varsa, NuGet arayan bir `packages.config` ve bu paketleri geri yüklemek için kullanır.</li><li>Hiçbir çözüm varsa veya `packages.config` dosya bulundu, NuGet bir hata verir.</ul> |
 
-2. (Hiçbiri bu klasörlerin bulunmazsa NuGet hata verir) aşağıdaki öncelik sırasını kullanarak paketler klasörü belirleyin:
+2. (Bu klasörleri hiçbiri bulunursa NuGet bir hata verir) aşağıdaki öncelik sırasını kullanarak packages klasörünü belirleyin:
 
-    - İle belirtilen klasör `-PackagesDirectory`.
-    - `repositoryPath` Hyperlink içinde `Nuget.Config`
-    - İle belirtilen klasör `-SolutionDirectory`
+    - Belirtilen klasör `-PackagesDirectory`.
+    - `repositoryPath` Yü içinde `Nuget.Config`
+    - Belirtilen klasör `-SolutionDirectory`
     - `$(SolutionDir)\packages`
 
-3. Bir çözüm için paketleri geri yüklenirken NuGet şunları yapar:
-    - Çözüm dosyasını yükler.
-    - Listelenen çözüm düzeyi paketlerini yükler `$(SolutionDir)\.nuget\packages.config` içine `packages` klasör.
-    - Listelenen paketler geri `$(ProjectDir)\packages.config` içine `packages` klasör. Belirtilen her paket için paket paralel sürece geri `-DisableParallelProcessing` belirtilir.
+3. Bir çözüm için paketler geri yüklerken, NuGet şunları yapar:
+    - Çözüm dosyası yükler.
+    - Listelenen çözüm düzeyinde paketleri geri yükler `$(SolutionDir)\.nuget\packages.config` içine `packages` klasör.
+    - Listelenen paketlerin geri `$(ProjectDir)\packages.config` içine `packages` klasör. Belirtilen her paket için paket paralel sürece geri yükleme `-DisableParallelProcessing` belirtilir.
 
 ## <a name="examples"></a>Örnekler
 
