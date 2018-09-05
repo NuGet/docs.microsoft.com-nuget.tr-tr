@@ -1,62 +1,61 @@
 ---
-title: Hizmet dizini, NuGet API
-description: Hizmet dizini NuGet HTTP API giriş noktasıdır ve sunucu özelliklerini numaralandırır.
+title: API NuGet hizmet dizini
+description: Hizmet dizini NuGet HTTP API'sinin giriş noktasıdır ve sunucu yeteneklerini numaralandırır.
 author: joelverhagen
 ms.author: jver
-manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 84e623e8480e4d17edad2ec3b2da6dcb6e53d21b
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 478b74f98caafdc7c6b69423b9f9d72890c8d7cb
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/26/2018
-ms.locfileid: "31822100"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43545263"
 ---
 # <a name="service-index"></a>Hizmet dizini
 
-NuGet paket kaynağı için giriş noktasıdır ve paket kaynağının özellikleri bulmak bir istemci uygulaması izin veren bir JSON belgesi hizmet dizinidir. İki gerekli özellikleri olan bir JSON nesnesi hizmet dizinidir: `version` (hizmeti dizini şema sürümü) ve `resources` (uç noktaları veya paket kaynağının özelliklerini).
+Hizmet dizini NuGet paket kaynağı için giriş noktası ve bir istemci uygulama paket kaynağının özelliklerini hemen bulmasına izin veren bir JSON belgesidir. Hizmet dizini iki gerekli özelliklere sahip bir JSON nesnesidir: `version` (hizmet dizini şema sürümü) ve `resources` (uç noktaları veya paket kaynağının özellikleri).
 
-nuget.org Hizmeti dizini adresindedir `https://api.nuget.org/v3/index.json`.
+nuget.org hizmet dizini adresindedir `https://api.nuget.org/v3/index.json`.
 
 ## <a name="versioning"></a>Sürüm oluşturma
 
-`version` Hizmeti dizini şema sürümü gösteren bir SemVer 2.0.0 parseable sürüm dizesi değeridir. Sürüm dizesi bir ana sürüm numarası olan API olması zorunlu tutulmuştur `3`. Hizmet dizin şemasına yapılan bölünemez değişiklikler gibi sürüm dizesinin alt sürümü artırılır.
+`version` Hizmet dizini şema sürümünü gösteren bir SemVer 2.0.0 parseable sürüm dizesi değeridir. API sürüm dizesi bir ana sürüm numarasını sahip olduğunu taahhütlerin `3`. Hizmet dizin şeması için hataya neden olmayan değişiklikler yapıldıkça, sürüm dizesinin alt sürümü artırılır.
 
-Her hizmet dizindeki bağımsız olarak hizmet dizin şeması sürümünden sürümlü kaynaktır.
+Her hizmet dizinindeki bağımsız olarak hizmet dizin şema sürümünden tutulan bir kaynaktır.
 
-Geçerli şema sürümü `3.0.0`. `3.0.0` Sürümü eski işlevsel olarak eşdeğer `3.0.0-beta.1` sürüm ancak kararlı, tanımlı şemanın daha net bir şekilde iletişim kurar tercih edilen olması gerekir.
+Geçerli şema sürümü `3.0.0`. `3.0.0` Sürümüdür eski işlevsel olarak eşdeğer `3.0.0-beta.1` sürüm ancak kararlı, tanımlı bir şema daha net bir şekilde iletişim kuran olarak tercih edilen olmalıdır.
 
 ## <a name="http-methods"></a>HTTP yöntemleri
 
-Hizmet dizini HTTP yöntemleri kullanılarak erişilebilir olduğundan `GET` ve `HEAD`.
+Hizmet dizini, HTTP yöntemleri kullanılarak erişilebilir `GET` ve `HEAD`.
 
 ## <a name="resources"></a>Kaynaklar
 
-`resources` Özelliği, bu paket kaynak tarafından desteklenen kaynakları dizisi içerir.
+`resources` Kaynakları bu paket kaynak tarafından desteklenen bir dizi özelliği içerir.
 
 ### <a name="resource"></a>Kaynak
 
-Bir nesne bir kaynaktır `resources` dizi. Paket kaynağının sürümlü bir özelliği temsil eder. Bir kaynak aşağıdaki özelliklere sahiptir:
+Bir nesneyi bir kaynaktır `resources` dizisi. Bu paket kaynağının tutulan bir özelliği temsil eder. Bir kaynak, aşağıdaki özelliklere sahiptir:
 
 Ad          | Tür   | Gerekli | Notlar
 ------------- | ------ | -------- | -----
-@id           | dize | Evet      | Kaynak URL
-@type         | dize | Evet      | Kaynak türü temsil eden bir dize sabiti
-comment       | dize | Yok       | Kaynak İnsan okunabilir açıklaması
+@id           | dize | Evet      | Kaynak URL'si
+@type         | dize | Evet      | Kaynak türünü temsil eden bir dize sabiti
+comment       | dize | Yok       | Kaynak insan tarafından okunabilir bir açıklaması
 
-`@id` Mutlak olmalı ve ya da gereken bir URL HTTP veya HTTPS şeması sahip olabilir.
+`@id` Gerekir ve mutlak bir URL HTTP veya HTTPS şeması sahip olabilir.
 
-`@type` Kaynakla kullanılırken kullanılacak belirli Protokolü tanımlamak için kullanılır. Kaynak türü donuk bir dizedir ancak genellikle biçime sahiptir:
+`@type` Kaynakla etkileşim kurarken kullanacağı özel bir protokolü tanımlamak için kullanılır. Kaynak türü, genel olmayan bir dizedir, ancak genellikle şu biçimdedir:
 
     {RESOURCE_NAME}/{RESOURCE_VERSION}
 
-İstemciler için sabit kod beklenen `@type` anlamak ve bir paket kaynağının hizmet dizinde aramak değerleri. Tam `@type` Günümüzde kullanılan değerleri numaralandırılan listelenen tek tek kaynak başvuru belgelerinde [API genel bakış](overview.md#resources-and-schema).
+İstemciler için sabit kod beklenen `@type` anlamak ve bir paket kaynağının hizmet dizinine bakarak değerleri. Tam `@type` numaralandırılmış değerlerinin bugün kullanımda listelenen ayrı kaynak başvuru belgelerindeki [API'sine genel bakış](overview.md#resources-and-schema).
 
-Bu belge amacıyla, farklı kaynaklarının ilgili belgelere tarafından temelde gruplandırılacak `{RESOURCE_NAME}` senaryo gruplandırarak paraleldir hizmet dizininde bulunamadı. 
+Bu belge için farklı kaynaklar ile ilgili belgeler tarafından temelde gruplandırılacak `{RESOURCE_NAME}` senaryoya göre gruplandırma benzer olan hizmet dizinde bulunamadı. 
 
-Her kaynak benzersiz olduğunu gereksinimi yoktur ve `@id` veya `@type`. Hangi kaynak üzerinde başka bir tercih belirlemek için istemci uygulaması kadar olur. Bir olası uygulama işlemidir aynı veya uyumlu kaynakları `@type` bağlantı hatası veya sunucu hatası durumunda hepsini şekilde kullanılabilir.
+Her bir kaynağın benzersiz olan bir gereksinimi yoktur `@id` veya `@type`. Bu istemci uygulamasının hangi kaynağı diğerine tercih kadar olur. Olası bir uygulaması olan kaynaklar aynı veya uyumlu `@type` ettirirsiniz bağlantı kesintisi veya sunucu hatası olması durumunda kullanılabilir.
 
 ### <a name="sample-request"></a>Örnek istek
 

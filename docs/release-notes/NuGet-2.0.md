@@ -1,38 +1,37 @@
 ---
 title: NuGet 2.0 sürüm notları
-description: Bilinen sorunlar, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere NuGet 2.0 için sürüm notları.
+description: NuGet bilinen sorunları, hata düzeltmeleri yapıldı, eklenen özellikler ve dcr 2.0 için sürüm notları.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 0e637a953d9d5d10394857a352be96a7f68dc4e8
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: f32eea9260ce7e307ff56b7f3e6b48c6d98e6c90
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/26/2018
-ms.locfileid: "31820803"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43547581"
 ---
 # <a name="nuget-20-release-notes"></a>NuGet 2.0 sürüm notları
 
-[NuGet 1.8 sürüm notları](../release-notes/nuget-1.8.md) | [NuGet 2.1 sürüm notları](../release-notes/nuget-2.1.md)
+[1.8 NuGet sürüm notları](../release-notes/nuget-1.8.md) | [2.1 NuGet sürüm notları](../release-notes/nuget-2.1.md)
 
-NuGet 2.0 19 Haziran 2012'de serbest bırakıldı.
+NuGet 2.0 19 Haziran 2012 tarihinde yayınlanmıştır.
 
 ## <a name="known-installation-issue"></a>Bilinen yükleme sorunu
-VS 2010 SP1 çalıştırıyorsanız, yüklü eski bir sürüm varsa, NuGet yükseltmeye çalışırken yükleme hatayla karşılaşabilirsiniz.
+VS 2010 SP1 çalıştırıyorsanız, yüklü eski bir sürümü varsa, NuGet yükseltmeye çalışırken bir yükleme hata ile karşılaşabilirsiniz.
 
-Yalnızca NuGet kaldırın ve VS uzantısı Galeriden yükleyin için geçici bir çözüm değildir.  Bkz: [ http://support.microsoft.com/kb/2581019 ](http://support.microsoft.com/kb/2581019) daha fazla bilgi için veya [VS düzeltme doğrudan gidin](http://bit.ly/vsixcertfix).
+Geçici çözüm, yalnızca NuGet kaldırıp VS uzantısı Galeriden yükleyin sağlamaktır.  Bkz: [ http://support.microsoft.com/kb/2581019 ](http://support.microsoft.com/kb/2581019) daha fazla bilgi edinmek veya [VS düzeltme doğrudan gidin](http://bit.ly/vsixcertfix).
 
-Not: Visual Studio (Kaldır düğmesi devre dışıdır) uzantısını Kaldır izin vermiyor olasılıkla "Yönetici olarak çalıştır" kullanarak Visual Studio yeniden başlatmanız gerekir
+Not: Visual Studio (Kaldır düğmesi devre dışıdır) uzantıyı kaldırmak izin vermiyor olasılıkla "Yönetici olarak çalıştır" kullanarak Visual Studio'yu yeniden başlatmanız gerekir
 
-## <a name="package-restore-consent-is-now-active"></a>Paket geri yükleme izni şimdi etkindir
+## <a name="package-restore-consent-is-now-active"></a>Paket geri yükleme onayı artık etkindir
 
-Bu konuda açıklandığı gibi [sonrası paket geri yükleme izni üzerinde](http://blog.nuget.org/20120518/package-restore-and-consent.html), NuGet 2.0, çevrimiçi ve paketleri indirmek paket geri yüklemesi etkinleştirmek için izin verilmesini şimdi gerektirecektir. Paket Yöneticisi yapılandırma iletişim kutusu veya EnableNuGetPackageRestore ortam değişkeni aracılığıyla izin verilen emin olun.
+Bu konuda açıklandığı gibi [paket geri yükleme onay sonrası](http://blog.nuget.org/20120518/package-restore-and-consent.html), NuGet 2.0, çevrimiçi ve paketleri indirmek paket geri yükleme etkinleştirmek için onay verilmesi artık gerekir. Paket Yöneticisi'ni yapılandırma iletişim kutusu veya EnableNuGetPackageRestore ortam değişkeni aracılığıyla onay sağladığınızdan emin olun.
 
-## <a name="group-dependencies-by-target-frameworks"></a>Bir hedef çerçeveyi Grup bağımlılıkları
+## <a name="group-dependencies-by-target-frameworks"></a>Grup bağımlılıklarını hedef çerçeve tarafından
 
-2.0 sürümünden başlayarak, paket bağımlılıkları değişebilir hedef projeyi framework profilini temel alan. Bu güncelleştirilmiş kullanılarak gerçekleştirilir `.nuspec` şema. `<dependencies>` Öğesi artık bir dizi içeren `<group>` öğeleri. Sıfır veya daha fazla içeren her grubu `<dependency>` öğeleri ve bir `targetFramework` özniteliği. Hedef Framework'ü hedef proje framework profili ile uyumlu ise, bir grup içindeki tüm bağımlılıkları birlikte yüklenir. Örneğin:
+Sürüm 2.0 ile başlayarak, paket bağımlılıkları değişebilir projenin hedef çerçevesi profilini temel alan. Bu güncelleştirilmiş kullanılarak gerçekleştirilir `.nuspec` şema. `<dependencies>` Öğesi artık bir dizi içeren `<group>` öğeleri. Sıfır veya daha fazlasını içeren her grubu `<dependency>` öğeleri ve `targetFramework` özniteliği. Hedef Framework'ü hedef proje framework profili ile uyumlu ise, bir grup içindeki tüm bağımlılıkları birlikte yüklenir. Örneğin:
 
 ```xml
 <dependencies>
@@ -50,11 +49,11 @@ Bu konuda açıklandığı gibi [sonrası paket geri yükleme izni üzerinde](ht
 </dependencies>
 ```
 
-Bir grup içerebilir Not **sıfır** bağımlılıkları. Paket bir projeye Silverlight 3.0 hedefler veya üstünü, ise yukarıdaki örnekte, bağımlılık yüklenir. Paket, yüklü olan .NET 4.0 hedefleyen projesine veya sonrası ise, iki bağımlılıkları, jQuery ve WebActivator, yüklenecek.  Paketin 2 Bu çerçeveleri ya da diğer framework eski bir sürümü hedefleyen bir projeye yüklüyse, RouteMagic 1.1.0 yüklenir. Grupları arasında hiçbir devralma yoktur. Bir projenin hedef çerçevesi eşleşirse `targetFramework` öznitelik grubunun, yalnızca o grup dahilindeki bağımlılıklar yüklenir.
+Bir grup içerebilir Not **sıfır** bağımlılıkları. Paket Silverlight 3.0 hedefleyen bir projeye veya üstünü, varsa, yukarıdaki örnekte, bağımlılık yüklenir. Paket, .NET 4.0 hedefleyen bir projeye veya üstünü ise, jQuery ve WebActivator, iki bağımlılıklar yüklenir.  Bu 2 çerçeveleri veya diğer herhangi bir çerçeveyi eski bir sürümünü hedefleyen bir projeye paketini yüklediyseniz, RouteMagic 1.1.0 yüklenir. Grupları arasında hiçbir devralma yoktur. Bir projenin hedef çatısının eşleşiyorsa `targetFramework` öznitelik grubunun, yalnızca o grup içindeki bağımlılıklar yüklenir.
 
-Bir paketi Paket bağımlılıklarını iki biçim birini belirtebilirsiniz: düz listesini eski biçimi `<dependency>` öğeleri ya da gruplar. Varsa `<group>` biçimi kullanıldığında, NuGet 2.0'den önceki sürümleri içine paket yüklenemiyor.
+Bir paketi Paket bağımlılıklarını iki biçimlerden birini belirtebilirsiniz: düz listesini eski biçimi `<dependency>` öğeleri veya gruplar. Varsa `<group>` biçimi kullanılır, paket 2.0 sürümünden öncekileri NuGet sürümlerine yüklenemez.
 
-İki biçim karıştırma verilmez unutmayın. Örneğin, aşağıdaki kod parçacığında **geçersiz** ve NuGet tarafından reddedilir.
+İki biçim karıştırılmasına izin olduğunu unutmayın. Örneğin, aşağıdaki kod parçacığını olduğu **geçersiz** ve NuGet tarafından reddedilir.
 
 ```xml
 <dependencies>
@@ -67,9 +66,9 @@ Bir paketi Paket bağımlılıklarını iki biçim birini belirtebilirsiniz: dü
 </dependencies>
 ```
 
-## <a name="grouping-content-files-and-powershell-scripts-by-target-framework"></a>İçerik dosyaları ve PowerShell komut dosyaları hedef çerçevesi tarafından gruplandırma
+## <a name="grouping-content-files-and-powershell-scripts-by-target-framework"></a>İçerik dosyaları ve PowerShell betikleri tarafından hedef Framework'ü gruplandırma
 
-Derleme başvurularını ek olarak, içerik dosyaları ve PowerShell komut dosyalarını da hedef çerçevesi tarafından gruplandırılabilir. Aynı klasör yapısını bulunan `lib` hedef Framework'ü belirtmek için klasör şimdi uygulanabilir aynı şekilde `content` ve `tools` klasörler. Örneğin:
+Derleme başvuruları ek olarak, içerik dosyaları ve PowerShell betikleri de hedef Framework'ü gruplandırılabilir. Aynı klasör yapısında bulunan `lib` klasörü hedef Framework'ü belirtmek için artık uygulanabilir aynı şekilde `content` ve `tools` klasörleri. Örneğin:
 
     \content
         \net11
@@ -89,13 +88,13 @@ Derleme başvurularını ek olarak, içerik dosyaları ve PowerShell komut dosya
             \install.ps1
             \uninstall.ps1
 
-**Not**: çünkü `init.ps1` çözüm düzeyinde yürütülür ve olduğu her bir proje üzerinde bağlı değil, bunu doğrudan altında yerleştirilmelidir `tools` klasör. İçinde çerçeveye özel bir klasöre girdiyseniz yoksayılacak.
+**Not**: çünkü `init.ps1` çözüm düzeyinde yürütülür ve olduğu bağımlı olmayan her bir proje, bunu doğrudan altında yerleştirilmelidir `tools` klasör. Çerçeveye özgü bir klasörde yerleştirdiyseniz göz ardı edilir.
 
-Ayrıca, yeni bir NuGet 2.0 framework klasör olabilir özelliktir *boş*, bu durumda NuGet değil derleme başvurularını ekler, içerik dosyalarını eklemek veya belirli framework sürümü için PowerShell betikleri çalıştırmak. Klasör yukarıdaki örnekte `content\net40` boş.
+Ayrıca, bir çerçeve klasörü olabilir NuGet 2.0 içinde yeni bir özellik olan *boş*, bu durumda, NuGet değil derleme başvurularını ekler, içerik dosyalarını eklemek veya belirli framework sürümü için PowerShell betikleri çalıştırın. Klasör yukarıdaki örnekte `content\net40` boştur.
 
-## <a name="improved-tab-completion-performance"></a>Gelişmiş sekmesi tamamlama performansı
-NuGet Paket Yöneticisi konsolunda sekme tamamlama özelliği, performansı önemli ölçüde artırmak için güncelleştirilmiştir. Öneri açılır listesinde görünene kadar SEKME tuşuna basılana zamandan daha az gecikme olacaktır.
+## <a name="improved-tab-completion-performance"></a>Geliştirilmiş sekme tamamlama performans
+NuGet Paket Yöneticisi konsolu için sekmesinde Tamamlama özelliği, performansı önemli ölçüde artırmak için güncelleştirildi. Öneri açılan görünene kadar SEKME tuşuna basıldığında saatten daha az gecikme olacaktır.
 
 ## <a name="bug-fixes"></a>Hata Düzeltmeleri
-NuGet 2.0 paket geri yükleme izni ve performans ile ilgili bir Vurgu ile birçok hata düzeltmeleri içerir.
-Tam bir listesi için iş öğeleri NuGet 2. 0'da, lütfen Görünüm sabit [NuGet sorun İzleyicisi bu sürüm için](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=NuGet%202.0&assignedTo=All&component=All&sortField=Votes&sortDirection=Descending&page=0).
+NuGet 2.0 paket geri yükleme onayı ve performans ile ilgili bir Vurgu ile birçok hata düzeltmeleri içerir.
+Tam bir listesi için iş öğeleri NuGet 2. 0'da, lütfen görünümü sabit [bu sürüm için NuGet sorun İzleyicisi](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=NuGet%202.0&assignedTo=All&component=All&sortField=Votes&sortDirection=Descending&page=0).

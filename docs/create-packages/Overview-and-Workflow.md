@@ -1,47 +1,46 @@
 ---
 title: Genel bakış ve NuGet paketleri oluşturma iş akışı
-description: Oluşturma ve yayımlama işleminin diğer belirli bölümlerine bağlantılar ile bir NuGet paketi işlemine genel bakış.
+description: Oluşturma ve yayımlama işleminin diğer belirli bölümlerine bağlantılar içeren bir NuGet paketi işleminin genel bakış.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 07/26/2017
 ms.topic: conceptual
-ms.openlocfilehash: 1e2a7299be64d33bd0d697522cf5febb2022e0ee
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: f911e24da76880410f8dfaa2891b609c7beb4a61
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817020"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43547895"
 ---
 # <a name="package-creation-workflow"></a>Paket oluşturma iş akışı
 
-Paket oluşturma paketini ve diğer ortak nuget.org galeri veya kuruluşunuzdaki özel bir galeri ile paylaşmak istediğiniz derlenmiş kod (genellikle .NET derlemelerini) başlar. Paket da paketi yüklendiğinde görüntülenen bir benioku dosyası gibi ek dosyalar içerebilir ve belirli proje dosyalarına dönüştürmeleri içerebilir.
+Paket oluşturma, paketleme ve diğerleri, genel nuget.org galeri ya da kuruluşunuzdaki özel bir galeri aracılığıyla paylaşmak istediğiniz derlenmiş kod (genellikle .NET derlemelerini) başlar. Paket de paketi yüklendiğinde görüntülenen bir benioku dosyası gibi ek dosyalar içerebilir ve bazı proje dosyaları dönüştürmeleri içerebilir.
 
-Bir paket, yalnızca kendi herhangi bir kod içeren olmadan herhangi bir sayıda başka bir bağımlılık çıkarmak için Ayrıca hizmet verebilir. Bu tür bir paket birden çok bağımsız paketlerini oluşan bir SDK sunmak için uygun bir yoludur. Diğer durumlarda, bir paket yalnızca simge içerebilir (`.pdb`) hata ayıklama yardımcı olmak için dosyaları.
+Bir paket, yalnızca kendi herhangi bir kod içeren olmadan herhangi bir sayıda diğer bağımlılıkları çekmek için de görebilir. Bu tür bir paket birden çok bağımsız paketlerini oluşan bir SDK'sı sunmak için kullanışlı bir yoldur. Diğer durumlarda, yalnızca sembol paketi içerebilir (`.pdb`) hata ayıklama yardımcı olmak için dosyaları.
 
 > [!Note]
-> Diğer geliştiriciler tarafından kullanılmak üzere bir paket oluşturduğunuzda, bunlar bir bağımlılık üzerindeki çalışmanızı kaplayan anlamak önemlidir. Bu nedenle, oluşturma ve yayımlama bir paketi hataları düzelttikten ve diğer güncelleştirmeleri yapma taahhüdü ayrıca anlamına gelir veya çok az yapmayı kullanılabilir olarak paket Kaynağı Aç başkalarının devam ettirmek için yardımcı olacak.
+> Diğer geliştiriciler tarafından kullanılmaya bir paket oluşturduğunuzda, bunlar iş üzerinde bir bağımlılık sürüp anlamak önemlidir. Bu nedenle, oluşturma ve bir paket yayımlama hataları düzeltiyor ve diğer güncelleştirmeler yapma taahhüdü ayrıca gelir veya çok az yapmayı paketi olarak kullanılabilir açık kaynak diğerleri tutmak için yardımcı olabilmemiz için.
 
-Her durumda, paket oluşturma hangi derlemelerin ve diğer dosyaları paketi oluşturmaya karar ile başlar. Ardından olarak adlandırılan bir bildirim dosyası, oluşturduğunuz bir `.nuspec` tanımlayıcısını, sürüm numarası, telif hakkı bilgileri, MSBuild özellik ve hedefler ve daha fazlasını birlikte paketin içeriğini açıklamak için dosya.
+Her durumda, paket oluşturma hangi derlemelerin ve diğer dosyaları paketlemek için karar ile başlar. Olarak adlandırılan bir bildirim dosyası oluşturup bir `.nuspec` tanımlayıcısını, sürüm numarası, telif hakkı bilgileri, MSBuild özellikler ve hedefler ve çok daha fazlası ile birlikte paket içeriğini açıklamak için dosyası.
 
-Ne zaman uygun klasörlerdeki tüm gerekli dosyaların hazırladığınız ve uygun oluşturduysanız `.nuspec` dosya, ardından kullandığınız `nuget pack` komutu (veya [MSBuild paketi hedef](../reference/msbuild-targets.md)) her şeyi birlikte içine yerleştirilecek bir `.nupkg` dosya. Ardından hangi ana kullanılabilir diğer geliştiricilerine kolaylaştırır için paketi dağıtmak hazırsınız.
+Ne zaman uygun klasörlerdeki tüm gerekli dosyaları hazırladığınıza ve uygun oluşturduğunuz `.nuspec` dosya, daha sonra kullanmanız `nuget pack` komutu (veya [MSBuild paketi hedef](../reference/msbuild-targets.md)) her şeyi birlikte yerleştirmenin bir `.nupkg` dosya. Ardından hangi konak kullanılabilir diğer geliştiriciler getirir için paket dağıtmaya hazırsınız.
 
 > [!Tip]
-> Bir NuGet paketi ile `.nupkg` ZIP dosyası yalnızca bir uzantısıdır. Kolayca herhangi paketin içeriğini incelemek için uzantı değiştirmek `.zip` ve içeriğini normal şekilde genişletin. Yalnızca dahili değiştirdiğinizden emin olun geri `.nupkg` bir ana bilgisayara yüklemeye çalışmadan önce.
+> Bir NuGet paketi ile `.nupkg` ZIP dosyası yalnızca bir uzantısıdır. Kolayca bir paket içeriğini incelemek için uzantı değiştirme `.zip` ve içerikleri her zamanki şekilde genişletin. Yalnızca uzantı değiştirdiğinizden emin olun geri `.nupkg` bir konağa karşıya yüklemeyi yeniden denemeden önce.
 
-Bilgi edinmek ve oluşturma işlemini anlamak için başlayın [paket oluşturma](../create-packages/creating-a-package.md) hangi kılavuzları, ortak çekirdek süreçlerle tüm paketler.
+Öğrenin ve oluşturma süreci anlamak için başlayın [paket oluşturma](../create-packages/creating-a-package.md) hangi kılavuzları, ortak çekirdek süreçler tüm paketler için.
 
-Buradan, paketiniz için bir dizi diğer seçenek düşünebilirsiniz:
+Burada, paketiniz için bir dizi diğer seçenekleri göz atabilirsiniz:
 
-- [Birden çok hedef çerçeveyi destekleyen](../create-packages/supporting-multiple-target-frameworks.md) bir paket için farklı .NET Framework ile birden çok çeşitleri oluşturmayı açıklar.
-- [Yerelleştirilmiş paketleri oluşturma](../create-packages/creating-localized-packages.md) birden çok dil kaynakları olan bir paketi yapısı ve ayrı yerelleştirilmiş uydu paketlerini kullanma açıklar.
-- [Paketleri sürüm öncesi](../create-packages/prerelease-packages.md) alfa, beta ve ilgilendiğiniz Bu müşterileri rc paketleri yayımlamayı gösterilmiştir.
-- [Kaynak ve yapılandırma dosyası dönüşümleri](../create-packages/source-and-config-file-transformations.md) hem tek yönlü belirteci değişikliklerini projeye eklenir ve değiştirme dosyalarında nasıl yapabileceğiniz açıklanır `web.config` ve `app.config` paket kaldırıldığında de yedeklenen çıkış ayarları .
-- [Sembol paketlerini](../create-packages/symbol-packages.md) hata ayıklama sırasında kodunuza adım tüketicilerin izin kitaplığınızın simgelerini sağlama için yönergeler sunar.
-- [Sürüm oluşturma paketini](../reference/package-versioning.md) , bağımlılıklar (paketinizi tüketen diğer paketleri) için izin tam sürümünü belirlemek nasıl ele alınmaktadır.
-- [Yerel Paketleri](../create-packages/native-packages.md) C++ Tüketiciler için paket oluşturma işlemi açıklanmaktadır.
-- [Paket imzalama](../create-packages/sign-a-package.md) bir paket için bir dijital imza ekleme işlemi açıklanmaktadır.
+- [Birden çok hedef çerçeveyi destekleme](../create-packages/supporting-multiple-target-frameworks.md) bir paket için farklı bir .NET Framework ile birden çok çeşitleri oluşturmayı açıklar.
+- [Yerelleştirilmiş paketler oluşturma](../create-packages/creating-localized-packages.md) nasıl bir paket birden çok dil kaynakları ile ve yerelleştirilmiş ayrı uydu paketlerin nasıl kullanılacağına yönelik açıklar.
+- [Yayın öncesi paketleri](../create-packages/prerelease-packages.md) sürüm alfa, beta ve ilgilenen müşteriler için rc paketler gösterilmektedir.
+- [Kaynak ve yapılandırma dosyası dönüşümleri](../create-packages/source-and-config-file-transformations.md) hem tek yönlü belirteci değişiklik projeye eklenir ve Değiştir dosyalarında nasıl yapabileceğiniz açıklanır `web.config` ve `app.config` paket kaldırıldığında ayrıca desteklenen çıkış ayarları .
+- [Sembol paketleri](../create-packages/symbol-packages.md) kitaplığınızı için hata ayıklama sırasında kodunuzda adım tüketicilerin izin semboller sağlama için yönergeler sunar.
+- [Paket sürümü oluşturma](../reference/package-versioning.md) bağımlılıklarınızı (paketinizi tükettiğiniz diğer paketleri) için izin tam sürümünü belirlemek nasıl ele alınmaktadır.
+- [Yerel paketler](../create-packages/native-packages.md) C++ Tüketiciler için paket oluşturma işlemi açıklanmaktadır.
+- [İmzalama paketleri](../create-packages/sign-a-package.md) bir paket için bir dijital imza ekleme işlemi açıklanır.
 
-Ardından nuget.org için bir paketi yayımlamaya hazır olduğunuzda, basit işleminde izleyin [bir paketi yayımlamaya](../create-packages/publish-a-package.md).
+Ardından nuget.org için bir paketi yayımlamaya hazır olduğunuzda, basit işlemde izleyin [paket yayımlama](../create-packages/publish-a-package.md).
 
-Nuget.org yerine özel bir akış kullanmak istiyorsanız, bkz: [barındırma paketleri genel bakış](../hosting-packages/overview.md)
+Nuget.org yerine özel bir akış kullanmak istiyorsanız, bkz. [barındırma paketleri genel bakış](../hosting-packages/overview.md)

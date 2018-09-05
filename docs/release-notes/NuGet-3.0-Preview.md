@@ -1,129 +1,128 @@
 ---
-title: NuGet 3.0 Preview sürüm notları
-description: NuGet 3.0 bilinen sorunları, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere önizleme için sürüm notları.
+title: NuGet 3.0 Önizleme sürüm notları
+description: Bilinen sorunlar, hata düzeltmeleri yapıldı, eklenen özellikler ve dcr NuGet 3.0 Önizleme için sürüm notları.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 67c217e52d975ed8f6889cd69f9b7e0d52b3a119
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 9389639476172d05556b95d589e429ddfe0e3026
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/26/2018
-ms.locfileid: "31821320"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43546471"
 ---
-# <a name="nuget-30-preview-release-notes"></a>NuGet 3.0 Preview sürüm notları
+# <a name="nuget-30-preview-release-notes"></a>NuGet 3.0 Önizleme sürüm notları
 
 [NuGet 2.9 RC sürüm notları](../release-notes/nuget-2.9-rc.md) | [NuGet 3.0 Beta sürüm notları](../release-notes/nuget-3.0-beta.md)
 
-NuGet 3.0 Önizleme 12 Kasım 2014 Visual Studio 2015 Preview sürümünün bir parçası olarak serbest bırakıldı. NuGet 3.0 Önizleme yayımladık. Bu (Önizleme barındırabilir) bize için büyük bir sürüm olduğundan, ve bizim değişiklikleri geri alma Başlat mutluluk çalışıyoruz.
+NuGet 3.0 Önizleme, Visual Studio 2015 Preview sürümünün bir parçası olarak 12 Kasım 2014'te yayımlanmıştır. NuGet 3.0 Önizleme yayımladık. Bu bizim için büyük bir yayın (Önizleme barındırabilir), ve değişiklikler hakkında geri bildirim almaya başlamanın heyecan duyuyoruz.
 
 ## <a name="visual-studio-2012"></a>Visual Studio 2012+
 
-Bu NuGet 3.0 Önizleme Visual Studio 2015 Preview sürümünde dahil edilir. Önizleme düşme Visual Studio 2012 ve Visual Studio 2013 için çok yakında ulaşmak için çalışıyoruz. Bizim hedefi daha önce paylaşılmıştı [Visual Studio 2010 için güncelleştirmeleri Durdur](http://blog.nuget.org/20141002/visual-studio-2010.html), ve zor kararı vermiyoruz.
+Bu NuGet 3.0 Önizleme, Visual Studio 2015 önizlemesi dahildir. Önizleme düşme Visual Studio 2012 ve Visual Studio 2013 için çok yakında ulaşmak için çalışıyoruz. Biz Amacımız için daha önce paylaşılan [Visual Studio 2010 için güncelleştirmeleri bulunmayarak](http://blog.nuget.org/20141002/visual-studio-2010.html), ve biz zor kararı yaptı.
 
 ## <a name="brand-new-ui"></a>Yeni kullanıcı Arabirimi
 
-NuGet 3.0 önizleme hakkında fark ilk şey bizim yepyeni UI'dır. Artık, kalıcı bir iletişim kutusu değil; Bu tam bir Visual Studio belge penceresine sunulmuştur. Bu, birden çok proje (ve/veya çözüm) ilişkin kullanıcı Arabirimi seferde açmak için başka bir izleme penceresi kesmeden devre dışı, yaptığınız gibi vb. ancak yerleştirme olanak sağlar.
+NuGet 3.0 önizleme hakkında dikkat edin ilk şey, yeni kullanıcı Arabirimimizi olabilir. Artık, kalıcı bir iletişim kutusu değil; Bu tam Visual Studio belge penceresi sunulmuştur. Bu, bir seferde birden çok proje (ve/veya çözüm) için kullanıcı arabirimini açın, başka bir monitöre penceresi yıkılıp, yaptığınız gibi vb. ancak da sabitleyin sağlar.
 
 ![Yeni NuGet kullanıcı Arabirimi](./media/NuGet-3.0-Preview/new-ui.png)
 
-Kalıcı iletişim terk nedeniyle kullanılabilirlik farklar, biz de yeni kullanıcı Arabiriminde çok sayıda yeni özellikler vardır.
+Kalıcı iletişim terk nedeniyle kullanılabilirlik farklılıklar dışında ayrıca yeni özellikleri yeni kullanıcı Arabiriminde bulunmaktadır.
 
 ### <a name="version-selection"></a>Sürüm seçimi
 
-Belki de UI özelliktir paketi yükleme ve güncelleştirme--sürüm seçimi izin vermek için en çok istenen bu kullanıma sunulmuştur.
+Belki de kullanıcı Arabirimi özelliğidir sürüm seçimi paket yükleme ve güncelleştirme--izin vermek için en çok istenen bu kullanıma sunulmuştur.
 
-![Paket sürümü seçimi](./media/NuGet-3.0-Preview/version-selection.png)
+![Paket sürüm seçimi](./media/NuGet-3.0-Preview/version-selection.png)
 
-Yükleme veya bir paket güncelleştirme olup olmadığını sürümü açılır listenin kolay seçimi için yükseltilen bazı önemli sürümleriyle paket için kullanılabilir sürümlerin tümünü görmenizi sağlar. Artık son olmayan belirli sürümlerini almak için PowerShell konsolunu kullanmanız gerekir.
+Yüklerken veya güncelleştirilirken bir paket sürümü açılır bazı önemli sürümleriyle kolay seçimi için listenin en üstüne yükseltilen paket için kullanılabilir sürümlerin tümünü görmenizi sağlar. Artık en son olmayan belirli sürümlerini almak için PowerShell konsolunu kullanmanız gerekir.
 
-### <a name="combined-installedonlineupdates-workflows"></a>Birleşik yüklü/Online/güncelleştirmeleri iş akışları
+### <a name="combined-installedonlineupdates-workflows"></a>Birleşik/Online/güncelleştirmelerin yüklü iş akışları
 
-Önceki kullanıcı arabirimimizi yüklü, çevrimiçi ve güncelleştirmeleri için 3 sekmeleri vardı. Listelenen paketler bu iş akışları için belirli ve iş akışları için belirli eylemler kullanılabilir. Mantıksal birçoğu genellikle olur, heard seemed sırada Bu ayrım tarafından dönüş.
+Önceki kullanıcı Arabirimimizi yüklü, çevrimiçi ve güncelleştirmeler için 3 sekme vardı. Listelenen paketlerin bu iş akışları için belirli ve akışları için belirli eylemleri kullanılabilir. Birçoğu genellikle gerekir, kullanıcılarımız, mantıksal olduğu görülüyor ancak bu ayrımı tarafından dönüş.
 
-Şimdi buradan yüklemek, güncelleştirme veya seçilen paketin nasıl aldığınız bakılmaksızın bir paketi kaldırma birleşik bir deneyim sunuyoruz. Belirli iş akışlarıyla yardımcı olmak için artık görünür paketleri filtrelemek olanak sağlayan bir filtre açılan sahibiz, ancak paket için kullanılabilir eylemleri tutarlı.
+Şimdi burada yükleyebilir, güncelleştirme veya seçilen paketin nasıl aldığınız bağımsız olarak bir paket kaldırma birleşik bir deneyim sunuyoruz. Belirli iş akışlarıyla yardımcı olmak için şimdi görünür paketleri filtrelemek olanak tanıyan bir filtre açılan vardır, ancak paket için kullanılabilir eylemler tutarlı olması.
 
-![Bir paketi kaldırma](./media/NuGet-3.0-Preview/uninstall-package.png)
+![Bir paketi Kaldır](./media/NuGet-3.0-Preview/uninstall-package.png)
 
-"Yüklü" filtreyi kullanarak, daha sonra kolayca hangilerinin güncelleştirmelere sahip, paketlerinizi yüklü görebilirsiniz ve ardından kaldırmak veya güncelleştirme paketi görmek için sürüm seçimi değiştirerek eylemi kullanılabilir değiştirin.
+"Yüklü" filtresini kullanarak, daha sonra kolayca hangilerinin kullanılabilir güncelleştirmeleri olan yüklü paketlerinizi görebilirsiniz ve ardından kaldırmak veya güncelleştirme paketi görmek için sürüm seçimi değiştirerek değiştirme eylemi kullanılabilir.
 
 ![Güncelleştirme paketi](./media/NuGet-3.0-Preview/update-package.png)
 
 ### <a name="version-consolidation"></a>Sürüm birleştirme
 
-Birden çok projelerine çözümünüzdeki yüklü aynı paketin yaygındır. Bazen her projeye yüklü sürümleri parçalayın kayma ve kullanımda sürümleri birleştirmek gereklidir. NuGet 3.0 Önizleme yalnızca bu senaryo için yeni bir özellik sunmaktadır.
+Çözümünüz içinde birden çok proje içine yüklenmiş aynı paket yaygındır. Bazen her bir projeye yüklü sürümler birbirlerinden farklı ve kullanım verilerindeki sürümlerden birleştirme gereklidir. NuGet 3.0 Önizleme, yalnızca bu senaryo için yeni bir özellik sunmaktadır.
 
-Çözüm düzeyi paket Yönetimi penceresi, çözüm üzerinde sağ tıklayıp çözüm için NuGet paketlerini Yönet'i seçerek tarafından erişilebilir. Buradan, birden çok projelerine ancak kullanılıyor, farklı sürümlerle yüklü bir paket seçerseniz yeni bir "Birleştir" eylemi kullanılabilir hale gelir. Aşağıdaki ekran içinde `Newtonsoft.Json` içine yüklenmiş `SamplesClassLibrary` sürümüyle `6.0.4` içine yüklenmiş `SamplesConsoleApp` sürümüyle `5.0.4`.
+Çözüm düzeyinde paket Yönetimi penceresi, çözüme sağ tıklayıp çözüm için NuGet paketlerini Yönet'i seçerek tarafından erişilebilir. Birden çok proje, ancak kullanılıyor, farklı sürümleri yüklü olan bir paket seçin, burada, yeni bir "Birleştirme" eylemi kullanılabilir hale gelir. İçinde aşağıdaki ekran görüntüsünde `Newtonsoft.Json` içine yüklenmiş `SamplesClassLibrary` sürümüyle `6.0.4` içine yüklenmiş `SamplesConsoleApp` sürümüyle `5.0.4`.
 
 ![Sürümleri birleştirin](./media/NuGet-3.0-Preview/consolidate.png)
 
-Tek sürümü birleştirilmesi için iş akışı aşağıda verilmiştir.
+Tek bir sürüm birleştirilmesi için iş akışı şu şekildedir.
 
 1. Seçin `Newtonsoft.Json` paket listesinde
-1. Seçin `Consolidate` gelen `Action` açılır
-1. Kullanım `Version` üzerine birleştirilecek sürümü seçmek için açılır
-1. (Seçili sürümü zaten projelerde gri unutmayın) sürümünün üzerine Birleştirilmiş projeler için kutuları işaretleyin
-1. Tıklatın `Consolidate` birleştirme gerçekleştirmek için düğmesi
+1. Seçin `Consolidate` gelen `Action` açılan kutusu
+1. Kullanım `Version` üzerine birleştirilecek sürümünü seçmek için açılır
+1. Bu sürümü (seçili sürümü zaten projelerde gri unutmayın) üzerine birleşik projeleri için onay kutularını işaretleyin
+1. Tıklayın `Consolidate` birleştirme gerçekleştirmek için düğme
 
-### <a name="operation-previews"></a>İşlemi önizlemeleri
+### <a name="operation-previews"></a>İşlem önizlemeleri
 
-Gerçekleştirmekte--hangi işlemi bağımsız olarak yükleme/Güncelleştirme/kaldırma--yeni kullanıcı Arabirimi şimdi projenize yapılan değişiklikleri önizlemek için bir yol sunar. Bu önizleme yüklenecek, tüm yeni paketler güncelleştirilir ve paketler, işlemi sırasında değiştirilmez paketleri birlikte kaldırılacak paketleri gösterir.
+Hangi işlemi gerçekleştiriyorsunuz--bağımsız olarak yükleme/Güncelleştirme/kaldırma--yeni kullanıcı Arabirimi artık projenize yaptığınız değişiklikleri önizlemek için bir yol sunar. Bu önizleme yüklenir, tüm yeni paketler, işlem sırasında değişmeyecektir paketleriyle birlikte kaldırılacak güncelleştirilir ve paketleri paketlerini gösterir.
 
-Aşağıdaki örnekte Microsoft.AspNet.SignalR yükleme oldukça birkaç değişiklikleri projeye neden olacağını görebilirsiniz.
+Aşağıdaki örnekte, Microsoft.AspNet.SignalR yükleme oldukça değişiklikleri projeye sonuçlanacağını görebiliriz.
 
 ![SignalR yükleme Önizleme](./media/NuGet-3.0-Preview/preview.png)
 
 ### <a name="installation-options"></a>Yükleme Seçenekleri
 
-PowerShell konsolunu kullanarak, birkaç önemli yükleme seçenekleri üzerinde denetim karşılaşmışsınız. Bu özellikleri artık UI getirdik. Şimdi bağımlılıkları sürümlerini nasıl seçileceğini bağımlılık çözümlemesi davranışını kontrol edebilirsiniz.
+PowerShell konsolunu kullanarak, birkaç önemli yükleme seçenekleri üzerinde denetim vardı. Bu özellikler artık UI getirdik. Artık bu bağımlılıkların sürümlerini nasıl seçileceğini bağımlılık çözümlemesi davranışını kontrol edebilirsiniz.
 
 ![Bağımlılık davranışı](./media/NuGet-3.0-Preview/dependency-behavior.png)
 
-Ayrıca, içerik dosyaları paketlerinden projeniz zaten dosyalarında çakışıyor olduğunda gerçekleştirilecek eylem belirtebilirsiniz.
+Ayrıca, projenizdeki dosyaları ile içerik paketleri dosyalarından çakıştığında gerçekleştirilecek eylemi belirtebilirsiniz.
 
-![Dosya çakışma eylemi](./media/NuGet-3.0-Preview/file-conflict-action.png)
+![Dosya çakışması eylemi](./media/NuGet-3.0-Preview/file-conflict-action.png)
 
-### <a name="infinite-scrolling"></a>Sonsuz kaydırma
+### <a name="infinite-scrolling"></a>Sonsuz kayan
 
-Bir bit Geri bildiriminiz bizim kullanıcı Arabirimi üzerindeki iki kaydırma sahip almak ve paketleri listelerken örneklerinde disk belleği için kullanılır. Kısa listenin alt kısmına kaydırın, sonraki sayfa numarası tıklayın ve ardından yeniden kaydırın zorunda oldukça ortak. Yeni kullanıcı Arabirimi olmadan yalnızca kaydırma--daha fazla disk belleği gerekir böylece sonsuz paket listesinde kaydırma uyguladık.
+Bir bit Arabirimimizi geribildirim, her iki kaydırma sahip almak ve paketleri listelerken paradigmalarını sayfalama kullandık. Kısa listenin en alt kısma, sonraki sayfa numarası tıklayın ve ardından tekrar gidin oldukça sık kullanılan. Yeni kullanıcı Arabirimi ile kaydırmak--daha fazla disk belleği yeterlidir, böylece paket listesinde sonsuz kayan uyguladık.
 
-![Sonsuz kaydırma](./media/NuGet-3.0-Preview/infinite-scrolling.png)
+![Sonsuz kayan](./media/NuGet-3.0-Preview/infinite-scrolling.png)
 
-### <a name="make-it-work-make-it-fast-make-it-pretty"></a>İş Oluştur, hızlı, Pretty olun oluştur
+### <a name="make-it-work-make-it-fast-make-it-pretty"></a>İş yapmak, hızlı, Pretty olun kolaylaştırır
 
-Denemek size bu yeni UI alacağınızı Mutluluk duyuyoruz. Bu önizleme kilometre taşı sırasında biz edilmiş iyi eski adage, aşağıdaki "olun, iş, hızlı olun, oldukça kolaylaştırır." Bu Önizleme'de, biz çoğu elde bu ilk amacı--çalışır. Bu oldukça hızlı henüz değildir ve bu oldukça oldukça henüz değil biliyoruz biliyoruz. Biz bu hedefleri RC sürüm arasındaki üzerinde çalışan güven. Bu arada, biz hakkındaki görüşlerinizi almak isteriz *kullanılabilirlik* yeni UI--iş akışları, işlemleri ve nasıl onu *hissi* yeni kullanıcı arabirimini kullanmak için.
+Bu yeni kullanıcı Arabirimi denemek size ulaşmak büyük bir heyecan duyuyoruz. Bu önizleme kilometre taşında biz kılavuzluğa odaklanmamı iyi eski adage, aşağıdaki "olun, iş, hızlı olun, oldukça kolaylaştırır." Bu önizleme sürümünde, biz çoğu elde bu ilk amacı--çalışır. Bu oldukça hızlı henüz hazır değil ve bu oldukça oldukça henüz hazır değil biliyoruz biliyoruz. Biz bu hedeflerine RC sürümü arasındaki yoğun şekilde kullanacağınız güven. Bu arada, bize hakkında Geri bildirimlerinizi öğrenmekten mutluluk duyarız *kullanılabilirlik* yeni kullanıcı arabirimi--işlemleri, iş akışları ve nasıl bunu *hissettirir* yeni kullanıcı arabirimini kullanma.
 
-Birkaç eski UI karşılaştırıldığında kaldırdık işlevleri vardır. Bunlardan birini bilerek ve diğeri yalnızca zamanında tamamlamalarını alamadık.
+Birkaç eski kullanıcı Arabirimine karşılaştırıldığında kaldırdık işlevleri vardır. Bunlardan biri bilerek ve diğeri yalnızca zamanında tamamlamalarını kaydetmedi.
 
-#### <a name="searching-all-package-sources"></a>"Tümü" Paket kaynaklarını arama
+#### <a name="searching-all-package-sources"></a>"Tüm" Paket kaynaklarını arama
 
-Eski kullanıcı Arabirimi, tüm paket kaynaklarınız karşı paket arama yapmak izin verilen. Bu özellik kullanıcı Arabiriminde kaldırdık ve size geri hale getirme olmaz. Tüm paket kaynaklarınız karşı arama işlemleri gerçekleştirmek için kullanılan bu özellik, sonuçları birlikte weave ve sıralama seçiminize bağlı sonuçları sıralamak çalışır.
+Eski kullanıcı Arabirimi tüm paket kaynaklarınız karşı paket arama yapmaya izin. Bu özellik kullanıcı Arabiriminde kaldırdık ve size geri çerçevesinde gerekmez. Tüm paket kaynaklarınız üzerinde arama işlemler gerçekleştirmek için kullanılan bu özellik, sonuçları birlikte dokuyarak ve sıralama seçiminize göre sonuçları sıralamak çalışır.
 
-Arama kesinliğini birlikte weave gerçekten sabit olduğunu buldu. Google ve Bing karşı aramadan ve sonuçları birlikte weaving düşünün? Bu özellik ayrıca, yavaş, kolay *yanlışlıkla* kullanın ve biz düşünüyorsanız, nadiren gerçekten yararlı. Sorunları nedeniyle sunulan, özelliğinin hiçbir zaman Düzeltilen hata raporları üzerindeki çeşitli aldık.
+Aramanın ilgi düzeyini birlikte dokuyarak çok zor olduğunu bulduk. Google ve Bing karşı bir arama gerçekleştirme ve sonuçları birlikte weaving Imagine? Bu özellik ayrıca, yavaş, kolay *yanlışlıkla* kullanın ve biz düşünüyorsanız, nadiren gerçekten kullanışlı. Sorunları nedeniyle sunulan özellik hiçbir zaman Düzeltilen hata raporlarını üzerindeki bir dizi aldık.
 
 #### <a name="update-all"></a>Tümünü Güncelleştir
 
-Bir "Tümünü Güncelleştir" düğmesi yeni kullanıcı Arabiriminde henüz hiç eski Arabiriminde sağlamak için kullanılır. Biz bu özellik bizim RC sürüm için resurrect.
+Bir "Tümünü Güncelleştir" düğmesi yeni kullanıcı Arabiriminde henüz hiç eski Arabiriminde sağlamak için kullanılır. Biz bu özellik için RC sürümümüzü resurrect.
 
-## <a name="new-clientserver-api"></a>Yeni istemci/sunucu API'si
+## <a name="new-clientserver-api"></a>Yeni istemci/sunucu API
 
-Tüm yeni bizim paket Yönetimi UI'deki yeni özelliklerin yanı sıra, biz de NuGet istemci/sunucu protokolü için bazı uygulama ayrıntılarını çalışmakta. Biz yaptığınız işi "API v3" için paket geri yüklemesi ve paketlerin yüklenmesi gibi kritik senaryolar için yüksek kullanılabilirlik geçici tasarlanmış NuGet oluşturmaktır. Yeni API REST üzerinde temel alır ve iletilir ve biz seçtiğiniz [JSON-LD](http://json-ld.org) bizim kaynak biçiminde.
+Tüm müşterilerimize yeni paket Yönetimi kullanıcı ARABİRİMİ'daki yeni özelliklerin yanı sıra, biz de NuGet'ın istemci/sunucu protokolü için bazı uygulama ayrıntıları üzerinde çalışmalar. Yaptığımız iş "API v3" için paket geri yükleme ve paketlerin yüklenmesi gibi kritik senaryolar için yüksek kullanılabilirlik geçici olarak tasarlanmış olan NuGet oluşturmaktır. Yeni API REST üzerinde temel alır ve iletilir ve seçtiğiniz [JSON-LD](http://json-ld.org) bizim kaynak biçimi olarak.
 
-NuGet 3.0 Önizleme bitleri paket kaynağı açılır listede "preview.nuget.org" adlı yeni bir paket kaynağı bakın. Bu paket kaynağını seçerseniz, yeni API'mize yerine nuget.org için bağlanmak için kullanacağız. Önizleme kaynak kullanıcı arabiriminde kullanılabilir yaptık, biz sınamak için gözden geçirebilir ve yeni API geliştirmeye devam ederken. NuGet 3.0 RC'de bu yeni API v3 tabanlı paket kaynağı v2 tabanlı "nuget.org" Paket kaynağı yerini alır.
+NuGet 3.0 Önizleme bitler, paket kaynak açılır menüde "preview.nuget.org" adlı yeni bir paket kaynağı bakın. Bu paket kaynağını seçerseniz, yeni API'mizi yerine nuget.org için bağlanmak için kullanacağız. Kaynağı Önizle kullanıcı arabiriminde kullanılabilen yaptık, biz sınamak için gözden geçirme ve yeni API geliştirmeye devam ederken. NuGet 3.0 rc'de Yenilik olarak, bu yeni API v3 tabanlı paket kaynağı v2 tabanlı "nuget.org" Paket kaynağı yerini alır.
 
-API v3 koyma yatırım rağmen bu özelliklerin tümü, yeni nuget.org de dışında varolan paket kaynaklarını birlikte çalışacağı anlamına gelir, varolan API v2 protokolü ile de çalışır yaptık.
+Biz API v3 haline gelmiştir koyarak yatırımın rağmen bu yeni özelliklerin tümünü de nuget.org dışındaki mevcut paket kaynaklarıyla çalışır anlamına gelir, var olan API v2 protokolü ile de çalışır yaptık.
 
-## <a name="new-features-coming"></a>Gelen yeni özellikleri
+## <a name="new-features-coming"></a>Kullanıma sunulacak yeni özellikler
 
-Şimdi arasında 3.0 RTM, ayrıca kullanıcı Arabiriminde görmek ötesinde bazı temel yeni NuGet özellikler üzerinde çalışıyoruz. Belirgin yatırım alanlarının kısa bir listesi aşağıda verilmiştir:
+Şimdi arasında 3.0 RTM, ayrıca kullanıcı Arabiriminde gördüğünüz bazı temel yeni NuGet özellik üzerinde çalışılmaktadır. Dikkat çekici yatırım alanlarının kısa bir listesi aşağıda verilmiştir:
 
-1. Visual Studio ile ortaklık ve MSBuild ekipleri almak için [NuGet platformuna derin](http://blog.nuget.org/20141014/in-the-platform.html).
-1. Yükleme zamanı paket kuralları bırakın ve bunun yerine yeni bir sunarak bu kuralları paketleme aynı anda uygulamak için çalışıyoruz "yetkili" [paket bildirimi](http://blog.nuget.org/20141023/package-manifests.html).
-1. NuGet codebase istemci ve sunucu bileşenleri Visual Studio'da paket Yönetimi ötesinde farklı etki alanlarında yeniden kullanılabilir yapmak için düzenleme için çalışıyoruz.
-1. "Özel bağımlılıkları burada bir paket belirtebilirsiniz, BT'nin" kavramı araştırmakta uygulama ayrıntılarını yalnızca diğer paketleri üzerinde bağımlılıklara sahiptir ve bu bağımlılıkların en üst düzey bağımlılıklar olarak ortaya çıkması döndürmemelidir.
+1. Biz de Visual Studio ile işbirliği yapıyoruz ve almak için MSBuild takımlar [NuGet platformda derin](http://blog.nuget.org/20141014/in-the-platform.html).
+1. Yükleme zamanı paket kuralları iptal ve bunun yerine yeni bir giriş tarafından bu kuralları paketleme zaman uygulamak için çalışıyoruz "yetkili" [paket bildirimi](http://blog.nuget.org/20141023/package-manifests.html).
+1. NuGet kod tabanınızın farklı etki alanlarında Visual Studio'da paket Yönetimi ötesinde istemci ve sunucu bileşenleri yeniden kullanılabilir olması için yeniden düzenleme için çalışıyoruz.
+1. Biz "Burada bir paket belirtebilirsiniz böylece özel bağımlılıklar" kavramı araştırdığınızı yalnızca uygulama ayrıntıları diğer paketleri üzerinde bağımlılıkları vardır ve bu bağımlılıkların en üst düzey bağımlılıkları olarak ortaya çıkması olmamalıdır.
 
 ## <a name="stay-tuned"></a>Bizi izlemeye devam edin
 
-Lütfen takip [bizim blog](http://blog.nuget.org) daha fazla ilerleme ve duyuruları NuGet 3.0 için!
+Lütfen gözünüzü [blogumuzu](http://blog.nuget.org) daha fazla ilerleme ve NuGet 3.0 duyuruları!

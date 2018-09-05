@@ -1,51 +1,50 @@
 ---
 title: NuGet PowerShell başvurusu
-description: Visual Studio'da NuGet Paket Yöneticisi konsolunda kullanılabilir PowerShell komutlarını tam referansı.
+description: Visual Studio'da NuGet Paket Yöneticisi konsolunda kullanılabilir PowerShell komutlarının tam başvuru.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 10/02/2017
 ms.topic: reference
-ms.openlocfilehash: ba9f5dc2b570298d9011f62a081631ec31623701
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 45c8be9956ceaab844bdcd89f1b96adc256f805c
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817009"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43546670"
 ---
 # <a name="powershell-reference"></a>PowerShell başvurusu
 
-Paket Yöneticisi konsolu, bir PowerShell arabirimi belirli komutları NuGet ile etkileşim kurmak için Windows Visual Studio'dan aşağıda listelenen sağlar. (Konsol Mac için Visual Studio şu anda kullanılabilir değil) Konsolunu kullanarak için bir kılavuz için bkz: [Paket Yöneticisi Konsolu](../tools/package-manager-console.md) konu.
+Paket Yöneticisi konsolu, bir PowerShell arabirimi belirli komutları NuGet ile etkileşim kurmak için Windows üzerinde Visual Studio içinde aşağıda listelenen sağlar. (Konsol, Mac için Visual Studio şu anda kullanılabilir değil) Konsolunu kullanarak bir kılavuz için bkz [Paket Yöneticisi Konsolu](../tools/package-manager-console.md) konu.
 
 > [!Tip]
-> Tüm PowerShell komutları yalnızca paket tüketimi ilgilidir. PowerShell komutlarını oluşturmak ve bir paket ayrıca diğer paketleri tüketicisi olarak toplasa bile dışında paketleri yayımlamak için ilgilidir.
+> Tüm PowerShell komutları yalnızca paket tüketimi ilgilidir. Herhangi bir PowerShell komut oluşturma ve bir paket diğer paketlerin bir tüketici de olabilir için toplasa bile, dışında paketleri yayımlama ilgilidir.
 
 > [!Important]
-> Burada listelenen komutlar Visual Studio'da Paket Yöneticisi konsolu özgüdür ve farklı [paket Yönetimi Modülü komutları](/powershell/module/packagemanagement/?view=powershell-6) genel bir PowerShell ortamında kullanılabilir. Özellikle, her bir ortamda, diğer kullanılabilir olmayan komutlar sahip ve aynı ada sahip komutları kendi belirli değişkenlerinde farklı olabilir. Visual Studio'da paket Yönetimi konsolunu kullanarak, komutları ve mevcut bu konudaki belgelenen bağımsız değişkenleri uygulanır.
+> Burada listelenen komutlar, Visual Studio'da Paket Yöneticisi konsolu özgüdür ve farklı [paket Yönetimi Modülü komutları](/powershell/module/packagemanagement/?view=powershell-6) genel bir PowerShell ortamında kullanılabilir. Özellikle, her ortamın, diğer kullanılabilir olmayan komutları vardır ve aynı ada sahip komutları Ayrıca kendi özel bağımsız değişkenlerinde farklı. Visual Studio'da paket Yönetimi konsolunu kullanarak, komut ve bağımsız değişkenler mevcut Bu konu başlığında belirtildiği uygulayın.
 
-| Sık kullanılan komutlar | Açıklama | NuGet sürümü |
+| Sık kullanılan komutlar | Açıklama | NuGet sürüm |
 | --- | --- | --- |
-| [Install-Package](ps-ref-install-package.md) | Bir paketi ve bağımlılıklarını projeye yükler. | Tümü |
-| [Update-Package](ps-ref-update-package.md) | Bir paketi ve bağımlılıklarını veya projesindeki tüm paketleri güncelleştirir. | Tümü |
-| [Find-Package](ps-ref-find-package.md) | Bir paket kimliği veya anahtar sözcükleri kullanarak paket kaynağını arar. | 3.0+ |
-| [Get-Package](ps-ref-get-package.md) | Yerel depoda yüklü olan paketlerin listesini alır veya paket kaynağındaki paketleri listeler. | Tümü |
+| [Install-Package](ps-ref-install-package.md) | Projeye bir paketi ve bağımlılıkları yükler. | Tümü |
+| [Update-Package](ps-ref-update-package.md) | Bir paketi ve bağımlılıkları veya bir projedeki tüm paketleri güncelleştirir. | Tümü |
+| [Find-Package](ps-ref-find-package.md) | Bir paket kimliği veya anahtar sözcükleri kullanarak bir paket kaynağı arar. | 3.0+ |
+| [Get-Package](ps-ref-get-package.md) | Yerel depoda yüklü paketler listesini alır veya bir paket kaynağından paketleri listeler. | Tümü |
 
-| İkincil komutları | Açıklama | NuGet sürümü |
+| İkincil komutları | Açıklama | NuGet sürüm |
 | --- | --- | --- |
-| [Add-BindingRedirect](ps-ref-add-bindingredirect.md) | Bir proje için çıkış yolu içindeki tüm derlemelerde inceler ve bağlama yeniden yönlendirmelerini ekler `app.config` veya `web.config` gerektiğinde. | Tümü |
-| [Get-Project](ps-ref-get-project.md) | Varsayılan ya da belirtilen proje hakkındaki bilgileri görüntüler. | 3.0+ |
-| [Open-PackagePage](ps-ref-open-packagepage.md) | Proje, lisans veya belirtilen paket için rapor kötüye URL'si ile varsayılan tarayıcı başlatır. | 3.0 +'da kullanım dışıdır |
-| [Register-TabExpansion](ps-ref-register-tabexpansion.md) | Bir sekme genişlemesi parametreler için yaygın olarak kullanılan parametre değerleri için özelleştirilmiş genişletmeleri oluşturmanızı sağlayan bir komut kaydeder. | Tümü |
-| [Sync-Package](ps-ref-sync-package.md) | Get paketinden yüklü sürümü proje belirtilen ve sürümü çözümdeki projelerin geri kalanına eşitlenir. | 3.0+ |
+| [Add-BindingRedirect](ps-ref-add-bindingredirect.md) | Çıkış yolu için bir proje içindeki tüm derlemeleri inceler ve ekler için bağlama yeniden yönlendirmeleri `app.config` veya `web.config` gerektiğinde. | Tümü |
+| [Get-Project](ps-ref-get-project.md) | Varsayılan veya belirtilen proje hakkında bilgileri görüntüler. | 3.0+ |
+| [Open-PackagePage](ps-ref-open-packagepage.md) | Proje, lisans veya rapor Uygunsuz kullanım bildirme URL'si belirtilen paket için varsayılan tarayıcıda başlatır. | 3.0 +'da kullanım dışı |
+| [Register-TabExpansion](ps-ref-register-tabexpansion.md) | Sık kullanılan parametre değerleri için özelleştirilmiş genişletmeleri oluşturmanızı sağlayan bir komutunun parametreleri için bir sekme genişletmeyi kaydeder. | Tümü |
+| [Sync-Package](ps-ref-sync-package.md) | Paket sürümü yüklü get proje belirtilen ve çözümdeki projelerin geri kalanı sürümüne eşitler. | 3.0+ |
 | [Uninstall-Package](ps-ref-uninstall-package.md) | Bir paket bağımlılıklarını isteğe bağlı olarak kaldırarak bir projeden kaldırır. | Tümü |
 
-Konsolu içinden aşağıdaki komutlardan birini ilgili eksiksiz, ayrıntılı yardım için yalnızca söz konusu komut adı ile aşağıdaki komutu çalıştırın:
+Yalnızca tam, ayrıntılı hakkında Yardım almak için konsol içinden bu komutlardan herhangi birine, söz konusu komut adı ile aşağıdaki komutu çalıştırın:
 
 ```ps
 Get-Help <command> -full
 ```
 
-Tüm Paket Yöneticisi Konsolu komutları aşağıdaki desteği [ortak PowerShell parametrelerini](http://go.microsoft.com/fwlink/?LinkID=113216):
+Aşağıdaki tüm Paket Yöneticisi Konsolu komutları desteği [ortak PowerShell parametrelerini](http://go.microsoft.com/fwlink/?LinkID=113216):
 
 - Hata ayıklama
 - ErrorAction

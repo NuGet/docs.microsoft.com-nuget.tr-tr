@@ -1,22 +1,21 @@
 ---
-title: Anında iletme ve Delete, NuGet API
-description: Yayımlama hizmeti, istemcilerin yeni paketleri yayımlama ve unlist veya var olan paketleri silmek olanak tanır.
+title: Gönder ve Sil, NuGet API'si
+description: Yayımlama hizmeti, yeni paket yayımlamasına ve listeden veya var olan paketleri Sil etmesine olanak tanır.
 author: joelverhagen
 ms.author: jver
-manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 911c8238624f806b1fbb5c7938d02b6bdfbd8614
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: ad66d8e0ffda13aaef744104c213863b0e111e0e
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/26/2018
-ms.locfileid: "31819487"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43547527"
 ---
-# <a name="push-and-delete"></a>Anında iletme ve silin
+# <a name="push-and-delete"></a>Gönder ve Sil
 
-Anında iletme Sil (veya unlist, bağlı sunucu uygulaması) mümkündür ve relist NuGet V3 API kullanarak paketler. Bu işlemler kapatarak dayalı `PackagePublish` kaynak bulunan [Hizmeti dizini](service-index.md).
+Anında iletme, silme (veya, bağlı sunucu uygulaması listeden da) mümkündür ve NuGet V3 API'yi kullanarak paketler yeniden listele. Kapatarak bu işlemler temel `PackagePublish` kaynak bulunan [hizmet dizini](service-index.md).
 
 ## <a name="versioning"></a>Sürüm oluşturma
 
@@ -24,24 +23,24 @@ Aşağıdaki `@type` değeri kullanılır:
 
 @type Değer          | Notlar
 -------------------- | -----
-PackagePublish/2.0.0 | İlk sürüm
+PackagePublish/2.0.0 | İlk yayın
 
 ## <a name="base-url"></a>Temel URL
 
-Aşağıdaki API'leri için temel URL değeri `@id` özelliği `PackagePublish/2.0.0` paket kaynağının kaynak [Hizmeti dizini](service-index.md). Aşağıdaki belgeler için nuget.org URL'si kullanılır. Göz önünde bulundurun `https://www.nuget.org/api/v2/package` için bir yer tutucu olarak `@id` değeri hizmet dizininde bulunamadı.
+Aşağıdaki API'leri için temel URL değeri `@id` özelliği `PackagePublish/2.0.0` paket kaynağının kaynak [hizmet dizini](service-index.md). Nuget.org URL'si aşağıdaki belgeleri için kullanılır. Göz önünde bulundurun `https://www.nuget.org/api/v2/package` için yer tutucu olarak `@id` değer hizmet dizinde bulunamadı.
 
-Protokol aynı olduğundan bu URL eski V2 itme bitiş noktası ile aynı konumda işaret olduğunu unutmayın.
+Protokol aynı olduğundan bu URL eski V2 anında iletme uç noktası ile aynı konuma işaret olduğunu unutmayın.
 
 ## <a name="http-methods"></a>HTTP yöntemleri
 
-`PUT`, `POST` Ve `DELETE` HTTP yöntemleri, bu kaynak tarafından desteklenir. Hangi yöntemlerin her noktadaki desteklediği için aşağıya bakın.
+`PUT`, `POST` Ve `DELETE` bu kaynak tarafından desteklenen HTTP yöntemleri. Hangi yöntemler üzerinde her uç nokta için destekleniyor, aşağıya bakın.
 
-## <a name="push-a-package"></a>Bir paket gönderme
+## <a name="push-a-package"></a>Bir paket gönderin
 
 > [!Note]
-> nuget.org sahip [ek gereksinimler](NuGet-Protocols.md) itme uç noktasıyla etkileşim için.
+> nuget.org sahip [ek gereksinimler](NuGet-Protocols.md) anında iletme uç noktası ile etkileşim kurmak için.
 
-nuget.org aşağıdaki API kullanarak koymadan yeni paketlerini destekler. Sağlanan Kimliğini ve sürümünü paketiyle zaten varsa, nuget.org itme reddeder. Mevcut bir paketi değiştirerek diğer paket kaynaklarını destekleyebilir.
+nuget.org aşağıdaki API'yi kullanarak koymadan yeni paketler destekler. Paket kimliği ve sürüm sağlanan zaten varsa, anında iletme nuget.org reddeder. Diğer paket kaynaklarını, var olan paketi değiştirerek destekleyebilir.
 
     PUT https://www.nuget.org/api/v2/package
 
@@ -49,31 +48,31 @@ nuget.org aşağıdaki API kullanarak koymadan yeni paketlerini destekler. Sağl
 
 Ad           | İçindeki     | Tür   | Gerekli | Notlar
 -------------- | ------ | ------ | -------- | -----
-X-NuGet-apikey ile yapılan | Üstbilgi | dize | Evet      | Örneğin, `X-NuGet-ApiKey: {USER_API_KEY}`
+X-NuGet-ApiKey | Üstbilgi | dize | Evet      | Örneğin, `X-NuGet-ApiKey: {USER_API_KEY}`
 
-API anahtarını paket kaynağından kullanıcı tarafından onayınızı ve istemciyi yapılandırılmış donuk bir dizedir. Hiçbir belirli dize biçimi zorunlu ancak API anahtarı uzunluğu HTTP üstbilgi değerleri için makul bir boyut aşamaz.
+API anahtarı kullanıcı tarafından paket kaynağından edinmiş ve istemciyi yapılandırılmış genel olmayan bir dizedir. Hiçbir özel dize biçimi uygulanan ancak HTTP üstbilgi değerleri için makul bir boyutta API anahtarı uzunluğunu geçmemelidir.
 
 ### <a name="request-body"></a>İstek gövdesi
 
-İstek gövdesini şu biçimde gelmelidir:
+İstek gövdesi, aşağıdaki biçimde gelmesi gerekir:
 
 #### <a name="multipart-form-data"></a>Çok bölümlü form verilerinin
 
-İstek üstbilgisi `Content-Type` olan `multipart/form-data` ve ilk öğe istek gövdesi olarak gönderilen .nupkg ham bayttır. Çok bölümlü gövde sonraki öğelerde göz ardı edilir. Dosya adı veya çok parçalı öğelerinin diğer tüm üst bilgileri yoksayılır.
+İstek üstbilgisi `Content-Type` olduğu `multipart/form-data` ve ilk öğe istek gövdesi olarak gönderilen .nupkg ham bayttır. Çok bölümlü gövde sonraki öğeleri göz ardı edilir. Dosya adı veya diğer üst bilgilerini çok bölümlü öğelerin göz ardı edilir.
 
 ### <a name="response"></a>Yanıt
 
 Durum kodu | Açıklama
 ----------- | -------
-201, 202    | Paket başarıyla gönderilir
+201, 202    | Paket başarıyla gönderildi
 400         | Belirtilen paket geçersiz
 409         | Sağlanan Kimliğini ve sürümünü içeren bir paket zaten var.
 
-Sunucu uygulamaları bir paketi başarıyla gönderildiğinde döndürülen başarı durum kodu farklılık gösterir.
+Sunucu uygulamaları, bir paketi başarıyla gönderildiğinde döndürülen başarılı durum kodu farklılık gösterir.
 
-## <a name="delete-a-package"></a>Paket Sil
+## <a name="delete-a-package"></a>Paket silme
 
-nuget.org yorumlar paketi silme isteği olarak "unlist" bir. Bu paketin paket varolan Tüketiciler için hala kullanılabilir olduğundan, ancak paket artık arama sonuçlarında veya web arabirimi görünür anlamına gelir. Bu uygulama hakkında daha fazla bilgi için bkz: [silinen paketler](../policies/deleting-packages.md) ilkesi. Bu sinyal sabit delete olarak yorumlama, yumuşak silin veya unlist ücretsiz diğer sunucu uygulamalarıdır. Örneğin, [NuGet.Server](https://www.nuget.org/packages/NuGet.Server) (yalnızca eski V2 API destekleyen bir sunucu uygulaması) destekleyen bir unlist veya bir yapılandırma seçeneği göre sabit bir delete olarak bu isteği işleme.
+nuget.org yorumlar paket silme isteği olarak "listeden" bir. Bu paket hala paketinin mevcut kullanıcılar için kullanılabilir, ancak paket arama sonuçlarını veya web arabirimi artık görünür anlamına gelir. Bu uygulama hakkında daha fazla bilgi için bkz: [silinmiş paketleri](../policies/deleting-packages.md) ilkesi. Bu sinyal bir sabit silme olarak yorumlamak için geçici silme veya listeden kaldırılsın ücretsiz diğer sunucu uygulamalarıdır. Örneğin, [NuGet.Server](https://www.nuget.org/packages/NuGet.Server) (yalnızca eski V2 API'si destekleyen bir sunucu uygulaması) bir listeden kaldırma veya yapılandırma seçeneğine bağlı göre silmenin olarak bu isteği işleyen destekler.
 
     DELETE https://www.nuget.org/api/v2/package/{ID}/{VERSION}
 
@@ -82,21 +81,21 @@ nuget.org yorumlar paketi silme isteği olarak "unlist" bir. Bu paketin paket va
 Ad           | İçindeki     | Tür   | Gerekli | Notlar
 -------------- | ------ | ------ | -------- | -----
 Kimlik             | URL    | dize | Evet      | Silmek için paket kimliği
-VERSION        | URL    | dize | Evet      | Silmek için paketin sürümü
-X-NuGet-apikey ile yapılan | Üstbilgi | dize | Evet      | Örneğin, `X-NuGet-ApiKey: {USER_API_KEY}`
+VERSION        | URL    | dize | Evet      | Silmek için Paket sürümü
+X-NuGet-ApiKey | Üstbilgi | dize | Evet      | Örneğin, `X-NuGet-ApiKey: {USER_API_KEY}`
 
 ### <a name="response"></a>Yanıt
 
 Durum kodu | Açıklama
 ----------- | -------
-204         | Paket silindi
-404         | İle sağlanan bir paket yok `ID` ve `VERSION` var.
+204         | Bu paket silindi
+404         | İle sağlanan paket yok `ID` ve `VERSION` var.
 
-## <a name="relist-a-package"></a>Bir paket relist
+## <a name="relist-a-package"></a>Bir paketi yeniden listeleme
 
-Bir paket listelenmemiş ise, bu paket "relist" uç nokta kullanarak arama sonuçlarında bir kez daha görünür hale getirmek mümkündür. Aynı şekilde olan bu uç noktaya sahip [Sil (unlist) uç noktası](#delete-a-package) ancak kullanır `POST` yerine HTTP yöntemini `DELETE` yöntemi.
+Bir paket listelenmemiş ise, bu paket "relist" uç nokta kullanarak arama sonuçlarında bir kez daha görünür hale getirmek mümkündür. Bu uç noktaya sahip aynı [Sil (listeden) uç noktası](#delete-a-package) ancak kullanır `POST` HTTP yöntemi yerine `DELETE` yöntemi.
 
-Paket zaten listeleniyorsa, istek hala başarılı olur.
+Paket zaten listedeyse, istek yine de başarılı olur.
 
     POST https://www.nuget.org/api/v2/package/{ID}/{VERSION}
 
@@ -104,13 +103,13 @@ Paket zaten listeleniyorsa, istek hala başarılı olur.
 
 Ad           | İçindeki     | Tür   | Gerekli | Notlar
 -------------- | ------ | ------ | -------- | -----
-Kimlik             | URL    | dize | Evet      | Relist paket kimliği
-VERSION        | URL    | dize | Evet      | Relist Paket sürümü
-X-NuGet-apikey ile yapılan | Üstbilgi | dize | Evet      | Örneğin, `X-NuGet-ApiKey: {USER_API_KEY}`
+Kimlik             | URL    | dize | Evet      | Paket yeniden listelenemedi kimliği
+VERSION        | URL    | dize | Evet      | Paket yeniden listelenemedi sürümü
+X-NuGet-ApiKey | Üstbilgi | dize | Evet      | Örneğin, `X-NuGet-ApiKey: {USER_API_KEY}`
 
 ### <a name="response"></a>Yanıt
 
 Durum kodu | Açıklama
 ----------- | -------
 200         | Paket artık listelenir
-404         | İle sağlanan bir paket yok `ID` ve `VERSION` var.
+404         | İle sağlanan paket yok `ID` ve `VERSION` var.

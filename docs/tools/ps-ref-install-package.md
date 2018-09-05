@@ -1,23 +1,22 @@
 ---
 title: NuGet Install-Package PowerShell başvurusu
-description: Visual Studio'da NuGet Paket Yöneticisi konsolunda Install-Package PowerShell komut başvurusu.
+description: Visual Studio'da NuGet Paket Yöneticisi konsolu Install-Package PowerShell komutunda referansı.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 06/01/2017
 ms.topic: reference
-ms.openlocfilehash: 6b2326d7b1ada8a337ae50ffd09f9deea80545af
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: e7ddf9ad97cbb4ec9cfc8b01f366511239f41416
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817960"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43546032"
 ---
 # <a name="install-package-package-manager-console-in-visual-studio"></a>Install-Package (Visual Studio'da Paket Yöneticisi Konsolu)
 
-*Bu konu içindeki komut açıklar [NuGet Paket Yöneticisi Konsolu](package-manager-console.md) Windows Visual Studio'da. Genel PowerShell Install-Package komutu için bkz: [PowerShell PackageManagement başvuru](/powershell/module/packagemanagement/?view=powershell-6).*
+*Bu konu içindeki komut açıklar [NuGet Paket Yöneticisi Konsolu](package-manager-console.md) Windows üzerinde Visual Studio'da. Genel PowerShell Install-Package komutu için bkz: [PowerShell PackageManagement başvuru](/powershell/module/packagemanagement/?view=powershell-6).*
 
-Bir paketi ve bağımlılıklarını projeye yükler.
+Bir projeye bir paketi ve bağımlılıkları yükler.
 
 ## <a name="syntax"></a>Sözdizimi
 
@@ -27,7 +26,7 @@ Install-Package [-Id] <string> [-IgnoreDependencies] [-ProjectName <string>] [[-
     [-WhatIf] [<CommonParameters>]
 ```
 
-NuGet 2.8 + içinde `Install-Package` projenizi mevcut bir pakete düşebilen. Microsoft.AspNet.MVC 5.1.0-rc1 yüklü varsa, örneğin, aşağıdaki komut, 5.0.0 için düşürmek:
+Nuget'te 2.8 + `Install-Package` projenizdeki varolan paketi düşürebilir. Yüklü Microsoft.AspNet.MVC 5.1.0-rc1 varsa, örneğin, aşağıdaki komut, 5.0.0 için düşürme:
 
 ```ps
 Install-Package Microsoft.AspNet.MVC -Version 5.0.0.
@@ -37,21 +36,21 @@ Install-Package Microsoft.AspNet.MVC -Version 5.0.0.
 
 | Parametre | Açıklama |
 | --- | --- |
-| Kimliği | (Gerekli) Yüklenecek paket tanımlayıcısı. (*3.0 +*) tanımlayıcı bir yolu veya URL'si olabilir bir `packages.config` dosya veya bir `.nupkg` dosyası. Kimliği anahtarı kendisini isteğe bağlı değil. |
-| IgnoreDependencies | Yalnızca bu paketi ve bağımlılıklarını yükleyin. |
-| ProjectName | Projeye varsayılan proje için varsayılan değer olarak paketin yükleneceği. |
-| Kaynak | Aranacak paket kaynağının URL'sini veya klasör yolu. Yerel klasör yolları mutlak veya göreli geçerli klasörde olabilir. Atlanırsa, `Install-Package` şu anda seçili paket kaynağını arar. |
-| Sürüm | Yüklemek için paketin sürümü en son sürüm varsayılan olarak ayarlanıyor. |
-| IncludePrerelease | Yükleme için ön sürüm paketlerini göz önünde bulundurur. Atlanırsa, yalnızca kalıcı paketler değerlendirilir. |
-| FileConflictAction | Üzerine veya varolan dosyaları proje tarafından başvurulan yoksayar istenir olduğunda gerçekleştirilecek eylem. Olası değerler şunlardır: *üzerine yazma, yoksay, None, OverwriteAll*, ve *(3.0 +)* *IgnoreAll*. |
-| DependencyVersion | Şunlardan biri olabilen kullanmak için bağımlılık Paket sürümü:<br/><ul><li>*En düşük* (varsayılan): en düşük sürüm</li><li>*HighestPatch*: en düşük ana, en düşük küçük, en yüksek düzeltme eki sürümüyle</li><li>*HighestMinor*: en düşük ana sürümle, en yüksek ikincil, en yüksek düzeltme eki</li><li>*En yüksek* (hiçbir parametre güncelleştirme paketi için varsayılan): en yüksek sürüm</li></ul>Varsayılan değer kullanılarak ayarlayabilirsiniz [ `dependencyVersion` ](../reference/nuget-config-file.md#config-section) ayarı `Nuget.Config` dosya. |
-| WhatIf | Komut gerçekte yükleme yapmadan çalıştırırken ne olacağını gösterir. |
+| Kimliği | (Gerekli) Yüklenecek paket tanımlayıcısı. (*3.0 +*) tanımlayıcı bir yol veya URL'sini olabilir bir `packages.config` dosya veya `.nupkg` dosya. Kimliği anahtarın kendisinde, isteğe bağlıdır. |
+| IgnoreDependencies | Yalnızca bu paket ve onun bağımlılıklarını yükleyin. |
+| ProjectName | Projeye varsayılan proje için varsayılan olarak ayarlanıyor, paketi yüklemek için. |
+| Kaynak | Aranacak paket kaynağı için URL veya klasör yolu. Yerel klasör yol mutlak veya göreli geçerli klasörde olabilir. Atlanırsa, `Install-Package` seçili paket kaynağı arar. |
+| Sürüm | Yüklemek için paketin sürümü en son sürüme varsayılan olarak ayarlanıyor. |
+| IncludePrerelease | Yayın öncesi paketleri yükleme için göz önünde bulundurur. Atlanırsa, yalnızca kararlı paket olarak kabul edilir. |
+| FileConflictAction | Üzerine ya da proje tarafından başvurulan mevcut dosyaları yoksaymak için sorulan olduğunda gerçekleştirilecek eylem. Olası değerler *üzerine yaz, yoksay, None, OverwriteAll*, ve *(3.0 +)* *IgnoreAll*. |
+| DependencyVersion | Aşağıdakilerden biri olabilen kullanmak için bağımlılık paketlerini sürümü:<br/><ul><li>*En düşük* (varsayılan): en düşük sürüm</li><li>*HighestPatch*: en düşük büyük, en düşük küçük, yüksek düzeltme sürümü</li><li>*HighestMinor*: en düşük ana sürümle, en yüksek ikincil, yüksek düzeltme eki</li><li>*En yüksek* (parametre olmadan Update-Package için varsayılan): en yüksek sürüm</li></ul>Varsayılan değer kullanarak ayarlayabilirsiniz [ `dependencyVersion` ](../reference/nuget-config-file.md#config-section) ayarı `Nuget.Config` dosya. |
+| WhatIf | Komut yükleme işlemi yapmadan çalıştırılırken ne olacağını gösterir. |
 
-Hiçbiri bu parametre ardışık düzen giriş veya joker karakter kabul edin.
+Hiçbiri bu parametre ardışık düzen giriş veya joker karakterler kabul edin.
 
 ## <a name="common-parameters"></a>Ortak parametreleri
 
-`Install-Package` Aşağıdaki destekleyen [ortak PowerShell parametrelerini](http://go.microsoft.com/fwlink/?LinkID=113216): hata ayıklama, hata eylemi, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, ayrıntı, WarningAction ve WarningVariable.
+`Install-Package` şunları desteklemektedir [ortak PowerShell parametrelerini](http://go.microsoft.com/fwlink/?LinkID=113216): hata ayıklama, hata eylemi, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, ayrıntılı, WarningAction ve WarningVariable.
 
 ## <a name="examples"></a>Örnekler
 

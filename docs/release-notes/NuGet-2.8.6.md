@@ -1,29 +1,28 @@
 ---
-title: NuGet 2.8.6 sürüm notları
-description: Bilinen sorunlar, hata düzeltmeleri, eklenen özellikleri ve dcr NuGet 2.8.6 dahil etmek için sürüm notları.
+title: 2.8.6 NuGet sürüm notları
+description: NuGet 2.8.6 dahil etmek için sürüm notları, sorunları, hata düzeltmeleri, eklenen özellikler ve dcr bilinir.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: ee801a0edfe22888d65506cea557fd9c79dcf7bd
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: d57c658999ed3c79b962de84fd973276833ef3fd
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/26/2018
-ms.locfileid: "31819724"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43546497"
 ---
-# <a name="nuget-286-release-notes"></a>NuGet 2.8.6 sürüm notları
+# <a name="nuget-286-release-notes"></a>2.8.6 NuGet sürüm notları
 
-[NuGet 2.8.5 sürüm notları](../release-notes/nuget-2.8.5.md) | [NuGet 2.8.7 Sürüm Notları](../release-notes/nuget-2.8.7.md)
+[2.8.5 NuGet sürüm notları](../release-notes/nuget-2.8.5.md) | [2.8.7 NuGet sürüm notları](../release-notes/nuget-2.8.7.md)
 
-NuGet 2.8.6 yayımlanan 20 Temmuz 2015 bizim 2.8.5 için ikincil bir güncelleştirme olarak bazı VSIX hedeflenen düzeltmeler ve iyileştirmeler Windows 10 UWP geliştirme modeli desteğiyle teslim edilebilir paketleri destekler.
+NuGet 2.8.6 bırakıldığını 20 Temmuz 2015 bizim 2.8.5 küçük bir güncelleştirme olarak bazı VSIX hedeflenen düzeltmeler ve teslim edilebilir paketleri Windows 10 UWP geliştirme modeli desteği ile desteklemeye yönelik geliştirmeleri.
 
-NuGet Paket Yöneticisi uzantısı'nın bu sürümü yalnızca Visual Studio 2013 için destek sağlar.
+NuGet Paket Yöneticisi uzantısı'nın bu sürümü, yalnızca Visual Studio 2013 için destek sağlar.
 
-Bu sürümde, NuGet Paket Yöneticisi iletişim için eklenen destek vardı:
+Bu sürümde, NuGet Paket Yöneticisi iletişim için eklenen destek sahipti:
 
-* Windows 10 uygulaması geliştirme desteklemek için UAP hedef Framework ad kullanıma sunuldu.
+* Windows 10 için uygulama geliştirme desteği için UAP hedef çerçeve adı kullanıma sunuldu.
 * NuGet Protokolü sürüm 3 uç noktaları
-* Desteği [Nuget.Config](../consume-packages/configuring-nuget-behavior.md) depo kaynakları protocolVersion özniteliği. Varsayılan değer "2".
-* Gerekli Paket sürümü yerel önbellekte kullanılabilir değilse, uzak depoya geri dönmeden
+* Destek [Nuget.Config](../consume-packages/configuring-nuget-behavior.md) depo kaynakları protocolVersion özniteliği. Varsayılan değer: "2"
+* Gerekli Paket sürümü yerel önbellek üzerinde kullanılabilir değilse, uzak depoya geri dönülüyor

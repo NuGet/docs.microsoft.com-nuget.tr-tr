@@ -1,50 +1,49 @@
 ---
-title: Visual Studio 2015 ile birlikte .NET standart ve .NET Framework NuGet paketleri oluşturma
-description: NuGet kullanarak .NET standart ve .NET Framework NuGet paketleri oluşturma bir uçtan uca Kılavuz 3.x ve Visual Studio 2015.
+title: Visual Studio 2015 ile .NET Standard ve .NET Framework NuGet paketleri oluşturma
+description: NuGet kullanarak .NET Standard ve .NET Framework NuGet paketleri oluşturma bir uçtan uca Kılavuz 3.x ve Visual Studio 2015.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 02/02/2018
 ms.topic: tutorial
-ms.openlocfilehash: c66e782ea5d4e9e2a9585d8301dc2a1b2e8c72b9
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 7b1ccfbede4cec53cee3ec7d1c023e4c5be60bf0
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818740"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43545919"
 ---
-# <a name="create-net-standard-and-net-framework-packages-with-visual-studio-2015"></a>Visual Studio 2015 ile .NET standart ve .NET Framework paketleri oluşturma
+# <a name="create-net-standard-and-net-framework-packages-with-visual-studio-2015"></a>Visual Studio 2015 ile .NET Standard ve .NET Framework paketleri oluşturma
 
-**Not:** .NET standart kitaplıkları geliştirmek için Visual Studio 2017 önerilir. Visual Studio 2015 çalışabilir ancak .NET Core araç yalnızca önizleme duruma getirildi. Bkz: [oluşturma ve Visual Studio 2017 paketiyle yayımlama](../quickstart/create-and-publish-a-package-using-visual-studio.md) NuGet 4.x+ ve Visual Studio 2017 çalışma.
+**Not:** Visual Studio 2017, .NET standart kitaplıkları geliştirmek için önerilir. Visual Studio 2015 çalışabilir ancak .NET Core araçları yalnızca önizleme duruma getirildi. Bkz: [oluşturun ve Visual Studio 2017 ile paket yayımlama](../quickstart/create-and-publish-a-package-using-visual-studio.md) NuGet 4.x+ ve Visual Studio 2017 ile çalışmak için.
 
-[.NET standart Kitaplığı](/dotnet/articles/standard/library) olduğu .NET API'lerini biçimsel belirtimini hedeflenen böylece büyük bütünlüğünü .NET ekosistemi oluşturma tüm .NET çalışma zamanları üzerinde kullanılabilir olması. .NET standart kitaplığı, iş yükünü bağımsız uygulamak tüm .NET platformları için BCL (temel sınıf kitaplığı) API'leri Tekdüzen kümesini tanımlar. Tüm .NET çalışma zamanları arasında kullanılabilir ve azaltır değilse platforma özgü koşullu derleme yönergeleri paylaşılan kod ortadan kaldıran bir kod oluşturmak geliştiriciler sağlar.
+[.NET Standard Kitaplığı](/dotnet/articles/standard/library) olduğu bir resmi belirtimi .NET API'lerini amaçlanan bu nedenle büyük gerekmemesi .NET ekosisteminde oluşturma tüm .NET çalışma zamanları, kullanılabilir olması. .NET Standard kitaplığı BCL (temel sınıf kitaplığı) API kümesi, iş yükünü bağımsız uygulamak tüm .NET platformları için tanımlar. Ancak, geliştiricilerin tüm .NET çalışma zamanı arasında kullanılabilir ve azaltır değilse platforma özgü koşullu derleme yönergeleri paylaşılan kod ortadan kaldıran bir kod üretmek etkinleştirir.
 
-Bu kılavuzda .NET standart kitaplığı 1.4 hedefleyen bir NuGet paketi veya .NET Framework 4.6 hedefleyen bir paket oluşturma konusunda anlatılmaktadır. Bir .NET standart 1.4 kitaplığı .NET Framework 4.6.1, Evrensel Windows platformu 10, .NET Core ve Mono/Xamarin çalışır. Ayrıntılar için bkz [.NET standart eşleme tablosu](/dotnet/standard/net-standard#net-implementation-support) (.NET belge). İsterseniz, başka bir sürümünü .NET standart kitaplığı seçebilirsiniz.
+Bu kılavuzda, .NET Standard kitaplığı 1.4 hedefleyen bir NuGet paketi veya .NET Framework 4.6 targeting paketi oluşturma işlemini gösterir. .NET Standard 1.4 kitaplığı, .NET Framework 4.6.1, Evrensel Windows platformu 10, .NET Core ve Mono/Xamarin arasında çalışır. Ayrıntılar için bkz [.NET Standard eşleme tablosu](/dotnet/standard/net-standard#net-implementation-support) (.NET belgeleri). İsterseniz, diğer .NET Standard kitaplığı sürümünü seçebilirsiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 1. Visual Studio 2015 Güncelleştirme 3
-1. (Yalnızca .NET standart) [.NET core SDK](https://www.microsoft.com/net/download/)
-1. NuGet CLI. Nuget.exe en son sürümünü indirme [nuget.org/downloads](https://nuget.org/downloads), tercih ettiğiniz bir konuma kaydetme. Zaten yoksa bu konum, PATH ortam değişkenine ekleyin.
+1. (Yalnızca .NET standard) [.NET core SDK'sı](https://www.microsoft.com/net/download/)
+1. NuGet CLI. Nuget.exe en son sürümünü indirin [nuget.org/downloads](https://nuget.org/downloads), seçtiğiniz bir konuma kaydetme. Zaten yoksa bu konum, PATH ortam değişkenine ekleyin.
 
     > [!Note]
-    > nuget.exe CLI aracı kendisini bir yükleyici nedenle bunu çalıştırmak yerine tarayıcınızdan indirilen dosyayı kaydettiğinizden emin olur.
+    > nuget.exe CLI aracı kendisini bir yükleyici dolayısıyla bunu çalıştırmak yerine tarayıcınızdan indirilen dosyayı kaydettiğinizden emin olur.
 
-## <a name="create-the-class-library-project"></a>Sınıf kitaplığı proje oluşturma
+## <a name="create-the-class-library-project"></a>Sınıf kitaplığı projesi oluşturun
 
-1. Visual Studio'da **Dosya > Yeni > Proje**, genişletin **Visual C# > Windows** düğümü, select **sınıf kitaplığı (taşınabilir)** AppLogger için adı değiştirin ve seçin **Tamam**.
+1. Visual Studio'da **Dosya > Yeni > Proje**, genişletme **Visual C# > Windows** düğümünü **sınıf kitaplığı (taşınabilir)** AppLogger için adı değiştirin ve seçin **Tamam**.
 
-    ![Yeni sınıf kitaplığı proje oluşturma](media/NetStandard-NewProject.png)
+    ![Yeni sınıf kitaplığı projesi oluşturun](media/NetStandard-NewProject.png)
 
-1. İçinde **taşınabilir sınıf kitaplığı eklemek** görünür, iletişim için seçenekleri seçin `.NET Framework 4.6` ve `ASP.NET Core 1.0`. (.NET Framework'ü hedefleme, hangi seçenekleri uygun seçebilirsiniz.)
+1. İçinde **taşınabilir sınıf kitaplığı Ekle** görüntülenen iletişim seçmek için seçenekleri `.NET Framework 4.6` ve `ASP.NET Core 1.0`. (.NET Framework'ü hedefleyen, hangi seçenekleri uygun seçebilirsiniz.)
 
-1. .NET standardını hedefleyen, sağ `AppLogger (Portable)` Çözüm Gezgini'nde seçin **özellikleri**seçin **Kitaplığı** sekmesini ve ardından **hedef .NET Platform standardını** içinde **hedefleme** bölümü. Daha sonra seçebileceğiniz onaylama için bu eylem ister `.NET Standard 1.4` (veya başka bir kullanılabilir sürüm) açılır:
+1. .NET Standard hedefleme, sağ `AppLogger (Portable)` Çözüm Gezgini'nde seçin **özellikleri**seçin **Kitaplığı** sekmesine ve ardından seçin **hedef .NET Platform standardını** içinde **hedefleme** bölümü. Bu eylem, onay sonrasında seçebilirsiniz, ister `.NET Standard 1.4` (veya başka bir kullanılabilir sürüm) açılan:
 
-    ![Hedef .NET standart 1.4 ayarlama](media/NetStandard-ChangeTarget.png)
+    ![Hedef .NET Standard 1.4 için ayarlama](media/NetStandard-ChangeTarget.png)
 
-1. Tıklayın **yapı** sekmesinde, değiştirmek **yapılandırma** için `Release`ve için kutuyu **XML belge dosyası**.
+1. Tıklayarak **derleme** sekmesinde, **yapılandırma** için `Release`ve kutusunu işaretlemeniz **XML belge dosyası**.
 
-1. Kodunuzu bileşenine örneğin ekleyin:
+1. Örneğin, kodunuzu bileşene ekleyin:
 
     ```cs
     namespace AppLogger
@@ -59,17 +58,17 @@ Bu kılavuzda .NET standart kitaplığı 1.4 hedefleyen bir NuGet paketi veya .N
     }
     ```
 
-1. Yapılandırması yayın olarak ayarlanmış, projeyi oluşturun ve DLL ve XML dosyaları içinde üretilir denetleyin `bin\Release` klasör.
+1. Yapılandırması yayın olarak ayarlanmış, projeyi derleyin ve DLL ve XML dosyaları içinde üretildiğini denetleyin `bin\Release` klasör.
 
-## <a name="create-and-update-the-nuspec-file"></a>Oluşturun ve .nuspec dosyası güncelleştirin
+## <a name="create-and-update-the-nuspec-file"></a>Oluşturma ve güncelleştirme .nuspec dosyası
 
-1. Bir komut istemi açın, içeren klasöre gidin `AppLogger.csproj` klasörü (bir düzey altındaki where `.sln` dosyası), NuGet çalıştırıp `spec` ilk oluşturmak için komutu `AppLogger.nuspec` dosyası:
+1. Bir komut istemi açın, klasör içeren dizine gidin `AppLogger.csproj` klasörü (bir düzey altındaki nerede `.sln` dosyasıdır), NuGet çalıştırıp `spec` ilk oluşturmak için komut `AppLogger.nuspec` dosya:
 
     ```cli
     nuget spec
     ```
 
-1. Açık `AppLogger.nuspec` bir düzenleyicide ve aşağıdaki ile eşleşecek şekilde güncelleştirebilirsiniz adiniz uygun bir değerle değiştirin. `<id>` Değeri, özellikle, benzersiz olmalıdır nuget.org (açıklanan adlandırma kuralları Bkz [paket oluşturma](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number). Ayrıca yazar ve açıklama etiketleri güncelleştirmeniz gerekir veya paket adımı sırasında bir hata alıyorsunuz unutmayın.
+1. Açık `AppLogger.nuspec` bir düzenleyicide ve aşağıdaki ile eşleşecek şekilde güncelleştirmeniz YOUR_NAME uygun bir değerle değiştirin. `<id>` Değeri, özellikle benzersiz olmalıdır nuget.org arasında (açıklanan adlandırma kuralları bakın [paket oluşturma](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number). Ayrıca, yazar ve açıklama etiketleri de güncelleştirmeniz gerekir veya paket adımı sırasında bir hata alıyorsunuz unutmayın.
 
     ```xml
     <?xml version="1.0"?>
@@ -89,9 +88,9 @@ Bu kılavuzda .NET standart kitaplığı 1.4 hedefleyen bir NuGet paketi veya .N
     </package>
     ```
 
-1. Başvuru derlemeleri eklemek `.nuspec` dosya, kitaplığın DLL ve IntelliSense XML dosyası:
+1. Başvuru bütünleştirilmiş kodları için ekleme `.nuspec` kitaplığının DLL ve IntelliSense XML dosyasının dosya:
 
-    .NET standardını hedefleyen girişleri aşağıdakine benzer görünür:
+    .NET Standard hedefleme, girişleri aşağıdakine benzer şekilde görünür:
 
     ```xml
     <!-- Insert below <metadata> element -->
@@ -101,7 +100,7 @@ Bu kılavuzda .NET standart kitaplığı 1.4 hedefleyen bir NuGet paketi veya .N
     </files>
     ```
 
-    .NET Framework'ü hedefleme girişleri aşağıdakine benzer görünür:
+    .NET Framework'ü hedefleyen girişleri aşağıdaki gibi görünür:
 
     ```xml
     <!-- Insert below <metadata> element -->
@@ -111,11 +110,11 @@ Bu kılavuzda .NET standart kitaplığı 1.4 hedefleyen bir NuGet paketi veya .N
     </files>
     ```
 
-1. Çözüme sağ tıklayın ve seçin **yapı çözümü** bir paket için tüm dosyaları oluşturmak için.
+1. Çözüme sağ tıklayıp **Çözümü Derle** paket için tüm dosyaları oluşturmak için.
 
-### <a name="declaring-dependencies"></a>Bağımlılıklar bildirme
+### <a name="declaring-dependencies"></a>Bağımlılıkları bildirme
 
-Diğer NuGet paketlerini bağımlılıkları varsa, bildirim de listesinde `<dependencies>` öğeyle `<group>` öğeleri. Örneğin, bir bağımlılık NewtonSoft.Json 8.0.3 veya üstü bildirmek için aşağıdakileri ekleyin:
+Diğer NuGet paketleri üzerinde bağımlılıkları varsa, bu bildirim, liste `<dependencies>` öğeyle `<group>` öğeleri. Örneğin, bir bağımlılık NewtonSoft.Json 8.0.3 veya sonraki sürümlere bildirmek için aşağıdakileri ekleyin:
 
 ```xml
 <!-- Insert within the <metadata> element -->
@@ -126,11 +125,11 @@ Diğer NuGet paketlerini bağımlılıkları varsa, bildirim de listesinde `<dep
 </dependencies>
 ```
 
-Söz dizimi *sürüm* özniteliği burada bu sürümü 8.0.3 gösterir ya da yukarıdaki kabul edilebilir. Farklı bir sürüm aralıklarını belirtmek için başvurmak [paket sürüm](../reference/package-versioning.md).
+Söz dizimi *sürüm* özniteliği burada bu sürümü 8.0.3 gösterir veya üstü kabul edilebilir. Farklı sürüm aralıklarını belirtmek için başvurmak [Paket sürümü oluşturma](../reference/package-versioning.md).
 
-### <a name="adding-a-readme"></a>Bir benioku dosyası ekleme
+### <a name="adding-a-readme"></a>Benioku dosyası ekleme
 
-Oluştur, `readme.txt` dosya, bu proje kök klasöre yerleştirin ve kendisine başvuran `.nuspec` dosyası:
+Oluşturma, `readme.txt` dosyası, proje kök klasörüne yerleştirin ve buna başvuran `.nuspec` dosyası:
 
 ```xml
 <?xml version="1.0"?>
@@ -143,34 +142,34 @@ Oluştur, `readme.txt` dosya, bu proje kök klasöre yerleştirin ve kendisine b
 </package>
 ```
 
-Visual Studio görüntü `readme.txt` paket bir projeye yüklü olduğunda. Dosya, .NET Core projelerine veya bağımlılık olarak yüklü olan paketleri yüklendiğinde gösterilmez.
+Visual Studio görüntü `readme.txt` paketini projeye yüklü olduğunda. Dosya, .NET Core projeleri veya bağımlılık olarak yüklenen paketler yüklediğinizde gösterilmez.
 
 ## <a name="package-the-component"></a>Paket bileşeni
 
-Tamamlanan ile `.nuspec` pakete eklemek için gereken tüm dosyaları başvuran, çalıştırmak hazırsınız `pack` komutu:
+Tamamlanan ile `.nuspec` paket içerisine dâhil için ihtiyacınız olan tüm dosyaları başvuran, çalıştırmaya hazır olduğunuz `pack` komutu:
 
 ```cli
 nuget pack AppLogger.nuspec
 ```
 
-Bu oluşturur `AppLogger.YOUR_NAME.1.0.0.nupkg`. Gibi bir araç bu dosyayı açmayı [NuGet paketi Gezgini](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer) ve tüm düğümleri genişleterek, (.NET standart için gösterilen) aşağıdaki içeriğe bakın:
+Bu oluşturur `AppLogger.YOUR_NAME.1.0.0.nupkg`. Gibi bir aracı bu dosyayı açmayı [NuGet paket Gezgini](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer) ve tüm düğümleri genişleterek, (.NET Standard için gösterilen) aşağıdaki içeriğe bakın:
 
-![NuGet paket AppLogger paket gösteren Gezgini](media/NetStandard-PackageExplorer.png)
+![NuGet paket Gezgini AppLogger paket gösteriliyor](media/NetStandard-PackageExplorer.png)
 
 > [!Tip]
-> A `.nupkg` yalnızca bir ZIP dosyasını farklı bir uzantıya sahip bir dosyadır. Ayrıca paket içeriğini, daha sonra değiştirerek inceleyebilirsiniz `.nupkg` için `.zip`, ancak uzantı nuget.org için bir paket karşıya yüklemeden önce geri yüklemek unutmayın.
+> A `.nupkg` bir ZIP dosyası yalnızca farklı uzantılı bir dosyadır. Ayrıca paket içeriğini, ardından değiştirerek inceleyebilirsiniz `.nupkg` için `.zip`, ancak uzantı nuget.org için bir paket karşıya yüklemeden önce geri unutmayın.
 
-Paketinizi diğer geliştiricileri için kullanılabilir yapmak için yönergeleri izleyin [bir paketi yayımlamaya](../create-packages/publish-a-package.md).
+Paketiniz diğer geliştiriciler için kullanılabilir yapmak için yönergeleri takip edin [paket yayımlama](../create-packages/publish-a-package.md).
 
-Unutmayın `pack` Mono 4.4.2 Mac OS x gerektirir ve Linux sistemlerinde çalışmaz. Bir Mac üzerinde Windows yol adları olarak da dönüştürmelidir `.nuspec` UNIX stili yollara dosya.
+Unutmayın `pack` Mac OS X üzerinde Mono 4.4.2 gerektirir ve Linux sistemlerinde çalışmaz. Mac bilgisayarlarda, Windows yol adları olarak da dönüştürmelisiniz `.nuspec` UNIX stili yollara dosya.
 
 ## <a name="related-topics"></a>İlgili konular
 
 - [.nuspec başvurusu](../reference/nuspec.md)
 - [Birden çok .NET framework sürümleri destekleme](../create-packages/supporting-multiple-target-frameworks.md)
-- [Bir pakete MSBuild özellik ve hedefler](../create-packages/creating-a-package.md#including-msbuild-props-and-targets-in-a-package)
+- [Bir pakete MSBuild özellikler ve hedefler](../create-packages/creating-a-package.md#including-msbuild-props-and-targets-in-a-package)
 - [Yerelleştirilmiş paketler oluşturma](../create-packages/creating-localized-packages.md)
 - [Sembol paketleri](../create-packages/symbol-packages.md)
 - [Paket sürümü oluşturma](../reference/package-versioning.md)
-- [.NET standart kitaplığı belgeleri](/dotnet/articles/standard/library)
-- [.NET Core için .NET Framework'bağlantı noktası oluşturma](/dotnet/articles/core/porting/index)
+- [.NET standard kitaplığı belgeleri](/dotnet/articles/standard/library)
+- [.NET Core ile .NET Framework'ten taşıma](/dotnet/articles/core/porting/index)

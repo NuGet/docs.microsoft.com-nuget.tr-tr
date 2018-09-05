@@ -1,28 +1,27 @@
 ---
-title: NuGet CLI itme komutu
-description: Nuget.exe itme komut başvurusu
+title: NuGet CLI anında iletme komutu
+description: Nuget.exe anında iletme komutu için başvuru
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 05cafa981ecf42829d1b3d8b8988ed51449d9d86
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 125671ca3f695f82bd74f8097e590c3972003e22
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817197"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43548349"
 ---
 # <a name="push-command-nuget-cli"></a>anında iletme komutu (NuGet CLI)
 
-**Uygulandığı öğe:** paketini yayımlama &bullet; **desteklenen sürümler:** tüm; 4.1.0+ nuget.org için gerekli
+**İçin geçerlidir:** paket yayımlama &bullet; **desteklenen sürümler:** tüm; 4.1.0+ nuget.org için gerekli
 
 > [!Important]
-> Nuget.org için paketleri göndermek için nuget.exe v4.1.0 gerekli uygulayan + kullanmalısınız [NuGet protokolleri](../api/nuget-protocols.md).
+> Nuget.org için paketleri göndermeye nuget.exe verze 4.1.0 gerekli uygulayan + kullanmalısınız [NuGet protokolleri](../api/nuget-protocols.md).
 
-Bir paket için paket kaynağı iter ve onu yayımlar.
+Bir paket kaynağı için bir paket gönderir ve belgeyi yayımlar.
 
-NuGet'ın varsayılan yapılandırması yükleyerek elde edilir `%AppData%\NuGet\NuGet.Config` (Windows) veya `~/.nuget/NuGet/NuGet.Config` (Mac/Linux), ardından her yükleme `Nuget.Config` veya `.nuget\Nuget.Config` dosyaları sürücüsünün kökünden başlayıp geçerli dizinde (bkz [yapılandırma NuGet davranışı](../consume-packages/configuring-nuget-behavior.md))
+NuGet'ın varsayılan yapılandırmayı yükleyerek elde `%AppData%\NuGet\NuGet.Config` (Windows) veya `~/.nuget/NuGet/NuGet.Config` (Mac/Linux), ardından her yüklenirken `Nuget.Config` veya `.nuget\Nuget.Config` sürücüsünün kökünden başlayıp geçerli dizinde dosyaları (bkz [yapılandırma NuGet davranışını](../consume-packages/configuring-nuget-behavior.md))
 
 ## <a name="usage"></a>Kullanım
 
@@ -30,26 +29,26 @@ NuGet'ın varsayılan yapılandırması yükleyerek elde edilir `%AppData%\NuGet
 nuget push <packagePath> [options]
 ```
 
-Burada `<packagePath>` sunucuya göndermek için paketi tanımlar.
+Burada `<packagePath>` sunucuya göndermek üzere paket tanımlar.
 
 ## <a name="options"></a>Seçenekler
 
 | Seçenek | Açıklama |
 | --- | --- |
-| apikey ile yapılan | Hedef depo API anahtarı. Yoksa, yapılandırma dosyasında belirtilen bir kullanılır. |
+| ApiKey | Hedef depo için API anahtarı. Yoksa, yapılandırma dosyasında belirtilen kullanılır. |
 | ConfigFile | Uygulamak için NuGet yapılandırma dosyası. Belirtilmezse, `%AppData%\NuGet\NuGet.Config` (Windows) veya `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) kullanılır.|
-| DisableBuffering | Bellek kullanımları azaltmak için bir HTTP (s) sunucusuna iletme zaman arabelleğe almayı devre dışı bırakır. Uyarı: Bu seçenek kullanıldığında, tümleşik Windows kimlik doğrulaması çalışmayabilir. |
-| ForceEnglishOutput | *(3.5 +)*  Değişmez, İngilizce tabanlı kültürü kullanarak çalışacak şekilde nuget.exe zorlar. |
-| Yardım | Bilgi komutu için yardımı görüntüler. |
-| NonInteractive | Kullanıcı girişi veya onayı için ister gizler. |
-| NoSymbols | *(3.5 +)*  Simge paketi varsa, onu bir simge sunucuya gönderilir değil. |
-| Kaynak | Sunucu URL'sini belirtir. NuGet UNC veya yerel klasöre kaynak tanımlar ve yalnızca HTTP kullanarak gönderilmesi yerine dosya var. kopyalar.  Ayrıca, 3.4.2 NuGet ile başlayarak, bu zorunlu bir sürece parametredir `NuGet.Config` dosyayı belirtir bir *DefaultPushSource* değeri (bkz [NuGet yapılandırma davranışı](../consume-packages/configuring-nuget-behavior.md)). |
-| SymbolSource | *(3.5 +)*  Simgesiyle sunucu URL belirtir; nuget.smbsrc.net için nuget.org Ftp'den zaman kullanılır |
-| SymbolApiKey | *(3.5 +)*  URL belirtilen API anahtarını belirtir `-SymbolSource`. |
-| Zaman aşımı | Bir sunucuya gönderilmesi için saniye olarak zaman aşımını belirtir. 300 saniye (5 dakika) varsayılandır. |
-| Ayrıntı Düzeyi | Çıktıda görüntülenen ayrıntı miktarını belirtir: *normal*, *sessiz*, *ayrıntılı*. |
+| DisableBuffering | Bellek kullanımları azaltmak için bir HTTP (s) sunucusuna gönderirken arabelleğe almayı devre dışı bırakır. Dikkat: Bu seçenek kullanıldığında, tümleşik Windows kimlik doğrulaması çalışmayabilir. |
+| ForceEnglishOutput | *(3.5 +)*  Nuget.exe sabit, İngilizce tabanlı bir kültürü kullanarak çalışmaya zorlar. |
+| Yardım | Bilgi komut için yardımı görüntüler. |
+| NonInteractive | Kullanıcı girişini veya onaylar ister bastırır. |
+| NoSymbols | *(3.5 +)*  Bir sembol paketi varsa, bunu bir simge sunucusuna gönderilecek değil. |
+| Kaynak | Sunucu URL'sini belirtir. NuGet, UNC veya yerel klasör kaynak tanımlar ve yalnızca HTTP kullanarak gönderme yerine dosya var. kopyalar.  Ayrıca, 3.4.2 NuGet ile başlayarak, zorunlu bir parametre sürece budur `NuGet.Config` dosyasını belirtir bir *DefaultPushSource* değeri (bkz [yapılandırma NuGet davranışını](../consume-packages/configuring-nuget-behavior.md)). |
+| SymbolSource | *(3.5 +)*  Sembol sunucusunun URL'sini belirtir; nuget.smbsrc.net nuget.org için gönderirken kullanılan |
+| SymbolApiKey | *(3.5 +)*  Belirtilen URL için API anahtarını belirtir `-SymbolSource`. |
+| zaman aşımı | Bir sunucuya göndermek için saniye cinsinden zaman aşımı belirtir. 300 saniyedir (5 dakika) varsayılandır. |
+| Ayrıntı Düzeyi | Çıktıda gösterilen ayrıntı miktarını belirtir: *normal*, *sessiz*, *ayrıntılı*. |
 
-Ayrıca bkz. [ortam değişkenleri](cli-ref-environment-variables.md)
+Ayrıca bkz: [ortam değişkenleri](cli-ref-environment-variables.md)
 
 ## <a name="examples"></a>Örnekler
 

@@ -1,47 +1,46 @@
 ---
 title: NuGet project.json arşiv içeriği
-description: Çeşitli BITS project.json içeriğin diğer NuGet belgelerine alanlarından kaldırıldı.
+description: Çeşitli bitleri project.json içerik NuGet belgeleri diğer alanlarından kaldırıldı.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: 5b5a5309f5b22f08c289aa49781fa44f95646153
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: aa5cd1a2f3e3a6707a9d68204306db85651b0a18
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818340"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43545206"
 ---
 # <a name="projectjson-archive"></a>Project.JSON arşiv
 
-`project.json` Yönetim biçimi NuGet ile sunulmuştur 3.x ve belirli proje türleri kullanılır. Bağımlılıklar doğrudan proje dosyasında listelenen PackageReference biçimi girişiyle kullanımdan kaldırılmıştır.
+`project.json` Yönetim biçimi, NuGet ile tanıtılmıştır 3.x ve belirli proje türleri kullanılır. Bu bağımlılıklar doğrudan proje dosyasında listelenen PackageReference biçimi sunulmasıyla birlikte kullanım dışı bırakıldı.
 
-Ayrıca bkz.:
+Ayrıca bkz:
 
 - [Project.JSON şeması](project-json.md)
-- [Paketi yazarları Project.JSON etkisini](project-json-impact.md)
+- [Paket yazarlarının Project.JSON etkisi](project-json-impact.md)
 - [project.json ve UWP](project-json-and-uwp.md)
 
 ## <a name="projectjson-management-format"></a>Project.JSON yönetim biçimi
 
-*İlk olarak, [paket geri yüklemesi](../what-is-nuget.md).*
+*İlk olarak [paket geri yükleme](../what-is-nuget.md).*
 
-Yönetim biçimleri listesinde:
+Yönetim biçim listesinde:
 
-- [`project.json`](project-json.md): *(kullanım dışı)* proje bağımlılıkları ile ilişkili bir dosyası bir genel paket grafiğinde bir listesini tutar bir JSON dosyası `project.lock.json`. Bu biçim lehinde PackageReference kullanım dışıdır.
+- [`project.json`](project-json.md): *(kullanım dışı)* genel bir paket grafikte ilişkili bir dosya ile proje bağımlılıklarınızı listesini tutar bir JSON dosyası `project.lock.json`. Bu biçim ile değiştiriliyor PackageReference kullanım dışı bırakılmıştır.
 
 ## <a name="nuget-restore-on-mono"></a>Mono nuget geri yükleme
 
-*İlk olarak, [Nuget'i yükle istemci araçları](../install-nuget-client-tools.md).*
+*İlk olarak [Nuget'i yükle istemci araçları](../install-nuget-client-tools.md).*
 
-İle birlikte çalışır `project.json`.
+Çalışan `project.json`.
 
-## <a name="constraining-package-versions-with-restore"></a>Geri yükleme ile kısıtlayan paketi sürümleri
+## <a name="constraining-package-versions-with-restore"></a>Geri yükleme ile kısıtlayan paket sürümleri
 
-*İlk olarak, [paket geri yüklemesi](../consume-packages/package-restore.md#constraining-package-versions-with-restore).*
+*İlk olarak [paket geri yükleme](../consume-packages/package-restore.md#constraining-package-versions-with-restore).*
 
-- `project.json`: Doğrudan bağımlılık ait sürüm numarasına sahip bir sürüm aralığı belirtin. Örneğin:
+- `project.json`: Doğrudan bağımlılık'ın sürüm numarasına sahip bir sürüm aralığı belirtin. Örneğin:
 
     ```json
     "Newtonsoft.json": "[6, 7)"
@@ -49,27 +48,27 @@ Yönetim biçimleri listesinde:
 
 ## <a name="nuget-cli-commands"></a>NuGet CLI komutları
 
-- `nuget install` ile çalışmaz `project.json`.
-- `nuget restore`: kullanarak projeleri ile `project.json`, oluşturan bir `project.lock.json` dosyası ve bir `<project>.nuget.props` gerekirse, dosya. (Her iki dosyası kaynak denetiminden atlanabilir.) `<projectPath>` Bağımsız değişkeni noktası bir `project.json` işaret olarak aynı davranışı sahiptir ve dosya bir `packages.config` veya proje dosyası. Paket klasörler için öncelik sırasına `%userprofile%\.nuget\packages` kullanırken ilk aranır `project.json`.
-- `nuget update`: Mono üzerinde bu komutu kullanarak projeleri ile çalışmıyor `project.json`.
+- `nuget install` ile çalışmıyor `project.json`.
+- `nuget restore`: kullanarak projeleri ile `project.json`, oluşturur bir `project.lock.json` dosyası ve bir `<project>.nuget.props` gerekirse dosya. (Her iki dosya kaynak denetiminden atlanabilir.) `<projectPath>` İşaret edebilir bağımsız değişkeni bir `project.json` dosya ve işaret olarak aynı davranışa sahip bir `packages.config` ya da proje dosyası. Paket klasörler için öncelik sırasına `%userprofile%\.nuget\packages` kullanırken ilk aranır `project.json`.
+- `nuget update`: Mono üzerinde bu komutu kullanarak projeleriyle çalışmıyor `project.json`.
 
-## <a name="dependency-resolution-with-packagereference"></a>PackageReference bir bağımlılık çözümleme
+## <a name="dependency-resolution-with-packagereference"></a>PackageReference ile bağımlılık çözümlemesi
 
-*İlk olarak, [bağımlılık çözümlemesi](../consume-packages/dependency-resolution.md#dependency-resolution-with-packagereference).*
+*İlk olarak [bağımlılık çözümlemesi](../consume-packages/dependency-resolution.md#dependency-resolution-with-packagereference).*
 
-PackageReference davranışını için de geçerlidir `project.json`. NuGet restore bağımlılık grafiğinin adlı bir dosyaya yazar `project.lock.json` yanında `project.json`.
+Ayrıca PackageReference davranışını uygular `project.json`. NuGet geri yükleme, bağımlılık grafiği adlı bir dosyaya yazar `project.lock.json` yanı sıra `project.json`.
 
 ## <a name="managing-dependency-assets"></a>Bağımlılık varlıklarını yönetme
 
-*İlk olarak, [bağımlılık çözümlemesi](../consume-packages/dependency-resolution.md#managing-dependency-assets).*
+*İlk olarak [bağımlılık çözümlemesi](../consume-packages/dependency-resolution.md#managing-dependency-assets).*
 
-Kullanırken `project.json` biçimi, en üst düzey proje bağımlılıkları akışına hangi varlıklarından kontrol edebilirsiniz. Ayrıntılar için bkz [project.json](project-json.md).
+Kullanırken `project.json` biçimi, üst düzey proje bağımlılıkları akışına hangi varlıklarından denetleyebilirsiniz. Ayrıntılar için bkz [project.json](project-json.md).
 
 ## <a name="excluding-references"></a>Başvuruları hariç
 
-*İlk olarak, [bağımlılık çözümlemesi](../consume-packages/dependency-resolution.md#excluding-references).*
+*İlk olarak [bağımlılık çözümlemesi](../consume-packages/dependency-resolution.md#excluding-references).*
 
-- `project.json`: eklemek `"exclude" : "all"` PackageC bağımlılığı içinde:
+- `project.json`: ekleme `"exclude" : "all"` PackageC için bağımlılık olarak:
 
     ```json
     {
@@ -84,29 +83,29 @@ Kullanırken `project.json` biçimi, en üst düzey proje bağımlılıkları ak
 
 ## <a name="resolving-incompatible-package-errors"></a>Uyumsuz paket hatalarını çözme
 
-*İlk olarak, [bağımlılık çözümlemesi](../consume-packages/dependency-resolution.md#resolving-incompatible-package-errors).*
+*İlk olarak [bağımlılık çözümlemesi](../consume-packages/dependency-resolution.md#resolving-incompatible-package-errors).*
 
 Hataları çözümleme eklenen anlamına gelir:
 
-- **Önerilmez**: geçici bir çözüm olarak için paket yazarına ile çalışırken projeleri hedefleyen `netcore`, `netstandard`, ve `netcoreapp` uyumlu, böylece bu hedefleme paketleri izin verme olarak diğer çerçeveler belirtmek kullanılacak diğer çerçeveler. Bkz: [project.json alır](project-json.md#imports) ve [MSBuild geri yükleme hedefi PackageTargetFallback](../reference/msbuild-targets.md#packagetargetfallback). Bu beklenmeyen davranışları neden şekilde yeniden üzerinde bir güncelleştirme için paket yazarına ile çalışarak paket uyumsuzlukları gidermek en iyisidir.
+- **Tavsiye**: geçici bir çözüm, paket yazarı ile çalışırken, proje hedefleme `netcore`, `netstandard`, ve `netcoreapp` diğer çerçeveler, böylece bu hedefleme paketleri izin vererek, uyumlu olarak belirtmek kullanılacak diğer çerçeveler. Bkz: [project.json içeri aktarır](project-json.md#imports) ve [MSBuild geri yükleme hedefi PackageTargetFallback](../reference/msbuild-targets.md#packagetargetfallback). Bu beklenmeyen davranışlara neden olabilir bir güncelleştirme üzerinde paket yazarı ile çalışarak paket uyumsuzlukları çözmek en iyi şekilde yeniden.
 
 ## <a name="target-frameworks"></a>Hedef Çerçeve
 
-*İlk olarak, [hedef çerçeveler](../reference/target-frameworks.md).*
+*İlk olarak [hedef çerçeveyi](../reference/target-frameworks.md).*
 
-- [Project.JSON](project-json.md): `frameworks` düğümü karşı proje derlenmiş framework sürümlerini belirtir.
+- [Project.JSON](project-json.md): `frameworks` düğüm karşı projenin derlenebilir framework sürümlerini belirtir.
 
 ## <a name="creating-a-package"></a>Paket oluşturma
 
-*İlk olarak, [paket oluşturma](../create-packages/creating-a-package.md)*
+*İlk olarak [paket oluşturma](../create-packages/creating-a-package.md)*
 
 ### <a name="setting-a-package-type"></a>Ayar paket türü
 
-Pakette 1.x, paket yüklü DotnetCliTool, Visual Studio .NET Core ile yerleştirir `project.json` `tools` yerine düğümü `dependencies` düğümü.
+.NET Core ile 1.x DotnetCliTool paketi, Visual Studio paketinde yerleştirir `project.json` `tools` yerine düğüm `dependencies` düğümü.
 
-Paket türleri ayarlanır `project.json`.
+Paket türlerinin ayarlanır `project.json`.
 
-- `project.json`: İçinde paket türünü gösteren bir `packOptions.packageType` özelliği json:
+- `project.json`: Paket türü içinde göstermek bir `packOptions.packageType` json özelliği:
 
     ```json
     {
@@ -117,38 +116,38 @@ Paket türleri ayarlanır `project.json`.
     }
     ```
 
-### <a name="adding-targets-and-props-for-msbuild"></a>MSBuild hedefleri ve özellik ekleme
+### <a name="adding-targets-and-props-for-msbuild"></a>MSBuild hedeflerini ve özellik ekleme
 
-*İlk olarak, [Visual Studio 2015 ile birlikte .NET standart NuGet paketlerini oluşturmak](../guides/create-net-standard-packages-vs2015.md).*
+*İlk olarak [.NET standart NuGet paketleri ile Visual Studio 2015 oluşturma](../guides/create-net-standard-packages-vs2015.md).*
 
-Kullanırken `project.json`, hedefleri projeye eklenmez ancak kullanılabilir hale getirilir `project.lock.json`.
+Kullanırken `project.json`, hedef projeye eklenmez ancak kullanılabilir hale getirilir `project.lock.json`.
 
 ### <a name="package-versioning"></a>Paket sürümü oluşturma
 
-*İlk olarak, [paket sürüm](../reference/package-versioning.md).*
+*İlk olarak [Paket sürümü oluşturma](../reference/package-versioning.md).*
 
-Kullanırken `project.json` biçimi, NuGet ayrıca bir joker karakter gösterimini kullanarak destekler \*, birincil, ikincil, düzeltme eki ve sayının yayın öncesi soneki bölümleri için.
+Kullanırken `project.json` biçimi, NuGet ayrıca bir joker karakter gösterimi kullanılmasını destekler \*büyük, küçük, düzeltme eki ve sayının yayın öncesi son bölümü için.
 
 ### <a name="nugetconfig-reference"></a>NuGet.Config başvurusu
 
-*İlk olarak, [NuGet.Config başvuru](../reference/nuget-config-file.md).*
+*İlk olarak [NuGet.Config başvuru](../reference/nuget-config-file.md).*
 
 `globalPackagesFolder` yalnızca geçerli `project.json`. (Not eklendi: PackageReference için de geçerlidir.)
 
-### <a name="nuspec-file-reference"></a>nuspec dosyası başvurusu
+### <a name="nuspec-file-reference"></a>nuspec dosya başvurusu
 
-*İlk olarak, [nuspec başvuru](../reference/nuspec.md).*
+*İlk olarak [nuspec başvuru](../reference/nuspec.md).*
 
 `<contentFiles>` Öğe yerine kullanılır `<files>` ile `project.json`.
 
 ### <a name="package-manager-options-control"></a>Paket Yöneticisi seçenekleri denetimi
 
-*İlk olarak, [Paket Yöneticisi kullanıcı Arabirimi başvurusu](../tools/package-manager-ui.md).*
+*İlk olarak [Paket Yöneticisi kullanıcı Arabirimi başvurusu](../tools/package-manager-ui.md).*
 
-Kullanarak projeleri `project.json` yönetim biçimi yalnızca Göster **Göster önizleme penceresi** seçeneği.
+Kullanarak projeleri `project.json` yönetim biçimi zobrazit pouze **Show Önizleme penceresini** seçeneği.
 
 ### <a name="visual-studio-templates"></a>Visual Studio şablonları
 
-*İlk olarak, [Visual Studio şablonları NuGet paketlerine](../visual-studio-extensibility/visual-studio-templates.md).*
+*İlk olarak [Visual Studio şablonları NuGet paketlerinde](../visual-studio-extensibility/visual-studio-templates.md).*
 
-En iyi uygulamalar: şablonları içermeyen bir `project.json` dosya ve içermeyen veya tüm başvuruları veya NuGet paketleri yüklendiğinde ekleneceği içerik.
+En iyi uygulamalar: şablonlar içermez bir `project.json` dosya ve ekleme veya tüm başvuruları veya NuGet paketleri yüklendiğinde eklenir içeriği.

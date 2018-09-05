@@ -1,23 +1,22 @@
 ---
 title: NuGet paket PowerShell başvurusu
-description: Visual Studio'da NuGet Paket Yöneticisi konsolunda güncelleştirme paketini PowerShell komut başvurusu.
+description: Visual Studio'da NuGet Paket Yöneticisi konsolu Update-Package PowerShell komutunda referansı.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: aa039f3ffcc0a7323178dae846733559c0f689b5
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: d47e1978ab7d827e0b8b97cd4e7237019185b50f
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817105"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43546082"
 ---
 # <a name="update-package-package-manager-console-in-visual-studio"></a>Update-Package (Visual Studio'da Paket Yöneticisi Konsolu)
 
-*Yalnızca içinde kullanılabilir [NuGet Paket Yöneticisi Konsolu](package-manager-console.md) Windows Visual Studio'da.*
+*Yalnızca içinde kullanılabilir [NuGet Paket Yöneticisi Konsolu](package-manager-console.md) Windows üzerinde Visual Studio'da.*
 
-Bir paketi ve bağımlılıklarını ya da bir projesindeki tüm paketleri daha yeni bir sürüme güncelleştirir.
+Bir paketi ve bağımlılıkları veya bir projedeki tüm paketleri yeni bir sürüme güncelleştirir.
 
 ## <a name="syntax"></a>Sözdizimi
 
@@ -27,7 +26,7 @@ Update-Package [-Id] <string> [-IgnoreDependencies] [-ProjectName <string>] [-Ve
     [-DependencyVersion] [-ToHighestPatch] [-ToHighestMinor] [-WhatIf] [<CommonParameters>]
 ```
 
-NuGet 2.8 + içinde `Update-Package` var olan bir paketini projenize düşürmek için kullanılabilir. Microsoft.AspNet.MVC 5.1.0-rc1 yüklü varsa, örneğin, aşağıdaki komut, 5.0.0 için düşürmek:
+Nuget'te 2.8 + `Update-Package` projenizdeki varolan paketi düşürmek için kullanılabilir. Yüklü Microsoft.AspNet.MVC 5.1.0-rc1 varsa, örneğin, aşağıdaki komut, 5.0.0 için düşürme:
 
 ```ps
 Update-Package Microsoft.AspNet.MVC -Version 5.0.0.
@@ -37,25 +36,25 @@ Update-Package Microsoft.AspNet.MVC -Version 5.0.0.
 
 |  Parametre | Açıklama |
 | --- | --- |
-| Kimliği | Güncelleştirilecek paket tanımlayıcısı. Atlanırsa, tüm paketleri güncelleştirir. Kimliği anahtarı kendisini isteğe bağlı değil. |
-| IgnoreDependencies | Paketin bağımlılıklarını güncelleştirme atlar. |
-| ProjectName | Güncelleştirilecek paketi içeren, tüm projeler için varsayılan değer olarak projesinin adı. |
-| Sürüm | En son sürüm varsayılan değer olarak, yükseltme için kullanılacak sürümü. NuGet içinde 3.0 +, sürüm değeri şunlardan biri olmalıdır *en düşük, en yüksek, HighestMinor*, veya *HighestPatch* (eşdeğer - güvenli). |
-| Güvenli | Yükseltmeleri aynı birincil ve ikincil sürüme yüklü paketi içeren yalnızca sürümlerle kısıtlar. |
-| Kaynak | Aranacak paket kaynağının URL'sini veya klasör yolu. Yerel klasör yolları mutlak veya göreli geçerli klasörde olabilir. Atlanırsa, `Update-Package` şu anda seçili paket kaynağını arar. |
+| Kimliği | Güncelleştirilecek paket tanımlayıcısı. Atlanırsa, tüm paketleri güncelleştirir. Kimliği anahtarın kendisinde, isteğe bağlıdır. |
+| IgnoreDependencies | Paket bağımlılıkları güncelleştirme atlar. |
+| ProjectName | Güncelleştirme paketlerini içeren, tüm projeler için varsayılan olarak ayarlanıyor. proje adı. |
+| Sürüm | Varsayılan en son sürüme yükseltme için kullanılacak sürümü. Nuget'te 3.0 +, sürüm değeri şunlardan biri olmalıdır *en düşük, en yüksek HighestMinor*, veya *HighestPatch* (eşdeğer - güvenli). |
+| Güvenli | Yalnızca şu anda yüklü paketleri aynı birincil ve ikincil sürüme sürümleriyle yükseltmeleri kısıtlar. |
+| Kaynak | Aranacak paket kaynağı için URL veya klasör yolu. Yerel klasör yol mutlak veya göreli geçerli klasörde olabilir. Atlanırsa, `Update-Package` seçili paket kaynağı arar. |
 | IncludePrerelease | Yayın öncesi paketleri için güncelleştirmeleri içerir. |
-| Yeniden yükleme | Şu anda yüklü sürümlerine kullanarak Resintalls paketler. Bkz: [Reinstalling ve paketleri güncelleştiriliyor](../consume-packages/reinstalling-and-updating-packages.md). |
-| FileConflictAction | Üzerine veya varolan dosyaları proje tarafından başvurulan yoksayar istenir olduğunda gerçekleştirilecek eylem. Olası değerler şunlardır: *üzerine yazma, yoksay, None, OverwriteAll*, ve *IgnoreAll* (3.0 +). |
-| DependencyVersion | Şunlardan biri olabilen kullanmak için bağımlılık Paket sürümü:<br/><ul><li>*En düşük* (varsayılan): en düşük sürüm</li><li>*HighestPatch*: en düşük ana, en düşük küçük, en yüksek düzeltme eki sürümüyle</li><li>*HighestMinor*: en düşük ana sürümle, en yüksek ikincil, en yüksek düzeltme eki</li><li>*En yüksek* (hiçbir parametre güncelleştirme paketi için varsayılan): en yüksek sürüm</li></ul>Varsayılan değer kullanılarak ayarlayabilirsiniz [ `dependencyVersion` ](../reference/nuget-config-file.md#config-section) ayarı `Nuget.Config` dosya. |
-| ToHighestPatch | Yalnızca şu anda yüklenmiş paket ile aynı ikincil sürümle sürümlerine yükseltme kısıtlar. |
-| ToHighestMinor | Yalnızca şu anda yüklü paketi olarak aynı ana sürümüne sürümleriyle yükseltmeleri kısıtlar. |
-| WhatIf | Komut gerçekte güncelleştirme yapmadan çalıştırırken ne olacağını gösterir. |
+| Yeniden yükleyin | Şu anda yüklü sürümlerini kullanarak Resintalls paketleri. Bkz: [Reinstalling ve paketlerin güncelleştirilmesi](../consume-packages/reinstalling-and-updating-packages.md). |
+| FileConflictAction | Üzerine ya da proje tarafından başvurulan mevcut dosyaları yoksaymak için sorulan olduğunda gerçekleştirilecek eylem. Olası değerler *üzerine yaz, yoksay, None, OverwriteAll*, ve *IgnoreAll* (3.0 +). |
+| DependencyVersion | Aşağıdakilerden biri olabilen kullanmak için bağımlılık paketlerini sürümü:<br/><ul><li>*En düşük* (varsayılan): en düşük sürüm</li><li>*HighestPatch*: en düşük büyük, en düşük küçük, yüksek düzeltme sürümü</li><li>*HighestMinor*: en düşük ana sürümle, en yüksek ikincil, yüksek düzeltme eki</li><li>*En yüksek* (parametre olmadan Update-Package için varsayılan): en yüksek sürüm</li></ul>Varsayılan değer kullanarak ayarlayabilirsiniz [ `dependencyVersion` ](../reference/nuget-config-file.md#config-section) ayarı `Nuget.Config` dosya. |
+| ToHighestPatch | Yalnızca aynı alt sürümü şu anda yüklü paketleri olarak sürümleriyle yükseltmeleri kısıtlar. |
+| ToHighestMinor | Yükseltmeleri yalnızca sürümleri şu anda yüklü paketleri ile aynı ana sürümle kısıtlar. |
+| WhatIf | Komut güncelleştirme yapmadan çalıştırılırken ne olacağını gösterir. |
 
-Hiçbiri bu parametre ardışık düzen giriş veya joker karakter kabul edin.
+Hiçbiri bu parametre ardışık düzen giriş veya joker karakterler kabul edin.
 
 ### <a name="common-parameters"></a>Ortak parametreleri
 
-`Update-Package` Aşağıdaki destekleyen [ortak PowerShell parametrelerini](http://go.microsoft.com/fwlink/?LinkID=113216): hata ayıklama, hata eylemi, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, ayrıntı, WarningAction ve WarningVariable.
+`Update-Package` şunları desteklemektedir [ortak PowerShell parametrelerini](http://go.microsoft.com/fwlink/?LinkID=113216): hata ayıklama, hata eylemi, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, ayrıntılı, WarningAction ve WarningVariable.
 
 ### <a name="examples"></a>Örnekler
 

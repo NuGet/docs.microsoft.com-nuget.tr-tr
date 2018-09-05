@@ -1,38 +1,37 @@
 ---
-title: Tanıtım kılavuzu kullanarak NuGet paketleri yoluyla CLI dotnet
-description: İzlenecek yol öğretici yüklenmesi ve .NET Core projede bir NuGet paketi kullanarak işleme.
+title: Kullanarak NuGet paketleri aracılığıyla dotnet CLI için tanıtım Kılavuzu
+description: Bir NuGet paketi kullanarak bir .NET Core projesinde ve yükleme işlemini bir gözden geçirme öğretici.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/23/2018
 ms.topic: quickstart
-ms.openlocfilehash: 2fac013de5457f26bbbaeff37209316daedcdbb0
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: bb24ccbfdd4a6a94cf7116f16b0862871e176e50
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34816949"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43549282"
 ---
 # <a name="quickstart-install-and-use-a-package-using-the-dotnet-cli"></a>Hızlı Başlangıç: Yükleme ve dotnet CLI kullanarak bir paket kullanma
 
-NuGet paketleri diğer geliştiriciler projelerinizi kullanmak için kullanılabilir hale yeniden kullanılabilir kod içerir. Bkz: [NuGet nedir?](../What-is-NuGet.md) arka planı için. Paketler, .NET Core kullanarak projesi içine yüklenir `dotnet add package` komutu popüler için bu makalede açıklanan [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) paket.
+NuGet paketleri diğer geliştiriciler projelerinizde kullanmak için kullanılabilir hale yeniden kullanılabilir bir kod içerir. Bkz: [NuGet nedir?](../What-is-NuGet.md) arka planı. Paketleri kullanarak bir .NET Core projesi yüklü `dotnet add package` komutu popüler için bu makalede anlatıldığı gibi [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) paket.
 
-Koduyla paketinde yüklendikten sonra başvurmak `using <namespace>` nerede \<ad alanı\> kullanmakta olduğunuz paket özeldir. Ardından, paketin API de kullanabilirsiniz.
+Kod ile paket yüklendikten sonra başvurmak `using <namespace>` burada \<ad alanı\> kullanmakta olduğunuz paket özgüdür. Ardından, paket API'si de kullanabilirsiniz.
 
 > [!Tip]
-> **Başlat nuget.org ile**: Tarama nuget.org olan nasıl .NET geliştiricilerinin bileşenleri genellikle bulmak, kendi uygulamalarında yeniden kullanabilirsiniz. Nuget.org doğrudan arama veya bulabilir ve bu makalede gösterilen şekilde Visual Studio içindeki paketleri yükleyin.
+> **Nuget.org ile Başlat**: gözatma nuget.org'nin olduğundan nasıl .NET geliştiricilerinin bileşenler genellikle bulun, kendi uygulamalarında yeniden kullanabilirsiniz. Nuget.org doğrudan arama veya bulabilir ve bu makalede gösterilen şekilde Visual Studio içindeki paketleri yükleyin.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [.NET Core SDK](https://www.microsoft.com/net/download/), sağlayan `dotnet` komut satırı aracı.
+- [.NET Core SDK'sı](https://www.microsoft.com/net/download/), sağlayan `dotnet` komut satırı aracı.
 
 ## <a name="create-a-project"></a>Proje oluşturma
 
-NuGet paketlerini tür .NET projeye yüklenebilir. Bu kılavuzda gibi basit bir .NET Core konsol projesi oluşturun:
+NuGet paketlerini, tür bir .NET projesine yüklenebilir. Bu kılavuz için şu şekilde basit bir .NET Core konsol projesi oluşturun:
 
 1. Proje için bir klasör oluşturun.
 
-1. Aşağıdaki komutu kullanarak projesi oluşturun:
+1. Aşağıdaki komutu kullanarak proje oluştur:
 
     ```cli
     dotnet new console
@@ -42,13 +41,13 @@ NuGet paketlerini tür .NET projeye yüklenebilir. Bu kılavuzda gibi basit bir 
 
 ## <a name="add-the-newtonsoftjson-nuget-package"></a>Newtonsoft.Json NuGet paketi ekleme
 
-1. Yüklemek için aşağıdaki komutu kullanın `Newtonsoft.json` paketi:
+1. Yüklemek için aşağıdaki komutu kullanın `Newtonsoft.json` paket:
 
     ```cli
     dotnet add package Newtonsoft.Json
     ```
 
-2. Komut tamamlandıktan sonra açmak `.csproj` dosya eklenen başvurusuna bakın:
+2. Komut tamamlandıktan sonra açın `.csproj` dosya eklendi başvuru görmek için:
 
     ```xml
    <ItemGroup>
@@ -58,13 +57,13 @@ NuGet paketlerini tür .NET projeye yüklenebilir. Bu kılavuzda gibi basit bir 
 
 ## <a name="use-the-newtonsoftjson-api-in-the-app"></a>' % S ' Newtonsoft.Json API uygulamasında kullanma
 
-1. Açık `Program.cs` dosya ve dosyanın üst kısmında aşağıdaki satırı ekleyin:
+1. Açık `Program.cs` dosya ve dosyasının en üstüne aşağıdaki satırı ekleyin:
 
     ```cs
     using Newtonsoft.Json;
     ```
 
-1. Önce aşağıdaki kodu ekleyin `class Program` satır:
+1. Önce aşağıdaki kodu ekleyin `class Program` satırı:
 
     ```cs
     public class Account
@@ -75,7 +74,7 @@ NuGet paketlerini tür .NET projeye yüklenebilir. Bu kılavuzda gibi basit bir 
     }
     ```
 
-1. Değiştir `Main` aşağıdaki işleviyle:
+1. Değiştirin `Main` işlevi aşağıdaki:
 
     ```cs
     static void Main(string[] args)
@@ -92,7 +91,7 @@ NuGet paketlerini tür .NET projeye yüklenebilir. Bu kılavuzda gibi basit bir 
     }
     ```
 
-1. Derleme ve uygulamayı kullanarak çalıştırma `dotnet run` komutu. Çıkış JSON gösterimi olmalıdır `Account` kodu nesnesinde:
+1. Kullanarak uygulaması derleyebilir ve `dotnet run` komutu. Çıkış JSON gösterimi olmalıdır `Account` kod nesnesinde:
 
     ```output
     {
@@ -104,7 +103,7 @@ NuGet paketlerini tür .NET projeye yüklenebilir. Bu kılavuzda gibi basit bir 
 
 ## <a name="related-articles"></a>İlgili makaleler
 
-- [Genel bakış ve iş akışı paket tüketimi](../consume-packages/overview-and-workflow.md)
+- [Genel bakış ve paket tüketim iş akışı](../consume-packages/overview-and-workflow.md)
 - [Paketleri bulma ve seçme](../consume-packages/finding-and-choosing-packages.md)
-- [Bir paketi yüklemek için yollar](../consume-packages/ways-to-install-a-package.md)
+- [Paket yükleme yolu](../consume-packages/ways-to-install-a-package.md)
 - [NuGet Davranışını Yapılandırma](../consume-packages/configuring-nuget-behavior.md)

@@ -3,15 +3,14 @@ title: PackageReference biçimlerine Package.config geçiş
 description: Bir proje olarak NuGet 4.0 + ve VS2017 ve .NET Core 2.0 tarafından desteklenen PackageReference package.config yönetim biçiminden geçirilecek hakkında ayrıntılar
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 03/27/2018
 ms.topic: conceptual
-ms.openlocfilehash: b05192038bff071ca7a5b8f2e0f735696d09bef6
-ms.sourcegitcommit: 4d139cb54a46616ae48d1768fa108ae3bf450d5b
+ms.openlocfilehash: 05a82e48c7083a19c50a05fa1df74ebfff8030d1
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39508276"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43546692"
 ---
 # <a name="migrate-from-packagesconfig-to-packagereference"></a>Packages.config'i Packagereference'a geçirme
 

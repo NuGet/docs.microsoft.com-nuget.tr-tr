@@ -1,39 +1,38 @@
 ---
 title: NuGet ekosistemine genel bakış
-description: Kapsamlı kaynaklar NuGet kaynakları, Microsoft olmayan NuGet projeleri, yardımcı programlar ve eğitim malzemelerinizin de dahil olmak üzere NuGet ekosistemindeki.
+description: NuGet kaynağı, Microsoft NuGet projeler, yardımcı programlar ve eğitim malzemeleri NuGet ekosisteminde kapsamlı kaynaklar.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 52edc29fe8e9ec8927844a71a01e4983e47b1ce0
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 31243076f36f6ff274c4377c1773ea59dda8c834
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818184"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43548150"
 ---
 # <a name="an-overview-of-the-nuget-ecosystem"></a>NuGet ekosistemine genel bakış
 
-Giriş 2010 olduğuna göre NuGet artırmak ve farklı yönlerini geliştirme süreçleri otomatik hale getirmek için harika bir fırsat sunulan.
+NuGet, 2010'daki giriş olduğundan, geliştirmek ve farklı yönlerini geliştirme süreçleri otomatik hale getirmek için harika bir fırsat sunulan.
 
-NuGet açık kaynaklı bir izin veren altında olduğundan [Apache v2 lisans](http://choosealicense.com/licenses/apache/), diğer projeler NuGet yararlanabilir ve şirketler ürünlerinin onun için desteği oluşturabilir. Açık kaynaklı proje mı Kurumsal uygulama geliştirme, NuGet ve diğer uygulamalar üzerinde ve NuGet geçici yerleşik araçları geniş ekosistemiyle yazılım geliştirme sürecini iyileştirmek için sağlama.
+NuGet, açık kaynak bir esnek altında olduğundan [Apache v2 lisans](http://choosealicense.com/licenses/apache/), diğer projeleri NuGet yararlanabilir ve şirketler ürünlerinin desteği de oluşturabilirsiniz. Açık kaynaklı projelerin mı Kurumsal uygulama geliştirme, NuGet ve diğer uygulamalar üzerinde ve NuGet geçici olarak oluşturulmuş geniş bir ekosistemi araçların yazılım geliştirme sürecini iyileştirmek için sağlayın.
 
-Tüm bu projeleri Geliştirici Katkıları nedeniyle yenilik imkanınız olur. Ayrıca NuGet için katkıda yalnızca gibi bu projeler katkısı raporlama kusurları ve geribildirim sağlama, belgeleri yazma ve mümkün olduğunda kod katkıda bulunan yeni özellik fikirleri tarafından olun.
+Bu projelerin hepsine Geliştirici Katkıları nedeniyle yenilik. Ayrıca NuGet için yalnızca katkıda bulunuyorsanız katkı bu projeler için raporlama hataları ve geri bildirim sağlama, belgeleri yazma ve mümkün olduğunda kod katkısı yeni özellik fikirleri olun.
 
 ## <a name="net-foundation-projects"></a>.NET foundation projeleri
 
-NuGet Microsoft geliştirme platformu için ücretsiz, açık kaynaklı paket yönetim sistemi sağlar. Oluşturan bir hizmetler kümesi olan yanı sıra birkaç istemci araçları oluşur [resmi NuGet galerisinde](http://www.nuget.org). Birleştirilmiş, bunlar tarafından yönetilen NuGet proje form [.NET Foundation](http://www.dotnetfoundation.org/).
+NuGet, ücretsiz, açık kaynaklı paket yönetim sistemi için Microsoft geliştirme platformu sağlar. Kümesini oluşturan Hizmetleri yanı sıra birkaç istemci araçları oluşur [resmi NuGet Galerisi](http://www.nuget.org). Birlikte kullanıldığında bu tabidir NuGet proje formu [.NET Foundation](http://www.dotnetfoundation.org/).
 
-NuGet kuruluşu, GitHub üzerinde çeşitli depoları içerir. [https://github.com/Nuget/Home](https://github.com/Nuget/Home) tüm depoları genel bir bakış ve çeşitli NuGet bileşenleri nerede sağlar.
+NuGet kuruluş GitHub çeşitli depolarda içerir. [https://github.com/Nuget/Home](https://github.com/Nuget/Home) Tüm depolar genel bir bakış ve çeşitli bileşenleri NuGet nerede bulacağını sağlar.
 
 ## <a name="microsoft-projects"></a>Microsoft projeleri
 
-Microsoft, NuGet geliştirme için yaygın katıldığını. Microsoft çalışanlar tarafından bir katkılar de açık kaynaklıdır olan ve (telif hakları dahil olmak üzere) .NET Foundation'a bağışlanır.
+Microsoft, NuGet geliştirilmesini kapsamlı bir şekilde katkılarıyla. Microsoft çalışanları tarafından yapılan tüm katkılar de açık kaynak olan ve (telif hakkı) için .NET Foundation üzerinde Bağış.
 
-## <a name="non-microsoft-projects"></a>Microsoft olmayan projeleri
+## <a name="non-microsoft-projects"></a>Microsoft olmayan projeler
 
-Diğer birçok kişiler ve şirketler NuGet ekosistemi önemli ölçüde katkıda yaptınız. Burada listelenen her proje, çekirdek NuGet Bileşenler'den farklı bir lisansa sahip olabilir, böylece Lisans Koşulları'nı kullanmadan önce kabul edilebilir olduğundan emin olun:
+Diğer kişiler ve şirketlerin birçok önemli katkılar NuGet ekosistemine yapıldı. Burada listelenen her bir proje çekirdek NuGet bileşenlerini değerinden farklı bir lisansa sahip, bu nedenle Lisans Koşulları'nı kullanmadan önce kabul edilebilir olduğunu onaylayın:
 
 - [AppVeyor CI](https://www.appveyor.com/)
 - [Artifactory](https://www.jfrog.com/artifactory/)
@@ -45,8 +44,8 @@ Diğer birçok kişiler ve şirketler NuGet ekosistemi önemli ölçüde katkıd
 - [Klondike](https://github.com/themotleyfool/Klondike)
 - [MinimalNugetServer](https://github.com/TanukiSharp/MinimalNugetServer)
 - [MyGet (veya hizmet olarak NuGet)](http://www.myget.org/)
-- [NuGet paketi Gezgini](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer)
-- [NuGet sunucu](http://nugetserver.net/)
+- [NuGet paket Gezgini](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer)
+- [NuGet sunucusu](http://nugetserver.net/)
 - [OctopusDeploy](https://octopus.com/)
 - [Paket](https://fsprojects.github.io/Paket/)
 - [ProGet (Inedo)](http://inedo.com/proget)
@@ -56,35 +55,35 @@ Diğer birçok kişiler ve şirketler NuGet ekosistemi önemli ölçüde katkıd
 - [SymbolSource](http://www.symbolsource.org/Public)
 - [Xamarin ve MonoDevelop](https://github.com/mrward/monodevelop-nuget-addin)
 
-## <a name="other-nuget-based-utilities"></a>Diğer NuGet tabanlı yardımcı programları
+## <a name="other-nuget-based-utilities"></a>NuGet tabanlı diğer yardımcı programları
 
-Bu araçlar ve yardımcı programlar NuGet üzerinde oluşturulmuş şunlardır:
+Araçlar ve yardımcı programlar NuGet üzerinde oluşturulmuş şunlardır:
 
-- [Glimpse'in uzantıları](http://getglimpse.com/Packages) (eklentileri olan paketleri)
+- [Glimpse uzantıları](http://getglimpse.com/Packages) (eklentileri olan paketleri)
 - [NuGetMustHaves.com](http://nugetmusthaves.com/)
-- [Orchard](http://www.orchardproject.net/) (CMS modülleri getirilen Orchard Galerisi'nde barındırılan NuGet akışı bir v1'den)
-- [NuGet sunucu Java uygulaması](http://jonnyzzz.com/blog/2012/03/07/nuget-server-in-pure-java/)
-- [NuGetLatest](https://twitter.com/NuGetLatest) (yeni TWİTLEME bot yayınlar paketi Twitter)
+- [Orchard](http://www.orchardproject.net/) (CMS modülleri getirilen Orchard galeride barındırılan NuGet akışı bir v1'den)
+- [Java uygulaması NuGet sunucusu](http://jonnyzzz.com/blog/2012/03/07/nuget-server-in-pure-java/)
+- [NuGetLatest](https://twitter.com/NuGetLatest) (Twitter yeni TWİTLEME bot yayınlar paketi)
 - [DefinitelyTyped](http://definitelytyped.org/) ([otomatik](https://github.com/DefinitelyTyped/NugetAutomation/) TypeScript türü [tanımları için NuGet yayımlanan](http://www.nuget.org/packages?q=DefinitelyTyped))
 
-## <a name="training-materials-and-references"></a>Eğitim malzemelerini ve başvurular
+## <a name="training-materials-and-references"></a>Eğitim malzemeleri ve başvuruları
 
-Genellikle bir yeni aracın veya teknoloji kullanarak bir öğrenme eğrisi ile birlikte gelir. Luckily sizin için NuGet tüm eğri hiçbir hızı yüksek öğrenme var! Aslında, herkes için [paketleri kullanma başlamak](../quickstart/use-a-package.md) hızlı bir şekilde.
+Genellikle bir yeni aracın veya teknoloji kullanarak bir öğrenme eğrisi ile birlikte gelir. Neyse ki, NuGet tüm eğri hiçbir seyretmez öğrenme var! Aslında, herkes için [paketleri tüketen başlama](../quickstart/use-a-package.md) hızlı bir şekilde.
 
-Başka bir deyişle, paketleri yazma – ve özellikle iyi paketleri – otomatik derleme ve dağıtım işlemleri NuGet benimsemenin ile birlikte, aşağıdaki kaynaklarla biraz daha uzun harcama gerektirir:
+Başka bir deyişle, paketleri yazma – ve özellikle de iyi paketler – otomatik derleme ve dağıtım işlemleri NuGet benimsemenin ile birlikte, aşağıdaki kaynaklarla biraz daha fazla zaman harcadığı gerektirir:
 
 - [NuGet blogu](http://blog.nuget.org/)
 - [NuGet takım Twitter'da @nuget](http://twitter.com/nuget)
-- Kitaplar:
+- Kitap:
   - [Apress Pro NuGet](http://bit.ly/ProNuGet)
-  - [NuGet 2 temelleri](http://www.amazon.com/NuGet-2-Essentials-Damir-Arh-ebook/dp/B00GTQD5M4)
+  - [NuGet 2 temel bileşenleri](http://www.amazon.com/NuGet-2-Essentials-Damir-Arh-ebook/dp/B00GTQD5M4)
 
-## <a name="documentation-for-individual-packages"></a>Tek paketler için belgeler
+## <a name="documentation-for-individual-packages"></a>Tek paketler için belgeleri
 
-[NuDoq](http://nudoq.org) kolay erişim, güncelleştirmeleri ve NuGet paketleri için belgeler sağlar.
+[NuDoq](http://nudoq.org) kolay erişim ve güncelleştirmeler ve NuGet paketleri için belgeler sağlar.
 
-NuDoq düzenli olarak nuget.org galeri sunucuyu en son paket güncelleştirmelerini tarar, ayıklar ve kitaplığı belgeleri dosyaları işler ve site uygun şekilde güncelleştirir.
+NuDoq düzenli olarak nuget.org galeri sunucuyu en son paket güncelleştirmeleri tarar, ayıklar ve kitaplık belge dosyaları işler ve site uygun şekilde güncelleştirir.
 
 ## <a name="adding-your-project"></a>Projenize ekleme
 
-Bu sayfaya değerli bir toplama olacak NuGet ekosistemi proje varsa, lütfen bu sayfaya bir düzen içeren bir çekme isteği gönderin.
+Bu sayfaya değerli bir toplama olabilecek bir NuGet ekosistemi projeniz varsa, lütfen bu sayfaya bir düzenleme ile bir çekme isteği gönderin.

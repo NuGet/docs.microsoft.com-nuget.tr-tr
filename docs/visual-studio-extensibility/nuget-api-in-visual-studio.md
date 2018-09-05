@@ -1,47 +1,46 @@
 ---
-title: Visual Studio'da NuGet API
-description: Visual Studio'da Yönetilen Genişletilebilirlik Çerçevesi aracılığıyla NuGet aktarır API için arabirimi başvurusu
+title: Visual Studio'da NuGet API'si
+description: Visual Studio'da Yönetilen Genişletilebilirlik Çerçevesi aracılığıyla NuGet aktaran API'si için başvuru arabirimi
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/09/2017
 ms.topic: reference
-ms.openlocfilehash: a47e2bb002b16172bf3d08134df5347ae4e4d272
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: c2a6675472070b49c9c5b723b9d24a1fa59c2971
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818779"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43546216"
 ---
-# <a name="nuget-api-in-visual-studio"></a>Visual Studio'da NuGet API
+# <a name="nuget-api-in-visual-studio"></a>Visual Studio'da NuGet API'si
 
-NuGet Paket Yöneticisi kullanıcı Arabirimi ve Visual Studio konsolunda ek olarak, ayrıca bazı yararlı Hizmetleri aracılığıyla verir. [Yönetilen Genişletilebilirlik Çerçevesi (MEF)](/dotnet/framework/mef/index). Bu arabirim diğer bileşenleri yüklemek ve paketleri kaldırmak ve yüklü paketleri hakkında bilgi edinmek için kullanılan NuGet ile etkileşim kurmak için Visual Studio'da verir.
+NuGet Paket Yöneticisi UI ve Visual Studio'da konsol yanı sıra ayrıca bazı yararlı hizmetleriyle verir. [Yönetilen Genişletilebilirlik Çerçevesi (MEF)](/dotnet/framework/mef/index). Bu arabirim, yükleme ve paketlerini kaldırma ve yüklü paketleri hakkında bilgi almak için kullanılan NuGet ile etkileşim kurmak için Visual Studio'daki diğer bileşenleri sağlar.
 
-NuGet itibariyle 3.3 +, NuGet tümü bulunan aşağıdaki hizmetleri verir `NuGet.VisualStudio` ad alanında `NuGet.VisualStudio.dll` derleme:
+NuGet itibarıyla 3.3 +, NuGet içinde bulunduğu her biri aşağıdaki hizmetleri aktarır `NuGet.VisualStudio` ad alanında `NuGet.VisualStudio.dll` derleme:
 
-- [`IRegistryKey`](#iregistrykey-interface): Bir kayıt defteri alt anahtarı bir değer almak için yöntem.
+- [`IRegistryKey`](#iregistrykey-interface): Bir kayıt defteri alt anahtarı bir değer almak için yöntemi.
 - [`IVsPackageInstaller`](#ivspackageinstaller-interface): Projelere NuGet paketlerini yüklemek için yöntem.
 - [`IVsPackageInstallerEvents`](#ivspackageinstallerevents-interface)Paket yükleme/kaldırma için olaylar.
-- [`IVsPackageInstallerProjectEvents`](#ivspackageinstallerprojectevents-interface): Toplu olaylarını paket yükleme/kaldırma.
-- [`IVsPackageInstallerServices`](#ivspackageinstallerservices-interface): Belirli bir paket projede yüklü olup olmadığını kontrol etmek için ve geçerli çözümde yüklü paketleri almak için yöntemleri.
-- [`IVsPackageManagerProvider`](#ivspackagemanagerprovider-interface): Bir NuGet paketi için alternatif Paket Yöneticisi öneriler sağlamak için yöntemleri.
-- [`IVsPackageMetadata`](#ivspackagemetadata-interface); Yüklü bir paketle ilgili bilgileri almak için yöntemleri.
-- [`IVsPackageProjectMetadata`](#ivspackageprojectmetadata-interface); NuGet Eylemler burada yürütülebilir bir proje hakkında bilgi almak için yöntemleri.
-- [`IVsPackageRestorer`](#ivspackagerestorer-interface): Bir projede yüklü olan paketleri geri yüklemek için yöntemleri.
-- [`IVsPackageSourceProvider`](#ivspackagesourceprovider-interface): NuGet listesini almak için yöntemleri kaynakları paketi.
+- [`IVsPackageInstallerProjectEvents`](#ivspackageinstallerprojectevents-interface): Batch olayları için paket yükleme/kaldırma.
+- [`IVsPackageInstallerServices`](#ivspackageinstallerservices-interface): Geçerli çözümdeki yüklü paketleri alınması ve belirli bir paket bir projede yüklü olup olmadığını denetlemek için yöntemleri.
+- [`IVsPackageManagerProvider`](#ivspackagemanagerprovider-interface): Bir NuGet paketi için alternatif bir paket Yöneticisi önerileri sağlamak için yöntemleri.
+- [`IVsPackageMetadata`](#ivspackagemetadata-interface); Yüklü paketi hakkında bilgi almak için yöntemleri.
+- [`IVsPackageProjectMetadata`](#ivspackageprojectmetadata-interface); NuGet Eylemler burada yürütülen bir projeyle ilgili bilgileri almak için yöntemleri.
+- [`IVsPackageRestorer`](#ivspackagerestorer-interface): Bir projede yüklü paketleri geri yüklemek için yöntemleri.
+- [`IVsPackageSourceProvider`](#ivspackagesourceprovider-interface): NuGet listesini almak için yöntemler kaynakları paketi.
 - [`IVsPackageUninstaller`](#ivspackageuninstaller-interface): NuGet paketleri projelerden kaldırmak için yöntemleri.
-- [`IVsTemplateWizard`](#ivstemplatewizard-interface): Proje/öğe şablonları önceden yüklenen paketler içerecek şekilde tasarlanmıştır; Bu arabirimin *değil* koddan çağrılacak anlamına gelir ve ortak yöntemi yok.
+- [`IVsTemplateWizard`](#ivstemplatewizard-interface): Proje/öğe şablonları önceden yüklenmiş paketlerini içerecek şekilde tasarlanmıştır; Bu arabirimin *değil* koddan çağrılan içindir ve hiçbir genel yöntemi vardır.
 
-## <a name="using-nuget-services"></a>NuGet hizmetlerini kullanma
+## <a name="using-nuget-services"></a>NuGet Hizmetleri kullanma
 
-1. Yükleme [ `NuGet.VisualStudio` ](https://www.nuget.org/packages/NuGet.VisualStudio) içeren projenizi pakete `NuGet.VisualStudio.dll` derleme.
+1. Yükleme [ `NuGet.VisualStudio` ](https://www.nuget.org/packages/NuGet.VisualStudio) paket içeren projenize `NuGet.VisualStudio.dll` derleme.
 
-    Yüklendiğinde, paketi otomatik olarak ayarlar **birlikte çalışma türlerini katıştır** derleme başvurusunun özelliğini **doğru**. Kullanıcıların NuGet daha yeni sürümlerini güncelleştirdiğinizde bu kodunuzu sürüm değişikliklerine karşı dayanıklı hale getirir.
+    Yüklendiğinde, paketi otomatik olarak ayarlar **birlikte çalışma türlerini katıştır** derleme başvurusunu özelliği **True**. NuGet daha yeni sürümleri için kullanıcılar güncelleştirdiğinizde bu kodunuzu sürüm değişikliklerine karşı dayanıklı hale getirir.
 
 > [!Warning]
-> Genel arabirimler kodunuzda yanı sıra diğer türleri kullanmayın ve herhangi diğer NuGet derlemelere dahil, başvuru değil `NuGet.Core.dll`.
+> Kodunuzda ortak arabirimlerin yanı sıra diğer türleri kullanmayın ve dahil olmak üzere tüm diğer NuGet derlemelere başvurma `NuGet.Core.dll`.
 
-1. Bir hizmeti kullanmak için kendisi aracılığıyla içe [MEF alma özniteliği](/dotnet/framework/mef/index#imports-and-exports-with-attributes), aracılığıyla veya [IComponentModel hizmet](/dotnet/api/microsoft.visualstudio.componentmodelhost.icomponentmodel?redirectedfrom=MSDN&view=visualstudiosdk-2017).
+1. Bir hizmeti kullanmayı üzerinden içeri aktarma [MEF içeri aktarma öznitelik](/dotnet/framework/mef/index#imports-and-exports-with-attributes), aracılığıyla veya [IComponentModel hizmet](/dotnet/api/microsoft.visualstudio.componentmodelhost.icomponentmodel?redirectedfrom=MSDN&view=visualstudiosdk-2017).
 
     ```cs
     //Using the Import attribute
@@ -58,7 +57,7 @@ NuGet itibariyle 3.3 +, NuGet tümü bulunan aşağıdaki hizmetleri verir `NuGe
     var installedPackages = installerServices.GetInstalledPackages();
     ```
 
-Başvuru için NuGet.VisualStudio için kaynak kodunu kapsamında yer alan [NuGet.Clients depo](https://github.com/NuGet/NuGet.Client/tree/dev/src/NuGet.Clients/NuGet.VisualStudio).
+Başvuru için NuGet.VisualStudio için kaynak kodu içinde yer alan [NuGet.Clients depo](https://github.com/NuGet/NuGet.Client/tree/dev/src/NuGet.Clients/NuGet.VisualStudio).
 
 ## <a name="iregistrykey-interface"></a>IRegistryKey arabirimi
 

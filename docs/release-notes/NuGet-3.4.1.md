@@ -1,28 +1,27 @@
 ---
-title: NuGet 3.4.1 sürüm notları
-description: Bilinen sorunlar, hata düzeltmeleri, eklenen özellikleri ve dcr NuGet 3.4.1 dahil etmek için sürüm notları.
+title: 3.4.1 NuGet sürüm notları
+description: NuGet 3.4.1 dahil etmek için sürüm notları, sorunları, hata düzeltmeleri, eklenen özellikler ve dcr bilinir.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: d492afc59fe2f9237aaf54dca56e09f9148a0dcf
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: e3f90646149b6a1a0e6a2639979110fb779d973c
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/26/2018
-ms.locfileid: "31819251"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43547563"
 ---
-# <a name="nuget-341-release-notes"></a>NuGet 3.4.1 sürüm notları
+# <a name="nuget-341-release-notes"></a>3.4.1 NuGet sürüm notları
 
-[NuGet 3.4 sürüm notları](../release-notes/nuget-3.4.md) | [NuGet 3.4.2 sürüm notları](../release-notes/nuget-3.4.2.md)
+[NuGet 3.4 sürüm notları](../release-notes/nuget-3.4.md) | [3.4.2 NuGet sürüm notları](../release-notes/nuget-3.4.2.md)
 
-NuGet 3.4.1, 30 Mart 2016 aynı zamanda Visual Studio 2015 güncelleştirme 2 ve Visual Studio 15 Preview sürüm 3.4 sürümde belirlendi birkaç sorunları gidermek için yayımlanmıştır.
+NuGet 3.4.1, 30 Mart 2016 Visual Studio 2015 güncelleştirme 2 ve Visual Studio 15 Preview sürüm 3.4 sürümünde tanımlanan çeşitli sorunları gidermek için aynı anda yayınlanmıştır.
 
-## <a name="updates-and-improvements"></a>Güncelleştirmeleri ve geliştirmeleri
+## <a name="updates-and-improvements"></a>Güncelleştirmeler ve iyileştirmeler
 
-* Düzeltilmiş gözatma engelleyen bir sorun paketleri gelen en az bir Visual Studio yükleme ile Visual Studio kullanıcı Arabirimi
-* Visual Studio bulunmasıyla ilgili bir sorun düzeltildi `lucene.net.dll`
-* Bir NuGet uzantısı yükledikten veya güncelleştirdikten sonra tüm kaynakları varsayılan depo kaynağı olmamalıdır.  Bu özellik için yapılandırma ayarlarını katılımı.
+* Düzeltilmiş gözatma önleyen bir sorun paketleri en az bir Visual Studio yükleme ile Visual Studio arabiriminden
+* Visual Studio bulunurken bir sorun düzeltildi `lucene.net.dll`
+* Bir NuGet uzantısı yükleme veya güncelleştirme sonra tüm kaynakları varsayılan depo kaynağı olmamalıdır.  Bu özelliği aracılığıyla yapılandırma ayarlarınızı katılımı.
 
-Bizim GitHub sorunları listedeki konumunda bulunan sorunları izlemek devam: [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)
+Şurada bulunabilir bizim GitHub sorunlar listesinde sorunları izlemek devam ediyoruz: [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)

@@ -1,28 +1,27 @@
 ---
-title: Kaynak, NuGet V3 API katalog
-description: Bir dizin oluşturulur ve üzerinde nuget.org silinen tüm paketlerin kataloğudur.
+title: Katalog kaynağı, NuGet V3 API
+description: Bir dizin oluşturulur ve nuget.org adresinden silinen tüm paketlerin kataloğudur.
 author: joelverhagen
 ms.author: jver
-manager: skofman
 ms.date: 10/30/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 8554f9515b671dbececd94a025ec7e56037c2bd9
-ms.sourcegitcommit: 055248d790051774c892b220eca12015babbd668
+ms.openlocfilehash: d4c13200494ed3c6fa897ce0083a52c13688b44b
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34152441"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43547399"
 ---
-# <a name="catalog"></a>Katalog
+# <a name="catalog"></a>Kataloğu
 
-**Katalog** oluşturma ve silme işlemleri gibi bir paket kaynağında tüm paket işlemleri kaydeder bir kaynaktır. Katalog kaynak `Catalog` yazın [Hizmeti dizini](service-index.md).
-
-> [!Note]
-> Katalog resmi NuGet istemcisi tarafından kullanılmadığı için tüm paket kaynaklarını katalog uygulayın.
+**Kataloğu** paket kaynağını, oluşturma ve silme gibi tüm paket işlemleri kaydeder bir kaynaktır. Katalog kaynağına sahip `Catalog` yazın [hizmet dizini](service-index.md).
 
 > [!Note]
-> Şu anda nuget.org katalog Çin'de kullanılamaz. Daha fazla ayrıntı için bkz: [NuGet/NuGetGallery #4949](https://github.com/NuGet/NuGetGallery/issues/4949).
+> Katalog resmi bir NuGet istemcisi tarafından kullanılmadığından, tüm paket kaynaklarını kataloğa uygulayın.
+
+> [!Note]
+> Şu anda nuget.org katalog, Çin'de kullanılamıyor. Daha fazla ayrıntı için [NuGet/NuGetGallery #4949](https://github.com/NuGet/NuGetGallery/issues/4949).
 
 ## <a name="versioning"></a>Sürüm oluşturma
 
@@ -30,37 +29,37 @@ Aşağıdaki `@type` değeri kullanılır:
 
 @type Değer   | Notlar
 ------------- | -----
-Catalog/3.0.0 | İlk sürüm
+Catalog/3.0.0 | İlk yayın
 
 ## <a name="base-url"></a>Temel URL
 
-Aşağıdaki API'leri için giriş noktası URL değeri `@id` özelliği daha önce bahsedilen kaynakla ilişkilendirilmiş `@type` değerleri. Bu konuda yer tutucu URL'yi kullanır `{@id}`.
+Aşağıdaki API'leri için giriş noktası URL değeri `@id` yukarıda sözü edilen kaynakla ilişkilendirilmiş özelliği `@type` değerleri. Bu konu başlığı altında yer tutucu URL'yi `{@id}`.
 
 ## <a name="http-methods"></a>HTTP yöntemleri
 
-Katalog kaynak desteği yalnızca HTTP yöntemlerini bulunan tüm URL'leri `GET` ve `HEAD`.
+Katalog kaynak desteği yalnızca HTTP yöntemleri bulunan tüm URL'ler `GET` ve `HEAD`.
 
 ## <a name="catalog-index"></a>Katalog dizini
 
-Katalog öğeleri, kronolojik olarak sıralanan listesini içeren iyi bilinen bir konumdaki bir belge katalog dizinidir. Katalog kaynağının giriş noktasıdır.
+Katalog öğeleri, tarih sırasına göre sıralı bir listesi bulunur iyi bilinen bir konumda bir belge Kataloğu dizinidir. Katalog kaynak giriş noktasıdır.
 
-Dizin Katalog sayfaları oluşur. Her katalog sayfa katalog öğelerini içerir. Her bir katalog öğesi zamanında bir noktada tek bir paket ilgili bir olayı temsil eder. Bir katalog öğesi, paket kaynağından listelenmemiş, relisted ya da silinmiş oluşturulmuş bir paketi temsil edebilir. Katalog öğeleri kronolojik sırada işleyerek istemci V3 paket kaynağı var. her paketin güncel bir görünümü oluşturabilirsiniz.
+Dizin kataloğu sayfaların oluşur. Her katalog sayfa katalog öğelerini içerir. Her bir katalog öğesi, zaman içinde bir noktadaki tek bir paket ilgili bir olayı temsil eder. Katalog öğesi, paket kaynağından listelenmemiş, yeniden listelendiğinde veya silindiğinde oluşturulmuş olan bir paketi temsil edebilir. İstemci, katalog öğelerini kronolojik sırada işleyerek, V3 paket kaynağı var. her paketin güncel bir görünümü oluşturabilirsiniz.
 
-Kısacası, katalog BLOB'ları aşağıdaki hiyerarşik bir yapı vardır:
+Kısacası, katalog BLOB'ları aşağıdaki hiyerarşik yapıya sahiptir:
 
 - **Dizin**: Katalog için giriş noktası.
 - **Sayfa**: Katalog öğeleri gruplandırması.
-- **Yaprak**: tek bir paketin durumunun anlık görüntüsü bir katalog öğesi temsil eden bir belge.
+- **Yaprak**: bir belgeyi temsil eden tek bir paketin durumunun bir anlık görüntüdür bir katalog öğesi.
 
-Her bir katalog nesne adında bir özelliğe sahiptir `commitTimeStamp` öğesi kataloğa eklendiğinde temsil eden. Katalog öğeleri işlemeleri adlı toplu katalog sayfası eklenir. Aynı yürütme tüm katalog öğeleri aynı yürütme zaman damgası vardır (`commitTimeStamp`) ve kimliği kaydedilmesi (`commitId`). Katalog öğeleri aynı uygulamada yerleştirilen aynı nokta etrafında paket kaynağında zamanında gerçekleşen olayları temsil eder. İçinde bir katalog yürütme sıralamaya yoktur.
+Her bir katalog nesnesi adlı bir özelliğe sahiptir `commitTimeStamp` kataloğa öğesi eklendiğinde temsil eden. Katalog öğelerini, işlemeleri adlı toplu katalog sayfasına eklenir. Tüm katalog öğeleri aynı işleme içinde aynı işleme zaman damgasına sahip (`commitTimeStamp`) ve işleme kimliği (`commitId`). Katalog öğeleri aynı işlemede yerleştirilen aynı nokta çevresinde paket kaynak saat içinde gerçekleşen olayları temsil eder. Sıralama yok içinde bir katalog işleme yok.
 
-Her bir paket kimliği ve sürümünün benzersiz olduğundan, hiçbir zaman olacaktır birden fazla katalog öğesi bir yürütme. Bu, tek bir paket için katalog öğeleri her zaman belirsizliğe yürütme zaman damgası göre sıralanabilir sağlar.
+Her bir paket kimliği ve sürüm benzersiz olduğundan, bir işlemede hiçbir zaman birden fazla katalog öğesi olacaktır. Bu, katalog öğeleri tek bir paket için her zaman kesin bir şekilde işleme zaman damgasına göre sıralanabilir sağlar.
 
-Olduğundan hiç kataloğa birden fazla yürütme olması `commitTimeStamp`. Diğer bir deyişle, `commitId` ile gereksiz `commitTimeStamp`.
+Hiçbir zaman kataloğuna birden fazla işleme olarak yoktur `commitTimeStamp`. Diğer bir deyişle, `commitId` ile gereksiz `commitTimeStamp`.
 
-Tersine için [paketini meta veri kaynağı](registration-base-url-resource.md), paket kimliği tarafından dizine, katalog Dizinli (ve sorgulanabilir) yalnızca zamana göre.
+Tersine [paket meta veri kaynağı](registration-base-url-resource.md)paket Kimliğine göre dizini, dizinlenmiş (ve sorgulanabilir) kataloğudur yalnızca zamanına göre.
 
-Katalog öğeleri her zaman bir düz olarak artan, kronolojik sırayla Kataloğu'na eklenir. Bir katalog yürütme zaman X eklediyseniz sonra hiçbir katalog yürütme hiç eklenecek yani bir süre daha az veya bu değere eşit x ile.
+Katalog öğeleri her zaman bir düz olarak artan, kronolojik sırada Kataloğu'na eklenir. Bu bir katalog işleme X anda eklenirse daha sonra Kataloğu yürütme yok hiç olmadığı kadar eklenecek anlamına gelir. bir süre daha az veya eşit x ile.
 
 Aşağıdaki isteği katalog dizinini getirir.
 
@@ -70,29 +69,29 @@ Aşağıdaki özelliklere sahip bir nesne içeren bir JSON belgesi katalog dizin
 
 Ad            | Tür             | Gerekli | Notlar
 --------------- | ---------------- | -------- | -----
-commitId        | dize           | Evet      | En son işleme ile ilişkili benzersiz bir kimliği
-commitTimeStamp | dize           | Evet      | En son yürütme, zaman damgası
-count           | tamsayı          | Evet      | Dizindeki sayfa sayısı
-Öğeleri           | Nesne dizisi | Evet      | Bir nesne dizisi, bir sayfayı temsil eden her nesnesi
+commitId        | dize           | Evet      | En son işlemeyle ilişkili benzersiz bir kimliği
+commitTimeStamp | dize           | Evet      | En son işlemeyi bir zaman damgası
+count           | tamsayı          | Evet      | Dizin içinde sayfa sayısı
+Öğeleri           | Nesne dizisi | Evet      | Bir dizi her nesne bir sayfasını temsil eden nesneler
 
-Her bir öğe `items` dizidir her sayfanın en az bazı ayrıntılarını sahip bir nesne. Bu sayfa nesneler Kataloğu bırakır (öğeleri) içermez. Bu dizisindeki öğelerin sırasını tanımlı değil. Sayfalar göre sıralayarak bellek kullanarak istemci kendi `commitTimeStamp` özelliği.
+Her öğe `items` her sayfada bazı minimal ayrıntılarını içeren bir nesne dizisidir. Bu sayfa nesneler Kataloğu bırakır (öğeleri) içermez. Dizideki öğelerin sırasını tanımlı değil. Sayfalar, bellek kullanarak istemci tarafından sıralanabileceği kendi `commitTimeStamp` özelliği.
 
-Yeni sayfa sunulduğu şekilde `count` arttırılır ve yeni nesneler görünür `items` dizi.
+Yeni sayfa sunulan gibi `count` artırılır ve yeni nesneler görünür `items` dizisi.
 
-Öğeleri katalog için dizin eklendikçe `commitId` değiştirir ve `commitTimeStamp` artmasına neden olur. Bu iki özellik temelde özeti tüm sayfanın üstünde olan `commitId` ve `commitTimeStamp` değerler `items` dizi.
+Katalog için dizinin öğeleri eklendikçe `commitId` değişir ve `commitTimeStamp` artacaktır. Bu iki özellik temelde özeti tüm sayfanın üstünde olan `commitId` ve `commitTimeStamp` değerler `items` dizisi.
 
-### <a name="catalog-page-object-in-the-index"></a>Dizindeki katalog sayfası nesnesi
+### <a name="catalog-page-object-in-the-index"></a>Dizindeki katalog sayfa nesnesi
 
-Katalog sayfa nesneleri katalog dizinin içinde bulunan `items` özelliği aşağıdaki özellikleri vardır:
+Katalog sayfa nesneleri Kataloğu dizinin içinde bulunan `items` özelliği aşağıdaki özelliklere sahiptir:
 
 Ad            | Tür    | Gerekli | Notlar
 --------------- | ------- | -------- | -----
-@id             | dize  | Evet      | Fetch katalog sayfası URL'si
-commitId        | dize  | Evet      | Bu sayfada en son yürütme ile ilişkili benzersiz bir kimliği
-commitTimeStamp | dize  | Evet      | Bu sayfada en son yürütme, zaman damgası
-count           | tamsayı | Evet      | Katalog Sayfası öğelerin sayısı
+@id             | dize  | Evet      | Getirme katalog sayfası URL'si
+commitId        | dize  | Evet      | Bu sayfada en son işlemeyle ilişkili benzersiz bir kimliği
+commitTimeStamp | dize  | Evet      | Bu sayfada en son işlemeyi bir zaman damgası
+count           | tamsayı | Evet      | Katalog sayfasındaki öğelerin sayısı
 
-Tersine için [paketini meta veri kaynağı](registration-base-url-resource.md) Inlines, bazı durumlarda dizine bırakır, katalog bırakır hiçbir zaman dizine içermesinden ve her zaman sayfanın kullanarak getirilmesi `@id` URL.
+Tersine [paket meta veri kaynağı](registration-base-url-resource.md) dizine bırakır satır içleri, bazı durumlarda, katalog bırakır hiçbir zaman dizine satır içine alınmış ve sayfa kullanılarak her zaman getirilmesi gerekir `@id` URL'si.
 
 ### <a name="sample-request"></a>Örnek istek
 
@@ -104,47 +103,47 @@ Tersine için [paketini meta veri kaynağı](registration-base-url-resource.md) 
 
 ## <a name="catalog-page"></a>Katalog Sayfası
 
-Katalog Sayfası, katalog öğelerini koleksiyonudur. Aşağıdakilerden birini kullanarak alınan bir belge olduğu `@id` değerleri katalog dizininde bulunamadı. Bir katalog sayfasının URL'sini tahmin edilebilir olması amaçlanmamıştır ve yalnızca katalog dizini kullanarak bulunması gerekir.
+Katalog Sayfası, katalog öğelerini koleksiyonudur. Biri kullanılarak bir belge olan `@id` değerleri Kataloğu dizinde bulunamadı. Katalog Sayfası URL'si tahmin edilebilir olmasını yönelik değildir ve yalnızca katalog dizinini kullanarak bulunması gerekir.
 
-Yeni Katalog öğelerini yalnızca zaman damgalı yüksek yürütme katalog dizin sayfası veya yeni bir sayfaya eklenen. Daha yüksek bir yürütme zaman damgası içeren bir sayfa Kataloğu'na eklendikten sonra eski sayfalar hiçbir zaman eklenecek veya değiştirildi.
+Yeni Katalog öğeleri yalnızca en yüksek işleme zaman damgasına sahip katalog dizin sayfası veya yeni bir sayfaya eklenir. Daha yüksek bir işleme zaman damgası içeren bir sayfa Kataloğu'na eklendikten sonra eski sayfa hiçbir zaman eklendikçe veya değiştirildi.
 
-Katalog sayfa belge, aşağıdaki özelliklere sahip bir JSON nesnesidir:
+Katalog sayfa belgesi, aşağıdaki özelliklere sahip bir JSON nesnesidir:
 
 Ad            | Tür             | Gerekli | Notlar
 --------------- | ---------------- | -------- | -----
-commitId        | dize           | Evet      | Bu sayfada en son yürütme ile ilişkili benzersiz bir kimliği
-commitTimeStamp | dize           | Evet      | Bu sayfada en son yürütme, zaman damgası
+commitId        | dize           | Evet      | Bu sayfada en son işlemeyle ilişkili benzersiz bir kimliği
+commitTimeStamp | dize           | Evet      | Bu sayfada en son işlemeyi bir zaman damgası
 count           | tamsayı          | Evet      | Sayfadaki öğelerin sayısı
-Öğeleri           | Nesne dizisi | Evet      | Bu sayfadaki katalog öğeleri
-Üst          | dize           | Evet      | Katalog dizinini URL'si
+Öğeleri           | Nesne dizisi | Evet      | Bu sayfada katalog öğeleri
+Üst          | dize           | Evet      | Katalog dizini URL'si
 
-Her bir öğe `items` dizidir katalog öğesi en az bazı ayrıntılarını sahip bir nesne. Bu öğe nesneler katalog öğesi'nin veri içermez. Sayfanın öğelerin sırasını `items` dizi tanımlı değil. Öğeleri göre sıralayarak bellek kullanarak istemci kendi `commitTimeStamp` özelliği.
+Her öğe `items` bazı minimal bir katalog öğesi ayrıntılarını içeren bir nesne dizisidir. Bu öğe nesneler Kataloğu öğenin veri içermez. Sayfanın öğelerin sırasını `items` dizi tanımlı değil. Öğeleri, bellek kullanarak istemci tarafından sıralanabileceği kendi `commitTimeStamp` özelliği.
 
-Katalog öğeleri sayfasında sayısı sunucu uygulaması tarafından tanımlanır. Nuget.org için en fazla 550 öğeler var. her sayfasında gerçek sayı zamandaki noktasında sonraki yürütme toplu boyutuna bağlı olarak, bazı sayfaların küçük olabilir ancak.
+Katalog öğeleri sayfasındaki sayısı, sunucu uygulama tarafından tanımlanır. Nuget.org için en fazla 550 öğe yok her sayfada gerçek sayı zaman noktasında ileri işleme batch boyutuna bağlı olarak bazı sayfalar için daha küçük olabilir.
 
-Yeni öğeler sunulduğu şekilde `count` artırılır ve yeni katalog öğesi nesneleri görünür olan `items` dizi.
+Yeni öğeler sunulan gibi `count` artırılmasına ya da yeni katalog öğesi nesneleri görünür olan `items` dizi.
 
-Öğeleri sayfaya eklendikçe `commitId` değişiklikleri ve `commitTimeStamp` artırır. Bu iki özellik temelde özeti tümü `commitId` ve `commitTimeStamp` değerler `items` dizi.
+Öğeleri sayfaya eklendikçe `commitId` değişiklikleri ve `commitTimeStamp` artırır. Bu iki özellik temelde özeti tümü `commitId` ve `commitTimeStamp` değerler `items` dizisi.
 
-### <a name="catalog-item-object-in-a-page"></a>Katalog öğesi nesnesi sayfasındaki
+### <a name="catalog-item-object-in-a-page"></a>Katalog öğesi nesneyi sayfasındaki
 
-Katalog öğesi nesneleri bulunan katalog sayfanın `items` özelliği aşağıdaki özellikleri vardır:
+Katalog öğesi nesneleri, katalog sayfa bulunamadı `items` özelliği aşağıdaki özelliklere sahiptir:
 
 Ad            | Tür    | Gerekli | Notlar
 --------------- | ------- | -------- | -----
-@id             | dize  | Evet      | Katalog öğesi getirmek için URL
+@id             | dize  | Evet      | Katalog öğesi getirilecek URL'si
 @type           | dize  | Evet      | Katalog öğesi türü
-commitId        | dize  | Evet      | Bu katalog öğesi ile ilişkili yürütme kimliği
-commitTimeStamp | dize  | Evet      | Bu katalog öğesinin yürütme zaman damgası
+commitId        | dize  | Evet      | Bu katalog öğesi ile ilişkili işleme kimliği
+commitTimeStamp | dize  | Evet      | Bu katalog öğesi işleme zaman damgası
 nuget:id        | dize  | Evet      | Bu yaprak ilgili paket kimliği
 nuget:version   | dize  | Evet      | Bu yaprak ilgili Paket sürümü
 
-`@type` Değer aşağıdaki iki değerden biri olacaktır:
+`@type` Değeri, şu iki değerden birini olacaktır:
 
-1. `nuget:PackageDetails`: Bu karşılık `PackageDetails` katalog yaprak belge türü.
-1. `nuget:PackageDelete`: Bu karşılık `PackageDelete` katalog yaprak belge türü.
+1. `nuget:PackageDetails`: Bu karşılık gelir `PackageDetails` Kataloğu yaprak belge türü.
+1. `nuget:PackageDelete`: Bu karşılık gelir `PackageDelete` Kataloğu yaprak belge türü.
 
-Her ne tür, göreceğiniz anlamına gelir hakkında daha fazla ayrıntı için [karşılık gelen öğe türü](#item-types) aşağıda.
+Her hangi bir türü, göreceğiniz anlamına gelir hakkında daha fazla ayrıntı için [karşılık gelen öğe türü](#item-types) aşağıda.
 
 ### <a name="sample-request"></a>Örnek istek
 
@@ -154,76 +153,76 @@ Her ne tür, göreceğiniz anlamına gelir hakkında daha fazla ayrıntı için 
 
 [!code-JSON [catalog-page.json](./_data/catalog-page.json)]
 
-## <a name="catalog-leaf"></a>Katalog yaprak
+## <a name="catalog-leaf"></a>Yaprak katalog
 
-Katalog yaprak zamanında belirli paket kimliği ve sürüm, belirli bir noktada hakkındaki meta verileri içerir. Kullanarak alınan bir belge olduğu `@id` değeri bir katalog sayfası bulundu. Bir katalog yaprak URL'sine tahmin edilebilir olması amaçlanmamıştır ve yalnızca bir katalog sayfası kullanarak bulunması gerekir.
+Katalog yaprak zaman içinde belirli bir paket kimliği ve sürüm belirli bir noktada hakkındaki meta verileri içerir. Kullanılarak bir belge olan `@id` değeri bir katalog sayfa bulunamadı. Katalog yaprak URL'sine tahmin edilebilir olmasını yönelik değildir ve yalnızca bir katalog sayfası kullanılarak bulunması gerekir.
 
 Katalog yaprak belge, aşağıdaki özelliklere sahip bir JSON nesnesidir:
 
 Ad                    | Tür                       | Gerekli | Notlar
 ----------------------- | -------------------------- | -------- | -----
-@type                   | dize veya dize dizisi | Evet      | Katalog öğesi türleri
-catalog:commitId        | dize                     | Evet      | Bu katalog öğesi ile ilişkilendirilmiş bir yürütme kimliği
-catalog:commitTimeStamp | dize                     | Evet      | Bu katalog öğesinin yürütme zaman damgası
-kimlik                      | dize                     | Evet      | Katalog öğesi paket kimliği
-Yayımlanan               | dize                     | Evet      | Paketin yayımlanan tarih katalog öğesi
-sürüm                 | dize                     | Evet      | Katalog öğesi Paket sürümü
+@type                   | dize veya dize dizisi | Evet      | Katalog öğesi türlerinin
+catalog:commitId        | dize                     | Evet      | Bu katalog öğesi ile ilişkili bir işleme kimliği
+catalog:commitTimeStamp | dize                     | Evet      | Bu katalog öğesi işleme zaman damgası
+kimlik                      | dize                     | Evet      | Katalog öğesi, paket kimliği
+Yayımlanan               | dize                     | Evet      | Paket yayımlanma tarihi katalog öğesi
+sürüm                 | dize                     | Evet      | Katalog öğesi, Paket sürümü
 
-### <a name="item-types"></a>Öğesi türleri
+### <a name="item-types"></a>Öğe türleri
 
-`@type` Özelliği olan bir dize veya dize dizisi. Kolaylık sağlamak için `@type` değeri bir dize, herhangi bir boyutu dizisi olarak değerlendirilmelidir. İçin tüm olası değerler `@type` belgelenmiştir. Bununla birlikte, her bir katalog öğesi iki aşağıdaki dize türü değerleri tam olarak birine sahip:
+`@type` Özelliği olan bir dize veya dize dizisi. Kolaylık sağlamak için `@type` değeri bir dize ise, herhangi bir boyut dizisi olarak değerlendirilmelidir. Tüm olası değerleri `@type` belgelenmiştir. Ancak, her bir katalog öğesi, aşağıdaki iki dize türü değerleri tam olarak birine sahiptir:
 
 1. `PackageDetails`: bir anlık görüntüsünü paket meta verileri temsil eder
-1. `PackageDelete`: silinmiş bir paketi temsil eder
+1. `PackageDelete`: silinen bir paketi temsil eder
 
-### <a name="package-details-catalog-items"></a>Paket ayrıntılarını katalog öğeleri
+### <a name="package-details-catalog-items"></a>Paket Ayrıntıları katalog öğeleri
 
-Katalog öğeleri türüyle `PackageDetails` anlık görüntüsünü (kimliği ve sürüm birleşimi) belirli bir paket için paket meta verileri içerir. Aşağıdaki senaryoların herhangi biri bir paket kaynağı karşılaştığında bir paket ayrıntılarını katalog öğesi oluşturulur:
+Katalog öğeleri türüyle `PackageDetails` (kimliği ve sürüm birleşimi) belirli bir paket için paket meta verilerin anlık görüntüsünü içerir. Paket Ayrıntıları katalog öğesi, aşağıdaki senaryolardan herhangi bir paket kaynağı karşılaştığında üretilir:
 
 1. Bir paketi **gönderilen**.
 1. Bir paketi **listelenen**.
 1. Bir paketi **listelenmemiş**.
 1. Bir paketi **yeniden akıtılmaz**.
 
-Bir paket yeniden akış temelde hiçbir değişiklik olmadan var olan bir paketi paket için bir sahte itme oluşturan bir yönetici hareketi ' dir. Nuget.org üzerinde bir yeniden akış hata katalog tüketen arka plan işleri birinde düzelttikten sonra kullanılır.
+Paket yeniden akış aslında bir sahte gönderme değişikliğine gerek olmadan var olan bir paketi paket oluşturan bir yönetici harekettir. Nuget.org bir hata, katalog tükettikleri arka plan işleri birinde düzelttikten sonra bir yeniden akış kullanılır.
 
-Katalog öğeleri kullanan istemciler, bu senaryolarda katalog öğesi üretilen belirlemek çalışmamalısınız. Bunun yerine, istemcinin sadece herhangi bir tutulan görünüm veya dizin katalog öğesinde bulunan meta veriler ile güncelleştirmeniz gerekir. Ayrıca, yinelenen veya yedek katalog öğeleri düzgün biçimde işleneceğini (idempotently).
+Katalog öğeleri kullanan istemciler, bu senaryolarda katalog öğesi üretilen belirlemek çalışmamalıdır. Bunun yerine, istemci basitçe herhangi bir işlenen görünümü veya dizin katalog öğesi içinde bulunan meta veriler ile güncelleştirmeniz gerekir. Ayrıca, yinelenen veya gereksiz katalog öğeleri düzgün bir şekilde yapılması gerekir (idempotently).
 
-Paket ayrıntılarını katalog öğeleri ek olarak aşağıdaki özelliklere sahip [tüm katalog bırakır dahil](#catalog-leaf).
+Paket Ayrıntıları katalog öğelerini ek olarak aşağıdaki özelliklere sahip [tüm Kataloğu leaves dahil](#catalog-leaf).
 
 Ad                    | Tür                       | Gerekli | Notlar
 ----------------------- | -------------------------- | -------- | -----
-yazarları                 | dize                     | Yok       |
-Oluşturulan                 | dize                     | Yok       | Paketin ilk oluşturulduğu damgası. Geri dönüş özellik: `published`.
-dependencyGroups        | Nesne dizisi           | Yok       | Aynı biçimi olarak [paketini meta veri kaynağı](registration-base-url-resource.md#package-dependency-group)
+Yazarları                 | dize                     | Yok       |
+Oluşturulan                 | dize                     | Yok       | Paketin ilk oluşturulduğu zaman damgası. Geri dönüş özelliği: `published`.
+dependencyGroups        | Nesne dizisi           | Yok       | Aynı biçimi olarak [paket meta veri kaynağı](registration-base-url-resource.md#package-dependency-group)
 açıklama             | dize                     | Yok       |
-iconUrl                 | dize                     | Yok       |
-isPrerelease            | Boole değeri                    | Yok       | Olsun veya olmasın paket yayın öncesi sürümüdür. Gelen algılanan `version`.
+IconUrl                 | dize                     | Yok       |
+isPrerelease            | Boole değeri                    | Yok       | Olup olmadığı paket yayın öncesi sürümüdür. Gelen algılanabilir `version`.
 dil                | dize                     | Yok       |
-licenseUrl              | dize                     | Yok       |
-listelenen                  | Boole değeri                    | Yok       | Paket listede olmayan
+LicenseUrl              | dize                     | Yok       |
+listelenen                  | Boole değeri                    | Yok       | Paket listede değil
 MinClientVersion        | dize                     | Yok       |
-packageHash             | dize                     | Evet      | Kullanarak kodlama paket karmasını [standart base 64](https://tools.ietf.org/html/rfc4648#section-4)
+packageHash             | dize                     | Evet      | Kullanarak kodlama paket karmasını [standart taban 64](https://tools.ietf.org/html/rfc4648#section-4)
 packageHashAlgorithm    | dize                     | Evet      |
 packageSize             | tamsayı                    | Evet      | Paket .nupkg bayt cinsinden boyutu
-projectUrl              | dize                     | Yok       |
+ProjectUrl              | dize                     | Yok       |
 ReleaseNotes            | dize                     | Yok       |
-requireLicenseAgreement | Boole değeri                    | Yok       | Varsayın `false` dışlanan varsa
+requireLicenseAgreement | Boole değeri                    | Yok       | Varsayar `false` dışlanırsa
 özet                 | dize                     | Yok       |
-etiketler                    | Dize dizisi           | Yok       |
+etiketler                    | dize dizisi           | Yok       |
 Başlık                   | dize                     | Yok       |
-verbatimVersion         | dize                     | Yok       | Sürüm dizesi olarak başlangıçta .nuspec bulundu
+verbatimVersion         | dize                     | Yok       | Sürüm dizesi olarak başlangıçta .nuspec içinde bulunamadı
 
-Paket `version` tam, normalleştirilmiş sürüm dizesi bir özelliktir. Bu SemVer 2.0.0 yapılandırma verilerini buraya dahil olabileceği anlamına gelir.
+Paket `version` tam, normalleştirilmiş sürüm dizesi bir özelliktir. Bu, SemVer 2.0.0 yapılandırma verilerini buraya dahil olabileceğini anlamına gelir.
 
-`created` Paket ilk katalog öğesi'nin yürütme zaman damgası önce kısa bir süre genellikle olan paket kaynak tarafından alındığını zaman damgası olduğunda.
+`created` Paket varsayılan, genellikle kısa bir süre önce Kataloğu öğenin yürütme zaman damgası olan paket kaynak tarafından alındığını zaman damgası olduğunda.
 
-`packageHashAlgorithm` Üretmek için kullanılan karma algoritma temsil eden sunucu uygulaması tarafından tanımlanan bir dizedir `packageHash`. her zaman kullanılan nuget.org `packageHashAlgorithm` değerini `SHA512`.
+`packageHashAlgorithm` Üretmek için kullanılan karma algoritması temsil eden sunucu uygulama tarafından tanımlanan bir dizedir `packageHash`. her zaman kullanılan nuget.org `packageHashAlgorithm` değerini `SHA512`.
 
-`published` Zaman damgası, zaman son dosyasında listelenen paketin süre.
+`published` Zaman damgası olan zaman zaman paketin son listeleniyordu.
 
 > [!Note]
-> Nuget.org üzerinde `published` değeri paket olduğunda listelenmemiş yılına 1900 ayarlanır.
+> Nuget.org, `published` değeri paketi olduğunda listelenmemiş yıla 1900 ayarlanır.
 
 #### <a name="sample-request"></a>Örnek istek
 
@@ -233,18 +232,18 @@ AL https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.stora
 
 [!code-JSON [catalog-package-details.json](./_data/catalog-package-details.json)]
 
-### <a name="package-delete-catalog-items"></a>Paket katalog öğeleri silme
+### <a name="package-delete-catalog-items"></a>Paket Kataloğu öğeleri silme
 
-Katalog öğeleri türüyle `PackageDelete` katalog istemcilere bir paketi paket kaynağından silindi ve herhangi bir paket işlemi (örneğin, geri yükleme) artık kullanılabilir olduğunu gösteren bilgiler en az bir kümesini içerir.
+Katalog öğeleri türüyle `PackageDelete` Kataloğu istemcilere bir paketi paket kaynağından silinir ve herhangi bir paket işlemi (örneğin, geri yükleme) için artık kullanılamıyor gösteren bilgileri en az bir kümesini içerir.
 
 > [!Note]
-> Silinecek paket ve aynı paketi Kimliğini ve sürümünü kullanarak, daha sonra yeniden yayımlanması için mümkündür. Bir paket kimliği ve sürüm belirli paket içeriğini kapsıyor resmi istemcinin varsayım sonları gibi nuget.org üzerinde bu çok nadir durumdur. Nuget.org paketi silme hakkında daha fazla bilgi için bkz: [ilkemize](../policies/deleting-packages.md).
+> Bir paket silinecek ve daha sonra yeniden yayımlamışsa belki aynı paket Kimliğini ve sürümünü kullanarak için mümkündür. Nuget.org bir paket kimliği ve sürüm belirli paket içeriğini yaptığından emin resmi istemcinin varsayım durdurduğundan çok nadir bir durum budur. Nuget.org paket silme hakkında daha fazla bilgi için bkz. [ilkemizi](../policies/deleting-packages.md).
 
-Paket Sil katalog öğeleri sahip herhangi bir ek özellik listelenenlere [tüm katalog bırakır dahil](#catalog-leaf).
+Paket Kataloğu öğeleri silme sahip herhangi bir ek özellik listelenenlere [tüm Kataloğu leaves dahil](#catalog-leaf).
 
-`version` Özelliktir özgün sürüm dizesi paketi .nuspec bulunamadı.
+`version` Özgün sürüm dizesi paket .nuspec içinde bulunan bir özelliktir.
 
-`published` Özelliği, genellikle olan kısa süre önce katalog öğesi'nin yürütme zaman damgası olarak ne zaman paket silindi, süre.
+`published` Genellikle kısa süre önce Kataloğu öğenin yürütme zaman damgası olarak ne zaman paket silindi, saati bir özelliktir.
 
 #### <a name="sample-request"></a>Örnek istek
 
@@ -258,72 +257,72 @@ AL https://api.nuget.org/v3/catalog0/data/2017.11.02.00.40.00/netstandard1.4_lib
 
 ### <a name="overview"></a>Genel Bakış
 
-Bu bölümde, mutlaka protokolü tarafından zorunlu değildir ancak herhangi bir pratik katalog istemci uygulaması bir parçası olması gereken bir istemci kavramı açıklanmaktadır.
+Bu bölümde, mutlaka protokolü tarafından zorunlu değildir ancak herhangi bir pratik Kataloğu istemci uygulaması bir parçası olmalıdır, bir istemci kavramı açıklanmaktadır.
 
-Katalog zamanına göre dizine yalnızca append veri yapısı olduğundan, istemci saklamalısınız bir **imleç** ne zaman içinde istemci noktası kadar temsil eden katalog öğeleri yerel olarak işledi. Bu imleç değeri hiçbir zaman istemcinin makine saatini kullanarak oluşturulsun mu olduğunu unutmayın. Bunun yerine, bir katalog nesnesinin değer gelmelidir `commitTimestamp` değeri.
+Katalog zamanına göre dizini oluşturulmuş bir yalnızca ekleme yapılabilen bir veri yapısı olduğundan, istemci depolamanız gerekir bir **imleç** ne istemcinin belirli bir noktaya kadar temsil eden katalog öğeleri yerel olarak işledi. Bu imleç değeri hiçbir zaman istemci makine düzende oluşturulacağını unutmayın. Bunun yerine, değeri bir katalog nesnenin gelmesi gerektiğini `commitTimestamp` değeri.
 
-İstemci paket kaynağının yeni olayları işlemek istediği her zaman, gerek yalnızca sorgu katalog bir yürütme zaman damgasına sahip tüm katalog öğeleri için saklı imleç büyüktür. İstemci başarıyla tüm yeni katalog öğeleri işledikten sonra katalog öğelerini yalnızca yeni imleç değer olarak işlenen son yürütme zaman damgasını kaydeder.
+İstemci paket kaynağı yeni olayları işlemek istediği her durumda ihtiyaç yalnızca katalog sorgu yürütme zaman damgasına sahip tüm katalog öğeleri için kendi saklı imleç büyüktür. İstemci başarıyla tüm yeni katalog öğelerini işledikten sonra katalog öğelerini yalnızca yeni imleç değer olarak işlenen en son işleme zaman damgası kaydeder.
 
-Bu yaklaşımı kullanarak, istemci hiçbir zaman paket kaynağında oluşan herhangi bir paket olayı kaçırılması emin olabilirsiniz.
-Ayrıca, istemci, eski olayları imlecin kaydedilmiş yürütme zaman damgası önce yeniden işlemek hiçbir zaman vardır.
+Bu yaklaşımı kullanarak, istemci hiçbir paket kaynağında oluşan herhangi bir paket olayı kaçırmayın emin olabilirsiniz.
+Ayrıca, istemci, imlecin kayıtlı işleme zaman damgası önce eski olayları yeniden işlemek hiçbir zaman vardır.
 
 Bu güçlü kavramı imleçler, birçok nuget.org arka plan işleri için kullanılır ve V3 API güncel tutmak için kullanılır. 
 
 ### <a name="initial-value"></a>Başlangıç değeri
 
-Katalog istemci çok ilk kez başlangıç (ve bu nedenle hiçbir imleç değerine sahip olduğunda), varsayılan imleç değerini kullanmanız gerekir. NET'in `System.DateTimeOffset.MinValue` veya bazı böyle benzer kavramı minimum gösterilebilir zaman damgası.
+Katalog istemci çok ilk kez başlattığında (ve bu nedenle imleci değere sahip olduğunda), varsayılan imleç değerini kullanmanız gerekir. NET `System.DateTimeOffset.MinValue` ya gösterilebilir en düşük zaman damgası bazı benzer tür biçimi.
 
-### <a name="iterating-over-catalog-items"></a>Katalog öğeleri yineleme yapma
+### <a name="iterating-over-catalog-items"></a>Katalog öğeleri üzerinde yineleme
 
-Sonraki işlemek için katalog öğeleri kümesi için sorgu için istemci gerekir:
+Sonraki kümesini işlemek için katalog öğeleri için sorgu için istemci gerekir:
 
-1. Kaydedilen imleci değer yerel depodan getirin.
-1. Karşıdan yükle ve Katalog dizinini seri durumdan.
-1. Tüm katalog yürütme zaman damgası sayfalarıyla Bul *büyük* imleci.
-1. İşlem için katalog öğeleri listesi boş bildirin.
-1. 3. adımda eşleşen her katalog sayfası için:
-   1. Karşıdan yükle ve Katalog Sayfası seri.
-   1. Tüm katalog öğeleri yürütme zaman damgası ile Bul *büyük* imleci.
-   1. Tüm eşleşen katalog öğeleri 4. adımda bildirilen listesine ekleyin.
-1. Katalog öğesi listesi yürütme zaman damgası göre sıralayın.
-1. Her bir katalog öğesi sırayla işlemini:
-   1. Karşıdan yükle ve katalog öğesi seri durumdan.
-   1. Katalog öğesi'nin türüne uygun şekilde tepki.
-   1. Katalog öğesi belgenin bir istemciye özgü şekilde işler.
-1. Son katalog öğesi'nin yürütme zaman damgası yeni imleç değeri kaydedin.
+1. Kaydedilen imleç değeri yerel depodan getirilemedi.
+1. İndirin ve Katalog dizinini seri durumdan.
+1. Tüm sayfa işleme zaman damgasına sahip katalog Bul *büyüktür* imleç.
+1. Katalog öğelerini işlemek için boş bir listesini bildirir.
+1. Adım 3'te eşleşen her katalog sayfası için:
+   1. İndirin ve Katalog Sayfası seri durumdan.
+   1. Tüm öğeleri işleme zaman damgasına sahip katalog Bul *büyüktür* imleç.
+   1. Tüm eşleşen katalog öğelerini 4. adımda bildirilen listesine ekleyin.
+1. Katalog öğesi listesini işleme zaman sıralar.
+1. Her bir katalog öğesi, sırada İşle:
+   1. İndirin ve katalog öğesi seri durumdan.
+   1. Katalog öğenin türü için uygun şekilde tepki.
+   1. Katalog öğesi belgenin istemciye özgü bir şekilde işleyin.
+1. Son kataloğu öğenin yürütme zaman damgası, yeni işaretçi değeri olarak kaydedin.
 
-Bu temel algoritmayla tam görünümünü kullanılabilir tüm paketler paket kaynağında yukarı istemci uygulaması oluşturabilirsiniz. İstemci, yalnızca düzenli olarak her zaman en son değişiklikleri paket kaynağına farkında olması için bu algoritma yürütme.
+Bu temel algoritma ile kullanılabilir tüm paketleri eksiksiz bir görünümünü paket kaynağında'kurmak istemci uygulama oluşturabilirsiniz. İstemci, yalnızca bu algoritma, düzenli aralıklarla her zaman en son değişiklikleri paket kaynağına dikkat edilmesi gereken yürütme.
 
 > [!Note]
-> Bu algoritma nedir bu nuget.org Teknolojisi'ni [paket meta verileri](registration-base-url-resource.md), [paket içeriğini](package-base-address-resource.md), [arama](search-query-service-resource.md) ve [otomatik tamamlama](search-autocomplete-service-resource.md) kaynaklar güncel.
+> Bu algoritma, o nuget.org Teknolojisi'ni [paket meta verileri](registration-base-url-resource.md), [paket içeriğini](package-base-address-resource.md), [arama](search-query-service-resource.md) ve [otomatik tamamlama](search-autocomplete-service-resource.md) kaynakların en güncel.
 
 ### <a name="dependent-cursors"></a>Bağımlı imleçler
 
-Burada bir istemcinin çıkış başka bir istemcinin Çıkışta bağlıdır yapısında bir bağımlılığı olan iki katalog istemcisi vardır varsayalım. 
+Burada başka bir istemcinin çıktıda bir istemcinin çıkış bağlıdır devralınmış bir bağımlılığı olan iki Kataloğu istemciler vardır varsayalım. 
 
 #### <a name="example"></a>Örnek
 
-Örneğin, paket meta veri kaynağında görünmeden önce nuget.org üzerinde yeni yayımlanan paket arama kaynak görünmemelidir. Paket meta veri kaynağı resmi NuGet istemci tarafından gerçekleştirilen "geri yükleme" işlem kullanan olmasıdır. Bir müşteri arama hizmetini kullanarak bir paket belirlerse, paket meta veri kaynağı kullanarak, paketin başarıyla geri olmalıdır. Diğer bir deyişle, arama kaynağı üzerinde paket meta veri kaynağı bağlıdır. Her kaynak, kaynak güncelleştirme Kataloğu istemci arka plan işi var. Her bir istemci kendi imleç sahiptir.
+Örneğin, paket meta veri kaynağında görünmeden önce nuget.org adresinden yeni yayımlanan paket arama kaynak görünmemelidir. Paket meta veri kaynağı resmi bir NuGet istemcisi tarafından gerçekleştirilen "geri" işlemi kullanıyor olmasıdır. Bir müşteri Arama Hizmeti'ni kullanarak bir paket belirlerse, başarılı bir şekilde, paketin paket meta veri kaynağı kullanarak geri yükleme olanağınız olmalıdır. Diğer bir deyişle, paket meta veri kaynağında arama kaynağına bağlıdır. Her kaynak, kaynak güncelleştirme Kataloğu istemci arka plan işi var. Her istemci kendi imleç yok.
 
-Her iki kaynağın arama kaynak güncelleştirmeleri katalog istemci imleci katalog dışına yerleşiktir beri *ötesine geçmeyecek gerekir* paket meta veri Kataloğu istemci imleci.
+İki kaynağın bir arama kaynağı Kataloğu istemci imleci Kataloğu dışına yerleşik olduğundan *ötesine geçip gerekir değil* paket meta veri Kataloğu istemci imleci.
 
 #### <a name="algorithm"></a>Algoritması
 
-Bu kısıtlamayı uygulamak için yalnızca olması için yukarıdaki algoritması değiştirin:
+Bu kısıtlama uygulamak için basitçe olması için yukarıdaki algoritmasını değiştirin:
 
-1. Kaydedilen imleci değer yerel depodan getirin.
-1. Karşıdan yükle ve Katalog dizinini seri durumdan.
-1. Tüm katalog yürütme zaman damgası sayfalarıyla Bul *büyük* imleci **bağımlılığı 's imleç küçük veya buna eşit.**
-1. İşlem için katalog öğeleri listesi boş bildirin.
-1. 3. adımda eşleşen her katalog sayfası için:
-   1. Karşıdan yükle ve Katalog Sayfası seri.
-   1. Tüm katalog öğeleri yürütme zaman damgası ile Bul *büyük* imleci **bağımlılığı 's imleç küçük veya buna eşit.**
-   1. Tüm eşleşen katalog öğeleri 4. adımda bildirilen listesine ekleyin.
-1. Katalog öğesi listesi yürütme zaman damgası göre sıralayın.
-1. Her bir katalog öğesi sırayla işlemini:
-   1. Karşıdan yükle ve katalog öğesi seri durumdan.
-   1. Katalog öğesi'nin türüne uygun şekilde tepki.
-   1. Katalog öğesi belgenin bir istemciye özgü şekilde işler.
-1. Son katalog öğesi'nin yürütme zaman damgası yeni imleç değeri kaydedin.
+1. Kaydedilen imleç değeri yerel depodan getirilemedi.
+1. İndirin ve Katalog dizinini seri durumdan.
+1. Tüm sayfa işleme zaman damgasına sahip katalog Bul *büyüktür* imleç **bağımlılık'ın imleç küçüktür veya eşittir.**
+1. Katalog öğelerini işlemek için boş bir listesini bildirir.
+1. Adım 3'te eşleşen her katalog sayfası için:
+   1. İndirin ve Katalog Sayfası seri durumdan.
+   1. Tüm öğeleri işleme zaman damgasına sahip katalog Bul *büyüktür* imleç **bağımlılık'ın imleç küçüktür veya eşittir.**
+   1. Tüm eşleşen katalog öğelerini 4. adımda bildirilen listesine ekleyin.
+1. Katalog öğesi listesini işleme zaman sıralar.
+1. Her bir katalog öğesi, sırada İşle:
+   1. İndirin ve katalog öğesi seri durumdan.
+   1. Katalog öğenin türü için uygun şekilde tepki.
+   1. Katalog öğesi belgenin istemciye özgü bir şekilde işleyin.
+1. Son kataloğu öğenin yürütme zaman damgası, yeni işaretçi değeri olarak kaydedin.
 
-Bu değiştirilen algoritması kullanılarak, tüm oluşturan kendi belirli dizinleri, yapılar, vb. bağımlı katalog istemcilerin bir sistem oluşturabilirsiniz.
+Bu değiştirilmiş bir algoritma kullanarak, bir sistem bağımlı Kataloğu istemcilerin tüm üretme kendi belirli dizinleri, yapılar, vb. oluşturabilirsiniz.

@@ -1,63 +1,62 @@
 ---
 title: NuGet 3.3 sürüm notları
-description: NuGet bilinen sorunları, hata düzeltmeleri, eklenen özellikleri ve dcr dahil olmak üzere 3.3 için sürüm notları.
+description: Bilinen sorunlar, hata düzeltmeleri yapıldı, eklenen özellikler ve dcr NuGet 3.3 sürüm notları.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: adf193437de237ed32da481e627552a8dba6f656
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 5fb840ab6a1329611e9cf417724bcdcd75efe2df
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/26/2018
-ms.locfileid: "31821570"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43546653"
 ---
 # <a name="nuget-33-release-notes"></a>NuGet 3.3 sürüm notları
 
 [NuGet 3.2.1 sürüm notları](../release-notes/nuget-3.2.1.md) | [NuGet 3.4 RC sürüm notları](../release-notes/nuget-3.4-RC.md)
 
-NuGet 3.3 30 Kasım 2015 çok sayıda kullanışlı düzeltmeleri NuGet istemcilere koleksiyonu yanı sıra kullanıcı arabirimi güncelleştirmeleri ve komut satırı özellikleri ile serbest bırakıldı.
+NuGet 3.3, 30 Kasım 2015 ile çok sayıda kullanışlı düzeltmeleri NuGet istemcilere koleksiyonunu yanı sıra kullanıcı arabirimi güncelleştirmeleri ve komut satırı özellikleri olarak yayımlanmıştır.
 
 ## <a name="new-features"></a>Yeni Özellikler
 
-* Kimlik bilgisi sağlayıcıları sorunsuz bir şekilde kimliği doğrulanmış bir akış ile çalışabilmek için NuGet komut satırı istemcilerin sağlayan tanıtılmıştır. [Visual Studio Team Services yükleme konusunda yönergeler kimlik bilgisi sağlayıcısı ](../api/nuget-exe-credential-providers.md) ve NuGet yapılandırma kullanmak için istemciler üzerinde NuGet belgeleri kullanılabilir.
+* Sorunsuz bir şekilde kimliği doğrulanmış bir akışı ile çalışmak komut satırı istemcilerin NuGet kimlik bilgisi sağlayıcıları tanıtılmıştır. [Visual Studio Team Services'ı yüklemek yönergeler kimlik bilgisi sağlayıcısı ](../api/nuget-exe-credential-providers.md) ve NuGet yapılandırma kullanmak için istemcileri üzerinde NuGet belgeleri kullanılabilir.
 
 ## <a name="new-user-interface-features"></a>Yeni kullanıcı arabirimi özellikleri
 
-* Ayrı Gözat, yüklü ve güncelleştirmeleri kullanılabilir sekmeler
-* Kullanılabilir güncelleştirme içeren paketler sayısını gösteren kullanılabilir rozet güncelleştirir
-* Paket paketin yüklü olup olmadığını belirtmek için paket listesinde rozetleri veya güncelleştirmesi mevcut
-* Sayı ve paket listesine eklenen Yazar indirin
-* Yüksek kullanılabilir sürüm numarası ve paket listesi üzerinde şu anda yüklü olan sürüm numarası
-* Hızlı yükleme izin vermek için eylem düğmeleri güncelleştirin ve paket listeden kaldırın
-* Paket ayrıntı panelindeki daha anlaşılır eylem düğmeleri
-* Paket ayrıntı panelindeki paket güncelleştirme tarihi
-* Çözüm Görünümü panelinde birleştirin
-* Proje ve çözüm görünümü yüklü sürüm numaralarında sıralanabilir kılavuz
+* Göz atma, yüklü ve güncelleştirmeleri kullanılabilir ayrı sekmeler
+* Kullanılabilir güncelleştirmeleri olan paketleri sayısını gösteren güncelleştirmeleri kullanılabilir rozeti
+* Paket yüklü değil veya güncelleştirmesi mevcut olmadığını belirtmek için paket listesinde paket rozetlerini
+* Sayısı ve paket listesine Yazar indirin
+* Yüksek kullanılabilir sürüm numarasını ve paket listesi üzerinde şu anda yüklü sürüm numarası
+* Hızlı yükleme izin vermek için komut düğmeleri güncelleştirmek ve paketi listeden kaldırma
+* Paket Ayrıntıları paneline üzerinde NET eylem düğmeleri
+* Paket Ayrıntıları paneline paket güncelleştirme tarihi
+* Çözüm görünümünde panelinde birleştirin
+* Proje ve çözüm görünümü üzerinde yüklü sürüm numaraları sıralanabilir kılavuz
 
 ## <a name="new-command-line-features"></a>Yeni komut satırı özellikleri
 
-Bu sürümde gösterdiğimizi `add` ve `init` açıklandığı gibi klasör tabanlı depoları başlatmak için komutları [nuget.exe başvuru](../tools/nuget-exe-cli-reference.md). Oluşturulan ve bu klasörü ile korunan depoları yapısı [önemli performans avantajı teslim](http://blog.nuget.org/20150922/Accelerate-Package-Source.html) bizim blogunda özetlendiği gibi.
+Bu sürümde sunduk `add` ve `init` açıklandığı gibi klasör tabanlı depoları başlatmak için komutları [nuget.exe başvurusu](../tools/nuget-exe-cli-reference.md). Oluşturulur ve bu klasörü tutulan depolar yapısı [önemli performans avantajlarının teslim](http://blog.nuget.org/20150922/Accelerate-Package-Source.html) blogumuzu özetlenen.
 
-## <a name="contentfiles"></a>Content dosyaları
+## <a name="contentfiles"></a>contentFiles
 
-İçerik desteklenen şimdi `project.json` yönetilen projeleri yeni aracılığıyla `contentFiles` klasör ve `.nuspec` `contentFiles` öğesi gösterimi.  Bu içerik daha doğrudan proje sistemlerle etkileşim için paket yazarına tarafından belirtilebilir.  Content dosyaları içinde yapılandırma hakkında daha fazla bilgi bir `.nuspec` belge bulunabilir [.nuspec başvuru](../reference/nuspec.md).
+İçerik desteklenen artık `project.json` projelerini yeni aracılığıyla yönetilen `contentFiles` klasörü ve `.nuspec` `contentFiles` öğesi gösterimi.  Bu içerik daha doğrudan proje sistemleri ile etkileşim için paket yazarı tarafından belirtilebilir.  ContentFiles içinde yapılandırma hakkında daha fazla bilgi bir `.nuspec` belge bulunabilir [.nuspec başvuru](../reference/nuspec.md).
 
-## <a name="nuget-locals-cache-management"></a>NuGet yerel yönetim önbelleğe alma
+## <a name="nuget-locals-cache-management"></a>Yönetim NuGet yerel önbellek
 
-Komut satırı NuGet, bir iş istasyonunda yerel önbellekleri yönetme hakkında bilgiler eklenerek güncelleştirildi.  Yerel öğeler komut hakkında daha fazla bilgi kullanılabilir [NuGet komut satırı başvurusu](../tools/cli-ref-locals.md).
+NuGet komut satırı, bir iş istasyonundaki yerel önbelleklerini nasıl yönetecekleri hakkındaki bilgileri içerecek şekilde güncelleştirildi.  Yerel öğeler komut hakkında daha fazla bilgi kullanılabilir [NuGet komut satırı başvurusu](../tools/cli-ref-locals.md).
 
 ## <a name="fixed-issues"></a>Giderilen sorunlar
 
-**Önem düzeyindeki sorunlar**
+**Önemli sorunlar**
 
-* Mono - bir çözüm dosyasını içeren paketleri geri yüklemek için NuGet komut satırı geri yüklenen desteği [1543](https://github.com/NuGet/Home/issues/1543)
+* Geri yükleme için NuGet komut satırı geri yüklenen desteği paketleri ile bir çözüm dosyası üzerinde Mono - [1543](https://github.com/NuGet/Home/issues/1543)
 
-3.3 sürümde değinilen sorunların tam listesi GitHub altında bulunabilir [3.3 Kilometre Taşı](https://github.com/NuGet/Home/issues?q=is%3Aissue+milestone%3A3.3.0+is%3Aclosed).
+3.3 sürümünde giderilen sorunların tam listesi altında github'da bulunabilir [3.3 kilometre](https://github.com/NuGet/Home/issues?q=is%3Aissue+milestone%3A3.3.0+is%3Aclosed).
 
-3.3 komut satırı sürümde giderilen sorunların listesi kaydedilir [3.3 komut satırı Kilometre Taşı](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A3.3.0-commandline).
+3.3 komut satırı sürümde giderilen sorunlar listesinde kaydedilir [3.3 komut satırı kilometre](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A3.3.0-commandline).
 
 ## <a name="known-issues"></a>Bilinen Sorunlar
 
-Bizim GitHub sorunları listedeki konumunda bulunan sorunları izlemek devam: [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)
+Şurada bulunabilir bizim GitHub sorunlar listesinde sorunları izlemek devam ediyoruz: [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)

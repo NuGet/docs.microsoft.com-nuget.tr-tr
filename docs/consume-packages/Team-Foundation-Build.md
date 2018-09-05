@@ -1,57 +1,56 @@
 ---
-title: İzlenecek yol NuGet paket geri yükleme ile Team Foundation derlemesi
-description: Nasıl NuGet paket geri yükleme işlemi ile Team Foundation Build (TFS ve Visual Studio Team Services) ile bir gözden geçirme.
+title: Team Foundation Yapısı ile NuGet paket Geri Yükleme Kılavuzu
+description: NuGet paket geri yükleme ile Team Foundation Yapısı (TFS ve Visual Studio Team Services) ile nasıl bir kılavuz.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: 1b7dcc351626e60e0444cf1d48b8f09cc23aa157
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 0e69491525fce03e504d9d455bee2718510c83c2
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817040"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43549891"
 ---
-# <a name="setting-up-package-restore-with-team-foundation-build"></a>Paket geri yüklemesi Team Foundation Build ile ayarlama
+# <a name="setting-up-package-restore-with-team-foundation-build"></a>Paket geri yükleme Team Foundation Yapısı ile ayarlama
 
-Bu makale, paketleri bir parçası olarak geri yükleme konusunda ayrıntılı bilgi sağlar. [Hizmetleri ekip](/vsts/build-release/index) her ikisi de hem Git hem de Team Services sürüm denetimi.
+Bu makalede, paketleri bir parçası olarak geri yükleme konusunda ayrıntılı bir kılavuz sağlar. [Team Services derleme](/vsts/build-release/index) her ikisi için hem Git hem de Team Services sürüm denetimi.
 
-Bu kılavuzda Visual Studio Team Services kullanarak bu senaryo için belirli olsa da, kavramlar, ayrıca diğer sürüm denetimine uygulamak ve sistemler oluşturabilir.
+Bu izlenecek yol Visual Studio Team Services kullanarak senaryosu için belirli olsa da, kavramları da diğer sürüm denetimi için geçerlidir ve sistemler oluşturabilir.
 
-Uygulandığı öğe:
+Uygulama hedefi:
 
-- Herhangi bir TFS sürümü özel MSBuild projelerine
-- Team Foundation Server 2012 veya önceki
-- TFS 2013 veya sonraki bir sürüme özel Team Foundation Yapı işlem şablonları geçişi
-- İşlem şablonları kaldırılan Nuget geri yükleme işlevselliği ile derleme
+- TFS herhangi bir sürümünü çalıştıran özel bir MSBuild projeleri
+- Team Foundation Server 2012 veya önceki bir sürümü
+- TFS 2013 veya sonraki bir sürüme özel Team Foundation Yapı işlem şablonlarını geçişi
+- Derleme işlem şablonları ile Nuget geri yükleme işlevi kaldırıldı
 
-Alt yapı işlem şablonları ile Visual Studio Team Services veya Team Foundation Server 2013 kullanıyorsanız, otomatik paket geri yüklemesi oluşturma işleminin bir parçası olarak gerçekleşir.
+Kendi derleme işlem şablonları ile Visual Studio Team Services veya Team Foundation Server 2013 kullanıyorsanız, yapı işleminin bir parçası olarak otomatik paket geri yükleme gerçekleşir.
 
 ## <a name="the-general-approach"></a>Genel yaklaşım
 
-NuGet kullanarak bir avantajı, onu ikili dosyalarının sürüm denetim sisteminiz için iade önlemek için kullanabileceğiniz olmasıdır.
+NuGet kullanarak bir avantajı, sürüm denetimi Sisteminiz ikili dosyaları iade önlemek için kullanabileceğiniz olmasıdır.
 
-Bu kullanıyorsanız özellikle ilginç bir [dağıtılmış sürüm denetim](http://en.wikipedia.org/wiki/Distributed_revision_control) geliştiriciler, yerel olarak çalışmaya başlamadan önce tam geçmişi dahil olmak üzere tüm depoyu kopyalayın gerektiğinden git gibi sistem. İkili dosyalar genellikle delta sıkıştırma kaydedildikçe ikili dosyalarda denetimi önemli deposu oluşan şişirmeyi neden olabilir.
+Bu kullanıyorsanız özellikle ilgi çekici bir [dağıtılmış sürüm denetimi](http://en.wikipedia.org/wiki/Distributed_revision_control) geliştiriciler, yerel olarak çalışmaya başlamadan önce tam geçmişini de dahil olmak üzere tüm depoyu kopyalamak gerektiği için git gibi sistem. İkili dosyalar genellikle delta sıkıştırma depolandığından ikili dosyaları denetleniyor önemli depoyu Şişirme neden olabilir.
 
-NuGet desteklenen [paketleri geri](../consume-packages/package-restore.md) derleme için uzun bir parçası olarak şimdi saat. Önceki uygulaması proje oluşturulurken NuGet paketleri geri çünkü derleme işlemini genişletme istediğiniz paketler için tavuk ve Yumurta sorunu yaşıyor. Ancak, MSBuild yapı oluşturma sırasında genişletme izin vermez; bir karşıdır bu MSBuild bir sorunu ancak bu devralınan bir sorun olduğunu savunabilir. Genişletmek için gereken hangi en boy bağlı olarak, paketi geri yüklemesi zamanına göre kaydetmek için çok geç olabilir.
+NuGet desteklenmediği [paketler geri yükleniyor](../consume-packages/package-restore.md) uzun bir süre için derlemenin bir parçası olarak artık zaman. Önceki uygulaması için proje derlenirken NuGet paketleri geri çünkü derleme işlemini genişletme istediğiniz paketlerini tavuk ve Yumurta sorunu yaşıyor. Ancak, MSBuild, derleme yapı sırasında genişletme izin vermez; bir buna bu MSBuild içinde bir sorun, ancak bu devralınan bir sorun olduğunu buna. Genişletmek için gereken hangi yönüyle bağlı olarak, paket geri zaman kaydetmek için çok geç olabilir.
 
-Bu sorunun kurut paketler derleme işlemindeki ilk adım olarak geri emin olmak:
+Bu sorunun hastalıktan yapı sürecinin ilk adımı olarak paketleri geri yüklendiğinden emin yapıyor:
 
 ```cli
 nuget restore path\to\solution.sln
 ```
 
-Derleme sürecinde kod oluşturmadan önce paketleri yüklediğinde, iade gerekmez `.targets` dosyaları
+Yapı işleminizin, kod oluşturulmadan önce paketleri geri yükler, iade edilmesine gerekmeyen `.targets` dosyaları
 
 > [!Note]
-> Paketleri yükleme Visual Studio'da izin vermek için yazılmış olmalıdır. Aksi takdirde, hala iade isteyebilirsiniz `.targets` diğer geliştiriciler çözüm paketlerini ilk geri yüklemek zorunda kalmadan açabilirler böylece dosyaları.
+> Visual Studio'da yükleme izin vermek için paketler yeniden yazılması gerekir. Aksi takdirde, yine de iade isteyebileceğiniz `.targets` diğer geliştiriciler çözüm paketleri önce geri yüklemeye gerek kalmadan açabilirler dosyalar.
 
-Aşağıdaki gösterim proje derleme şekilde ayarlamak gösterilmektedir, `packages` klasörleri ve `.targets` dosyaları iade edildi olması gerekmez. Ayrıca, bu örnek proje için Team Foundation Service üzerinde otomatik bir yapı ayarlamak nasıl gösterir.
+Aşağıdaki tanıtım proje derleme şekilde ayarlama işlemi gösterilmektedir, `packages` klasörleri ve `.targets` dosyaları iade olması gerekmez. Ayrıca bu örnek project için Team Foundation Service üzerinde otomatik bir yapı ayarlama işlemini de gösterir.
 
 ## <a name="repository-structure"></a>Depo yapısı
 
-Tanıtım Projemizin sorgu Bing komut satırı bağımsız değişkeni kullanan bir basit komut satırı aracıdır. .NET Framework 4 hedefler ve birçok kullanan [BCL paketleri](http://www.nuget.org/profiles/dotnetframework/) ([Microsoft.Net.Http](http://www.nuget.org/packages/Microsoft.Net.Http), [Microsoft.Bcl](http://www.nuget.org/packages/Microsoft.Bcl), [Microsoft.Bcl.Async](http://www.nuget.org/packages/Microsoft.Bcl.Async), ve [Microsoft.Bcl.Build](http://www.nuget.org/packages/Microsoft.Bcl.Build)).
+Tanıtım Projemizin sorgu Bing komut satırı bağımsız değişkeni kullanan bir basit bir komut satırı aracıdır. .NET Framework 4 hedefleyen ve birçok kullanan [BCL paketleri](http://www.nuget.org/profiles/dotnetframework/) ([Microsoft.Net.Http](http://www.nuget.org/packages/Microsoft.Net.Http), [Microsoft.Bcl](http://www.nuget.org/packages/Microsoft.Bcl), [Microsoft.Bcl.Async](http://www.nuget.org/packages/Microsoft.Bcl.Async), ve [Microsoft.Bcl.Build](http://www.nuget.org/packages/Microsoft.Bcl.Build)).
 
 Depo yapısı şu şekilde görünür:
 
@@ -76,16 +75,16 @@ Depo yapısı şu şekilde görünür:
             └───NuGet
                     nuget.exe
 
-Biz iade edildi, henüz gördüğünüz `packages` ya da herhangi bir klasör `.targets` dosyaları.
+Şu iade, henüz gördüğünüz `packages` klasörünün veya `.targets` dosyaları.
 
-Biz ancak iade edildi olan `nuget.exe` derleme sırasında gerektiğinde. Aşağıdaki yaygın olarak kullanılan biz iade, paylaşılan altında kuralları `tools` klasör.
+Biz ancak iade olan `nuget.exe` yapı sırasında gerektiğinde. Aşağıdaki yaygın olarak kullanılan kuralları biz iade, paylaşılan altında `tools` klasör.
 
-Kaynak kodu altındadır `src` klasör. Kendi Tanıtımı yalnızca tek bir çözüm kullansa da, bu klasör, birden fazla çözüm içeriyor kolayca düşünebilirsiniz.
+Kaynak kodu altındadır `src` klasör. Tanıtımımızı yalnızca tek bir çözüm kullansa da, bu klasör, birden fazla çözüm içeriyor kolayca hayal edebilirsiniz.
 
 ### <a name="ignore-files"></a>Dosyaları yoksayma
 
 > [!Note]
-> Var. şu anda bir [NuGet istemci bilinen hata](https://nuget.codeplex.com/workitem/4072) hala eklemek istemci neden `packages` sürüm denetimi klasörüne. Kaynak denetimi tümleştirmesi devre dışı bırakmak için bir çözüm olabilir. Bunu yapmak için gereksinim duyduğunuz bir `Nuget.Config ` dosyasını `.nuget` çözümünüze paralel klasör. Bu klasör henüz mevcut değilse, bunu oluşturmanız gerekir. İçinde [ `Nuget.Config` ](../consume-packages/configuring-nuget-behavior.md), aşağıdaki içeriği ekleyin:
+> Şu anda bir [NuGet istemci bilinen hata](https://nuget.codeplex.com/workitem/4072) hala eklemek istemci neden `packages` sürüm denetimi klasörü. Kaynak denetimi tümleştirmesi devre dışı bırakmak için bir çözüm olabilir. Bunu yapmak için bir `Nuget.Config ` dosyası `.nuget` çözümünüze paralel klasör. Bu klasörü henüz yoksa, oluşturmanız gerekir. İçinde [ `Nuget.Config` ](../consume-packages/configuring-nuget-behavior.md), aşağıdaki içeriği ekleyin:
 
 ```xml
 <configuration>
@@ -95,7 +94,7 @@ Kaynak kodu altındadır `src` klasör. Kendi Tanıtımı yalnızca tek bir çö
 </configuration>
 ```
 
-Sürüm denetimine biz giriş yapma yok iletişim kurmak için **paketleri** klasörleri ayrıca eklediğimiz yoksaymak için her iki git dosyaları (`.gitignore`) TF sürüm denetimi yanı sıra (`.tfignore`). Bu dosyaları iade istemediğiniz dosyaların desenleri açıklar.
+Sürüm denetimi için biz iade için hedefi yok iletişim kurmak için **paketleri** klasörleri ekledik hem git dosyaları yoksay (`.gitignore`) TF sürüm denetimi yanında (`.tfignore`). Bu dosyalar, dosyaların iade edilmesine istemediğiniz desenleri açıklar.
 
 `.gitignore` Dosya şu şekilde görünür:
 
@@ -109,14 +108,14 @@ Sürüm denetimine biz giriş yapma yok iletişim kurmak için **paketleri** kla
     project.lock.json
     project.assets.json
 
-`.gitignore` Dosyası [oldukça güçlü](https://www.kernel.org/pub/software/scm/git/docs/gitignore.html). Örneğin, genellikle içeriğini iade değil istiyorsanız `packages` klasör ancak denetleme önceki yönlendirme ile gitmek istiyorsanız `.targets` sahip olabilir, aşağıdaki dosyaları kural bunun yerine:
+`.gitignore` Dosyasıdır [oldukça güçlü](https://www.kernel.org/pub/software/scm/git/docs/gitignore.html). Örneğin, genellikle içeriği iade değil istediğiniz `packages` klasör ancak iade kılavuzun önceki ile gitmek istiyorsanız `.targets` dosyaları sahip olabilir, aşağıdaki kuralı yerine:
 
     packages
     !packages/**/*.targets
 
-Bu tüm dışlayacak `packages` klasörleri ancak olacak yeniden dahil tüm kapsanan `.targets` dosyaları. İçin bir şablon isteyenlerin bulabilirsiniz `.gitignore` Visual Studio geliştiriciler ihtiyaçlarını için özellikle tasarlanmış dosyaları [burada](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore).
+Bu, tüm dışladığı `packages` klasörleri ancak olacak yeniden dahil tüm kapsanan `.targets` dosyaları. Şekilde, bir şablon bulabilirsiniz `.gitignore` ihtiyaçlarını Visual Studio geliştiricileri için özel olarak uyarlanmıştır dosyaları [burada](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore).
 
-TF sürüm denetimi destekleyen çok benzer bir mekanizma aracılığıyla [.tfignore](/vsts/tfvc/add-files-server#customize-which-files-are-ignored-by-version-control) dosya. Neredeyse aynı söz dizimi:
+TF sürüm denetimi destekleyen çok benzer bir mekanizma aracılığıyla [.tfignore](/vsts/tfvc/add-files-server#customize-which-files-are-ignored-by-version-control) dosya. Söz dizimi neredeyse aynıdır:
 
     *.user
     *.suo
@@ -129,15 +128,15 @@ TF sürüm denetimi destekleyen çok benzer bir mekanizma aracılığıyla [.tfi
 
 ## <a name="buildproj"></a>Build.proj
 
-Kendi tanıtımı için biz oluşturma işlemi oldukça basit tutun. Çözümler oluşturulmadan önce paketleri geri yüklendiğini emin olmasını sağlarken tüm çözümler oluşturan MSBuild Projesi oluşturacağız.
+Tanıtımımızı için derleme işlemi oldukça basittir saklarız. Paketleri çözüm oluşturmadan önce geri yüklendiğinden emin olmasını sağlarken tüm çözümler oluşturan bir MSBuild Projesi oluşturacağız.
 
-Bu proje üç geleneksel hedefleri olacaktır `Clean`, `Build` ve `Rebuild` yeni bir hedef yanı sıra `RestorePackages`.
+Bu projeyi üç geleneksel hedefleri olur `Clean`, `Build` ve `Rebuild` yeni bir hedef yanı sıra `RestorePackages`.
 
-- `Build` Ve `Rebuild` her ikisi de bağlıdır hedefleri `RestorePackages`. Bu, her ikisi de çalıştırabilirsiniz emin olur `Build` ve `Rebuild` ve paketleri geri yükleniyor.
-- `Clean`, `Build` ve `Rebuild` tüm çözüm dosyalarını karşılık gelen MSBuild hedef çağırma.
-- `RestorePackages` Hedef çağırır `nuget.exe` her çözüm dosyası. Bu kullanarak gerçekleştirilir [toplu işleme MSBuild işlevselliği](/visualstudio/msbuild/msbuild-batching).
+- `Build` Ve `Rebuild` hem de bağımlı hedefleri `RestorePackages`. Bu, her ikisi de çalıştırabilirsiniz xenapp'i `Build` ve `Rebuild` ve paketleri geri yükleniyor.
+- `Clean`, `Build` ve `Rebuild` tüm çözüm dosyalarını karşılık gelen MSBuild hedef çağırır.
+- `RestorePackages` Hedefini çağırır `nuget.exe` her çözüm dosyası. Bu kullanılarak başarılır [MSBuild toplu işleme işlevleri](/visualstudio/msbuild/msbuild-batching).
 
-Sonucu şu şekilde görünür:
+Sonuç şu şekilde görünür:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -179,20 +178,20 @@ Sonucu şu şekilde görünür:
 </Project>
 ```
 
-## <a name="configuring-team-build"></a>Takım yapı yapılandırma
+## <a name="configuring-team-build"></a>Takım derlemesi yapılandırma
 
-Ekip derlemesi çeşitli şablonlar sunar. Bu Tanıtım için biz Team Foundation Service kullanıyorsunuz. TFS şirket içi yüklemeleri yine de çok benzer.
+Takım derlemesi, çeşitli şablonlar sunar. Bu Tanıtım için Team Foundation Service kullanıyoruz. Şirket içi TFS yüklemeleri yine de çok benzer olacaktır.
 
-Aşağıdaki adımlarda kullandığınız hangi sürüm denetimi sistemi bağlı olarak farklılık gösterir Git ve TF sürüm denetimi ekip farklı şablonlar vardır. Her iki durumda da, tek ihtiyacınız seçerek build.proj oluşturmak istediğiniz projesi olarak.
+Aşağıdaki adımlarda kullandığınız hangi sürüm denetimi sistemine bağlı olarak farklılık gösterir farklı ekip şablonları, Git ve TF sürüm denetimi vardır. Her iki durumda da, tüm yapmanız gereken seçmeye build.proj derlemek istediğiniz proje.
 
-İlk olarak, git için işlem şablonu bakalım. Temel git şablonda yapı özelliği aracılığıyla seçilir `Solution to build`:
+İlk olarak, işlem şablonu git için göz atalım. Git tabanlı şablonda yapı özelliği aracılığıyla seçili `Solution to build`:
 
 ![Derleme işlemi için git](media/PackageRestoreTeamBuildGit.png)
 
-Bu özellik deponuzun bir konum olduğunu unutmayın. Bu yana bizim `build.proj` olduğu kök dizininde yalnızca kullandık `build.proj`. Adlı bir klasör altında derleme dosyasını yerleştirin, `tools`, değer olacaktır `tools\build.proj`.
+Lütfen bu özellik bir konumda bir deponuz olduğuna dikkat edin. Bu yana bizim `build.proj` olduğu kök dizininde yalnızca kullandığımız `build.proj`. Derleme dosyası adlı bir klasör yerleştirmek, `tools`, değer `tools\build.proj`.
 
-TF sürüm denetimi Şablonu proje özelliği aracılığıyla seçilen `Projects`:
+TF sürüm denetimi şablonunda özelliği aracılığıyla proje seçilen `Projects`:
 
-![TFVC'yi için derleme işlemi](media/PackageRestoreTeamBuildTFVC.png)
+![TFVC için derleme işlemi](media/PackageRestoreTeamBuildTFVC.png)
 
-Temel git şablonu TF aksine, sürüm denetimi seçiciler (sağ taraftaki üç noktalı düğmeyi) destekler. Bu nedenle yazım hatalarını önlemek için bunları projeyi seçmek için kullandığınız öneririz.
+Git tabanlı şablon aksine TF sürüm denetimi seçiciler (sağ taraftaki üç noktalı düğme) destekler. Bu nedenle herhangi bir yazım hatalarını önlemek için bunları projeyi seçmek için kullandığınız öneririz.

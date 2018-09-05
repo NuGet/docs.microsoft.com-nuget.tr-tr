@@ -1,32 +1,31 @@
 ---
 title: Yerelleştirilmiş bir NuGet paketi oluşturma
-description: Oluşturmanın iki yolu ayrıntıları da tüm derlemelerin tek bir pakete dahil etme veya ayrı derlemeler yayımlama NuGet paketleri yerelleştirilmiş.
+description: Tek bir pakette tüm derlemelerin dahil olmak üzere veya ayrı derlemeler yayımlama NuGet paketleri oluşturmanın iki yolu hakkında ayrıntılı bilgi yerelleştirilmiş.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 1088f174c6a1ec21f876ccc3d79c9b40eee4758f
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: b1c2511c1fbafc7f52029c23521fa55671b0b5c5
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817798"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43546901"
 ---
 # <a name="creating-localized-nuget-packages"></a>Yerelleştirilmiş NuGet paketleri oluşturma
 
-Bir kitaplık yerelleştirilmiş sürümlerini oluşturmanın iki yolu vardır:
+Bir kitaplık yerelleştirilmiş sürümlerini oluşturmak için iki yol vardır:
 
-1. Tüm yerelleştirilmiş kaynaklar derlemeleri tek bir paket içerir.
-1. Ayrı yerelleştirilmiş uydu paketleri kuralları katı bir dizi izleyerek oluşturun.
+1. Tüm yerelleştirilmiş kaynaklar derlemelere tek bir pakette içerir.
+1. Kuralları katı bir dizi ayrı yerelleştirilmiş uydu paketleri oluşturma.
 
-Her iki yöntem aşağıdaki bölümlerde açıklandığı gibi avantajları ve dezavantajları, sahiptir.
+Aşağıdaki bölümlerde açıklandığı gibi avantajları ve dezavantajları, iki yöntem de sahiptir.
 
-## <a name="localized-resource-assemblies-in-a-single-package"></a>Tek bir pakette yerelleştirilmiş kaynak derlemeler
+## <a name="localized-resource-assemblies-in-a-single-package"></a>Tek bir paket içinde yerelleştirilmiş kaynak derlemeleri
 
-Yerelleştirilmiş kaynak grupları tek bir paket dahil olmak üzere genellikle en basit yaklaşımdır. Bunu yapmak için klasörler oluşturmanız `lib` için desteklenen dil paketi varsayılandan (tr varsayılır-us). Bu klasörlerde kaynak derlemeler ve yerelleştirilmiş IntelliSense XML dosyaları yerleştirebilirsiniz.
+Tek bir paket içinde yerelleştirilmiş kaynak derlemeleri de dahil olmak üzere genellikle en basit yaklaşımdır. Bunu yapmak için klasörler oluşturma `lib` için desteklenen dil paketi varsayılan dışındaki (tr varsayılır-us). Bu klasörlerde kaynak derlemeleri ve yerelleştirilmiş IntelliSense XML dosyaları yerleştirebilirsiniz.
 
-Örneğin, aşağıdaki klasör yapısını destekler, Almanca (de), İtalyanca (,), Japonca (ja), Rusça (ru), Çince (Basitleştirilmiş) (zh-atanır) ve Çince (Geleneksel) (zh-Hant):
+Örneğin, aşağıdaki klasör yapısını destekler, Almanca (de), İtalyanca (,), Japonca (ja), Rusça (ru), Çince (Basitleştirilmiş) (zh-Hans) ve Çince (Geleneksel) (zh-Hant):
 
     lib
     └───net40
@@ -57,9 +56,9 @@ Yerelleştirilmiş kaynak grupları tek bir paket dahil olmak üzere genellikle 
                 Contoso.Utilities.resources.dll
                 Contoso.Utilities.xml
 
-Dilleri tüm altında listelendiğini görebilirsiniz `net40` hedef framework klasör. Kullanıcısıysanız [birden çok çerçeveyi destekleyen](../create-packages/supporting-multiple-target-frameworks.md), altında bir klasör sahip `lib` her değişken için.
+Dilleri tüm altında listelendiğini gördüğünüz `net40` hedef çerçeve klasörü. Size [birden çok çerçeveyi destekleme](../create-packages/supporting-multiple-target-frameworks.md), altında bir klasöre sahip `lib` her değişken için.
 
-Bu klasörler yerinde sonra tüm dosyalarda başvuru, `.nuspec`:
+Bu klasörleri yerinde sonra tüm dosyaları başvuru, `.nuspec`:
 
 ```xml
 <?xml version="1.0"?>
@@ -74,37 +73,37 @@ Bu klasörler yerinde sonra tüm dosyalarda başvuru, `.nuspec`:
 
 Bu yaklaşım kullanan bir örnek paket [Microsoft.Data.OData 5.4.0](http://nuget.org/packages/Microsoft.Data.OData/5.4.0).
 
-### <a name="advantages-and-disadvantages-localized-resource-assemblies"></a>Olumlu ve olumsuz yönleri (yerelleştirilmiş kaynak derlemeler)
+### <a name="advantages-and-disadvantages-localized-resource-assemblies"></a>Avantajlar ve dezavantajlar (yerelleştirilmiş kaynak bütünleştirilmiş kodları)
 
-Tek bir paketteki tüm diller paketleme birkaç sakıncaları vardır:
+Tüm diller, tek bir pakette paketleme bazı dezavantajları vardır:
 
-1. **Meta veri paylaşılan**: bir NuGet paketi yalnızca tek bir içerebileceğinden `.nuspec` dosya, yalnızca tek bir dil için meta verileri sağlayabilir. Diğer bir deyişle, NuGet yerelleştirilmiş meta verileri sunmaz.
-1. **Paket boyutu**: desteklediğiniz dilleri sayısına bağlı olarak, kitaplık yükleme ve paket geri yükleme yavaşlatır oldukça büyük olabilir.
-1. **Eşzamanlı sürümleri**: tek bir pakete yerelleştirilmiş dosyaları paketleme gerektirir, paketteki tüm varlıklar eşzamanlı olarak, her yerelleştirme ayrı olarak yayımlamayı bölümlemeye yerine bırakmadan olduğunu. Ayrıca, herhangi bir yerelleştirme için herhangi bir güncelleştirme tüm paketin yeni bir sürümünü gerektirir.
+1. **Meta veri paylaşılan**: yalnızca tek bir NuGet paketi içerebileceğinden `.nuspec` dosyası, yalnızca tek bir dil için meta verileri sağlayabilirsiniz. Diğer bir deyişle, NuGet desteği yerelleştirilmiş meta verileri sunmaz.
+1. **Paket boyutu**: desteklediğiniz dilleri sayısına bağlı olarak, kitaplık, yükleme ve paket geri yükleme yavaşlatır önemli ölçüde büyük olabilir.
+1. **Eşzamanlı yayınlar**: tek bir pakete yerelleştirilmiş dosyaları paketleme gerektirir, bu paket grubundaki tüm varlıkları eşzamanlı olarak ayrı ayrı her bir yerelleştirme yayınlayabilir olmak yerine yayın. Ayrıca, herhangi bir yerelleştirme için herhangi bir güncelleştirme tüm paketin yeni bir sürümü gerektirir.
 
-Ancak, aynı zamanda birkaç faydası vardır:
+Bununla birlikte, bazı avantajları da vardır:
 
-1. **Basitlik**: tüketicileri paketi Al desteklenen tüm dillerde her dil ayrıca yüklemek zorunda kalmadan yerine tek bir yükleme. Tek bir paket üzerinde nuget.org bulmak de kolaydır.
-1. **Sürümleri eşleşmiş**: tüm kaynak derlemeler birincil derlemeyle aynı paketteki olduğundan, bunlar tüm aynı sürüm numarasına paylaşır ve yanlışlıkla ayrılmış riski çalıştırmayın.
+1. **Basitlik**: desteklenen tüm dillerde ayrı ayrı her bir dil yüklemek zorunda yerine tek bir yükleme paketi tüketicileri alın. Tek bir pakette de nuget.org adresinden bulmak daha kolay olur.
+1. **Sürümleri eşleşmiş**: tüm kaynak derlemeler birincil derlemeyle aynı pakette olduğundan, bunların tümü aynı sürüm numarasını paylaşır ve deneyebileceğinizi ayrılmış riskini çalıştırmayın.
 
 ## <a name="localized-satellite-packages"></a>Yerelleştirilmiş uydu paketleri
 
-Benzer şekilde nasıl .NET Framework uydu derlemelerini destekler, bu yöntem yerelleştirilmiş kaynaklar ve IntelliSense XML dosyaları uydu paketlere ayırır.
+Benzer şekilde nasıl .NET Framework uydu derlemelerini destekler, bu yöntem yerelleştirilmiş kaynaklar ve IntelliSense XML dosyalarını uydu paketler ayırır.
 
-Bunun için birincil paketinizi adlandırma kuralı kullanır `{identifier}.{version}.nupkg` ve varsayılan dil (örneğin, en-US) için derleme içerir. Örneğin, `ContosoUtilities.1.0.0.nupkg` aşağıdaki yapısını içerir:
+Bunun için birincil paketinizi adlandırma kuralını kullanır `{identifier}.{version}.nupkg` ve derleme için varsayılan dil (örneğin, en-US) içerir. Örneğin, `ContosoUtilities.1.0.0.nupkg` aşağıdaki yapısını içerir:
 
     lib
     └───net40
             ContosoUtilities.dll
             ContosoUtilities.xml
 
-Ardından bir uydu derleme adlandırma kuralı kullanır `{identifier}.{language}.{version}.nupkg`, gibi `ContosoUtilities.de.1.0.0.nupkg`. Tanımlayıcı **gerekir** birincil paketi tam olarak eşleşmesi.
+Ardından bir uydu derleme adlandırma kuralını kullanır `{identifier}.{language}.{version}.nupkg`, gibi `ContosoUtilities.de.1.0.0.nupkg`. Tanımlayıcı **gerekir** birincil paketi tam olarak eşleşmesi.
 
-Bu ayrı bir paket olduğundan, kendi yoktur `.nuspec` yerelleştirilmiş meta verileri içeren dosya. Dikkatli olmanızı, dilde `.nuspec` **gerekir** filename kullanılanla aynı.
+Bu ayrı bir paket olduğundan, kendi yoktur `.nuspec` yerelleştirilmiş meta veriler içeren dosya. Dikkatli olmanızı bu dilde `.nuspec` **gerekir** dosya adında kullanılanla eşleşmelidir.
 
-Uydu derlemesi **gerekir** [] sürüm gösterimini kullanarak bir bağımlılık olarak birincil paketi tam bir sürümünü de bildirme (bkz [paket sürüm](../reference/package-versioning.md)). Örneğin, `ContosoUtilities.de.1.0.0.nupkg` bir bağımlılık üzerindeki bildirilmelidir `ContosoUtilities.1.0.0.nupkg` kullanarak `[1.0.0]` gösterimi. Elbette, uydu paket birincil paketi farklı sürüm numarasından olabilir.
+Uydu derlemesi **gerekir** ayrıca birincil paketi tam bir sürümünü [] sürümü gösterimini kullanarak bir bağımlılık olarak bildirin (bkz [Paket sürümü oluşturma](../reference/package-versioning.md)). Örneğin, `ContosoUtilities.de.1.0.0.nupkg` bağımlılık bildirmeniz gerekir `ContosoUtilities.1.0.0.nupkg` kullanarak `[1.0.0]` gösterimi. Elbette, uydu paket birincil paketi farklı bir sürüm numarasından olabilir.
 
-Uydu paketin yapısı sonra kaynak assembly ve IntelliSense dosya ile eşleşen bir alt klasöre içermelidir `{language}` paketi dosya:
+Uydu paket yapısı sonra kaynak derleme ve IntelliSense XML dosyası ile eşleşen bir alt içermelidir `{language}` paket dosya:
 
     lib
     └───net40
@@ -112,38 +111,38 @@ Uydu paketin yapısı sonra kaynak assembly ve IntelliSense dosya ile eşleşen 
                 ContosoUtilities.resources.dll
                 ContosoUtilities.xml
 
-**Not**: sürece gibi belirli subcultures `ja-JP` gerekliyse, her zaman daha yüksek düzey dil tanımlayıcısını gibi kullanmak `ja`.
+**Not**: sürece gibi belirli subcultures `ja-JP` gerekliyse, her zaman daha yüksek düzey bir dil tanımlayıcısı, gibi kullanın `ja`.
 
-Bir uydu derlemede NuGet algılar **yalnızca** eşleşen klasöründeki dosyaları `{language}` dosya. Diğerleri yoksayılır.
+Bir uydu derlemesine NuGet tanıyacağınız **yalnızca** eşleşen klasöründeki dosyalarla `{language}` dosya adında. Diğerleri yoksayılır.
 
-Tüm bu kuralları karşılandığında, NuGet paketi uydu paket olarak tanımak ve yerelleştirilmiş dosyaları birincil paket yüklemek `lib` klasörü, bunlar ilk olarak toplanmış olur. Uydu paketi kaldırma dosyalarından aynı bu klasörden kaldırın.
+Tüm bu kuralları karşılandığında, NuGet paketi bir uydu paketi olarak tanınması ve birincil pakete ait yerelleştirilmiş dosyaları yüklemek `lib` klasör gibi bunlar ilk olarak toplanmış. Uydu paketi dosyalarını aynı bu klasörden kaldırın.
 
-Desteklenen her dil için aynı şekilde ek uydu derlemelerini oluşturursunuz. Örneğin, ASP.NET MVC paket kümesini inceleyin:
+Desteklenen her dil için aynı şekilde ek uydu derlemeleri oluşturursunuz. Örneğin, ASP.NET MVC paketleri kümesini inceleyin:
 
 - [Microsoft.AspNet.Mvc](http://nuget.org/packages/Microsoft.AspNet.Mvc) (İngilizce birincil)
-- [Microsoft.AspNet.Mvc.de](http://nuget.org/packages/Microsoft.AspNet.Mvc.de) (Almanca)
+- [Microsoft.AspNet.Mvc.de](http://nuget.org/packages/Microsoft.AspNet.Mvc.de) (Almanya)
 - [Microsoft.AspNet.Mvc.ja](http://nuget.org/packages/Microsoft.AspNet.Mvc.ja) (Japonca)
-- [Microsoft.AspNet.Mvc.zh atanır](http://nuget.org/packages/Microsoft.AspNet.Mvc.zh-Hans) (Çince (Basitleştirilmiş))
+- [Microsoft.AspNet.Mvc.zh Hans](http://nuget.org/packages/Microsoft.AspNet.Mvc.zh-Hans) (Çince (Basitleştirilmiş))
 - [Microsoft.AspNet.Mvc.zh Hant](http://nuget.org/packages/Microsoft.AspNet.Mvc.zh-Hant) (Çince (Geleneksel))
 
 ### <a name="summary-of-required-conventions"></a>Gerekli kuralları özeti
 
 - Birincil paketi olarak adlandırılmalıdır `{identifier}.{version}.nupkg`
 - Uydu paket olarak adlandırılmalıdır `{identifier}.{language}.{version}.nupkg`
-- Uydu paketin `.nuspec` filename eşleşecek şekilde dili belirtmeniz gerekir.
-- Bir uydu paketi bir bağımlılık [] noktalı gösterim kullanılarak birincil tam bir sürümünü bildirmelidir kendi `.nuspec` dosya. Aralıkları desteklenmez.
-- Uydu paket dosyalarında yerleştirmelisiniz `lib\[{framework}\]{language}` tam olarak eşleşen klasör `{language}` dosya.
+- Uydu paketin `.nuspec` dosya adını eşleştirmek için dili belirtmeniz gerekir.
+- [] Gösterim kullanılarak birincil tam bir sürümünü bir uydu paketi bir bağımlılık bildirmeniz gerekir, `.nuspec` dosya. Aralıkları desteklenmez.
+- Uydu paket dosyaları yerleştirmelisiniz `lib\[{framework}\]{language}` tam olarak eşleşen bir klasör `{language}` dosya adında.
 
-### <a name="advantages-and-disadvantages-satellite-packages"></a>Olumlu ve olumsuz yönleri (uydu paketleri)
+### <a name="advantages-and-disadvantages-satellite-packages"></a>Avantajlar ve dezavantajlar (uydu paketler)
 
-Uydu paketleri kullanma birkaç faydası vardır:
+Uydu paketlerini kullanma, bazı avantajları vardır:
 
-1. **Paket boyutu**: birincil paketinin genel ayak en aza indirilir ve tüketicilerin yalnızca bunlar kullanmak istediğiniz her bir dilin maliyetinden doğurur.
-1. **Ayrı meta veri**: Her uydu paket kendi sahip `.nuspec` dosyası ve bu nedenle yerelleştirilmiş metaverileri olduğundan. Bu yerelleştirilmiş koşullarla nuget.org arayarak paketleri daha kolay bulmak bazı tüketiciler izin verebilirsiniz.
-1. **Ayrılmış sürümleri**: uydu derlemelerini serbest bırakılabilir zamanla yerine tüm aynı anda yerelleştirme çabalarınız yayılan olanak sağlar.
+1. **Paket boyutu**: birincil paketin bütün kapladığı alanı en aza indirilir ve tüketiciler yalnızca, kullanmak istediğiniz her bir dilin maliyetleri doğurur.
+1. **Ayrı bir meta veri**: her bir uydu paketi kendi bölümüne sahiptir `.nuspec` dosya ve bu nedenle kendi yerelleştirilmiş meta verileri için. Bu paketleri nuget.org yerelleştirilmiş koşullarıyla arayarak daha kolay bulmak bazı tüketiciler izin verebilirsiniz.
+1. **Ayrılmış yayınlar**: uydu derlemeleri serbest bırakılabilir zamanla yerine tümünü tek seferde yerelleştirme çalışmalarınızı yayılan etmenize imkan sağlar.
 
-Ancak, uydu paketleri kendi kümesi dezavantajları vardır:
+Ancak, uydu paketleri kendi dezavantajları vardır:
 
-1. **Dağınıklığı**: yerine tek bir paket, yığın arama sonuçlarını nuget.org ve Visual Studio projede başvuruları uzun bir listesi neden olabilecek birçok paketleri sahiptir.
-1. **Katı kuralları**. Uydu paketleri kurallarına tam olarak uymalıdır veya yerelleştirilmiş sürümleri düzgün çekilmesi olmaz.
-1. **Sürüm oluşturma**: Her uydu paket bir tam sürüm bağımlılığı birincil paketi sahip olmalıdır. Kaynakları değişmedi olsa bile bu birincil paketi güncellemeden tüm uydu paketleri de güncelleştirme gerektirebileceği anlamına gelir.
+1. **Dağınıklığı**: tek bir paket yerine derli toplu arama sonuçlarını nuget.org ve Visual Studio projede başvuruları uzun listesi yol açabilecek birçok paketleri vardır.
+1. **Katı kuralları**. Uydu paketleri tam olarak kurallarına uymalıdır veya yerelleştirilmiş sürümleri düzgün çekilmesi olmaz.
+1. **Sürüm oluşturma**: her bir uydu paketi birincil paketi bir tam sürüme bağımlılığı olmalıdır. Kaynakları değişmedi olsa bile bu birincil paketi güncelleştirme de tüm uydu paketlerin güncelleştirilmesi gerektiğini anlamına gelir.

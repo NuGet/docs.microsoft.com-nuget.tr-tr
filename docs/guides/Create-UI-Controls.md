@@ -1,41 +1,40 @@
 ---
-title: NuGet paketi UI denetimleriyle nasıl
-description: UWP ya da WPF içeren NuGet paketleri oluşturmak nasıl destek dosyaları için Visual Studio ve harmanlama tasarımcıları ve gerekli meta veriler dahil olmak üzere denetler.
+title: NuGet ile paket kullanıcı Arabirimi denetimleri hakkında
+description: UWP ya da WPF içeren NuGet paketleri oluşturmak nasıl destek dosyaları Visual Studio'da ve Blend'de tasarımcılarına ve gerekli meta veriler dahil olmak üzere denetler.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 05/23/2018
 ms.topic: tutorial
-ms.openlocfilehash: ab7499c415f63319fd314f33607f74d400b5f957
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: ce5ad07209a06010150b14092aa1b15ee6f84146
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818664"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43548744"
 ---
-# <a name="creating-ui-controls-as-nuget-packages"></a>NuGet paketleri UI denetimleri oluşturma
+# <a name="creating-ui-controls-as-nuget-packages"></a>NuGet paketleri olarak kullanıcı Arabirimi denetimleri oluşturma
 
-Visual Studio 2017 ile NuGet paketlerini teslim UWP ve WPF denetimleri eklenen özelliklerinin avantajından yararlanabilirsiniz. Bu kılavuzda, bu özellikleri kullanarak UWP denetimleri bağlamında anlatılmaktadır [ExtensionSDKasNuGetPackage örnek](https://github.com/NuGet/Samples/tree/master/ExtensionSDKasNuGetPackage). Aksi belirtilmediği sürece aynı WPF denetimleri için geçerlidir.
+Visual Studio 2017 ile NuGet paketlerinde teslim UWP ve WPF denetimleri için eklenen özelliklerin yararlanabilirsiniz. Bu kılavuzu kullanarak UWP denetimleri bağlamında bu özellikler size [ExtensionSDKasNuGetPackage örnek](https://github.com/NuGet/Samples/tree/master/ExtensionSDKasNuGetPackage). Aksi belirtilmediği sürece aynı WPF denetimleri için geçerlidir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 1. Visual Studio 2017
-1. Nasıl yapılır anlayış [UWP paketleri oluşturma](create-uwp-packages.md)
+1. Olma [UWP paketleri oluşturma](create-uwp-packages.md)
 
-## <a name="generate-library-layout"></a>Kitaplık düzenine oluştur
+## <a name="generate-library-layout"></a>Kitaplık düzeni oluştur
 
 > [!Note]
 > Bu, yalnızca UWP denetimleri için geçerlidir.
 
-Ayar `GenerateLibraryLayout` özelliği sağlar proje derleme çıktısı nuspec tek tek dosya girişlerinde gerek kalmadan paketlenmesi hazır bir düzende oluşturulur.
+Ayarı `GenerateLibraryLayout` özelliği sağlar projesi yapı çıkış nuspec tek tek dosya girişleri gerek kalmadan paketlenmesi hazır bir düzende oluşturulur.
 
-Proje Özellikleri yapı sekmesine gidin ve "Kitaplığı düzeni oluştur" onay kutusunu işaretleyin. Bu proje dosyasını değiştirmek ve ayarlama `GenerateLibraryLayout` bayrağı şu anda seçili yapı yapılandırması ve platformu için true.
+Proje Özellikleri derleme sekmesine gidin ve "Kitaplık düzeni oluştur" onay kutusunu işaretleyin. Bu proje dosyasını değiştirmek ve ayarlama `GenerateLibraryLayout` bayrağı şu anda seçilen derleme yapılandırması ve platformu için true.
 
-Alternatif olarak, düzenleme eklemek için proje dosyası `<GenerateLibraryLayout>true</GenerateLibraryLayout>` ilk koşulsuz özelliği gruba. Bu özellik yapı yapılandırması ve platformu yedeklemiş geçerli.
+Alternatif olarak, Düzen eklemek için proje dosyasını `<GenerateLibraryLayout>true</GenerateLibraryLayout>` ilk koşulsuz özellik grubuna. Bu özellik derleme yapılandırması ve platform fark etmeksizin geçerli.
 
-## <a name="add-toolboxassets-pane-support-for-xaml-controls"></a>XAML denetimler için araç kutusu/varlıklar bölmesinde desteği ekleme
+## <a name="add-toolboxassets-pane-support-for-xaml-controls"></a>XAML denetimleri için araç kutusu/varlıklar bölmesinde desteği ekleme
 
-XAML Tasarımcısı araç Visual Studio ve harmanlama varlıklar bölmesinde görünür bir XAML denetime sahip olmasını oluşturma bir `VisualStudioToolsManifest.xml` kökündeki dosyasında `tools` paket projenizin klasör. Araç kutusu veya varlıklar bölmesinde görünmesi denetimi gerekmiyorsa, bu dosyayı gerekli değildir.
+Visual Studio ve varlıklar bölmesinde Blend, XAML Tasarımcısı araç çubuğunda görünen bir XAML denetimi sağlamak için oluşturun bir `VisualStudioToolsManifest.xml` köküne dosya `tools` paket projenizin klasör. Araç kutusu veya varlıklar bölmesinde görüntülenmesinin denetimini gerekmiyorsa, bu dosya gerekli değildir.
 
     \build
     \lib
@@ -60,14 +59,14 @@ Dosya yapısı aşağıdaki gibidir:
 
 burada:
 
-- *your_package_file*: denetiminizin dosya adı, gibi `ManagedPackage.winmd` ("ManagedPackage" olan bir rastgele adlı bu örnek için kullanılan ve diğer bir anlamı yoktur).
-- *vs_category*: denetim Visual Studio tasarımcının araç kutusunda görünmelidir grubun etiketi. A `VSCategory` araç kutusunda görünmesi denetimi için gereklidir.
-- *blend_category*: denetim karışım tasarımcının varlıklar bölmesinde görünmelidir grubun etiketi. A `BlendCategory` varlıkları görünmesi denetimi için gereklidir.
-- *type_full_name_n*: ad alanı gibi dahil her denetim için tam ad `ManagedPackage.MyCustomControl`. Nokta biçimi hem yönetilen hem de yerel türleri için kullanılır.
+- *your_package_file*: gibi bir denetimin adını dosya `ManagedPackage.winmd` ("ManagedPackage" olan bir rastgele adlı bu örnek için kullanılan ve diğer bir anlamı yoktur).
+- *vs_category*: denetimin Visual Studio Tasarımcısı araç kutusunda görünmelidir grubun etiketi. A `VSCategory` denetimi araç kutusunda görünmesi için gereklidir.
+- *blend_category*: denetimin Blend tasarımcının varlıklar bölmesinde görünmelidir grubun etiketi. A `BlendCategory` varlıkları görüntülenmesini denetim için gereklidir.
+- *type_full_name_n*: tam adı ad alanı, aşağıdaki gibi her denetim için `ManagedPackage.MyCustomControl`. Nokta biçimi hem yönetilen hem de yerel türleri için kullanıldığını unutmayın.
 
-Daha gelişmiş senaryolarda, birden çok da içerebilir `<File>` içinde öğelerin `<FileList>` zaman tek bir paket birden çok denetim derlemelerini içerir. Ayrıca birden çok olabilir `<ToolboxItems>` tek bir düğüm `<File>` denetimlerinizi ayrı kategoriler halinde düzenlemek istiyorsanız.
+Daha gelişmiş senaryolarda, birden çok de içerebilir `<File>` öğeleri içinde `<FileList>` tek bir paket birden çok denetim derleme içerdiğinde. Birden çok bulundurabilirsiniz `<ToolboxItems>` tek bir düğüm `<File>` denetimlerinizi ayrı kategoriler halinde düzenlemek istiyorsanız.
 
-Aşağıdaki örnekte, Denetim uygulanan `ManagedPackage.winmd` Visual Studio'da görünür ve "Yönetilen paketi" adlı bir grup Blend ve "MyCustomControl", o grupta görüntülenir. Tüm bu rasgele adlardır.
+Aşağıdaki örnekte, denetime uygulanan `ManagedPackage.winmd` Visual Studio'da görünür ve "Yönetilen paket" adlı bir grupta Blend ve "MyCustomControl", o grupta görünür. Bu adların hepsinin rastgele.
 
 ```xml
 <FileList>
@@ -81,41 +80,41 @@ Aşağıdaki örnekte, Denetim uygulanan `ManagedPackage.winmd` Visual Studio'da
 
 ![Visual Studio'da bir örnek denetimi olarak görünür](media/UWP-control-vs-toolbox.png)
 
-![Bir örnek denetimi olarak grubunda görünür](media/UWP-control-blend-assets.png)
+![Blend'de bir örnek denetimi olarak görünür](media/UWP-control-blend-assets.png)
 
 > [!Note]
-> Araç kutusu/varlıklar Bölmesi'nde görmek istediğiniz her denetim açıkça belirtmeniz gerekir. Belirttiğiniz bunları biçiminde olun `Namespace.ControlName`.
+> Araç kutusu/varlıklar bölmesinde görmek istediğiniz her denetim açıkça belirtmeniz gerekir. Belirttiğiniz bunları biçiminde olun `Namespace.ControlName`.
 
-## <a name="add-custom-icons-to-your-controls"></a>Özel simge, denetimleri ekleme
+## <a name="add-custom-icons-to-your-controls"></a>Özel simgeleri denetimlerinizi ekleyin
 
-Araç kutusu/varlıklar Bölmesi'nde özel bir simge görüntülemek için görüntüyü projenizi veya karşılık gelen ekleme `design.dll` proje adında "Namespace.ControlName.extension" ve "Katıştırılmış kaynağa" yapı eylemi ayarlayın. Desteklenen biçimler: `.png`, `.jpg`, `.jpeg`, `.gif`, ve `.bmp`. Önerilen görüntü boyutu 64 x 64 piksel ' dir.
+Araç kutusu/varlıklar Bölmesi'nde özel bir simge görüntülemek için bir görüntü projenizi veya ilgili ekleme `design.dll` proje adıyla "Namespace.ControlName.extension" ve "Gömülü kaynak" derleme eylemi ayarlayın. Desteklenen biçimler `.png`, `.jpg`, `.jpeg`, `.gif`, ve `.bmp`. Önerilen görüntü boyutu 64 x 64 piksel ' dir.
 
-Aşağıdaki örnekte, proje "ManagedPackage.MyCustomControl.png" adlı bir görüntü dosyası içeriyor.
+Aşağıdaki örnekte, "ManagedPackage.MyCustomControl.png" adlı bir görüntü dosyasının proje içerir.
 
-![Bir proje ile özel bir simge ayarlama](media/UWP-control-custom-icon.png)
+![Bir projeye özel bir simge ayarlama](media/UWP-control-custom-icon.png)
 
 > [!Note]
-> Yerel denetimler için bir kaynak olarak simge konulmalıdır `design.dll` projesi.
+> Yerel denetimler için bir kaynak olarak simgesi yerleştirmelidir `design.dll` proje.
 
 ## <a name="support-specific-windows-platform-versions"></a>Belirli Windows platform sürümleri desteği
 
-UWP paketleri, uygulamanın yüklendiği bir işletim sistemi sürümü üst ve alt sınırları tanımlamak TargetPlatformVersion (TPV) ve TargetPlatformMinVersion (TPMinV) sahiptir. Daha fazla TPV karşı uygulama derlendiği SDK sürümünü belirtir. Bir UWP paketi yazarken bu özellikleri oluşturduğunu unutmayın: uygulamada tanımlı platform sürümlerinin sınırları dışındaki API'lerini kullanarak neden olacak yapılandırmanın başarısız olmasına veya uygulamanın çalışma zamanında başarısız.
+UWP paketleri, uygulamanın yüklendiği bir işletim sistemi sürümünün alt ve üst sınırlarını tanımlayın TargetPlatformVersion (TPV) ve targetplatformminversion'ından (TPMinV) sahip. Daha fazla TPV karşı yerleşik uygulama SDK'sı sürümünü belirtir. Bir UWP paket yazarken bu özellikleri dikkatli olmanızı: uygulamada tanımlanan platform sürümleri sınırları dışında API'lerini kullanarak neden olacak başarısız için yapı ya da uygulama çalışma zamanında başarısız.
 
-Örneğin, Windows 10 Anniversary Edition (10.0; denetimleri paketinize TPMinV ayarladınız düşünelim Yapı 14393), böylece paket yalnızca UWP tarafından tüketilen emin olmak istiyorsanız, bağlı alt eşleşen projeleri. UWP projeleri tarafından tüketilmesi paketinizi izin vermek için aşağıdaki klasör adları, denetimleriyle paketi gerekir:
+Örneğin, Windows 10 Anniversary Edition (10.0; denetimleri paketinize için TPMinV ayarladığınızdan varsayalım Derleme 14393), paket yalnızca UWP tarafından tüketilmesi sağlamak istediğiniz şekilde karşılayan bağlı alt projeleri. UWP projeleri tarafından kullanılacak paketinizi izin vermek için aşağıdaki klasör adları, denetimleriyle paketi gerekir:
 
     \lib\uap10.0.14393\*
     \ref\uap10.0.14393\*
 
-NuGet otomatik olarak alabilir proje TPMinV denetleyin ve Windows 10 Anniversary Edition (10.0; düşükse yükleme başarısız Yapı 14393)
+NuGet otomatik olarak kullanan projenin TPMinV denetleyin ve Windows 10 Anniversary Edition (10.0; düşükse, yükleme başarısız Derleme 14393)
 
-WPF durumunda, .NET Framework v4.6.1 hedefleyen projeler tarafından tüketilen veya daha yüksek olması, WPF denetimleri paket istediğiniz varsayalım. Zorlamak için aşağıdaki klasör adları denetimleriyle paketi gerekir:
+WPF olması durumunda, WPF denetimleri paketinizi v4.6.1 .NET Framework'ü hedefleyen projeleri tarafından tüketilen veya daha yüksek olmasını istediğiniz varsayalım. Zorlamak için aşağıdaki klasör adları, denetimleriyle paketi gerekir:
 
     \lib\net461\*
     \ref\net461\*
 
-## <a name="add-design-time-support"></a>Tasarım zamanı desteği ekleme
+## <a name="add-design-time-support"></a>Tasarım zamanı desteği eklendi
 
-Burada Özellik denetçisi'nde denetim özelliklerini göster yapılandırmak için özel donatıcıların, vb. yerleştirin ekleyin, `design.dll` içinde dosya `lib\uap10.0.14393\Design` klasörü hedef platformu için uygun olarak. Ayrıca, emin olmak için **[Şablonu Düzenle > bir kopyasını düzenlemek](/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)** özelliği works içermelidir `Generic.xaml` ve içinde birleştirir tüm kaynak sözlükleri `<your_assembly_name>\Themes` klasörü (yeniden kullanma Gerçek derleme adınız). (Bu dosyayı bir denetimin çalışma zamanı davranışını etkisi yoktur.) Bu nedenle, klasör yapısı şu şekilde görünür:
+Burada özelliği denetçi'deki denetim özelliklerini göster yapılandırmak için özel donatıcıları, vs. yerleştirin ekleyin, `design.dll` içinde dosya `lib\uap10.0.14393\Design` klasörü olarak hedef platform için uygun. Ayrıca, emin olmak için **[Şablonu Düzenle > Kopya Düzenle](/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)** özellik works içermelidir `Generic.xaml` ve içinde birleştirir herhangi bir kaynak sözlükleri `<your_assembly_name>\Themes` klasörü (yeniden kullanma Gerçek derleme adı). (Bu dosya, bir denetimin çalışma zamanı davranışı üzerinde herhangi bir etkisi yoktur.) Bu nedenle, klasör yapısı aşağıdaki gibi görünür:
 
     \lib
       \uap10.0.14393
@@ -126,7 +125,7 @@ Burada Özellik denetçisi'nde denetim özelliklerini göster yapılandırmak i�
             Generic.xaml
 
 
-WPF için WPF oluşturulacağı yeri örnekle devam edersek, .NET Framework v4.6.1 hedefleyen projeler tarafından tüketilen veya daha yüksek olması paketi denetler:
+Paket, .NET Framework v4.6.1 hedefleyen projeleri tarafından tüketilen veya daha yüksek olmasını denetimleri, WPF istediğiniz örneğiyle devam WPF için:
 
     \lib
       \net461
@@ -137,13 +136,13 @@ WPF için WPF oluşturulacağı yeri örnekle devam edersek, .NET Framework v4.6
             Generic.xaml
 
 > [!Note]
-> Varsayılan olarak, denetim özelliklerini Özellik denetçisi çeşitli kategorisinde altında gösterilir.
+> Varsayılan olarak, denetim özelliklerini Özellik denetçisi çeşitli kategorisi altında görünür.
 
-## <a name="use-strings-and-resources"></a>Kullanım dizeler ve kaynakları
+## <a name="use-strings-and-resources"></a>Kullanım dizeleri ve kaynakları
 
-Dize kaynakları katıştırma (`.resw`) denetiminizi veya kaybı UWP projesi tarafından kullanılan, pakette ayarlanan **yapı eylemi** özelliği `.resw` dosya **PRIResource**.
+Dize kaynakları ekleyebilir (`.resw`) denetiminiz veya alıcı UWP projesi tarafından kullanılan, pakette ayarlanan **derleme eylemi** özelliği `.resw` dosyasını **PRIResource**.
 
-Bir örnek için bkz [MyCustomControl.cs](https://github.com/NuGet/Samples/blob/master/ExtensionSDKasNuGetPackage/ManagedPackage/MyCustomControl.cs) ExtensionSDKasNuGetPackage örnekteki.
+Örneğin, başvurmak [MyCustomControl.cs](https://github.com/NuGet/Samples/blob/master/ExtensionSDKasNuGetPackage/ManagedPackage/MyCustomControl.cs) ExtensionSDKasNuGetPackage örnekteki.
 
 > [!Note]
 > Bu, yalnızca UWP denetimleri için geçerlidir.

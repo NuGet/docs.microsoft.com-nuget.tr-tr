@@ -1,27 +1,26 @@
 ---
 title: Yerel NuGet paketleri oluşturma
-description: Yönetilen kod yerine C++ kodunu içerir yerel NuGet paketleri oluşturma ile ilgili ayrıntılar C++ projelerinde kullanın.
+description: Yönetilen kod yerine C++ kodu içeren yerel NuGet paketleri oluşturma hakkında bilgi edinmek, C++ projelerinde kullanın.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: 086084bdfae5eace0b0a6aab17140a1fa48ae977
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: f054a1cae7328d3e910d11ac1bfc5f98505e5879
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817066"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43546539"
 ---
-# <a name="creating-native-packages"></a>Yerel paketleri oluşturma
+# <a name="creating-native-packages"></a>Yerel paketler oluşturma
 
-Yerel bir paket içinde C++ projeleri kullanılması izin veren, yönetilen kod yerine yerel C++ kod içerir. (Bkz [yerel C++ paketleri](../consume-packages/finding-and-choosing-packages.md#native-c-packages) Tüket bölümdeki.)
+Yerel Paket C++ projesi içinde kullanılacak veren yönetilen kod yerine yerel C++ kodunu içerir. (Bkz [yerel C++ paketleri](../consume-packages/finding-and-choosing-packages.md#native-c-packages) kullanma bölümünde.)
 
-Bir C++ projesinde tüketilebilir olması için bir paket hedeflemelidir `native` framework. Olmadığından şu anda bu framework NuGet olarak ile ilişkili tüm sürüm numaralarını tüm C++ projeleri aynı değerlendirir.
+Bir C++ projesinde kullanılabilir olması için bir paket hedeflemelidir `native` framework. Olmadığından şu anda bu çerçeve olarak NuGet ile ilişkili herhangi bir sürüm numaraları tüm C++ projeleri aynı değerlendirir.
 
 > [!Note]
-> Eklediğinizden emin olun *yerel* içinde `<tags>` bölümü, `.nuspec` o etiketinde arayarak paketinizi bulun diğer geliştiricilere yardımcı olmak için.
+> Eklediğinizden emin olun *yerel* içinde `<tags>` bölümünü, `.nuspec` paketiniz, etiketinde arayarak bulun diğer geliştiricilerin yardımcı olmak için.
 
-Hedefleme yerel NuGet paketlerini `native` dosyalarında sağlamak `\build`, `\content`, ve `\tools` klasörleri; `\lib` (NuGet C++ projesi başvurular doğrudan de ekleyemiyor) Bu durumda kullanılmaz. Bir paketi ayrıca hedefleri ve özellik dosyaları içerebilir `\build` NuGet paketi tüketen projelere otomatik olarak içeri aktaracak. Bu dosyalar paket kimliği ile aynı adlandırılmalıdır `.targets` ve/veya `.props` uzantıları. Örneğin, [cpprestsdk](https://nuget.org/packages/cpprestsdk/) paketi içeren bir `cpprestsdk.targets` dosyasını kendi `\build` klasör.
+Hedefleyen yerel NuGet paketlerini `native` ardından dosyalarında sağlayın `\build`, `\content`, ve `\tools` klasörleri; `\lib` (NuGet C++ projesi başvuruları doğrudan de ekleyemiyor) Bu durumda kullanılmaz. Bir paket içinde hedeflerini ve özellik dosyalarını da içerebilir `\build` NuGet paketi kullanma projelere otomatik olarak içeri aktaracak. Bu dosyalar paket kimliği ile aynı adlandırılmalıdır `.targets` ve/veya `.props` uzantıları. Örneğin, [cpprestsdk](https://nuget.org/packages/cpprestsdk/) paketi içeren bir `cpprestsdk.targets` dosyası kendi `\build` klasör.
 
-`\build` Klasörü tüm NuGet paketleri ve yalnızca yerel paketleri için kullanılabilir. `\build` Klasörü hedef çerçeveyi tıpkı dikkate alır `\content`, `\lib`, ve `\tools` klasörler. Oluşturabileceğiniz yani bir `\build\net40` klasör ve `\build\net45` klasörü ve NuGet içeri aktarır uygun özellik ve hedefleri dosyaları projeye. (MSBuild hedefleri almak için PowerShell komut dosyası kullanımı gerekli değildir.)
+`\build` Klasörü tüm NuGet paketlerini ve yalnızca yerel paketleri için kullanılabilir. `\build` Klasörü hedef çerçeveleri gibi uyar `\content`, `\lib`, ve `\tools` klasörleri. Bu oluşturabileceğiniz anlamına gelir. bir `\build\net40` klasör ve bir `\build\net45` klasörü ve NuGet içeri aktarır uygun özellikler ve hedefler dosyaları projeye. (MSBuild hedefleri içeri aktarmak için PowerShell komut dosyası kullanımı gerekli değildir.)
