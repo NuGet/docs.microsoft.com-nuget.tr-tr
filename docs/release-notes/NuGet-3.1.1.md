@@ -1,21 +1,20 @@
 ---
-title: NuGet 3.1.1 sürüm notları
-description: Bilinen sorunlar, hata düzeltmeleri, eklenen özellikleri ve dcr NuGet 3.1.1 dahil etmek için sürüm notları.
+title: 3.1.1 NuGet sürüm notları
+description: NuGet 3.1.1 dahil etmek için sürüm notları, sorunları, hata düzeltmeleri, eklenen özellikler ve dcr bilinir.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 2ad5ed0da91f52ec4a5072a4001bd2e3e3679a5d
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: c0e822b6045ba0467fc9c88b661b8f88cfb8aa16
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/26/2018
-ms.locfileid: "31819222"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43550310"
 ---
-# <a name="nuget-311-release-notes"></a><span data-ttu-id="f76a0-103">NuGet 3.1.1 sürüm notları</span><span class="sxs-lookup"><span data-stu-id="f76a0-103">NuGet 3.1.1 Release Notes</span></span>
+# <a name="nuget-311-release-notes"></a><span data-ttu-id="b8c57-103">3.1.1 NuGet sürüm notları</span><span class="sxs-lookup"><span data-stu-id="b8c57-103">NuGet 3.1.1 Release Notes</span></span>
 
-<span data-ttu-id="f76a0-104">[NuGet 3.1 sürüm notları](../release-notes/nuget-3.1.md) | [NuGet 3.2 RC sürüm notları](../release-notes/nuget-3.2-RC.md)</span><span class="sxs-lookup"><span data-stu-id="f76a0-104">[NuGet 3.1 Release Notes](../release-notes/nuget-3.1.md) | [NuGet 3.2-RC Release Notes](../release-notes/nuget-3.2-RC.md)</span></span>
+<span data-ttu-id="b8c57-104">[NuGet 3.1 sürüm notları](../release-notes/nuget-3.1.md) | [NuGet 3.2 RC sürüm notları](../release-notes/nuget-3.2-RC.md)</span><span class="sxs-lookup"><span data-stu-id="b8c57-104">[NuGet 3.1 Release Notes](../release-notes/nuget-3.1.md) | [NuGet 3.2-RC Release Notes](../release-notes/nuget-3.2-RC.md)</span></span>
 
-<span data-ttu-id="f76a0-105">NuGet 3.1.1 yayımlanan düzeltme Powershell ilke uygulaması parametreden bir hata belirli 3.1 VSIX için 27 Temmuz 2015 bir düzeltme eki olarak güncelleştirin.</span><span class="sxs-lookup"><span data-stu-id="f76a0-105">NuGet 3.1.1 was released July 27, 2015 as a patch update to the 3.1 VSIX with fix specific to a bug that effected Powershell policy implementation.</span></span>
+<span data-ttu-id="b8c57-105">NuGet 3.1.1 bırakıldığını 3.1 VSIX Powershell ilke uygulaması parametreden bir hata için belirli bir düzeltme 27 Temmuz 2015 bir düzeltme eki olarak güncelleştirin.</span><span class="sxs-lookup"><span data-stu-id="b8c57-105">NuGet 3.1.1 was released July 27, 2015 as a patch update to the 3.1 VSIX with fix specific to a bug that effected Powershell policy implementation.</span></span>
 [https://github.com/NuGet/Home/issues/974](https://github.com/NuGet/Home/issues/974)
