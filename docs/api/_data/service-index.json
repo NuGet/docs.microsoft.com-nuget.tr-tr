@@ -1,0 +1,29 @@
+{
+  "version": "3.0.0",
+  "resources": [
+    {
+      "@id": "https://api.nuget.org/v3-flatcontainer/",
+      "@type": "PackageBaseAddress/3.0.0",
+      "comment": "Temel URL, Azure depolama için NET Core NuGet paketi kayıt bilgi depolandığı biçimi https://api.nuget.org/v3-flatcontainer/ {alt kimliği} / {alt kimliği}. {küçük sürüm} .nupkg"
+    },
+    {
+      "@id": "https://www.nuget.org/api/v2/Package",
+      "@type": "PackagePublish/2.0.0"
+    },
+    {
+      "@id": "https://api-v2v3search-0.nuget.org/Query",
+      "@type": "SearchQueryService/3.0.0-rc",
+      "comment": "(Birincil) NuGet Arama Hizmeti uç noktası RC istemciler tarafından kullanılan sorgu"
+    },
+    {
+      "@id": "https://api-v2v3search-0.nuget.org/AutoComplete",
+      "@type": "SearchAutocompleteService/3.0.0-rc",
+      "comment": "Otomatik Tamamlama uç nokta RC istemciler tarafından kullanılan NuGet arama hizmetinin (birincil)"
+    },
+    {
+      "@id": "https://api.nuget.org/v3/registration2/",
+      "@type": "RegistrationsBaseUrl/3.0.0-rc",
+      "comment": "RC istemciler tarafından kullanılan NuGet paket kayıt bilgileri depolandığı temel URL, Azure depolama. Bu temel URL SemVer 2.0.0 paketlerini içermez."
+    }
+  ]
+}
