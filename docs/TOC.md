@@ -31,7 +31,6 @@
 ## Kılavuzlar
 ### [UWP paketleri oluşturma](guides/create-uwp-packages.md)
 ### [NuGet paketleri olarak UI denetimleri oluşturma](guides/create-UI-controls.md)
-### [Visual Studio 2015 ile NET Standard/NET Framework paketleri oluşturma](guides/create-net-standard-packages-vs2015.md)
 ### [Visual Studio 2015 ile Xamarin’e yönelik paketler oluşturma](guides/create-packages-for-xamarin.md)
 # Paketleri barındırma
 ## [Genel bakış](hosting-packages/overview.md)
