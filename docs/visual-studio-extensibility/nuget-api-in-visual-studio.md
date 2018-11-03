@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/09/2017
 ms.topic: reference
-ms.openlocfilehash: c2a6675472070b49c9c5b723b9d24a1fa59c2971
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: f1a11eb63c07a5d737a9474870f5653f6f7d850a
+ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546216"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50980982"
 ---
 # <a name="nuget-api-in-visual-studio"></a>Visual Studio'da NuGet API'si
 
@@ -24,8 +24,8 @@ NuGet itibarıyla 3.3 +, NuGet içinde bulunduğu her biri aşağıdaki hizmetle
 - [`IVsPackageInstallerProjectEvents`](#ivspackageinstallerprojectevents-interface): Batch olayları için paket yükleme/kaldırma.
 - [`IVsPackageInstallerServices`](#ivspackageinstallerservices-interface): Geçerli çözümdeki yüklü paketleri alınması ve belirli bir paket bir projede yüklü olup olmadığını denetlemek için yöntemleri.
 - [`IVsPackageManagerProvider`](#ivspackagemanagerprovider-interface): Bir NuGet paketi için alternatif bir paket Yöneticisi önerileri sağlamak için yöntemleri.
-- [`IVsPackageMetadata`](#ivspackagemetadata-interface); Yüklü paketi hakkında bilgi almak için yöntemleri.
-- [`IVsPackageProjectMetadata`](#ivspackageprojectmetadata-interface); NuGet Eylemler burada yürütülen bir projeyle ilgili bilgileri almak için yöntemleri.
+- [`IVsPackageMetadata`](#ivspackagemetadata-interface): Yüklü paketi hakkında bilgi almak için yöntemler.
+- [`IVsPackageProjectMetadata`](#ivspackageprojectmetadata-interface): NuGet Eylemler burada yürütülen bir projeyle ilgili bilgileri almak için yöntemler.
 - [`IVsPackageRestorer`](#ivspackagerestorer-interface): Bir projede yüklü paketleri geri yüklemek için yöntemleri.
 - [`IVsPackageSourceProvider`](#ivspackagesourceprovider-interface): NuGet listesini almak için yöntemler kaynakları paketi.
 - [`IVsPackageUninstaller`](#ivspackageuninstaller-interface): NuGet paketleri projelerden kaldırmak için yöntemleri.

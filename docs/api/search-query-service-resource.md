@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: f04c6a62fc3b5056ad82930447b8ba46a8797fd2
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: cfcb52ba7689f1b392c782b4ad42ba820a76c8bf
+ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548097"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981138"
 ---
 # <a name="search"></a>Ara
 
@@ -99,7 +99,7 @@ Başlık          | dize                     | Yok       |
 totalDownloads | tamsayı                    | Yok       | Bu değer yüklemeler toplamına göre çıkarılan `versions` dizi
 doğrulandı       | Boole değeri                    | Yok       | Paket olup olmadığını belirten bir JSON boolean [doğrulandı](../reference/id-prefix-reservation.md)
 
-Nuget.org bir doğrulanmış ayrılmış bir kimliği öneki eşleşen bir paket Kimliğine sahip ve ayrılmış ad alanının sahiplerinden biri tarafından sahip olunan bir pakettir. Daha fazla bilgi için [kimlik ön eki ayırma hakkında belgeler](../reference/id-prefix-reservation.md).
+Nuget.org bir doğrulanmış ayrılmış bir kimliği öneki eşleşen bir paket Kimliğine sahip ve ayrılmış önek 's sahiplerinden biri tarafından sahip olunan bir pakettir. Daha fazla bilgi için [kimlik ön eki ayırma hakkında belgeler](../reference/id-prefix-reservation.md).
 
 Arama sonuç nesnesinde bulunan meta veriler en son Paket sürümü alınır. Her öğe `versions` aşağıdaki özelliklere sahip bir JSON nesnesi dizisidir:
 

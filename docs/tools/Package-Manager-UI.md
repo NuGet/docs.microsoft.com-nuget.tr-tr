@@ -10,12 +10,12 @@ f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager.general
 - vs.toolsoptionspages.nuget_package_manager.package_sources
 - vs.nuget.packagemanager.ui
-ms.openlocfilehash: 651bbe63ec95fcedb8e9504022d08d6ba7f9219e
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 1de6ddeca6295c621a90409807af198bc3c7a068
+ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551763"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981190"
 ---
 # <a name="nuget-package-manager-ui"></a>NuGet Paket Yöneticisi UI
 
@@ -70,7 +70,11 @@ Bu konuda:
 
     ![Bir paketi güncelleştiriliyor](media/UpdatePackages.png)
 
-1. <a name="implicit_reference"></a>Bazı paketler için **güncelleştirme** düğmesi devre dışıdır ve bunu "örtük olarak bir SDK'sı tarafından başvuruda bulunulan" bildiren bir ileti görüntülenir (veya "AutoReferenced"). İleti Microsoft.NETCore.App veya Microsoft.NETStandard.Library, gibi paket daha büyük bir çerçeve veya SDK'sı parçasıdır ve bağımsız olarak güncelleştirilmemelidir gösterir. (Bu paketleri dahili olarak ile işaretlenen `<IsImplicitlyDefined>True</IsImplicitlyDefined>`.) Güncelleştirme Paketi için paket adını içeren SDK'dan çıkarımını yapma ait olduğu, SDK güncelleştirin. Örneğin, bir paket Microsoft.NETCore.App gibi .NET Core SDK'sını bir parçasıdır, bu nedenle .NET Core SDK'yı yüklemenizi güncelleştirmeniz gerekir.
+1. <a name="implicit_reference"></a>Bazı paketler için **güncelleştirme** düğmesi devre dışıdır ve bunu "örtük olarak bir SDK'sı tarafından başvuruda bulunulan" bildiren bir ileti görüntülenir (veya "AutoReferenced"). Bu ileti, paket büyük bir çerçeve veya SDK'sı parçasıdır ve bağımsız olarak güncelleştirilmemelidir gösterir. (Bu paketleri dahili olarak ile işaretlenen `<IsImplicitlyDefined>True</IsImplicitlyDefined>`.) Örneğin, `Microsoft.NETCore.App` .NET Core SDK'sının bir parçasıdır ve Paket sürümü uygulama tarafından kullanılan çalışma zamanı framework sürümü ile aynı değildir. Şunları yapmanız [.NET Core yüklemenizi güncelleştirin](https://aka.ms/dotnet-download) ASP.NET Core ve .NET Core çalışma zamanı yeni sürümlerini almak için. [.NET Core meta paketler ve sürüm oluşturma hakkında daha fazla ayrıntı için bu belgeye bakın](/dotnet/core/packages). Bu, aşağıdaki yaygın olarak kullanılan paketler için geçerlidir:
+    * Microsoft.AspNetCore.All
+    * Microsoft.AspNetCore.App
+    * Microsoft.NETCore.App
+    * NETStandard.Library
 
     ![Örnek paket başvuruları veya AutoReferenced dolaylı olarak işaretlendi](media/PackageManagerUIAutoReferenced.png)
 

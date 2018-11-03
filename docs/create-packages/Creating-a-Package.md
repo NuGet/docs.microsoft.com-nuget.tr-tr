@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/12/2017
 ms.topic: conceptual
-ms.openlocfilehash: 37c2208f0942b12428dba9d664f25e7e4f3c0b72
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 1bc67927ddc463dcc3a0abe80fe20e625e188e63
+ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547380"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981177"
 ---
 # <a name="creating-nuget-packages"></a>NuGet paketleri oluşturma
 
@@ -170,8 +170,9 @@ Klasör kuralları aşağıdaki gibidir:
 | Klasör | Açıklama | Paket yükleme sonrasında eylem |
 | --- | --- | --- |
 | (kök) | Readme.txt konumu | Paket yüklenirken visual Studio Paket kök dizininde readme.txt dosyasını görüntüler. |
-| lib/{tfm} | Derleme (`.dll`), belgeleri (`.xml`) ve simgesi (`.pdb`) dosyaları belirtilen hedef çerçeve adı (TFM) için | Derlemelere başvurular eklenir; `.xml` ve `.pdb` proje klasörlerine kopyalanır. Bkz: [birden çok hedef çerçeveyi destekleme](supporting-multiple-target-frameworks.md) framework hedef özgü alt klasörler oluşturmak için. |
-| Çalışma zamanları | Mimariye özel derleme (`.dll`), sembol (`.pdb`) ve yerel kaynak (`.pri`) dosyaları | Derlemelere başvurular eklenir; diğer dosyalar, proje klasörlerine kopyalanır. Bkz: [birden çok hedef çerçeveyi destekleme](supporting-multiple-target-frameworks.md). |
+| lib/{tfm} | Derleme (`.dll`), belgeleri (`.xml`) ve simgesi (`.pdb`) dosyaları belirtilen hedef çerçeve adı (TFM) için | Derlemeler, derleme ve bunun yanı sıra çalışma zamanı için başvuru olarak eklenir; `.xml` ve `.pdb` proje klasörlerine kopyalanır. Bkz: [birden çok hedef çerçeveyi destekleme](supporting-multiple-target-frameworks.md) framework hedef özgü alt klasörler oluşturmak için. |
+| ref / {tfm} | Derleme (`.dll`) ve simgesi (`.pdb`) dosyaları belirtilen hedef çerçeve adı (TFM) için | Derlemeleri yalnızca derleme zamanı başvuruları eklenir; Bu nedenle hiçbir proje bin klasörüne kopyalanır. |
+| Çalışma zamanları | Mimariye özel derleme (`.dll`), sembol (`.pdb`) ve yerel kaynak (`.pri`) dosyaları | Derlemeleri, yalnızca çalışma zamanı için başvuru olarak eklenir; diğer dosyalar, proje klasörlerine kopyalanır. Ayrıca karşılık gelen (TFM) uymanız gereken `AnyCPU` altında belirli derleme `/ref/{tfm}` karşılık gelen derleme zamanı derlemesi sağlamak için klasör. Bkz: [birden çok hedef çerçeveyi destekleme](supporting-multiple-target-frameworks.md). |
 | içerik | Rastgele dosyalar | İçeriği, proje kök dizinine kopyalanır. Düşünün **içeriği** nihai olarak Paketle tüketen hedef uygulamanın kök klasör. Uygulamanın resim ekleme paket için */görüntüleri* klasörü, paketin içinde yerleştirin *içeriği/görüntülerinden* klasör. |
 | derleme | MSBuild `.targets` ve `.props` dosyaları | Proje dosyasına otomatik olarak eklenen veya `project.lock.json` (NuGet 3.x+). |
 | araçlar | PowerShell betikleri ve programları Paket Yöneticisi konsolunda erişilebilir | `tools` Klasör eklenir `PATH` yalnızca Paket Yöneticisi konsolu için ortam değişkenini (özellikle *değil* için `PATH` projeyi derlerken MSBuild için belirlenen). |

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 09/27/2017
 ms.topic: conceptual
-ms.openlocfilehash: 0b22d48b9151b903a5307beafa5ccef14e5fecf3
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: c59839240935e2a6c590dea3adf623313f79f02f
+ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551712"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981151"
 ---
 # <a name="supporting-multiple-net-framework-versions"></a>Birden çok .NET framework sürümleri destekleme
 
@@ -65,7 +65,13 @@ Mimariye özel derlemeler, diğer bir deyişle, ARM, x 86 ve x64, hedef ayrı de
             \native
             \lib\uap10.0
 
+Böylece karşılık gelen sağlamak istiyorsanız derleme zamanı derlemesi de sonra bu derlemeler yalnızca çalışma zamanında kullanılabilir `AnyCPU` derlemede `/ref{tfm}` klasör. 
+
+Lütfen unutmayın, NuGet her zaman seçer bu derleme veya çalışma zamanı varlıklar bir klasörden bunu uyumlu bazı varlıklarından varsa `/ref` ardından `/lib` derleme zamanı derlemeleri eklemek için yok sayılacak. Benzer şekilde, bazı uyumlu varlıklarından varsa `/runtime` aynı zamanda `/lib` için çalışma zamanı yok sayılacak.
+
 Bkz: [UWP paketleri oluşturma](../guides/create-uwp-packages.md) içinde bu dosyaları başvuran bir örnek için `.nuspec` bildirimi.
+
+Ayrıca bkz [bir Windows mağazası uygulama bileşeni NuGet ile paketleme](https://blogs.msdn.microsoft.com/mim/2013/09/02/packaging-a-windows-store-apps-component-with-nuget-part-2)
 
 ## <a name="matching-assembly-versions-and-the-target-framework-in-a-project"></a>Eşleşen derleme sürümlerini ve hedef Framework'ü bir projedeki
 

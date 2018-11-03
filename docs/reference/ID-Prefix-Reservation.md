@@ -6,12 +6,12 @@ ms.author: diverdan92
 ms.date: 10/09/2017
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: 0711f3ee00b4a387d676ca43c98a9467effed90a
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 32f83bede42f7643a9a4fed593643eefea0453c1
+ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546596"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981008"
 ---
 # <a name="package-id-prefix-reservation"></a>Paket kimliği ön eki ayırma
 
@@ -65,7 +65,7 @@ Bir paket ayrılmış bir önekten geldiğinde, gördüğünüz visual gösterge
 
 1. Kabul gözden [ön eki kimliği ayırma ölçütlerine](#id-prefix-reservation-criteria).
 
-2. Herhangi bir ek olarak ayırmak istediğiniz ad alanları belirlemek [Gelişmiş ön eki ayırma senaryoları](#advanced-prefix-reservation-scenarios) gerektirebilir.
+2. Herhangi bir ek olarak ayırmak istediğiniz ön ekleri belirlemek [Gelişmiş ön eki ayırma senaryoları](#advanced-prefix-reservation-scenarios) gerektirebilir.
 
 3. Bir e-posta Gönder [ account@nuget.org ](mailto:account@nuget.org) üzerinde görünen adı sahibiyle [nuget.org](https://www.nuget.org/), istediğiniz herhangi bir ayrılmış önekler yanı sıra. Ön ek alt kümeleri birden fazla sahibe temsilci, tüm sahibi görünen adları bahsedin ve alt kümelerini önek emin olun.
 

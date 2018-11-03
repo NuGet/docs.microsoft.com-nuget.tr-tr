@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 11acb90b45af73137faac1ec6bc403b109e6e808
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: dacc95c557af016f535bc1b758473d7062f2ad3f
+ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549606"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981021"
 ---
 # <a name="troubleshooting-package-restore-errors"></a>Paket geri yükleme hatalarını giderme
 
@@ -44,7 +44,7 @@ Use NuGet Package Restore to download them. The missing file is {name}.
 
 Bir veya daha fazla NuGet paket başvuruları içeren proje oluşturma girişimi, ancak bu paketleri şu anda bilgisayarınızda veya proje yüklenmez bu hata oluşur.
 
-- PackageReference yönetim biçimi kullanılırken, paketin içinde yüklü değil hatası anlamına gelir *genel paketleri* sitesinde açıklandığı üzerinde açıklandığı gibi klasör [genel paketleri ve önbellek klasörleriniyönetme](managing-the-global-packages-and-cache-folders.md).
+- PackageReference yönetim biçimi kullanılırken, paketin içinde yüklü değil hatası anlamına gelir *genel paketleri* üzerinde açıklandığı gibi klasör [genel paketleri ve önbellek klasörlerini yönetme](managing-the-global-packages-and-cache-folders.md).
 - Kullanırken `packages.config`, paket içinde yüklü değil hatası anlamına gelir `packages` çözüm kök klasör.
 
 Bu durum genellikle kaynak denetimi veya başka bir yükleme projenin kaynak kodunu edinmek oluşur. Paketleri genellikle atlanmış kaynak denetimi veya yüklemeleri paket akışları nuget.org gibi gelen döndürülebilir olduğundan (bkz [paketleri ve kaynak denetimi](Packages-and-Source-Control.md)). Bunları da dahil olmak üzere Aksi halde depoyu Şişirme veya gereksiz derecede büyük .zip dosyalarını oluşturun.
