@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 08/29/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: ddb22d819a1a4e41a2019705789a11de6cad1d79
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 5fe8b35125d9171a37afb337ed08d06445e5f890
+ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548448"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981164"
 ---
 # <a name="nuspec-reference"></a>.nuspec başvurusu
 
@@ -21,7 +21,7 @@ Bu konuda:
 
 - [Genel form ve şema](#general-form-and-schema)
 - [Belirteçleri değiştirme](#replacement-tokens) (Visual Studio projesi ile kullanıldığında)
-- [Bağımlılıkları](#dependencies)
+- [Bağımlılıklar](#dependencies)
 - [Açık derleme başvuruları](#explicit-assembly-references)
 - [Framework'te derleme başvuruları](#framework-assembly-references)
 - [Derleme dosyaları da dahil olmak üzere](#including-assembly-files)
@@ -86,7 +86,7 @@ Kullanıcı Arabirimi ekranı pakette için simge olarak kullanılacak bir URL s
 #### <a name="requirelicenseacceptance"></a>RequireLicenseAcceptance
 İstemci paketi yüklemeden önce paket lisansını kabul etmek için tüketici sor olup olmadığını belirten bir Boole değeri.
 #### <a name="developmentdependency"></a>DevelopmentDependency
-*(2.8+)* Paket olup olmadığını belirten bir Boole değeri, bir geliştirme-yalnızca-paket bağımlılık diğer paketleri olarak eklenmesini engelleyen bağımlılık olarak işaretlenir.
+*(2.8+)* Paket olup olmadığını belirten bir Boole değeri, bir geliştirme-yalnızca-paket bağımlılık diğer paketleri olarak eklenmesini engelleyen bağımlılık olarak işaretlenir. PackageReference (NuGet 4.8 +) bu bayrağı Ayrıca, derleme zamanı varlıklar derlemeden dışladığı anlamına gelir. Bkz: [PackageReference DevelopmentDependency desteği](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference)
 #### <a name="summary"></a>özet
 Kullanıcı Arabirimi ekranı için paket kısa bir açıklaması. Atlanırsa, kesilmiş bir sürümünü `description` kullanılır.
 #### <a name="releasenotes"></a>ReleaseNotes
@@ -118,7 +118,7 @@ Sıfır veya daha fazla koleksiyonu `<dependency>` paket için bağımlılıklar
 #### <a name="contentfiles"></a>contentFiles
 *(3.3 +)*  Koleksiyonunu `<files>` alıcı projeye eklenecek içerik dosyaları tanımlayan öğeleri. Bu dosyaları nasıl bunlar içinde proje sisteminin kullanılması gerektiğini açıklayan öznitelikler kümesi ile belirtilir. Bkz: [dosyalar paket içerisine dâhil etmek belirtme](#specifying-files-to-include-in-the-package) aşağıda.
 #### <a name="files"></a>dosyaları 
-`<package>` Düğüm içerebilir bir `<files>` düğümü bir eşdüzeyi olarak `<metadata>`ve bir ya da `<contentFiles>` altında alt `<metadata>`paket içerisine dâhil etmek hangi derleme ve içerik dosyaları belirtmek için. Bkz: [derleme dosyaları da dahil olmak üzere](#including-assembly-files) ve [içerik dosyaları dahil olmak üzere](#including-content-files) Ayrıntılar için bu konuda daha sonra.
+`<package>` Düğüm içerebilir bir `<files>` düğümü bir eşdüzeyi olarak `<metadata>`ve `<contentFiles>` altında alt `<metadata>`paket içerisine dâhil etmek hangi derleme ve içerik dosyaları belirtmek için. Bkz: [derleme dosyaları da dahil olmak üzere](#including-assembly-files) ve [içerik dosyaları dahil olmak üzere](#including-content-files) Ayrıntılar için bu konuda daha sonra.
 
 ## <a name="replacement-tokens"></a>Belirteçleri değiştirme
 
@@ -544,7 +544,7 @@ Bu dosyaları nasıl bunlar içinde proje sisteminin kullanılması gerektiğini
 
 | Öznitelik | Açıklama |
 | --- | --- |
-| **İçerir** | (Gerekli) Tarafından belirtilen dışlamaları tabi dahil edilecek dosyalar ve dosya konumunu `exclude` özniteliği. Yolun göreli olduğu `.nuspec` mutlak bir yol belirtilmezse dosya. Joker karakter `*` izin verilir ve çift joker `**` özyinelemeli klasör arama anlamına gelir. |
+| **include** | (Gerekli) Tarafından belirtilen dışlamaları tabi dahil edilecek dosyalar ve dosya konumunu `exclude` özniteliği. Yolun göreli olduğu `.nuspec` mutlak bir yol belirtilmezse dosya. Joker karakter `*` izin verilir ve çift joker `**` özyinelemeli klasör arama anlamına gelir. |
 | **Hariç tutma** | Dışlanacak dosya desenlerinin veya dosyaların noktalı virgülle ayrılmış listesi `src` konumu. Joker karakter `*` izin verilir ve çift joker `**` özyinelemeli klasör arama anlamına gelir. |
 | **buildAction** | Derleme eylemi gibi MSBuild için içerik öğesinin atanacağı `Content`, `None`, `Embedded Resource`, `Compile`vb. Varsayılan, `Compile` değeridir. |
 | **copyToOutput** | Çıkış klasörü yapı içerik öğeleri kopyalama (veya yayımlamak) belirten bir Boole değeri. Varsayılan olarak yanlıştır. |
