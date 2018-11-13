@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/22/2018
 ms.topic: conceptual
-ms.openlocfilehash: a5807a6895a76a7d6660d218b29e1d3a2802ca28
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 5f52b00e0c45882fb7a4bd1c1a80022192f3be6b
+ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545054"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51580252"
 ---
 # <a name="package-consumption-workflow"></a>Paket tüketim iş akışı
 
@@ -18,7 +18,7 @@ Nuget.org ve kuruluşunuzun oluşturabilirsiniz özel paket galeriler arasında 
 
 ![Bir paket kaynağına giderek, bir paket bulma, bir projede yükleme ve ardından kullanarak bir ekleme akışı deyimi ve ' % s'paketi API çağrıları](media/Overview-01-GeneralFlow.png)
 
-\* _Visual Studio ve dotnet.ex' yalnızca. Nuget yükleme komutu, proje dosyaları veya Packages.config dosyasının değiştirmez; Giriş el ile yönetilmesi gerekir._
+\* _Visual Studio ve `dotnet.exe` yalnızca. `nuget install` Komutu proje dosyaları değiştirmez veya `packages.config` dosya; girdilerini el ile yönetilmelidir._
 
 Daha fazla ayrıntı için bkz. [bulma ve seçme paketleri](../consume-packages/finding-and-choosing-packages.md) ve [NuGet paketini yüklemek için farklı yollar](ways-to-install-a-package.md).
 

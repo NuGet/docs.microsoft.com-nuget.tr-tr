@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/10/2018
 ms.topic: overview
-ms.openlocfilehash: 0b7105ea5d183d139c8bac915378924ba9c0874a
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: d688aecaa73cecbfee184e3b13801ed22326a852
+ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548825"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51580330"
 ---
 # <a name="an-introduction-to-nuget"></a>NuGet giriş
 
@@ -24,7 +24,7 @@ NuGet genel nuget.org konak yanı sıra özel konaklar desteklediğinden, bir ku
 
 ## <a name="the-flow-of-packages-between-creators-hosts-and-consumers"></a>Oluşturucular, konaklar ve tüketicileri arasında paketlerin akışı
 
-Ortak bir konak olarak kendi rolünde merkezi depo 100. 000'den benzersiz paket NuGet kendisi tutar [nuget.org](https://www.nuget.org). Bu paketler milyonlarca.NET/.NET Core geliştirici tarafından her gün çalışan. NuGet ayrıca sağlar, özel olarak bulutta paketlerini barındıracak (gibi Visual Studio Team Services üzerinde), özel bir ağda veya hatta yalnızca yerel dosya sisteminize. Bunu yaptığınızda, bu paketleri paketlerini belirli bir tüketici grubu için kullanılabilir hale olanağı sağlayan, konak erişimi geliştiricilerin kullanımına sunulur. Seçenekler üzerinde açıklanmıştır [kendi NuGet akışlarınızı barındırma](hosting-packages/overview.md). Yapılandırma seçenekleri ile tam olarak hangi konakların herhangi belirli bir bilgisayar tarafından böylece paketleri nuget.org gibi ortak bir depoya yerine, belirli kaynakları edinilir sağlama erişilebilir denetleyebilirsiniz.
+Ortak bir konak olarak kendi rolünde merkezi depo 100. 000'den benzersiz paket NuGet kendisi tutar [nuget.org](https://www.nuget.org). Bu paketler milyonlarca.NET/.NET Core geliştirici tarafından her gün çalışan. NuGet ayrıca sağlar, özel olarak bulutta paketlerini barındıracak (gibi Azure DevOps üzerine), özel bir ağda veya hatta yalnızca yerel dosya sisteminize. Bunu yaptığınızda, bu paketleri paketlerini belirli bir tüketici grubu için kullanılabilir hale olanağı sağlayan, konak erişimi geliştiricilerin kullanımına sunulur. Seçenekler üzerinde açıklanmıştır [kendi NuGet akışlarınızı barındırma](hosting-packages/overview.md). Yapılandırma seçenekleri ile tam olarak hangi konakların herhangi belirli bir bilgisayar tarafından böylece paketleri nuget.org gibi ortak bir depoya yerine, belirli kaynakları edinilir sağlama erişilebilir denetleyebilirsiniz.
 
 Her bir konak doğası hizmet paket arasında bir bağlantı noktası olarak *creators* ve paket *tüketiciler*. Creators yararlı NuGet paketleri oluşturun ve bunları bir konağa yayımlayın. Tüketiciler kullanışlı ve uyumlu paketleri indirme ve bu paketleri, projelere dahil etme erişilebilen konaklarda öğesini arayın. Bir projede yüklendikten sonra paketleri API'leri proje kodunu geri kalanı için kullanılabilir.
 
@@ -78,7 +78,7 @@ NuGet, bunun yerine bir proje, üst düzey ve alt düzey bağımlılıklar dahil
 
 Yalnızca başvuru listesi ile NuGet daha sonra yeniden&mdash;diğer bir deyişle, *geri*&mdash;tüm genel ve/veya özel konakları daha sonra dilediğiniz zaman bu paketleri. Bir proje kaynak denetimi veya başka bir şekilde paylaşımı geliştirme yaptığınızda, yalnızca başvuru listesi dahil ve hariç herhangi bir paketi ikili (bkz [paketleri ve kaynak denetimi](consume-packages/packages-and-source-control.md).)
 
-Bir yapı sunucusunda bir otomatik dağıtım sisteminin bir parçası olarak projenin bir kopyasını almak gibi bir proje alan bilgisayar yalnızca ihtiyaç duyulan her bağımlılıkları geri yüklemek için NuGet ister. Visual Studio Team Services "NuGet geri yükleme" adımları tam bu amaçla sağlayan sistemler oluşturabilir. Benzer şekilde, ne zaman geliştiriciler elde bir projenin bir kopyasını (gibi bir depoyu kopyalarken), bunlar gibi komutunu çağırabilirsiniz `nuget restore` (NuGet CLI) `dotnet restore` (dotnet CLI) veya `Install-Package` tüm gerekli paketlerini almak için (Paket Yöneticisi Konsolu). Visual Studio, kendi bölümü için bir proje derlenirken paketleri otomatik olarak yükler (Otomatik geri yükleme etkin, üzerinde açıklandığı olması koşuluyla [paket geri yükleme](consume-packages/package-restore.md)).
+Bir yapı sunucusunda bir otomatik dağıtım sisteminin bir parçası olarak projenin bir kopyasını almak gibi bir proje alan bilgisayar yalnızca ihtiyaç duyulan her bağımlılıkları geri yüklemek için NuGet ister. Azure DevOps tam bu amaç için "NuGet geri yükleme" adımları sağlayan sistemler oluşturabilir. Benzer şekilde, ne zaman geliştiriciler elde bir projenin bir kopyasını (gibi bir depoyu kopyalarken), bunlar gibi komutunu çağırabilirsiniz `nuget restore` (NuGet CLI) `dotnet restore` (dotnet CLI) veya `Install-Package` tüm gerekli paketlerini almak için (Paket Yöneticisi Konsolu). Visual Studio, kendi bölümü için bir proje derlenirken paketleri otomatik olarak yükler (Otomatik geri yükleme etkin, üzerinde açıklandığı olması koşuluyla [paket geri yükleme](consume-packages/package-restore.md)).
 
 NET bir şekilde, daha sonra NuGet'ın birincil role geliştiriciler endişe nerede projenizin adına bu başvuru listesini koruma ve sağlayarak bu başvurulan bir paket verimli bir şekilde geri yükleme (ve güncelleştirmek için) anlamına gelir. Bu liste, iki birinde tutulur *paket Yönetimi biçimleri*adlı gibi:
 

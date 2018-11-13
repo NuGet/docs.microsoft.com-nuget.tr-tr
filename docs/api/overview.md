@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 770173d6b84048cf42a5da46cbc474d8cf604a08
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 7bb5e83b29d1d7e4bf06accfccb73db3aa9ee025
+ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547509"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51580343"
 ---
 # <a name="nuget-api"></a>NuGet API'si
 
@@ -49,16 +49,17 @@ OData tabanlı bir protokol sürümü olan 2.x sürümüne resmi bir NuGet istem
 
 **Hizmet dizini** çeşitli kaynaklara açıklar. Desteklenen kaynak geçerli kümesini aşağıdaki gibidir:
 
-Kaynak adı                                                          | Gerekli | Açıklama
----------------------------------------------------------------------- | -------- | -----------
+Kaynak adı                                                           | Gerekli | Açıklama
+----------------------------------------------------------------------  | -------- | -----------
 [`PackagePublish`](package-publish-resource.md)                        | Evet      | Anında iletme ve silme (veya listeden) paketleri.
 [`SearchQueryService`](search-query-service-resource.md)               | Evet      | Filtre ve paketleri anahtar sözcüğe göre arayın.
 [`RegistrationsBaseUrl`](registration-base-url-resource.md)            | Evet      | Paket meta verilerini alın.
 [`PackageBaseAddress`](package-base-address-resource.md)               | Evet      | Paket içeriğini (.nupkg) alın.
 [`SearchAutocompleteService`](search-autocomplete-service-resource.md) | Yok       | Paket kimlikleri ve sürümleri tarafından alt dizeyi bulur.
 [`ReportAbuseUriTemplate`](report-abuse-resource.md)                   | Yok       | "Uygunsuz" web sayfasına erişmek için bir URL oluşturur.
-[`RepositorySignatures`](repository-signatures-resource.md)            | Yok       | Depo imzalamak için kullanılan sertifika alın.
-[`Catalog`](catalog-resource.md)                                       | Yok       | Tüm paket olayların tam kayıt.
+[`RepositorySignatures`](repository-signatures-resource.md)             | Yok      | Depo imzalamak için kullanılan sertifika alın.
+[`Catalog`](catalog-resource.md)                                         | Yok      | Tüm paket olayların tam kayıt.
+[`SymbolPackagePublish`](symbol-package-publish-resource.md)            | Yok      | Sembol paketleri gönderin.
 
 Genel olarak, bir API kaynak tarafından döndürülen tüm ikili olmayan veriler JSON kullanarak serileştirilir. Hizmet dizini her bir kaynak tarafından döndürülen yanıt şeması, bu kaynak için ayrı ayrı tanımlanır. Her kaynak hakkında daha fazla bilgi için yukarıda listelenen konulara bakın.
 
@@ -71,7 +72,7 @@ API tarafından döndürülen tüm zaman damgaları UTC ya da aksi takdirde kull
 
 ## <a name="http-methods"></a>HTTP yöntemleri
 
-Fiili   | Bir yönetim grubuna bağlanmak veya bağlı bir yönetim grubunun özelliklerini düzenlemek için Yönetim çalışma alanında
+Fiili   | Kullan
 ------ | -----------
 AL    | Genellikle veri alma salt okunur bir işlemi gerçekleştirir.
 HEAD   | Yanıt üstbilgileri için karşılık gelen getirir `GET` isteği.
@@ -109,6 +110,6 @@ X-NuGet-Client-Version   | **Kullanım dışı** tarafından değiştirildi `X-N
 X-NuGet-protokol-sürüm | Nuget.org üzerindeki yalnızca belirli durumlarda gerekli bkz [nuget.org protokolleri](NuGet-Protocols.md)
 X-NuGet-Session-Id       | *İsteğe bağlı*. NuGet istemcileri v4.7 + aynı NuGet istemci oturumunun parçası olan HTTP isteklerini belirleyin. İçin `PackageReference` geri yükleme işlemleri, tek bir oturum kimliği, otomatik tamamlama, gibi diğer senaryolar için olan ve `packages.config` geri yükleme kodunu nasıl katılır nedeniyle birkaç farklı bir oturum kimliği olabilir.
 
-## <a name="authentication"></a>Kimlik doğrulaması
+## <a name="authentication"></a>Kimlik Doğrulama
 
 Kimlik doğrulaması tanımlamak için paket kaynağı uygulaması kadar bırakılır. Nuget.org, yalnızca için `PackagePublish` kaynak, özel bir API anahtarı üstbilgi aracılığıyla kimlik doğrulaması gerektirir. Bkz: [ `PackagePublish` kaynak](package-publish-resource.md) Ayrıntılar için.

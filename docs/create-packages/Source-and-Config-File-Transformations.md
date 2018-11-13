@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 04/24/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: c2cd61b692b80cdc45fce399483cda3b57d12e5e
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 830714269ac422a4784c15b000e374195f02332f
+ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547691"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51580291"
 ---
 # <a name="transforming-source-code-and-configuration-files"></a>Kaynak kodu ve yapılandırma dosyaları dönüştürme
 
@@ -114,7 +114,7 @@ Yükleme ve paket kaldırma etkisini görmek için Visual Studio'da yeni bir ASP
 
 ### <a name="xdt-transforms"></a>XDT dönüşümler
 
-Yapılandırma dosyalarını kullanarak değiştirebileceğiniz [XDT söz dizimi](https://msdn.microsoft.com/library/dd465326.aspx). NuGet belirteçleri ile değiştirin bulundurabilirsiniz [proje özellikleri](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7) içinde özellik adı ekleyerek `$` sınırlayıcı (büyük-küçük harf duyarsız).
+Yapılandırma dosyalarını kullanarak değiştirebileceğiniz [XDT söz dizimi](https://msdn.microsoft.com/library/dd465326.aspx). NuGet belirteçleri ile değiştirin bulundurabilirsiniz [proje özellikleri](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7) içinde özellik adı ekleyerek `$` sınırlayıcılar (büyük-küçük harf duyarsız).
 
 Örneğin, aşağıdaki `app.config.install.xdt` dosyası ekler bir `appSettings` öğesine `app.config` içeren `FullPath`, `FileName`, ve `ActiveConfigurationSettings` projesinden değerleri:
 

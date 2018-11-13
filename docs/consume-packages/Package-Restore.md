@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: b95c4462a214a78452f9dbe35936620636c4f60b
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: da69181aebe3bebcea6acd6e15fde6b77dd33452
+ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548778"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51580304"
 ---
 # <a name="package-restore"></a>Paket geri yükleme
 
@@ -62,9 +62,9 @@ Paket geri yükleme yoluyla etkin öncelikle **Araçlar > Seçenekler > NuGet Pa
         </packageRestore>
     </configuration>
     ```
-    <br/>
-    > [!Note]
-    >  `packageRestore/enabled` Ayarı geçersiz kılınabilir genel olarak adlandırılan bir ortam değişkenini ayarlayarak **EnableNuGetPackageRestore** TRUE ya da Visual Studio başlatma veya bir yapı başlatmadan önce FALSE değerine sahip.
+
+> [!Note]
+>  `packageRestore/enabled` Ayarı geçersiz kılınabilir genel olarak adlandırılan bir ortam değişkenini ayarlayarak **EnableNuGetPackageRestore** TRUE ya da Visual Studio başlatma veya bir yapı başlatmadan önce FALSE değerine sahip.
 
 - **Visual Studio'da sırasında eksik paketleri oluşturmak için otomatik olarak denetle**: değiştirerek otomatik geri yükleme denetimleri `packageRestore/automatic` ayarı `NuGet.Config` aşağıda gösterildiği gibi dosya (`%AppData%\NuGet\NuGet.Config` , Windows üzerinde `~/.nuget/NuGet/NuGet.Config` Mac/Linux üzerinde). Bu seçenek ayarlandığında, bir derleme Visual Studio'dan otomatik olarak çalıştırarak tüm eksik paketleri geri yükler. MSBuild kullanarak komut satırından çalıştırmak yapılar seçeneğini etkilemez.
 
@@ -123,6 +123,6 @@ Kullanmaktan kaçınmak için *genel paketleri* klasörü, aşağıdakilerden bi
 - Önbellek kullanarak Temizle `nuget locals http-cache -clear` veya `dotnet nuget locals http-cache --clear`.
 - Geçici olarak farklı bir klasöre ilişkin NUGET_HTTP_CACHE_PATH ortam değişkeni ayarlayın.
 
-## <a name="troubleshooting"></a>Sorun giderme
+## <a name="troubleshooting"></a>Sorun Giderme
 
 Bkz: [paket geri yükleme sorunlarını giderme](package-restore-troubleshooting.md).

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/12/2017
 ms.topic: conceptual
-ms.openlocfilehash: 1bc67927ddc463dcc3a0abe80fe20e625e188e63
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.openlocfilehash: 1221631b22eed7d2d8e58bd08ff120d91231d49b
+ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981177"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51580408"
 ---
 # <a name="creating-nuget-packages"></a>NuGet paketleri oluşturma
 
@@ -51,7 +51,7 @@ Gerekli özellikler:
 
 - Paket tanımlayıcısı paketini barındıran galeri arasında benzersiz olması gerekir.
 - Belirli bir sürüm numarasını biçiminde *ana.İkincil.yama [-soneki]* burada *-soneki* tanımlayan [yayın öncesi sürümleri](prerelease-packages.md)
-- Her paket başlık (gibi nuget.org) konak üzerindeki görünür
+- Paket başlığı olarak ana bilgisayar (nuget.org gibi) görünmelidir
 - Yazar ve sahibi bilgileri.
 - Paketinin uzun açıklaması.
 
@@ -157,7 +157,7 @@ Böylece son pakette istediğiniz tam içeriği açıklar, ardından dosyayı el
 
 ### <a name="from-a-convention-based-working-directory"></a>Bir kural tabanlı çalışma dizinine
 
-Bir NuGet paketi yalnızca ile adlandırılmış bir ZIP dosyası olduğundan `.nupkg` uzantısı, genellikle kolay yöntemi, yerel dosya sisteminizde istediğiniz klasör yapısını oluşturmak oluşturup `.nuspec` dosyasını doğrudan, yapı. `nuget pack` Komut daha sonra otomatik olarak ekler tüm dosyaları bu klasör yapısındaki (ile başlayan tüm klasörler hariç `.`, aynı yapı içinde özel dosyaları tutmak izin verme).
+Bir NuGet paketi yalnızca ile adlandırılmış bir ZIP dosyası olduğundan `.nupkg` uzantısı, bu genellikle, yerel dosya sisteminizde istediğiniz sonra oluşturma klasör yapısını oluşturmak en kolay `.nuspec` dosyasını doğrudan, yapı. `nuget pack` Komut daha sonra otomatik olarak ekler tüm dosyaları bu klasör yapısındaki (ile başlayan tüm klasörler hariç `.`, böylece aynı yapıda özel dosyaları korumak).
 
 Bu yaklaşımın avantajı (Bu konunun ilerleyen kısımlarında açıklandığı gibi) paket içerisine dâhil etmek istediğiniz dosyaları bildiriminde belirtmeniz gerekmez ' dir. Yalnızca yapı işleminizi pakete giden tam bir klasör yapısını oluşturmak olabilir ve gelecekteki bir kolayca Aksi takdirde bir projenin parçası olmayabilir diğer dosyaları dahil edebilirsiniz:
 
@@ -167,7 +167,7 @@ Bu yaklaşımın avantajı (Bu konunun ilerleyen kısımlarında açıklandığ�
 
 Klasör kuralları aşağıdaki gibidir:
 
-| Klasör | Açıklama | Paket yükleme sonrasında eylem |
+| Folder | Açıklama | Paket yükleme sonrasında eylem |
 | --- | --- | --- |
 | (kök) | Readme.txt konumu | Paket yüklenirken visual Studio Paket kök dizininde readme.txt dosyasını görüntüler. |
 | lib/{tfm} | Derleme (`.dll`), belgeleri (`.xml`) ve simgesi (`.pdb`) dosyaları belirtilen hedef çerçeve adı (TFM) için | Derlemeler, derleme ve bunun yanı sıra çalışma zamanı için başvuru olarak eklenir; `.xml` ve `.pdb` proje klasörlerine kopyalanır. Bkz: [birden çok hedef çerçeveyi destekleme](supporting-multiple-target-frameworks.md) framework hedef özgü alt klasörler oluşturmak için. |
@@ -177,7 +177,7 @@ Klasör kuralları aşağıdaki gibidir:
 | derleme | MSBuild `.targets` ve `.props` dosyaları | Proje dosyasına otomatik olarak eklenen veya `project.lock.json` (NuGet 3.x+). |
 | araçlar | PowerShell betikleri ve programları Paket Yöneticisi konsolunda erişilebilir | `tools` Klasör eklenir `PATH` yalnızca Paket Yöneticisi konsolu için ortam değişkenini (özellikle *değil* için `PATH` projeyi derlerken MSBuild için belirlenen). |
 
-Herhangi bir sayıda hedef çerçeveleri için derlemeler herhangi bir sayıda klasör yapınız içerebileceğinden, bu yöntem, birden çok çerçeveyi destekleyen bir paket oluştururken gereklidir 
+Herhangi bir sayıda hedef çerçeveleri için derlemeler herhangi bir sayıda klasör yapınız içerebileceğinden, birden çok çerçeveyi destekleyen bir paket oluştururken bu yöntem daha gereklidir.
 
 Herhangi bir durumda, istenen klasör yapısı yerinde olduktan sonra bu klasörde oluşturmak için aşağıdaki komutu çalıştırın `.nuspec` dosyası:
 
@@ -321,7 +321,7 @@ Adlı bir dosya dahil ettiğinizde `readme.txt` paket kök dizininde, Visual Stu
 
 Bazı durumlarda, derleme sırasında bir özel araç veya işlemin çalıştırma gibi paketinizi kullanan projelerdeki özel yapı hedefleri veya özellikleri eklemek isteyebilirsiniz. Dosya biçiminde yerleştirerek bunu `<package_id>.targets` veya `<package_id>.props` (gibi `Contoso.Utility.UsefulStuff.targets`) içinde `\build` proje klasörü.
 
-Kök dosyaları `\build` için tüm çerçeveleri hedef klasörü uygun değerlendirilir. Çerçeveye özgü dosyaları sağlamak için önce aşağıdaki gibi uygun bir alt kategorilerindekiler yerleştirin:
+Kök dosyaları `\build` için tüm çerçeveleri hedef klasörü uygun değerlendirilir. Çerçeveye özgü dosyaları sağlamak için önce bunları aşağıdaki gibi uygun alt klasörleri içinde yerleştirin:
 
     \build
         \netstandard1.4

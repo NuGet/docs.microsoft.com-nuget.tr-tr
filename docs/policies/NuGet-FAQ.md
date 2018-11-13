@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/11/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8c63abc9971623e0732ae8d973fafcd04c5d9f48
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: c136a3dffac38a68b80f730de1e4c3a3a9c8bd5d
+ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548810"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51580369"
 ---
 # <a name="nuget-frequently-asked-questions"></a>NuGet sık sorulan sorular
 
@@ -51,7 +51,7 @@ Alternatif olarak, Paket Yöneticisi konsolu başlatın (**Araçlar > NuGet Pake
 
 NuGet, genellikle .NET dilleri için çalışır ve bir projeye .NET kitaplıkları getirmek için tasarlanmıştır. Ayrıca bazı proje türlerinde MSBuild ve Visual Studio Otomasyonu desteklediği için diğer projeleri ve çeşitli dereceye dilleri de destekler.
 
-C#, Visual Basic, F #, WiX ve C++ en son NuGet sürümünü destekler.
+En son NuGet sürümünü destekleyen C#, Visual Basic F#, WiX ve C++.
 
 **Hangi proje şablonları, NuGet tarafından destekleniyor mu?**
 
@@ -166,7 +166,7 @@ NuGet imzalanması için tüm paketleri önerir. Paket imzalama tasarımı prens
 
 Paketiniz için listelenen bağımlılıkları paketinden otomatik olarak oluşturulur ve düzenlenemez unutmayın.
 
-Ayrıca, paketler için karşıya yükleme [staging.nuget.org](http://staging.nuget.org) test edin ve bir paket kullanılabilir genel galeride yapmadan paketinizi doğrulamak için harika bir yoludur.
+Ayrıca, paketler için karşıya yükleme [int.nugettest.org](https://int.nugettest.org) test edin ve bir paket kullanılabilir genel galeride yapmadan paketinizi doğrulamak için harika bir yoludur.
 
 **Bu ad gelecekte yayımlanacak paketleri için ayrılacak mümkün mü?**
 
@@ -182,9 +182,9 @@ Paket sahipleri ve diğer yazılımların sahipleri arasında kaynaklanabilecek 
 
 **Benim test paketleri nuget.org için karşıya yüklemek için tavsiye edilir?**
 
-Test amaçları için kullanabileceğiniz [staging.nuget.org](http://staging.nuget.org), veya diğer genel NuGet sunucularını [myget.org](https://myget.org) veya [Visual Studio Team Services](https://blogs.msdn.microsoft.com/visualstudioalm/2015/08/27/announcing-package-management-support-for-vsotfs/).
+Test amaçları için kullanabileceğiniz [int.nugettest.org](https://int.nugettest.org), veya diğer genel NuGet sunucularını [myget.org](https://myget.org) veya [Visual Studio Team Services](https://blogs.msdn.microsoft.com/visualstudioalm/2015/08/27/announcing-package-management-support-for-vsotfs/).
 
-Paketler için Staging.nuget.org karşıya korunmaz unutmayın. Bkz: [güle güle Önizleme](http://blog.nuget.org/20130419/goodbye-preview.html).
+Paketler için int.nugettest.org karşıya korunmaz unutmayın.
 
 **Paketleri nuget.org için karşıya yükleyebilirsiniz boyutu üst sınırı nedir?**
 

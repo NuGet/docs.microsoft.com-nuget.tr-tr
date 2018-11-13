@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/23/2018
 ms.topic: tutorial
-ms.openlocfilehash: dd36987e020c2daa02bb875aa9dbd69c85bba4d3
-ms.sourcegitcommit: 1bd72dca2f85b4267b9924236f1d23dd7b0ed733
+ms.openlocfilehash: dfbd6a3e6d59dfcea6394891703ea66bce5e8e92
+ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49951752"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51580281"
 ---
 # <a name="creating-ui-controls-as-nuget-packages"></a>NuGet paketleri olarak kullanıcı Arabirimi denetimleri oluşturma
 
@@ -89,7 +89,11 @@ Aşağıdaki örnekte, denetime uygulanan `ManagedPackage.winmd` Visual Studio'd
 
 Araç kutusu/varlıklar Bölmesi'nde özel bir simge görüntülemek için bir görüntü projenizi veya ilgili ekleme `design.dll` proje adıyla "Namespace.ControlName.extension" ve "Gömülü kaynak" derleme eylemi ayarlayın. Ayrıca ilişkili emin olmanız gerekir `AssemblyInfo.cs` ProvideMetadata özniteliği - belirtir `[assembly: ProvideMetadata(typeof(RegisterMetadata))]`. Bkz. Bu [örnek](https://github.com/NuGet/Samples/blob/master/ExtensionSDKasNuGetPackage/NativePackage.Design/Properties/AssemblyInfo.cs#L20).
 
-Desteklenen biçimler `.png`, `.jpg`, `.jpeg`, `.gif`, ve `.bmp`. Önerilen görüntü boyutu 64 x 64 piksel ' dir.
+Desteklenen biçimler `.png`, `.jpg`, `.jpeg`, `.gif`, ve `.bmp`. Önerilen biçim 16 x 16 pikseldir BMP24 bulunduğu.
+
+![Araç kutusu simgesi örneği](https://raw.githubusercontent.com/NuGet/docs.microsoft.com-nuget/live/docs/guides/media/ColorPicker_16x16x24.bmp)
+
+Pembe arka plan, çalışma zamanında değiştirilir. Simgeler, Visual Studio temasını değiştirilir ve bu arka plan rengi beklenen renklendirilmiştir. Daha fazla bilgi için lütfen başvuru [görüntüler ve simgeler Visual Studio için](https://docs.microsoft.com/en-us/visualstudio/extensibility/ux-guidelines/images-and-icons-for-visual-studio).
 
 Aşağıdaki örnekte, "ManagedPackage.MyCustomControl.png" adlı bir görüntü dosyasının proje içerir.
 
