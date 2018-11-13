@@ -24,8 +24,8 @@
 ## [Kaynak ve yapılandırma dosyası dönüşümleri](create-packages/source-and-config-file-transformations.md)
 ## [Yerelleştirilmiş paketler oluşturma](create-packages/creating-localized-packages.md)
 ## [Yayın öncesi paketleri](create-packages/prerelease-packages.md)
-## [Yerel paketler](create-packages/native-packages.md)
-## [Sembol paketleri](create-packages/symbol-packages.md)
+## [Yerel paketler oluşturma](create-packages/native-packages.md)
+## [Sembol paketleri oluşturma](create-packages/symbol-packages-snupkg.md)
 ## [İmzalama paketleri](create-packages/sign-a-package.md)
 ## [Paket yayımlama](create-packages/publish-a-package.md)
 ## Kılavuzlar
@@ -198,6 +198,7 @@
 ## [Nasıl yapılır: API’yi kullanarak tüm paketler için sorgu oluşturma](guides/api/query-for-all-published-packages.md)
 ## [Hizmet dizini](api/service-index.md)
 ## [Gönder ve sil](api/package-publish-resource.md)
+## [Sembol paketlerini gönderme](api/symbol-package-publish-resource.md)
 ## [Ara](api/search-query-service-resource.md)
 ## [Otomatik Tamamlama](api/search-autocomplete-service-resource.md)
 ## [Paket meta verileri](api/registration-base-url-resource.md)
