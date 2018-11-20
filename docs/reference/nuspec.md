@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 08/29/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 48f56ec5f042f6e78e38a202f0879c6949e7ee11
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: e8d4ed1f3fe4394d084a5847200901b23a1b7b39
+ms.sourcegitcommit: c825eb7e222d4a551431643f5b5617ae868ebe0a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580405"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51944086"
 ---
 # <a name="nuspec-reference"></a>.nuspec başvurusu
 
@@ -79,7 +79,49 @@ Nuget.org adresinden profil adları kullanarak paket creators virgülle ayrılm�
 #### <a name="projecturl"></a>ProjectUrl
 Genellikle kullanıcı Arabiriminde gösterilir paketin giriş sayfası için bir URL yanı sıra nuget.org görüntüler. 
 #### <a name="licenseurl"></a>LicenseUrl
+> [!Important]
+> licenseUrl kullanımdan kaldırılıyor. Lisans kullanın.
+
 Genellikle kullanıcı Arabirimi görüntüler yanı sıra nuget.org adresinde gösterilir, paketi lisansının URL'si.
+#### <a name="license"></a>Lisans
+SPDX lisans ifadesi veya genellikle kullanıcı Arabirimi görüntüler yanı sıra nuget.org adresinde gösterilir, paket içindeki bir lisans dosyasının yolu. Paket BSD 2 yan veya MIT gibi ortak bir lisans kapsamında lisans, ilişkili SPDX lisans tanımlayıcısı kullanın.<br>Örneğin: `<license type="expression">MIT</license>`.
+
+Tam listesi sunulmaktadır [SPDX lisans tanımlayıcıları](https://spdx.org/licenses/). NuGet.org yalnızca OSI kabul eder veya kullanırken onaylanan FSF lisans türü ifadesi lisansı.
+
+Paketinizi altında birden çok ortak lisansları lisanslanmıştır, kullanarak bir bileşik lisans belirtebilirsiniz [SPDX ifadesi söz dizimi sürümü 2.0](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60).<br>Örneğin: `<license type="expression">BSD-2-Clause OR MIT</license>`.
+
+SPDX tanımlayıcı atanmamış lisans kullandığınız ya da özel bir lisanstır, lisans metin dosyasıyla paketleyebilirsiniz. Örneğin:
+```xml
+<package>
+  <metadata>
+    ...
+    <license type="file">LICENSE.txt</license>
+    ...
+  </metadata>
+  <files>
+    ...
+    <file src="licenses\LICENSE.txt" target="" />
+    ...
+  </files>
+</package>
+```
+NuGet'ın lisans ifadelerin söz dizimi aşağıda açıklanan [ABNF](https://tools.ietf.org/html/rfc5234).
+```cli
+license-id            = <short form license identifier from https://spdx.org/spdx-specification-21-web-version#h.luq9dgcle9mo>
+
+license-exception-id  = <short form license exception identifier from https://spdx.org/spdx-specification-21-web-version#h.ruv3yl8g6czd>
+
+simple-expression = license-id / license-id”+”
+
+compound-expression =  1*1(simple-expression /
+                simple-expression "WITH" license-exception-id /
+                compound-expression "AND" compound-expression /
+                compound-expression "OR" compound-expression ) /                
+                "(" compound-expression ")" )
+
+license-expression =  1*1(simple-expression / compound-expression / UNLICENSED)
+```
+
 #### <a name="iconurl"></a>IconUrl
 Kullanıcı Arabirimi ekranı pakette için simge olarak kullanılacak bir URL saydam arka plana sahip 64 x 64 görüntüsü. Bu öğe içerdiğinden emin olun *resim URL'si doğrudan* ve görüntü içeren bir web sayfasının URL'si değil. Örneğin, github'dan bir görüntüyü kullanmak için URL gibi ham dosyasını kullanın. <em>https://github.com/\<username\>/\<repository\>/raw/\<branch\>/\<logo.png\></em>. 
 
@@ -614,7 +656,7 @@ Boş klasörler kullanabileceğiniz `.` örneğin dil ve TxM, belirli bir kombin
         <description>Sample exists only to show a sample .nuspec file.</description>
         <language>en-US</language>
         <projectUrl>http://xunit.codeplex.com/</projectUrl>
-        <licenseUrl>http://xunit.codeplex.com/license</licenseUrl>
+        <license type="expression">MIT</license>
     </metadata>
 </package>
 ```

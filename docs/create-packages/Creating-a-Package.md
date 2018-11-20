@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/12/2017
 ms.topic: conceptual
-ms.openlocfilehash: 1221631b22eed7d2d8e58bd08ff120d91231d49b
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: db02089bec3d2b8c001518fa0542375dc5418eb8
+ms.sourcegitcommit: c825eb7e222d4a551431643f5b5617ae868ebe0a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580408"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51944073"
 ---
 # <a name="creating-nuget-packages"></a>NuGet paketleri oluşturma
 
@@ -61,7 +61,8 @@ Ortak isteğe bağlı özellikler:
 - Telif hakkı bilgileri
 - Kısa bir açıklaması için [Visual Studio'da Paket Yöneticisi UI](../tools/package-manager-ui.md)
 - Bir yerel ayar kimliği
-- Giriş sayfası ve lisans URL'leri
+- Proje URL'si
+- Bir deyim veya dosya olarak lisans (`licenseUrl` olduğundan kullanımdan kaldırılıyor kullanın [ `license` nuspec meta veri öğesi](../reference/nuspec.md#license))
 - Simge URL'si
 - Bağımlılıklar ve başvuru listeleri
 - Galeri Arama Yardımcısı etiketleri
@@ -86,10 +87,13 @@ Verilmiştir (ancak kurgusal) tipik bir `.nuspec` dosyasıyla özelliklerini aç
             users to easily find other packages by the same owners.  
         -->
         <owners>dejanatc, rjdey</owners>
-
-         <!-- License and project URLs provide links for the gallery -->
-        <licenseUrl>http://opensource.org/licenses/MS-PL</licenseUrl>
+        
+         <!-- Project URL provides a link for the gallery -->
         <projectUrl>http://github.com/contoso/UsefulStuff</projectUrl>
+
+         <!-- License information is displayed on the gallery -->
+        <license type="expression">Apache-2.0</license>
+        
 
         <!-- The icon is used in Visual Studio's package manager UI -->
         <iconUrl>http://github.com/contoso/UsefulStuff/nuget_icon.png</iconUrl>
@@ -167,7 +171,7 @@ Bu yaklaşımın avantajı (Bu konunun ilerleyen kısımlarında açıklandığ�
 
 Klasör kuralları aşağıdaki gibidir:
 
-| Folder | Açıklama | Paket yükleme sonrasında eylem |
+| Klasör | Açıklama | Paket yükleme sonrasında eylem |
 | --- | --- | --- |
 | (kök) | Readme.txt konumu | Paket yüklenirken visual Studio Paket kök dizininde readme.txt dosyasını görüntüler. |
 | lib/{tfm} | Derleme (`.dll`), belgeleri (`.xml`) ve simgesi (`.pdb`) dosyaları belirtilen hedef çerçeve adı (TFM) için | Derlemeler, derleme ve bunun yanı sıra çalışma zamanı için başvuru olarak eklenir; `.xml` ve `.pdb` proje klasörlerine kopyalanır. Bkz: [birden çok hedef çerçeveyi destekleme](supporting-multiple-target-frameworks.md) framework hedef özgü alt klasörler oluşturmak için. |
