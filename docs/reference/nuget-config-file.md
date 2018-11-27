@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/25/2017
 ms.topic: reference
-ms.openlocfilehash: 504a48224051265164f9ab183e63fa5e7f5867e6
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: c294e4c188db2e90e6bcb62b60f71ed5529977fe
+ms.sourcegitcommit: a1846edf70ddb2505d58e536e08e952d870931b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546921"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52303525"
 ---
 # <a name="nugetconfig-reference"></a>nuget.config başvurusu
 
 NuGet davranışını farklı ayarları tarafından denetlenir `NuGet.Config` dosyaları açıklandığı [NuGet davranışını yapılandırma](../consume-packages/configuring-nuget-behavior.md).
 
-`nuget.config` bir üst düzey içeren bir XML dosyası `<configuration>` düğümü, ardından bu konuda açıklanan bölüm öğeleri içerir. Her bölüm, sıfır veya daha fazla içerir `<add>` öğelerle `key` ve `value` öznitelikleri. Bkz: [örnek yapılandırma dosyası](#example-config-file). Ayar adları büyük/küçük harfe ve değerlerini kullanabilirsiniz [ortam değişkenlerini](#using-environment-variables).
+`nuget.config` bir üst düzey içeren bir XML dosyası `<configuration>` düğümü, ardından bu konuda açıklanan bölüm öğeleri içerir. Her bölüm, sıfır veya daha fazla öğe içerir. Bkz: [örnek yapılandırma dosyası](#example-config-file). Ayar adları büyük/küçük harfe ve değerlerini kullanabilirsiniz [ortam değişkenlerini](#using-environment-variables).
 
 Bu konuda:
 
@@ -30,6 +30,7 @@ Bu konuda:
   - [apikeys](#apikeys)
   - [disabledPackageSources](#disabledpackagesources)
   - [activePackageSource](#activepackagesource)
+- [trustedSigners bölümü](#trustedsigners-section)
 - [Ortam değişkenlerini kullanma](#using-environment-variables)
 - [Örnek yapılandırma dosyası](#example-config-file)
 
@@ -51,6 +52,7 @@ Kullanarak ayarlayabileceğiniz çeşitli yapılandırma ayarlarını içeren [ 
 | repositoryPath (`packages.config` yalnızca) | NuGet paketleri yerine varsayılan yükleme konumu `$(Solutiondir)/packages` klasör. Göreli bir yol projeye özgü kullanılabilir `nuget.config` dosyaları. Bu ayarı önceliklidir NUGET_PACKAGES ortam değişkeni tarafından geçersiz kılındı. |
 | defaultPushSource | URL veya yol için bir işlem başka bir paket kaynaklarını bulunmazsa, varsayılan olarak kullanılması gereken paket kaynağının tanımlar. |
 | http_proxy http_proxy.user http_proxy.password no_proxy | Paket kaynaklarını bağlanırken kullanması için proxy ayarlarını; `http_proxy` biçiminde olması gerektiğini `http://<username>:<password>@<domain>`. Parolaları şifrelenir ve el ile eklenemez. İçin `no_proxy`, değeri etki alanlarının virgülle ayrılmış listesi olduğu proxy sunucusunu atla. Alternatif olarak, bu değerler için http_proxy ve no_proxy ortam değişkenlerini kullanabilirsiniz. Ek ayrıntılar için bkz. [NuGet proxy ayarlarını](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (skolima.blogspot.com). |
+| signatureValidationMode | Paket yüklemesi için paket imzaları doğrulamak ve geri yüklemek için kullanılan doğrulama modunu belirtir. Değerler `accept`, `require`. Varsayılan olarak `accept`.
 
 **Örnek**:
 
@@ -60,6 +62,7 @@ Kullanarak ayarlayabileceğiniz çeşitli yapılandırma ayarlarını içeren [ 
     <add key="globalPackagesFolder" value="c:\packages" />
     <add key="repositoryPath" value="c:\installed_packages" />
     <add key="http_proxy" value="http://company-squid:3128@contoso.com" />
+    <add key="signatureValidationMode" value="require" />
 </config>
 ```
 
@@ -115,9 +118,9 @@ Denetimleri olmadığını `packages` bir çözüm klasörü kaynak denetimine d
 
 ## <a name="package-source-sections"></a>Paket kaynak bölümler
 
-`packageSources`, `packageSourceCredentials`, `apikeys`, `activePackageSource`, Ve `disabledPackageSources` birlikte yükleme, geri yükleme ve güncelleştirme işlemleri sırasında NuGet paketi depoları ile nasıl çalıştığını yapılandırmak için tüm işler.
+`packageSources`, `packageSourceCredentials`, `apikeys`, `activePackageSource`, `disabledPackageSources` Ve `trustedSigners` birlikte yükleme, geri yükleme ve güncelleştirme işlemleri sırasında NuGet paketi depoları ile nasıl çalıştığını yapılandırmak için tüm işler.
 
-[ `nuget sources` Komut](../tools/cli-ref-sources.md) dışında bu ayarları yönetmek için genel olarak kullanılan `apikeys` hangi kullanılarak yönetilir [ `nuget setapikey` komut](../tools/cli-ref-setapikey.md).
+[ `nuget sources` Komut](../tools/cli-ref-sources.md) dışında bu ayarları yönetmek için genel olarak kullanılan `apikeys` hangi kullanılarak yönetilir [ `nuget setapikey` komut](../tools/cli-ref-setapikey.md), ve `trustedSigners` hangi yönetilir kullanarak [ `nuget trusted-signers` komut](../tools/cli-ref-trusted-signers.md).
 
 Nuget.org kaynak URL'si Not `https://api.nuget.org/v3/index.json`.
 
@@ -237,6 +240,35 @@ Etkin kaynak tanımlayan veya toplama tüm kaynakları gösterir.
     <add key="All" value="(Aggregate source)" />
 </activePackageSource>
 ```
+## <a name="trustedsigners-section"></a>trustedSigners bölümü
+
+Depoları İmzalayanları paketi yüklemek veya geri yükleme sırasında izin vermek için kullanılan güvenilir. Kullanıcı ayarlar, bu liste boş olamaz `signatureValidationMode` için `require`. 
+
+Bu bölümde ile güncelleştirilebilir [ `nuget trusted-signers` komut](../tools/cli-ref-trusted-signers.md).
+
+**Şema**:
+
+Güvenilen imzalayan koleksiyonu vardır `certificate` verilen imzalayan tanımlayan tüm sertifikaları listeleme öğeleri. Güvenilen imzalayan olabilir bir `Author` veya `Repository`.
+
+Güvenilen bir *depo* ayrıca belirtir `serviceIndex` deponun (sahip geçerli bir `https` URI'si) ve isteğe bağlı olarak noktalı virgülle ayrılmış listesini belirtebilirsiniz `owners` daha güvenilir kim kısıtlamak için Bu özel depodan.
+
+Sertifika parmak izi için kullanılan desteklenen karma algoritmaları `SHA256`, `SHA384` ve `SHA512`.
+
+Varsa bir `certificate` belirtir `allowUntrustedRoot` olarak `true` verilen sertifika zinciri güvenilmeyen bir kökü için imza doğrulaması bir parçası olarak sertifika zinciri oluşturulurken izin verilir.
+
+**Örnek**:
+
+```xml
+<trustedSigners>
+    <author name="microsoft">
+        <certificate fingerprint="3F9001EA83C560D712C24CF213C3D312CB3BFF51EE89435D3430BD06B5D0EECE" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
+    </author>
+    <repository name="nuget.org" serviceIndex="https://api.nuget.org/v3/index.json">
+        <certificate fingerprint="0E5F38F57DC1BCC806D8494F4F90FBCEDD988B46760709CBEEC6F4219AA6157D" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
+        <owners>microsoft;aspnet;nuget</owners>
+    </repository>
+</trustedSigners>
+```
 
 ## <a name="using-environment-variables"></a>Ortam değişkenlerini kullanma
 
@@ -313,5 +345,19 @@ Aşağıda bir örnek verilmiştir `nuget.config` ayar gösterilmektedir dosyan�
     <apikeys>
         <add key="https://MyRepo/ES/api/v2/package" value="encrypted_api_key" />
     </apikeys>
+
+    <!--
+        Used to specify trusted signers to allow during signature verification.
+        See: nuget.exe help trusted-signers
+    -->
+    <trustedSigners>
+        <author name="microsoft">
+            <certificate fingerprint="3F9001EA83C560D712C24CF213C3D312CB3BFF51EE89435D3430BD06B5D0EECE" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
+        </author>
+        <repository name="nuget.org" serviceIndex="https://api.nuget.org/v3/index.json">
+            <certificate fingerprint="0E5F38F57DC1BCC806D8494F4F90FBCEDD988B46760709CBEEC6F4219AA6157D" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
+            <owners>microsoft;aspnet;nuget</owners>
+        </repository>
+    </trustedSigners>
 </configuration>
 ```

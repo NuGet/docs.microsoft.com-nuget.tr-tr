@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 71ab5bb464d1513df89ab53e119d9768e880e4e5
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.openlocfilehash: 17960e42a69b00f2524b9ab7d78710d7551b5a9c
+ms.sourcegitcommit: a1846edf70ddb2505d58e536e08e952d870931b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981034"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52303660"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Proje dosyalarında paket başvuruları (PackageReference)
 
@@ -238,6 +238,6 @@ Aşağıda açıklandığı gibi çeşitli geri yükleme davranışlarını kili
 | Seçenek | MSBuild eşdeğer seçeneği | 
 |:---  |:--- |
 | `--use-lock-file` | Bir proje için kilit dosyasının bootstraps kullanın. Alternatif olarak ayarlayabilirsiniz `RestorePackagesWithLockFile` proje dosyasındaki özelliği | 
-| `--locked-mode` | Geri yükleme modunu etkinleştirir kilitli. Bu, erepeatable yapıları almak istediğiniz CI/CD senaryolarda yararlıdır. Bu ayarlayarak olabilir `RestoreLockedMode` MSBuild özelliği `true` |  
+| `--locked-mode` | Geri yükleme modunu etkinleştirir kilitli. Bu, yinelenebilir derlemeleri almak istediğiniz CI/CD senaryolarda yararlıdır. Bu ayarlayarak olabilir `RestoreLockedMode` MSBuild özelliği `true` |  
 | `--force-evaluate` | Bu seçenek projede tanımlanan kayan sürümüyle paketlerle yararlıdır. Geri yükleme işlemi çalıştırmadığınız sürece varsayılan olarak NuGet geri yükleme Paket sürümü her geri yükleme sırasında otomatik olarak güncelleştirmez `--force-evaluate` seçeneği. |
 | `--lock-file-path` | Bir proje için özel kilit dosya konumu tanımlar. Bu ayrıca MSBuild özelliği ayarlanarak sağlanabilir `NuGetLockFilePath`. Varsayılan olarak, NuGet destekler `packages.lock.json` kök dizininde. Aynı dizinde birden çok proje varsa, NuGet proje belirli kilit dosyası destekler. `packages.<project_name>.lock.json` |

@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 08/25/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 80f9354e149129fff043b470d833f348df15c0a7
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 4741d780afa4fbe11001aed49a9f72bf608d96d9
+ms.sourcegitcommit: a1846edf70ddb2505d58e536e08e952d870931b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545497"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52303570"
 ---
 # <a name="hosting-your-own-nuget-feeds"></a>Barındırma kendi NuGet akışları
 
@@ -32,6 +32,7 @@ Aşağıdakiler dahil olmak üzere uzaktan özel akışlarını destekleyen ür�
 - [NuGet sunucusu (açık kaynak)](http://nuget-server.net), Inedo'nın NuGet sunucusu için benzer bir açık kaynak uygulama
 - [LiGet](https://github.com/ai-traders/liget), açık kaynak uygulaması kestrel docker'da çalışan NuGet V2 sunucusu
 - [BaGet](https://github.com/loic-sharma/BaGet), ASP.NET Core üzerine yapılandırılan NuGet V3 sunucusu açık kaynak uygulaması
+- [Sleet](https://github.com/emgarten/sleet), bir açık kaynak NuGet V3 statik Oluşturucu akışı
 - [Artifactory](https://www.jfrog.com/artifactory/) JFrog öğesinden.
 - [Nexus](http://www.sonatype.org/nexus/) Sonatype öğesinden.
 - [TeamCity](https://www.jetbrains.com/teamcity/) JetBrains öğesinden.
