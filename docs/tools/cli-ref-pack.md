@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 826316bdbce881836836f2a667cfa5297996d14f
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: b5bd8bd30ad134f36433b8e4721ce131425a1483
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580317"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453370"
 ---
 # <a name="pack-command-nuget-cli"></a>Paketi komut (NuGet CLI)
 
 **İçin geçerlidir:** paket oluşturma &bullet; **desteklenen sürümler:** 2.7 +
 
-Belirtilen temel bir NuGet paketi oluşturur `.nuspec` ya da proje dosyası. `dotnet pack` Komut (bkz [dotnet komutları](dotnet-Commands.md)) ve `msbuild /t:pack` (bkz [MSBuild hedefleri](../reference/msbuild-targets.md)) alternatifler kullanılabilir.
+Belirtilen temel bir NuGet paketi oluşturur `.nuspec` ya da proje dosyası. `dotnet pack` Komut (bkz [dotnet komutları](dotnet-Commands.md)) ve `msbuild -t:pack` (bkz [MSBuild hedefleri](../reference/msbuild-targets.md)) alternatifler kullanılabilir.
 
 > [!Important]
 > Mono altında bir proje dosyasından paket oluşturma desteklenmiyor. Ayrıca yerel olmayan yollarında ayarlamanız gereken `.nuspec` nuget.exe Windows yol adlarını kendi Dönüştürülmeyen olarak UNIX stili yollara, dosya.

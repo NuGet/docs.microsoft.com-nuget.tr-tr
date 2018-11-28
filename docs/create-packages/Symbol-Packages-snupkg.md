@@ -16,12 +16,12 @@ keywords: NuGet sembol paketleri, hata ayıklama, hata ayıklama, paket sembolle
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 5bd3d02a9f397b393cc56af815c40f9d718d4023
-ms.sourcegitcommit: a1846edf70ddb2505d58e536e08e952d870931b0
+ms.openlocfilehash: 48ca4b62e722988b3dfe69306565d7f159805962
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52303631"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453461"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Sembol paketleri (.snupkg) oluşturma
 
@@ -41,10 +41,10 @@ nuget pack MyPackage.nuspec -Symbols -SymbolPackageFormat snupkg
 
 nuget pack MyPackage.csproj -Symbols -SymbolPackageFormat snupkg
 
-msbuild /t:pack MyPackage.csproj /p:IncludeSymbols=true /p:SymbolPackageFormat=snupkg
+msbuild -t:pack MyPackage.csproj -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg
 ```
 
-`.snupkgs` Varsayılan olarak oluşturulan değil. Geçmesi gereken `SymbolPackageFormat` özelliği ile birlikte `-Symbols` nuget.exe durumunda `--include-symbols` dotnet.exe, durumunda veya `/p:IncludeSymbols` msbuild durumunda.
+`.snupkgs` Varsayılan olarak oluşturulan değil. Geçmesi gereken `SymbolPackageFormat` özelliği ile birlikte `-Symbols` nuget.exe durumunda `--include-symbols` dotnet.exe, durumunda veya `-p:IncludeSymbols` msbuild durumunda.
 
 SymbolPackageFormat özelliği iki değerden birine sahip olabilir: `symbols.nupkg` (varsayılan) veya `snupkg`. SymbolPackageFormat belirtilmezse, varsayılan `symbols.nupkg` ve eski sembol paketi oluşturulacak.
 
@@ -65,13 +65,13 @@ SymbolPackageFormat özelliği iki değerden birine sahip olabilir: `symbols.nup
     nuget push MyPackage.snupkg
     ```
 
-1. Ayrıca hem birincil hem de anında iletme ve sembol kullanarak aynı anda paketleri aşağıdaki komutu. Her ikisi de .nupkg ve .snupkg dosyaları geçerli klasörde mevcut olması gerekir.
+1. Ayrıca hem birincil hem de anında iletme ve sembol kullanarak aynı anda paketleri aşağıdaki komutu. .Nupkg hem .snupkg dosyaları geçerli klasörde mevcut olması gerekir.
 
     ```cli
     nuget push MyPackage.nupkg
     ```
 
-Bu durumda, NuGet nuget.org için yayımlayacak `MyPackage.nupkg` ilk ardından `MyPackage.snupkg`.
+NuGet nuget.org için her iki paketi yayımlar. `MyPackage.nupkg` ilk yayımlama, ardından `MyPackage.snupkg`.
 
 ## <a name="nugetorg-symbol-server"></a>NuGet.org sembol sunucusu
 

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: da69181aebe3bebcea6acd6e15fde6b77dd33452
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: 9acb87a5f5731fb33c91a1ae9b106c6df492ddcd
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580304"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453539"
 ---
 # <a name="package-restore"></a>Paket geri yükleme
 
@@ -39,7 +39,7 @@ Paket geri yükleme, aşağıdaki yollarla tetiklenir:
 
 - **NuGet CLI**: kullanın [nuget geri yükleme](../tools/cli-ref-restore.md) komutu, proje dosyası veya listelenen paketleri geri yükler `packages.config`. Bir çözüm dosyası da belirtebilirsiniz.
 
-- **MSBuild**: kullanın [msbuild/t: restore](../reference/msbuild-targets.md#restore-target) , hangi geri yükleme paketleri (yalnızca PackageReference) proje dosyasında listelenen paketlerin komutu. Yalnızca Visual Studio 2017 ile içerdiği NuGet 4.x+ ve MSBuild 15.1 + kullanılabilir. `nuget restore` ve `dotnet restore` hem de geçerli projeleri için bu komutu kullanın.
+- **MSBuild**: kullanın [msbuild - t: geri](../reference/msbuild-targets.md#restore-target) , hangi geri yükleme paketleri (yalnızca PackageReference) proje dosyasında listelenen paketlerin komutu. Yalnızca Visual Studio 2017 ile içerdiği NuGet 4.x+ ve MSBuild 15.1 + kullanılabilir. `nuget restore` ve `dotnet restore` hem de geçerli projeleri için bu komutu kullanın.
 
 - **Visual Studio Team Services**: Team Services üzerinde bir derleme tanımı oluşturma işlemlerinde [NuGet geri yükleme](/vsts/build-release/tasks/package/nuget#restore-nuget-packages) veya [.NET Core geri](/vsts/build-release/tasks/build/dotnet-core#restore-nuget-packages) önce herhangi bir derleme görev tanımındaki görev. Bu görev varsayılan yapı şablonlarını bir dizi olarak dahil edilir.
 
@@ -123,6 +123,6 @@ Kullanmaktan kaçınmak için *genel paketleri* klasörü, aşağıdakilerden bi
 - Önbellek kullanarak Temizle `nuget locals http-cache -clear` veya `dotnet nuget locals http-cache --clear`.
 - Geçici olarak farklı bir klasöre ilişkin NUGET_HTTP_CACHE_PATH ortam değişkeni ayarlayın.
 
-## <a name="troubleshooting"></a>Sorun Giderme
+## <a name="troubleshooting"></a>Sorun giderme
 
 Bkz: [paket geri yükleme sorunlarını giderme](package-restore-troubleshooting.md).

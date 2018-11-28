@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/30/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: d4c13200494ed3c6fa897ce0083a52c13688b44b
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: fd5188c92f8154391359b8da5c8a32f4d5d6f2c0
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547399"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453591"
 ---
 # <a name="catalog"></a>Kataloğu
 
@@ -213,7 +213,7 @@ etiketler                    | dize dizisi           | Yok       |
 Başlık                   | dize                     | Yok       |
 verbatimVersion         | dize                     | Yok       | Sürüm dizesi olarak başlangıçta .nuspec içinde bulunamadı
 
-Paket `version` tam, normalleştirilmiş sürüm dizesi bir özelliktir. Bu, SemVer 2.0.0 yapılandırma verilerini buraya dahil olabileceğini anlamına gelir.
+Paket `version` tam sürüm dizesi sonra normalleştirme özelliğidir. Bu, SemVer 2.0.0 yapılandırma verilerini buraya dahil olabileceğini anlamına gelir.
 
 `created` Paket varsayılan, genellikle kısa bir süre önce Kataloğu öğenin yürütme zaman damgası olan paket kaynak tarafından alındığını zaman damgası olduğunda.
 

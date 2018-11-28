@@ -5,22 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 17960e42a69b00f2524b9ab7d78710d7551b5a9c
-ms.sourcegitcommit: a1846edf70ddb2505d58e536e08e952d870931b0
+ms.openlocfilehash: d4f0177183ee3edf595c4ce10d1f26cbaca5755d
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52303660"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453578"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Proje dosyalarında paket başvuruları (PackageReference)
 
-Paket başvuruları kullanılarak, `PackageReference` düğümü, NuGet bağımlılıklarını doğrudan proje dosyaları içinde yönetme (ayrı bir aksine `packages.config` dosya). PackageReference, kullanarak çağrılır, NuGet diğer yönleri etkilemez; Örneğin, ayarlarında ' NuGet.
-
-
-
-
-
-FIG' (paket kaynaklarını dahil) dosyaları yine de açıklandığı gibi uygulanan [NuGet davranışını yapılandırma](configuring-nuget-behavior.md).
+Paket başvuruları kullanılarak, `PackageReference` düğümü, NuGet bağımlılıklarını doğrudan proje dosyaları içinde yönetme (ayrı bir aksine `packages.config` dosya). PackageReference, kullanarak çağrılır, NuGet diğer yönleri etkilemez; Örneğin, ayarlarında `NuGet.config` (paket kaynaklarını dahil) dosyaları yine de açıklandığı gibi uygulanan [NuGet davranışını yapılandırma](configuring-nuget-behavior.md).
 
 PackageReference ile paket başvuruları her hedef çerçeve, yapılandırma, platform veya diğer grupları seçmek için MSBuild koşulları kullanabilirsiniz. Ayrıca bağımlılıkları ve içerik akışı üzerinde ayrıntılı denetim sağlar. (Daha fazla ayrıntı için [NuGet paketi ve geri yükleme, MSBuild hedefleri](../reference/msbuild-targets.md).)
 
@@ -163,7 +157,7 @@ Koşul da uygulanabilir `ItemGroup` düzeyi ve tüm alt öğelere uygulanacak `P
 ## <a name="locking-dependencies"></a>Kilitleme bağımlılıkları
 *Bu özellik, NuGet ile kullanılabilir **4.9** veya yukarıda ve Visual Studio 2017 ile **15,9 Preview 5** veya üzeri.*
 
-Giriş olarak NuGet geri yükleme, paket başvurularının proje dosyası (üst düzey veya doğrudan dependenices) kümesidir ve tam bir kapanış geçişli bağımlılıklar dahil olmak üzere tüm paket bağımlılıklarının çıkış alınır. NuGet Packagereference'a listesi girişi değiştirilmediyse her zaman paket bağımlılıklarının aynı tam kapatma üretmek çalışır. Ancak, bunu yapmanız mümkün olduğu bazı senaryolar vardır. Örneğin:
+Giriş olarak NuGet geri yükleme, paket başvurularının proje dosyası (üst düzey veya doğrudan bağımlılıkları) kümesidir ve tam bir kapanış geçişli bağımlılıklar dahil olmak üzere tüm paket bağımlılıklarının çıkış alınır. NuGet Packagereference'a listesi girişi değiştirilmediyse her zaman paket bağımlılıklarının aynı tam kapatma üretmek çalışır. Ancak, bunu yapmanız mümkün olduğu bazı senaryolar vardır. Örneğin:
 
 * Kayan kullandığınızda sürümleri ister `<PackageReference Include="My.Sample.Lib" Version="4.*"/>`. Burada amaç, her geri yükleme paketlerinin en son sürüme kaydırmak için olsa da burada kullanıcıların grafiğin belirli en son sürümü ve sonraki bir sürüme kayan nokta varsa, açık bir hareket üzerine kilitlenmesine gerektiren senaryolar vardır.
 * Paket eşleşen PackageReference sürüm gereksinimleri daha yeni bir sürümü yayımlandı. Örneğin 
@@ -193,9 +187,9 @@ Bu özelliği ayarlarsanız, NuGet geri yükleme bir kilit dosyası - oluşturur
 ### <a name="restore-behavior-with-lock-file"></a>`restore` Kilit dosyasıyla davranışı
 Proje için bir kilit dosyası varsa, NuGet bu kilit dosyasını çalıştırmak için kullanır. `restore`. NuGet Paket bağımlılıklarını proje dosyası (veya bağımlı proje dosyalarının) belirtildiği gibi herhangi bir değişiklik yoktu ve herhangi bir değişiklik varsa, yalnızca kilit dosyasında belirtilen paketleri geri yükler görmek için hızlı bir denetimi yapar. Hiçbir Paket bağımlılıklarını değerlendirmeleri yoktur.
 
-Proje dosyasında belirtildiği gibi bir değişiklik NuGet içinde tanımlanan dependenices algılar, paket grafiği yeniden değerlendirir ve kilit dosyası proje için yeni paket kapanış yansıtacak şekilde güncelleştirir.
+Proje dosyasında belirtildiği gibi bir değişiklik NuGet içinde tanımlanan bağımlılıklar algılar, paket grafiği yeniden değerlendirir ve kilit dosyası proje için yeni paket kapanış yansıtacak şekilde güncelleştirir.
 
-CI/CD ve nerede değil hareket halindeyken paket dependenies değiştirmek istediğiniz, diğer senaryolar için ayarlayarak bunu yapabilirsiniz `lockedmode` için `true`:
+CI/CD ve değil istediğiniz paket bağımlılıklarını hareket halindeyken değiştirmek için diğer senaryolar için ayarlayarak bunu yapabilirsiniz `lockedmode` için `true`:
 
 DotNet.exe için çalıştırın:
 ```
@@ -204,7 +198,7 @@ DotNet.exe için çalıştırın:
 
 MSBuild.exe için çalıştırın:
 ```
-> msbuild.exe /t:restore /p:RestoreLockedMode=true
+> msbuild.exe -t:restore -p:RestoreLockedMode=true
 ```
 
 Ayrıca, proje dosyanızda koşullu bu MSBuild özelliği ayarlayabilir:

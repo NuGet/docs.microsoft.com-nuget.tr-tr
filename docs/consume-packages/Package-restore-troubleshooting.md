@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 51dd78ef7cc427232982df15657d76d117146853
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: b85b586e76e424442dc0ba3acfecbee1e8755345
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580363"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453474"
 ---
 # <a name="troubleshooting-package-restore-errors"></a>Paket geri yükleme hatalarını giderme
 
@@ -57,7 +57,7 @@ Paketleri geri yüklemek için aşağıdaki yöntemlerden birini kullanın:
 - Visual Studio'da paket geri yükleme seçerek etkinleştirin **Araçlar > NuGet Paket Yöneticisi > Paket Yöneticisi Ayarları** menü komutu, her iki çalışma seçeneklerde ayarlama **paketi geri yüklemeyi**, seçerek **Tamam**. Daha sonra çözümü yeniden oluşturun.
 - .NET Core projeleri için çalıştırma `dotnet restore` veya `dotnet build` (otomatik olarak çalıştığı geri yükleme).
 - Komut satırında çalıştırın `nuget restore` (ile oluşturulan projeleri hariç `dotnet`, bu durumda kullanın `dotnet restore`).
-- PackageReference biçimini kullanarak projeleri ile komut satırında çalıştırın `msbuild /t:restore`.
+- PackageReference biçimini kullanarak projeleri ile komut satırında çalıştırın `msbuild -t:restore`.
 
 Paket başarılı bir geri yüklemeden sonra mevcut olmalıdır *genel paketleri* klasör. PackageReference'ı kullanarak projeleri için bir geri yükleme yeniden oluşturmanız gerekir `obj/project.assets.json` dosya; kullanarak projeleri için `packages.config`, paket projesinin görünmelidir `packages` klasör. Şimdi, projeyi başarıyla oluşturmalısınız. Aksi halde [Github'da sorun kaydedebilir](https://github.com/NuGet/docs.microsoft.com-nuget/issues) biz size izleyecek şekilde.
 
@@ -73,7 +73,7 @@ Assets file '<path>\project.assets.json' not found. Run a NuGet package restore 
 
 `project.assets.json` Dosyası, bilgisayarda gerekli tüm paketleri yüklü olduğundan emin olmak için kullanılan PackageReference yönetim biçimi kullanılırken bir projenin bağımlılık grafiği tutar. Bu dosya paket geri yükleme ile dinamik olarak oluşturulmuş olduğu için kaynak denetimine genellikle eklenmez. Sonuç olarak, bir aracı ile proje gibi oluştururken bu hata oluşur `msbuild` , otomatik olarak paketleri geri yüklemez.
 
-Bu durumda, çalıştırma `msbuild /t:restore` ardından `msbuild`, veya `dotnet build` (hangi yükler paketleri otomatik olarak). İçinde paket geri yükleme yöntemlerinden herhangi birini de kullanabilirsiniz [önceki bölümde](#missing).
+Bu durumda, çalıştırma `msbuild -t:restore` ardından `msbuild`, veya `dotnet build` (hangi yükler paketleri otomatik olarak). İçinde paket geri yükleme yöntemlerinden herhangi birini de kullanabilirsiniz [önceki bölümde](#missing).
 
 <a name="consent"></a>
 

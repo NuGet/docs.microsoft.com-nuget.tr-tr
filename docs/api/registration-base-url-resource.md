@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: a64c5844a58213415671ab0d202a75bc0ececc89
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: ba47d6fdeeaa4ee9de83ef4dd990707bd4928063
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546790"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453565"
 ---
 # <a name="package-metadata"></a>Paket meta verileri
 
@@ -150,7 +150,9 @@ RequireLicenseAcceptance | Boole değeri                    | Yok       |
 özet                  | dize                     | Yok       | 
 etiketler                     | dize veya dize dizisi  | Yok       | 
 Başlık                    | dize                     | Yok       | 
-sürüm                  | dize                     | Evet      | Paket sürümü
+sürüm                  | dize                     | Evet      | Normalleştirme sonra tam sürüm dizesi
+
+Paket `version` tam sürüm dizesi sonra normalleştirme özelliğidir. Bu, SemVer 2.0.0 yapılandırma verilerini buraya dahil olabileceğini anlamına gelir.
 
 `dependencyGroups` Özelliğidir paketin hedef framework tarafından gruplandırılmış bağımlılıkları temsil eden nesneler dizisi. Paket bağımlılıkları hakkında daha fazla varsa `dependencyGroups` özelliği eksik, boş bir dizi veya `dependencies` tüm grupların özelliği boş veya eksik.
 
