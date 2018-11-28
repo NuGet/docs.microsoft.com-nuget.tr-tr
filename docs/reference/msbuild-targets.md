@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 07296ce5a9ba85d68eca5f4915d6efea00dc8980
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 7b3fc72ddd3ad6c9185c2bd0f2563df59e77f1c8
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548878"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453552"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet paketi ve MSBuild hedefleri olarak geri yükleme
 
@@ -37,7 +37,7 @@ Benzer şekilde, bir MSBuild görevi yazabilir, kendi hedefleyin ve MSBuild gör
 
 ## <a name="pack-target"></a>paketi hedef
 
-PackageReference biçimini kullanarak, kullanarak .NET Standard projeleri için `msbuild /t:pack` bir NuGet paketi oluşturmak için Proje dosyasındaki girişleri çizer.
+PackageReference biçimini kullanarak, kullanarak .NET Standard projeleri için `msbuild -t:pack` bir NuGet paketi oluşturmak için Proje dosyasındaki girişleri çizer.
 
 Aşağıdaki tabloda, bir proje dosyası birinci içinde eklenebilir MSBuild özellikleri tanımlar `<PropertyGroup>` düğümü. Bu düzenlemeler kolayca Visual Studio 2017'de ve daha sonra projeyi sağ tıklayıp tarafından yapabileceğiniz **{project_name} Düzenle** bağlam menüsünde. Kolaylık olması için tablo eşdeğer özelliği tarafından düzenlenir bir [ `.nuspec` dosya](../reference/nuspec.md).
 
@@ -55,7 +55,9 @@ Unutmayın `Owners` ve `Summary` özelliklerinden `.nuspec` MSBuild ile destekle
 | Açıklama | Açıklama | "Paketi" | |
 | Telif Hakkı | Telif Hakkı | empty | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | false | |
-| LicenseUrl | PackageLicenseUrl | empty | |
+| Lisans | PackageLicenseExpression | empty | Karşılık gelen `<license type="expression">` |
+| Lisans | PackageLicenseFile | empty | Karşılık gelen `<license type="file">`. Başvurulan lisans dosyasını açıkça paketi gerekebilir. |
+| LicenseUrl | PackageLicenseUrl | empty | `licenseUrl` olduğundan kullanımdan kaldırılıyor PackageLicenseExpression veya PackageLicenseFile özelliğini kullanın |
 | ProjectUrl | PackageProjectUrl | empty | |
 | IconUrl | PackageIconUrl | empty | |
 | Etiketler | PackageTags | empty | Etiketleri noktalı virgülle ayrılmış olan. |
@@ -77,6 +79,8 @@ Unutmayın `Owners` ve `Summary` özelliklerinden `.nuspec` MSBuild ile destekle
 - Telif Hakkı
 - PackageRequireLicenseAcceptance
 - DevelopmentDependency
+- PackageLicenseExpression
+- PackageLicenseFile
 - PackageLicenseUrl
 - PackageProjectUrl
 - PackageIconUrl
@@ -177,7 +181,7 @@ Yukarıdaki öğelerden birini ayarlayabilirsiniz diğer paketi belirli meta ver
 
 ### <a name="includesymbols"></a>IncludeSymbols
 
-Kullanırken `MSBuild /t:pack /p:IncludeSymbols=true`, karşılık gelen `.pdb` dosyaların yanı sıra diğer çıktı dosyalarının kopyalandığından (`.dll`, `.exe`, `.winmd`, `.xml`, `.json`, `.pri`). Bu ayarı Not `IncludeSymbols=true` normal bir paket oluşturan *ve* bir sembol paketi.
+Kullanırken `MSBuild -t:pack -p:IncludeSymbols=true`, karşılık gelen `.pdb` dosyaların yanı sıra diğer çıktı dosyalarının kopyalandığından (`.dll`, `.exe`, `.winmd`, `.xml`, `.json`, `.pri`). Bu ayarı Not `IncludeSymbols=true` normal bir paket oluşturan *ve* bir sembol paketi.
 
 ### <a name="includesource"></a>IncludeSource
 
@@ -185,28 +189,46 @@ Aynı budur `IncludeSymbols`dışında kaynak dosyaları ile birlikte kopyalar `
 
 Dosya türü ile derleme yaparsanız, proje klasörünün dışında olduğu için yeni eklenen sonra `src\<ProjectName>\`.
 
+### <a name="packing-a-license-expression-or-a-license-file"></a>Bir lisans ifadesi veya bir lisans dosyası
+
+Lisans ifade kullanılırken PackageLicenseExpression özelliği kullanılmalıdır. 
+[Lisans ifade örnek](#https://github.com/NuGet/Samples/tree/master/PackageLicenseExpressionExample).
+
+Lisans dosyası paketleme, PackageLicenseFile özelliği paket köküne paket yolu belirtmek için kullanmanız gerekir. Ayrıca, dosyanın pakete dahil olduğunu emin olmanız gerekir. Örneğin:
+
+```xml
+<PropertyGroup>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+</PropertyGroup>
+
+<ItemGroup>
+    <None Include="licenses\LICENSE.txt" Pack="true" PackagePath="$(PackageLicenseFile)"/>
+</ItemGroup>
+```
+[Lisans yaşam örnek](#https://github.com/NuGet/Samples/tree/master/PackageLicenseFileExample).
+
 ### <a name="istool"></a>IsTool
 
-Kullanırken `MSBuild /t:pack /p:IsTool=true`, tüm çıktı dosyaları, belirtilen [çıkış derlemeleri](#output-assemblies) senaryosu, kopyalanır `tools` klasörü yerine `lib` klasör. Bu farklı olduğunu unutmayın bir `DotNetCliTool` , belirtilen ayarlayarak `PackageType` içinde `.csproj` dosya.
+Kullanırken `MSBuild -t:pack -p:IsTool=true`, tüm çıktı dosyaları, belirtilen [çıkış derlemeleri](#output-assemblies) senaryosu, kopyalanır `tools` klasörü yerine `lib` klasör. Bu farklı olduğunu unutmayın bir `DotNetCliTool` , belirtilen ayarlayarak `PackageType` içinde `.csproj` dosya.
 
 ### <a name="packing-using-a-nuspec"></a>Bir .nuspec kullanarak paketleme
 
 Kullanabileceğiniz bir `.nuspec` projenize SDK proje dosyasını içeri aktarmak için sahip olması koşuluyla paketlemek için dosya `NuGet.Build.Tasks.Pack.targets` böylece paketi görevi yürütülebilir. Yine de soubor nuspec paketi önce projeyi geri yüklemeniz gerekir. Hedef Çerçeve proje dosyasının ilgisizdir ve paket bir nuspec iletişim kurulurken kullanılmaz. Aşağıdaki üç MSBuild özellikleri kullanarak paket için uygun olan bir `.nuspec`:
 
 1. `NuspecFile`: göreli veya mutlak yolunu `.nuspec` paketleme için kullanılan dosya.
-1. `NuspecProperties`: noktalı virgülle ayrılmış listesini anahtar = değer çiftleri. MSBuild komut satırı Ayrıştırmada works yöntemi nedeniyle birden çok özellikleri şu şekilde belirtilmelidir: `/p:NuspecProperties=\"key1=value1;key2=value2\"`.  
+1. `NuspecProperties`: noktalı virgülle ayrılmış listesini anahtar = değer çiftleri. MSBuild komut satırı Ayrıştırmada works yöntemi nedeniyle birden çok özellikleri şu şekilde belirtilmelidir: `-p:NuspecProperties=\"key1=value1;key2=value2\"`.  
 1. `NuspecBasePath`: Temel yolunu `.nuspec` dosya.
 
 Kullanıyorsanız `dotnet.exe` projenizi paketlemek için aşağıdakine benzer bir komut kullanın:
 
 ```cli
-dotnet pack <path to .csproj file> /p:NuspecFile=<path to nuspec file> /p:NuspecProperties=<> /p:NuspecBasePath=<Base path> 
+dotnet pack <path to .csproj file> -p:NuspecFile=<path to nuspec file> -p:NuspecProperties=<> -p:NuspecBasePath=<Base path> 
 ```
 
 MSBuild proje paketi için kullanılıyorsa, aşağıdakine benzer bir komut kullanın:
 
 ```cli
-msbuild /t:pack <path to .csproj file> /p:NuspecFile=<path to nuspec file> /p:NuspecProperties=<> /p:NuspecBasePath=<Base path> 
+msbuild -t:pack <path to .csproj file> -p:NuspecFile=<path to nuspec file> -p:NuspecProperties=<> -p:NuspecBasePath=<Base path> 
 ```
 
 Paket bir nuspec dotnet.exe veya msbuild'ı kullanarak da varsayılan olarak proje oluşturmak için müşteri adayları olduğunu lütfen unutmayın. Bu geçirerek önlenebilir ```--no-build``` ayarı denk olan dotnet.exe özelliğini ```<NoBuild>true</NoBuild> ``` ayarı ile birlikte proje dosyanızda ```<IncludeBuildOutput>false</IncludeBuildOutput> ``` proje dosyasındaki
@@ -283,7 +305,7 @@ Soubor nuspec paketlenecek csproj dosyasının bir örnektir:
 
 ## <a name="restore-target"></a>geri yükleme hedefi
 
-`MSBuild /t:restore` (hangi `nuget restore` ve `dotnet restore` .NET Core projeleriyle kullanın), aşağıdaki gibi proje dosyasında başvurulan paketleri geri yükler:
+`MSBuild -t:restore` (hangi `nuget restore` ve `dotnet restore` .NET Core projeleriyle kullanın), aşağıdaki gibi proje dosyasında başvurulan paketleri geri yükler:
 
 1. Tüm projeden projeye başvurular okuyun
 1. Ara klasörü ve hedef çerçeveleri bulmak için proje özellikleri okuma
@@ -296,7 +318,7 @@ Soubor nuspec paketlenecek csproj dosyasının bir örnektir:
 
 ### <a name="restore-properties"></a>Özellikler geri yükleme
 
-Ek geri yükleme ayarlarını MSBuild proje dosyası özelliklerinde gelir. Değerleri de ayarlanabilir kullanılarak komut satırından `/p:` geçiş (aşağıdaki örneklere bakın).
+Ek geri yükleme ayarlarını MSBuild proje dosyası özelliklerinde gelir. Değerleri de ayarlanabilir kullanılarak komut satırından `-p:` geçiş (aşağıdaki örneklere bakın).
 
 | Özellik | Açıklama |
 |--------|--------|
@@ -315,7 +337,7 @@ Ek geri yükleme ayarlarını MSBuild proje dosyası özelliklerinde gelir. Değ
 Komut satırı:
 
 ```cli
-msbuild /t:restore /p:RestoreConfigFile=<path>
+msbuild -t:restore -p:RestoreConfigFile=<path>
 ```
 
 Proje dosyası:
