@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/23/2018
 ms.topic: quickstart
-ms.openlocfilehash: 7b30fce4a2d9ad0bd7bc2b97f69b8d5d25101b72
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 15268ae33d56042a765420e5076dac49db6cce04
+ms.sourcegitcommit: 1591bb230e106b94162a87dd1d86fe427366730a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545232"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52671181"
 ---
 # <a name="quickstart-install-and-use-a-package-in-visual-studio"></a>Hızlı Başlangıç: Yükleme ve Visual Studio'da paket kullanma
 
@@ -64,7 +64,7 @@ Paketi yüklemek için Paket Yöneticisi kullanıcı Arabirimi veya Paket Yönet
 
     ![Newtonsoft.Json paketini bulma](media/QS_Use-08-Console1.png)
 
-1. Komutu girdikten `Install-Package Newtonsoft.json` (bkz [Install-Package](../tools/ps-ref-install-package.md)). Konsol penceresinde komutunun çıktısını gösterir. Hatalar genellikle paket projenin hedef çerçevesi ile uyumlu olmadığını gösterir.
+1. Komutu girdikten `Install-Package Newtonsoft.Json` (bkz [Install-Package](../tools/ps-ref-install-package.md)). Konsol penceresinde komutunun çıktısını gösterir. Hatalar genellikle paket projenin hedef çerçevesi ile uyumlu olmadığını gösterir.
 
 ## <a name="use-the-newtonsoftjson-api-in-the-app"></a>' % S ' Newtonsoft.Json API uygulamasında kullanma
 
@@ -107,7 +107,7 @@ Projesinde Newtonsoft.Json paketiyle çağırabilirsiniz kendi `JsonConvert.Seri
 1. Newtonsoft.Json paketini projeye eklenen olsa da, kırmızı dalgalı çizgiler altında görünür `JsonConvert` ihtiyacınız olduğundan bir `using` kod dosyasının üst deyimi:
 
     ```cs
-    using Newtonsoft.json;
+    using Newtonsoft.Json;
     ```
 
 1. F5 tuşuna basarak veya seçerek uygulaması derleyebilir ve **hata ayıklama > hata ayıklamayı Başlat**:

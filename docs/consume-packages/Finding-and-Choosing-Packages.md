@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 81672abf0362e053da2b71c8bd39bd7f96ddf73b
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: c86a07c30631b7ee99526b014ac9c3b9f136aa81
+ms.sourcegitcommit: 1591bb230e106b94162a87dd1d86fe427366730a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549421"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52671194"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Bulma ve projenizin NuGet paketlerini değerlendiriliyor
 
@@ -100,6 +100,21 @@ Aynı anda bir NuGet paketi kullanarak emin olmak, istediğiniz şekilde üzerin
 
 > [!Note]
 > Her zaman seçerek gördüğünüz bir paketin Lisans Koşulları'nın dikkatli olmanızı **lisans bilgilerini** bir paketin listeleme nuget.org sayfasında. Bir paketi lisans koşulları belirtmezse kullanarak doğrudan paket sahibiyle iletişime geçin **sahipleriyle temas** bağlantı paketi sayfasında. Microsoft hiçbir fikri mülkiyet, üçüncü taraf paketi sağlayıcılarından lisans değil ve üçüncü taraflarca sağlanan bilgileri sorumlu değildir.
+
+## <a name="license-url-deprecation"></a>Lisans URL'si kullanımdan kaldırma
+Biz durumundan gibi [licenseUrl](../reference/nuspec#licenseurl) için [lisans](../reference/nuspec#license), bazı NuGet istemcileri ve NuGet akışları henüz yüzey lisans bilgilerini yeteneği bazı durumlarda sahip olmayabilir. Geriye dönük uyumluluk sağlamak için bu belgeye bu gibi durumlarda lisans bilgilerini almak nasıl hakkında konuşuyor ve lisans URL'sini işaret eder.
+
+Üzerinde lisans URL'si için bir paket için bu sayfayı duruma tıkladığınızda, paketi içeren bir lisans dosyası gelir ve
+* Henüz nasıl yorumlanacağı ve yeni lisans bilgilerini istemciye yüzey bilmez bir akışa bağlı olduğunuz **veya**
+* Henüz nasıl yorumlanacağı ve potansiyel olarak akış tarafından sağlanan yeni lisans bilgilerini okuma bilmez bir istemci kullanıyorsanız **veya**
+* Her ikisinin bir birleşimi
+
+Lisans dosyası paketi içinde yer alan bilgilerin nasıl okuyabilir aşağıda verilmiştir:
+1. NuGet paketini indirin ve içeriğini bir klasöre çıkartın.
+1. Açık `.nuspec` dosyası bu klasörün kökünde olacaktır.
+1. Gibi bir etiketi olması gereken `<license type="file">license\license.txt</license>`. Bu lisans dosyası adlı gelir `license.txt` ve adlı bir klasör içinde `license` klasörün kökünde da olacak.
+1. Gidin `license` klasörü ve açık `license.txt` dosya.
+
 
 ## <a name="search-syntax"></a>Arama söz dizimi
 

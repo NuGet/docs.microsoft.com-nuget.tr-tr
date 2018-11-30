@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 04/09/2018
 ms.topic: quickstart
-ms.openlocfilehash: b3be75a5af85bd3048c8b0eb71d90238b9349e09
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 9e8aa2250c6fc2843f74a925c56f953be5d48221
+ms.sourcegitcommit: 1591bb230e106b94162a87dd1d86fe427366730a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549728"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52671142"
 ---
 # <a name="installing-nuget-client-tools"></a>NuGet istemci araçlarını yükleme
 
@@ -75,27 +75,25 @@ Yükleme:
 | Özellik | DotNet CLI | nuget CLI (Windows) | nuget CLI (tekli) | Visual Studio (Windows) | Mac için Visual Studio |
 | --- | --- | --- | --- | --- | --- |
 | Paketleri Ara |  | &#10004; | &#10004; | &#10004; | &#10004; |
-| Paketleri yükleme/kaldırma | &#10004;(1) | &#10004;(2) | &#10004; | &#10004; | &#10004; |
+| Paketleri yükleme/kaldırma | &#10004; | &#10004;(1) | &#10004; | &#10004; | &#10004; |
 | Güncelleştirme paketleri | &#10004; | &#10004; | | &#10004; | &#10004; |
-| Paketleri geri yükle | &#10004; | &#10004; | &#10004;(3) | &#10004; | &#10004; |
+| Paketleri geri yükle | &#10004; | &#10004; | &#10004;(2) | &#10004; | &#10004; |
 | Paket akışları (kaynaklar) yönetme | | &#10004; | &#10004; | &#10004; | &#10004; |
-| Bir akış paketleri yönetin | &#10004;(1) | &#10004; | &#10004; | | |
+| Bir akış paketleri yönetin | &#10004; | &#10004; | &#10004; | | |
 | Akışları kümesi API anahtarları | | &#10004; | &#10004; | | |
-| Packages(4) oluşturma | &#10004; | &#10004; | &#10004;(5) | &#10004; | |
-| Paketleri yayımlama | &#10004;(1) | &#10004; | &#10004; | &#10004; |  |
+| Packages(3) oluşturma | &#10004; | &#10004; | &#10004;(4) | &#10004; | |
+| Paketleri yayımlama | &#10004; | &#10004; | &#10004; | &#10004; |  |
 | Çoğaltma paketleri |  | &#10004; | &#10004; | | |
 | Yönetme *paket genel* ve önbellek klasörleri | &#10004; | &#10004; | &#10004; | | |
 | NuGet yapılandırmasını yönetme | | &#10004; | &#10004; | | |
 
-(1) nuget.org yalnızca paketleri
+(1) proje dosyalarını etkilemez. kullanma `dotnet.exe` yerine.
 
-(2) proje dosyalarını etkilemez. kullanma `dotnet.exe` yerine.
+(2) yalnızca ile çalışır `packages.config` dosya ve çözümü ile değil (`.sln`) dosyaları.
 
-(3) yalnızca ile çalışır `packages.config` dosya ve çözümü ile değil (`.sln`) dosyaları.
+(3) çeşitli Gelişmiş paket özelliklerini yalnızca, Visual Studio kullanıcı Arabirimi araçları temsil olmayan CLI aracılığıyla kullanıma sunuldu.
 
-(4) çeşitli Gelişmiş paket özelliklerini yalnızca, Visual Studio kullanıcı Arabirimi araçları temsil olmayan CLI aracılığıyla kullanıma sunuldu.
-
-(5) ile çalışır `.nuspec` dosyaları ancak proje dosyaları ile değil.
+(4) çalışır `.nuspec` dosyaları ancak proje dosyaları ile değil.
 
 ### <a name="related-topics"></a>İlgili konular
 

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/26/2017
 ms.topic: conceptual
-ms.openlocfilehash: f911e24da76880410f8dfaa2891b609c7beb4a61
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 6b41b23df115c45e830404afcf9defa23615bd7c
+ms.sourcegitcommit: ce97dded7715f217ec44f6c8368ab0df19c38342
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547895"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52615762"
 ---
 # <a name="package-creation-workflow"></a>Paket oluşturma iş akışı
 
@@ -36,7 +36,7 @@ Burada, paketiniz için bir dizi diğer seçenekleri göz atabilirsiniz:
 - [Yerelleştirilmiş paketler oluşturma](../create-packages/creating-localized-packages.md) nasıl bir paket birden çok dil kaynakları ile ve yerelleştirilmiş ayrı uydu paketlerin nasıl kullanılacağına yönelik açıklar.
 - [Yayın öncesi paketleri](../create-packages/prerelease-packages.md) sürüm alfa, beta ve ilgilenen müşteriler için rc paketler gösterilmektedir.
 - [Kaynak ve yapılandırma dosyası dönüşümleri](../create-packages/source-and-config-file-transformations.md) hem tek yönlü belirteci değişiklik projeye eklenir ve Değiştir dosyalarında nasıl yapabileceğiniz açıklanır `web.config` ve `app.config` paket kaldırıldığında ayrıca desteklenen çıkış ayarları .
-- [Sembol paketleri](../create-packages/symbol-packages.md) kitaplığınızı için hata ayıklama sırasında kodunuzda adım tüketicilerin izin semboller sağlama için yönergeler sunar.
+- [Sembol paketleri](../create-packages/symbol-packages-snupkg.md) kitaplığınızı için hata ayıklama sırasında kodunuzda adım tüketicilerin izin semboller sağlama için yönergeler sunar.
 - [Paket sürümü oluşturma](../reference/package-versioning.md) bağımlılıklarınızı (paketinizi tükettiğiniz diğer paketleri) için izin tam sürümünü belirlemek nasıl ele alınmaktadır.
 - [Yerel paketler](../create-packages/native-packages.md) C++ Tüketiciler için paket oluşturma işlemi açıklanmaktadır.
 - [İmzalama paketleri](../create-packages/sign-a-package.md) bir paket için bir dijital imza ekleme işlemi açıklanır.
