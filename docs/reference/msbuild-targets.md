@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7b3fc72ddd3ad6c9185c2bd0f2563df59e77f1c8
-ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
+ms.openlocfilehash: a9427d87f69a2e942a9802fbdae5193eead1c724
+ms.sourcegitcommit: af58d59669674c3bc0a230d5764e37020a9a3f1e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52453552"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52831026"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet paketi ve MSBuild hedefleri olarak geri yükleme
 
@@ -192,7 +192,7 @@ Dosya türü ile derleme yaparsanız, proje klasörünün dışında olduğu iç
 ### <a name="packing-a-license-expression-or-a-license-file"></a>Bir lisans ifadesi veya bir lisans dosyası
 
 Lisans ifade kullanılırken PackageLicenseExpression özelliği kullanılmalıdır. 
-[Lisans ifade örnek](#https://github.com/NuGet/Samples/tree/master/PackageLicenseExpressionExample).
+[Lisans ifade örnek](https://github.com/NuGet/Samples/tree/master/PackageLicenseExpressionExample).
 
 Lisans dosyası paketleme, PackageLicenseFile özelliği paket köküne paket yolu belirtmek için kullanmanız gerekir. Ayrıca, dosyanın pakete dahil olduğunu emin olmanız gerekir. Örneğin:
 
@@ -205,7 +205,7 @@ Lisans dosyası paketleme, PackageLicenseFile özelliği paket köküne paket yo
     <None Include="licenses\LICENSE.txt" Pack="true" PackagePath="$(PackageLicenseFile)"/>
 </ItemGroup>
 ```
-[Lisans yaşam örnek](#https://github.com/NuGet/Samples/tree/master/PackageLicenseFileExample).
+[Lisans dosyası örneği](https://github.com/NuGet/Samples/tree/master/PackageLicenseFileExample).
 
 ### <a name="istool"></a>IsTool
 
