@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 02/12/2018
 ms.topic: overview
-ms.openlocfilehash: 3cb3d5f97e9fb7ce292ddc5a95b61c13f64a17e7
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 955cbdb6766152fd793ed3604cf599987e9805e0
+ms.sourcegitcommit: 673e580ae749544a4a071b4efe7d42fd2bb6d209
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547672"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52977556"
 ---
 # <a name="different-ways-to-install-a-nuget-package"></a>Bir NuGet paketini yüklemek için farklı yollar
 
@@ -64,6 +64,7 @@ Genel süreç aşağıdaki gibidir:
 
 ## <a name="related-articles"></a>İlgili makaleler
 
+- [İmzalı paketlerin yüklenmesi](installing-signed-packages.md)
 - [Genel bakış ve paket tüketim iş akışı](../consume-packages/overview-and-workflow.md)
 - [Paketleri bulma ve seçme](../consume-packages/finding-and-choosing-packages.md)
 - [NuGet önbelleğini ve genel paketleri klasörleri yönetme](managing-the-global-packages-and-cache-folders.md)
