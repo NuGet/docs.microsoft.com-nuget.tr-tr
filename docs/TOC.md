@@ -10,6 +10,7 @@
 ## [Genel bakış ve iş akışı](consume-packages/overview-and-workflow.md)
 ## [Paketleri bulma ve seçme](consume-packages/finding-and-choosing-packages.md)
 ## [Paketleri yükleme](consume-packages/ways-to-install-a-package.md)
+###[İmzalanmış Paketleri](consume-packages/installing-signed-packages.md)
 ## [Paket geri yükleme](consume-packages/package-restore.md)
 ### [Sorun giderme](consume-packages/package-restore-troubleshooting.md)
 ## [Paketleri yeniden yükleme ve güncelleştirme](consume-packages/reinstalling-and-updating-packages.md)
