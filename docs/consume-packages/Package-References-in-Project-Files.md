@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: d4f0177183ee3edf595c4ce10d1f26cbaca5755d
-ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
+ms.openlocfilehash: e4df15be1f29e2c611876aaa49e16ac7d1823938
+ms.sourcegitcommit: be9c51b4b095aea40ef41bbea7e12ef0a194ee74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52453578"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53248461"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Proje dosyalarında paket başvuruları (PackageReference)
 
@@ -47,7 +47,7 @@ Bir paketin sürümü belirtmek için kural aynı kullanıldığında `packages.
 Yukarıdaki örnekte, 3.6.0 olan herhangi bir sürümü anlamına gelir > üzerinde açıklandığı 3.6.0 tercih en düşük sürümü ile = [Paket sürümü oluşturma](../reference/package-versioning.md#version-ranges-and-wildcards).
 
 ## <a name="using-packagereference-for-a-project-with-no-packagereferences"></a>Hiçbir packagereferences'ı içeren bir proje için PackageReference kullanma
-Gelişmiş: sahip paket yüklü bir projede (proje dosyasında hiçbir PackageReferences) ve hiçbir packages.config dosyası yok, ancak stili Packagereference'a geri yüklenmesini istediğiniz projesinin, proje özelliği RestoreProjectStyle Packagereference'a ayarlayabileceğiniz içinde Proje dosyanız.
+Gelişmiş: Artık paketler, bir projede (proje dosyasında hiçbir PackageReferences) ve hiçbir packages.config dosyası yüklü olan, ancak projesi stili Packagereference'a geri yüklenmesini istiyorsanız, projenizde bir proje özelliğini RestoreProjectStyle Packagereference'a ayarlayabilirsiniz dosya.
 ```xml
 <PropertyGroup>
     <!--- ... -->
@@ -155,7 +155,7 @@ Koşul da uygulanabilir `ItemGroup` düzeyi ve tüm alt öğelere uygulanacak `P
 ```
 
 ## <a name="locking-dependencies"></a>Kilitleme bağımlılıkları
-*Bu özellik, NuGet ile kullanılabilir **4.9** veya yukarıda ve Visual Studio 2017 ile **15,9 Preview 5** veya üzeri.*
+*Bu özellik, NuGet ile kullanılabilir **4.9** veya yukarıda ve Visual Studio 2017 ile **15.9** veya üzeri.*
 
 Giriş olarak NuGet geri yükleme, paket başvurularının proje dosyası (üst düzey veya doğrudan bağımlılıkları) kümesidir ve tam bir kapanış geçişli bağımlılıklar dahil olmak üzere tüm paket bağımlılıklarının çıkış alınır. NuGet Packagereference'a listesi girişi değiştirilmediyse her zaman paket bağımlılıklarının aynı tam kapatma üretmek çalışır. Ancak, bunu yapmanız mümkün olduğu bazı senaryolar vardır. Örneğin:
 
@@ -213,7 +213,7 @@ Ayrıca, proje dosyanızda koşullu bu MSBuild özelliği ayarlayabilir:
 Kilitli modda ise `true`, geri yükleme ya da kilit dosyasında listelenen tam paketler geri veya proje için tanımlanmış Paket bağımlılıklarını kilit dosyası oluşturulduktan sonra güncelleştirdiyseniz başarısız.
 
 ### <a name="make-lock-file-part-of-your-source-repository"></a>Kilit dosya kaynak deponuza parçası olun
-NuGet yapabilmeleri için yürütülebilir bir uygulama oluşturuyorsanız ve söz konusu proje bağımlılık zincirinden sonundaysa kilit dosyanın kaynak kod deposuna iade edin geri yükleme sırasında bunu kullanın.
+NuGet yapabilmeleri için yürütülebilir bir uygulama oluşturuyorsanız ve söz konusu bağımlılık zincirinden başlangıcında projedir kilit dosyanın kaynak kod deposuna iade edin geri yükleme sırasında bunu kullanın.
 
 Projenizi gönderilen bir kitaplık projesi veya hangi diğer ortak bir kod projesi varsa ancak projeleri bağlı bağlıdır **barındırmamalıdır** kaynak kodunuzu bir parçası olarak kilit dosyasında denetleyin. Kilit dosyası tutma içinde hiçbir zarar yoktur, ancak ortak kod projesi için kilitli paket bağımlılıkları, bu ortak kod projesi üzerinde bağımlı bir proje geri yükleme/derleme sırasında kilit dosyasında listelenen kullanılamaz.
 

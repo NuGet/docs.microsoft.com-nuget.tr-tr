@@ -8,21 +8,18 @@ description: Depo imzaları kaynak istemcilerin kendi depo imzalama özellikleri
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 50f309b99d4bf59e14f3e29b6b0421d8c3e8aa5a
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 81d32a7011268e45136e00cdb7345a95070aae06
+ms.sourcegitcommit: be9c51b4b095aea40ef41bbea7e12ef0a194ee74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547987"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53248448"
 ---
 # <a name="repository-signatures"></a>Depo imzaları
 
 Paket kaynağı yayımlanan paketleri ekleme deposu imza destekliyorsa, paket kaynağı tarafından kullanılan İmzalama sertifikaları belirlemek bir istemci için mümkündür. Bu kaynak, bir depo imzalanmış olup olmadığını paket değiştirilmediğini veya beklenmeyen bir imzalama sertifikası olan algılamak etmesine olanak tanır.
 
 Bu depo imza bilgileri getirmek için kullanılan kaynak `RepositorySignatures` kaynak bulunan [hizmet dizini](service-index.md).
-
-> [!Note]
-> NuGet.org Duyurusu başlayacak `RepositorySignatures` yakın gelecekte kaynak.
 
 ## <a name="versioning"></a>Sürüm oluşturma
 
@@ -31,6 +28,7 @@ Aşağıdaki `@type` değeri kullanılır:
 @type Değer                | Notlar
 -------------------------- | -----
 RepositorySignatures/4.7.0 | İlk yayın
+RepositorySignatures/4.9.0 | Etkinleştirme sağlar `allRepositorySigned`
 
 ## <a name="base-url"></a>Temel URL
 
@@ -59,23 +57,26 @@ Aşağıdaki isteği, depo imzaları dizin getirir.
 
 Depo imzası aşağıdaki özelliklere sahip bir nesne içeren bir JSON belgesi dizinidir:
 
-Ad                | Tür             | Gerekli
-------------------- | ---------------- | --------
-allRepositorySigned | Boole değeri          | Evet
-signingCertificates | Nesne dizisi | Evet
+Ad                | Tür             | Gerekli | Notlar
+------------------- | ---------------- | -------- | -----
+allRepositorySigned | Boole değeri          | evet      | Olmalıdır `false` 4.7.0 üzerinde kaynak
+signingCertificates | Nesne dizisi | evet      | 
 
 `allRepositorySigned` Paket kaynağı depo imzasına sahip bazı paketler varsa, Boole false olarak ayarlanır. Boole true olarak kullanılabilir tüm paketleri ayarlanmışsa kaynak belirtilen İmzalama sertifikaları biri tarafından üretilen bir depo imza içermelidir `signingCertificates`.
+
+> [!Warning]
+> `allRepositorySigned` Boole 4.7.0 üzerinde false olmalıdır kaynak. NuGet v4.7 ve v4.8 istemcileri olan kaynaklardan paketleri yükleyemiyor `allRepositorySigned` true olarak ayarlanmış.
 
 Bir veya daha fazla İmzalama sertifikaları olmalıdır `signingCertificates` , dizi `allRepositorySigned` boolean ayarlanmışsa true. Dizi boş ise ve `allRepositorySigned` ayarlamak istemci İlkesi tüketim paketlerin hala izin verebilir ancak true kaynağından tüm paketleri geçersiz düşünülmelidir. Bu dizideki her öğe, aşağıdaki özelliklere sahip bir JSON nesnesidir.
 
 Ad         | Tür   | Gerekli | Notlar
 ------------ | ------ | -------- | -----
-contentUrl   | dize | Evet      | DER ile kodlanmış bir ortak sertifika için mutlak URL
-parmak izi | nesne | Evet      |
-Konu      | dize | Evet      | Sertifikadan konu ayırt edici ad
-yayınlayan       | dize | Evet      | Sertifikayı verenin ayırt edici ad
-notBefore    | dize | Evet      | Sertifika geçerlilik döneminin başlangıç zaman damgası
-notAfter     | dize | Evet      | Sertifika geçerlilik bitiş zaman damgası
+contentUrl   | dize | evet      | DER ile kodlanmış bir ortak sertifika için mutlak URL
+parmak izi | nesne | evet      |
+Konu      | dize | evet      | Sertifikadan konu ayırt edici ad
+yayınlayan       | dize | evet      | Sertifikayı verenin ayırt edici ad
+notBefore    | dize | evet      | Sertifika geçerlilik döneminin başlangıç zaman damgası
+notAfter     | dize | evet      | Sertifika geçerlilik bitiş zaman damgası
 
 Unutmayın `contentUrl` HTTPS üzerinden sunulmasını gereklidir. Bu URL, hiçbir özel URL deseni vardır ve bu depo imza dizin belgesi kullanarak dinamik olarak bulunması gerekir. 
 
@@ -86,7 +87,7 @@ Bu derivable özellikler gidiş dönüş en aza indirmek için bir kolaylık ola
 
 Ad                   | Tür   | Gerekli | Notlar
 ---------------------- | ------ | -------- | -----
-2.16.840.1.101.3.4.2.1 | dize | Evet      | SHA-256'yı parmak izi
+2.16.840.1.101.3.4.2.1 | dize | evet      | SHA-256'yı parmak izi
 
 Anahtar adı `2.16.840.1.101.3.4.2.1` SHA-256 karma algoritmasını OID.
 
