@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: a47a3a56e1c290c9a2f228ce1d0313cbdf0c4c34
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: d6925df63daf3096455a8205d6aeb07b4475f715
+ms.sourcegitcommit: 5c5f0f0e1f79098e27d9566dd98371f6ee16f8b5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549212"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53645639"
 ---
 # <a name="building-pre-release-packages"></a>Yayın öncesi paketleri oluşturma
 
@@ -44,15 +44,15 @@ Kararlı bir sürüm hazır olduğunuzda, yalnızca soneki kaldırın ve paketin
 
 Varsayılan olarak, NuGet paketleri ile çalışırken, yayın öncesi sürümleri içermez, ancak bu davranışı şu şekilde değiştirebilirsiniz:
 
-- **Visual Studio'da Paket Yöneticisi UI**: içinde **NuGet paketlerini Yönet** kullanıcı Arabirimi, onay **ön sürümü dahil et** kutusunda:
+- **Visual Studio'da Paket Yöneticisi UI**: İçinde **NuGet paketlerini Yönet** kullanıcı Arabirimi, onay **ön sürümü dahil et** kutusunda:
 
     ![Visual Studio'da INCLUDE Ön onay kutusu](media/Prerelease_02-CheckPrerelease.png)
 
     Ayarlama ya da bu kutuyu temizleyerek Paket Yöneticisi UI ve yükleyebileceğiniz kullanılabilir sürümlerin listesini yeniler.
 
-- **Paket Yöneticisi Konsolu**: kullanım `-IncludePrerelease` anahtarı ile `Find-Package`, `Get-Package`, `Install-Package`, `Sync-Package`, ve `Update-Package` komutları. Başvurmak [PowerShell başvurusu](../tools/powershell-reference.md).
+- **Paket Yöneticisi Konsolu**: Kullanım `-IncludePrerelease` anahtarı ile `Find-Package`, `Get-Package`, `Install-Package`, `Sync-Package`, ve `Update-Package` komutları. Başvurmak [PowerShell başvurusu](../tools/powershell-reference.md).
 
-- **NuGet CLI**: kullanım `-prerelease` anahtarı ile `install`, `update`, `delete`, ve `mirror` komutları. Başvurmak [NuGet CLI başvurusu](../tools/nuget-exe-cli-reference.md)
+- **NuGet CLI**: Kullanım `-prerelease` anahtarı ile `install`, `update`, `delete`, ve `mirror` komutları. Başvurmak [NuGet CLI başvurusu](../tools/nuget-exe-cli-reference.md)
 
 ## <a name="semantic-versioning"></a>Semantic versioning
 
@@ -60,17 +60,17 @@ Varsayılan olarak, NuGet paketleri ile çalışırken, yayın öncesi sürümle
 
 Bu kural, her sürüm üç bölümden `Major.Minor.Patch`, aşağıdaki anlama sahip:
 
-- `Major`: Bozucu değişiklikler
+- `Major`: Yeni değişiklikler
 - `Minor`: Geriye dönük olarak uyumlu ancak yeni özellikler
-- `Patch`: Geriye yalnızca uyumlu hata düzeltmeleri
+- `Patch`: Geriye dönük yalnızca uyumlu hata düzeltmeleri
 
-Yayın öncesi sürümleri düzeltme numarası sonra kısa çizgi ve bir dize ekleyerek belirtilir. Kullanabileceğiniz teknik terimlerle açıklamak gerekirse, * tüm * kısa çizgi ve NuGet paketi yayın öncesi değerlendirir sonra dize. NuGet, kendileri için anlam yorumlama tüketicilerin bırakarak geçerli kullanıcı arabiriminde, daha sonra tam sürüm numarası görüntüler.
+Yayın öncesi sürümleri düzeltme numarası sonra kısa çizgi ve bir dize ekleyerek belirtilir. Kullanabileceğiniz teknik terimlerle açıklamak gerekirse, *herhangi* kısa çizgi ve NuGet paketi yayın öncesi değerlendirir sonra dize. NuGet, kendileri için anlam yorumlama tüketicilerin bırakarak geçerli kullanıcı arabiriminde, daha sonra tam sürüm numarası görüntüler.
 
 Bunu aklınızda, aşağıdaki gibi tanınmış adlandırma kurallarına uymuyor genellikle iyi olur:
 
-- `-alpha`: İş ilerleme ve deneme için genellikle kullanılan alfa sürümü
+- `-alpha`: Genellikle, iş ilerleme ve deneme için kullanılan alfa sürümü
 - `-beta`: Beta sürümü, genellikle bir özellik için bir sonraki tam sürüm planlı, ancak bilinen hataları içerebilir.
-- `-rc`: Genellikle büyük olasılıkla son sürüm Sürüm Adayı (stable) sürece önemli hatalar ortaya çıkmaya başladı.
+- `-rc`: Sürüm Adayı, genellikle büyük olasılıkla son sürüm (stable) sürece önemli hatalar ortaya çıkmaya başladı.
 
 > [!Note]
 > NuGet 4.3.0+ destekler [Semantic Versioning v2.0.0](http://semver.org/spec/v2.0.0.html), olarak nokta gösterimi, yayın öncesi sürüm numaralarıyla destekleyen `1.0.1-build.23`. Nokta gösterimi 4.3.0 önce NuGet sürümü ile desteklenmiyor. NuGet önceki sürümlerinde, bir form gibi kullanabileceğinizi `1.0.1-build23` ancak bu her zaman yayın öncesi bir sürümü kabul.

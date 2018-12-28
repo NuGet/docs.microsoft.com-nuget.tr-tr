@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: a9427d87f69a2e942a9802fbdae5193eead1c724
-ms.sourcegitcommit: af58d59669674c3bc0a230d5764e37020a9a3f1e
+ms.openlocfilehash: 878fb582a31667c84f3ae306b554718de72eca7a
+ms.sourcegitcommit: 5c5f0f0e1f79098e27d9566dd98371f6ee16f8b5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52831026"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53645678"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet paketi ve MSBuild hedefleri olarak geri yükleme
 
@@ -117,8 +117,8 @@ Değişikliğin parçası olarak [NuGet sorunu 352](https://github.com/NuGet/Hom
 
 Çıkış derlemeleri nereye proje dosyası veya komut satırı denetimi için kullanabileceğiniz iki MSBuild özellikleri vardır:
 
-- `IncludeBuildOutput`: Yapı çıkış derlemeleri pakete dahil edilip edilmeyeceğini belirler bir Boole değeri.
-- `BuildOutputTargetFolder`: Çıkış bütünleştirilmiş kodları yerleştirilmelidir klasörü belirtir. Çıkış bütünleştirilmiş kodları (ve diğer çıktı dosyalarının) ilgili framework klasörlerine kopyalanır.
+- `IncludeBuildOutput`: Yapı çıkış derlemeleri pakete dahil edilip edilmeyeceğini belirleyen bir Boole değeri.
+- `BuildOutputTargetFolder`: Çıktı derlemelerinin yerleştirilmelidir klasörü belirtir. Çıkış bütünleştirilmiş kodları (ve diğer çıktı dosyalarının) ilgili framework klasörlerine kopyalanır.
 
 ### <a name="package-references"></a>Paket başvuruları
 
@@ -202,7 +202,7 @@ Lisans dosyası paketleme, PackageLicenseFile özelliği paket köküne paket yo
 </PropertyGroup>
 
 <ItemGroup>
-    <None Include="licenses\LICENSE.txt" Pack="true" PackagePath="$(PackageLicenseFile)"/>
+    <None Include="licenses\LICENSE.txt" Pack="true" PackagePath=""/>
 </ItemGroup>
 ```
 [Lisans dosyası örneği](https://github.com/NuGet/Samples/tree/master/PackageLicenseFileExample).
@@ -252,15 +252,15 @@ Soubor nuspec paketlenecek csproj dosyasının bir örnektir:
 
 `pack` Hedef iç, hedef framework belirli derlemede çalıştırılan iki uzantı noktaları sağlar. Belirli içerik hedef framework ve derlemeleri pakete dahil olmak üzere genişletme noktaları destekler:
 
-- `TargetsForTfmSpecificBuildOutput` Hedef: içindeki dosyaları kullanıma `lib` klasör veya kullanılarak belirtilen bir klasör `BuildOutputTargetFolder`.
-- `TargetsForTfmSpecificContentInPackage` Hedef: dışındaki dosyalara kullanılmak `BuildOutputTargetFolder`.
+- `TargetsForTfmSpecificBuildOutput` Hedef: İçindeki dosyaları kullanıma `lib` klasör veya kullanılarak belirtilen bir klasör `BuildOutputTargetFolder`.
+- `TargetsForTfmSpecificContentInPackage` Hedef: Dosyaları dışında kullanıma `BuildOutputTargetFolder`.
 
 #### <a name="targetsfortfmspecificbuildoutput"></a>TargetsForTfmSpecificBuildOutput
 
 Özel bir hedefleyin ve değeri olarak belirtin `$(TargetsForTfmSpecificBuildOutput)` özelliği. Gitmesi gereken tüm dosyalara `BuildOutputTargetFolder` (LIB) varsayılan olarak hedef dosyaları ItemGroup yazmanız gerekir `BuildOutputInPackage` aşağıdaki iki meta veri değerleri ayarlayın:
 
 - `FinalOutputPath`: Dosyanın mutlak yolu; sağlanmazsa, kimlik kaynak yolu değerlendirmek için kullanılır.
-- `TargetPath`: (İsteğe bağlı) dosyası içinde bir alt kısımlarda gerektiğinde ayarlamak `lib\<TargetFramework>` derlemeleri ilgili kültür klasörlerine altında ötesine uydu gibi. Varsayılan ayar dosyasının adı.
+- `TargetPath`:  (İsteğe bağlı) Dosya içinde bir alt kısımlarda gerektiğinde ayarlamak `lib\<TargetFramework>` derlemeleri ilgili kültür klasörlerine altında ötesine uydu gibi. Varsayılan ayar dosyasının adı.
 
 Örnek:
 
@@ -282,8 +282,8 @@ Soubor nuspec paketlenecek csproj dosyasının bir örnektir:
 
 Özel bir hedefleyin ve değeri olarak belirtin `$(TargetsForTfmSpecificContentInPackage)` özelliği. Tüm dosyalar paket içerisine dâhil etmek, hedef dosyaları ItemGroup yazmanız gerekir `TfmSpecificPackageFile` ve aşağıdaki isteğe bağlı meta verileri ayarlayın:
 
-- `PackagePath`: Yol dosya paketinde çıkış burada olmalıdır. Birden fazla dosya aynı paket yolu eklediyseniz NuGet bir uyarı verir.
-- `BuildAction`: Paket yolu ise dosyaya atamak için derleme eylemi yalnızca gerekli `contentFiles` klasör. Varsayılan olarak "None".
+- `PackagePath`: Yolu, dosya paketinde çıkış burada olmalıdır. Birden fazla dosya aynı paket yolu eklediyseniz NuGet bir uyarı verir.
+- `BuildAction`: Paket yolu ise dosyasına atanacak yapı eylemi yalnızca gerekli `contentFiles` klasör. Varsayılan olarak "None".
 
 Örnek:
 ```xml
