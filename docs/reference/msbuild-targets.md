@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 878fb582a31667c84f3ae306b554718de72eca7a
-ms.sourcegitcommit: 5c5f0f0e1f79098e27d9566dd98371f6ee16f8b5
+ms.openlocfilehash: 8132595cbfaf553736fbcc81aada283a44d6cdbf
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53645678"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324857"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet paketi ve MSBuild hedefleri olarak geri yükleme
 
-*NuGet 4.0 +*
+*NuGet 4.0+*
 
 PackageReference biçimiyle tüm bildirim meta verileri doğrudan içinde bir proje dosyası yerine ayrı bir NuGet 4.0 + depolayabilirsiniz `.nuspec` dosya.
 
@@ -72,6 +72,7 @@ Unutmayın `Owners` ve `Summary` özelliklerinden `.nuspec` MSBuild ile destekle
 ### <a name="pack-target-inputs"></a>paketi hedef girişleri
 
 - IsPackable
+- SuppressDependenciesWhenPacking
 - PackageVersion
 - PackageId
 - Yazarlar
@@ -106,6 +107,10 @@ Unutmayın `Owners` ve `Summary` özelliklerinden `.nuspec` MSBuild ile destekle
 - NuspecProperties
 
 ## <a name="pack-scenarios"></a>Paketi senaryoları
+
+### <a name="suppress-dependencies"></a>Bağımlılıkları gösterme
+
+Paket bağımlılıklarını üretilen NuGet paketinden bastırmak için ayarlanmış `SuppressDependenciesWhenPacking` için `true` olanak tanıyan oluşturulan nupkg dosyasından tüm bağımlılıkları atlanıyor.
 
 ### <a name="packageiconurl"></a>PackageIconUrl
 
@@ -193,6 +198,14 @@ Dosya türü ile derleme yaparsanız, proje klasörünün dışında olduğu iç
 
 Lisans ifade kullanılırken PackageLicenseExpression özelliği kullanılmalıdır. 
 [Lisans ifade örnek](https://github.com/NuGet/Samples/tree/master/PackageLicenseExpressionExample).
+
+```xml
+<PropertyGroup>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+</PropertyGroup>
+```
+
+[Lisans ifadeleri ve NuGet.org tarafından kabul edilen lisansları hakkında daha fazla bilgi edinin](nuspec.md#license).
 
 Lisans dosyası paketleme, PackageLicenseFile özelliği paket köküne paket yolu belirtmek için kullanmanız gerekir. Ayrıca, dosyanın pakete dahil olduğunu emin olmanız gerekir. Örneğin:
 

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0338c3445b2a3d8169158171d97d1e874533a80a
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: ef4c45451cc52eb08dc627f8442c48e853d8ceaf
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551805"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324740"
 ---
 # <a name="omitting-nuget-packages-in-source-control-systems"></a>NuGet paketlerini kaynak denetimi sistemlerini atlama
 
@@ -80,7 +80,7 @@ Seçili dosyaları için TFVC ile kaynak denetimi tümleştirmesi devre dışı 
 
 1. TFS 2010 veya önceki bir sürümü kullanıyorsanız, gizlemek `packages` klasöründe, çalışma alanı eşlemeleri.
 
-1. TFS 2012 veya sonraki sürümünü veya Visual Studio Team Services ile oluşturma bir `.tfignore` dosya çubuğunda açıklandığı [sunucuya AddFiles](/vsts/tfvc/add-files-server.md?view=vsts#tfignore). Bu dosyada, açıkça Değişiklikleri yoksaymak için aşağıdaki içeriği içerir `\packages` depo düzey ve diğer birkaç Ara dosyaları klasörü. (Dosya adını kullanarak Windows Gezgini'nde oluşturabileceğiniz bir `.tfignore.` sondaki noktayı ancak siz ile devre dışı bırakmak için "Bilinen dosya uzantıları gizle" ilk seçenek.):
+1. TFS 2012 veya sonraki sürümünü veya Visual Studio Team Services ile oluşturma bir `.tfignore` dosya çubuğunda açıklandığı [sunucu dosyaları ekleme](/vsts/tfvc/add-files-server?view=vsts#tfignore). Bu dosyada, açıkça Değişiklikleri yoksaymak için aşağıdaki içeriği içerir `\packages` depo düzey ve diğer birkaç Ara dosyaları klasörü. (Dosya adını kullanarak Windows Gezgini'nde oluşturabileceğiniz bir `.tfignore.` sondaki noktayı ancak siz ile devre dışı bırakmak için "Bilinen dosya uzantıları gizle" ilk seçenek.):
 
    ```cli
    # Ignore NuGet Packages

@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: ba47d6fdeeaa4ee9de83ef4dd990707bd4928063
-ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
+ms.openlocfilehash: 19a1f48164f65f1ff805e036e55abb110247aa72
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52453565"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324870"
 ---
 # <a name="package-metadata"></a>Paket meta verileri
 
@@ -78,7 +78,7 @@ Buluşsal yöntem nuget.org kullanan şu şekildedir: 128 veya daha fazla paket 
 
 Ad     | İçindeki     | Tür    | Gerekli | Notlar
 -------- | ------ | ------- | -------- | -----
-LOWER_ID | URL    | dize  | Evet      | Küçük harfli paket kimliği
+LOWER_ID | URL    | dize  | evet      | Küçük harfli paket kimliği
 
 `LOWER_ID` Tarafından uygulanan kurallar kullanarak küçük harfli istenen paket kimliği bir değerdir. NET [ `System.String.ToLowerInvariant()` ](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) yöntemi.
 
@@ -88,8 +88,8 @@ Yanıt, bir kök nesnesi aşağıdaki özelliklere sahip olan bir JSON belgesi.:
 
 Ad  | Tür             | Gerekli | Notlar
 ----- | ---------------- | -------- | -----
-count | tamsayı          | Evet      | Kayıt sayfalarında dizin sayısı
-Öğeleri | Nesne dizisi | Evet      | Kayıt sayfaları dizisi
+count | tamsayı          | evet      | Kayıt sayfalarında dizin sayısı
+Öğeleri | Nesne dizisi | evet      | Kayıt sayfaları dizisi
 
 Dizin nesnesinin her öğesini `items` dizidir kayıt sayfasını temsil eden bir JSON nesnesi.
 
@@ -99,12 +99,12 @@ Kayıt dizinde bulunan kayıt sayfa nesnesi, aşağıdaki özelliklere sahiptir:
 
 Ad   | Tür             | Gerekli | Notlar
 ------ | ---------------- | -------- | -----
-@id    | dize           | Evet      | Kayıt sayfası URL'si
-count  | tamsayı          | Evet      | Kayıt sayısı sayfasında bırakır.
+@id    | dize           | evet      | Kayıt sayfası URL'si
+count  | tamsayı          | evet      | Kayıt sayısı sayfasında bırakır.
 Öğeleri  | Nesne dizisi | Yok       | Kayıt bırakır ve ilişkilendirme meta verilerinin dizisi
-Daha düşük  | dize           | Evet      | En düşük SemVer 2.0.0 sürümü (kapsamlı) sayfasındaki
+Daha düşük  | dize           | evet      | En düşük SemVer 2.0.0 sürümü (kapsamlı) sayfasındaki
 Üst | dize           | Yok       | Kayıt dizini URL'si
-üst  | dize           | Evet      | En yüksek SemVer 2.0.0 sürümü (kapsamlı) sayfasındaki
+üst  | dize           | evet      | En yüksek SemVer 2.0.0 sürümü (kapsamlı) sayfasındaki
 
 `lower` Ve `upper` sayfasında nesnenin sınırları, belirli bir sayfaya sürümü için meta verileri gerektiğinde kullanışlıdır.
 Bu sınırlar, gerekli yalnızca kayıt sayfasına getirmek için kullanılabilir. Sürüm dizeleri izliyor [NuGet sürümü kurallarını](../reference/package-versioning.md). Sürüm dizeleri normalleştirilir ve derleme meta verileri içermez. NuGet ekosisteminde tüm sürümleri ile birlikte kullanarak sürüm dizeleri karşılaştırma uygulandığı şekilde [2.0.0's SemVer sürümü öncelik kuralları](http://semver.org/spec/v2.0.0.html#spec-item-11).
@@ -123,9 +123,9 @@ Bir kayıt sayfasında bulunan kayıt yaprak nesne, aşağıdaki özelliklere sa
 
 Ad           | Tür   | Gerekli | Notlar
 -------------- | ------ | -------- | -----
-@id            | dize | Evet      | Kayıt yaprak URL'si
-catalogEntry   | nesne | Evet      | Paket meta verileri içeren bir katalog girişi
-packageContent | dize | Evet      | Paket içeriğini (.nupkg) URL'si
+@id            | dize | evet      | Kayıt yaprak URL'si
+catalogEntry   | nesne | evet      | Paket meta verileri içeren bir katalog girişi
+packageContent | dize | evet      | Paket içeriğini (.nupkg) URL'si
 
 Her kayıt yaprak nesnesini tek bir paket sürümü ile ilişkili verileri temsil eder.
 
@@ -135,13 +135,14 @@ Her kayıt yaprak nesnesini tek bir paket sürümü ile ilişkili verileri temsi
 
 Ad                     | Tür                       | Gerekli | Notlar
 ------------------------ | -------------------------- | -------- | -----
-@id                      | dize                     | Evet      | Bu nesne oluşturmak için kullanılan belgesi URL'si
+@id                      | dize                     | evet      | Bu nesne oluşturmak için kullanılan belgesi URL'si
 Yazarları                  | dize veya dize dizisi | Yok       | 
 dependencyGroups         | Nesne dizisi           | Yok       | Hedef framework tarafından gruplandırılmış paket bağımlılıkları
 açıklama              | dize                     | Yok       | 
 IconUrl                  | dize                     | Yok       | 
-kimlik                       | dize                     | Evet      | Paket kimliği
-LicenseUrl               | dize                     | Yok       | 
+kimlik                       | dize                     | evet      | Paket kimliği
+LicenseUrl               | dize                     | Yok       |
+licenseExpression        | dize                     | Yok       | 
 listelenen                   | Boole değeri                    | Yok       | Listelenen çalıştırıyorsa olarak düşünülmelidir
 MinClientVersion         | dize                     | Yok       | 
 ProjectUrl               | dize                     | Yok       | 
@@ -149,12 +150,14 @@ Yayımlanan                | dize                     | Yok       | Paketin ne z
 RequireLicenseAcceptance | Boole değeri                    | Yok       | 
 özet                  | dize                     | Yok       | 
 etiketler                     | dize veya dize dizisi  | Yok       | 
-Başlık                    | dize                     | Yok       | 
-sürüm                  | dize                     | Evet      | Normalleştirme sonra tam sürüm dizesi
+başlık                    | dize                     | Yok       | 
+sürüm                  | dize                     | evet      | Normalleştirme sonra tam sürüm dizesi
 
 Paket `version` tam sürüm dizesi sonra normalleştirme özelliğidir. Bu, SemVer 2.0.0 yapılandırma verilerini buraya dahil olabileceğini anlamına gelir.
 
 `dependencyGroups` Özelliğidir paketin hedef framework tarafından gruplandırılmış bağımlılıkları temsil eden nesneler dizisi. Paket bağımlılıkları hakkında daha fazla varsa `dependencyGroups` özelliği eksik, boş bir dizi veya `dependencies` tüm grupların özelliği boş veya eksik.
+
+Değerini `licenseExpression` özelliği uyumlu ile [NuGet lisans ifadesi söz dizimi](https://docs.microsoft.com/en-us/nuget/reference/nuspec#license).
 
 #### <a name="package-dependency-group"></a>Paket bağımlılık grubu
 
@@ -175,7 +178,7 @@ Her paket bağımlılığı aşağıdaki özelliklere sahiptir:
 
 Ad         | Tür   | Gerekli | Notlar
 ------------ | ------ | -------- | -----
-kimlik           | dize | Evet      | Paket bağımlılık kimliği
+kimlik           | dize | evet      | Paket bağımlılık kimliği
 aralık        | nesne | Yok       | İzin verilen [sürüm aralığı](../reference/package-versioning.md#version-ranges-and-wildcards) bağımlılık
 kayıt | dize | Yok       | Bu bağımlılık kaydını dizini URL'si
 
@@ -199,12 +202,12 @@ Zaman `items` dizi kayıt dizin sağlanmadıysa, HTTP GET isteği `@id` kökü o
 
 Ad   | Tür             | Gerekli | Notlar
 ------ | ---------------- | -------- | -----
-@id    | dize           | Evet      | Kayıt sayfası URL'si
-count  | tamsayı          | Evet      | Kayıt sayısı sayfasında bırakır.
-Öğeleri  | Nesne dizisi | Evet      | Kayıt bırakır ve ilişkilendirme meta verilerinin dizisi
-Daha düşük  | dize           | Evet      | En düşük SemVer 2.0.0 sürümü (kapsamlı) sayfasındaki
-Üst | dize           | Evet      | Kayıt dizini URL'si
-üst  | dize           | Evet      | En yüksek SemVer 2.0.0 sürümü (kapsamlı) sayfasındaki
+@id    | dize           | evet      | Kayıt sayfası URL'si
+count  | tamsayı          | evet      | Kayıt sayısı sayfasında bırakır.
+Öğeleri  | Nesne dizisi | evet      | Kayıt bırakır ve ilişkilendirme meta verilerinin dizisi
+Daha düşük  | dize           | evet      | En düşük SemVer 2.0.0 sürümü (kapsamlı) sayfasındaki
+Üst | dize           | evet      | Kayıt dizini URL'si
+üst  | dize           | evet      | En yüksek SemVer 2.0.0 sürümü (kapsamlı) sayfasındaki
 
 Kayıt yaprak nesnelerin şeklini kayıt dizini ile aynı olduğu [yukarıda](#registration-leaf-object-in-a-page).
 
@@ -226,7 +229,7 @@ Kayıt, aşağıdaki özelliklere sahip bir kök nesnesi içeren bir JSON belges
 
 Ad           | Tür    | Gerekli | Notlar
 -------------- | ------- | -------- | -----
-@id            | dize  | Evet      | Kayıt yaprak URL'si
+@id            | dize  | evet      | Kayıt yaprak URL'si
 catalogEntry   | dize  | Yok       | Üretilen bu yaprak katalog girişi URL'si
 listelenen         | Boole değeri | Yok       | Listelenen çalıştırıyorsa olarak düşünülmelidir
 packageContent | dize  | Yok       | Paket içeriğini (.nupkg) URL'si

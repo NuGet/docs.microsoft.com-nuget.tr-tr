@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 5/14/2018
 ms.topic: conceptual
-ms.openlocfilehash: 641304059c90e360fae4d0956d7b922e34bc6501
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.openlocfilehash: cf15c4f6a2e3e9f6ce7b6acb2304648041043685
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981125"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324831"
 ---
 # <a name="nuget-48-rtm-release-notes"></a>NuGet 4,8 RTM sürüm notları
 
@@ -19,12 +19,12 @@ ms.locfileid: "50981125"
 
 Aynı işlevlere komut satırı sürümleri de mevcuttur:
 * 4.8 - NuGet.exe [nuget.org/downloads](https://nuget.org/downloads)
-* DotNet.exe - [.NET Core SDK'sı 2.1.400](https://www.microsoft.com/net/download/visual-studio-sdks)
+* DotNet.exe - [.NET Core SDK 2.1.400](https://www.microsoft.com/net/download/visual-studio-sdks)
 
 
-## <a name="summary-whats-new-in-this-release"></a>Özet: Bu Yayındaki Yenilikler
+## <a name="summary-whats-new-in-this-release"></a>Özet: Bu Sürümdeki Yenilikler
 * NuGet.exe artık Windows 10'da - LONGFILENAMES destekliyor [#6937](https://github.com/NuGet/Home/issues/6937)
-* Kimlik doğrulaması eklentileri artık MsBuild, DotNet.exe, NuGet.exe ve platformlar arası dahil olmak üzere Visual Studio çalışır. Kimlik doğrulaması eklentileri birinci nesil Msbuild'de DotNet.exe desteklenmez. Not: Dahil edilen bir VSTS kimlik doğrulama eklentisi VS 2017 15.9 Önizleme derlemelerini içerir. [#6486](https://github.com/NuGet/Home/issues/6486)
+* Kimlik doğrulaması eklentileri artık MsBuild, DotNet.exe, NuGet.exe ve platformlar arası dahil olmak üzere Visual Studio çalışır. Kimlik doğrulaması eklentileri birinci nesil Msbuild'de DotNet.exe desteklenmez. Not: VS 2017 15.9 Önizleme derlemelerini dahil bir VSTS kimlik doğrulaması eklenti vardır. [#6486](https://github.com/NuGet/Home/issues/6486)
 * MsBuild'ın SDK çözümleyici artık NuGet bir parçası olarak oluşturur ve VS için NuGet araçları yükler. Bu eşitleme alma sürümleri uğraşmasına gerek kalmaz. [#6799](https://github.com/NuGet/Home/issues/6799)
 * PackageReference artık destekliyor DevelopmentDependency meta - [#4125](https://github.com/NuGet/Home/issues/4125)
 
@@ -56,13 +56,13 @@ Aşağıdaki NuGet eylemlerden birini gerçekleştirin:
 * Ayrıca NuGet geri yükleme tetikler projeyi derleyin
 
 Artık geçiş seçeneği görmeye olmalıdır. Bu seçenek desteklenmez ve ASP.NET ve C++ proje türleri için gösterilmez unutmayın.
-Not: Bu VS 2017 15.9 Preview 3'te düzeltildi
+Not: VS 2017 15.9 Preview 3'te düzeltildi
 
 ## <a name="issues-fixed-in-this-release"></a>Bu sürümde giderilen sorunlar
 
 ### <a name="bugs"></a>Hatalar
 #### <a name="signing"></a>imzalama
-* İmzalama: Çevrimdışı ortamda Paket imzalı yükleme [#7008](https://github.com/NuGet/Home/issues/7008) --4.8.1 sürümünde düzeltilen
+* İmzalama: İmzalı paket çevrimdışı ortamda yükleme [#7008](https://github.com/NuGet/Home/issues/7008) --4.8.1 sürümünde düzeltilen
 * İmzalama: Yanlış URL onay - [#7174](https://github.com/NuGet/Home/issues/7174)
 * İmzalama:, paket deposu imzalanabilir - olduğunda RepositorySignatureVerifier içinde paket bütünlük denetimi [#6926](https://github.com/NuGet/Home/issues/6926)
 * "Paket bütünlük denetimi başarısız oldu." ileti (ve hata kodu) - paket kimliği olmalıdır [#6944](https://github.com/NuGet/Home/issues/6944)
@@ -72,7 +72,7 @@ Not: Bu VS 2017 15.9 Preview 3'te düzeltildi
 * Bellek Geçersiz imzalayan bilgileri güncelleştirilirken zaman damgası için onay imzası - eklerken [#6840](https://github.com/NuGet/Home/issues/6840)
 * İmzalama: CTL özel durum - kaldırma [#6794](https://github.com/NuGet/Home/issues/6794)
 * İmzalama: contentUrl HTTPS - olmalıdır [#6777](https://github.com/NuGet/Home/issues/6777)
-* İmzalama: SignedPackageVerifierSettings.VSClientDefaultPolicy kullanılmayan - [#6601](https://github.com/NuGet/Home/issues/6601)
+* İmzalama:  Kullanılmayan - SignedPackageVerifierSettings.VSClientDefaultPolicy [#6601](https://github.com/NuGet/Home/issues/6601)
 
 
 #### <a name="pack"></a>Paketi

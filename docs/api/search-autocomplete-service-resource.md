@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 01f919dc3bbfb6752c8f8e055a3cd473ad194e75
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 2d2b20c1ea439ec0a3225cf983d9a4d2eedb0333
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549089"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324766"
 ---
 # <a name="autocomplete"></a>Otomatik Tamamlama
 
@@ -73,12 +73,12 @@ Kök JSON nesnesinin aşağıdaki özelliklere sahiptir:
 
 Ad      | Tür             | Gerekli | Notlar
 --------- | ---------------- | -------- | -----
-totalHits | tamsayı          | Evet      | Toplam sayısı atlayıp bir eşleşme `skip` ve `take`
-veri      | dize dizisi | Evet      | ' % S'paketi istek tarafından eşleştirilen kimlikleri
+totalHits | tamsayı          | evet      | Toplam sayısı atlayıp bir eşleşme `skip` ve `take`
+veri      | dize dizisi | evet      | ' % S'paketi istek tarafından eşleştirilen kimlikleri
 
 ### <a name="sample-request"></a>Örnek istek
 
-AL https://api-v2v3search-0.nuget.org/autocomplete?q=storage&prerelease=true
+    GET https://api-v2v3search-0.nuget.org/autocomplete?q=storage&prerelease=true
 
 ### <a name="sample-response"></a>Örnek yanıt
 
@@ -96,7 +96,7 @@ Listede bulunmayan bir paket sürümüne sonuçlarında görünmez.
 
 Ad        | İçindeki     | Tür    | Gerekli | Notlar
 ----------- | ------ | ------- | -------- | -----
-kimlik          | URL    | dize  | Evet      | Sürümleri için getirmek için paket kimliği
+kimlik          | URL    | dize  | evet      | Sürümleri için getirmek için paket kimliği
 yayın öncesi  | URL    | Boole değeri | Yok       | `true` veya `false` dahil edilip edilmeyeceğini belirleme [yayın öncesi paketleri](../create-packages/prerelease-packages.md)
 semVerLevel | URL    | dize  | Yok       | Bir SemVer 2.0.0 sürümü dizesi 
 
@@ -112,7 +112,7 @@ Kök JSON nesnesinin aşağıdaki özellik vardır:
 
 Ad      | Tür             | Gerekli | Notlar
 --------- | ---------------- | -------- | -----
-veri      | dize dizisi | Evet      | İstek tarafından eşleşen paket sürümleri
+veri      | dize dizisi | evet      | İstek tarafından eşleşen paket sürümleri
 
 Paket sürümlerinde `data` dizi SemVer 2.0.0 derleme meta verileri içeren (örn `1.0.0+metadata`) varsa `semVerLevel=2.0.0` sorgu dizesinde sağlanan.
 

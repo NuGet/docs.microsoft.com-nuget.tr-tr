@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8e612d9f86bcffc99870c5541aa6091e678db512
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 97ed3ec7d41d2847c0521af69373a1871eb585dd
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547095"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324688"
 ---
 # <a name="nuget-client-sdk"></a>NuGet istemci SDK'sı
 
@@ -29,10 +29,14 @@ Kaynak kodu Github'da projede yayımlanan [NuGet/NuGet.Client](https://github.co
 
 Örnekler ve belgeler için bazı API 2016 yayımlanan Dave Glick tarafından aşağıdaki blog dizisini bulabilirsiniz:
 
-- [Keşfetmeye NuGet v3 kitaplıkları, 1. Bölüm: giriş ve kavramları](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-1)
-- [2. Bölüm NuGet v3 kitaplıkları keşfetme: paketlerini arama](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-2)
-- [3. Kısım NuGet v3 kitaplıkları keşfetme: paketlerini yükleme](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-3)
+- [1. Bölüm NuGet v3 kitaplıkları keşfetme: Giriş ve kavramları](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-1)
+- [2. Bölüm NuGet v3 kitaplıkları keşfetme: Paketlerini arama](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-2)
+- [Bölüm 3 NuGet v3 kitaplıkları keşfetme: Paketleri yükleme](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-3)
 
 > [!Note]
 > Bu blog gönderileri, kısa süre sonra yazılmış **3.4.3** istemci SDK paketleri kullanıma sunulan NuGet sürümü.
 > Paketlerin daha yeni sürümlerini blog gönderilerini bilgileri ile uyumlu olmayabilir.
+
+Martin Björkström burada verilen NuGet paketlerini yüklemek için NuGet istemci SDK'sını kullanarak farklı bir yaklaşım tanıtan bir izleme blog gönderisi Dave Glick'ın blog serisine yaptınız:
+
+- [NuGet v3 kitaplıkları hakkında yeniden değerlendirme](https://martinbjorkstrom.com/posts/2018-09-19-revisiting-nuget-client-libraries)

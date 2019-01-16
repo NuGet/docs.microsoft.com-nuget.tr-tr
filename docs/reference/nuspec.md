@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 08/29/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: e8d4ed1f3fe4394d084a5847200901b23a1b7b39
-ms.sourcegitcommit: c825eb7e222d4a551431643f5b5617ae868ebe0a
+ms.openlocfilehash: 009be99a1c6623a00b4bdbe6db3164ca70782212
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51944086"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324909"
 ---
 # <a name="nuspec-reference"></a>.nuspec başvurusu
 
@@ -72,7 +72,7 @@ Nuget.org profil adları eşleşen paketleri yazar, virgülle ayrılmış listes
 
 ### <a name="optional-metadata-elements"></a>İsteğe bağlı meta veri öğeleri
 
-#### <a name="title"></a>Başlık
+#### <a name="title"></a>başlık
 Nuget.org ve Visual Studio'da Paket Yöneticisi UI görünümlerde genellikle kullanılan paket bir insan dostu başlığı. Belirtilmezse, paket kimliği kullanılır. 
 #### <a name="owners"></a>Sahipleri
 Nuget.org adresinden profil adları kullanarak paket creators virgülle ayrılmış listesi. Bu genellikle aynı liste olarak olur `authors`ve nuget.org için paket karşıya yüklenirken göz ardı edilir. Bkz: [yönetme paket sahipleri nuget.org](../create-packages/publish-a-package.md#managing-package-owners-on-nugetorg). 
@@ -105,6 +105,9 @@ SPDX tanımlayıcı atanmamış lisans kullandığınız ya da özel bir lisanst
   </files>
 </package>
 ```
+
+MSBuild eşdeğer için göz atın [lisans ifadesi veya bir lisans dosyası](msbuild-targets.md#packing-a-license-expression-or-a-license-file).
+
 NuGet'ın lisans ifadelerin söz dizimi aşağıda açıklanan [ABNF](https://tools.ietf.org/html/rfc5234).
 ```cli
 license-id            = <short form license identifier from https://spdx.org/spdx-specification-21-web-version#h.luq9dgcle9mo>
@@ -250,7 +253,7 @@ Aşağıdaki satırları aynı paket bağımlılıkları gösterir, ancak dahil 
 </dependencies>
 ```
 
-Not: oluştururken bir `.nuspec` kullanarak proje `nuget spec`, o projede bağımlılıkları otomatik olarak dahil edilecek ortaya çıkan `.nuspec` dosya.
+Not: Oluştururken bir `.nuspec` kullanarak proje `nuget spec`, o projede bağımlılıkları otomatik olarak dahil edilecek ortaya çıkan `.nuspec` dosya.
 
 ### <a name="dependency-groups"></a>Bağımlılık grupları
 
@@ -722,7 +725,7 @@ Boş klasörler kullanabileceğiniz `.` örneğin dil ve TxM, belirli bir kombin
 
 Bu örnekte, belirli proje hedefleri aşağıdaki yüklenir:
 
-- . NET4 -&GT; `System.Web`, `System.Net`
+- .NET4 -> `System.Web`, `System.Net`
 - . NET4 İstemci profili -> `System.Net`
 - Silverlight 3 -> `System.Json`
 - Silverlight 4 -> `System.Windows.Controls.DomainServices`

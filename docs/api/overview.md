@@ -6,18 +6,18 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: bb47c72768b0698d8e712c8261321ff38bba2764
-ms.sourcegitcommit: be9c51b4b095aea40ef41bbea7e12ef0a194ee74
+ms.openlocfilehash: 39b710c483ce4b3f2da30df6bb5b6842f9ee1fca
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53248435"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324844"
 ---
 # <a name="nuget-api"></a>NuGet API'si
 
 NuGet paketlerini indirin, meta verileri getirir, yeni paket yayımlamasına ve birçok diğer resmi NuGet istemcisinde bulunan işlemleri için kullanılan HTTP uç noktaları bir dizi API'dir.
 
-Bu API gibi NuGet işlemleri gerçekleştirmek için Visual Studio, nuget.exe ve .NET CLI NuGet istemci tarafından kullanılır [ `dotnet restore` ](/dotnet/articles/core/preview3/tools/dotnet-restore), Visual Studio kullanıcı arabiriminde, arama ve [ `nuget.exe push` ](../tools/cli-ref-push.md).
+Bu API gibi NuGet işlemleri gerçekleştirmek için Visual Studio, nuget.exe ve .NET CLI NuGet istemci tarafından kullanılır [ `dotnet restore` ](/dotnet/core/tools/dotnet-restore?tabs=netcore2x), Visual Studio kullanıcı arabiriminde, arama ve [ `nuget.exe push` ](../tools/cli-ref-push.md).
 
 Not Bazı durumlarda, nuget.org başka bir paket kaynak tarafından zorlanmaz ek gereksinimleri vardır. Bu farklar tarafından belgelenen [nuget.org protokolleri](nuget-protocols.md).
 
@@ -35,7 +35,7 @@ Hizmet dizini hakkında daha fazla bilgi için bkz: [, API Başvurusu](service-i
 
 ## <a name="versioning"></a>Sürüm oluşturma
 
-NuGet HTTP protokolü sürümü 3 API'dir. Bu protokol bazen "V3 API." adlandırılır Bu başvuru belgeleri protokol bu sürümü yalnızca "API'SİYLE." başvuracaktır.
+NuGet HTTP protokolü sürümü 3 API'dir. Bu protokol, bazen "V3 API olarak" da denir. Bu başvuru belgeleri protokol bu sürümü yalnızca "API'SİYLE." başvuracaktır.
 
 Hizmet dizini şema sürümü tarafından belirtilen `version` hizmet dizini özelliği. API sürüm dizesi bir ana sürüm numarasını sahip olduğunu taahhütlerin `3`. Hizmet dizin şeması için hataya neden olmayan değişiklikler yapıldıkça, sürüm dizesinin alt sürümü artırılır.
 
@@ -43,7 +43,7 @@ Eski istemciler (nuget.exe gibi 2.x) değil V3 API desteği ve yalnızca eski V2
 
 OData tabanlı bir protokol sürümü olan 2.x sürümüne resmi bir NuGet istemcisi tarafından uygulanan olduğu V2 API'si ardılı olduğu için NuGet V3 API şekilde adlandırılır. V3 API 3.0 sürümü resmi bir NuGet istemcisi tarafından desteklenen ilk ve son ana Protokolü sürüm 4.0 NuGet istemci tarafından ve hala desteklenmektedir. 
 
-İlk sürüm olduğundan, API'ye bölünemez Protokolü değişiklikler yapılmıştır.
+İlk yayımlandıktan API'sine bölünemez Protokolü değişiklikler yapılmıştır.
 
 ## <a name="resources-and-schema"></a>Kaynaklar ve şema
 

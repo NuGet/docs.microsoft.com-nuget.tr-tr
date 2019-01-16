@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 09/27/2017
 ms.topic: conceptual
-ms.openlocfilehash: c59839240935e2a6c590dea3adf623313f79f02f
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.openlocfilehash: a755438c1f63d33271f636cb663cc5b51a5aecbc
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981151"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324818"
 ---
 # <a name="supporting-multiple-net-framework-versions"></a>Birden çok .NET framework sürümleri destekleme
 
@@ -117,16 +117,16 @@ NuGet, tire ve profil adına klasörü sonuna ekleyerek belirli framework profil
 Desteklenen profilleri aşağıdaki gibidir:
 
 - `client`: İstemci profili
-- `full`: Tam profili
+- `full`: Tam profil
 - `wp`: Windows Phone
-- `cf`: Compact Framework
+- `cf`: Compact Framework'te
 
 ## <a name="determining-which-nuget-target-to-use"></a>Kullanmak için hangi NuGet hedef belirleme
 
 Ne zaman taşınabilir sınıf kitaplığı hedefleyen paketleme kitaplıkları olabilir hangi NuGet hedef klasör adlarınızı kullanmanız gerektiğini belirlemek zor ve `.nuspec` , özellikle de yalnızca bir alt kümesini PCL hedefleyen dosyası. Aşağıdaki dış kaynaklar bu konuda yardımcı olur:
 
-- [.NET Framework profillerinde](http://blog.stephencleary.com/2012/05/framework-profiles-in-net.html) (stephenclearly.com)
-- [Taşınabilir sınıf kitaplığı profilleri](http://embed.plnkr.co/03ck2dCtnJogBKHJ9EjY/preview) (plnkr.co): Tablo PCL profilleri ile eşdeğer NuGet hedeflerine numaralandırma
+- [.NET Framework profillerinde](http://blog.stephencleary.com/2012/05/framework-profiles-in-net.html) (stephencleary.com)
+- [Taşınabilir sınıf kitaplığı profilleri](http://embed.plnkr.co/03ck2dCtnJogBKHJ9EjY/preview) (plnkr.co): PCL profilleri ile eşdeğer NuGet hedeflerine numaralandırma tablo
 - [Taşınabilir sınıf kitaplığı profilleri aracı](https://github.com/StephenCleary/PortableLibraryProfiles) (github.com): PCL belirlemek için komut satırı aracını sisteminizde kullanılabilir profiller
 
 ## <a name="content-files-and-powershell-scripts"></a>İçerik dosyaları ve PowerShell betikleri

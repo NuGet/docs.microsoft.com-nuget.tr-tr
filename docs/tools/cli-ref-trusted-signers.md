@@ -6,16 +6,16 @@ ms.author: patbel
 ms.date: 11/12/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: ffd0cf5d50a2deed16e1722b32e43047bc81df2f
-ms.sourcegitcommit: a1846edf70ddb2505d58e536e08e952d870931b0
+ms.openlocfilehash: ee4ffaa7e250cdbf313476fd794a8d87c80b69f9
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52303730"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324714"
 ---
 # <a name="trusted-signers-command-nuget-cli"></a>Güvenilen İmzalayanları komut (NuGet CLI)
 
-**İçin geçerlidir:** paketini tüketim &bullet; **desteklenen sürümler:** 4.9 +
+**İçin geçerlidir:** paketini tüketim &bullet; **desteklenen sürümler:** 4.9.1+
 
 Alır veya güvenilen İmzalayanları için NuGet yapılandırmayı ayarlar. Ek kullanım için bkz: [NuGet davranışını yapılandırma](../consume-packages/configuring-nuget-behavior.md). Nuget.config şema bakın gibi nasıl göründüğüne ilişkin ayrıntılar için [NuGet yapılandırma dosyası başvurusu](../reference/nuget-config-file.md).
 
@@ -68,7 +68,7 @@ Burada `<package(s)>` bir veya daha fazla `.nupkg` dosyaları.
 | Seçenek | Açıklama |
 | --- | --- |
 | Yazar | Paket yazarı imzası güvenilir olması gerektiğini belirtir. |
-| Depo | Depo imza veya onay imzası paketleri, güvenilir olması gerektiğini belirtir. |
+| Havuz | Depo imza veya onay imzası paketleri, güvenilir olması gerektiğini belirtir. |
 | AllowUntrustedRoot | İçin güvenilen imzalayan sertifika zinciri güvenilmeyen bir kökü için izin verilmediğini belirtir. |
 | Sahipleri | Bir havuzun güven kısıtlamanız güvenilen sahiplerinin noktalı virgülle ayrılmış listesi. Kullanırken yalnızca geçerli `-Repository` seçeneği. |
 
@@ -80,7 +80,7 @@ Hem `-Author` ve `-Repository` aynı anda desteklenmiyor.
 nuget trusted-signers add -Name <name> [options]
 ```
 
-_Not_: Bu seçenek yalnızca güvenilen depoları ekleyeceksiniz. 
+_Not_: Bu seçenek yalnızca güvenilen depoları ekler. 
 
 | Seçenek | Açıklama |
 | --- | --- |
@@ -94,7 +94,7 @@ _Not_: Bu seçenek yalnızca güvenilen depoları ekleyeceksiniz.
 nuget trusted-signers add -Name <name> [options]
 ```
 
-_Not_: verilen ada sahip bir güvenilen imzalayan zaten varsa, sertifika öğesi için imzalayan eklenir. Aksi takdirde bir sertifika öğesi ile güvenilir Yazar oluşturulacak alanından sertifika bilgileri verilir.
+_Not_: Belirtilen ada sahip bir güvenilen imzalayan zaten varsa, sertifika öğesi için imzalayan eklenir. Aksi takdirde bir sertifika öğesi ile güvenilir Yazar oluşturulacak alanından sertifika bilgileri verilir.
 
 | Seçenek | Açıklama |
 | --- | --- |
@@ -110,7 +110,7 @@ Verilen ada uyan herhangi bir güvenilir İmzalayanları kaldırır.
 
 Şu anda güvenilir bir depoda güncelleştirmek için kullanılan sertifikaları en son listesi ister mevcut sertifika listesine güvenilir imzalayan.
 
-_Not_: Bu hareket geçerli sertifikaların listesini silmek ve bunları depodan güncel bir listesi ile değiştirin.
+_Not_: Bu hareket geçerli sertifikaların listesini silmek ve depodan güncel bir listesi yerine.
 
 ## <a name="options"></a>Seçenekler
 
