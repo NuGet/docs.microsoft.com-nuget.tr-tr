@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/22/2018
 ms.topic: conceptual
-ms.openlocfilehash: 5f52b00e0c45882fb7a4bd1c1a80022192f3be6b
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: 506a093ff4d62c10c896246f746e6765f64f33f4
+ms.sourcegitcommit: a801052aa728a3a137225ca3ef3ff89f2d1c6b76
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580252"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54403170"
 ---
 # <a name="package-consumption-workflow"></a>Paket tüketim iş akışı
 
@@ -35,7 +35,7 @@ Proje kodunu bir kaynak havuzuna eklerken NuGet paketleri genellikle dahil deği
 
 ![Bir depoyu kopyalama ve bir geri yükleme komutunu kullanarak NuGet paketlerini geri akışı](media/Overview-02-RestoreFlow.png)
 
-[Paket geri yükleme](../consume-packages/package-restore.md) proje dosyasında bilgileri kullanır veya `packages.config` tüm bağımlılıkları yeniden yüklemek için. Olduğunu işlem farklılıkları karmaşık açıklandığı unutmayın [bağımlılık çözümlemesi](../consume-packages/dependency-resolution.md). Genellikle paketleri otomatik olarak geri yükler ve çözüm düzeyinde komut gösterildiği sağlayan Visual Studio bağlamında zaten işiniz konsolu ile olduğunuz için Ayrıca, yukarıdaki diyagramda restore komutu için Paket Yöneticisi konsolu göstermez. .
+[Paket geri yükleme](../consume-packages/package-restore.md) proje dosyasında bilgileri kullanır veya `packages.config` tüm bağımlılıkları yeniden yüklemek için. Olduğunu işlem farklılıkları karmaşık açıklandığı unutmayın [bağımlılık çözümlemesi](../consume-packages/dependency-resolution.md). Konsolu ile kullanıyorsanız, zaten genellikle paketleri otomatik olarak geri yükler ve çözüm düzeyinde komut olarak sağlayan Visual Studio bağlamında olduğundan Ayrıca, yukarıdaki diyagramda restore komutu için Paket Yöneticisi konsolu göstermez. gösterilir.
 
 Bazen bağımlılıkları da yeniden yükleyebilir bir projede zaten dahil edilmiştir paketleri yeniden yüklemek gereklidir. Bunu yapmak kolaydır `nuget reinstall` komut veya NuGet Paket Yöneticisi konsolu. Ayrıntılar için bkz [Reinstalling ve güncelleştirme paketleri](../consume-packages/reinstalling-and-updating-packages.md).
 
