@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: c5b0a8efeaadbfb0cbebf72e818683c1ec9a5077
+ms.sourcegitcommit: a801052aa728a3a137225ca3ef3ff89f2d1c6b76
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54403183"
+---
 # [NuGet nedir?](what-is-nuget.md)
 # [NuGet istemci araçlarını yükleme](install-nuget-client-tools.md)
 # Hızlı Başlangıçlar
@@ -239,7 +247,6 @@
 ## [Proje sistemi desteği](visual-studio-extensibility/project-system-support.md)
 ## [Visual Studio şablonları](visual-studio-extensibility/visual-studio-templates.md)
 # İlkeler
-## [NuGet hakkında SSS](policies/nuget-faq.md)
 ## [İdare](policies/governance.md)
 ## [Ekosistem](policies/ecosystem.md)
 ## [Veri İstekleri](policies/Data-requests.md)
@@ -305,3 +312,4 @@
 ## [NuGet 1.3](release-notes/NuGet-1.3.md)
 ## [NuGet 1.2](release-notes/NuGet-1.2.md)
 ## [NuGet 1.1](release-notes/NuGet-1.1.md)
+# [SSS](faqs/nuget-faq.md)

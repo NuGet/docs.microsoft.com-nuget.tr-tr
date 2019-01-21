@@ -7,12 +7,12 @@ ms.date: 02/12/2018
 ms.topic: overview
 layout: HubPage
 hide_bc: true
-ms.openlocfilehash: 6e2f00c14433e75323e2b185067e110bc554084c
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 35eef5125c40689da0f888992ea8376bb9eb096b
+ms.sourcegitcommit: a801052aa728a3a137225ca3ef3ff89f2d1c6b76
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43550041"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54403157"
 ---
 <div id="main" class="v2">
 <div class="container">
@@ -72,7 +72,7 @@ ms.locfileid: "43550041"
                                             </div>
                                         </div>
                                         <div class="cardText">
-                                            <h3>Hızlı Başlangıç: paket oluşturma</h3>
+                                            <h3>Hızlı Başlangıç: Paket oluşturma</h3>
                                             <p>Paket oluşturmaya yönelik NuGet araçlarını ve becerilerini keşfedin (hem dotnet CLI’si hem de Visual Studio için izlenecek yollar mevcuttur).</p>
                                         </div>
                                     </div>
@@ -224,7 +224,7 @@ ms.locfileid: "43550041"
                             </a>
                         </li>
                         <li>
-                            <a href="policies/nuget-faq.md">
+                            <a href="policies/governance.md">
                             <div class="cardSize">
                                 <div class="cardPadding">
                                     <div class="card">
@@ -235,7 +235,7 @@ ms.locfileid: "43550041"
                                         </div>
                                         <div class="cardText">
                                             <h3>İlkeler</h3>
-                                            <p>Açık kaynaklı bir proje olarak NuGet, paketleri silme ve itirazları çözümleme hakkında bilgiler ile sık sorulan sorular.</p>
+                                            <p>Bir açık kaynak projesi, idare, ekosistem ve uyuşmazlıkların çözümü olarak NuGet hakkında bilgi.</p>
                                         </div>
                                     </div>
                                 </div>
