@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: cdbe13df04bb27091b684a4ae27b0e751da1098f
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: a561a49f2e733929e32584adf7b6849ea535c440
+ms.sourcegitcommit: 585394f063e95dcbc24d7ac0ce07de643eaf6f4d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549040"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "55046262"
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>NuGet Paket bağımlılıklarını nasıl çözümler?
 
@@ -117,10 +117,10 @@ Hangi derlemelerin aynı ada sahip birden çok kez bir projede, tasarım zamanı
 
 Bu sorunu çözmek için doğrudan başvurmalıdır `C.dll` , istediğiniz (veya doğru olanı başvuran başka bir paket kullanın) ve ardından paketi hariç tüm varlıklar üzerinde C bağımlılık ekleme. Bu gibi paket Yönetimi biçime bağlı olarak gerçekleştirilir:
 
-- [PackageReference](../consume-packages/package-references-in-project-files.md): ekleme `Exclude="All"` bağımlılık olarak:
+- [PackageReference](../consume-packages/package-references-in-project-files.md): ekleme `ExcludeAssets="All"` bağımlılık olarak:
 
     ```xml
-    <PackageReference Include="PackageC" Version="1.0.0" Exclude="All" />
+    <PackageReference Include="PackageC" Version="1.0.0" ExcludeAssets="All" />
     ```
 
 - `packages.config`: PackageC başvurusunu kaldırın `.csproj` yalnızca sürümü başvurduğu dosyasını `C.dll` istediğiniz.

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/20/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7dcb2e430ad80815f716f5567b511ff08acfe31b
-ms.sourcegitcommit: a9babe261f67da0f714d168d04ea54a66628974b
+ms.openlocfilehash: 99578c5ed7e88b7269872bf88c465bbda462870a
+ms.sourcegitcommit: 585394f063e95dcbc24d7ac0ce07de643eaf6f4d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53735142"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "55045114"
 ---
 # <a name="nuget-49-release-notes"></a>NuGet 4.9 sürüm notları
 
@@ -18,9 +18,11 @@ NuGet dağıtım araçları:
 
 | NuGet sürüm | Visual Studio sürümü içinde kullanılabilir| .NET SDK'sı sürümünü kullanılabilir|
 |:---|:---|:---|
-| **4.9.0** | Visual Studio 2017 sürüm 15.9.0 | 2.1.500, 2.2.100 |
-| **4.9.1** | yok | yok |
+| [**4.9.0**](https://nuget.org/downloads) | [Visual Studio 2017 sürüm 15.9.0](https://visualstudio.microsoft.com/downloads/) | [2.1.500, 2.2.100](https://www.microsoft.com/net/download/visual-studio-sdks) |
+| [**4.9.1**](https://nuget.org/downloads) | yok | yok |
 | [**4.9.2**](https://nuget.org/downloads) |[Visual Studio 2017 sürüm 15.9.4](https://visualstudio.microsoft.com/downloads/) | [2.1.502, 2.2.101](https://www.microsoft.com/net/download/visual-studio-sdks) |
+| [**4.9.3**](https://nuget.org/downloads) |[Visual Studio 2017 sürüm 15.9.6](https://visualstudio.microsoft.com/downloads/) | yok |
+
 
 ## <a name="summary-whats-new-in-490"></a>Özet: 4.9.0 yenilikler
 
@@ -35,6 +37,8 @@ NuGet dağıtım araçları:
 * Kabul etme "GeneratePathProperty" meta verilerini oluşturmak için PackageReference etkinleştirme bir paket MSBuild özelliği için başına "Foo.Bar\1.0\" dizin - [#6949](https://github.com/NuGet/Home/issues/6949)
 
 * Müşteri başarı ile NuGet işlemleri - geliştirmek [#7108](https://github.com/NuGet/Home/issues/7108)
+
+* Etkinleştirme kilidi kullanarak paket yinelenebilir geri yükler - dosya [#5602](https://github.com/NuGet/Home/issues/5602), [duyuru](https://github.com/NuGet/Announcements/issues/28), [blog gönderisi](https://blog.nuget.org/20181217/Enable-repeatable-package-restores-using-a-lock-file.html)
 
 ### <a name="issues-fixed-in-this-release"></a>Bu sürümde giderilen sorunlar
 
@@ -106,6 +110,35 @@ NuGet dağıtım araçları:
 
 [Bu sürümde 4.9.2 düzeltilen tüm sorunlara listesi](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9.2")
 
+## <a name="summary-whats-new-in-493"></a>Özet: 4.9.3 yenilikler
+
+### <a name="issues-fixed-in-this-release"></a>Bu sürümde giderilen sorunlar
+#### <a name="repeatable-package-restores-using-a-lock-file-issues"></a>"Kilit dosyası kullanarak paket yinelenebilir geri yüklemeler" sorunları
+
+* Karma yanlış için önceden hesaplanan şekilde çalışmamasıyla kilitli modda paketler - önbelleğe alınmış [#7682](https://github.com/NuGet/Home/issues/7682)
+
+* Geri yükleme farklı bir sürüme içinde tanımlanan daha çözümlenir `packages.lock.json` dosya - [#7667](https://github.com/NuGet/Home/issues/7667)
+
+* '--kilitli modda / RestoreLockedMode' başvuruları söz konusu olduğunda - alacaklardır geri yükleme hatalarının neden [#7646](https://github.com/NuGet/Home/issues/7646)
+
+* MSBuild SDK'sı Çözümleyicisi çalıştığında SHA - packages.lock.json kullanırken geri yükleme başarısız için bir SDK paketi doğrulamak [#7599](https://github.com/NuGet/Home/issues/7599)
+
+#### <a name="lock-down-your-dependencies-using-configurable-trust-policies-issues"></a>"Yapılandırılabilir güven ilkelerini kullanarak Bağımlılıklarınızı kilitleme" sorunları
+* DotNet.exe değil değerlendirmek güvenilen İmzalayanları imzalanmış paketleri desteklenmez ancak - [#7574](https://github.com/NuGet/Home/issues/7574)
+
+* Yapılandırma dosyasında trustedSigners düzenini etkiler güven değerlendirmesi - [#7572](https://github.com/NuGet/Home/issues/7572)
+
+* ISettings uygulayamaz [ayarları Düzenleyicisi tarafından neden Güven İlkeleri özelliğini desteklemek için API'leri]- [#7614](https://github.com/NuGet/Home/issues/7614)
+
+#### <a name="improved-debugging-experience-issues"></a>"Hata ayıklama deneyimi geliştirildi" sorunları
+
+* Sembol paketi için .NET Core genel aracı - yayımlanamıyor [#7632](https://github.com/NuGet/Home/issues/7632)
+
+#### <a name="self-contained-nuget-packages---license-issues"></a>"Kendi içinde NuGet paketlerini - lisans" sorunları
+
+* Sembol .snupkg paketi kullanırken oluşturulurken bir hata oluştu - lisans dosyası katıştırılmış [#7591](https://github.com/NuGet/Home/issues/7591)
+
+[Bu sürümde 4.9.3 düzeltilen tüm sorunlara listesi](https://github.com/nuget/home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9.3")
 ## <a name="known-issues"></a>Bilinen sorunlar
 
 ### <a name="dotnet-nuget-push---interactive-gives-an-error-on-mac---7519httpsgithubcomnugethomeissues7519"></a>DotNet nuget push--etkileşimli Mac üzerinde bir hata verir. - [#7519](https://github.com/NuGet/Home/issues/7519)

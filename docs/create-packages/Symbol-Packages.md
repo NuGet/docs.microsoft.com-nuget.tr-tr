@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 09/12/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 3321cba9082eb35b53ba693e246db18e5d8e187b
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: 56125516345b2255998c1f734db60b58b9a92a06
+ms.sourcegitcommit: 585394f063e95dcbc24d7ac0ce07de643eaf6f4d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580265"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "55046334"
 ---
 # <a name="creating-symbol-packages-legacy"></a>Sembol paketleri (eski) oluşturma
 
@@ -100,7 +100,7 @@ Gelen apart `lib` klasöründe bir sembol paketi gerekir bu düzen içerir:
 ## <a name="publishing-a-symbol-package"></a>Bir sembol Paketi Yayımlama
 
 > [!Important]
-> Anında iletme paketlerine nuget.org'da kullanmalısınız [nuget.exe verze 4.1.0 veya üzeri](https://www.nuget.org/downloads), gerekli uygulayan [NuGet protokolleri](../api/nuget-protocols.md).
+> Anında iletme paketlerine nuget.org'da kullanmalısınız [nuget.exe v4.9.1 veya yukarıdaki](https://www.nuget.org/downloads), gerekli uygulayan [NuGet protokolleri](../api/nuget-protocols.md).
 
 1. Kolaylık olması için NuGet ile ilk API anahtarınızı kaydedin (bkz [paket yayımlama](../create-packages/publish-a-package.md)nuget.org hem symbolsource.org geçerli, symbolsource.org doğrulamak için nuget.org ile denetleyecek çünkü paket sahip olursunuz.
 
