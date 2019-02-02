@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: dbdd171321c2560adc06feccbd60fc4e84dcf0a3
-ms.sourcegitcommit: a801052aa728a3a137225ca3ef3ff89f2d1c6b76
+ms.openlocfilehash: 290055a306306e944695d3a6ac970819882ee0c6
+ms.sourcegitcommit: 046717af2eba9ff6f619a0533844dee56a600d1c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54403246"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55648276"
 ---
 # <a name="nuget-frequently-asked-questions"></a>NuGet sık sorulan sorular
 
@@ -235,10 +235,17 @@ Not: Bunu ayarlamak için gerekli olabilecek `HTTP_PROXY` ortam değişkenine `h
 
 Bu başarısız olursa deneyin [ipuçları bu StackOverflow gönderide bahsedilen](http://stackoverflow.com/questions/21049908/using-fiddler-to-sniff-visual-studio-2013-requests-proxy-firewall).
 
-**Nuget.org API uç noktaları nelerdir?**
+## <a name="what-is-the-api-endpoint-for-nugetorg"></a>Nuget.org için API uç noktası nedir?
 
-- V3: `https://api.nuget.org/v3/index.json`
-- V2'DE: `https://www.nuget.org/api/v2/` (V2 API kullanım dışıdır ve NuGet ile 4 + çalışmaz unutmayın.)
+Nuget.org bir paket deposu NuGet istemcileri ile kullanmak için aşağıdaki V3 API uç noktası kullanmanız gerekir: 
+
+**`https://api.nuget.org/v3/index.json`**
+
+Eski istemciler v2 Protokolü nuget.org ulaşmak için kullanmaya devam edebilirsiniz. Ancak, lütfen unutmayın, NuGet istemcilerinin 3.0 veya üstü v2 protokolünü kullanarak daha yavaş ve daha az güvenilir hizmet gerekir:
+
+`https://www.nuget.org/api/v2/` (KULLANIM DIŞI)!!! **Not:** "www." önemlidir.
+
+Ayrıca, *NuGet.exe listesi* yalnızca v2 protokolü ile çalışır.
 
 ## <a name="nugetorg-account-management"></a>nuget.org hesap yönetimi
 
