@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: fc34550b3669d83466318645987cfd3078bc3c18
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: ded9b571324d810c2f0e1a46ea76375a28940406
+ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545106"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56145611"
 ---
 # <a name="update-command-nuget-cli"></a>Güncelleştirme komut (NuGet CLI)
 
@@ -42,7 +42,7 @@ Burada `<configPath>` ya da tanımlayan bir `packages.config` veya çözüm dosy
 | Yardım | Bilgi komut için yardımı görüntüler. |
 | Kimliği | Paketi güncelleştirmeye kimlikleri listesini belirtir. |
 | MSBuildPath | *(4.0 +)*  Önceliği alma komutu ile kullanılacak MSBuild yolunu belirtir `-MSBuildVersion`. |
-| MSBuildVersion | *(3.2 +)*  Bu komutla birlikte kullanılacak MSBuild sürümünü belirtir. Desteklenen değerler şunlardır: 4, 12, 14, 15. Yolunuza Msbuild'de çekilir varsayılan olarak, aksi takdirde MSBuild yüksek yüklü sürümü varsayar. |
+| MSBuildVersion | *(3.2 +)*  Bu komutla birlikte kullanılacak MSBuild sürümünü belirtir. Desteklenen değerler şunlardır: 4, 12, 14, 15.1, 15.3, 15.4, 15.5, 15.6, 15.7, 15,8, 15.9. Yolunuza Msbuild'de çekilir varsayılan olarak, aksi takdirde MSBuild yüksek yüklü sürümü varsayar. |
 | NonInteractive | Kullanıcı girişini veya onaylar ister bastırır. |
 | Yayın öncesi | Yayın öncesi sürümler için güncelleştirme sağlar. Bu bayrak, zaten yüklü olan yayın öncesi paketleri güncelleştirirken gerekli değildir. |
 | Dosyasının repositorypath ayarı | Paket yüklendiği yerel klasörü belirtir. |

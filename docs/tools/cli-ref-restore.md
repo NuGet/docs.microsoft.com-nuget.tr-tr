@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 06e3a26863761b7e7a42752866e7fe369f5be4ef
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: adf97196f50f2a55d6b8ceed93d53ff12b67657b
+ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43550358"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56145637"
 ---
 # <a name="restore-command-nuget-cli"></a>Restore komutu (NuGet CLI)
 
-**İçin geçerlidir:** paketini tüketim &bullet; **desteklenen sürümler:** 2.7 +
+**İçin geçerlidir:** paketini tüketim &bullet; **desteklenen sürümler:** 2.7+
 
 İndirir ve yükler gelen eksik herhangi bir paket `packages` klasör. NuGet 4.0 + ve PackageReference biçimi ile kullanıldığında, oluşturur bir `<project>.nuget.props` buna gerekirse dosya `obj` klasör. (Dosyanın kaynak denetiminden atlanabilir.)
 
@@ -39,7 +39,7 @@ Burada `<projectPath>` çözümün konumunu belirtir veya `packages.config` dosy
 | ForceEnglishOutput | *(3.5 +)*  Nuget.exe sabit, İngilizce tabanlı bir kültürü kullanarak çalışmaya zorlar. |
 | Yardım | Bilgi komut için yardımı görüntüler. |
 | MSBuildPath | *(4.0 +)*  Önceliği alma komutu ile kullanılacak MSBuild yolunu belirtir `-MSBuildVersion`. |
-| MSBuildVersion | *(3.2 +)*  Bu komutla birlikte kullanılacak MSBuild sürümünü belirtir. Desteklenen değerler şunlardır: 4, 12, 14, 15. Yolunuza Msbuild'de çekilir varsayılan olarak, aksi takdirde MSBuild yüksek yüklü sürümü varsayar. |
+| MSBuildVersion | *(3.2 +)*  Bu komutla birlikte kullanılacak MSBuild sürümünü belirtir. Desteklenen değerler şunlardır: 4, 12, 14, 15.1, 15.3, 15.4, 15.5, 15.6, 15.7, 15,8, 15.9. Yolunuza Msbuild'de çekilir varsayılan olarak, aksi takdirde MSBuild yüksek yüklü sürümü varsayar. |
 | NoCache | NuGet, önbelleğe eklenen paketler kullanmasını önler. Bkz: [genel paketleri ve önbellek klasörlerini yönetme](../consume-packages/managing-the-global-packages-and-cache-folders.md). |
 | NonInteractive | Kullanıcı girişini veya onaylar ister bastırır. |
 | OutputDirectory | Paket yüklendiği klasörünü belirtir. Klasör belirtilirse, geçerli klasörde kullanılır. İle geri yükleme sırasında gerekli bir `packages.config` sürece dosya `PackagesDirectory` veya `SolutionDirectory` kullanılır.|

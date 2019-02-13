@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: d39ec8caf94caa767b6c502cc475e278aa718b95
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: 9db24b2dd6ced0869ac84b25f9796ded5df10f86
+ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324792"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56145650"
 ---
 # <a name="pack-command-nuget-cli"></a>Paketi komut (NuGet CLI)
 
@@ -34,7 +34,7 @@ Burada `<nuspecPath>` ve `<projectPath>` belirtin `.nuspec` veya proje dosyası,
 | Seçenek | Açıklama |
 | --- | --- |
 | BasePath | Temel yol içinde tanımlanan tüm dosyaların ayarlar `.nuspec` dosya. |
-| Derleme | Projenin paket oluşturulmadan önce oluşturulması gerektiğini belirtir. |
+| Yapı | Projenin paket oluşturulmadan önce oluşturulması gerektiğini belirtir. |
 | Hariç tutma | Bir paket oluştururken hariç tutmak için bir veya daha fazla joker karakter düzeni belirtir. Birden fazla düzenini belirtmek için yineleyin Exclude bayrağı. Aşağıdaki örneğe bakın. |
 | ExcludeEmptyDirectories | Boş dizinleri dahil edilmesi, paket oluştururken engeller. |
 | ForceEnglishOutput | *(3.5 +)*  Nuget.exe sabit, İngilizce tabanlı bir kültürü kullanarak çalışmaya zorlar. |
@@ -43,7 +43,7 @@ Burada `<nuspecPath>` ve `<projectPath>` belirtin `.nuspec` veya proje dosyası,
 | IncludeReferencedProjects | Yerleşik paket bağımlılıkları veya paketinin bir parçası olarak başvurulan projeler içermelidir gösterir. Başvurulan projenin karşılık gelen varsa `.nuspec` başvurulan proje bir bağımlılık olarak eklendikten sonra proje ile aynı ada sahip bir dosya. Aksi takdirde, başvurulan projenin paketinin bir parçası eklenir. |
 | MinClientVersion | Ayarlama *minClientVersion* oluşturulan bir paket için özniteliği. Bu değer mevcut değerini geçersiz kılar *minClientVersion* (varsa) özniteliğini `.nuspec` dosya. |
 | MSBuildPath | *(4.0 +)*  Önceliği alma komutu ile kullanılacak MSBuild yolunu belirtir `-MSBuildVersion`. |
-| MSBuildVersion | *(3.2 +)*  Bu komutla birlikte kullanılacak MSBuild sürümünü belirtir. Desteklenen değerler şunlardır: 4, 12, 14, 15. Yolunuza Msbuild'de çekilir varsayılan olarak, aksi takdirde MSBuild yüksek yüklü sürümü varsayar. |
+| MSBuildVersion | *(3.2 +)*  Bu komutla birlikte kullanılacak MSBuild sürümünü belirtir. Desteklenen değerler şunlardır: 4, 12, 14, 15.1, 15.3, 15.4, 15.5, 15.6, 15.7, 15,8, 15.9. Yolunuza Msbuild'de çekilir varsayılan olarak, aksi takdirde MSBuild yüksek yüklü sürümü varsayar. |
 | NoDefaultExcludes | Varsayılan dışlama nuget engelleyen paket dosyalarını ve dosya ve klasörleri gibi bir noktayla başlayan `.svn` ve `.gitignore`. |
 | NoPackageAnalysis | Paketi paket analiz paketini oluşturduktan sonra çalışmaması gerektiğini belirtir. |
 | OutputDirectory | Oluşturulan bir paket depolandığı klasörü belirtir. Klasör belirtilirse, geçerli klasörde kullanılır. |

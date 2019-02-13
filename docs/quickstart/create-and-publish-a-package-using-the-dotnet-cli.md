@@ -5,14 +5,14 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/24/2018
 ms.topic: quickstart
-ms.openlocfilehash: 02aa7bb9d27352bbecfc718ef5bd6ee33501018d
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 3e459999eea45c5ae705a7e07c1a0fbb2e0cd1a1
+ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548435"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56145624"
 ---
-# <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>Hızlı Başlangıç: Oluşturma ve yayımlama paket (dotnet CLI)
+# <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>Hızlı Başlangıç: Bir paketi (dotnet CLI) oluşturma ve yayımlama
 
 Bir .NET sınıf kitaplığı'ndan bir NuGet paketi oluşturmak ve nuget.org kullanarak yayımlamak için basit bir işlemdir `dotnet` komut satırı arabirimi (CLI).
 
@@ -109,4 +109,5 @@ Sonra bir `.nupkg` dosyası yayımladığınızda, nuget.org kullanarak `dotnet 
 - [Birden çok hedef çerçeve desteği](../create-packages/supporting-multiple-target-frameworks.md)
 - [Paket sürümü oluşturma](../reference/package-versioning.md)
 - [Yerelleştirilmiş paketler oluşturma](../create-packages/creating-localized-packages.md)
+- [Sembol paketleri oluşturma](../create-packages/symbol-packages-snupkg.md)
 - [İmzalama paketleri](../create-packages/Sign-a-package.md)

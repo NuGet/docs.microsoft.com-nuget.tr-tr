@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 39b710c483ce4b3f2da30df6bb5b6842f9ee1fca
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: 5d0d60cbcf6516d24efeb04f8262902da69d92d1
+ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324844"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56145663"
 ---
 # <a name="nuget-api"></a>NuGet API'si
 
@@ -49,17 +49,17 @@ OData tabanlı bir protokol sürümü olan 2.x sürümüne resmi bir NuGet istem
 
 **Hizmet dizini** çeşitli kaynaklara açıklar. Desteklenen kaynak geçerli kümesini aşağıdaki gibidir:
 
-Kaynak adı                                                           | Gerekli | Açıklama
-----------------------------------------------------------------------  | -------- | -----------
+Kaynak adı                                                          | Gerekli | Açıklama
+---------------------------------------------------------------------- | -------- | -----------
 [`PackagePublish`](package-publish-resource.md)                        | evet      | Anında iletme ve silme (veya listeden) paketleri.
 [`SearchQueryService`](search-query-service-resource.md)               | evet      | Filtre ve paketleri anahtar sözcüğe göre arayın.
 [`RegistrationsBaseUrl`](registration-base-url-resource.md)            | evet      | Paket meta verilerini alın.
 [`PackageBaseAddress`](package-base-address-resource.md)               | evet      | Paket içeriğini (.nupkg) alın.
 [`SearchAutocompleteService`](search-autocomplete-service-resource.md) | Yok       | Paket kimlikleri ve sürümleri tarafından alt dizeyi bulur.
 [`ReportAbuseUriTemplate`](report-abuse-resource.md)                   | Yok       | "Uygunsuz" web sayfasına erişmek için bir URL oluşturur.
-[`RepositorySignatures`](repository-signatures-resource.md)             | Yok      | Depo imzalamak için kullanılan sertifika alın.
-[`Catalog`](catalog-resource.md)                                         | Yok      | Tüm paket olayların tam kayıt.
-[`SymbolPackagePublish`](symbol-package-publish-resource.md)            | Yok      | Sembol paketleri gönderin.
+[`RepositorySignatures`](repository-signatures-resource.md)            | Yok       | Depo imzalamak için kullanılan sertifika alın.
+[`Catalog`](catalog-resource.md)                                       | Yok       | Tüm paket olayların tam kayıt.
+[`SymbolPackagePublish`](symbol-package-publish-resource.md)           | Yok       | Sembol paketleri gönderin.
 
 Genel olarak, bir API kaynak tarafından döndürülen tüm ikili olmayan veriler JSON kullanarak serileştirilir. Hizmet dizini her bir kaynak tarafından döndürülen yanıt şeması, bu kaynak için ayrı ayrı tanımlanır. Her kaynak hakkında daha fazla bilgi için yukarıda listelenen konulara bakın.
 
@@ -67,6 +67,19 @@ Gelecekte Protokolü geliştikçe yeni özellikleri JSON yanıtlarını eklenebi
 
 > [!Note]
 > Ne zaman bir kaynak uygulamıyor `SearchAutocompleteService` herhangi bir otomatik tamamlama davranış düzgün bir şekilde devre dışı bırakılmalıdır. Zaman `ReportAbuseUriTemplate` , uygunsuz kullanım bildirme URL'si resmi NuGet istemci geri döner nuget.org bildirin uygulanmamış (tarafından izlenen [NuGet/giriş #4924](https://github.com/NuGet/Home/issues/4924)). Diğer istemciler yalnızca bir rapor Uygunsuz kullanım bildirme URL'si kullanıcıyı gösterme kullanmamayı seçebilirsiniz.
+
+### <a name="undocumented-resources-on-nugetorg"></a>Nuget.org belgelenmemiş kaynakları
+
+Nuget.org V3 hizmet dizini, yukarıda belgelediğiniz olmayan bazı kaynaklara sahip. Bir kaynak belgeleme değil birkaç nedeni vardır.
+
+İlk olarak biz nuget.org uygulama ayrıntısıdır kullanılan kaynak belge yok. `SearchGalleryQueryService` Bu kategoriye girer. [NuGetGallery](https://github.com/NuGet/NuGetGallery) bazı V2 temsilci seçmek için bu kaynak kullandığı veritabanını kullanma yerine arama dizinimizi (OData) sorgular. Bu kaynak için ölçeklenebilirlik eklenmiştir ve dış kullanılmak üzere tasarlanmamıştır.
+
+İkinci olarak, biz, hiçbir zaman bir resmi istemci RTM sürümünde sunulan kaynakları belge yok.
+`PackageDisplayMetadataUriTemplate` ve `PackageVersionDisplayMetadataUriTemplate` bu kategoriye girer.
+
+Biz sıkı bir şekilde olan kaynakların thirdly, belge yok V2 protokolü ile birlikte kendisi kasıtlı olarak belgelenmemiş. `LegacyGallery` Kaynak, bu kategoriye döner. Bu kaynak için karşılık gelen bir V2 kaynak URL'si işaret edecek şekilde V3 hizmet dizini sağlar. Bu kaynak destekler `nuget.exe list`.
+
+Bir kaynak burada belgelenmez, biz *kesin* , bir bağımlılık üzerlerinde yazmamanızı önerilir. Kaldırın veya uygulamanızın beklenmedik bir şekilde uğratabilir bu belgelenmemiş kaynakları davranışını değiştirmek edebiliriz.
 
 ## <a name="timestamps"></a>Zaman damgaları
 

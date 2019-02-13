@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 290055a306306e944695d3a6ac970819882ee0c6
-ms.sourcegitcommit: 046717af2eba9ff6f619a0533844dee56a600d1c
+ms.openlocfilehash: f15639c883241c328b5fc0a4bf5617540b52b7ee
+ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55648276"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56145689"
 ---
 # <a name="nuget-frequently-asked-questions"></a>NuGet sık sorulan sorular
 
@@ -241,11 +241,9 @@ Nuget.org bir paket deposu NuGet istemcileri ile kullanmak için aşağıdaki V3
 
 **`https://api.nuget.org/v3/index.json`**
 
-Eski istemciler v2 Protokolü nuget.org ulaşmak için kullanmaya devam edebilirsiniz. Ancak, lütfen unutmayın, NuGet istemcilerinin 3.0 veya üstü v2 protokolünü kullanarak daha yavaş ve daha az güvenilir hizmet gerekir:
+Eski istemciler V2 Protokolü nuget.org ulaşmak için kullanmaya devam edebilirsiniz. Ancak, lütfen unutmayın, NuGet istemcilerinin 3.0 veya üstü V2 protokolünü kullanarak daha yavaş ve daha az güvenilir hizmet gerekir:
 
-`https://www.nuget.org/api/v2/` (KULLANIM DIŞI)!!! **Not:** "www." önemlidir.
-
-Ayrıca, *NuGet.exe listesi* yalnızca v2 protokolü ile çalışır.
+`https://www.nuget.org/api/v2` (KULLANIM DIŞI)!!! **Not:** "www" kullanın en iyi güvenilirlik elde etmek için.
 
 ## <a name="nugetorg-account-management"></a>nuget.org hesap yönetimi
 
