@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: a561a49f2e733929e32584adf7b6849ea535c440
-ms.sourcegitcommit: 585394f063e95dcbc24d7ac0ce07de643eaf6f4d
+ms.openlocfilehash: a2aed3950b3e19e30d9d026ad1b9bdaef44c9d37
+ms.sourcegitcommit: 1ab750ff17e55c763d646c50e7630138804ce8b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "55046262"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56247652"
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>NuGet Paket bağımlılıklarını nasıl çözümler?
 
@@ -24,7 +24,7 @@ Birden çok paket aynı bağımlılık varsa, ardından aynı paket kimliği gra
 
 Paketleri PackageReference biçimini kullanarak projelere yüklerken, NuGet uygun dosyasında bir düz paket grafik başvuruları ekler ve önceden çakışmaları çözer. Bu işlem olarak adlandırılır *geçişli geri yükleme*. Paketler geri yükleniyor veya yeniden yüklemeyi daha hızlı výsledek grafikte listelenen paketleri indirme işlemi ise ve daha öngörülebilir oluşturur. 2.8 gibi joker karakter (değişken) sürümleri avantajlarından da sürebilir. \*, pahalı önleme ve hata yapmaya açık çağrılar `nuget update` derleme sunucuları ve istemci makineleri.
 
-NuGet geri yükleme işlemi önce bir yapı çalıştırıldığında, bağımlılıkları ilk bellekte giderir ve sonra elde edilen grafiğin adlı bir dosyaya yazar `project.assets.json` içinde `obj` PackageReference kullanarak bir proje klasörü. MSBuild bu dosyasını okur ve burada olası başvuruları bulunabilir ve ardından onları bellek proje ağacında ekler klasörleri kümesine çevirir.
+NuGet geri yükleme işlemi önce bir yapı çalıştırıldığında, bağımlılıkları ilk bellekte giderir ve sonra elde edilen grafiğin adlı bir dosyaya yazar `project.assets.json`. Varlık dosyası şu konumdadır `MSBuildProjectExtensionsPath`, projenin 'obj' klasörü için varsayılan olarak. MSBuild bu dosyasını okur ve burada olası başvuruları bulunabilir ve ardından onları bellek proje ağacında ekler klasörleri kümesine çevirir.
 
 Kilit dosyası geçicidir ve kaynak denetimine eklenmedi. Varsayılan olarak her ikisini de listelenen `.gitignore` ve `.tfignore`. Bkz: [paketleri ve kaynak denetimi](packages-and-source-control.md).
 
