@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 08/29/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: fec6dd0fb97b565b364a7ffcb192d2eb99187e83
-ms.sourcegitcommit: b15fdd101aec13ea5fe9dd12845051d648034abd
+ms.openlocfilehash: a8be66f5871df260581b6baca8eb7959279d66cd
+ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55480146"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56852591"
 ---
 # <a name="nuspec-reference"></a>.nuspec başvurusu
 
@@ -192,7 +192,7 @@ Dışında `$configuration$`, projedeki değerleri herhangi bir komut satırınd
 | --- | --- | ---
 | **$id$** | Proje dosyası | Proje dosyasında AssemblyName (başlık) |
 | **$version$** | AssemblyInfo | AssemblyInformationalVersion varsa, aksi takdirde AssemblyVersion |
-| **$authors$** | AssemblyInfo | AssemblyCompany |
+| **$author$** | AssemblyInfo | AssemblyCompany |
 | **$title$** | AssemblyInfo | AssemblyTitle |
 | **$description$** | AssemblyInfo | AssemblyDescription |
 | **$copyright$** | AssemblyInfo | AssemblyCopyright |
