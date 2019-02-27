@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: f15639c883241c328b5fc0a4bf5617540b52b7ee
-ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
+ms.openlocfilehash: 03223e949eeeadd7eaa6e392297ba79d28eed2f2
+ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56145689"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56852552"
 ---
 # <a name="nuget-frequently-asked-questions"></a>NuGet sık sorulan sorular
 
@@ -166,7 +166,7 @@ NuGet imzalanması için tüm paketleri önerir. Paket imzalama tasarımı prens
 
 Paketiniz için listelenen bağımlılıkları paketinden otomatik olarak oluşturulur ve düzenlenemez unutmayın.
 
-Ayrıca, paketler için karşıya yükleme [int.nugettest.org](https://int.nugettest.org) test edin ve bir paket kullanılabilir genel galeride yapmadan paketinizi doğrulamak için harika bir yoludur.
+Ayrıca, paketler için karşıya yükleme [int.nugettest.org](https://int.nugettest.org) test edin ve bir paket kullanılabilir genel galeride yapmadan paketinizi doğrulamak için harika bir yoludur. API uç noktası: https://apiint.nugettest.org/v3/index.json
 
 **Bu ad gelecekte yayımlanacak paketleri için ayrılacak mümkün mü?**
 

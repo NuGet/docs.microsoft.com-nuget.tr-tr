@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 08/16/2018
 ms.topic: conceptual
 ms.reviewer: kraigb
-ms.openlocfilehash: 6184fe8e987e0637cb912999f2e3fa3a3dc9b4ba
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 003139abac7808dbdaef4aa66119e09772db2b4f
+ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546941"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56852539"
 ---
 # <a name="toolsjson-for-discovering-nugetexe-versions"></a>nuget.exe sürümlerini bulmak için tools.json
 
@@ -39,20 +39,20 @@ Kök JSON nesnesinin aşağıdaki özellik vardır:
 
 Ad      | Tür             | Gerekli
 --------- | ---------------- | --------
-nuget.exe | Nesne dizisi | Evet
+nuget.exe | Nesne dizisi | evet
 
 Her bir nesnenin `nuget.exe` dizi aşağıdaki özelliklere sahiptir:
 
 Ad     | Tür   | Gerekli | Notlar
 -------- | ------ | -------- | -----
-sürüm  | dize | Evet      | Bir SemVer 2.0.0 dize
-URL      | dize | Evet      | Nuget.exe bu sürümü karşıdan yüklemek için bir mutlak URL
-Aşama    | dize | Evet      | Bir sabit dize
-Karşıya yüklendi | dize | Evet      | Ne zaman sürümü kullanıma sunuldu, yaklaşık bir zaman damgası
+sürüm  | dize | evet      | Bir SemVer 2.0.0 dize
+url      | dize | evet      | Nuget.exe bu sürümü karşıdan yüklemek için bir mutlak URL
+Aşama    | dize | evet      | Bir sabit dize
+Karşıya yüklendi | dize | evet      | Ne zaman sürümü kullanıma sunuldu, yaklaşık bir ISO 8601 zaman
 
-Dizideki öğe azalan sırada, SemVer 2.0.0 sırada sıralanacaktır. Bu garanti yükünü en yeni sürümüne bakan bir istemci için tasarlanmıştır. 
+Dizideki öğe azalan sırada, SemVer 2.0.0 sırada sıralanacaktır. Bu garanti en yüksek sürüm numarasını ilgileniyor bir istemci yükünü azaltmak için tasarlanmıştır. Ancak bu liste kronolojik sırada sıralanır değil anlamına gelmez. Örneğin, daha düşük bir sürümle daha yüksek bir ana sürüm belirtilenden sonraki bir tarihte bakım yapılır, bu hizmet verilen sürüm listenin en üstünde görünmez. Tarafından yayımlanan en son sürümü istiyorsanız *zaman damgası*, yalnızca dizi tarafından sıralama `uploaded` dize. Bunun çalışmasının nedeni `uploaded` zaman damgası olan [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) lexicographical sıralama (yani basit dize sıralama) kullanarak tarih sırasına göre sıralanabilir biçimi.
 
-`stage` Özelliği nasıl vettect aracının bu sürümü olduğunu gösterir. 
+`stage` Özelliği nasıl denetlenen Aracı'nın bu sürümü olduğunu gösterir. 
 
 Aşama              | Açıklama
 ------------------ | ------
@@ -60,7 +60,7 @@ EarlyAccessPreview | Henüz üzerinde görünür [indirme web sayfasına](https:
 Yayımlanan           | İndirme sitesinde kullanılabilir ancak değil ancak geniş yayılım tüketimi için önerilen
 ReleasedAndBlessed | İndirme sitesinde kullanılabilir ve tüketimi için önerilir
 
-Önerilen sürüm en son sahip olmak için bir basit yaklaşım ise ilk sürümü olan listesinde yapılacak `stage` değerini `ReleasedAndBlessed`.
+Önerilen sürüm en son sahip olmak için bir basit yaklaşım ise ilk sürümü olan listesinde yapılacak `stage` değerini `ReleasedAndBlessed`. Sürümler SemVer 2.0.0 düzende sıralanır için bu çalışır.
 
 `NuGet.CommandLine` Nuget.org üzerinde paket genellikle yalnızca güncelleştirilen ile `ReleasedAndBlessed` sürümleri.
 

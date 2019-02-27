@@ -6,21 +6,21 @@ ms.author: karann
 ms.date: 05/18/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: bd36ae311da1ec824726c5d73670b1232a3f89e0
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: bd19bc402ff9d66d7e2baa4f326d75f0ed444f30
+ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549592"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56852578"
 ---
 # <a name="publishing-packages"></a>Paket yayımlama
 
 Bir paket oluşturup sahip, `.nupkg` ele dosya, diğer geliştiriciler için genel veya özel olarak kullanılabilmesi için basit bir işlemdir:
 
 - Genel paketleri kullanılabilir hale gelir tüm geliştiricilere genel ile [nuget.org](https://www.nuget.org/packages/manage/upload) (NuGet 4.1.0+ gerektirir) Bu makalede açıklandığı gibi.
-- Özel paketler yalnızca bir ekip veya kuruluşlar için kullanılabilir ya da dosya paylaşımı için bir özel NuGet sunucusu barındırarak [Visual Studio Team Services paket Yönetimi](https://www.visualstudio.com/docs/package/nuget/publish), veya myget, ProGet, Nexus gibi bir üçüncü taraf depo Depo ve Artifactory. Ek ayrıntılar için bkz. [barındırma paketleri genel bakış](../hosting-packages/overview.md).
+- Özel paketler yalnızca bir ekip veya kuruluşlar için kullanılabilir ya da dosya paylaşımı için bir özel NuGet sunucusu barındırarak [Azure Yapıtları](https://www.visualstudio.com/docs/package/nuget/publish), veya myget, ProGet, Nexus depo ve Artifactory gibi bir üçüncü taraf depo. Ek ayrıntılar için bkz. [barındırma paketleri genel bakış](../hosting-packages/overview.md).
 
-Bu makalede nuget.org yayımlama kapsar; Visual Studio Team Services yayımlama için bkz: [paket Yönetimi](https://www.visualstudio.com/docs/package/nuget/publish).
+Bu makalede nuget.org yayımlama kapsar; Azure Yapıtları yayımlama için bkz: [paket Yönetimi](https://www.visualstudio.com/docs/package/nuget/publish).
 
 ## <a name="publish-to-nugetorg"></a>Nuget.org için yayımlama
 
@@ -28,7 +28,7 @@ Nuget.org için birlikte, hesap nuget.org ile kaydetmek için istenir, bir Micro
 
 ![NuGet oturum konumda](media/publish_NuGetSignIn.png)
 
-Ardından, ya da nuget.org web Portalı aracılığıyla paketini karşıya yükleyin, komut satırından nuget.org için anında iletme (gerektirir `nuget.exe` 4.1.0+), veya Visual Studio Team Services ile CI/CD işleminin bir parçası olarak aşağıdaki bölümlerde açıklandığı şekilde yayımlayabilirsiniz.
+Ardından, ya da nuget.org web Portalı aracılığıyla paketini karşıya yükleyin, komut satırından nuget.org için anında iletme (gerektirir `nuget.exe` 4.1.0+), veya bir CI/CD işlem Azure DevOps Hizmetler'in bir parçası olarak aşağıdaki bölümlerde açıklandığı şekilde yayımlayabilirsiniz.
 
 ### <a name="web-portal-use-the-upload-package-tab-on-nugetorg"></a>Web portalı: Paket karşıya sekmesinde nuget.org adresinden kullanın
 
@@ -93,9 +93,9 @@ Dizine ve başkalarının hangi sırada paket sayfanızda aşağıdaki iletiyi g
 
 ![Bir paket henüz yayımlanmadı belirten ileti.](media/publish_NotYetIndexed.png)
 
-### <a name="visual-studio-team-services-cicd"></a>Visual Studio Team Services (CI/CD)
+### <a name="azure-devops-services-cicd"></a>Azure DevOps Hizmetleri (CI/CD)
 
-Paketleri nuget.org Visual Studio Team Services kullanarak sürekli tümleştirme/dağıtım işleminizin bir parçası olarak gönderirseniz kullanmalısınız `nuget.exe` 4.1 veya üzerini NuGet görevler. Ayrıntıları bulunabilir [derlemenizde en son NuGet kullanarak](https://blogs.msdn.microsoft.com/devops/2017/09/29/using-the-latest-nuget-in-your-build/) (Microsoft DevOps blogu).
+Azure DevOps Services'i kullanarak sürekli tümleştirme/dağıtım işleminizin bir parçası olarak nuget.org paketleri gönderirseniz kullanmanız gerekir `nuget.exe` 4.1 veya üzerini NuGet görevler. Ayrıntıları bulunabilir [derlemenizde en son NuGet kullanarak](https://blogs.msdn.microsoft.com/devops/2017/09/29/using-the-latest-nuget-in-your-build/) (Microsoft DevOps blogu).
 
 ## <a name="managing-package-owners-on-nugetorg"></a>Nuget.org paketinin sahiplerini yönetme
 

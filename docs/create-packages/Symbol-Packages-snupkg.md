@@ -16,14 +16,16 @@ keywords: NuGet sembol paketleri, hata ayıklama, hata ayıklama, paket sembolle
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 1fbb243a7b3518307a393b5f371feae1edb7623a
-ms.sourcegitcommit: 5c5f0f0e1f79098e27d9566dd98371f6ee16f8b5
+ms.openlocfilehash: 43f346dc64ebbc59d02b9c7875b04205d8c5d83a
+ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53645665"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56852448"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Sembol paketleri (.snupkg) oluşturma
+
+Sembol paketleri NuGet paketlerinizi hata ayıklama deneyimini geliştirmeye olanak sağlar.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -31,22 +33,28 @@ ms.locfileid: "53645665"
 
 ## <a name="creating-a-symbol-package"></a>Bir sembol paketi oluşturma
 
-Bir .nuspec dosyası veya .csproj dosyasını bir snupkg sembol paketi oluşturulabilir. NuGet.exe ve dotnet.exe her ikisi de desteklenir. Zaman seçenekleri ```-Symbols -SymbolPackageFormat snupkg``` .snupkg dosya .nupkg dosyasına ek olarak oluşturulacak nuget.exe paketi komutu kullanılır.
+Dotnet.exe, NuGet.exe veya MSBuild'ı kullanarak bir snupkg sembol paketi oluşturabilirsiniz. NuGet.exe kullanıyorsanız .nupkg dosyasının yanı sıra bir .snupkg dosyası oluşturmak için aşağıdaki komutları kullanabilirsiniz:
 
-Örnek komutlar .snupkg dosyaları oluşturmak için
 ```
-dotnet pack MyPackage.csproj --include-symbols -p:SymbolPackageFormat=snupkg
-
 nuget pack MyPackage.nuspec -Symbols -SymbolPackageFormat snupkg
 
 nuget pack MyPackage.csproj -Symbols -SymbolPackageFormat snupkg
-
-msbuild -t:pack MyPackage.csproj -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg
 ```
 
-`.snupkgs` Varsayılan olarak oluşturulan değil. Geçmesi gereken `SymbolPackageFormat` özelliği ile birlikte `-Symbols` nuget.exe durumunda `--include-symbols` dotnet.exe, durumunda veya `-p:IncludeSymbols` msbuild durumunda.
+Dotnet.exe veya MSBuild'ı kullanıyorsanız .nupkg dosyasının yanı sıra bir .snupkg dosyası oluşturmak için aşağıdaki adımları kullanın:
 
-SymbolPackageFormat özelliği iki değerden birine sahip olabilir: `symbols.nupkg` (varsayılan) veya `snupkg`. SymbolPackageFormat belirtilmezse, varsayılan `symbols.nupkg` ve eski sembol paketi oluşturulacak.
+1. Aşağıdaki özellikler için .csproj dosyasını ekleyin:
+
+    ```xml
+    <PropertyGroup>
+      <IncludeSymbols>true</IncludeSymbols>
+      <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    </PropertyGroup>
+    ```
+
+1. Projenizle paketi `dotnet pack MyPackage.csproj` veya `msbuild -t:pack MyPackage.csproj`.
+
+`SymbolPackageFormat` Özelliği iki değerden birine sahip olabilir: `symbols.nupkg` (varsayılan) veya `snupkg`. Varsa `SymbolPackageFormat` özelliği belirtilmezse, varsayılan `symbols.nupkg` ve eski sembol paketi oluşturulacak.
 
 > [!Note]
 > Eski biçim `.symbols.nupkg` ancak yalnızca uyumluluk açısından hala desteklenmektedir (bkz [eski sembol paketleri](Symbol-Packages.md)). Sembol sunucusuna NuGet.org yalnızca yeni sembol paket biçimi - kabul `.snupkg`.

@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 03/23/2018
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: b980c1084fe8e31573053a4dcf38bbfa6146e6de
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 6407cd2ea5e5e7a9c9e2be679764a8a0d5dd9260
+ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549779"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56852474"
 ---
 # <a name="package-versioning"></a>Paket sürümü oluşturma
 
@@ -29,9 +29,9 @@ Bu konuda:
 
 Belirli bir sürüm numarasını biçimindedir *ana.İkincil.yama [-soneki]*, aşağıdaki anlamlara sahip olduğu bileşenler:
 
-- *Ana*: bozucu değişiklikler
-- *Küçük*: yeni özellikler, ancak geriye dönük uyumluluk
-- *Düzeltme Eki*: yalnızca geriye dönük olarak uyumlu hata düzeltmeleri
+- *Ana*: Yeni değişiklikler
+- *Küçük*: Geriye dönük olarak uyumlu ancak yeni özellikler
+- *Düzeltme Eki*: Geriye dönük yalnızca uyumlu hata düzeltmeleri
 - *-Soneki* (isteğe bağlı): bir tire yayın öncesi bir sürümü belirten bir dize tarafından izlenen (aşağıdaki [Semantic Versioning veya SemVer 1.0 kuralı](http://semver.org/spec/v1.0.0.html)).
 
 **Örnekler:**
@@ -50,9 +50,9 @@ Teknik terimlerle açıklamak gerekirse, paket creators herhangi bir dize sonek 
 
 Bu, paket geliştiriciler genellikle tanınan adlandırma kurallarına uymuyor olduğu söylenebilir:
 
-- `-alpha`: Yayın alfa, genellikle iş ilerleme ve deneme için kullanılır.
+- `-alpha`: Genellikle, iş ilerleme ve deneme için kullanılan alfa sürümü.
 - `-beta`: Beta sürümü, genellikle bir özellik için bir sonraki tam sürüm planlı, ancak bilinen hataları içerebilir.
-- `-rc`: Genellikle büyük olasılıkla son sürüm Sürüm Adayı (stable) sürece önemli hatalar ortaya çıkmaya başladı.
+- `-rc`: Sürüm Adayı, genellikle büyük olasılıkla son sürüm (stable) sürece önemli hatalar ortaya çıkmaya başladı.
 
 > [!Note]
 > NuGet 4.3.0+ destekler [SemVer 2.0.0](http://semver.org/spec/v2.0.0.html), olarak nokta gösterimi, yayın öncesi sürüm numaralarıyla destekleyen *1.0.1-build.23*. Nokta gösterimi 4.3.0 önce NuGet sürümü ile desteklenmiyor. Bir form gibi kullanabileceğiniz *1.0.1-build23*.
@@ -88,7 +88,7 @@ Nuget.org için bir SemVer v2.0.0 özgü paketini karşıya yükleyin, paketin e
 - Visual Studio 2017 sürüm 15.3 +
 - Visual Studio 2015 ile [NuGet VSIX v3.6.0](https://dist.nuget.org/visualstudio-2015-vsix/latest/NuGet.Tools.vsix)
 - DotNet
-  - dotnetcore.exe (.NET SDK'sı 2.0.0+)
+  - dotnetcore.exe (.NET SDK 2.0.0+)
 
 Üçüncü taraf istemcileri:
 
@@ -187,9 +187,6 @@ Proje dosyalarında her zaman bir sürüm veya sürüm aralığı için Paket ba
 ```xml
 <!-- Accepts any version 6.1 and above. -->
 <dependency id="ExamplePackage" version="6.1" />
-
-<!-- Accepts any 6.x.y version. -->
-<dependency id="ExamplePackage" version="6.*" />
 
 <!-- Accepts any version above, but not including 4.1.3. Could be
      used to guarantee a dependency with a specific bug fix. -->
