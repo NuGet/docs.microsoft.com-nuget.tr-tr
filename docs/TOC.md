@@ -87,6 +87,7 @@
 ## [NuGet istemci SDK’sı](reference/nuget-client-sdk.md)
 ## [İmzalanmış Paketleri](reference/signed-packages-reference.md)
 ## [NuGet.org Üzerindeki Kuruluşlar](reference/organizations-on-nuget-org.md)
+## [licenses.nuget.org](reference/licenses.nuget.org.md)
 ## [Hatalar ve Uyarılar](reference/Errors-and-Warnings.md)
 ### [NU1000](reference/errors-and-warnings/NU1000.md)
 ### [NU1001](reference/errors-and-warnings/NU1001.md)
