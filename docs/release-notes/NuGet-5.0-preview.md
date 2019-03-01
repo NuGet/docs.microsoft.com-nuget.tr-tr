@@ -5,19 +5,61 @@ author: anangaur
 ms.author: anangaur
 ms.date: 1/25/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5889ea52f993fa8fe841f8eb83b6da659cdede93
-ms.sourcegitcommit: 1ab750ff17e55c763d646c50e7630138804ce8b8
+ms.openlocfilehash: 57b66b347ac47a3d05907a4bb237002de8981ecc
+ms.sourcegitcommit: 85bf94e0efcfcee1f914650bdc142309ef3e06d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56247665"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196206"
 ---
 # <a name="nuget-50-preview-release-notes"></a>NuGet 5.0 Preview sürüm notları
 
 ## <a name="nuget-50-preview-releases"></a>NuGet 5.0 Önizleme sürümleri
 
+* 27 Şubat 2010 - [NuGet 5.0 Preview 4](#summary-whats-new-in-50-preview-4)
 * 13 Şubat 2019 - [NuGet 5.0 Preview 3](#summary-whats-new-in-50-preview-3)
 * 23 Ocak 2019 - [NuGet 5.0 Önizleme 2](#summary-whats-new-in-50-preview-2)
+
+## <a name="summary-whats-new-in-nuget-50-preview-4"></a>Özet: NuGet 5.0 Preview 4 sürümünde yenilikler nelerdir?
+
+### <a name="issues-fixed-in-this-release"></a>Bu sürümde giderilen sorunlar
+
+**Hataları:**
+
+* NuGet.VisualStudio.IVsPackageInstaller - arama bir projede yok Paketle başvuran her zaman kullandığı packages.config Packagereference'a - varsayılan olarak ayarlanmış olsa bile [#7005](https://github.com/NuGet/Home/issues/7005)
+
+* PMC: Update-Package başarısız olursa ("paketi bulmak için yapılandırılamıyor") delisted paketleri yeniden yükleyin. - [#7268](https://github.com/NuGet/Home/issues/7268)
+
+* Bizim depo ve VSIX - üçüncü taraf bildirimi eklemek [#7409](https://github.com/NuGet/Home/issues/7409)
+
+* NuGet.VisualStudio.IVsPackageInstaller.InstallPackage verilen - sürüm, en son sürümünü yüklemelisiniz [#7493](https://github.com/NuGet/Home/issues/7493)
+
+* --dotnet nuget gönderim için etkileşimli desteği - [#7519](https://github.com/NuGet/Home/issues/7519)
+
+* Kilit dosyasıyla geri yüklerken NU1603 uyarı oluşturuldu olmamalıdır. - [#7529](https://github.com/NuGet/Home/issues/7529)
+
+* NuGet yazdırma proje yolu en az günlük ile-geri yükleme işlemi sırasında [#7647](https://github.com/NuGet/Home/issues/7647)
+
+* --dotnet etkileşimli desteğini kaldırmak paket - [#7727](https://github.com/NuGet/Home/issues/7727)
+
+* Ekleme ile TypeForwardedTo attrs - NuGet.Packaging.Core geri [#7768](https://github.com/NuGet/Home/issues/7768)
+
+* plugins_cache iyi - çalışması için daha kısa bir yol gerekiyor [#7770](https://github.com/NuGet/Home/issues/7770)
+
+* Kullanıcı için belirli msbuild sürümü - istememiş msbuild bulma yolunu tercih [#7786](https://github.com/NuGet/Home/issues/7786)
+
+**Dcr:**
+
+* http isteği aracılığıyla NuGet.Config - kaynak sayısı sınırlamak [#4538](https://github.com/NuGet/Home/issues/4538)
+
+* NuGet (temizleme VSIX'in 16,0 derleme yardımcı olmak için) Net472 - hedef [#7143](https://github.com/NuGet/Home/issues/7143)
+
+* PMC: -OpenPackagePage komutu kaldırmak [#7384](https://github.com/NuGet/Home/issues/7384)
+
+* NetStandard 2.1 - yapma NetCoreApp 3.0 eşlemesine [#7762](https://github.com/NuGet/Home/issues/7762)
+
+* NuGet.* paketlere - netstandard2.0 desteği Ekle [#6516](https://github.com/NuGet/Home/issues/6516)
+
 
 ## <a name="summary-whats-new-in-nuget-50-preview-3"></a>Özet: NuGet 5.0 Preview 3 yenilikler nelerdir?
 
@@ -39,7 +81,7 @@ ms.locfileid: "56247665"
 
 * MSBuild/t: Restore en az ayrıntı düzeyi daha az - [#4695](https://github.com/NuGet/Home/issues/4695)
 
-**Dcr**
+**Dcr:**
 
 * Derleme varlıklar geçişli davranışı - tanımlamak paket yazarlarının [#6091](https://github.com/NuGet/Home/issues/6091)
 
@@ -92,7 +134,7 @@ ms.locfileid: "56247665"
 
 * DotNet restore başarısız akışı - devre dışı makine nedeniyle geniş [#5410](https://github.com/NuGet/Home/issues/5410)
 
-**Dcr**
+**Dcr:**
 
 * NuGet 5.0 derlemeleri (TFM değişiklik) - .NET 4.7.2 gerektirecek şekilde [#7510](https://github.com/NuGet/Home/issues/7510)
 
@@ -109,10 +151,6 @@ ms.locfileid: "56247665"
 [Bu yayın 5.0.0-preview2 içinde düzeltilen tüm sorunlara listesi](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9.2")
 
 ### <a name="known-issues"></a>Bilinen sorunlar
-
-#### <a name="dotnet-nuget-push---interactive-gives-an-error-on-mac---7519httpsgithubcomnugethomeissues7519"></a>DotNet nuget push--etkileşimli Mac üzerinde bir hata verir. - [#7519](https://github.com/NuGet/Home/issues/7519)
-**Sorunu** `--interactive` bağımsız değişken dotnet CLI tarafından iletilmez değil ve sonuçları hata `error: Missing value for option 'interactive'` 
- **geçici çözüm** gibietkileşimliseçeneğiyleherhangibirdotnetkomutunuçalıştırın`dotnet restore --interactive` ve kimlik doğrulaması. Ardından kimlik doğrulama kimlik bilgisi sağlayıcı tarafından önbelleğe alınabilir. Ardından çalıştırın `dotnet nuget push`.
 
 #### <a name="packages-in-fallbackfolders-installed-by-net-core-sdk-are-custom-installed-and-fail-signature-validation---7414httpsgithubcomnugethomeissues7414"></a>.NET Core SDK'sı tarafından yüklenen FallbackFolders paketlerinde özel olarak yüklü olan ve imza doğrulaması başarısız. - [#7414](https://github.com/NuGet/Home/issues/7414)
 **Sorunu** dotnet.exe kullanırken bir proje bu çok hedefleri netcoreapp geri yüklemek için 2.x 1.x ve netcoreapp 2.x, geri dönüş klasörüne bir dosya akışı olarak kabul edilir. Bunun anlamı geri yüklerken, NuGet geri dönüş klasöründen paketi seçin ve genel paketleri klasörüne yükleyin ve başarısız her zamanki imza doğrulama yapmak deneyin.

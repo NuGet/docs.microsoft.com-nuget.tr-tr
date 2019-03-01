@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 03223e949eeeadd7eaa6e392297ba79d28eed2f2
-ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
+ms.openlocfilehash: 1c838116f9737b01ea3f9ca17f5d5002f6548044
+ms.sourcegitcommit: 85bf94e0efcfcee1f914650bdc142309ef3e06d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56852552"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196219"
 ---
 # <a name="nuget-frequently-asked-questions"></a>NuGet sık sorulan sorular
 
@@ -158,7 +158,7 @@ Her bir paketi paket ile birlikte gelen koşulları tabidir. Erişim, indirme ve
 
 Bir paketi lisans koşulları belirtmezse kullanarak doğrudan paket sahibiyle iletişime geçin **sahipleriyle temas** nuget.org paketi sayfasında bağlantı. Microsoft hiçbir fikri mülkiyet, üçüncü taraf paketi sağlayıcılarından lisans değil ve üçüncü taraflarca sağlanan bilgileri sorumlu değildir.
 
-## <a name="managing-packages-on-nugetorg"></a>Paketleri nuget.org üzerinde yönetme
+## <a name="managing-packages-on-nugetorg"></a>Paketleri NuGet.org üzerinde yönetme
 
 **Paket meta verileri, karşıya yüklendikten sonra düzenleyebilir miyim?**
 
@@ -167,6 +167,10 @@ NuGet imzalanması için tüm paketleri önerir. Paket imzalama tasarımı prens
 Paketiniz için listelenen bağımlılıkları paketinden otomatik olarak oluşturulur ve düzenlenemez unutmayın.
 
 Ayrıca, paketler için karşıya yükleme [int.nugettest.org](https://int.nugettest.org) test edin ve bir paket kullanılabilir genel galeride yapmadan paketinizi doğrulamak için harika bir yoludur. API uç noktası: https://apiint.nugettest.org/v3/index.json
+
+**Ben NuGet.org için yayımlanan paket silebilir miyim?**
+
+Genel olarak, yayımlanan NuGet.org için bir paket silindiğinde desteklemez. Daha fazla bilgi edinin bizim [paketleri silme ilkesi](../policies/deleting-packages).
 
 **Bu ad gelecekte yayımlanacak paketleri için ayrılacak mümkün mü?**
 

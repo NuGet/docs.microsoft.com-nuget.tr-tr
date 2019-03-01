@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 901eb09711a6e32740c70829028da66b782870a0
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 833f4a67bc75c5d650e85180b52ecd8f69218f15
+ms.sourcegitcommit: 85bf94e0efcfcee1f914650bdc142309ef3e06d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548134"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196193"
 ---
 # <a name="deleting-packages"></a>Paketleri silme
 
@@ -23,7 +23,7 @@ nuget.org destekliyor mu *unlisting* bir paketi paket Yönetim sayfasında web s
 
 ## <a name="exceptions"></a>Özel Durumlar
 
-Telif hakkı ihlali ve potansiyel olarak zararlı içeriği gibi olağanüstü durumlarda, paketleri el ile NuGet ekibi tarafından silinebilir. Üzerinden bir destek isteği [NuGet galerisinde](http://www.nuget.org) işlemini başlatmak için.
+Telif hakkı ihlali ve potansiyel olarak zararlı içeriği gibi olağanüstü durumlarda, paketleri el ile NuGet ekibi tarafından silinebilir. NuGet.org Paket Ayrıntıları sayfasındaki "Uygunsuz" düğmesini kullanarak bir paket bildirebilirsiniz. NuGet.org Paket Ayrıntıları sayfasındaki "desteğe başvurun" düğmesini kullanarak NuGet desteği ulaşmaya NuGet.org hesabınızda oturum açın paket sahibinden varsa.
 
 ## <a name="prohibited-use"></a>Yasaklanmış kullanımı
 
