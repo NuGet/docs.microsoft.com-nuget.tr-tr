@@ -5,26 +5,26 @@ author: anangaur
 ms.author: anangaur
 ms.date: 1/25/2019
 ms.topic: conceptual
-ms.openlocfilehash: 57b66b347ac47a3d05907a4bb237002de8981ecc
-ms.sourcegitcommit: 85bf94e0efcfcee1f914650bdc142309ef3e06d9
+ms.openlocfilehash: 4b05dcb9a2960c1e3231e81d4b4c122d3a518753
+ms.sourcegitcommit: 571644118e3c5a2fd818891d305b4b8de8ef21de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196206"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57225894"
 ---
 # <a name="nuget-50-preview-release-notes"></a>NuGet 5.0 Preview sürüm notları
 
 ## <a name="nuget-50-preview-releases"></a>NuGet 5.0 Önizleme sürümleri
 
-* 27 Şubat 2010 - [NuGet 5.0 Preview 4](#summary-whats-new-in-50-preview-4)
-* 13 Şubat 2019 - [NuGet 5.0 Preview 3](#summary-whats-new-in-50-preview-3)
-* 23 Ocak 2019 - [NuGet 5.0 Önizleme 2](#summary-whats-new-in-50-preview-2)
+* 27 Şubat 2019 - [NuGet 5.0 Preview 4](#whats-new-in-nuget-50-preview-4)
+* 13 Şubat 2019 - [NuGet 5.0 Preview 3](#whats-new-in-nuget-50-preview-3)
+* 23 Ocak 2019 - [NuGet 5.0 Önizleme 2](#whats-new-in-nuget-50-preview-2)
 
-## <a name="summary-whats-new-in-nuget-50-preview-4"></a>Özet: NuGet 5.0 Preview 4 sürümünde yenilikler nelerdir?
+## <a name="whats-new-in-nuget-50-preview-4"></a>NuGet 5.0 Preview 4 sürümünde yenilikler nelerdir?
 
 ### <a name="issues-fixed-in-this-release"></a>Bu sürümde giderilen sorunlar
 
-**Hataları:**
+**Hataları**
 
 * NuGet.VisualStudio.IVsPackageInstaller - arama bir projede yok Paketle başvuran her zaman kullandığı packages.config Packagereference'a - varsayılan olarak ayarlanmış olsa bile [#7005](https://github.com/NuGet/Home/issues/7005)
 
@@ -48,7 +48,7 @@ ms.locfileid: "57196206"
 
 * Kullanıcı için belirli msbuild sürümü - istememiş msbuild bulma yolunu tercih [#7786](https://github.com/NuGet/Home/issues/7786)
 
-**Dcr:**
+**Dcr**
 
 * http isteği aracılığıyla NuGet.Config - kaynak sayısı sınırlamak [#4538](https://github.com/NuGet/Home/issues/4538)
 
@@ -61,11 +61,11 @@ ms.locfileid: "57196206"
 * NuGet.* paketlere - netstandard2.0 desteği Ekle [#6516](https://github.com/NuGet/Home/issues/6516)
 
 
-## <a name="summary-whats-new-in-nuget-50-preview-3"></a>Özet: NuGet 5.0 Preview 3 yenilikler nelerdir?
+## <a name="whats-new-in-nuget-50-preview-3"></a>NuGet 5.0 Preview 3 yenilikler nelerdir?
 
 ### <a name="issues-fixed-in-this-release"></a>Bu sürümde giderilen sorunlar 
 
-**Hataları:**
+**Hataları**
 
 * nuget.exe /? doğru msbuild sürümler - listelemelidir [#7794](https://github.com/NuGet/Home/issues/7794)
 
@@ -81,18 +81,18 @@ ms.locfileid: "57196206"
 
 * MSBuild/t: Restore en az ayrıntı düzeyi daha az - [#4695](https://github.com/NuGet/Home/issues/4695)
 
-**Dcr:**
+**Dcr**
 
 * Derleme varlıklar geçişli davranışı - tanımlamak paket yazarlarının [#6091](https://github.com/NuGet/Home/issues/6091)
 
 * Proje çözümün bir parçası değil veya yüklü değil, ancak daha önce yüklendi - başarılı olması için VS geri yükleme etkinleştirme [#5820](https://github.com/NuGet/Home/issues/5820)
 
 
-## <a name="summary-whats-new-in-50-preview-2"></a>Özet: 5.0 Önizleme 2'de yenilikler nelerdir?
+## <a name="whats-new-in-nuget-50-preview-2"></a>NuGet 5.0 Önizleme 2'de yenilikler nelerdir?
 
 ### <a name="issues-fixed-in-this-release"></a>Bu sürümde giderilen sorunlar
 
-**Hataları:**
+**Hataları**
 
 * VS 16,0'ın NuGet kullanıcı Arabirimi olan renk sorunları - nedeniyle okunamaz sekmeleri [#7735](https://github.com/NuGet/Home/issues/7735)
 
@@ -134,7 +134,7 @@ ms.locfileid: "57196206"
 
 * DotNet restore başarısız akışı - devre dışı makine nedeniyle geniş [#5410](https://github.com/NuGet/Home/issues/5410)
 
-**Dcr:**
+**Dcr**
 
 * NuGet 5.0 derlemeleri (TFM değişiklik) - .NET 4.7.2 gerektirecek şekilde [#7510](https://github.com/NuGet/Home/issues/7510)
 

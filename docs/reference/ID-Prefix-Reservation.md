@@ -6,12 +6,12 @@ ms.author: diverdan92
 ms.date: 10/09/2017
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: 32f83bede42f7643a9a4fed593643eefea0453c1
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.openlocfilehash: e8b902c89427333afb7a27ee9de0eeb99a92f391
+ms.sourcegitcommit: 571644118e3c5a2fd818891d305b4b8de8ef21de
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981008"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57225881"
 ---
 # <a name="package-id-prefix-reservation"></a>Paket kimliği ön eki ayırma
 
@@ -31,7 +31,7 @@ Ne zaman bir öneki ayrılmıştır üzerinde [nuget.org](https://www.nuget.org/
 
 1. Her bir paket gönderildi için [nuget.org](https://www.nuget.org/) kimliği öneki ayrılmış sahip kaynaklı sürece, ayrılmış kimliği öneki ile eşleşen bir kimliği ile paket reddedilir.
 
-1. Ayrılmış kimliği öneki eşleşir ve kimliği öneki ayrılmış sahip kaynaklı herhangi bir paket, Visual Studio 2017 sürüm 15.4 veya sonraki bir sürümü ve üzerinde bir gösterge sahip olacaktır [nuget.org](https://www.nuget.org/) paket altında olduğunu gösteren ayrılmış bir kimliği öneki. Bu, hem yeni paket gönderimleri, aynı zamanda mevcut paketleri sahip altında için geçerlidir. **Not:** paket kaynağı olarak yalnızca tek bir akış seçili değilse, Visual Studio'da göstergesi görünür.
+1. Ayrılmış kimliği öneki eşleşir ve kimliği öneki ayrılmış sahip kaynaklı herhangi bir paket, Visual Studio 2017 sürüm 15.4 veya sonraki bir sürümü ve üzerinde bir gösterge sahip olacaktır [nuget.org](https://www.nuget.org/) paket altında olduğunu gösteren ayrılmış bir kimliği öneki. Bu, hem yeni paket gönderimleri, aynı zamanda mevcut paketleri sahip altında için geçerlidir. **Not:** Yalnızca tek bir akış paket kaynağı seçtiyseniz Visual Studio'da göstergesi görünür.
 
 1. Ayrılmış kimlik öneki, eşleşen tüm önceden var olan ancak paketlerin *değil* ayrılmış sahibini ait ön eki değişmeden kalır (bunlar listede bulunmayan olmayacak, ancak ayrıca görsel gösterge olmaz). Ayrıca, bu paketlerin sahipleri yine de paketinin yeni sürümlerini göndermek oluşturabileceksiniz.
 
@@ -55,8 +55,8 @@ Subprefix temsilci ve genel olarak işaretleme ön ekleri dahil olmak üzere aş
 
 Bir paket ayrılmış bir önekten geldiğinde, gördüğünüz visual göstergelerini aşağıda [nuget.org](https://www.nuget.org/) Galerisi ve Visual Studio 2017 sürüm 15.4 veya sonraki bir sürümü:
 
-**nuget.org galeri**
-![nuget.org Galerisi](media/nuget-gallery-reserved-prefix.png)
+**nuget.org Gallery**
+![nuget.org Gallery](media/nuget-gallery-reserved-prefix.png)
 
 **Visual Studio**
 ![Visual Studio](media/visual-studio-reserved-prefix.png)
@@ -84,6 +84,8 @@ Kimlik ön eki ayırma için herhangi bir uygulama incelerken [nuget.org](https:
 1. İstediğiniz *değil* paket kimliği öneki ayırma belirsizlik ve topluluk için Kafa karışıklığına neden?
 
 1. Paket kimliği öneki NET ve tutarlı (özellikle paket yazarı) eşleşen paketleri tanımlayıcı özelliklerini misiniz?
+
+1. Paketleri lisansınız (kullanarak [lisans](https://docs.microsoft.com/en-us/nuget/reference/nuspec#license) meta veri öğesi ve kullanımdan kaldırılıyor licenseUrl değil)?
 
 ## <a name="third-party-feed-provider-scenarios"></a>Üçüncü taraf sağlayıcı senaryoları akışı
 
