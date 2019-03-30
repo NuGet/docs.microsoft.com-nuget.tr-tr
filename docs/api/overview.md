@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 5d0d60cbcf6516d24efeb04f8262902da69d92d1
-ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
+ms.openlocfilehash: bb15b4decef104f1aefe37fd18f3358181a848af
+ms.sourcegitcommit: 2af17c8bb452a538977794bf559cdd78d58f2790
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56145663"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58637668"
 ---
 # <a name="nuget-api"></a>NuGet API'si
 
@@ -49,17 +49,18 @@ OData tabanlı bir protokol sürümü olan 2.x sürümüne resmi bir NuGet istem
 
 **Hizmet dizini** çeşitli kaynaklara açıklar. Desteklenen kaynak geçerli kümesini aşağıdaki gibidir:
 
-Kaynak adı                                                          | Gerekli | Açıklama
----------------------------------------------------------------------- | -------- | -----------
-[`PackagePublish`](package-publish-resource.md)                        | evet      | Anında iletme ve silme (veya listeden) paketleri.
-[`SearchQueryService`](search-query-service-resource.md)               | evet      | Filtre ve paketleri anahtar sözcüğe göre arayın.
-[`RegistrationsBaseUrl`](registration-base-url-resource.md)            | evet      | Paket meta verilerini alın.
-[`PackageBaseAddress`](package-base-address-resource.md)               | evet      | Paket içeriğini (.nupkg) alın.
-[`SearchAutocompleteService`](search-autocomplete-service-resource.md) | Yok       | Paket kimlikleri ve sürümleri tarafından alt dizeyi bulur.
-[`ReportAbuseUriTemplate`](report-abuse-resource.md)                   | Yok       | "Uygunsuz" web sayfasına erişmek için bir URL oluşturur.
-[`RepositorySignatures`](repository-signatures-resource.md)            | Yok       | Depo imzalamak için kullanılan sertifika alın.
-[`Catalog`](catalog-resource.md)                                       | Yok       | Tüm paket olayların tam kayıt.
-[`SymbolPackagePublish`](symbol-package-publish-resource.md)           | Yok       | Sembol paketleri gönderin.
+Kaynak adı                                                        | Gerekli | Açıklama
+-------------------------------------------------------------------- | -------- | -----------
+[Katalog](catalog-resource.md)                                       | Yok       | Tüm paket olayların tam kayıt.
+[PackageBaseAddress](package-base-address-resource.md)               | evet      | Paket içeriğini (.nupkg) alın.
+[PackageDetailsUriTemplate](package-details-template-resource.md)    | Yok       | Paket Ayrıntıları web sayfasına erişim URL'si oluşturun.
+[PackagePublish](package-publish-resource.md)                        | evet      | Anında iletme ve silme (veya listeden) paketleri.
+[RegistrationsBaseUrl](registration-base-url-resource.md)            | evet      | Paket meta verilerini alın.
+[ReportAbuseUriTemplate](report-abuse-resource.md)                   | Yok       | Bir rapor kötüye web sayfasına erişmek için bir URL oluşturur.
+[RepositorySignatures](repository-signatures-resource.md)            | Yok       | Depo imzalamak için kullanılan sertifika alın.
+[SearchAutocompleteService](search-autocomplete-service-resource.md) | Yok       | Paket kimlikleri ve sürümleri tarafından alt dizeyi bulur.
+[SearchQueryService](search-query-service-resource.md)               | evet      | Filtre ve paketleri anahtar sözcüğe göre arayın.
+[SymbolPackagePublish](symbol-package-publish-resource.md)           | Yok       | Sembol paketleri gönderin.
 
 Genel olarak, bir API kaynak tarafından döndürülen tüm ikili olmayan veriler JSON kullanarak serileştirilir. Hizmet dizini her bir kaynak tarafından döndürülen yanıt şeması, bu kaynak için ayrı ayrı tanımlanır. Her kaynak hakkında daha fazla bilgi için yukarıda listelenen konulara bakın.
 
@@ -123,7 +124,9 @@ Ad                     | Açıklama
 X-NuGet-ApiKey           | Push ve delete için gerekli bkz [ `PackagePublish` kaynak](package-publish-resource.md)
 X-NuGet-Client-Version   | **Kullanım dışı** tarafından değiştirildi `X-NuGet-Protocol-Version`
 X-NuGet-protokol-sürüm | Nuget.org üzerindeki yalnızca belirli durumlarda gerekli bkz [nuget.org protokolleri](NuGet-Protocols.md)
-X-NuGet-Session-Id       | *İsteğe bağlı*. NuGet istemcileri v4.7 + aynı NuGet istemci oturumunun parçası olan HTTP isteklerini belirleyin. İçin `PackageReference` geri yükleme işlemleri, tek bir oturum kimliği, otomatik tamamlama, gibi diğer senaryolar için olan ve `packages.config` geri yükleme kodunu nasıl katılır nedeniyle birkaç farklı bir oturum kimliği olabilir.
+X-NuGet-Session-Id       | *İsteğe bağlı*. NuGet istemcileri v4.7 + aynı NuGet istemci oturumunun parçası olan HTTP isteklerini belirleyin.
+
+`X-NuGet-Session-Id` Tek bir geri yükleme ile ilgili tüm işlemleri için tek bir değere sahip `PackageReference`. Otomatik Tamamlama gibi diğer senaryolar için ve `packages.config` geri yükleme birkaç farklı oturum olabilir kimliğin kodu nasıl factored nedeniyle.
 
 ## <a name="authentication"></a>Kimlik doğrulaması
 

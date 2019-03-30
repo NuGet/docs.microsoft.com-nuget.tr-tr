@@ -10,12 +10,12 @@ f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager.general
 - vs.toolsoptionspages.nuget_package_manager.package_sources
 - vs.nuget.packagemanager.ui
-ms.openlocfilehash: 1de6ddeca6295c621a90409807af198bc3c7a068
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.openlocfilehash: 422faf99e58e058d86db774a8f3c1c576b3dc393
+ms.sourcegitcommit: 2af17c8bb452a538977794bf559cdd78d58f2790
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981190"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58637629"
 ---
 # <a name="nuget-package-manager-ui"></a>NuGet Paket Yöneticisi UI
 
@@ -127,7 +127,7 @@ Paket kaynaklarını yönetmek için:
 1. Paket kaynağı değiştirmek için seçin, içinde düzenlemeler **adı** ve **kaynak** kutuları ve select **güncelleştirme**.
 1. Paket kaynağı devre dışı bırakmak için listesinde adının sol tarafındaki kutuya temizleyin.
 1. Paket kaynağı kaldırmak için onu seçin ve ardından **X** düğmesi.
-1. Yukarı ve aşağı ok düğmelerini paket kaynaklarını öncelik sırasını değiştirmek için. Visual Studio bir proje için paketler geri yüklenirken öncelik sırasına göre bu kaynakları arar. Daha fazla bilgi için [paket geri yükleme](../consume-packages/package-restore.md).
+1. Kullanarak yukarı ve aşağı ok düğmelerini paket kaynaklarını öncelik sırasını değiştirmez. Visual Studio isteklerine yanıt vermek için hangi kaynak gelen paketin ilk kullanarak paket kaynaklarını sırasını yoksayar. Daha fazla bilgi için [paket geri yükleme](../consume-packages/package-restore.md).
 
 > [!Tip]
 > Paket kaynağı sildikten sonra görünürse, bir bilgisayar düzeyinde veya kullanıcı düzeyi listelenebilir `NuGet.Config` dosyaları. Bkz: [yapılandırma NuGet davranışını](../consume-packages/configuring-nuget-behavior.md) bu dosyaları konumu için ardından dosyaları el ile düzenleme ya da kullanarak kaynak kaldırın [nuget komutu kaynakları](../tools/nuget-exe-CLI-reference.md).
