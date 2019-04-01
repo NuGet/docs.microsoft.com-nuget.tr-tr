@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 08/29/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: a8be66f5871df260581b6baca8eb7959279d66cd
-ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
+ms.openlocfilehash: 21678cc36fd9bf1ed49143bee3f35208640fc8a7
+ms.sourcegitcommit: 2af17c8bb452a538977794bf559cdd78d58f2790
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56852591"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58637655"
 ---
 # <a name="nuspec-reference"></a>.nuspec başvurusu
 
@@ -90,7 +90,7 @@ Tam listesi sunulmaktadır [SPDX lisans tanımlayıcıları](https://spdx.org/li
 
 Paketinizi altında birden çok ortak lisansları lisanslanmıştır, kullanarak bir bileşik lisans belirtebilirsiniz [SPDX ifadesi söz dizimi sürümü 2.0](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60).<br>Örneğin: `<license type="expression">BSD-2-Clause OR MIT</license>`.
 
-SPDX tanımlayıcı atanmamış lisans kullandığınız ya da özel bir lisanstır, bir dosya paketini (yalnızca `.txt.` veya `.md`) lisans metni. Örneğin:
+SPDX tanımlayıcı atanmamış lisans kullandığınız ya da özel bir lisanstır, bir dosya paketini (yalnızca `.txt` veya `.md`) lisans metni. Örneğin:
 ```xml
 <package>
   <metadata>
