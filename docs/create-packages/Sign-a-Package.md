@@ -6,12 +6,12 @@ ms.author: rmpablos
 ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: e8955f9d46bab235c8755d5654814a4291d542d6
-ms.sourcegitcommit: 673e580ae749544a4a071b4efe7d42fd2bb6d209
+ms.openlocfilehash: 8ff92e5a3ab2d5c13ee02a9e49709866e2ac0e87
+ms.sourcegitcommit: 8793f528a11bd8e8fb229cd12e9abba50d61e104
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52977569"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58921578"
 ---
 # <a name="signing-nuget-packages"></a>NuGet paketlerini imzalama
 
@@ -29,7 +29,7 @@ Kendi kendine verilen sertifikaların test amacıyla kullanabilirsiniz. Ancak, k
 
   ![Sertifika Dışarı Aktarma Sihirbazı](../reference/media/CertificateExportWizard.png)
 
-* Sertifikayı kullanarak da verebilirsiniz [sertifika dışarı aktarma PowerShell komutunu](/powershell/module/pkiclient/export-certificate.md).
+* Sertifikayı kullanarak da verebilirsiniz [sertifika dışarı aktarma PowerShell komutunu](/powershell/module/pkiclient/export-certificate).
 
 ## <a name="sign-the-package"></a>Paket imzalama
 
@@ -39,8 +39,11 @@ Kendi kendine verilen sertifikaların test amacıyla kullanabilirsiniz. Ancak, k
 Paket kullanarak oturum [nuget oturum](../tools/cli-ref-sign.md):
 
 ```cli
-nuget sign MyPackage.nupkg -CertificateFilePath <PathToTheCertificate> -Timestamper <TimestampServiceURL>
+nuget sign MyPackage.nupkg -CertificatePath <PathToTheCertificate> -Timestamper <TimestampServiceURL>
 ```
+
+> [!Tip]
+> Sertifika sağlayıcısı için kullanabileceğiniz bir zaman damgası sunucu URL'si genellikle de sağlar. `Timestamper` yukarıdaki isteğe bağlı bağımsız değişkeni göster. Sağlayıcınızın belgeleri ve/veya ilgili hizmet URL'si için destek başvurun.
 
 * Sertifika deposunda mevcut bir sertifikayı kullanın ya da bir dosyadan bir sertifika kullanın. CLI başvuru için bkz. [nuget oturum](../tools/cli-ref-sign.md).
 * İmzalanmış paketleri imzalama sertifikasının süresi dolduğunda imzanın geçerli olacağı emin olmak için bir zaman damgasını içermelidir. Oturum işlemi başka oluşturacak bir [uyarı](../reference/errors-and-warnings/NU3002.md).
@@ -67,7 +70,7 @@ NuGet.org için paket yayımlamak artık hazırsınız. Bkz: [paketleri yayımla
 
 ## <a name="create-a-test-certificate"></a>Bir test sertifikası oluştur
 
-Kendi kendine verilen sertifikaların test amacıyla kullanabilirsiniz. Kendi kendine verilen bir sertifika oluşturmak için kullanın [New-SelfSignedCertificate PowerShell komutunu](/powershell/module/pkiclient/new-selfsignedcertificate.md).
+Kendi kendine verilen sertifikaların test amacıyla kullanabilirsiniz. Kendi kendine verilen bir sertifika oluşturmak için kullanın [New-SelfSignedCertificate PowerShell komutunu](/powershell/module/pkiclient/new-selfsignedcertificate).
 
 ```ps
 New-SelfSignedCertificate -Subject "CN=NuGet Test Developer, OU=Use for testing purposes ONLY" `
@@ -89,8 +92,8 @@ Bu komut, geçerli kullanıcının kişisel sertifika deposunda kullanılabilir 
 ## <a name="manage-signing-requirements-for-your-package-on-nugetorg"></a>NuGet.org üzerinde paket imzalama gereksinimlerini yönetme
 1. [Oturum](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) NuGet.org için.
 
-1. Git `Manage Packages`  
-    ![paket İmzalayanları yapılandırın](../reference/media/configure-package-signers.png)
+1. Git `Manage Packages` 
+   ![paket İmzalayanları yapılandırın](../reference/media/configure-package-signers.png)
 
 * Bir paketi tek sahip siz olursunuz, gerekli imzalayan olan herhangi bir kayıtlı sertifikaları imzalamak ve NuGet.org için paket yayımlamasına yani kullanabilirsiniz.
 
