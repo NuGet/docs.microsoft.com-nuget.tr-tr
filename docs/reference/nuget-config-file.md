@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/25/2017
 ms.topic: reference
-ms.openlocfilehash: c294e4c188db2e90e6bcb62b60f71ed5529977fe
-ms.sourcegitcommit: a1846edf70ddb2505d58e536e08e952d870931b0
+ms.openlocfilehash: d7c943c1f13edf782dabe4afee9d19a1a42bd42a
+ms.sourcegitcommit: 9f94e00428d83aef4a7a87db679129eff7720c59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52303525"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58911094"
 ---
 # <a name="nugetconfig-reference"></a>nuget.config başvurusu
 
@@ -148,8 +148,8 @@ Kullanıcı adları ve parolalar kaynakları, genellikle ile belirtilen için de
 
 | Anahtar | Değer |
 | --- | --- |
-| Kullanıcı adı | Kaynak düz metin biçiminde kullanıcı adı. |
-| Parola | Kaynağı için şifrelenmiş parola. |
+| kullanıcı adı | Kaynak düz metin biçiminde kullanıcı adı. |
+| password | Kaynağı için şifrelenmiş parola. |
 | cleartextpassword | Kaynağı için şifrelenmemiş parola. |
 
 **Örnek:**

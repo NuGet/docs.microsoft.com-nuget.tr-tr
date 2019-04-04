@@ -6,18 +6,18 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 2d2b20c1ea439ec0a3225cf983d9a4d2eedb0333
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: fdc3ad8aa239a42d8a4c169a757715e856bdcb41
+ms.sourcegitcommit: 9f94e00428d83aef4a7a87db679129eff7720c59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324766"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58911055"
 ---
 # <a name="autocomplete"></a>Otomatik Tamamlama
 
 V3 API'sini kullanarak bir paket Kimliğini ve sürümünü otomatik tamamlama deneyimi oluşturmak mümkündür. Otomatik Tamamlama sorguları yapmak için kullanılan kaynak `SearchAutocompleteService` kaynak bulunan [hizmet dizini](service-index.md).
 
-## <a name="versioning"></a>Sürüm oluşturma
+## <a name="versioning"></a>Sürüm Oluşturma
 
 Aşağıdaki `@type` değerleri kullanılır:
 
@@ -114,7 +114,7 @@ Ad      | Tür             | Gerekli | Notlar
 --------- | ---------------- | -------- | -----
 veri      | dize dizisi | evet      | İstek tarafından eşleşen paket sürümleri
 
-Paket sürümlerinde `data` dizi SemVer 2.0.0 derleme meta verileri içeren (örn `1.0.0+metadata`) varsa `semVerLevel=2.0.0` sorgu dizesinde sağlanan.
+Paket sürümlerinde `data` dizi SemVer 2.0.0 derleme meta verileri içerebilir (örneğin `1.0.0+metadata`) varsa `semVerLevel=2.0.0` sorgu dizesinde sağlanan.
 
 ### <a name="sample-request"></a>Örnek istek
 

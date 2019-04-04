@@ -1,8 +1,19 @@
+---
+title: Licenses.nuget.org
+author: agr
+ms.date: 02/22/2019
+ms.openlocfilehash: 4a40cc1f7d333e8d35a721f3eed2e6b9365faf7b
+ms.sourcegitcommit: 8793f528a11bd8e8fb229cd12e9abba50d61e104
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58921565"
+---
 # <a name="licensesnugetorg"></a>Licenses.nuget.org
 
 ## <a name="rationale"></a>Stratejinin
 
-Sunulmasıyla birlikte [lisans ifadeleri](nuspec.md#license) ayrı lisans tanımlayıcıları, özel durum tanımlayıcıları veya lisans ifadeler için bir başvuru metin sağlayacağını güvenilir bir hizmet için bir gereksinim ortaya çıktı.
+Sunulmasıyla birlikte [lisans ifadeleri](nuspec.md#license), başvuru metin ayrı lisans tanımlayıcıları, özel durum tanımlayıcıları veya lisans ifadeleri sağlayacağını güvenilir bir hizmet için bir gereksinim ortaya çıktı.
 Bu hizmet için ek bir gereksinim rot, bağlantı açık değil ve böylece güvenli bir şekilde, geriye dönük uyumluluk için eski istemcileri sağlamak için kullanabiliriz kararlı bir URL şeması sağlamaktır.
 
 Bu rol Licenses.nuget.org karşılar. Nuget.org lisansa lisansı ifade kullanarak belirttiğiniz paketleri için lisans metin başvurusu sağlamak için kullanır. `nuget pack` ya da diğer paket [istemci araçları](https://docs.microsoft.com/en-us/nuget/install-nuget-client-tools) ayarlamak [ `licenseUrl` ](nuspec.md#licenseurl) geriye doğru desteklemeyen eski istemciler uyum sağlamak için licenses.nuget.org işaret edecek şekilde öğe `license` öğe.
@@ -21,15 +32,16 @@ Lisans ifadeleri (Önemsiz durumları ifade tek bir lisans oluşuyorsa dahil) sa
 
 | Lisans ifadesi | Kullanılacak URL'si |
 |:---|:---|
-MIT                                                | https://licenses.nuget.org/MIT
-(MIT)                                              | https://licenses.nuget.org/(MIT)
-(LGPL 2.0-ile yalnızca FLTK özel durumu veya Apache-2.0+) | https://licenses.nuget.org/(LGPL-2.0-only%20WITH%20FLTK-exception%20OR%20Apache-2.0+)
+| MIT                                                | <https://licenses.nuget.org/MIT> |
+| (MIT)                                              | <https://licenses.nuget.org/(MIT)> |
+| (LGPL 2.0-ile yalnızca FLTK özel durumu veya Apache-2.0+) | <https://licenses.nuget.org/(LGPL-2.0-only%20WITH%20FLTK-exception%20OR%20Apache-2.0+)> |
 
 Hizmet, yalnızca lisans tanımlayıcıları ve nuget.org tarafından kabul edilen lisans özel durum tanımlayıcıları destekler. Desteklenmeyen lisans tanımlayıcıları veya lisans özel durum tanımlayıcıları içeren veya lisans ifadesi söz dizimi için uygun değil tüm lisans ifadeleri geçersiz olarak kabul edilir.
 
 #### <a name="response"></a>Yanıt
 
 Licenses.nuget.org geçerli lisans ifadelerle bir HTTP 200 durum kodu ve lisansı ifade açıklamasını içeren bir web sayfası içeren isteklere yanıt verir:
+
 * Lisans ifade sağlandıysa bu lisans başvuru metni içeren bir web sayfası döndürülen bir tek bir lisans tanımlayıcısı içeriyor;
 * sağlandıysa lisans ifade bir bileşik lisans ifadesi, tek bir lisans veya lisans özel durumu başvuruları için bağlantılarla birlikte lisans ifadesi içeren bir web sayfası döndürülür.
 
@@ -43,8 +55,8 @@ Lisans özel durum tanımlayıcıları, URL kodlamalı ve licenses.nuget.org ist
 
 | Lisans özel durum tanımlayıcısı | Kullanılacak URL'si |
 |:---|:---|
-FLTK özel durumu            | https://licenses.nuget.org/FLTK-exception
-openvpn openssl durum | https://licenses.nuget.org/openvpn-openssl-exception
+|FLTK özel durumu            | <https://licenses.nuget.org/FLTK-exception> |
+|openvpn openssl durum | <https://licenses.nuget.org/openvpn-openssl-exception> |
 
 #### <a name="response"></a>Yanıt
 
