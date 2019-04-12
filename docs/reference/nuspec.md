@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 08/29/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 21678cc36fd9bf1ed49143bee3f35208640fc8a7
-ms.sourcegitcommit: 2af17c8bb452a538977794bf559cdd78d58f2790
+ms.openlocfilehash: ebb1dd929042a1fcd269d0ac50154ae6b8234be2
+ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58637655"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59509112"
 ---
 # <a name="nuspec-reference"></a>.nuspec başvurusu
 
@@ -84,11 +84,13 @@ Genellikle kullanıcı Arabiriminde gösterilir paketin giriş sayfası için bi
 
 Genellikle kullanıcı Arabirimi görüntüler yanı sıra nuget.org adresinde gösterilir, paketi lisansının URL'si.
 #### <a name="license"></a>Lisans
-SPDX lisans ifadesi veya genellikle kullanıcı Arabirimi görüntüler yanı sıra nuget.org adresinde gösterilir, paket içindeki bir lisans dosyasının yolu. Paket BSD 2 yan veya MIT gibi ortak bir lisans kapsamında lisans, ilişkili SPDX lisans tanımlayıcısı kullanın.<br>Örneğin: `<license type="expression">MIT</license>`.
+SPDX lisans ifadesi veya genellikle kullanıcı Arabirimi görüntüler yanı sıra nuget.org adresinde gösterilir, paket içindeki bir lisans dosyasının yolu. Paket BSD 2 yan veya MIT gibi ortak bir lisans kapsamında lisans, ilişkili SPDX lisans tanımlayıcısı kullanın.<br>Örneğin:
+`<license type="expression">MIT</license>`
 
 Tam listesi sunulmaktadır [SPDX lisans tanımlayıcıları](https://spdx.org/licenses/). NuGet.org yalnızca OSI kabul eder veya kullanırken onaylanan FSF lisans türü ifadesi lisansı.
 
-Paketinizi altında birden çok ortak lisansları lisanslanmıştır, kullanarak bir bileşik lisans belirtebilirsiniz [SPDX ifadesi söz dizimi sürümü 2.0](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60).<br>Örneğin: `<license type="expression">BSD-2-Clause OR MIT</license>`.
+Paketinizi altında birden çok ortak lisansları lisanslanmıştır, kullanarak bir bileşik lisans belirtebilirsiniz [SPDX ifadesi söz dizimi sürümü 2.0](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60).<br>Örneğin:
+`<license type="expression">BSD-2-Clause OR MIT</license>`
 
 SPDX tanımlayıcı atanmamış lisans kullandığınız ya da özel bir lisanstır, bir dosya paketini (yalnızca `.txt` veya `.md`) lisans metni. Örneğin:
 ```xml
@@ -344,7 +346,7 @@ Framework derlemeleri, .NET framework'ün bir parçasıdır ve herhangi bir maki
 
 | Öznitelik | Açıklama |
 | --- | --- |
-| **AssemblyName** | (Gerekli) Tam derleme adı. |
+| **derlemeAdı** | (Gerekli) Tam derleme adı. |
 | **targetFramework** | (İsteğe bağlı) Bu başvuru uygulandığı hedef Framework'ü belirtir. Atlanırsa, başvuru için tüm çerçeveleri geçerli olduğunu gösterir. Bkz: [hedef çerçeveyi](../reference/target-frameworks.md) tam framework tanımlayıcıları için. |
 
 Aşağıdaki örnek, bir başvuru gösterir `System.Net` için tüm çerçeveleri ve başvuru hedef `System.ServiceModel` yalnızca .NET Framework 4.0 için:
@@ -385,8 +387,8 @@ Her `<file>` öğesi aşağıdaki öznitelikleri belirtir:
 | Öznitelik | Açıklama |
 | --- | --- |
 | **src** | Tarafından belirtilen dışlamaları tabi dahil edilecek dosyalar ve dosya konumunu `exclude` özniteliği. Yolun göreli olduğu `.nuspec` mutlak bir yol belirtilmezse dosya. Joker karakter `*` izin verilir ve çift joker `**` özyinelemeli klasör arama anlamına gelir. |
-| **Hedef** | Klasörün başlamalıdır. burada kaynak dosyaları yerleştirilir, paket içindeki göreli yolu `lib`, `content`, `build`, veya `tools`. Bkz: [kural tabanlı bir çalışma dizininden bir .nuspec oluşturma](../create-packages/creating-a-package.md#from-a-convention-based-working-directory). |
-| **Hariç tutma** | Dışlanacak dosya desenlerinin veya dosyaların noktalı virgülle ayrılmış listesi `src` konumu. Joker karakter `*` izin verilir ve çift joker `**` özyinelemeli klasör arama anlamına gelir. |
+| **hedef** | Klasörün başlamalıdır. burada kaynak dosyaları yerleştirilir, paket içindeki göreli yolu `lib`, `content`, `build`, veya `tools`. Bkz: [kural tabanlı bir çalışma dizininden bir .nuspec oluşturma](../create-packages/creating-a-package.md#from-a-convention-based-working-directory). |
+| **exclude** | Dışlanacak dosya desenlerinin veya dosyaların noktalı virgülle ayrılmış listesi `src` konumu. Joker karakter `*` izin verilir ve çift joker `**` özyinelemeli klasör arama anlamına gelir. |
 
 ### <a name="examples"></a>Örnekler
 
@@ -590,10 +592,10 @@ Bu dosyaları nasıl bunlar içinde proje sisteminin kullanılması gerektiğini
 | Öznitelik | Açıklama |
 | --- | --- |
 | **include** | (Gerekli) Tarafından belirtilen dışlamaları tabi dahil edilecek dosyalar ve dosya konumunu `exclude` özniteliği. Yolun göreli olduğu `.nuspec` mutlak bir yol belirtilmezse dosya. Joker karakter `*` izin verilir ve çift joker `**` özyinelemeli klasör arama anlamına gelir. |
-| **Hariç tutma** | Dışlanacak dosya desenlerinin veya dosyaların noktalı virgülle ayrılmış listesi `src` konumu. Joker karakter `*` izin verilir ve çift joker `**` özyinelemeli klasör arama anlamına gelir. |
+| **exclude** | Dışlanacak dosya desenlerinin veya dosyaların noktalı virgülle ayrılmış listesi `src` konumu. Joker karakter `*` izin verilir ve çift joker `**` özyinelemeli klasör arama anlamına gelir. |
 | **buildAction** | Derleme eylemi gibi MSBuild için içerik öğesinin atanacağı `Content`, `None`, `Embedded Resource`, `Compile`vb. Varsayılan, `Compile` değeridir. |
 | **copyToOutput** | Çıkış klasörü yapı içerik öğeleri kopyalama (veya yayımlamak) belirten bir Boole değeri. Varsayılan olarak yanlıştır. |
-| **flatten** | İçerik öğeleri derleme çıktı (true) tek bir klasöre kopyalamak ya da klasör yapısını (false) paketindeki korumak için etkinleştirilip etkinleştirilmeyeceğini gösteren bir Boole değeri. Bu bayrağı yalnızca copyToOutput bayrak ayarlandığında çalışır true. Varsayılan olarak yanlıştır. |
+| **düzleştirme** | İçerik öğeleri derleme çıktı (true) tek bir klasöre kopyalamak ya da klasör yapısını (false) paketindeki korumak için etkinleştirilip etkinleştirilmeyeceğini gösteren bir Boole değeri. Bu bayrağı yalnızca copyToOutput bayrak ayarlandığında çalışır true. Varsayılan olarak yanlıştır. |
 
 Bir paketi yüklerken NuGet alt öğelerinin geçerlidir `<contentFiles>` yukarıdan. Daha sonra aynı dosyanın birden çok girişi eşleşen tüm girişleri uygulanır. Aynı öznitelik için bir çakışma varsa, en üstteki girişe daha aşağıdaki girişler geçersiz kılar.
 
@@ -728,5 +730,4 @@ Bu örnekte, belirli proje hedefleri aşağıdaki yüklenir:
 - .NET4 -> `System.Web`, `System.Net`
 - . NET4 İstemci profili -> `System.Net`
 - Silverlight 3 -> `System.Json`
-- Silverlight 4 -> `System.Windows.Controls.DomainServices`
 - WindowsPhone -> `Microsoft.Devices.Sensors`
