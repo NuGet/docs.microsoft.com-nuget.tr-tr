@@ -8,12 +8,12 @@ description: Depo imzaları kaynak istemcilerin kendi depo imzalama özellikleri
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 81d32a7011268e45136e00cdb7345a95070aae06
-ms.sourcegitcommit: be9c51b4b095aea40ef41bbea7e12ef0a194ee74
+ms.openlocfilehash: ea318446c41a0d85d3fbf959dd38c929a0d0e9a1
+ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53248448"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59509028"
 ---
 # <a name="repository-signatures"></a>Depo imzaları
 
@@ -21,14 +21,15 @@ Paket kaynağı yayımlanan paketleri ekleme deposu imza destekliyorsa, paket ka
 
 Bu depo imza bilgileri getirmek için kullanılan kaynak `RepositorySignatures` kaynak bulunan [hizmet dizini](service-index.md).
 
-## <a name="versioning"></a>Sürüm oluşturma
+## <a name="versioning"></a>Sürüm Oluşturma
 
 Aşağıdaki `@type` değeri kullanılır:
 
 @type Değer                | Notlar
 -------------------------- | -----
 RepositorySignatures/4.7.0 | İlk yayın
-RepositorySignatures/4.9.0 | Etkinleştirme sağlar `allRepositorySigned`
+RepositorySignatures/4.9.0 | NuGet v4.9 + istemcileri tarafından desteklenen
+RepositorySignatures/5.0.0 | Çalışabilmelerini `allRepositorySigned`. NuGet v5.0 + istemcileri tarafından desteklenen
 
 ## <a name="base-url"></a>Temel URL
 
@@ -59,13 +60,13 @@ Depo imzası aşağıdaki özelliklere sahip bir nesne içeren bir JSON belgesi 
 
 Ad                | Tür             | Gerekli | Notlar
 ------------------- | ---------------- | -------- | -----
-allRepositorySigned | Boole değeri          | evet      | Olmalıdır `false` 4.7.0 üzerinde kaynak
+allRepositorySigned | Boole değeri          | evet      | Olmalıdır `false` 4.7.0 ve 4.9.0 kaynaklar
 signingCertificates | Nesne dizisi | evet      | 
 
 `allRepositorySigned` Paket kaynağı depo imzasına sahip bazı paketler varsa, Boole false olarak ayarlanır. Boole true olarak kullanılabilir tüm paketleri ayarlanmışsa kaynak belirtilen İmzalama sertifikaları biri tarafından üretilen bir depo imza içermelidir `signingCertificates`.
 
 > [!Warning]
-> `allRepositorySigned` Boole 4.7.0 üzerinde false olmalıdır kaynak. NuGet v4.7 ve v4.8 istemcileri olan kaynaklardan paketleri yükleyemiyor `allRepositorySigned` true olarak ayarlanmış.
+> `allRepositorySigned` Boole 4.7.0 ve 4.9.0 kaynaklar üzerinde false olmalıdır. NuGet v4.7 v4.8 ve v4.9 istemcileri olan kaynaklardan paketleri yükleyemiyor `allRepositorySigned` true olarak ayarlanmış.
 
 Bir veya daha fazla İmzalama sertifikaları olmalıdır `signingCertificates` , dizi `allRepositorySigned` boolean ayarlanmışsa true. Dizi boş ise ve `allRepositorySigned` ayarlamak istemci İlkesi tüketim paketlerin hala izin verebilir ancak true kaynağından tüm paketleri geçersiz düşünülmelidir. Bu dizideki her öğe, aşağıdaki özelliklere sahip bir JSON nesnesidir.
 

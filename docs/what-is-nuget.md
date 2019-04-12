@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/10/2018
 ms.topic: overview
-ms.openlocfilehash: d688aecaa73cecbfee184e3b13801ed22326a852
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: 87f7494ea97a4fa65be04b2692d7b894938c3fe5
+ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580330"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59509132"
 ---
 # <a name="an-introduction-to-nuget"></a>NuGet giriş
 
@@ -46,7 +46,7 @@ Destek barındırma ek olarak, NuGet çeşitli oluşturucuları ve tüketiciler 
 | Aracı | Platformlar | İlgili senaryolar | Açıklama |
 | --- | --- | --- | --- |
 | [nuget.exe CLI](tools/nuget-exe-cli-reference.md) | Tümü | Oluşturma, tüketim | Özellikle bazı Tüketiciler, yalnızca uygulama paketini creators uygulama bazı komutlarla tüm NuGet yetenekleri sağlar ve diğerleri hem de uygulama. Oluşturucuları kullanma gibi paket `nuget pack` çeşitli derlemeler ve ilişkili dosyaları bir paket oluşturun, tüketicilerin kullanım paket için komutu `nuget install` kullanan bir proje klasörü ve herkesin paketlerini içerecek şekilde `nuget config` NuGet yapılandırmayı ayarlamak için değişkenler. Bir platformdan aracı olarak NuGet CLI'yı Visual Studio projeleri ile etkileşime girmez. |
-| [dotnet CLI](tools/dotnet-Commands.md) | Tümü | Oluşturma, tüketim | Belirli NuGet CLI, .NET Core araç zincirinizi içinde doğrudan özellikleri sağlar. NuGet CLI olduğu gibi dotnet CLI Visual Studio projeleri ile etkileşime girmez. |
+| [DotNet CLI](tools/dotnet-Commands.md) | Tümü | Oluşturma, tüketim | Belirli NuGet CLI, .NET Core araç zincirinizi içinde doğrudan özellikleri sağlar. NuGet CLI olduğu gibi dotnet CLI Visual Studio projeleri ile etkileşime girmez. |
 | [Paket Yöneticisi Konsolu](tools/package-manager-console.md) | Windows üzerinde Visual Studio | Tüketim | Sağlar [PowerShell komutlarını](tools/Powershell-Reference.md) yükleme ve Visual Studio projelerinde paketleri yönetme. |
 | [Paket Yöneticisi UI](tools/package-manager-ui.md) | Windows üzerinde Visual Studio | Tüketim | Yükleme ve Visual Studio projelerinde paketler yönetmeye yönelik kullanımı kolay bir kullanıcı Arabirimi sağlar. |
 | [NuGet UI'ı yönetme](/visualstudio/mac/nuget-walkthrough) | Mac için Visual Studio | Tüketim | Yükleme ve Mac proje Visual Studio'da paketlerini yönetmek için kullanımı kolay bir kullanıcı Arabirimi sağlar. |
@@ -82,7 +82,7 @@ Bir yapı sunucusunda bir otomatik dağıtım sisteminin bir parçası olarak pr
 
 NET bir şekilde, daha sonra NuGet'ın birincil role geliştiriciler endişe nerede projenizin adına bu başvuru listesini koruma ve sağlayarak bu başvurulan bir paket verimli bir şekilde geri yükleme (ve güncelleştirmek için) anlamına gelir. Bu liste, iki birinde tutulur *paket Yönetimi biçimleri*adlı gibi:
 
-- [`packages.config`](reference/packages-config.md): *(NuGet 1.0 +)* projedeki diğer bağımlılıklar dahil olmak üzere tüm bağımlılıkları düz bir listesini tutar bir XML dosyası yüklü paketler. Yüklü veya geri yüklenen paketler depolanır bir `packages` klasör.
+- [`packages.config`](reference/packages-config.md): *(NuGet 1.0 +)*  Projedeki diğer bağımlılıklar dahil olmak üzere tüm bağımlılıkları düz bir listesini tutar bir XML dosyası yüklü paketler. Yüklü veya geri yüklenen paketler depolanır bir `packages` klasör.
 
 - [PackageReference](consume-packages/package-references-in-project-files.md) (veya "paket başvuruları proje dosyalarındaki") | *(NuGet 4.0 +)* ayrı bir dosya gerektiği şekilde doğrudan proje dosyası içinde bir projenin üst düzey bağımlılıkların bir listesini tutar. İlişkili bir dosya `obj/project.assets.json`, genel bir bağımlılık grafiği yanı sıra tüm alt düzey bağımlılıkları kullanan bir proje paketlerini yönetmek için dinamik olarak oluşturulur. PackageReference her zaman .NET Core projeleri tarafından kullanılır.
 
