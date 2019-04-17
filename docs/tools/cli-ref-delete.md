@@ -33,10 +33,10 @@ Burada `<packageID>` ve `<packageVersion>` silme veya listeden tam paket tanıml
 | ApiKey | Hedef depo için API anahtarı. Yoksa, yapılandırma dosyasında belirtilen kullanılır. |
 | ConfigFile | Uygulamak için NuGet yapılandırma dosyası. Belirtilmezse, `%AppData%\NuGet\NuGet.Config` (Windows) veya `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) kullanılır.|
 | ForceEnglishOutput | *(3.5 +)*  Nuget.exe sabit, İngilizce tabanlı bir kültürü kullanarak çalışmaya zorlar. |
-| Yardım | Bilgi komut için yardımı görüntüler. |
+| Help | Bilgi komut için yardımı görüntüler. |
 | NonInteractive | Kullanıcı girişini veya onaylar ister bastırır. |
-| Kaynak | Sunucu URL'sini belirtir. Nuget.org URL'si `https://api.nuget.org/v3/index.json`. Özel akışları için örneğin, ana bilgisayar adı yerine *%hostname%/api/v3*. |
-| Ayrıntı Düzeyi | Çıktıda gösterilen ayrıntı miktarını belirtir: *normal*, *sessiz*, *ayrıntılı*. |
+| Source | Sunucu URL'sini belirtir. Nuget.org URL'si `https://api.nuget.org/v3/index.json`. Özel akışları için örneğin, ana bilgisayar adı yerine *%hostname%/api/v3*. |
+| Verbosity | Çıktıda gösterilen ayrıntı miktarını belirtir: *normal*, *sessiz*, *ayrıntılı*. |
 
 Ayrıca bkz: [ortam değişkenleri](cli-ref-environment-variables.md)
 
