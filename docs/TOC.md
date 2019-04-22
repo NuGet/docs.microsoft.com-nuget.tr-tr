@@ -2,7 +2,7 @@
 # [NuGet istemci araçlarını yükleme](install-nuget-client-tools.md)
 # Hızlı Başlangıçlar
 ## [Paket (dotnet CLI) yükleme ve kullanma](quickstart/install-and-use-a-package-using-the-dotnet-cli.md)
-## [Paket (Visual Studio) yükleme ve kullanma](quickstart/install-and-use-a-package-in-visual-studio.md)
+## [Paket (dotnet CLI) yükleme ve kullanma](quickstart/install-and-use-a-package-in-visual-studio.md)
 ## [NET Standard paketi (dotnet CLI) oluşturma ve yayımlama](quickstart/create-and-publish-a-package-using-the-dotnet-cli.md)
 ## [NET Standard paketi (Visual Studio) oluşturma ve yayımlama](quickstart/create-and-publish-a-package-using-visual-studio.md)
 ## [NET Framework paketi (Visual Studio) oluşturma ve yayımlama](quickstart/create-and-publish-a-package-using-visual-studio-net-framework.md)
@@ -10,7 +10,7 @@
 ## [Genel bakış ve iş akışı](consume-packages/overview-and-workflow.md)
 ## [Paketleri bulma ve seçme](consume-packages/finding-and-choosing-packages.md)
 ## [Paketleri yükleme](consume-packages/ways-to-install-a-package.md)
-### [İmzalanmış paketler](consume-packages/installing-signed-packages.md)
+### [İmzalanmış Paketleri](consume-packages/installing-signed-packages.md)
 ## [Paket geri yükleme](consume-packages/package-restore.md)
 ### [Sorun giderme](consume-packages/package-restore-troubleshooting.md)
 ## [Paketleri yeniden yükleme ve güncelleştirme](consume-packages/reinstalling-and-updating-packages.md)
@@ -34,7 +34,7 @@
 ### [NuGet paketleri olarak UI denetimleri oluşturma](guides/create-UI-controls.md)
 ### [Visual Studio 2015 ile Xamarin’e yönelik paketler oluşturma](guides/create-packages-for-xamarin.md)
 # Paketleri barındırma
-## [Genel Bakış](hosting-packages/overview.md)
+## [Genel bakış](hosting-packages/overview.md)
 ## [Yerel akışlar](hosting-packages/local-feeds.md)
 ## [NuGet.Server](hosting-packages/nuget-server.md)
 # Araçlar
@@ -45,7 +45,7 @@
 ### [help or ?](tools/cli-ref-help.md)
 ### [init](tools/cli-ref-init.md)
 ### [install](tools/cli-ref-install.md)
-### [liste](tools/cli-ref-list.md)
+### [list](tools/cli-ref-list.md)
 ### [locals](tools/cli-ref-locals.md)
 ### [mirror](tools/cli-ref-mirror.md)
 ### [pack](tools/cli-ref-pack.md)
@@ -79,13 +79,13 @@
 ## [Packages.config’i PackageReference’a geçirme](reference/migrate-packages-config-to-package-reference.md)
 ## [packages.config](reference/packages-config.md)
 ## [Paket sürümü oluşturma](reference/package-versioning.md)
-## [nuget.config dosyası](reference/nuget-config-file.md)
+## [nuget.config file](reference/nuget-config-file.md)
 ## [MSBuild hedefleri](reference/msbuild-targets.md)
 ## [Hedef çerçeveler](reference/target-frameworks.md)
 ## [Çözümleyici kuralları](reference/analyzers-conventions.md)
 ## [Kimlik ön eki ayırma](reference/id-prefix-reservation.md)
 ## [NuGet istemci SDK’sı](reference/nuget-client-sdk.md)
-## [İmzalanmış paketler](reference/signed-packages-reference.md)
+## [İmzalanmış Paketleri](reference/signed-packages-reference.md)
 ## [NuGet.org Üzerindeki Kuruluşlar](reference/organizations-on-nuget-org.md)
 ## [licenses.nuget.org](reference/licenses.nuget.org.md)
 ## [Hatalar ve Uyarılar](reference/Errors-and-Warnings.md)
@@ -229,9 +229,9 @@
 ## Arşivlenen içerik
 ### [project.json yönetim biçimi](archive/project-json.md)
 ### [project.json ve UWP](archive/project-json-and-uwp.md)
-### [project.json etkisi](archive/project-json-impact.md)
+### [project.json impact](archive/project-json-impact.md)
 # API
-## [Genel Bakış](api/overview.md)
+## [Genel bakış](api/overview.md)
 ## Kaynaklar
 ### [Otomatik Tamamlama](api/search-autocomplete-service-resource.md)
 ### [Katalog](api/catalog-resource.md)

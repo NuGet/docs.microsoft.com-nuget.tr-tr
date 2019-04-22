@@ -7,10 +7,10 @@ ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
 ms.openlocfilehash: 8ff92e5a3ab2d5c13ee02a9e49709866e2ac0e87
-ms.sourcegitcommit: 8793f528a11bd8e8fb229cd12e9abba50d61e104
+ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58921578"
 ---
 # <a name="signing-nuget-packages"></a>NuGet paketlerini imzalama
@@ -92,8 +92,8 @@ Bu komut, geçerli kullanıcının kişisel sertifika deposunda kullanılabilir 
 ## <a name="manage-signing-requirements-for-your-package-on-nugetorg"></a>NuGet.org üzerinde paket imzalama gereksinimlerini yönetme
 1. [Oturum](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) NuGet.org için.
 
-1. Git `Manage Packages` 
-   ![paket İmzalayanları yapılandırın](../reference/media/configure-package-signers.png)
+1. Git `Manage Packages`  
+    ![paket İmzalayanları yapılandırın](../reference/media/configure-package-signers.png)
 
 * Bir paketi tek sahip siz olursunuz, gerekli imzalayan olan herhangi bir kayıtlı sertifikaları imzalamak ve NuGet.org için paket yayımlamasına yani kullanabilirsiniz.
 

@@ -9,7 +9,7 @@ ms.openlocfilehash: 87f7494ea97a4fa65be04b2692d7b894938c3fe5
 ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59509132"
 ---
 # <a name="an-introduction-to-nuget"></a>NuGet giriş
@@ -46,7 +46,7 @@ Destek barındırma ek olarak, NuGet çeşitli oluşturucuları ve tüketiciler 
 | Aracı | Platformlar | İlgili senaryolar | Açıklama |
 | --- | --- | --- | --- |
 | [nuget.exe CLI](tools/nuget-exe-cli-reference.md) | Tümü | Oluşturma, tüketim | Özellikle bazı Tüketiciler, yalnızca uygulama paketini creators uygulama bazı komutlarla tüm NuGet yetenekleri sağlar ve diğerleri hem de uygulama. Oluşturucuları kullanma gibi paket `nuget pack` çeşitli derlemeler ve ilişkili dosyaları bir paket oluşturun, tüketicilerin kullanım paket için komutu `nuget install` kullanan bir proje klasörü ve herkesin paketlerini içerecek şekilde `nuget config` NuGet yapılandırmayı ayarlamak için değişkenler. Bir platformdan aracı olarak NuGet CLI'yı Visual Studio projeleri ile etkileşime girmez. |
-| [DotNet CLI](tools/dotnet-Commands.md) | Tümü | Oluşturma, tüketim | Belirli NuGet CLI, .NET Core araç zincirinizi içinde doğrudan özellikleri sağlar. NuGet CLI olduğu gibi dotnet CLI Visual Studio projeleri ile etkileşime girmez. |
+| [dotnet CLI](tools/dotnet-Commands.md) | Tümü | Oluşturma, tüketim | Belirli NuGet CLI, .NET Core araç zincirinizi içinde doğrudan özellikleri sağlar. NuGet CLI olduğu gibi dotnet CLI Visual Studio projeleri ile etkileşime girmez. |
 | [Paket Yöneticisi Konsolu](tools/package-manager-console.md) | Windows üzerinde Visual Studio | Tüketim | Sağlar [PowerShell komutlarını](tools/Powershell-Reference.md) yükleme ve Visual Studio projelerinde paketleri yönetme. |
 | [Paket Yöneticisi UI](tools/package-manager-ui.md) | Windows üzerinde Visual Studio | Tüketim | Yükleme ve Visual Studio projelerinde paketler yönetmeye yönelik kullanımı kolay bir kullanıcı Arabirimi sağlar. |
 | [NuGet UI'ı yönetme](/visualstudio/mac/nuget-walkthrough) | Mac için Visual Studio | Tüketim | Yükleme ve Mac proje Visual Studio'da paketlerini yönetmek için kullanımı kolay bir kullanıcı Arabirimi sağlar. |
