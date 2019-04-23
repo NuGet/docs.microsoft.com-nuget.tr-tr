@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8132595cbfaf553736fbcc81aada283a44d6cdbf
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: 1e89aeb46f2538d46c013561a51a41702b2472d8
+ms.sourcegitcommit: 6b71926f062ecddb8729ef8567baf67fd269642a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324857"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59932105"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet paketi ve MSBuild hedefleri olarak geri yükleme
 
@@ -322,7 +322,7 @@ Soubor nuspec paketlenecek csproj dosyasının bir örnektir:
 
 1. Tüm projeden projeye başvurular okuyun
 1. Ara klasörü ve hedef çerçeveleri bulmak için proje özellikleri okuma
-1. NuGet.Build.Tasks.dll msbuild veri geçişi
+1. NuGet.Build.Tasks.dll MSBuild veri geçişi
 1. Geri yükleme
 1. Paketleri indirin
 1. Varlıklar dosyasını, hedef ve Özellikler Yaz
@@ -341,9 +341,14 @@ Ek geri yükleme ayarlarını MSBuild proje dosyası özelliklerinde gelir. Değ
 | RestoreConfigFile | Yol için bir `Nuget.Config` uygulamak için dosya. |
 | RestoreNoCache | TRUE ise, önbelleğe eklenen paketler kullanılmasını önlemiş olursunuz. Bkz: [genel paketleri ve önbellek klasörlerini yönetme](../consume-packages/managing-the-global-packages-and-cache-folders.md). |
 | RestoreIgnoreFailedSources | TRUE ise, başarısız veya eksik paket kaynaklarını yok sayar. |
+| RestoreFallbackFolders | Geri dönüş klasörleri klasörü kullanılır kullanıcı paketleri aynı şekilde kullanılır. |
+| RestoreAdditionalProjectSources | Geri yükleme sırasında kullanmak için ek kaynaklar. |
+| RestoreAdditionalProjectFallbackFolders | Geri yükleme sırasında kullanmak üzere geri dönüş Klasörler ek. |
+| RestoreAdditionalProjectFallbackFoldersExcludes | Belirtilen geri dönüş klasörleri dışlar `RestoreAdditionalProjectFallbackFolders` |
 | RestoreTaskAssemblyFile | Yolu `NuGet.Build.Tasks.dll`. |
 | RestoreGraphProjectInput | Noktalı virgül ile ayrılmış mutlak yollar içermelidir geri yüklemek için projeler listesi. |
-| RestoreOutputPath | Varsayarak, çıkış dosyasının `obj` klasör. |
+| RestoreUseSkipNonexistentTargets  | Projeleri belirler, kullanılarak toplanan olup olmadığını MSBuild toplandığında `SkipNonexistentTargets` iyileştirme. Ayarlandığında değil, varsayılan olarak `true`. Bir projenin hedefleri aktarıldığında, sonuç hata bir davranıştır. |
+| MSBuildProjectExtensionsPath | Varsayarak, çıkış dosyasının `BaseIntermediateOutputPath` ve `obj` klasör. |
 
 #### <a name="examples"></a>Örnekler
 
@@ -370,6 +375,23 @@ Geri yükleme, yapı aşağıdaki dosyaları oluşturur `obj` klasörü:
 | `project.assets.json` | Tüm paket başvuruları bağımlılık grafiği içerir. |
 | `{projectName}.projectFileExtension.nuget.g.props` | MSBuild özellikler paketlerde yer alan başvuruları |
 | `{projectName}.projectFileExtension.nuget.g.targets` | MSBuild hedefleri paketlerde yer alan başvuruları |
+
+### <a name="restoring-and-building-with-one-msbuild-command"></a>Geri yükleme ve bir MSBuild komut ile oluşturma
+
+NuGet MSBuild hedeflerini ve özellik taşıyın paketleri geri yükleyebilirsiniz Bunun nedeni, geri yükleme ve yapılandırma değerlendirmeleri farklı genel özellikleri ile çalışır.
+Bu aşağıdaki öngörülemeyen ve genellikle yanlış bir davranışı olacağı anlamına gelir.
+
+```cli
+msbuild -t:restore,build
+```
+
+ Bunun yerine, önerilen yaklaşım şöyledir:
+
+```cli
+msbuild -t:build -restore
+```
+
+Benzer şekilde diğer hedeflere aynı mantığı uygular `build`.
 
 ### <a name="packagetargetfallback"></a>PackageTargetFallback
 

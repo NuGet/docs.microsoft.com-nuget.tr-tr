@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: adf97196f50f2a55d6b8ceed93d53ff12b67657b
-ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
+ms.openlocfilehash: 9964186dcbfedfbf2415a57102f8f019a1eef23a
+ms.sourcegitcommit: 6b71926f062ecddb8729ef8567baf67fd269642a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56145637"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59932001"
 ---
 # <a name="restore-command-nuget-cli"></a>Restore komutu (NuGet CLI)
 
@@ -37,7 +37,7 @@ Burada `<projectPath>` çözümün konumunu belirtir veya `packages.config` dosy
 | DisableParallelProcessing | Paralel birden çok paket geri yüklemeyi devre dışı bırakır. |
 | FallbackSource | *(3.2 +)*  Paketi birincil bulunamadığında durumunda geri dönüşler kullanmak için paket kaynaklarının bir listesini ya da varsayılan kaynak. |
 | ForceEnglishOutput | *(3.5 +)*  Nuget.exe sabit, İngilizce tabanlı bir kültürü kullanarak çalışmaya zorlar. |
-| Yardım | Bilgi komut için yardımı görüntüler. |
+| Help | Bilgi komut için yardımı görüntüler. |
 | MSBuildPath | *(4.0 +)*  Önceliği alma komutu ile kullanılacak MSBuild yolunu belirtir `-MSBuildVersion`. |
 | MSBuildVersion | *(3.2 +)*  Bu komutla birlikte kullanılacak MSBuild sürümünü belirtir. Desteklenen değerler şunlardır: 4, 12, 14, 15.1, 15.3, 15.4, 15.5, 15.6, 15.7, 15,8, 15.9. Yolunuza Msbuild'de çekilir varsayılan olarak, aksi takdirde MSBuild yüksek yüklü sürümü varsayar. |
 | NoCache | NuGet, önbelleğe eklenen paketler kullanmasını önler. Bkz: [genel paketleri ve önbellek klasörlerini yönetme](../consume-packages/managing-the-global-packages-and-cache-folders.md). |
@@ -49,8 +49,8 @@ Burada `<projectPath>` çözümün konumunu belirtir veya `packages.config` dosy
 | özyinelemeli | *(4.0 +)*  UWP ve .NET Core projeleri için tüm başvuruları projeleri geri yükler. Kullanarak projeleri için geçerli değildir `packages.config`. |
 | RequireConsent | Paketleri geri yükleme ve paketleri yüklemeden önce etkin olduğunu doğrular. Ayrıntılar için bkz [paketi geri yüklemeyi](../consume-packages/package-restore.md). |
 | SolutionDirectory | Çözüm klasörü belirtir. Bir çözüm için paketler geri yüklenirken geçerli değil. İle geri yükleme sırasında gerekli bir `packages.config` sürece dosya `PackagesDirectory` veya `OutputDirectory` kullanılır. |
-| Kaynak | Paket kaynaklarının listesi, geri yüklemek için kullanılacak (URL'ler) belirtir. Atlanırsa, komut yapılandırma dosyalarında sağlanan kaynakları kullanır, bkz: [yapılandırma NuGet davranışını](../consume-packages/configuring-nuget-behavior.md). |
-| Ayrıntı Düzeyi |> çıktıda gösterilen ayrıntı miktarını belirtir: *normal*, *sessiz*, *ayrıntılı*. |
+| Source | Paket kaynaklarının listesi, geri yüklemek için kullanılacak (URL'ler) belirtir. Atlanırsa, komut yapılandırma dosyalarında sağlanan kaynakları kullanır, bkz: [yapılandırma NuGet davranışını](../consume-packages/configuring-nuget-behavior.md). |
+| Verbosity |> çıktıda gösterilen ayrıntı miktarını belirtir: *normal*, *sessiz*, *ayrıntılı*. |
 
 Ayrıca bkz: [ortam değişkenleri](cli-ref-environment-variables.md)
 
@@ -71,7 +71,7 @@ Restore komutu, aşağıdaki adımları gerçekleştirir:
 2. (Bu klasörleri hiçbiri bulunursa NuGet bir hata verir) aşağıdaki öncelik sırasını kullanarak packages klasörünü belirleyin:
 
     - Belirtilen klasör `-PackagesDirectory`.
-    - `repositoryPath` Yü içinde `Nuget.Config`
+    - `repositoryPath` Değeri `Nuget.Config`
     - Belirtilen klasör `-SolutionDirectory`
     - `$(SolutionDir)\packages`
 

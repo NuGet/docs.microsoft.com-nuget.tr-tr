@@ -5,18 +5,21 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: fd5824d1c5e05df08301dac1cf656ba1d5ca75cd
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: ac1bf2b65ab6ec4e8cf864810181fc661236262a
+ms.sourcegitcommit: 6b71926f062ecddb8729ef8567baf67fd269642a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551744"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59931988"
 ---
 # <a name="nuget-cli-environment-variables"></a>NuGet CLI ortam değişkenleri
 
 Nuget.exe CLI davranışını etkileyen nuget.exe bilgisayar genelinde kullanıcı veya işlem düzeylerini ortam değişkenleri, bir dizi yapılandırılabilir. Ortam değişkenleri her zaman herhangi bir ayarı geçersiz kılma `NuGet.Config` dosyaları izin vererek, derleme sunucuları, herhangi bir dosya değiştirmeden uygun ayarları değiştirmek için.
 
 Genel olarak, doğrudan komut satırında veya NuGet yapılandırma dosyalarında belirtilen önceliği vardır, ancak birkaç özel durum vardır gibi *FORCE_NUGET_EXE_INTERACTIVE*. Bu nuget.exe farklı bilgisayarlar arasında farklı davranır bulursanız, bir ortam değişkeni neden olabilir. Örneğin, Azure Web Apps (dağıtım sırasında kullanılan) Kudu sahip *NUGET_XMLDOC_MODE* kümesine *atla* paket geri yükleme performansını hızlandırmak ve disk alanından kazanmak için.
+
+NuGet CLI MSBuild proje dosyaları okumak için kullanılır. Tüm ortam değişkenleri olarak kullanılabilir [özellikleri](/visualstudio/msbuild/msbuild-command-line-reference) MSBuild değerlendirme sırasında.
+Özellikler kısmında belgelenen listesi [NuGet paketi ve geri yükleme, MSBuild hedefleri](../reference/msbuild-targets.md#restore-properties) ortam değişkenleri olarak da ayarlanabilir.
 
 | Değişken | Açıklama | Açıklamalar |
 | --- | --- | --- |
@@ -34,4 +37,5 @@ Genel olarak, doğrudan komut satırında veya NuGet yapılandırma dosyalarınd
 | NUGET_RESTORE_MSBUILD_VERBOSITY | MSBuild günlük ayrıntı düzeyini ayarlar. | Varsayılan değer *sessiz* ("/ v: q"). Olası değerler *q [uiet]*, *m [en az sıfır]*, *n [ormal]*, *d [ayrıntılı]*, ve *tanı [tanısı]*. |
 | NUGET_SHOW_STACK | (Yığın izlemesi de dahil olmak üzere) tam özel durum kullanıcıya görüntülenip görüntülenmeyeceğini belirler. | Belirtildiği şekilde *true* veya *false* (varsayılan). |
 | NUGET_XMLDOC_MODE | Derlemeleri XML belgeleri dosyası ayıklama nasıl işleneceğini belirler. | Desteklenen modlar *atla* (XML belge dosyalarını ayıklamak değil), *sıkıştırma* (zip arşivi olarak XML belge dosyalarını depolamak) veya *hiçbiri* (varsayılan, normal XML belge dosyalarını kabul dosyaları). |
-| NUGET_CERT_REVOCATION_MODE | Nasıl bir paketi imzalamak için kullanılan sertifika iptal durumunu kontrol belirler, imzalı bir paketi yüklendiğinde veya geri pefromed olur. Ayarlandığında değil, varsayılan olarak `online`.| Olası değerler *çevrimiçi* (varsayılan), *çevrimdışı*.  İlgili [NU3028](../reference/errors-and-warnings/NU3028.md) |
+| NUGET_CERT_REVOCATION_MODE | Nasıl bir paketi imzalamak için kullanılan sertifika iptal durumunu kontrol belirler, imzalı bir paketi yüklendiğinde veya geri gerçekleştirilir. Ayarlandığında değil, varsayılan olarak `online`.| Olası değerler *çevrimiçi* (varsayılan), *çevrimdışı*.  İlgili [NU3028](../reference/errors-and-warnings/NU3028.md) |
+
