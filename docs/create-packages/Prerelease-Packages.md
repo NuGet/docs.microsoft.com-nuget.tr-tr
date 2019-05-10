@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: d6925df63daf3096455a8205d6aeb07b4475f715
-ms.sourcegitcommit: 5c5f0f0e1f79098e27d9566dd98371f6ee16f8b5
+ms.openlocfilehash: 696f51905198defdbfd475ba7d010ac3e27ac557
+ms.sourcegitcommit: 3fc93f7a64be040699fe12125977dd25a7948470
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53645639"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64877937"
 ---
 # <a name="building-pre-release-packages"></a>Yayın öncesi paketleri oluşturma
 
@@ -22,7 +22,7 @@ Kararlı bir sürüm üretimde kullanılacak güvenilir olarak değerlendirilmey
 
 Yazılım sürüm yaşam döngüsünü desteklemek için NuGet 1.6 ve üzeri için yayın öncesi paketleri dağıtımını burada sürüm numarası gibi semantic versioning soneki içerir sağlıyor `-alpha`, `-beta`, veya `-rc`. Daha fazla bilgi için [Paket sürümü oluşturma](../reference/package-versioning.md#pre-release-versions).
 
-Bu tür sürümleri iki şekilde belirtebilirsiniz:
+Bu tür sürümleri üç yolla belirtebilirsiniz:
 
 - `.nuspec` Dosya: anlamsal Sürüm soneki dahil `version` öğesi:
 
@@ -30,7 +30,15 @@ Bu tür sürümleri iki şekilde belirtebilirsiniz:
     <version>1.0.1-alpha</version>
     ```
 
-- Derleme özniteliklerinin: Visual Studio projesinden bir paket oluştururken (`.csproj` veya `.vbproj`), kullanın `AssemblyInformationalVersionAttribute` sürümü belirtmek için:
+- `.csproj` Dosya: anlamsal Sürüm soneki dahil `PackageVersion` öğesi:
+
+    ```xml
+    <PropertyGroup>
+        <PackageVersion>1.0.1-alpha</PackageVersion>
+    </PropertyGroup>
+    ```
+
+- Derleme özniteliklerinin: sürümüyle belirtin `AssemblyInformationalVersionAttribute`:
 
     ```cs
     [assembly: AssemblyInformationalVersion("1.0.1-beta")]
@@ -56,7 +64,7 @@ Varsayılan olarak, NuGet paketleri ile çalışırken, yayın öncesi sürümle
 
 ## <a name="semantic-versioning"></a>Semantic versioning
 
-[Semantic Versioning veya SemVer kuralı](http://semver.org/spec/v1.0.0.html) bunlar iletmek için sürüm numaraları dizelerde nasıl açıklar temel alınan kod anlamına gelir.
+[Semantic Versioning veya SemVer kuralı](http://semver.org/spec/v1.0.0.html) arka plandaki kod anlamını iletmek için sürüm numaraları dizelerde nasıl açıklar.
 
 Bu kural, her sürüm üç bölümden `Major.Minor.Patch`, aşağıdaki anlama sahip:
 
