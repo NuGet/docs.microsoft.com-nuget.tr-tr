@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: 696f51905198defdbfd475ba7d010ac3e27ac557
-ms.sourcegitcommit: 3fc93f7a64be040699fe12125977dd25a7948470
+ms.openlocfilehash: 845f0ea84bcb92fedf9e5f4fb2b1deee1462a004
+ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64877937"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610490"
 ---
 # <a name="building-pre-release-packages"></a>Yayın öncesi paketleri oluşturma
 
@@ -22,15 +22,9 @@ Kararlı bir sürüm üretimde kullanılacak güvenilir olarak değerlendirilmey
 
 Yazılım sürüm yaşam döngüsünü desteklemek için NuGet 1.6 ve üzeri için yayın öncesi paketleri dağıtımını burada sürüm numarası gibi semantic versioning soneki içerir sağlıyor `-alpha`, `-beta`, veya `-rc`. Daha fazla bilgi için [Paket sürümü oluşturma](../reference/package-versioning.md#pre-release-versions).
 
-Bu tür sürümleri üç yolla belirtebilirsiniz:
+Aşağıdaki yöntemlerden birini kullanarak bu tür sürümleri belirtebilirsiniz:
 
-- `.nuspec` Dosya: anlamsal Sürüm soneki dahil `version` öğesi:
-
-    ```xml
-    <version>1.0.1-alpha</version>
-    ```
-
-- `.csproj` Dosya: anlamsal Sürüm soneki dahil `PackageVersion` öğesi:
+- **Projeniz kullanıyorsa [ `PackageReference` ](../consume-packages/package-references-in-project-files.md)** : anlamsal Sürüm soneki dahil `.csproj` dosyanın [ `PackageVersion` ](/dotnet/core/tools/csproj.md#packageversion) öğesi:
 
     ```xml
     <PropertyGroup>
@@ -38,13 +32,11 @@ Bu tür sürümleri üç yolla belirtebilirsiniz:
     </PropertyGroup>
     ```
 
-- Derleme özniteliklerinin: sürümüyle belirtin `AssemblyInformationalVersionAttribute`:
+- **Projenizin varsa bir [ `packages.config` ](../reference/packages-config.md) dosya**: anlamsal Sürüm soneki dahil [ `.nuspec` ](../reference/nuspec.md) dosyanın [ `version` ](../reference/nuspec.md#version) öğe:
 
-    ```cs
-    [assembly: AssemblyInformationalVersion("1.0.1-beta")]
+    ```xml
+    <version>1.0.1-alpha</version>
     ```
-
-    Bu değer yerine belirtilen bir NuGet alır `AssemblyVersion` semantic versioning desteklemeyen özniteliği.
 
 Kararlı bir sürüm hazır olduğunuzda, yalnızca soneki kaldırın ve paketin tüm yayın öncesi sürümlere göre önceliklidir. Yeniden bakın [Paket sürümü oluşturma](../reference/package-versioning.md#pre-release-versions).
 

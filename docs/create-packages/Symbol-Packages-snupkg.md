@@ -16,12 +16,12 @@ keywords: NuGet sembol paketleri, hata ayıklama, hata ayıklama, paket sembolle
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 43f346dc64ebbc59d02b9c7875b04205d8c5d83a
-ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
+ms.openlocfilehash: 18d54e28d77f2bdcfea70ff9ae9def05278cb26c
+ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56852448"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610562"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Sembol paketleri (.snupkg) oluşturma
 
@@ -54,7 +54,7 @@ Dotnet.exe veya MSBuild'ı kullanıyorsanız .nupkg dosyasının yanı sıra bir
 
 1. Projenizle paketi `dotnet pack MyPackage.csproj` veya `msbuild -t:pack MyPackage.csproj`.
 
-`SymbolPackageFormat` Özelliği iki değerden birine sahip olabilir: `symbols.nupkg` (varsayılan) veya `snupkg`. Varsa `SymbolPackageFormat` özelliği belirtilmezse, varsayılan `symbols.nupkg` ve eski sembol paketi oluşturulacak.
+[ `SymbolPackageFormat` ](/dotnet/core/tools/csproj.md#symbolpackageformat) Özelliği iki değerden birine sahip olabilir: `symbols.nupkg` (varsayılan) veya `snupkg`. Varsa [ `SymbolPackageFormat` ](/dotnet/core/tools/csproj.md#symbolpackageformat) özelliği belirtilmezse, eski sembol paketi oluşturulacak.
 
 > [!Note]
 > Eski biçim `.symbols.nupkg` ancak yalnızca uyumluluk açısından hala desteklenmektedir (bkz [eski sembol paketleri](Symbol-Packages.md)). Sembol sunucusuna NuGet.org yalnızca yeni sembol paket biçimi - kabul `.snupkg`.
@@ -80,6 +80,9 @@ Dotnet.exe veya MSBuild'ı kullanıyorsanız .nupkg dosyasının yanı sıra bir
     ```
 
 NuGet nuget.org için her iki paketi yayımlar. `MyPackage.nupkg` ilk yayımlama, ardından `MyPackage.snupkg`.
+
+> [!Note]
+> NuGet.org kaynağı olarak yapılandırdığınız sembol paketi yayımlanmış değil, denetleyin `https://api.nuget.org/v3/index.json`. Sembol Paketi Yayımlama tarafından desteklenen yalnızca [NuGet V3 API](../api/overview.md#versioning).
 
 ## <a name="nugetorg-symbol-server"></a>NuGet.org sembol sunucusu
 

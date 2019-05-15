@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: ac1bf2b65ab6ec4e8cf864810181fc661236262a
-ms.sourcegitcommit: 6b71926f062ecddb8729ef8567baf67fd269642a
+ms.openlocfilehash: 9f26f75a70a996cad158fd125e86d98e10c3dac1
+ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59931988"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610643"
 ---
 # <a name="nuget-cli-environment-variables"></a>NuGet CLI ortam değişkenleri
 
@@ -33,7 +33,7 @@ NuGet CLI MSBuild proje dosyaları okumak için kullanılır. Tüm ortam değiş
 | NUGET_HTTP_CACHE_PATH | İçin kullanılacak yol *http önbellek* üzerinde açıklandığı gibi klasör [genel paketleri ve önbellek klasörlerini yönetme](../consume-packages/managing-the-global-packages-and-cache-folders.md). | Mutlak yol belirtildi. |
 | NUGET_PERSIST_DG | Dg dosyaları (MSBuild'den toplanan veriler) kalıcı olmadığını belirten bayrak. | Belirtildiği şekilde *true* veya *false* (varsayılan), NUGET_PERSIST_DG_PATH ayarlanmamış olması halinde, geçici dizine (geçerli ortam temp dizini klasöründe NuGetScratch) depolanır. |
 | NUGET_PERSIST_DG_PATH | Dg dosyaların kalıcı olması için yolu. | Mutlak yol belirtilen, bu seçenek, yalnızca kullanılan zaman *NUGET_PERSIST_DG* ayarlanır true. |
-| NUGET_RESTORE_MSBUILD_ARGS | Ek MSBuild bağımsız değişkenleri ayarlar. | |
+| NUGET_RESTORE_MSBUILD_ARGS | Ek MSBuild bağımsız değişkenleri ayarlar. | Bağımsız değişkenler nasıl bunları MSBuild.exe'ye geçip geçmeyeceğini aynı geçirin. Proje özelliği Foo değeri çubuğuna komut satırından ayarlama örneği /p:Foo olacaktır çubuğu = |
 | NUGET_RESTORE_MSBUILD_VERBOSITY | MSBuild günlük ayrıntı düzeyini ayarlar. | Varsayılan değer *sessiz* ("/ v: q"). Olası değerler *q [uiet]*, *m [en az sıfır]*, *n [ormal]*, *d [ayrıntılı]*, ve *tanı [tanısı]*. |
 | NUGET_SHOW_STACK | (Yığın izlemesi de dahil olmak üzere) tam özel durum kullanıcıya görüntülenip görüntülenmeyeceğini belirler. | Belirtildiği şekilde *true* veya *false* (varsayılan). |
 | NUGET_XMLDOC_MODE | Derlemeleri XML belgeleri dosyası ayıklama nasıl işleneceğini belirler. | Desteklenen modlar *atla* (XML belge dosyalarını ayıklamak değil), *sıkıştırma* (zip arşivi olarak XML belge dosyalarını depolamak) veya *hiçbiri* (varsayılan, normal XML belge dosyalarını kabul dosyaları). |

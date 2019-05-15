@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/12/2017
 ms.topic: conceptual
-ms.openlocfilehash: db02089bec3d2b8c001518fa0542375dc5418eb8
-ms.sourcegitcommit: c825eb7e222d4a551431643f5b5617ae868ebe0a
+ms.openlocfilehash: f0d9667b752caf7831278ac3fd63cfd67f7d34a4
+ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51944073"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610580"
 ---
 # <a name="creating-nuget-packages"></a>NuGet paketleri oluşturma
 
@@ -166,7 +166,7 @@ Bir NuGet paketi yalnızca ile adlandırılmış bir ZIP dosyası olduğundan `.
 Bu yaklaşımın avantajı (Bu konunun ilerleyen kısımlarında açıklandığı gibi) paket içerisine dâhil etmek istediğiniz dosyaları bildiriminde belirtmeniz gerekmez ' dir. Yalnızca yapı işleminizi pakete giden tam bir klasör yapısını oluşturmak olabilir ve gelecekteki bir kolayca Aksi takdirde bir projenin parçası olmayabilir diğer dosyaları dahil edebilirsiniz:
 
 - Hedef projeye eklenen içerik ve kaynak kodu.
-- PowerShell betikleri (NuGet içinde desteklenmeyen NuGet 2.x yükleme betikleri de dahil edebilirsiniz kullanılan paketler 3.x ve üzeri).
+- PowerShell komut dosyaları
 - Bir projede var olan yapılandırma ve kaynak kodu dosyalarına dönüştürmeler.
 
 Klasör kuralları aşağıdaki gibidir:
@@ -250,9 +250,9 @@ Paket tanımlayıcısı (`<id>` öğesi) ve sürüm numarasını (`<version>` ö
 
 **Paket tanımlayıcısı için en iyi uygulamalar:**
 
-- **Benzersizlik**: tanımlayıcı nuget.org veya hangi galeri paketi barındıran arasında benzersiz olmalıdır. Bir tanımlayıcının karar vermeden önce uygun galeri adı zaten kullanımda olup olmadığını denetlemek için arama yapın. Çakışmaları önlemek için iyi bir desen şirket adınızı tanımlayıcısı ilk parçası olarak gibi kullanmaktır `Contoso.`.
+- **Benzersizlik**: Tanımlayıcı nuget.org veya hangi galeri paketi barındıran arasında benzersiz olması gerekir. Bir tanımlayıcının karar vermeden önce uygun galeri adı zaten kullanımda olup olmadığını denetlemek için arama yapın. Çakışmaları önlemek için iyi bir desen şirket adınızı tanımlayıcısı ilk parçası olarak gibi kullanmaktır `Contoso.`.
 - **Namespace benzeri adları**: .NET, kısa çizgi yerine nokta gösterimi kullanılarak ad alanları için benzer bir desen izleyin. Örneğin, `Contoso.Utility.UsefulStuff` yerine `Contoso-Utility-UsefulStuff` veya `Contoso_Utility_UsefulStuff`. Paket tanımlayıcısı kod içinde kullanılan ad alanları eşleştiğinde tüketiciler de yararlı.
-- **Örnek paketleri**: bir paket nasıl başka bir paket ekleme kullanılacağını gösteren örnek kod üretir, `.Sample` soneki olarak da tanımlayıcı olarak `Contoso.Utility.UsefulStuff.Sample`. (Örnek paketinin Elbette diğer paketi bir bağımlılık yoktur.) Örnek paketi oluştururken, daha önce açıklanan kural tabanlı çalışma dizini yöntemini kullanın. İçinde `content` klasör adında bir klasör örnek kodda düzenleme `\Samples\<identifier>` olarak `\Samples\Contoso.Utility.UsefulStuff.Sample`.
+- **Örnek paketleri**: Bir paket nasıl başka bir paket ekleme kullanılacağını gösteren örnek kod üretir, `.Sample` soneki olarak da tanımlayıcı olarak `Contoso.Utility.UsefulStuff.Sample`. (Örnek paketinin Elbette diğer paketi bir bağımlılık yoktur.) Örnek paketi oluştururken, daha önce açıklanan kural tabanlı çalışma dizini yöntemini kullanın. İçinde `content` klasör adında bir klasör örnek kodda düzenleme `\Samples\<identifier>` olarak `\Samples\Contoso.Utility.UsefulStuff.Sample`.
 
 **Paket sürümü için en iyi uygulamalar:**
 
@@ -261,9 +261,9 @@ Paket tanımlayıcısı (`<id>` öğesi) ve sürüm numarasını (`<version>` ö
 
 > Aşağıdaki bir dizi kısa blog gönderileri da sürüm anlamak yararlıdır:
 >
-> - [1. Bölüm: Alma DLL cehennemi üzerinde](http://blog.davidebbo.com/2011/01/nuget-versioning-part-1-taking-on-dll.html)
-> - [2. Bölüm: Çekirdek algoritması](http://blog.davidebbo.com/2011/01/nuget-versioning-part-2-core-algorithm.html)
-> - [3. Bölüm: bağlama yönlendirmeleri aracılığıyla birleştirme](http://blog.davidebbo.com/2011/01/nuget-versioning-part-3-unification-via.html)
+> - [Bölüm 1: DLL cehennemi üzerinde alma](http://blog.davidebbo.com/2011/01/nuget-versioning-part-1-taking-on-dll.html)
+> - [Bölüm 2: Çekirdek algoritması](http://blog.davidebbo.com/2011/01/nuget-versioning-part-2-core-algorithm.html)
+> - [3. Bölüm: Bağlama yönlendirmeleri aracılığıyla birleştirme](http://blog.davidebbo.com/2011/01/nuget-versioning-part-3-unification-via.html)
 
 ## <a name="setting-a-package-type"></a>Ayar paket türü
 
@@ -357,7 +357,7 @@ Bir paket içinde MSBuild özellikler ve hedefler dahil edildi [NuGet 2.5 ile su
 
 NuGet paketi ile yüklendiğinde `\build` dosyaları, MSBuild ekler `<Import>` işaret proje dosyasındaki öğeleri `.targets` ve `.props` dosyaları. (`.props` ; proje dosyasının en üstüne eklenir `.targets` altına eklenir.) Ayrı bir koşullu MSBuild `<Import>` öğesi, her hedef çerçeve için eklenir.
 
-MSBuild `.props` ve `.targets` arası framework'ü hedefleyen yerleştirilebilir için dosyaları `\buildCrossTargeting` klasör. Buna karşılık gelen NuGet paketi yüklemesi sırasında ekler `<Import>` öğeleri hedef Framework'ü ayarlı değil koşuluyla, proje dosyasına (MSBuild özelliğini `$(TargetFramework)` boş olmalıdır).
+MSBuild `.props` ve `.targets` arası framework'ü hedefleyen yerleştirilebilir için dosyaları `\buildMultiTargeting` klasör. Buna karşılık gelen NuGet paketi yüklemesi sırasında ekler `<Import>` öğeleri hedef Framework'ü ayarlı değil koşuluyla, proje dosyasına (MSBuild özelliğini `$(TargetFramework)` boş olmalıdır).
 
 İle NuGet 3.x hedefleri projeye eklenmez ancak bunun yerine kullanılabilir hale getirilir `project.lock.json`.
 
@@ -413,7 +413,7 @@ Bir kez `nuget pack` başarılı, sahip olduğunuz bir `.nupkg` açıklandığı
 
 Visual Studio projeleriyle ortak olan birkaç aşağıdaki seçenekler şunlardır:
 
-- **Başvurulan projeler**: projenin diğer projelerden başvuruda bulunuyorsa, başvurulan projeler paketinin bir parçası olarak veya bağımlılıkları ekleyebilirsiniz `-IncludeReferencedProjects` seçeneği:
+- **Başvurulan projeler**: Proje diğer projelerden başvuruda bulunuyorsa, başvurulan projeler paketinin bir parçası olarak veya bağımlılıkları ekleyebilirsiniz `-IncludeReferencedProjects` seçeneği:
 
     ```cli
     nuget pack MyProject.csproj -IncludeReferencedProjects
@@ -423,7 +423,7 @@ Visual Studio projeleriyle ortak olan birkaç aşağıdaki seçenekler şunlard�
 
     Başvurulan proje içeriyorsa, bir `.nuspec` dosya, kendi sonra nuget başvurulan proje bunun yerine bir bağımlılık olarak ekler.  Paket ve bu projeyi ayrı ayrı yayımlama gerekir.
 
-- **Derleme Yapılandırması**: varsayılan olarak, NuGet genellikle proje dosyasında ayarlanmış varsayılan derleme yapılandırmasını kullanır. *hata ayıklama*. Farklı bir derleme yapılandırma dosyaları gibi paketlenecek *yayın*, kullanın `-properties` yapılandırma seçeneğiyle:
+- **Derleme Yapılandırması**: Varsayılan olarak, NuGet genellikle proje dosyasında ayarlanmış varsayılan derleme yapılandırmasını kullanır. *hata ayıklama*. Farklı bir derleme yapılandırma dosyaları gibi paketlenecek *yayın*, kullanın `-properties` yapılandırma seçeneğiyle:
 
     ```cli
     nuget pack MyProject.csproj -properties Configuration=Release
