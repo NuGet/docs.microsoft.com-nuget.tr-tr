@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 4a9460944e2c232e2a72195434a491d26eee3559
-ms.sourcegitcommit: 3fc93f7a64be040699fe12125977dd25a7948470
+ms.openlocfilehash: bce04864224a66019a52cdfff8355f68dc424204
+ms.sourcegitcommit: 69b5eb1494a1745a4b1a7f320a91255d5d8356a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64877952"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65974999"
 ---
 # <a name="push-command-nuget-cli"></a>anında iletme komutu (NuGet CLI)
 
@@ -43,6 +43,7 @@ Burada `<packagePath>` sunucuya göndermek üzere paket tanımlar.
 | NonInteractive | Kullanıcı girişini veya onaylar ister bastırır. |
 | NoSymbols | *(3.5 +)*  Bir sembol paketi varsa, bunu bir simge sunucusuna gönderilecek değil. |
 | Source | Sunucu URL'sini belirtir. NuGet, UNC veya yerel klasör kaynak tanımlar ve yalnızca HTTP kullanarak gönderme yerine dosya var. kopyalar.  Ayrıca, 3.4.2 NuGet ile başlayarak, zorunlu bir parametre sürece budur `NuGet.Config` dosyasını belirtir bir *DefaultPushSource* değeri (bkz [yapılandırma NuGet davranışını](../consume-packages/configuring-nuget-behavior.md)). |
+| SkipDuplicate | Bir paket ve sürümü zaten atlayın ve sonraki paket anında varsa devam edin. |
 | SymbolSource | *(3.5 +)*  Sembol sunucusunun URL'sini belirtir; nuget.smbsrc.net nuget.org için gönderirken kullanılan |
 | SymbolApiKey | *(3.5 +)*  Belirtilen URL için API anahtarını belirtir `-SymbolSource`. |
 | zaman aşımı | Bir sunucuya göndermek için saniye cinsinden zaman aşımı belirtir. 300 saniyedir (5 dakika) varsayılandır. |
@@ -68,4 +69,7 @@ nuget push foo.nupkg 4003d786-cc37-4004-bfdf-c4f3e8ef9b3a -Source https://api.nu
 nuget push foo.nupkg 4003d786-cc37-4004-bfdf-c4f3e8ef9b3a
 
 nuget push foo.nupkg 4003d786-cc37-4004-bfdf-c4f3e8ef9b3a -src https://customsource/
+
+:: In the example below -SkipDuplicate will skip pushing the package if package "Foo" version "5.0.2" already exists on NuGet.org
+nuget push Foo.5.0.2.nupkg 4003d786-cc37-4004-bfdf-c4f3e8ef9b3a -src https://api.nuget.org/v3/index.json -SkipDuplicate
 ```
