@@ -6,16 +6,16 @@ ms.author: jver
 ms.date: 10/30/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: fd5188c92f8154391359b8da5c8a32f4d5d6f2c0
-ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
+ms.openlocfilehash: 4884de71151ee1ae3c0a78b803c9222f9c1d86ec
+ms.sourcegitcommit: ef08f376688f0191a8d3d873b6a4386afd799373
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52453591"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266355"
 ---
-# <a name="catalog"></a>Kataloğu
+# <a name="catalog"></a>Katalog
 
-**Kataloğu** paket kaynağını, oluşturma ve silme gibi tüm paket işlemleri kaydeder bir kaynaktır. Katalog kaynağına sahip `Catalog` yazın [hizmet dizini](service-index.md).
+**Kataloğu** paket kaynağını, oluşturma ve silme gibi tüm paket işlemleri kaydeder bir kaynaktır. Katalog kaynağına sahip `Catalog` yazın [hizmet dizini](service-index.md). Bu kaynak için kullanabileceğiniz [tüm paketleri yayımlanan sorgu](../guides/api/query-for-all-published-packages.md).
 
 > [!Note]
 > Katalog resmi bir NuGet istemcisi tarafından kullanılmadığından, tüm paket kaynaklarını kataloğa uygulayın.
@@ -23,7 +23,7 @@ ms.locfileid: "52453591"
 > [!Note]
 > Şu anda nuget.org katalog, Çin'de kullanılamıyor. Daha fazla ayrıntı için [NuGet/NuGetGallery #4949](https://github.com/NuGet/NuGetGallery/issues/4949).
 
-## <a name="versioning"></a>Sürüm oluşturma
+## <a name="versioning"></a>Sürüm Oluşturma
 
 Aşağıdaki `@type` değeri kullanılır:
 
@@ -69,10 +69,10 @@ Aşağıdaki özelliklere sahip bir nesne içeren bir JSON belgesi katalog dizin
 
 Ad            | Tür             | Gerekli | Notlar
 --------------- | ---------------- | -------- | -----
-commitId        | dize           | Evet      | En son işlemeyle ilişkili benzersiz bir kimliği
-commitTimeStamp | dize           | Evet      | En son işlemeyi bir zaman damgası
-count           | tamsayı          | Evet      | Dizin içinde sayfa sayısı
-Öğeleri           | Nesne dizisi | Evet      | Bir dizi her nesne bir sayfasını temsil eden nesneler
+commitId        | dize           | evet      | En son işlemeyle ilişkili benzersiz bir kimliği
+commitTimeStamp | dize           | evet      | En son işlemeyi bir zaman damgası
+count           | tamsayı          | evet      | Dizin içinde sayfa sayısı
+items           | Nesne dizisi | evet      | Bir dizi her nesne bir sayfasını temsil eden nesneler
 
 Her öğe `items` her sayfada bazı minimal ayrıntılarını içeren bir nesne dizisidir. Bu sayfa nesneler Kataloğu bırakır (öğeleri) içermez. Dizideki öğelerin sırasını tanımlı değil. Sayfalar, bellek kullanarak istemci tarafından sıralanabileceği kendi `commitTimeStamp` özelliği.
 
@@ -86,10 +86,10 @@ Katalog sayfa nesneleri Kataloğu dizinin içinde bulunan `items` özelliği aş
 
 Ad            | Tür    | Gerekli | Notlar
 --------------- | ------- | -------- | -----
-@id             | dize  | Evet      | Getirme katalog sayfası URL'si
-commitId        | dize  | Evet      | Bu sayfada en son işlemeyle ilişkili benzersiz bir kimliği
-commitTimeStamp | dize  | Evet      | Bu sayfada en son işlemeyi bir zaman damgası
-count           | tamsayı | Evet      | Katalog sayfasındaki öğelerin sayısı
+@id             | dize  | evet      | Getirme katalog sayfası URL'si
+commitId        | dize  | evet      | Bu sayfada en son işlemeyle ilişkili benzersiz bir kimliği
+commitTimeStamp | dize  | evet      | Bu sayfada en son işlemeyi bir zaman damgası
+count           | tamsayı | evet      | Katalog sayfasındaki öğelerin sayısı
 
 Tersine [paket meta veri kaynağı](registration-base-url-resource.md) dizine bırakır satır içleri, bazı durumlarda, katalog bırakır hiçbir zaman dizine satır içine alınmış ve sayfa kullanılarak her zaman getirilmesi gerekir `@id` URL'si.
 
@@ -111,11 +111,11 @@ Katalog sayfa belgesi, aşağıdaki özelliklere sahip bir JSON nesnesidir:
 
 Ad            | Tür             | Gerekli | Notlar
 --------------- | ---------------- | -------- | -----
-commitId        | dize           | Evet      | Bu sayfada en son işlemeyle ilişkili benzersiz bir kimliği
-commitTimeStamp | dize           | Evet      | Bu sayfada en son işlemeyi bir zaman damgası
-count           | tamsayı          | Evet      | Sayfadaki öğelerin sayısı
-Öğeleri           | Nesne dizisi | Evet      | Bu sayfada katalog öğeleri
-Üst          | dize           | Evet      | Katalog dizini URL'si
+commitId        | dize           | evet      | Bu sayfada en son işlemeyle ilişkili benzersiz bir kimliği
+commitTimeStamp | dize           | evet      | Bu sayfada en son işlemeyi bir zaman damgası
+count           | tamsayı          | evet      | Sayfadaki öğelerin sayısı
+items           | Nesne dizisi | evet      | Bu sayfada katalog öğeleri
+Üst          | dize           | evet      | Katalog dizini URL'si
 
 Her öğe `items` bazı minimal bir katalog öğesi ayrıntılarını içeren bir nesne dizisidir. Bu öğe nesneler Kataloğu öğenin veri içermez. Sayfanın öğelerin sırasını `items` dizi tanımlı değil. Öğeleri, bellek kullanarak istemci tarafından sıralanabileceği kendi `commitTimeStamp` özelliği.
 
@@ -131,12 +131,12 @@ Katalog öğesi nesneleri, katalog sayfa bulunamadı `items` özelliği aşağı
 
 Ad            | Tür    | Gerekli | Notlar
 --------------- | ------- | -------- | -----
-@id             | dize  | Evet      | Katalog öğesi getirilecek URL'si
-@type           | dize  | Evet      | Katalog öğesi türü
-commitId        | dize  | Evet      | Bu katalog öğesi ile ilişkili işleme kimliği
-commitTimeStamp | dize  | Evet      | Bu katalog öğesi işleme zaman damgası
-nuget:id        | dize  | Evet      | Bu yaprak ilgili paket kimliği
-nuget:version   | dize  | Evet      | Bu yaprak ilgili Paket sürümü
+@id             | dize  | evet      | Katalog öğesi getirilecek URL'si
+@type           | dize  | evet      | Katalog öğesi türü
+commitId        | dize  | evet      | Bu katalog öğesi ile ilişkili işleme kimliği
+commitTimeStamp | dize  | evet      | Bu katalog öğesi işleme zaman damgası
+nuget:id        | dize  | evet      | Bu yaprak ilgili paket kimliği
+nuget:version   | dize  | evet      | Bu yaprak ilgili Paket sürümü
 
 `@type` Değeri, şu iki değerden birini olacaktır:
 
@@ -161,12 +161,12 @@ Katalog yaprak belge, aşağıdaki özelliklere sahip bir JSON nesnesidir:
 
 Ad                    | Tür                       | Gerekli | Notlar
 ----------------------- | -------------------------- | -------- | -----
-@type                   | dize veya dize dizisi | Evet      | Katalog öğesi türlerinin
-catalog:commitId        | dize                     | Evet      | Bu katalog öğesi ile ilişkili bir işleme kimliği
-catalog:commitTimeStamp | dize                     | Evet      | Bu katalog öğesi işleme zaman damgası
-kimlik                      | dize                     | Evet      | Katalog öğesi, paket kimliği
-Yayımlanan               | dize                     | Evet      | Paket yayımlanma tarihi katalog öğesi
-sürüm                 | dize                     | Evet      | Katalog öğesi, Paket sürümü
+@type                   | dize veya dize dizisi | evet      | Katalog öğesi türlerinin
+catalog:commitId        | dize                     | evet      | Bu katalog öğesi ile ilişkili bir işleme kimliği
+catalog:commitTimeStamp | dize                     | evet      | Bu katalog öğesi işleme zaman damgası
+kimlik                      | dize                     | evet      | Katalog öğesi, paket kimliği
+Yayımlanan               | dize                     | evet      | Paket yayımlanma tarihi katalog öğesi
+sürüm                 | dize                     | evet      | Katalog öğesi, Paket sürümü
 
 ### <a name="item-types"></a>Öğe türleri
 
@@ -202,15 +202,15 @@ dil                | dize                     | Yok       |
 LicenseUrl              | dize                     | Yok       |
 listelenen                  | Boole değeri                    | Yok       | Paket listede değil
 MinClientVersion        | dize                     | Yok       |
-packageHash             | dize                     | Evet      | Kullanarak kodlama paket karmasını [standart taban 64](https://tools.ietf.org/html/rfc4648#section-4)
-packageHashAlgorithm    | dize                     | Evet      |
-packageSize             | tamsayı                    | Evet      | Paket .nupkg bayt cinsinden boyutu
+packageHash             | dize                     | evet      | Kullanarak kodlama paket karmasını [standart taban 64](https://tools.ietf.org/html/rfc4648#section-4)
+packageHashAlgorithm    | dize                     | evet      |
+packageSize             | tamsayı                    | evet      | Paket .nupkg bayt cinsinden boyutu
 ProjectUrl              | dize                     | Yok       |
 ReleaseNotes            | dize                     | Yok       |
 requireLicenseAgreement | Boole değeri                    | Yok       | Varsayar `false` dışlanırsa
 özet                 | dize                     | Yok       |
 etiketler                    | dize dizisi           | Yok       |
-Başlık                   | dize                     | Yok       |
+başlık                   | dize                     | Yok       |
 verbatimVersion         | dize                     | Yok       | Sürüm dizesi olarak başlangıçta .nuspec içinde bulunamadı
 
 Paket `version` tam sürüm dizesi sonra normalleştirme özelliğidir. Bu, SemVer 2.0.0 yapılandırma verilerini buraya dahil olabileceğini anlamına gelir.

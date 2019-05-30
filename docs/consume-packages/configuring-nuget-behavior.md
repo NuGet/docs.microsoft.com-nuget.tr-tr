@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/25/2017
 ms.topic: conceptual
-ms.openlocfilehash: db968189e892723c8fd080cb01a7222696c9d3f3
-ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
+ms.openlocfilehash: 963d1d59ea7e65e3d75bc7105b8864e3e4045938
+ms.sourcegitcommit: ef08f376688f0191a8d3d873b6a4386afd799373
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610573"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266345"
 ---
 # <a name="configuring-nuget-behavior"></a>NuGet davranışını yapılandırma
 
@@ -20,7 +20,7 @@ NuGet'ın davranışı, bir veya daha fazla birikmiş ayarları tarafından yön
 
 | Kapsam | NuGet.Config dosyası konumu | Açıklama |
 | --- | --- | --- |
-| Project | Geçerli klasör (başka bir deyişle, proje klasörü) veya sürücü kök kadar herhangi bir klasör.| Bir proje klasöründe ayarlar yalnızca bu proje için geçerlidir. Birden çok proje alt klasörleri içeren üst klasörlerinde ayarlar bu klasörlerdeki tüm projeler için geçerlidir. |
+| Çözüm | Geçerli klasör (Çözüm klasörü olarak da bilinir) veya sürücü kök kadar herhangi bir klasör.| Bir çözüm klasöründe ayarları uygulamak klasörlerdeki tüm projeler için geçerlidir. Bir yapılandırma dosyası bir proje klasörüne konur, proje üzerinde etkiye sahip olduğunu unutmayın. |
 | Kullanıcı | Windows: `%appdata%\NuGet\NuGet.Config`<br/>Mac/Linux: `~/.config/NuGet/NuGet.Config` veya `~/.nuget/NuGet/NuGet.Config` (işletim sistemi dağıtım göre değişiklik gösterir) | Ayarları tüm işlemler için geçerlidir, ancak herhangi bir proje düzeyi ayarı tarafından geçersiz kılınır. |
 | Bilgisayar | Windows: `%ProgramFiles(x86)%\NuGet\Config`<br/>Mac/Linux: `$XDG_DATA_HOME`. Varsa `$XDG_DATA_HOME` null veya boş `~/.local/share` veya `/usr/local/share` kullanılacak (işletim sistemi dağıtım göre değişiklik gösterir)  | Ayarları bilgisayar üzerindeki tüm işlemler için geçerlidir, ancak herhangi bir kullanıcı veya proje düzeyi ayarı tarafından geçersiz kılınır. |
 

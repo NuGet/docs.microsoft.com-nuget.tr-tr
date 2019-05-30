@@ -1,4 +1,15 @@
+---
+ms.openlocfilehash: 1f65939493cf423a76c024607264acee6c7e9050
+ms.sourcegitcommit: ef08f376688f0191a8d3d873b6a4386afd799373
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66271522"
+---
 #### <a name="windows"></a>Windows
+
+> [!Note]
+> NuGet.exe 5.0 ve üzeri, .NET Framework 4.7.2 gerektirir ya da daha sonra yürütülecek.
 
 1. Ziyaret [nuget.org/downloads](https://nuget.org/downloads) ve NuGet 3.3 veya üstünü seçin (2.8.6 Mono ile uyumlu değil). En son sürümü her zaman önerilir ve 4.1.0+ nuget.org için paketlerini yayımlamak için gereklidir.
 1. Her indirme `nuget.exe` doğrudan dosya. Tarayıcınızı seçtiğiniz bir klasöre dosyayı kaydetmeye yönlendirir. Dosya *değil* yükleyici; doğrudan tarayıcıdan çalıştırırsanız herhangi bir şey görmez.
