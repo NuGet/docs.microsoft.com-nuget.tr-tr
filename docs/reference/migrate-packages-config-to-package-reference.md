@@ -3,14 +3,14 @@ title: PackageReference biçimlerine Package.config geçiş
 description: Bir proje olarak NuGet 4.0 + ve VS2017 ve .NET Core 2.0 tarafından desteklenen PackageReference package.config yönetim biçiminden geçirilecek hakkında ayrıntılar
 author: karann-msft
 ms.author: karann
-ms.date: 03/27/2018
+ms.date: 05/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 05a82e48c7083a19c50a05fa1df74ebfff8030d1
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 09d132aeaf00d2a1d095b9638b455cc23de91f2c
+ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546692"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812881"
 ---
 # <a name="migrate-from-packagesconfig-to-packagereference"></a>Packages.config'i Packagereference'a geçirme
 
@@ -18,11 +18,11 @@ Visual Studio 2017 sürüm 15.7 ve üzeri destekler bir projeden geçirme [packa
 
 ## <a name="benefits-of-using-packagereference"></a>PackageReference kullanmanın avantajları
 
-* **Tüm proje bağımlılıkları tek bir yerden yönetmek**: projeden projeye başvurular ve derleme başvurularını hemen gibi NuGet paket başvuruları (kullanarak `PackageReference` düğümü) ayrı bir kullanmak yerine doğrudan proje dosyaları içinde yönetilir Packages.config dosyası.
-* **Üst düzey bağımlılıkları sade görünümünü**: packages.config PackageReference doğrudan yüklediğiniz projedeki NuGet paketlerini listeler. Sonuç olarak, NuGet Paket Yöneticisi UI ve proje dosyası ile alt düzey bağımlılıkları dağınıktır değildir.
-* **Performans iyileştirmeleri**: PackageReference kullanırken, paketleri içinde korunur *genel paketleri* klasörü (üzerinde açıklandığı [genel paketleri ve önbellek klasörlerini yönetme](../consume-packages/managing-the-global-packages-and-cache-folders.md) yerine bir `packages` çözüm içinde klasör. Sonuç olarak, PackageReference daha hızlı gerçekleştirir ve daha az disk alanı kullanır.
-* **İnce bağımlılıkları ve içerik akışı üzerinde denetim**: mevcut MSBuild özelliklerini kullanmaya izin verir [koşullu olarak NuGet paketine başvuru](../consume-packages/Package-References-in-Project-Files.md#adding-a-packagereference-condition) ve paket başvuruları hedef çerçeve başına yapılandırması Platform veya diğer özetler.
-* **PackageReference olan etkin geliştirilme**: bkz [PackageReference sorunları Github'da](https://aka.ms/nuget-pr-improvements). Packages.config artık etkin geliştirilme aşamasındadır.
+* **Tüm proje bağımlılıkları tek bir yerden yönetmek**: Projeden projeye başvurular ve derleme başvurularını hemen gibi NuGet paket başvuruları (kullanarak `PackageReference` düğümü) ayrı packages.config dosyası kullanmak yerine doğrudan proje dosyaları içinde yönetilir.
+* **Üst düzey bağımlılıkları sade görünümünü**: Packages.config PackageReference doğrudan projede yüklü NuGet paketlerini listeler. Sonuç olarak, NuGet Paket Yöneticisi UI ve proje dosyası ile alt düzey bağımlılıkları dağınıktır değildir.
+* **Performans iyileştirmeleri**: PackageReference kullanırken, paketleri içinde korunur *genel paketleri* klasörü (üzerinde açıklandığı [genel paketleri ve önbellek klasörlerini yönetme](../consume-packages/managing-the-global-packages-and-cache-folders.md) yerine bir `packages` klasördeki Çözüm. Sonuç olarak, PackageReference daha hızlı gerçekleştirir ve daha az disk alanı kullanır.
+* **İnce bağımlılıkları ve içerik akışı üzerinde denetim**: Mevcut MSBuild özelliklerini kullanmaya izin verir [koşullu olarak NuGet paketine başvuru](../consume-packages/Package-References-in-Project-Files.md#adding-a-packagereference-condition) ve paket başvuruları hedef Framework'ü, yapılandırma, platform veya diğer özetleri başına seçin.
+* **PackageReference olan etkin geliştirilme**: Bkz: [PackageReference sorunları Github'da](https://aka.ms/nuget-pr-improvements). Packages.config artık etkin geliştirilme aşamasındadır.
 
 ### <a name="limitations"></a>Sınırlamalar
 
@@ -87,6 +87,10 @@ Artık geçiş seçeneği görmeye olmalıdır. Bu seçenek desteklenmez ve ASP.
    ```ps
    update-package -reinstall
    ```
+
+## <a name="create-a-package-after-migration"></a>Geçiş sonrasında bir paket oluşturun
+
+Geçiş işlemi tamamlandıktan sonra bir başvuru eklerken öneririz [nuget.build.tasks.pack](https://www.nuget.org/packages/nuget.build.tasks.pack) nuget paketini ve ardından [msbuild paketi](../reference/msbuild-targets.md#pack-target) paketi oluşturmak için. Bazı senaryolarda kullanabilirsiniz ancak `dotnet.exe pack` yerine `msbuild pack`, önerilmez.
 
 ## <a name="package-compatibility-issues"></a>Paket uyumluluk sorunları
 

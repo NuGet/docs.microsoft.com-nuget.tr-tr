@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/23/2018
 ms.topic: quickstart
-ms.openlocfilehash: 15268ae33d56042a765420e5076dac49db6cce04
-ms.sourcegitcommit: 1591bb230e106b94162a87dd1d86fe427366730a
+ms.openlocfilehash: 8cfb7bd31c37847d83ffe31f11ba61eadc717eb8
+ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52671181"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812898"
 ---
 # <a name="quickstart-install-and-use-a-package-in-visual-studio"></a>Hızlı Başlangıç: Yükleme ve Visual Studio'da paket kullanma
 
@@ -19,7 +19,7 @@ NuGet paketleri diğer geliştiriciler projelerinizde kullanmak için kullanıla
 Kod ile paket yüklendikten sonra başvurmak `using <namespace>` burada \<ad alanı\> kullanmakta olduğunuz paket özgüdür. Başvuru yaptıktan sonra paketi API'si aracılığıyla çağırabilirsiniz.
 
 > [!Tip]
-> **Nuget.org ile Başlat**: gözatma nuget.org'nin olduğundan nasıl .NET geliştiricilerinin bileşenler genellikle bulun, kendi uygulamalarında yeniden kullanabilirsiniz. Nuget.org doğrudan arama veya bulabilir ve bu makalede gösterilen şekilde Visual Studio içindeki paketleri yükleyin.
+> **Nuget.org ile Başlat**: Gözatma nuget.org'nin olduğundan nasıl .NET geliştiricilerinin bileşenler genellikle bulun, kendi uygulamalarında yeniden kullanabilirsiniz. Nuget.org doğrudan arama veya bulabilir ve bu makalede gösterilen şekilde Visual Studio içindeki paketleri yükleyin.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -28,11 +28,13 @@ Kod ile paket yüklendikten sonra başvurmak `using <namespace>` burada \<ad ala
 
 2017 Community edition ücretsiz nden yüklenebilecek [visualstudio.com](https://www.visualstudio.com/) veya Professional veya Enterprise Edition'ı kullanın.
 
+Mac için Visual Studio kullanıyorsanız, bkz. [NuGet paketini projenize dahil](/visualstudio/mac/nuget-walkthrough).
+
 ## <a name="create-a-project"></a>Proje oluşturma
 
 Paket projesi olarak aynı hedef Framework'ü destekliyorsa, NuGet paketlerini herhangi bir .NET projesine yüklenebilir.
 
-Bu kılavuz için basit bir evrensel Windows (UWP) uygulamasını kullanın. Visual Studio kullanarak bir proje oluşturun **Dosya > Yeni proje...**  seçerek **Windows Evrensel > boş uygulama (Evrensel Windows)**. Hedef sürümü ve en düşük istendiğinde sürümü için varsayılan değerleri kabul.
+Bu kılavuz için basit bir evrensel Windows (UWP) uygulamasını kullanın. Visual Studio kullanarak bir proje oluşturun **Dosya > Yeni proje...**  seçerek **Windows Evrensel > boş uygulama (Evrensel Windows)** . Hedef sürümü ve en düşük istendiğinde sürümü için varsayılan değerleri kabul.
 
 ## <a name="add-the-newtonsoftjson-nuget-package"></a>Newtonsoft.Json NuGet paketi ekleme
 

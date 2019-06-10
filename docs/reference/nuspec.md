@@ -3,15 +3,15 @@ title: NuGet için .nuspec dosyası başvurusu
 description: Paket meta verileri bir paketi ve paket tüketicilere bilgi sağlamak için oluştururken kullanılan .nuspec dosyası içerir.
 author: karann-msft
 ms.author: karann
-ms.date: 08/29/2017
+ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: ebb1dd929042a1fcd269d0ac50154ae6b8234be2
-ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
+ms.openlocfilehash: 6c545ddeddb0c5909f57e879912eaeed744e42d5
+ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59509112"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812931"
 ---
 # <a name="nuspec-reference"></a>.nuspec başvurusu
 
@@ -27,6 +27,16 @@ Bu konuda:
 - [Derleme dosyaları da dahil olmak üzere](#including-assembly-files)
 - [İçerik dosyaları dahil](#including-content-files)
 - [Örneğin nuspec dosyaları](#example-nuspec-files)
+
+## <a name="project-type-compatibility"></a>Proje türü uyumluluğu
+
+- Kullanma `.nuspec` ile `nuget.exe pack` kullanan olmayan-SDK-stili projeleri `packages.config`.
+
+- A `.nuspec` dosya SDK stili projeleri için paketler oluşturmak için gerekli değildir (.NET Core ve .NET Standard projeleri [SDK özniteliği](/dotnet/core/tools/csproj#additions)). (Unutmayın bir `.nuspec` paketi oluşturduğunuzda oluşturulur.)
+
+   Kullanarak bir paket oluşturuyorsanız `dotnet.exe pack` veya `msbuild pack target`, öneririz, [özellikleri içeren](../reference/msbuild-targets.md#pack-target) , genellikle `.nuspec` bunun yerine proje dosyasında dosya. Ancak, bunun yerine seçebileceğiniz [kullanan bir `.nuspec` kullanarak paketi dosyaya `dotnet.exe` veya `msbuild pack target` ](../reference/msbuild-targets.md#packing-using-a-nuspec).
+
+- Geçiş projeleri için `packages.config` için [PackageReference](../consume-packages/package-references-in-project-files.md), `.nuspec` dosya paketi oluşturmak için gerekli değildir. Bunun yerine, [msbuild paketi](../reference/migrate-packages-config-to-package-reference.md#create-a-package-after-migration).
 
 ## <a name="general-form-and-schema"></a>Genel form ve şema
 
@@ -145,7 +155,7 @@ Etiketleri ve arama ve filtreleme yoluyla paketleri paket ve ürettiği bulunabi
 #### <a name="serviceable"></a>tutulabilmesi 
 *(3.3+)* Yalnızca iç NuGet için kullanın.
 #### <a name="repository"></a>depo
-Depo meta verileri, dört isteğe bağlı özniteliklerden oluşan: *türü* ve *url* *(4.0 +)*, ve *dal* ve  *işleme* *(4.6 +)*. Bu öznitelikler, alma olasılığı ile oluşturulan depo .nupkg eşlemek izin tek tek bir dalı veya da paket yerleşik işleme olarak ayrıntılı. Bu, doğrudan bir sürüm denetim yazılımı tarafından çağrılabilen genel kullanıma açık bir url olmalıdır. Bu bilgisayar için tasarlanmıştır olarak html sayfasından olmamalıdır. Proje sayfasına bağlamak için kullanın `projectUrl` , bunun yerine alan.
+Depo meta verileri, dört isteğe bağlı özniteliklerden oluşan: *türü* ve *url* *(4.0 +)* , ve *dal* ve  *işleme* *(4.6 +)* . Bu öznitelikler, alma olasılığı ile oluşturulan depo .nupkg eşlemek izin tek tek bir dalı veya da paket yerleşik işleme olarak ayrıntılı. Bu, doğrudan bir sürüm denetim yazılımı tarafından çağrılabilen genel kullanıma açık bir url olmalıdır. Bu bilgisayar için tasarlanmıştır olarak html sayfasından olmamalıdır. Proje sayfasına bağlamak için kullanın `projectUrl` , bunun yerine alan.
 
 #### <a name="minclientversion"></a>MinClientVersion
 Nuget.exe ve Visual Studio Paket Yöneticisi tarafından zorlanan, bu paketi yüklemek NuGet istemci en düşük sürümünü belirtir. Bu paket belirli özelliklere bağımlı olduğunda kullanılır `.nuspec` belirli bir NuGet istemcisi sürümünde eklenen dosya. Örneğin, bir paketini kullanarak `developmentDependency` özniteliği için "2.8" belirtmelidir `minClientVersion`. Benzer şekilde, bir paketini kullanarak `contentFiles` öğesi (sonraki bölüme bakın) ayarlamalıdır `minClientVersion` "3.3" için. Bu bayrak, 2.5 önce NuGet istemcileri algılanmadığı için de unutmayın bunlar *her zaman* ne olursa olsun paketi yüklemek Reddet `minClientVersion` içerir.
@@ -626,23 +636,29 @@ Boş klasörler kullanabileceğiniz `.` örneğin dil ve TxM, belirli bir kombin
 #### <a name="example-contentfiles-section"></a>Örnek contentFiles bölümünde
 
 ```xml
-<contentFiles>
-    <!-- Embed image resources -->
-    <files include="any/any/images/dnf.png" buildAction="EmbeddedResource" />
-    <files include="any/any/images/ui.png" buildAction="EmbeddedResource" />
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        ...
+        <contentFiles>
+            <!-- Embed image resources -->
+            <files include="any/any/images/dnf.png" buildAction="EmbeddedResource" />
+            <files include="any/any/images/ui.png" buildAction="EmbeddedResource" />
 
-    <!-- Embed all image resources under contentFiles/cs/ -->
-    <files include="cs/**/*.png" buildAction="EmbeddedResource" />
+            <!-- Embed all image resources under contentFiles/cs/ -->
+            <files include="cs/**/*.png" buildAction="EmbeddedResource" />
 
-    <!-- Copy config.xml to the root of the output folder -->
-    <files include="cs/uap/config/config.xml" buildAction="None" copyToOutput="true" flatten="true" />
+            <!-- Copy config.xml to the root of the output folder -->
+            <files include="cs/uap/config/config.xml" buildAction="None" copyToOutput="true" flatten="true" />
 
-    <!-- Copy run.cmd to the output folder and keep the directory structure -->
-    <files include="cs/commands/run.cmd" buildAction="None" copyToOutput="true" flatten="false" />
+            <!-- Copy run.cmd to the output folder and keep the directory structure -->
+            <files include="cs/commands/run.cmd" buildAction="None" copyToOutput="true" flatten="false" />
 
-    <!-- Include everything in the scripts folder except exe files -->
-    <files include="cs/net45/scripts/*" exclude="**/*.exe"  buildAction="None" copyToOutput="true" />
-</contentFiles>
+            <!-- Include everything in the scripts folder except exe files -->
+            <files include="cs/net45/scripts/*" exclude="**/*.exe"  buildAction="None" copyToOutput="true" />
+        </contentFiles>
+        </metadata>
+</package>
 ```
 
 ## <a name="example-nuspec-files"></a>Örneğin nuspec dosyaları

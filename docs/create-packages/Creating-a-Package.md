@@ -3,25 +3,31 @@ title: Bir NuGet paketi oluşturma
 description: Ayrıntılı bir kılavuz tasarlama ve dosyaları ve sürüm oluşturma gibi temel karar noktaları da dahil olmak üzere bir NuGet paketi oluşturma işlemidir.
 author: karann-msft
 ms.author: karann
-ms.date: 12/12/2017
+ms.date: 05/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: f0d9667b752caf7831278ac3fd63cfd67f7d34a4
-ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
+ms.openlocfilehash: 5e362673acfab4b31c8a2e02a521afd8b19d2754
+ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610580"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812912"
 ---
 # <a name="creating-nuget-packages"></a>NuGet paketleri oluşturma
 
-Paketiniz yapar veya hangi kod içeren olursa olsun, kullandığınız `nuget.exe` paylaşıldığı ve kullanılan bir bileşen herhangi bir sayıda diğer geliştiriciler tarafından bu işlevselliği paketlemek için. Yüklenecek `nuget.exe`, bkz: [NuGet CLI yükleme](../install-nuget-client-tools.md#nugetexe-cli). Visual Studio otomatik olarak içermez Not `nuget.exe`.
+Paketiniz yapar veya hangi kod içeren olursa olsun, CLI araçlarından birini ya da kullandığınız `nuget.exe` veya `dotnet.exe`, paylaşılan ve kullanılan bir bileşen herhangi bir sayıda diğer geliştiriciler tarafından bu işlevselliği paketlemek için. NuGet CLI araçlarını yüklemek için bkz: [Nuget'i yükle istemci araçları](../install-nuget-client-tools.md). Visual Studio otomatik olarak bir CLI aracı içerip içermediğini unutmayın.
+
+- SDK stili biçimini kullanan .NET Core ve .NET Standard projeleri için ([SDK özniteliği](/dotnet/core/tools/csproj#additions)), ve tüm diğer SDK stili projeleri NuGet doğrudan bir paketi oluşturmak için proje dosyasında bilgileri kullanır. Ayrıntılar için bkz [.NET standart paketleri oluşturma Visual Studio 2017 ile](../quickstart/create-and-publish-a-package-using-visual-studio.md) ve [NuGet paketi ve geri yükleme, MSBuild hedefleri](../reference/msbuild-targets.md).
+
+- SDK stili projeleri için bir paketi oluşturmak için bu makalede açıklanan adımları izleyin.
+
+- Geçiş projeleri için `packages.config` için [PackageReference](../consume-packages/package-references-in-project-files.md), kullanın [msbuild - t: paketi](../reference/migrate-packages-config-to-package-reference.md#create-a-package-after-migration).
 
 Teknik terimlerle açıklamak gerekirse, bir NuGet paketi yalnızca ile adlandırılmış bir ZIP dosyası olduğu `.nupkg` uzantısı ve içerikleri belirli kuralları eşleşmesi. Bu konuda ayrıntılı bu kuralları karşılayan paket oluşturma işlemi açıklanmaktadır. Odaklanmış bir kılavuz için başvurmak [hızlı başlangıç: bir paketi oluşturma ve yayımlama](../quickstart/create-and-publish-a-package.md).
 
 Derlenmiş kodu (bütünleştirilmiş kodları), simge ve/veya bir paket olarak sunmak istediğiniz diğer dosyaları ile paketleme başlar (bkz [genel bakış ve iş akışı](overview-and-workflow.md)). Bu işlem, derleme veya derlenmiş bütünleştirilmiş kodların ve paketlerin eşitlenmiş şekilde tutmanızı sağlayacak bir proje dosyasında bilgilerden çizebilirsiniz ancak Aksi takdirde pakete Git dosyaları oluşturma bağımsızdır.
 
 > [!Note]
-> Bu konu, .NET Core projeleri Visual Studio 2017 ile NuGet 4.0 + dışında proje türleri için geçerlidir. Bu .NET Core projelerinde, NuGet bilgileri proje dosyasında doğrudan kullanır. Ayrıntılar için bkz [.NET standart paketleri oluşturma Visual Studio 2017 ile](../guides/create-net-standard-packages-vs2017.md) ve [NuGet paketi ve geri yükleme, MSBuild hedefleri](../reference/msbuild-targets.md).
+> Bu konu SDK stili projeleri için genellikle dışında .NET Core projeleri ve Visual Studio 2017 ile NuGet 4.0 +, .NET Standard projelerine uygulanır.
 
 ## <a name="deciding-which-assemblies-to-package"></a>Hangi derlemelerin paketini karar verme
 

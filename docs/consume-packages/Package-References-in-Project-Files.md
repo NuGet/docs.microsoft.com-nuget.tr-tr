@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: e4df15be1f29e2c611876aaa49e16ac7d1823938
-ms.sourcegitcommit: be9c51b4b095aea40ef41bbea7e12ef0a194ee74
+ms.openlocfilehash: c2dfce8de6b28aaee99e3d5ab75cd28950a8cb0f
+ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53248461"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812845"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Proje dosyalarında paket başvuruları (PackageReference)
 
@@ -18,7 +18,11 @@ Paket başvuruları kullanılarak, `PackageReference` düğümü, NuGet bağıml
 
 PackageReference ile paket başvuruları her hedef çerçeve, yapılandırma, platform veya diğer grupları seçmek için MSBuild koşulları kullanabilirsiniz. Ayrıca bağımlılıkları ve içerik akışı üzerinde ayrıntılı denetim sağlar. (Daha fazla ayrıntı için [NuGet paketi ve geri yükleme, MSBuild hedefleri](../reference/msbuild-targets.md).)
 
-Varsayılan olarak, .NET Core projeleri, .NET Standard projelerine ve Windows 10 derleme 15063 (Creators Update) hedefleyen UWP projeleri için ve sonraki sürümlerinde, C++ UWP projeleri hariç PackageReference kullanılır. .NET framework projeleri PackageReference destekler, ancak şu anda varsayılan `packages.config`. PackageReference kullanmak için bağımlılıklardan geçirme `packages.config` proje dosyanıza ardından packages.config kaldırın.
+## <a name="project-type-support"></a>Proje türü desteği
+
+Varsayılan olarak, .NET Core projeleri, .NET Standard projelerine ve Windows 10 derleme 15063 (Creators Update) hedefleyen UWP projeleri için ve sonraki sürümlerinde, C++ UWP projeleri hariç PackageReference kullanılır. .NET framework projeleri PackageReference destekler, ancak şu anda varsayılan `packages.config`. PackageReference, kullanılacak [geçirme](../reference/migrate-packages-config-to-package-reference.md) bağımlılıklardan `packages.config` proje dosyanıza ardından packages.config kaldırın.
+
+.NET Framework'ün tamamını hedefleyen ASP.NET uygulamaları dahil yalnızca [sınırlı destek](https://github.com/NuGet/Home/issues/5877) PackageReference için. C++ve JavaScript proje türleri desteklenmez.
 
 ## <a name="adding-a-packagereference"></a>PackageReference ekleme
 

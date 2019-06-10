@@ -3,16 +3,16 @@ title: Windows üzerinde Visual Studio kullanarak bir .NET Standard paketi oluş
 description: Oluşturma ve Windows üzerinde Visual Studio 2017 kullanılarak bir standart .NET NuGet Paketi Yayımlama Kılavuzu öğretici.
 author: karann-msft
 ms.author: karann
-ms.date: 05/18/2018
+ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: faea00372bd387aee1502e388ad1ea88de07b95d
-ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
+ms.openlocfilehash: d30e89473b5f00895136b75a90d8d95b7645a100
+ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52453526"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812985"
 ---
-# <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Hızlı Başlangıç: Oluşturma ve Visual Studio (.NET Standard, yalnızca Windows) kullanarak bir NuGet paketi Yayımla
+# <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Hızlı Başlangıç: Visual Studio (.NET Standard, yalnızca Windows) kullanarak bir NuGet paketi oluşturma ve yayımlama
 
 Bir .NET standart sınıf kitaplığı Windows üzerinde Visual Studio'da NuGet paketi oluşturun ve ardından bir CLI aracını kullanarak nuget.org için yayımlama için basit bir işlemdir.
 
@@ -23,9 +23,11 @@ Bir .NET standart sınıf kitaplığı Windows üzerinde Visual Studio'da NuGet 
 
 1. Visual Studio 2017'den herhangi bir sürümünü yükleme [visualstudio.com](https://www.visualstudio.com/) herhangi. AĞ ile ilgili bir iş yükü. .NET iş yükü yüklendiğinde visual Studio 2017, NuGet özellikleri otomatik olarak içerir.
 
-1. Yükleme `nuget.exe` ondan indirerek CLI [nuget.org](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe), kaydetme `.exe` uygun bir klasöre dosya ve klasörün PATH ortam değişkeninize ekleme.
+1. CLI araçlarından birini yükleyin.
 
-    Alternatif olarak, varsa [.NET Core SDK'sı](https://www.microsoft.com/net/download/) kullanabileceğiniz yüklü `dotnet` CLI.
+   * İçin `dotnet` CLI yükleme [.NET Core SDK'sı](https://www.microsoft.com/net/download/). Dotnet CLI SDK stilinde biçimini (SDK'sı özniteliği) kullanan .NET Standard projeleri için gereklidir.
+
+   * İçin `nuget.exe` CLI, indirdiği [nuget.org](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe), kaydetme `.exe` uygun bir klasöre dosya ve klasörün PATH ortam değişkeninize ekleme. Nuget.exe CLI SDK stilinde olmayan biçimde .NET standart kitaplıkları için kullanılır.
 
 1. [Nuget.org üzerindeki bir ücretsiz hesaba kaydolun](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) zaten yoksa. Yeni bir hesap oluşturmadan bir onay e-posta gönderir. Bir paketi karşıya yükleyebilmeniz, hesap onaylamanız gerekir.
 
@@ -112,7 +114,13 @@ Sonra bir `.nupkg` dosyası yayımladığınızda, kullanarak nuget.org için `n
 
 [!INCLUDE [publish-api-key](includes/publish-api-key.md)]
 
-### <a name="publish-with-nuget-push"></a>Nuget itme ile yayımlama
+### <a name="publish-with-dotnet-nuget-push-dotnet-cli"></a>DotNet nuget itme (dotnet CLI) ile yayımlama
+
+Bu adım bir alternatifidir `nuget.exe`.
+
+[!INCLUDE [publish-dotnet](includes/publish-dotnet.md)]
+
+### <a name="publish-with-nuget-push-nugetexe-cli"></a>Nuget anında iletme (nuget.exe CLI) ile yayımlama
 
 Bu adım bir alternatifidir `dotnet.exe`.
 
@@ -134,12 +142,6 @@ Bu adım bir alternatifidir `dotnet.exe`.
     ```
 
 Bkz: [nuget anında iletme](../tools/cli-ref-push.md).
-
-### <a name="publish-with-dotnet-nuget-push"></a>DotNet nuget itme ile yayımlama
-
-Bu adım bir alternatifidir `nuget.exe`.
-
-[!INCLUDE [publish-dotnet](includes/publish-dotnet.md)]
 
 ### <a name="publish-errors"></a>Hataları yayımlama
 
