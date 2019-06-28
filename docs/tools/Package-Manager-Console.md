@@ -1,24 +1,26 @@
 ---
-title: NuGet Paket Yöneticisi konsolu Kılavuzu
+title: Yükleme ve PowerShell kullanarak Visual Studio'da NuGet paketlerini Yönet
 description: Paketlerle çalışmak için Visual Studio'da NuGet Paket Yöneticisi konsolu kullanarak yönelik yönergeler.
 author: karann-msft
 ms.author: karann
-ms.date: 01/23/2018
+ms.date: 06/24/2019
 ms.topic: conceptual
 f1_keywords:
 - vs.nuget.packagemanager.console
-ms.openlocfilehash: 88979c67ea7f073f2ea5a02c445186642f77f210
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 11ec25598d3110ba84dec5044642e205e13346af
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546884"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426214"
 ---
-# <a name="package-manager-console"></a>Paket Yöneticisi Konsolu
+# <a name="install-and-manage-packages-using-powershell-in-visual-studio"></a>Yükleme ve Visual Studio'da PowerShell kullanarak paketleri yönetme
 
-NuGet Paket Yöneticisi Konsolu Windows 2012 ve sonraki sürümleri Visual Studio'da yerleşik olarak bulunur. (Mac veya Visual Studio Code için Visual Studio ile dahil değildir.)
+NuGet Paket Yöneticisi konsolu kullanmanıza olanak tanıyan [NuGet PowerShell komutlarını](../tools/powershell-reference.md) bulmak için yükleme, kaldırma ve NuGet paketlerini güncelleştirin. Konsolunu kullanarak, burada Paket Yöneticisi UI bir işlemi gerçekleştirmek için bir yol sağlamaz durumlarda gereklidir. Kullanılacak `nuget.exe` konsolunda, CLI komutları görmek [konsolunda nuget.exe CLI kullanarak](#using-the-nugetexe-cli-in-the-console).
 
-Bir konsol kullanmanıza olanak tanıyan [NuGet PowerShell komutlarını](../tools/powershell-reference.md) bulmak için yükleme, kaldırma ve NuGet paketlerini güncelleştirin. Konsolunu kullanarak, burada Paket Yöneticisi UI bir işlemi gerçekleştirmek için bir yol sağlamaz durumlarda gereklidir. Kullanılacak `nuget.exe` Konsolu komutları görmek [konsolunda nuget.exe CLI kullanarak](#using-the-nugetexe-cli-in-the-console).
+Windows üzerinde Visual Studio konsol yerleşiktir. Mac veya Visual Studio Code için Visual Studio ile dahil değildir.
+
+## <a name="find-and-install-a-package"></a>Bulma ve bir paket yükleme
 
 Örneğin, bulma ve bir paket yükleme üç kolay adımda gerçekleştirilir:
 
@@ -74,7 +76,7 @@ Install-Package Elmah -ProjectName UtilitiesLib
 
 Bkz: [Install-Package](../tools/ps-ref-install-package.md).
 
-Konsolunda bir paket yükleme aynı adımları gerçekleştirir üzerinde açıklandığı [paketi yüklendiğinde ne](../consume-packages/ways-to-install-a-package.md#what-happens-when-a-package-is-installed), aşağıdaki eklemelerle:
+Konsolunda bir paket yükleme aynı adımları gerçekleştirir üzerinde açıklandığı [paketi yüklendiğinde ne](../concepts/package-installation-process.md), aşağıdaki eklemelerle:
 
 - Konsol penceresi örtük anlaşma kapsamında olan geçerli lisans koşullarında görüntüler. Koşulları kabul etmiyorsanız, paket hemen kaldırmanız gerekir.
 - Ayrıca, pakete bir başvuru proje dosyasına eklenir ve görünür **Çözüm Gezgini** altında **başvuruları** düğümü, proje dosyasındaki değişiklikleri doğrudan görmek için projeyi kaydetmek için ihtiyacınız.
@@ -139,7 +141,7 @@ Bkz: [Bul-Package](../tools/ps-ref-find-package.md). Visual Studio 2013 ve önce
 
 ## <a name="availability-of-the-console"></a>Konsolunun kullanılabilirliğini
 
-Visual Studio 2017'de NuGet ve NuGet Paket Yöneticisi herhangi seçtiğinizde otomatik olarak yüklenir. NET ilgili iş yükleri; Ayrıca ayrı ayrı kontrol ederek yükleyebilirsiniz **tek tek bileşenler > kod Araçlar > NuGet Paket Yöneticisi** seçeneği Visual Studio 2017 yükleyicisindeki.
+Tüm seçtiğinizde Visual Studio 2017'den itibaren NuGet ve NuGet Paket Yöneticisi otomatik olarak yüklenir. NET ilgili iş yükleri; Ayrıca ayrı ayrı kontrol ederek yükleyebilirsiniz **tek tek bileşenler > kod Araçlar > NuGet Paket Yöneticisi** seçeneği Visual Studio Yükleyicisi'nde.
 
 Ayrıca, Visual Studio 2015'te ve daha önce NuGet Paket Yöneticisi kayıpsa denetleyin **Araçlar > Uzantılar ve güncelleştirmeler...**  ve NuGet paket yöneticisini uzantısı arayın. Visual Studio Uzantıları yükleyici yapamıyorsanız uzantısını doğrudan indirebileceğiniz [ https://dist.nuget.org/index.html ](https://dist.nuget.org/index.html).
 

@@ -1,5 +1,5 @@
 ---
-title: NuGet Paket Yöneticisi kullanıcı Arabirimi başvurusu
+title: Yükleme ve Visual Studio'da NuGet paketlerini Yönet
 description: NuGet paketleri ile çalışmak için Visual Studio'da NuGet Paket Yöneticisi UI kullanarak yönelik yönergeler.
 author: karann-msft
 ms.author: karann
@@ -10,30 +10,21 @@ f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager.general
 - vs.toolsoptionspages.nuget_package_manager.package_sources
 - vs.nuget.packagemanager.ui
-ms.openlocfilehash: 422faf99e58e058d86db774a8f3c1c576b3dc393
-ms.sourcegitcommit: 2af17c8bb452a538977794bf559cdd78d58f2790
+ms.openlocfilehash: 97e5de3f07199cd3c6a645749c8f2f1603ca630e
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58637629"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426245"
 ---
-# <a name="nuget-package-manager-ui"></a>NuGet Paket Yöneticisi UI
+# <a name="install-and-manage-packages-in-visual-studio"></a>Yükleme ve Visual Studio'da paketlerini yönetme
 
 Windows üzerinde Visual Studio'da NuGet Paket Yöneticisi UI kolayca yükleme, kaldırma ve projelerde ve çözümlerde NuGet paketlerini güncelleştirme sağlar. Mac için Visual Studio deneyim için bkz: [dahil olmak üzere bir NuGet paketini projenize](/visualstudio/mac/nuget-walkthrough). Paket Yöneticisi UI, Visual Studio Code ile dahil değildir.
 
-Bu konuda:
-
-- [Bulma ve bir paket (Gözat sekmesi) yükleme](#finding-and-installing-a-package)
-- [Bir paket (yüklü sekmesi) kaldırma](#uninstalling-a-package)
-- [Bir paket (yüklü ve güncelleştirmeleri sekmeleri) güncelleştirme](#updating-a-package) (içerir ["Örtük olarak bir SDK'sı tarafından başvurulan" veya "AutoReferenced" iletisi](#implicit_reference))
-- [Çözüm için paketleri yönetme](#managing-packages-for-the-solution) (aynı anda birden fazla projeyle çalışma).
-- [Paket kaynakları](#package-sources)
-- [Paket Yöneticisi seçeneklerini denetleme](#package-manager-options-control)
-
-> [!Note]
+> [!NOTE]
 > Visual Studio 2015'te NuGet Paket Yöneticisi kayıpsa denetleyin **Araçlar > Uzantılar ve güncelleştirmeler...**  araması *NuGet Paket Yöneticisi* uzantısı. Visual Studio Uzantıları yükleyici yapamıyorsanız doğrudan uzantısını [ https://dist.nuget.org/index.html ](https://dist.nuget.org/index.html).
 >
-> Visual Studio 2017'de NuGet ve NuGet Paket Yöneticisi otomatik olarak ile yüklenir. NET ilgili iş yükleri. Tek tek seçerek yüklemek **tek tek bileşenler > kod Araçlar > NuGet Paket Yöneticisi** Visual Studio 2017 yükleyicisindeki seçeneği.
+> Visual Studio 2017'den itibaren NuGet ve NuGet Paket Yöneticisi otomatik olarak ile yüklenir. NET ilgili iş yükleri. Tek tek seçerek yüklemek **tek tek bileşenler > kod Araçlar > NuGet Paket Yöneticisi** Visual Studio Yükleyicisi'nde seçeneği.
 
 ## <a name="finding-and-installing-a-package"></a>Bulma ve bir paket yükleme
 
@@ -123,14 +114,14 @@ Paket kaynaklarını yönetmek için:
 
     ![Paket kaynağı seçenekleri](media/options.png)
 
-1. Bir kaynak eklemek için seçin **+**, adı düzenleyin, URL veya yol girin **kaynak** denetlemek ve seçin **güncelleştirme**. Kaynak Seçici açılan görünür.
+1. Bir kaynak eklemek için seçin **+** , adı düzenleyin, URL veya yol girin **kaynak** denetlemek ve seçin **güncelleştirme**. Kaynak Seçici açılan görünür.
 1. Paket kaynağı değiştirmek için seçin, içinde düzenlemeler **adı** ve **kaynak** kutuları ve select **güncelleştirme**.
 1. Paket kaynağı devre dışı bırakmak için listesinde adının sol tarafındaki kutuya temizleyin.
 1. Paket kaynağı kaldırmak için onu seçin ve ardından **X** düğmesi.
 1. Kullanarak yukarı ve aşağı ok düğmelerini paket kaynaklarını öncelik sırasını değiştirmez. Visual Studio isteklerine yanıt vermek için hangi kaynak gelen paketin ilk kullanarak paket kaynaklarını sırasını yoksayar. Daha fazla bilgi için [paket geri yükleme](../consume-packages/package-restore.md).
 
 > [!Tip]
-> Paket kaynağı sildikten sonra görünürse, bir bilgisayar düzeyinde veya kullanıcı düzeyi listelenebilir `NuGet.Config` dosyaları. Bkz: [yapılandırma NuGet davranışını](../consume-packages/configuring-nuget-behavior.md) bu dosyaları konumu için ardından dosyaları el ile düzenleme ya da kullanarak kaynak kaldırın [nuget komutu kaynakları](../tools/nuget-exe-CLI-reference.md).
+> Paket kaynağı sildikten sonra görünürse, bir bilgisayar düzeyinde veya kullanıcı düzeyi listelenebilir `NuGet.Config` dosyaları. Bkz: [ortak NuGet yapılandırmaları](../consume-packages/configuring-nuget-behavior.md) bu dosyaları konumu için ardından dosyaları el ile düzenleme ya da kullanarak kaynak kaldırın [nuget komutu kaynakları](../tools/nuget-exe-CLI-reference.md).
 
 ## <a name="package-manager-options-control"></a>Paket Yöneticisi seçeneklerini denetleme
 

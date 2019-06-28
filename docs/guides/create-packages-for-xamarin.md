@@ -5,20 +5,20 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/09/2017
 ms.topic: tutorial
-ms.openlocfilehash: c43f4e80d456214ca354e136db6419a95fc797a0
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: d737b70febd1e18aa8a39cc73a9a9cf333f758c6
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551914"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426837"
 ---
-# <a name="create-packages-for-xamarin-with-visual-studio-2015"></a>Visual Studio 2015 ile Xamarin'e yönelik paketler oluşturma
+# <a name="create-packages-for-xamarin-with-visual-studio-2015"></a>Visual Studio 2015 ile Xamarin’e yönelik paketler oluşturma
 
 Bir paket için Xamarin iOS, Android ve Windows, yerel API'lerin çalışma zamanı işletim sistemine bağlı olarak kullanan kod içerir. Bunu yapmak basit olsa da, .NET standart kitaplıkları aracılığıyla ortak bir API yüzey ya da geliştiriciler bir PCL paketinden kullanmasına izin vermek için tercih edilir.
 
 Bu izlenecek yolda, kullandığınız Visual Studio 2015 iOS, Android ve Windows mobil projeleri kullanılabilir platformlar arası bir NuGet paketi oluşturun.
 
-1. [Önkoşulları](#prerequisites)
+1. [Önkoşullar](#prerequisites)
 1. [Proje yapısını ve Özet kodu oluşturma](#create-the-project-structure-and-abstraction-code)
 1. [Platforma özgü kod yazma](#write-your-platform-specific-code)
 1. [Oluşturma ve güncelleştirme .nuspec dosyası](#create-and-update-the-nuspec-file)
@@ -260,7 +260,7 @@ Bu işlem oluşturur `LoggingLibrary.YOUR_NAME.1.0.0.nupkg`. Gibi bir aracı bu 
 > [!Tip]
 > A `.nupkg` bir ZIP dosyası yalnızca farklı uzantılı bir dosyadır. Ayrıca paket içeriğini, ardından değiştirerek inceleyebilirsiniz `.nupkg` için `.zip`, ancak uzantı nuget.org için bir paket karşıya yüklemeden önce geri unutmayın.
 
-Paketiniz diğer geliştiriciler için kullanılabilir yapmak için yönergeleri takip edin [paket yayımlama](../create-packages/publish-a-package.md).
+Paketiniz diğer geliştiriciler için kullanılabilir yapmak için yönergeleri takip edin [paket yayımlama](../nuget-org/publish-a-package.md).
 
 ## <a name="related-topics"></a>İlgili konular
 

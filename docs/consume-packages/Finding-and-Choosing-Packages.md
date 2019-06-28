@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: c86a07c30631b7ee99526b014ac9c3b9f136aa81
-ms.sourcegitcommit: 1591bb230e106b94162a87dd1d86fe427366730a
+ms.openlocfilehash: 8cd7529c4a1ecf659abde03fb1632e26431aebf3
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52671194"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426744"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Bulma ve projenizin NuGet paketlerini değerlendiriliyor
 
@@ -54,15 +54,15 @@ Varsayılan olarak, arama sonuçlarına yayın öncesi paketleri nuget.org göst
 
 Visual Studio'da ve NuGet ve dotnet CLI araçlarını kullanırken, NuGet yayın öncesi sürümleri varsayılan olarak içermez. Bu davranışı değiştirmek için aşağıdaki adımları uygulayın:
 
-- **Visual Studio'da Paket Yöneticisi UI**: içinde **NuGet paketlerini Yönet** kullanıcı Arabirimi ayarlama **ön sürümü dahil et** kutusu. Ayarlama ya da bu kutuyu temizleyerek Paket Yöneticisi UI ve yükleyebileceğiniz kullanılabilir sürümlerin listesini yeniler.
+- **Visual Studio'da Paket Yöneticisi UI**: İçinde **NuGet paketlerini Yönet** kullanıcı Arabirimi ayarlama **ön sürümü dahil et** kutusu. Ayarlama ya da bu kutuyu temizleyerek Paket Yöneticisi UI ve yükleyebileceğiniz kullanılabilir sürümlerin listesini yeniler.
 
     ![Visual Studio'da INCLUDE Ön onay kutusu](media/Prerelease_02-CheckPrerelease.png)
 
-- **Paket Yöneticisi Konsolu**: kullanım `-IncludePrerelease` anahtarı ile `Find-Package`, `Get-Package`, `Install-Package`, `Sync-Package`, ve `Update-Package` komutları. Başvurmak [PowerShell başvurusu](../tools/powershell-reference.md).
+- **Paket Yöneticisi Konsolu**: Kullanım `-IncludePrerelease` anahtarı ile `Find-Package`, `Get-Package`, `Install-Package`, `Sync-Package`, ve `Update-Package` komutları. Başvurmak [PowerShell başvurusu](../tools/powershell-reference.md).
 
-- **nuget.exe CLI**: kullanım `-prerelease` anahtarı ile `install`, `update`, `delete`, ve `mirror` komutları. Başvurmak [NuGet CLI başvurusu](../tools/nuget-exe-cli-reference.md)
+- **nuget.exe CLI**: Kullanım `-prerelease` anahtarı ile `install`, `update`, `delete`, ve `mirror` komutları. Başvurmak [NuGet CLI başvurusu](../tools/nuget-exe-cli-reference.md)
 
-- **CLI dotnet.exe**: tam yayın öncesi sürümünü kullanarak belirttiğiniz `-v` bağımsız değişken. Başvurmak [dotnet paket başvurusu ekleme](/dotnet/core/tools/dotnet-add-package).
+- **dotnet.exe CLI**: Tam yayın öncesi sürümünü kullanarak belirttiğiniz `-v` bağımsız değişken. Başvurmak [dotnet paket başvurusu ekleme](/dotnet/core/tools/dotnet-add-package).
 
 <a name="native-cpp-packages"></a>
 
@@ -96,13 +96,13 @@ Aynı anda bir NuGet paketi kullanarak emin olmak, istediğiniz şekilde üzerin
 
 - *Sahipleri görüşme*: yeni geliştiriciler kesinlikle kullanabilmeniz için harika paketleri üretmek için eşit olarak kaydedilmiş olabilir ve bunları NuGet ekosistemi için yeni bir şeyler getirmek için bir şans verin daha iyidir. Bunu aklınızda, doğrudan paket geliştiricilere ulaşın **kişi sahipleri** altındaki **bilgisi** Listesi sayfasında. Büyük olasılıkla, size ihtiyaçlarınızı karşılamak için sizi mutlu edecektir demektir!
 
-- *Ayrılmış paket kimliği ön ekleri*: çok sayıda paket sahipleri için uygulanan ve verilmiş bir [ayrılmış paket kimliği öneki](../reference/id-prefix-reservation.md). Üzerinde bir paket kimliği yanındaki visual onay kutusunu gördüğünüzde [nuget.org](https://www.nuget.org/), veya Visual Studio'da anlamına paket sahibinden karşılaşmış bizim [ölçütleri](../reference/id-prefix-reservation.md#id-prefix-reservation-criteria) rezervasyon kimliği öneki. Bu, paket sahibinden kendilerini ve bunların paket tanımlamaya Temizle anlamına gelir.
+- *Ayrılmış paket kimliği ön ekleri*: çok sayıda paket sahipleri için uygulanan ve verilmiş bir [ayrılmış paket kimliği öneki](../nuget-org/id-prefix-reservation.md). Üzerinde bir paket kimliği yanındaki visual onay kutusunu gördüğünüzde [nuget.org](https://www.nuget.org/), veya Visual Studio'da anlamına paket sahibinden karşılaşmış bizim [ölçütleri](../nuget-org/id-prefix-reservation.md#id-prefix-reservation-criteria) rezervasyon kimliği öneki. Bu, paket sahibinden kendilerini ve bunların paket tanımlamaya Temizle anlamına gelir.
 
 > [!Note]
 > Her zaman seçerek gördüğünüz bir paketin Lisans Koşulları'nın dikkatli olmanızı **lisans bilgilerini** bir paketin listeleme nuget.org sayfasında. Bir paketi lisans koşulları belirtmezse kullanarak doğrudan paket sahibiyle iletişime geçin **sahipleriyle temas** bağlantı paketi sayfasında. Microsoft hiçbir fikri mülkiyet, üçüncü taraf paketi sağlayıcılarından lisans değil ve üçüncü taraflarca sağlanan bilgileri sorumlu değildir.
 
 ## <a name="license-url-deprecation"></a>Lisans URL'si kullanımdan kaldırma
-Biz durumundan gibi [licenseUrl](../reference/nuspec#licenseurl) için [lisans](../reference/nuspec#license), bazı NuGet istemcileri ve NuGet akışları henüz yüzey lisans bilgilerini yeteneği bazı durumlarda sahip olmayabilir. Geriye dönük uyumluluk sağlamak için bu belgeye bu gibi durumlarda lisans bilgilerini almak nasıl hakkında konuşuyor ve lisans URL'sini işaret eder.
+Biz durumundan gibi [licenseUrl](../reference/nuspec.md#licenseurl) için [lisans](../reference/nuspec.md#license), bazı NuGet istemcileri ve NuGet akışları henüz yüzey lisans bilgilerini yeteneği bazı durumlarda sahip olmayabilir. Geriye dönük uyumluluk sağlamak için bu belgeye bu gibi durumlarda lisans bilgilerini almak nasıl hakkında konuşuyor ve lisans URL'sini işaret eder.
 
 Üzerinde lisans URL'si için bir paket için bu sayfayı duruma tıkladığınızda, paketi içeren bir lisans dosyası gelir ve
 * Henüz nasıl yorumlanacağı ve yeni lisans bilgilerini istemciye yüzey bilmez bir akışa bağlı olduğunuz **veya**
@@ -120,9 +120,9 @@ Lisans dosyası paketi içinde yer alan bilgilerin nasıl okuyabilir aşağıda 
 
 NuGet paket arama aynı nuget.org, NuGet CLI ve Visual Studio'da NuGet paket yöneticisini uzantısı içinde çalışır. Genel olarak, arama paket açıklamaları yanı sıra anahtar sözcükleri uygulanır.
 
-- **Anahtar sözcükler**: arama için sağlanan anahtar sözcükleri içeremez ilgili paketleri arar. Örnek: `modern UI`. Bir hüküm arasında paketlerin tüm sağlanan anahtar sözcükleri içeren, kullanmak için "+" gibi aranacak `modern+UI`.
-- **İfadeleri**: Bu koşulları tam duyarlı eşleşme yapar terimleri tırnak içine girme. Örnek: `"modern UI" package`
-- **Filtreleme**: sözdizimini kullanarak, belirli bir özellik için bir arama terimi uygulayabilirsiniz `<property>:<term>` burada `<property>` (büyük-küçük harf duyarsız) olabilir `id`, `packageid`, `version`, `title`, `tags`, `author`, `description`, `summary`, ve `owner`. Koşulları gerekirse tırnak içinde yer alabilir ve aynı anda birden çok özellik için arama yapabilirsiniz. Ayrıca, arama yapar `id` özelliği olan eşleşmelerini, oysa `packageid` tam bir eşleşme kullanır. Örnekler:
+- **Anahtar sözcükler**: Arama için sağlanan anahtar sözcükleri içeremez ilgili paketleri arar. Örnek: `modern UI`. Bir hüküm arasında paketlerin tüm sağlanan anahtar sözcükleri içeren, kullanmak için "+" gibi aranacak `modern+UI`.
+- **İfadeleri**: Terimleri tırnak içine girerek bu koşulları tam büyük/küçük harfe eşleşme arar. Örnek: `"modern UI" package`
+- **Filtreleme**: Söz dizimi kullanarak belirli bir özellik için bir arama terimi uygulayabilirsiniz `<property>:<term>` burada `<property>` (büyük-küçük harf duyarsız) olabilir `id`, `packageid`, `version`, `title`, `tags`, `author`, `description`, `summary`, ve `owner`. Koşulları gerekirse tırnak içinde yer alabilir ve aynı anda birden çok özellik için arama yapabilirsiniz. Ayrıca, arama yapar `id` özelliği olan eşleşmelerini, oysa `packageid` tam bir eşleşme kullanır. Örnekler:
 
     ```
     id:NuGet.Core                # Match any part of the id property

@@ -6,18 +6,18 @@ ms.author: patbel
 ms.date: 11/12/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: ee4ffaa7e250cdbf313476fd794a8d87c80b69f9
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: c22c7f0a6b6878bec4f8396e02e2d97998170455
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324714"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67425976"
 ---
 # <a name="trusted-signers-command-nuget-cli"></a>Güvenilen İmzalayanları komut (NuGet CLI)
 
 **İçin geçerlidir:** paketini tüketim &bullet; **desteklenen sürümler:** 4.9.1+
 
-Alır veya güvenilen İmzalayanları için NuGet yapılandırmayı ayarlar. Ek kullanım için bkz: [NuGet davranışını yapılandırma](../consume-packages/configuring-nuget-behavior.md). Nuget.config şema bakın gibi nasıl göründüğüne ilişkin ayrıntılar için [NuGet yapılandırma dosyası başvurusu](../reference/nuget-config-file.md).
+Alır veya güvenilen İmzalayanları için NuGet yapılandırmayı ayarlar. Ek kullanım için bkz: [ortak NuGet yapılandırmaları](../consume-packages/configuring-nuget-behavior.md). Nuget.config şema bakın gibi nasıl göründüğüne ilişkin ayrıntılar için [NuGet yapılandırma dosyası başvurusu](../reference/nuget-config-file.md).
 
 ## <a name="usage"></a>Kullanım
 
@@ -118,8 +118,8 @@ _Not_: Bu hareket geçerli sertifikaların listesini silmek ve depodan güncel b
 | --- | --- |
 | ConfigFile | Uygulamak için NuGet yapılandırma dosyası. Belirtilmezse, `%AppData%\NuGet\NuGet.Config` (Windows) veya `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) kullanılır.|
 | ForceEnglishOutput | Nuget.exe sabit, İngilizce tabanlı bir kültürü kullanarak çalışmaya zorlar. |
-| Yardım | Bilgi komut için yardımı görüntüler. |
-| Ayrıntı Düzeyi | Çıktıda gösterilen ayrıntı miktarını belirtir: *normal*, *sessiz*, *ayrıntılı*. |
+| Help | Bilgi komut için yardımı görüntüler. |
+| Verbosity | Çıktıda gösterilen ayrıntı miktarını belirtir: *normal*, *sessiz*, *ayrıntılı*. |
 
 ## <a name="examples"></a>Örnekler
 

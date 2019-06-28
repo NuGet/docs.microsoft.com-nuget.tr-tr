@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: b47f73c1c225540226d3780e17053427b8ea4a8a
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 5d10d6bf27614980a144c30c3af6f9892a109061
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545693"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426183"
 ---
 # <a name="nuget-12-release-notes"></a>NuGet 1.2 sürüm notları
 
@@ -54,7 +54,7 @@ Bu derlemeleri gibi bunlar her makinede .NET Framework'ün bir parçası olarak 
 
 ### <a name="nugetexe-now-is-able-to-store-api-key-credentials"></a>nuget.exe, API anahtarı kimlik bilgilerini saklamak amacıyla kuramıyor
 
-Nuget.exe komut satırı aracını kullanarak, API anahtarınızı depolamak için artık SetApiKey komutunu kullanabilirsiniz. Bu şekilde, paket her itme yapışınızda bunu belirtmeniz gerekmez. API anahtarınızı nuget.exe ile kaydetme hakkında daha fazla ayrıntı için [bir paket yayımlama hakkında belgeleri okuyun](../create-packages/publish-a-package.md).
+Nuget.exe komut satırı aracını kullanarak, API anahtarınızı depolamak için artık SetApiKey komutunu kullanabilirsiniz. Bu şekilde, paket her itme yapışınızda bunu belirtmeniz gerekmez. API anahtarınızı nuget.exe ile kaydetme hakkında daha fazla ayrıntı için [bir paket yayımlama hakkında belgeleri okuyun](../nuget-org/publish-a-package.md).
 
 ### <a name="package-explorer"></a>Paket Gezgini
 Paket Gezgini NuGet 1.2 desteklemek için güncelleştirildi. Daha fazla bilgi için kullanıma [paket Gezgini sürüm notları](http://nuget.codeplex.com/wikipage?title=New%20features%20in%20NuGet%20Package%20Explorer%201.0).
@@ -65,6 +65,6 @@ Paket Gezgini NuGet 1.2 desteklemek için güncelleştirildi. Daha fazla bilgi i
 
 ## <a name="known-issues"></a>Bilinen Sorunlar
 
-* **1.2 paketini uyumsuzluk**: paketleri komut satırı aracının en son sürümüyle oluşturulmuş, nuget.exe (> 1.2), NuGet VS eklentisini (örneğin, 1.1), önceki sürümlerle çalışmaz. Uyumsuz şeması hakkında bir şeyler belirten bir hata iletisi karşılaşırsanız, bu hatayla çalışıyor. Lütfen NuGet en son sürüme güncelleştirin.
-* **NuGet.Server uyumsuzluk**: NuGet.Server Proje akışa bir iç NuGet barındırıyorsanız, bu proje NuGet.Server en son sürümüyle güncelleştirmeniz gerekir.
-* **İmza uyuşmazlığı hatası**: bir imza uyuşmazlığı hakkında bir ileti ile yükseltme sırasında bir hatayla çalıştırırsanız, NuGet önce kaldırmanız ve ardından bunu yüklemeniz gerekir. Listede bu bizim [bilinen sorunlar sayfasında](../release-notes/known-issues.md) daha fazla ayrıntı sağlar. Sorunun yalnızca Visual Studio 2010 SP1 çalıştıran etkiler ve NuGet yüklü 1.0 yanlış imzalı bir sürümüne sahip. Bu sorun pek çok etkilenme şekilde bu sürümü yalnızca kısa bir süre için CodePlex Web sitesinden sunulmuştur.
+* **1.2 paketini uyumsuzluk**: Komut satırı aracının en son sürüm ile oluşturulan paketler, nuget.exe (> 1.2) NuGet VS eklentisini (örneğin, 1.1), önceki sürümlerle çalışmaz. Uyumsuz şeması hakkında bir şeyler belirten bir hata iletisi karşılaşırsanız, bu hatayla çalışıyor. Lütfen NuGet en son sürüme güncelleştirin.
+* **NuGet.Server uyumsuzluk**: NuGet.Server Proje akışa bir iç NuGet düzenliyoruz. Bu projeyi NuGet.Server en son sürümüyle güncelleştirmek gerekir.
+* **İmza türde bir eşleşmeme hatası**: Bir imza uyuşmazlığı hakkında bir ileti ile yükseltme sırasında bir hatayla çalıştırırsanız, NuGet önce kaldırın ve ardından yüklemeniz gerekir. Listede bu bizim [bilinen sorunlar sayfasında](../release-notes/known-issues.md) daha fazla ayrıntı sağlar. Sorunun yalnızca Visual Studio 2010 SP1 çalıştıran etkiler ve NuGet yüklü 1.0 yanlış imzalı bir sürümüne sahip. Bu sorun pek çok etkilenme şekilde bu sürümü yalnızca kısa bir süre için CodePlex Web sitesinden sunulmuştur.

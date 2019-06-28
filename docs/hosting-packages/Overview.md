@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 08/25/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 45d8a6557ee02998f3d12b128ee2dc4fd6ae48bb
-ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
+ms.openlocfilehash: f05c3a7a51bdc0760097422004cfc4339bf9ee2c
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56145598"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426603"
 ---
 # <a name="hosting-your-own-nuget-feeds"></a>Barındırma kendi NuGet akışları
 
@@ -28,6 +28,7 @@ Aşağıdakiler dahil olmak üzere uzaktan özel akışlarını destekleyen ür�
 - [Azure yapılarını](https://www.visualstudio.com/docs/package/nuget/publish), olduğu da kullanılabilir Team Foundation Server 2017 ve üzeri.
 - [MyGet](http://myget.org)
 - [ProGet](http://inedo.com/proget) Inedo gelen
+- [GitHub paketini kayıt defteri](https://help.github.com/articles/configuring-nuget-for-use-with-github-package-registry)
 - [NuGet sunucusu](http://nugetserver.net/), Inedo topluluk projeden
 - [NuGet sunucusu (açık kaynak)](http://nuget-server.net), Inedo'nın NuGet sunucusu için benzer bir açık kaynak uygulama
 - [LiGet](https://github.com/ai-traders/liget), açık kaynak uygulaması kestrel docker'da çalışan NuGet V2 sunucusu

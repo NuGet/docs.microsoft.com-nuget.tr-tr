@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 376b69186ad22d4d94a1df51146b833a1f6f9bd9
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: c0497c7b99a2de6bee37d6d0ead8b055578e60b7
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546484"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426068"
 ---
 # <a name="config-command-nuget-cli"></a>config komutu (NuGet CLI)
 
 **İçin geçerlidir:** tüm &bullet; **desteklenen sürümler**: tüm
 
-Alır veya NuGet yapılandırma değerlerini ayarlar. Ek kullanım için bkz: [NuGet davranışını yapılandırma](../consume-packages/configuring-nuget-behavior.md). İzin verilen anahtar adları hakkında daha fazla bilgi için başvurmak [NuGet yapılandırma dosyası başvurusu](../reference/nuget-config-file.md).
+Alır veya NuGet yapılandırma değerlerini ayarlar. Ek kullanım için bkz: [ortak NuGet yapılandırmaları](../consume-packages/configuring-nuget-behavior.md). İzin verilen anahtar adları hakkında daha fazla bilgi için başvurmak [NuGet yapılandırma dosyası başvurusu](../reference/nuget-config-file.md).
 
 ## <a name="usage"></a>Kullanım
 

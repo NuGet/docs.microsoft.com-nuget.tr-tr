@@ -6,21 +6,21 @@ ms.author: rmpablos
 ms.date: 05/18/2018
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: 486bf4032e156168f9b2fef57ccdae0c372b2eff
-ms.sourcegitcommit: 673e580ae749544a4a071b4efe7d42fd2bb6d209
+ms.openlocfilehash: 952256a24246543ecd4c37285cd001622aa2bc46
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52977517"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426173"
 ---
-# <a name="signed-packages"></a>İmzalanmış paketleri
+# <a name="signed-packages"></a>İmzalanmış paketler
 
 *NuGet 4.6.0+ ve Visual Studio 2017 sürüm 15.6 ve üzeri*
 
 NuGet paketlerini, üzerinde oynanmış bir içerik karşı koruma sağlayan dijital bir imza içerebilir. Bu imza de gerçek paket kaynağı için kimlik doğrulaması kanıtları ekleyen bir X.509 Sertifika oluşturulur.
 
 İmzalanmış paketleri güçlü bir uçtan uca doğrulama sağlar. NuGet imzaları iki farklı tür vardır:
-- **Yazar imza**. Bir yazar imzası yazarı paketin olursa olsun gelen upraven'ın paket değiştirilmedi garanti eder, depo veya ne paket teslim yöntemi taşıma. Ayrıca, imzalama sertifikasının önceden kayıtlı olması gerekir çünkü Yazar imzalanmış paketleri nuget.org yayımlama işlem hattı için ek kimlik doğrulama mekanizması sağlar. Daha fazla bilgi için [kayıt sertifikaları](#register-certificate-on-nugetorg).
+- **Yazar imza**. Bir yazar imzası yazarı paketin olursa olsun gelen upraven'ın paket değiştirilmedi garanti eder, depo veya ne paket teslim yöntemi taşıma. Ayrıca, imzalama sertifikasının önceden kayıtlı olması gerekir çünkü Yazar imzalanmış paketleri nuget.org yayımlama işlem hattı için ek kimlik doğrulama mekanizması sağlar. Daha fazla bilgi için [kayıt sertifikaları](#signature-requirements-on-nugetorg).
 - **Depo imza**. Depo imzaları sağlamak için bir bütünlük garantisi **tüm** bile bu paketleri nerede oldukları özgün deposu farklı bir konumdan elde edilen yazar, imzalanmış olup bir depoda paketleri imzalanmış.   
 
 Bir yazar imzalı paket oluşturma hakkında daha fazla bilgi edinmek için bkz. [imzalama paketleri](../create-packages/Sign-a-package.md) ve [nuget oturum komutu](../tools/cli-ref-sign.md).
@@ -57,4 +57,4 @@ nuget.org imzalı paket kabul etmek için ek gereksinimlere sahiptir:
 ## <a name="related-articles"></a>İlgili makaleler
 
 - [NuGet paketlerini imzalama](../create-packages/Sign-a-Package.md)
-- [İmzalı paketlerin yüklenmesi](../consume-packages/installing-signed-packages.md)
+- [Paket güven sınırları yönetme](../consume-packages/installing-signed-packages.md)

@@ -1,18 +1,18 @@
 ---
-title: İmzalı bir NuGet paketini yükle
+title: Paket güven sınırları yönetme
 description: İmzalı NuGet yükleme işlemi açıklanmıştır paketler ve yapılandırma paket imzası güven ayarlar.
 author: karann-msft
 ms.author: karann
 ms.date: 11/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 11ffaee96b6f6a9260f38c534328b6631cd96abf
-ms.sourcegitcommit: 673e580ae749544a4a071b4efe7d42fd2bb6d209
+ms.openlocfilehash: 8da57dc295ea78f2eb183226fc9b2f4a37e3f5db
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52977852"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426628"
 ---
-# <a name="install-a-signed-package"></a>İmzalı paket yükleme
+# <a name="manage-package-trust-boundaries"></a>Paket güven sınırları yönetme
 
 İmzalı paketlerin yüklenmesi için herhangi bir özel işlem gerektirmez; Ancak, içeriği imzalandıktan sonra değiştirilmişse yükleme hatasıyla engellendi [NU3008](../reference/errors-and-warnings/NU3008.md).
 
@@ -24,7 +24,7 @@ ms.locfileid: "52977852"
 > [!Note]
 > NuGet 4.9.0+ ve Visual Studio sürüm 15.9 ve daha sonra Windows gerektirir
 
-NuGet istemcileri ayarlayarak paket imzaları nasıl doğrulamak yapılandırabilirsiniz `signatureValidationMode` için `require` içinde [nuget.config](../reference/nuget-config-file) kullanarak dosya [ `nuget config` ](../tools/cli-ref-config) komutu.
+NuGet istemcileri ayarlayarak paket imzaları nasıl doğrulamak yapılandırabilirsiniz `signatureValidationMode` için `require` içinde [nuget.config](../reference/nuget-config-file.md) kullanarak dosya [ `nuget config` ](../tools/cli-ref-config.md) komutu.
 
 ```cmd
 nuget.exe config -set signatureValidationMode=require
@@ -40,7 +40,7 @@ Bu mod, tüm paketler herhangi biri, güvenilen sertifika tarafından imzalanmı
 
 ### <a name="trust-package-author"></a>Paket yazarı güven
 
-Yazar imza kullanıma bağlı paketleri güvenmeyi [ `trusted-signers` ](..tools/cli-ref-trusted-signers) ayarlamak için komutu `author` nuget.Config'de özelliği.
+Yazar imza kullanıma bağlı paketleri güvenmeyi [ `trusted-signers` ](../tools/cli-ref-trusted-signers.md) ayarlamak için komutu `author` nuget.Config'de özelliği.
 
 ```cmd
 nuget.exe  trusted-signers Add -Name MyCompanyCert -CertificateFingerprint CE40881FF5F0AD3E58965DA20A9F571EF1651A56933748E1BF1C99E537C4E039 -FingerprintAlgorithm SHA256
@@ -55,7 +55,7 @@ nuget.exe  trusted-signers Add -Name MyCompanyCert -CertificateFingerprint CE408
 ```
 
 >[!TIP]
->Kullanım `nuget.exe` [komutu doğrulayın](https://docs.microsoft.com/en-us/nuget/tools/cli-ref-verify) almak için `SHA256` sertifikanın parmak izi değeri.
+>Kullanım `nuget.exe` [komutu doğrulayın](../tools/cli-ref-verify.md) almak için `SHA256` sertifikanın parmak izi değeri.
 
 
 ### <a name="trust-all-packages-from-a-repository"></a>Bir depodan tüm paketler güven
@@ -95,14 +95,13 @@ Bazı durumlarda yerel makinede güvenilir bir kök zincir şeklinde bağlanmaya
 
 ### <a name="sync-repository-certificates"></a>Eşitleme depo sertifikaları
 
-Paket depolarınızın içinde kullandıkları sertifikaları duyurmaktan kendi [hizmet dizini](https://docs.microsoft.com/en-us/nuget/api/service-index). Bu sertifikalar depo sonunda güncelleştirilir sertifika dolduğunda örn. Bu durum oluştuğunda, istemcileri belirli ilkeleri ile yapılandırma yeni eklenen sertifika eklemek için bir güncelleştirme gerektirir. Kullanarak bir depoya ilişkili güvenilen imzalayanlardan kolayca yükseltebilirsiniz `nuget.exe` [güvenilen İmzalayanları sync komutunu](/nuget/tools/cli-ref-trusted-signers.md#nuget-trusted-signers-sync--name-).
+Paket depolarınızın içinde kullandıkları sertifikaları duyurmaktan kendi [hizmet dizini](../api/service-index.md). Bu sertifikalar depo sonunda güncelleştirilir sertifika dolduğunda örn. Bu durum oluştuğunda, istemcileri belirli ilkeleri ile yapılandırma yeni eklenen sertifika eklemek için bir güncelleştirme gerektirir. Kullanarak bir depoya ilişkili güvenilen imzalayanlardan kolayca yükseltebilirsiniz `nuget.exe` [güvenilen İmzalayanları sync komutunu](../tools/cli-ref-trusted-signers.md#nuget-trusted-signers-sync--name-).
 
 ### <a name="schema-reference"></a>Şema başvurusu
 
-İstemci ilkelerinin tam şeması başvurusunu bulunabilir [nuget.config başvurusu](/nuget/reference/nuget-config-file#trustedsigners-section)
+İstemci ilkelerinin tam şeması başvurusunu bulunabilir [nuget.config başvurusu](../reference/nuget-config-file.md#trustedsigners-section)
 
 ## <a name="related-articles"></a>İlgili makaleler
 
-- [Bir NuGet paketini yüklemek için farklı yollar](ways-to-install-a-package.md)
 - [NuGet paketlerini imzalama](../create-packages/Sign-a-Package.md)
 - [İmzalı paket başvurusu](../reference/Signed-Packages-Reference.md)

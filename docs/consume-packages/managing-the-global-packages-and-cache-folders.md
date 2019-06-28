@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: c547ae1d46079d040d7c3aa4c7678e70cd199dce
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 4b365488c8dd0e081449552b06451e7b40b5223b
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548019"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426621"
 ---
 # <a name="managing-the-global-packages-cache-and-temp-folders"></a>Genel paketleri, önbellek ve geçici klasör yönetme
 
@@ -30,7 +30,7 @@ Yüklemek, güncelleştirmek ya da bir paket geri yükleme olduğunda, NuGet pak
 
 Bir paket almaya isteyip istemediğiniz sorulduğunda NuGet ilk baktığı *genel paketleri* klasör. Paket'ün tam sürümünü yoksa, NuGet HTTP olmayan paket kaynaklarının tümüne denetler. Paket hala bulunamıyorsa, NuGet paketi arar *http önbellek* belirtmediğiniz sürece `--no-cache` ile `dotnet.exe` komutları veya `-NoCache` ile `nuget.exe` komutları. Paket önbellekte değil ya da önbelleği kullanılmaz, NuGet paketi ardından HTTP üzerinden alır.
 
-Daha fazla bilgi için [paketi yüklendiğinde ne](ways-to-install-a-package.md#what-happens-when-a-package-is-installed).
+Daha fazla bilgi için [bir paket yüklendikten sonra ne olur?](../concepts/package-installation-process.md).
 
 ## <a name="viewing-folder-locations"></a>Klasör konumlarını görüntüleme
 
@@ -100,7 +100,7 @@ nuget locals all -clear
 
 Visual Studio'da açık olan projeler tarafından kullanılan tüm paketler gelen temizlenmez *genel paketleri* klasör.
 
-Visual Studio 2017'de kullanmak **Araçlar > NuGet Paket Yöneticisi > Paket Yöneticisi Ayarları** menü komutunu ve ardından **Temizle tüm NuGet önbellekler**. Önbellek Yönetimi, Paket Yöneticisi konsolu aracılığıyla şu anda kullanılamıyor. Visual Studio 2015'te, bunun yerine CLI komutlarını kullanın.
+Visual Studio 2017'den itibaren kullanın **Araçlar > NuGet Paket Yöneticisi > Paket Yöneticisi Ayarları** menü komutunu ve ardından **Temizle tüm NuGet önbellekler**. Önbellek Yönetimi, Paket Yöneticisi konsolu aracılığıyla şu anda kullanılamıyor. Visual Studio 2015'te, bunun yerine CLI komutlarını kullanın.
 
 ![Önbellek Temizleme için NuGet seçeneği komutu](media/options-clear-caches.png)
 
@@ -108,11 +108,11 @@ Visual Studio 2017'de kullanmak **Araçlar > NuGet Paket Yöneticisi > Paket Yö
 
 Kullanırken aşağıdaki hatalar oluşabilir `nuget locals` veya `dotnet nuget locals`:
 
-- *Hata: İşlem dosyaya erişemiyor <package> başka bir işlem tarafından kullanıldığından* veya *yerel kaynakları temizleme başarısız oldu: bir veya daha fazla dosya silinemedi*
+- *Hata: İşlem dosyaya erişemiyor <package> başka bir işlem tarafından kullanıldığından* veya *yerel kaynakları temizleme başarısız oldu: Bir veya daha fazla dosya silinemedi*
 
     Bir veya daha fazla dosya klasörüne başka bir işlem tarafından kullanılıyor; Örneğin, Visual Studio projesi paketlerine başvuran açık olan *genel paketleri* klasör. Bu işlemleri kapatın ve yeniden deneyin.
 
-- *Hata: Erişim yolu <path> reddedildi* veya *dizini boş değil*
+- *Hata: Yoluna erişim <path> reddedildi* veya *dizini boş değil*
 
     Önbellekteki dosyaları silmek için izniniz yok. Mümkünse, klasör izinlerini değiştirin ve yeniden deneyin. Aksi takdirde, sistem yöneticinize başvurun.
 

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 9964186dcbfedfbf2415a57102f8f019a1eef23a
-ms.sourcegitcommit: 6b71926f062ecddb8729ef8567baf67fd269642a
+ms.openlocfilehash: 3d7a4188de4fb6f812ca19e7f9e302a5a133c58b
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59932001"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67425965"
 ---
 # <a name="restore-command-nuget-cli"></a>Restore komutu (NuGet CLI)
 
@@ -50,7 +50,7 @@ Burada `<projectPath>` çözümün konumunu belirtir veya `packages.config` dosy
 | RequireConsent | Paketleri geri yükleme ve paketleri yüklemeden önce etkin olduğunu doğrular. Ayrıntılar için bkz [paketi geri yüklemeyi](../consume-packages/package-restore.md). |
 | SolutionDirectory | Çözüm klasörü belirtir. Bir çözüm için paketler geri yüklenirken geçerli değil. İle geri yükleme sırasında gerekli bir `packages.config` sürece dosya `PackagesDirectory` veya `OutputDirectory` kullanılır. |
 | Source | Paket kaynaklarının listesi, geri yüklemek için kullanılacak (URL'ler) belirtir. Atlanırsa, komut yapılandırma dosyalarında sağlanan kaynakları kullanır, bkz: [yapılandırma NuGet davranışını](../consume-packages/configuring-nuget-behavior.md). |
-| Verbosity |> çıktıda gösterilen ayrıntı miktarını belirtir: *normal*, *sessiz*, *ayrıntılı*. |
+| Verbosity | Çıktıda gösterilen ayrıntı miktarını belirtir: *normal*, *sessiz*, *ayrıntılı*. |
 
 Ayrıca bkz: [ortam değişkenleri](cli-ref-environment-variables.md)
 

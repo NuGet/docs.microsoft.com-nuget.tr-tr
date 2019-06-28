@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 8261cdb83af72d9d9379124f4c446c7cd2a50299
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 8088c6dcb7d453650950c219e1cc4dd047a64417
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549142"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67425991"
 ---
 # <a name="install-command-nuget-cli"></a>Yükleme komutu (NuGet CLI)
 
@@ -21,7 +21,7 @@ ms.locfileid: "43549142"
 > [!Tip]
 > Doğrudan projenin bağlamı dışında bir paketini indirmek için paketin sayfasını ziyaret edin [nuget.org](https://www.nuget.org) seçip **indirme** bağlantı.
 
-Bu kaynağı yok belirtilirse, genel yapılandırma dosyasında listelenen `%appdata%\NuGet\NuGet.Config` (Windows) veya `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) kullanılır. Bkz: [yapılandırma NuGet davranışını](../consume-packages/configuring-nuget-behavior.md) bakın.
+Bu kaynağı yok belirtilirse, genel yapılandırma dosyasında listelenen `%appdata%\NuGet\NuGet.Config` (Windows) veya `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) kullanılır. Bkz: [ortak NuGet yapılandırmaları](../consume-packages/configuring-nuget-behavior.md) bakın.
 
 Belirli bir paket yok belirtilirse, `install` projenin içinde listelenen tüm paketleri yükler `packages.config` dosyasının benzer URL'ini [ `restore` ](cli-ref-restore.md).
 
@@ -48,7 +48,7 @@ Burada `<packageID>` (en son sürümünü kullanarak), yüklemek için paketi ad
 | FallbackSource | *(3.2 +)*  Paketi birincil bulunamadığında durumunda geri dönüşler kullanmak için paket kaynaklarının bir listesini ya da varsayılan kaynak. |
 | ForceEnglishOutput | *(3.5 +)*  Nuget.exe sabit, İngilizce tabanlı bir kültürü kullanarak çalışmaya zorlar. |
 | Framework | *(4.4 +)*  Hedef Framework'ü bağımlılıkları seçmek amacıyla kullanılır. Varsayılan olarak 'Any' belirtilmediği takdirde. |
-| Yardım | Bilgi komut için yardımı görüntüler. |
+| Help | Bilgi komut için yardımı görüntüler. |
 | NoCache | NuGet, önbelleğe eklenen paketler kullanmasını önler. Bkz: [genel paketleri ve önbellek klasörlerini yönetme](../consume-packages/managing-the-global-packages-and-cache-folders.md). |
 | NonInteractive | Kullanıcı girişini veya onaylar ister bastırır. |
 | OutputDirectory | Paket yüklendiği klasörünü belirtir. Klasör belirtilirse, geçerli klasörde kullanılır. |
@@ -56,8 +56,8 @@ Burada `<packageID>` (en son sürümünü kullanarak), yüklemek için paketi ad
 | Yayın öncesi | Yayın öncesi paketleri yüklü olmasını sağlar. Bu bayrak paketlerle geri yüklerken gerekli değil `packages.config`. |
 | RequireConsent | Paketleri geri yükleme ve paketleri yüklemeden önce etkin olduğunu doğrular. Ayrıntılar için bkz [paketi geri yüklemeyi](../consume-packages/package-restore.md). |
 | SolutionDirectory | Çözüm için paketler geri yükleneceği kök klasörünü belirtir. |
-| Kaynak | Paket kaynaklarının listesi (URL'ler) kullanılması gerektiğini belirtir. Atlanırsa, komut yapılandırma dosyalarında sağlanan kaynakları kullanır, bkz: [yapılandırma NuGet davranışını](../consume-packages/configuring-nuget-behavior.md). |
-| Ayrıntı Düzeyi | Çıktıda gösterilen ayrıntı miktarını belirtir: *normal*, *sessiz*, *ayrıntılı*. |
+| Source | Paket kaynaklarının listesi (URL'ler) kullanılması gerektiğini belirtir. Atlanırsa, komut yapılandırma dosyalarında sağlanan kaynakları kullanır, bkz: [ortak NuGet yapılandırmaları](../consume-packages/configuring-nuget-behavior.md). |
+| Verbosity | Çıktıda gösterilen ayrıntı miktarını belirtir: *normal*, *sessiz*, *ayrıntılı*. |
 | Sürüm | Yüklemek için paketi sürümünü belirtir. |
 
 Ayrıca bkz: [ortam değişkenleri](cli-ref-environment-variables.md)

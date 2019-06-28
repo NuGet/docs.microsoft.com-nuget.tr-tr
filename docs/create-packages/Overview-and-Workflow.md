@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/26/2017
 ms.topic: conceptual
-ms.openlocfilehash: 6b41b23df115c45e830404afcf9defa23615bd7c
-ms.sourcegitcommit: ce97dded7715f217ec44f6c8368ab0df19c38342
+ms.openlocfilehash: a285650034c99026e34fcda398ca7ced4855e40a
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52615762"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67425724"
 ---
 # <a name="package-creation-workflow"></a>Paket oluşturma iş akışı
 
@@ -41,6 +41,6 @@ Burada, paketiniz için bir dizi diğer seçenekleri göz atabilirsiniz:
 - [Yerel paketler](../create-packages/native-packages.md) C++ Tüketiciler için paket oluşturma işlemi açıklanmaktadır.
 - [İmzalama paketleri](../create-packages/sign-a-package.md) bir paket için bir dijital imza ekleme işlemi açıklanır.
 
-Ardından nuget.org için bir paketi yayımlamaya hazır olduğunuzda, basit işlemde izleyin [paket yayımlama](../create-packages/publish-a-package.md).
+Ardından nuget.org için bir paketi yayımlamaya hazır olduğunuzda, basit işlemde izleyin [paket yayımlama](../nuget-org/publish-a-package.md).
 
 Nuget.org yerine özel bir akış kullanmak istiyorsanız, bkz. [barındırma paketleri genel bakış](../hosting-packages/overview.md)

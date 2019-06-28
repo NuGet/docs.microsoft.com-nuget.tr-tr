@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/23/2018
 ms.topic: quickstart
-ms.openlocfilehash: 8cfb7bd31c37847d83ffe31f11ba61eadc717eb8
-ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
+ms.openlocfilehash: 014b316ea03b45584406c313d46b96ad36340124
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812898"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426226"
 ---
 # <a name="quickstart-install-and-use-a-package-in-visual-studio"></a>Hızlı Başlangıç: Yükleme ve Visual Studio'da paket kullanma
 
@@ -123,6 +123,6 @@ Projesinde Newtonsoft.Json paketiyle çağırabilirsiniz kendi `JsonConvert.Seri
 ## <a name="related-articles"></a>İlgili makaleler
 
 - [Genel bakış ve paket tüketim iş akışı](../consume-packages/overview-and-workflow.md)
+- [Yükleme ve Visual Studio kullanarak paketleri yönetme](../tools/package-manager-ui.md)
 - [Paketleri bulma ve seçme](../consume-packages/finding-and-choosing-packages.md)
-- [Paket yükleme yolu](../consume-packages/ways-to-install-a-package.md)
-- [NuGet Davranışını Yapılandırma](../consume-packages/configuring-nuget-behavior.md)
+- [NuGet yapılandırmaların](../consume-packages/configuring-nuget-behavior.md)

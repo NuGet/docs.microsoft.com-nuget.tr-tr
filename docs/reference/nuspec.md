@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 6c545ddeddb0c5909f57e879912eaeed744e42d5
-ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
+ms.openlocfilehash: e4c57c0580fe9018703291c08d60e559f95183dc
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812931"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426198"
 ---
 # <a name="nuspec-reference"></a>.nuspec başvurusu
 
@@ -82,10 +82,10 @@ Nuget.org profil adları eşleşen paketleri yazar, virgülle ayrılmış listes
 
 ### <a name="optional-metadata-elements"></a>İsteğe bağlı meta veri öğeleri
 
-#### <a name="title"></a>başlık
+#### <a name="title"></a>title
 Nuget.org ve Visual Studio'da Paket Yöneticisi UI görünümlerde genellikle kullanılan paket bir insan dostu başlığı. Belirtilmezse, paket kimliği kullanılır. 
 #### <a name="owners"></a>Sahipleri
-Nuget.org adresinden profil adları kullanarak paket creators virgülle ayrılmış listesi. Bu genellikle aynı liste olarak olur `authors`ve nuget.org için paket karşıya yüklenirken göz ardı edilir. Bkz: [yönetme paket sahipleri nuget.org](../create-packages/publish-a-package.md#managing-package-owners-on-nugetorg). 
+Nuget.org adresinden profil adları kullanarak paket creators virgülle ayrılmış listesi. Bu genellikle aynı liste olarak olur `authors`ve nuget.org için paket karşıya yüklenirken göz ardı edilir. Bkz: [yönetme paket sahipleri nuget.org](../nuget-org/publish-a-package.md#managing-package-owners-on-nugetorg). 
 #### <a name="projecturl"></a>ProjectUrl
 Genellikle kullanıcı Arabiriminde gösterilir paketin giriş sayfası için bir URL yanı sıra nuget.org görüntüler. 
 #### <a name="licenseurl"></a>LicenseUrl
@@ -300,7 +300,7 @@ Aşağıdaki örnek, farklı çeşitleri gösterir `<group>` öğesi:
 
 ## <a name="explicit-assembly-references"></a>Açık derleme başvuruları
 
-`<references>` Öğesi paket kullanırken hedef projeye başvurması gereken derlemelerin açıkça belirtir. Bu öğe varsa, NuGet yalnızca listelenen derlemelere başvurular ekleyin; Bu başvurular paketin içinde başka bir derleme için eklemez `lib` klasör.
+`<references>` Öğesi kullanarak projeleri tarafından kullanılan `packages.config` paket kullanırken hedef projeye başvurması gereken derlemelerin açıkça belirtmek için. Açık başvuruları genellikle yalnızca tasarım zamanı derlemeleri için kullanılır. Daha fazla bilgi için sayfasına bakın [proje tarafından başvurulan derlemeleri seçerek](../create-packages/select-assemblies-referenced-by-projects.md) daha fazla bilgi için.
 
 Örneğin, aşağıdaki `<references>` öğe bildirir yalnızca başvuruları eklemek için NuGet `xunit.dll` ve `xunit.extensions.dll` olsa bile ek derlemeler paketi:
 
@@ -310,10 +310,6 @@ Aşağıdaki örnek, farklı çeşitleri gösterir `<group>` öğesi:
     <reference file="xunit.extensions.dll" />
 </references>
 ```
-
-Açık başvuruları genellikle yalnızca tasarım zamanı derlemeleri için kullanılır. Kullanırken [kod sözleşmeleri](/dotnet/framework/debug-trace-profile/code-contracts), örneğin, sözleşme derlemeleri bunlar artırabilir ve böylece Visual Studio bulabilmesi çalışma zamanı derlemeleri yanında olması gerekir, ancak sözleşme derlemeleri olmaması gerekir. proje tarafından başvurulan veya kopyalama projenin içine `bin` klasör.
-
-Benzer şekilde, açık başvuruları araçlarında derlemeler çalışma zamanı derlemeleri yanında bulunan, ancak bunları projeye başvuru olarak dahil gerek yok gereken XUnit gibi birim test çerçeveleri için kullanılabilir.
 
 ### <a name="reference-groups"></a>Başvuru grupları
 

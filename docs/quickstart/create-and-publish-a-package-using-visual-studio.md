@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: d30e89473b5f00895136b75a90d8d95b7645a100
-ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
+ms.openlocfilehash: e44f7b4040e5450f9f987eef62fd16d12abc6b20
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812985"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426306"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Hızlı Başlangıç: Visual Studio (.NET Standard, yalnızca Windows) kullanarak bir NuGet paketi oluşturma ve yayımlama
 
@@ -174,7 +174,7 @@ Bu adlı bir dosya dahil eder `readme.txt` paket kökünde. Visual Studio, hemen
 ## <a name="related-topics"></a>İlgili konular
 
 - [Paket oluşturma](../create-packages/creating-a-package.md)
-- [Paket Yayımlama](../create-packages/publish-a-package.md)
+- [Paket Yayımlama](../nuget-org/publish-a-package.md)
 - [Yayın öncesi paketleri](../create-packages/Prerelease-Packages.md)
 - [Birden çok hedef çerçeve desteği](../create-packages/supporting-multiple-target-frameworks.md)
 - [Paket sürümü oluşturma](../reference/package-versioning.md)

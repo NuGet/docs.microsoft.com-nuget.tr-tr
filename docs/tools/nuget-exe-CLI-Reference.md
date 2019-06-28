@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/23/2018
 ms.topic: reference
-ms.openlocfilehash: 2743dde63487124c706f2b1521ef2c6c3b28339d
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: a257dbbd9d56b5989e050ed4096d096cd1036184
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548084"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426017"
 ---
 # <a name="nuget-cli-reference"></a>NuGet CLI başvurusu
 
@@ -19,6 +19,8 @@ NuGet komut satırı arabirimi (CLI), `nuget.exe`, tam kapsamı yüklemek, oluş
 Herhangi bir komutu kullanmak için bir komut penceresi açın veya bash Kabuğu sonra Çalıştır `nuget` uygun seçenekleri ve komut örneğindeki gibi `nuget help pack` (Paketi komutu Yardım görüntülemek için).
 
 Bu belgeler, NuGet CLI'ın en son sürümü yansıtır. Kullanmakta olduğunuz herhangi belirli bir sürümünü hakkında tam Ayrıntılar için çalıştırma `nuget help` istenen komutu.
+
+Temel komutlarıyla kullanırsınız öğrenmek için `nuget.exe` CLI bkz [yükleyin ve CLI nuget.exe kullanarak paketleri kullanma](../consume-packages/install-use-packages-nuget-cli.md).
 
 ## <a name="installing-nugetexe"></a>Nuget.exe yükleme
 
@@ -39,7 +41,7 @@ Bkz: [Özellik kullanılabilirliği](../install-nuget-client-tools.md#feature-av
 
 Kullanılabilir komutları ve paket oluşturma, paket tüketim ve/veya bir konağa bir paket yayımlama için Uygulanabilirlik:
 
-| Sık kullanılan komutlar | Geçerli rolleri | NuGet sürüm | Açıklama |
+| Sık kullanılan komutlar | Geçerli rolleri | NuGet Version | Açıklama |
 | --- | --- | --- | --- |
 | [pack](cli-ref-pack.md) | Oluşturma | 2.7+ | Bir NuGet paketi oluşturur bir `.nuspec` ya da proje dosyası. Mono üzerinde çalışırken, bir proje dosyasından paket oluşturma desteklenmiyor. |
 | [push](cli-ref-push.md) | Yayımlama | Tümü | Bir paket için bir paket kaynağı yayımlar. |
@@ -50,14 +52,14 @@ Kullanılabilir komutları ve paket oluşturma, paket tüketim ve/veya bir kona�
 | [setapikey](cli-ref-setapikey.md) | Yayımlama, tüketim | Tümü | Belirtilen paket kaynağı için bir API anahtarı, paket kaynağına erişim için bir anahtar gerektirdiğinde kaydeder. |
 | [spec](cli-ref-spec.md) | Oluşturma | Tümü | Oluşturur bir `.nuspec` dosya, dosya bir Visual Studio projesinden oluşturuluyor belirteçleri kullanarak. |
 
-| İkincil komutları | Geçerli rolleri | NuGet sürüm | Açıklama |
+| İkincil komutları | Geçerli rolleri | NuGet Version | Açıklama |
 | --- | --- | --- | --- |
 | [add](cli-ref-add.md) | Yayımlama | 3.3+ | Hiyerarşik yerleşim kullanarak bir HTTP olmayan paket kaynağı için bir paket ekler. HTTP kaynakları için kullanmak *anında iletme*. |
 | [delete](cli-ref-delete.md) | Yayımlama | Tümü | Bir paketi paket kaynağından unlists ya da kaldırır. |
 | [init](cli-ref-init.md) | Oluşturma | 3.3+ | Paketleri hiyerarşik yerleşim kullanarak bir paket kaynağı bir klasör ekler. |
 | [install](cli-ref-install.md) | Tüketim | Tümü | Yükleme paketinin geçerli bir proje ancak projeleri değiştirmeyin veya dosyalarına başvuruda. |
 | [list](cli-ref-list.md) | Tüketim, belki de yayımlama | Tümü | Belirli bir kaynaktan alınan paketleri görüntüler. |
-| [mirror](cli-ref-mirror.md) | Yayımlama | 3.2 +'da kullanım dışı | Bir paketi ve bağımlılıkları bir kaynaktan bir hedef havuz yansıtır. |
+| [mirror](cli-ref-mirror.md) | Yayımlama | 3\.2 +'da kullanım dışı | Bir paketi ve bağımlılıkları bir kaynaktan bir hedef havuz yansıtır. |
 | [sources](cli-ref-sources.md) | Tüketim, yayımlama | Tümü | Yapılandırma dosyalarında paket kaynaklarını yönetir. |
 | [update](cli-ref-update.md) | Tüketim | Tümü | Bir projenin paketler için kullanılabilen en sürümlere güncelleştirir. Mono üzerinde çalışırken desteklenmez. |
 

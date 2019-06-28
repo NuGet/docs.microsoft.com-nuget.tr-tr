@@ -1,18 +1,18 @@
 ---
-title: NuGet davranışını yapılandırma
+title: NuGet yapılandırmaların
 description: NuGet.Config dosyaları hem genel hem de proje başına temelinde NuGet davranışını denetleyen ve nuget config komutu ile değiştirilir.
 author: karann-msft
 ms.author: karann
 ms.date: 10/25/2017
 ms.topic: conceptual
-ms.openlocfilehash: 963d1d59ea7e65e3d75bc7105b8864e3e4045938
-ms.sourcegitcommit: ef08f376688f0191a8d3d873b6a4386afd799373
+ms.openlocfilehash: 57b7f29b533a8e6d7db2710c7e42a239f50199a1
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66266345"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426661"
 ---
-# <a name="configuring-nuget-behavior"></a>NuGet davranışını yapılandırma
+# <a name="common-nuget-configurations"></a>NuGet yapılandırmaların
 
 NuGet'ın davranışı, bir veya daha fazla birikmiş ayarları tarafından yönlendirilir `NuGet.Config` proje-, kullanıcı- ve bilgisayar genelinde düzeyinde bulunabilir (XML) dosyaları. Genel bir `NuGetDefaults.Config` dosyası, özellikle de paket kaynaklarını yapılandırır. CLI, Paket Yöneticisi konsolu ve Paket Yöneticisi UI tüm komutlar için ayarları uygulayın.
 
@@ -20,13 +20,13 @@ NuGet'ın davranışı, bir veya daha fazla birikmiş ayarları tarafından yön
 
 | Kapsam | NuGet.Config dosyası konumu | Açıklama |
 | --- | --- | --- |
-| Çözüm | Geçerli klasör (Çözüm klasörü olarak da bilinir) veya sürücü kök kadar herhangi bir klasör.| Bir çözüm klasöründe ayarları uygulamak klasörlerdeki tüm projeler için geçerlidir. Bir yapılandırma dosyası bir proje klasörüne konur, proje üzerinde etkiye sahip olduğunu unutmayın. |
+| Çözüm | Geçerli klasör (Çözüm klasörü olarak da bilinir) veya sürücü kök kadar herhangi bir klasör.| Bir çözüm klasörü içinde ayarlar alt klasörlerdeki tüm projeler için geçerlidir. Bir yapılandırma dosyası bir proje klasörüne konur, proje üzerinde etkiye sahip olduğunu unutmayın. |
 | Kullanıcı | Windows: `%appdata%\NuGet\NuGet.Config`<br/>Mac/Linux: `~/.config/NuGet/NuGet.Config` veya `~/.nuget/NuGet/NuGet.Config` (işletim sistemi dağıtım göre değişiklik gösterir) | Ayarları tüm işlemler için geçerlidir, ancak herhangi bir proje düzeyi ayarı tarafından geçersiz kılınır. |
 | Bilgisayar | Windows: `%ProgramFiles(x86)%\NuGet\Config`<br/>Mac/Linux: `$XDG_DATA_HOME`. Varsa `$XDG_DATA_HOME` null veya boş `~/.local/share` veya `/usr/local/share` kullanılacak (işletim sistemi dağıtım göre değişiklik gösterir)  | Ayarları bilgisayar üzerindeki tüm işlemler için geçerlidir, ancak herhangi bir kullanıcı veya proje düzeyi ayarı tarafından geçersiz kılınır. |
 
 NuGet'ın önceki sürümleri için Notlar:
 - NuGet 3.3 ve daha önce kullanılmış bir `.nuget` çözüm genelindeki ayarları için klasör. Bu dosya NuGet 3.4 + kullanılmaz.
-- 3.x için NuGet 2.6 için Windows bilgisayar düzeyinde yapılandırma dosyasını % ProgramData%\NuGet\Config konumunda [\\{IDE} [\\{Version} [\\{SKU}]]]\NuGet.Config, burada *{IDE}* olabilir *VisualStudio*, *{Version}* gibi Visual Studio sürümü olan *14.0*, ve *{SKU}* ya da *topluluk*, *Pro*, veya *Kurumsal*. İçin NuGet 4.0 + ayarlarını geçirmek için yapılandırma dosyası için % ProgramFiles(x86) % \NuGet\Config kopyalayın. Linux üzerinde /etc/opt, önceki bu konumda olan ve Mac'te Library/Application Support.
+- 3\.x için NuGet 2.6 için Windows bilgisayar düzeyinde yapılandırma dosyasını % ProgramData%\NuGet\Config konumunda [\\{IDE} [\\{Version} [\\{SKU}]]]\NuGet.Config, burada *{IDE}* olabilir *VisualStudio*, *{Version}* gibi Visual Studio sürümü olan *14.0*, ve *{SKU}* ya da *topluluk*, *Pro*, veya *Kurumsal*. İçin NuGet 4.0 + ayarlarını geçirmek için yapılandırma dosyası için % ProgramFiles(x86) % \NuGet\Config kopyalayın. Linux üzerinde /etc/opt, önceki bu konumda olan ve Mac'te Library/Application Support.
 
 ## <a name="changing-config-settings"></a>Yapılandırma ayarlarını değiştirme
 

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: bce04864224a66019a52cdfff8355f68dc424204
-ms.sourcegitcommit: 69b5eb1494a1745a4b1a7f320a91255d5d8356a9
+ms.openlocfilehash: b4f73e2b816d8a93e123d6de83ad0a15fbb24d18
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65974999"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67425927"
 ---
 # <a name="push-command-nuget-cli"></a>anında iletme komutu (NuGet CLI)
 
@@ -21,7 +21,7 @@ ms.locfileid: "65974999"
 
 Bir paket kaynağı için bir paket gönderir ve belgeyi yayımlar.
 
-NuGet'ın varsayılan yapılandırmayı yükleyerek elde `%AppData%\NuGet\NuGet.Config` (Windows) veya `~/.nuget/NuGet/NuGet.Config` (Mac/Linux), ardından her yüklenirken `Nuget.Config` veya `.nuget\Nuget.Config` sürücüsünün kökünden başlayıp geçerli dizinde dosyaları (bkz [yapılandırma NuGet davranışını](../consume-packages/configuring-nuget-behavior.md))
+NuGet'ın varsayılan yapılandırmayı yükleyerek elde `%AppData%\NuGet\NuGet.Config` (Windows) veya `~/.nuget/NuGet/NuGet.Config` (Mac/Linux), ardından her yüklenirken `Nuget.Config` veya `.nuget\Nuget.Config` sürücüsünün kökünden başlayıp geçerli dizinde dosyaları (bkz [ortak NuGet yapılandırmaları](../consume-packages/configuring-nuget-behavior.md))
 
 ## <a name="usage"></a>Kullanım
 
@@ -43,7 +43,7 @@ Burada `<packagePath>` sunucuya göndermek üzere paket tanımlar.
 | NonInteractive | Kullanıcı girişini veya onaylar ister bastırır. |
 | NoSymbols | *(3.5 +)*  Bir sembol paketi varsa, bunu bir simge sunucusuna gönderilecek değil. |
 | Source | Sunucu URL'sini belirtir. NuGet, UNC veya yerel klasör kaynak tanımlar ve yalnızca HTTP kullanarak gönderme yerine dosya var. kopyalar.  Ayrıca, 3.4.2 NuGet ile başlayarak, zorunlu bir parametre sürece budur `NuGet.Config` dosyasını belirtir bir *DefaultPushSource* değeri (bkz [yapılandırma NuGet davranışını](../consume-packages/configuring-nuget-behavior.md)). |
-| SkipDuplicate | Bir paket ve sürümü zaten atlayın ve sonraki paket anında varsa devam edin. |
+| SkipDuplicate | *(5.1 +)*  Bir paket ve sürümü zaten varsa vazgeçin ve varsa anında sonraki pakete devam. |
 | SymbolSource | *(3.5 +)*  Sembol sunucusunun URL'sini belirtir; nuget.smbsrc.net nuget.org için gönderirken kullanılan |
 | SymbolApiKey | *(3.5 +)*  Belirtilen URL için API anahtarını belirtir `-SymbolSource`. |
 | zaman aşımı | Bir sunucuya göndermek için saniye cinsinden zaman aşımı belirtir. 300 saniyedir (5 dakika) varsayılandır. |

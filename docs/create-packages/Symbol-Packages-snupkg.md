@@ -16,12 +16,12 @@ keywords: NuGet sembol paketleri, hata ayıklama, hata ayıklama, paket sembolle
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 18d54e28d77f2bdcfea70ff9ae9def05278cb26c
-ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
+ms.openlocfilehash: 0d82cf8614b88247bc3a3ba3019c11bf1b5e2593
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610562"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426796"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Sembol paketleri (.snupkg) oluşturma
 
@@ -61,7 +61,7 @@ Dotnet.exe veya MSBuild'ı kullanıyorsanız .nupkg dosyasının yanı sıra bir
 
 ## <a name="publishing-a-symbol-package"></a>Bir sembol Paketi Yayımlama
 
-1. Kolaylık olması için NuGet ile ilk API anahtarınızı kaydedin (bkz [paket yayımlama](../create-packages/publish-a-package.md)).
+1. Kolaylık olması için NuGet ile ilk API anahtarınızı kaydedin (bkz [paket yayımlama](../nuget-org/publish-a-package.md)).
 
     ```cli
     nuget SetApiKey Your-API-Key

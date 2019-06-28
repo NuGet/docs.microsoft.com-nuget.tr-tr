@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: 6aa5c7bcb2a46e5f8dcf8f2c04a91eafe9ca03b6
-ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
+ms.openlocfilehash: 051fcc355fb78c0ab208125c2295b6316236fd46
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812999"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426356"
 ---
 # <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>Hızlı Başlangıç: Bir paketi (dotnet CLI) oluşturma ve yayımlama
 
@@ -104,7 +104,7 @@ Sonra bir `.nupkg` dosyası yayımladığınızda, nuget.org kullanarak `dotnet 
 ## <a name="related-topics"></a>İlgili konular
 
 - [Paket oluşturma](../create-packages/creating-a-package.md)
-- [Paket Yayımlama](../create-packages/publish-a-package.md)
+- [Paket Yayımlama](../nuget-org/publish-a-package.md)
 - [Yayın öncesi paketleri](../create-packages/Prerelease-Packages.md)
 - [Birden çok hedef çerçeve desteği](../create-packages/supporting-multiple-target-frameworks.md)
 - [Paket sürümü oluşturma](../reference/package-versioning.md)

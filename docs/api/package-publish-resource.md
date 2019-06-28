@@ -6,18 +6,18 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: ad66d8e0ffda13aaef744104c213863b0e111e0e
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 6e81055796e20186c5769d2ec39849e6c551ff87
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547527"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426719"
 ---
 # <a name="push-and-delete"></a>Gönder ve Sil
 
 Anında iletme, silme (veya, bağlı sunucu uygulaması listeden da) mümkündür ve NuGet V3 API'yi kullanarak paketler yeniden listele. Kapatarak bu işlemler temel `PackagePublish` kaynak bulunan [hizmet dizini](service-index.md).
 
-## <a name="versioning"></a>Sürüm oluşturma
+## <a name="versioning"></a>Sürüm Oluşturma
 
 Aşağıdaki `@type` değeri kullanılır:
 
@@ -48,7 +48,7 @@ nuget.org aşağıdaki API'yi kullanarak koymadan yeni paketler destekler. Paket
 
 Ad           | İçindeki     | Tür   | Gerekli | Notlar
 -------------- | ------ | ------ | -------- | -----
-X-NuGet-ApiKey | Üstbilgi | dize | Evet      | Örneğin, `X-NuGet-ApiKey: {USER_API_KEY}`
+X-NuGet-ApiKey | Üstbilgi | dize | evet      | Örneğin, `X-NuGet-ApiKey: {USER_API_KEY}`
 
 API anahtarı kullanıcı tarafından paket kaynağından edinmiş ve istemciyi yapılandırılmış genel olmayan bir dizedir. Hiçbir özel dize biçimi uygulanan ancak HTTP üstbilgi değerleri için makul bir boyutta API anahtarı uzunluğunu geçmemelidir.
 
@@ -72,7 +72,7 @@ Sunucu uygulamaları, bir paketi başarıyla gönderildiğinde döndürülen ba�
 
 ## <a name="delete-a-package"></a>Paket silme
 
-nuget.org yorumlar paket silme isteği olarak "listeden" bir. Bu paket hala paketinin mevcut kullanıcılar için kullanılabilir, ancak paket arama sonuçlarını veya web arabirimi artık görünür anlamına gelir. Bu uygulama hakkında daha fazla bilgi için bkz: [silinmiş paketleri](../policies/deleting-packages.md) ilkesi. Bu sinyal bir sabit silme olarak yorumlamak için geçici silme veya listeden kaldırılsın ücretsiz diğer sunucu uygulamalarıdır. Örneğin, [NuGet.Server](https://www.nuget.org/packages/NuGet.Server) (yalnızca eski V2 API'si destekleyen bir sunucu uygulaması) bir listeden kaldırma veya yapılandırma seçeneğine bağlı göre silmenin olarak bu isteği işleyen destekler.
+nuget.org yorumlar paket silme isteği olarak "listeden" bir. Bu paket hala paketinin mevcut kullanıcılar için kullanılabilir, ancak paket arama sonuçlarını veya web arabirimi artık görünür anlamına gelir. Bu uygulama hakkında daha fazla bilgi için bkz: [silinmiş paketleri](../nuget-org/policies/deleting-packages.md) ilkesi. Bu sinyal bir sabit silme olarak yorumlamak için geçici silme veya listeden kaldırılsın ücretsiz diğer sunucu uygulamalarıdır. Örneğin, [NuGet.Server](https://www.nuget.org/packages/NuGet.Server) (yalnızca eski V2 API'si destekleyen bir sunucu uygulaması) bir listeden kaldırma veya yapılandırma seçeneğine bağlı göre silmenin olarak bu isteği işleyen destekler.
 
     DELETE https://www.nuget.org/api/v2/package/{ID}/{VERSION}
 
@@ -80,9 +80,9 @@ nuget.org yorumlar paket silme isteği olarak "listeden" bir. Bu paket hala pake
 
 Ad           | İçindeki     | Tür   | Gerekli | Notlar
 -------------- | ------ | ------ | -------- | -----
-Kimlik             | URL    | dize | Evet      | Silmek için paket kimliği
-VERSION        | URL    | dize | Evet      | Silmek için Paket sürümü
-X-NuGet-ApiKey | Üstbilgi | dize | Evet      | Örneğin, `X-NuGet-ApiKey: {USER_API_KEY}`
+Kimlik             | URL    | dize | evet      | Silmek için paket kimliği
+VERSION        | URL    | dize | evet      | Silmek için Paket sürümü
+X-NuGet-ApiKey | Üstbilgi | dize | evet      | Örneğin, `X-NuGet-ApiKey: {USER_API_KEY}`
 
 ### <a name="response"></a>Yanıt
 
@@ -103,9 +103,9 @@ Paket zaten listedeyse, istek yine de başarılı olur.
 
 Ad           | İçindeki     | Tür   | Gerekli | Notlar
 -------------- | ------ | ------ | -------- | -----
-Kimlik             | URL    | dize | Evet      | Paket yeniden listelenemedi kimliği
-VERSION        | URL    | dize | Evet      | Paket yeniden listelenemedi sürümü
-X-NuGet-ApiKey | Üstbilgi | dize | Evet      | Örneğin, `X-NuGet-ApiKey: {USER_API_KEY}`
+Kimlik             | URL    | dize | evet      | Paket yeniden listelenemedi kimliği
+VERSION        | URL    | dize | evet      | Paket yeniden listelenemedi sürümü
+X-NuGet-ApiKey | Üstbilgi | dize | evet      | Örneğin, `X-NuGet-ApiKey: {USER_API_KEY}`
 
 ### <a name="response"></a>Yanıt
 

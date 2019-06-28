@@ -1,18 +1,18 @@
 ---
 title: Windows üzerinde Visual Studio kullanarak bir .NET Framework paketi oluşturma ve yayımlama
-description: Oluşturma ve Windows üzerinde Visual Studio 2017'yi kullanarak bir .NET Framework NuGet Paketi Yayımlama Kılavuzu öğretici.
+description: Oluşturma ve Windows üzerinde Visual Studio kullanarak bir .NET Framework NuGet Paketi Yayımlama Kılavuzu öğretici.
 author: karann-msft
 ms.author: karann
 ms.date: 05/13/2018
 ms.topic: quickstart
-ms.openlocfilehash: 68593211da1a34649c7050753a5db0f3a03cb41b
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: efdaa0128d47f948c86c3cc83d6a332410cbf99f
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549634"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426331"
 ---
-# <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>Hızlı Başlangıç: Oluşturma ve Visual Studio (.NET Framework, Windows) kullanarak bir paket yayımlama
+# <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>Hızlı Başlangıç: Visual Studio (.NET Framework, Windows) kullanarak bir paketi oluşturma ve yayımlama
 
 Windows üzerinde Visual Studio'da DLL'i oluşturmak ve ardından paketi oluşturma ve yayımlama için nuget.exe komut satırı aracını kullanarak bir .NET Framework Sınıf Kitaplığı'ndan bir NuGet paketi oluşturma içerir.
 
@@ -175,7 +175,7 @@ Bkz: [nuget anında iletme](../tools/cli-ref-push.md).
 ## <a name="related-topics"></a>İlgili konular
 
 - [Paket oluşturma](../create-packages/creating-a-package.md)
-- [Paket Yayımlama](../create-packages/publish-a-package.md)
+- [Paket Yayımlama](../nuget-org/publish-a-package.md)
 - [Yayın öncesi paketleri](../create-packages/Prerelease-Packages.md)
 - [Birden çok hedef çerçeve desteği](../create-packages/supporting-multiple-target-frameworks.md)
 - [Paket sürümü oluşturma](../reference/package-versioning.md)

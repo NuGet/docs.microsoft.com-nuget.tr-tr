@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 740defc34077793b81fb35db73a2eee393ae3bac
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 2f0f93e0cee78ea03cbd53194cdc2a10871fd7e1
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547160"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426760"
 ---
 # <a name="package-content"></a>Paket içeriği
 
@@ -19,7 +19,7 @@ V3 API'sini kullanarak rastgele bir paketin içerik (.nupkg dosyası) getirmek i
 
 Bu kaynak genellikle ya da "Paket taban adresi" veya "düz kapsayıcı" olarak adlandırılır.
 
-## <a name="versioning"></a>Sürüm oluşturma
+## <a name="versioning"></a>Sürüm Oluşturma
 
 Aşağıdaki `@type` değeri kullanılır:
 
@@ -48,7 +48,7 @@ Kayıt kaynak desteği HTTP yöntemleri bulunan tüm URL'ler `GET` ve `HEAD`.
 
 Ad     | İçindeki     | Tür    | Gerekli | Notlar
 -------- | ------ | ------- | -------- | -----
-LOWER_ID | URL    | dize  | Evet      | Paket kimliği, küçük harf
+LOWER_ID | URL    | dize  | evet      | Paket kimliği, küçük harf
 
 `LOWER_ID` Tarafından uygulanan kurallar kullanarak küçük harfli istenen paket kimliği bir değerdir. NET [ `System.String.ToLowerInvariant()` ](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) yöntemi.
 
@@ -60,7 +60,7 @@ Paket kaynağı, bir veya daha fazla sürümü varsa, bir 200 durum kodu döndü
 
 Ad     | Tür             | Gerekli | Notlar
 -------- | ---------------- | -------- | -----
-sürümler | dize dizisi | Evet      | ' % S'paketi kimliklerini kullanılabilir
+sürümler | dize dizisi | evet      | ' % S'paketi kimliklerini kullanılabilir
 
 Dizelerde `versions` dizi tüm küçük harfli, [NuGet sürüm dizeleri normalleştirilmiş](../reference/package-versioning.md#normalized-version-numbers). Sürüm dizeleri SemVer 2.0.0 derleme meta verileri içermez.
 
@@ -84,8 +84,8 @@ Bu dizinin içinde bulunan sürüm dizeleri için verbatim kullanılabilir amac�
 
 Ad          | İçindeki     | Tür   | Gerekli | Notlar
 ------------- | ------ | ------ | -------- | -----
-LOWER_ID      | URL    | dize | Evet      | Paket kimliği, küçük harf
-LOWER_VERSION | URL    | dize | Evet      | Normalleştirilmiş ve küçük harf yapılmış Paket sürümü
+LOWER_ID      | URL    | dize | evet      | Paket kimliği, küçük harf
+LOWER_VERSION | URL    | dize | evet      | Normalleştirilmiş ve küçük harf yapılmış Paket sürümü
 
 Her ikisi de `LOWER_ID` ve `LOWER_VERSION` tarafından uygulanan kurallar kullanarak küçük harf yapılmış. NET [`System.String.ToLowerInvariant()`](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant)
 yöntem.
@@ -114,10 +114,10 @@ Newtonsoft.Json 9.0.1 için .nupkg ikili akışın.
 
 ### <a name="request-parameters"></a>İstek parametreleri
 
-Ad          | İçindeki     | Tür    | Gerekli | Notlar
-------------- | ------ | ------- | -------- | -----
-LOWER_ID      | URL    | dize  | Evet      | Paket kimliği, küçük harf
-LOWER_VERSION | URL    | tamsayı | Evet      | Normalleştirilmiş ve küçük harf yapılmış Paket sürümü
+Ad          | İçindeki     | Tür   | Gerekli | Notlar
+------------- | ------ | ------ | -------- | -----
+LOWER_ID      | URL    | dize | evet      | Paket kimliği, küçük harf
+LOWER_VERSION | URL    | dize | evet      | Normalleştirilmiş ve küçük harf yapılmış Paket sürümü
 
 Her ikisi de `LOWER_ID` ve `LOWER_VERSION` tarafından uygulanan kurallar kullanarak küçük harf yapılmış. NET [ `System.String.ToLowerInvariant()` ](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) yöntemi.
 

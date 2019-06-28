@@ -6,18 +6,18 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: cfcb52ba7689f1b392c782b4ad42ba820a76c8bf
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.openlocfilehash: d462b289c39c2dd1418304dabcad47d0d4217f82
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981138"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426740"
 ---
 # <a name="search"></a>Ara
 
 Bir paket kaynağı V3 API'sini kullanarak kullanılabilir paketleri aramak mümkündür. Aramak için kullanılan kaynak `SearchQueryService` kaynak bulunan [hizmet dizini](service-index.md).
 
-## <a name="versioning"></a>Sürüm oluşturma
+## <a name="versioning"></a>Sürüm Oluşturma
 
 Aşağıdaki `@type` değerleri kullanılır:
 
@@ -73,8 +73,8 @@ Kök JSON nesnesinin aşağıdaki özelliklere sahiptir:
 
 Ad      | Tür             | Gerekli | Notlar
 --------- | ---------------- | -------- | -----
-totalHits | tamsayı          | Evet      | Toplam sayısı atlayıp bir eşleşme `skip` ve `take`
-veri      | Nesne dizisi | Evet      | İstek tarafından eşleştirilen arama sonuçları
+totalHits | tamsayı          | evet      | Toplam sayısı atlayıp bir eşleşme `skip` ve `take`
+veri      | Nesne dizisi | evet      | İstek tarafından eşleştirilen arama sonuçları
 
 ### <a name="search-result"></a>Arama sonucu
 
@@ -83,10 +83,10 @@ Nesne, aşağıdaki özelliklere sahiptir:
 
 Ad           | Tür                       | Gerekli | Notlar
 -------------- | -------------------------- | -------- | -----
-kimlik             | dize                     | Evet      | Eşleşen bir paket kimliği
-sürüm        | dize                     | Evet      | (Derleme meta verilerini içerebilir) paketin tam SemVer 2.0.0 sürümü dizesi
+kimlik             | dize                     | evet      | Eşleşen bir paket kimliği
+sürüm        | dize                     | evet      | (Derleme meta verilerini içerebilir) paketin tam SemVer 2.0.0 sürümü dizesi
 açıklama    | dize                     | Yok       | 
-sürümler       | Nesne dizisi           | Evet      | Eşleşen paket sürümlerini tüm `prerelease` parametresi
+sürümler       | Nesne dizisi           | evet      | Eşleşen paket sürümlerini tüm `prerelease` parametresi
 Yazarları        | dize veya dize dizisi | Yok       | 
 IconUrl        | dize                     | Yok       | 
 LicenseUrl     | dize                     | Yok       | 
@@ -95,9 +95,9 @@ ProjectUrl     | dize                     | Yok       |
 kayıt   | dize                     | Yok       | İlişkili için mutlak URL [kayıt dizini](registration-base-url-resource.md#registration-index)
 özet        | dize                     | Yok       | 
 etiketler           | dize veya dize dizisi | Yok       | 
-Başlık          | dize                     | Yok       | 
+title          | dize                     | Yok       | 
 totalDownloads | tamsayı                    | Yok       | Bu değer yüklemeler toplamına göre çıkarılan `versions` dizi
-doğrulandı       | Boole değeri                    | Yok       | Paket olup olmadığını belirten bir JSON boolean [doğrulandı](../reference/id-prefix-reservation.md)
+doğrulandı       | Boole değeri                    | Yok       | Paket olup olmadığını belirten bir JSON boolean [doğrulandı](../nuget-org/id-prefix-reservation.md)
 
 Nuget.org bir doğrulanmış ayrılmış bir kimliği öneki eşleşen bir paket Kimliğine sahip ve ayrılmış önek 's sahiplerinden biri tarafından sahip olunan bir pakettir. Daha fazla bilgi için [kimlik ön eki ayırma hakkında belgeler](../reference/id-prefix-reservation.md).
 
@@ -105,9 +105,9 @@ Arama sonuç nesnesinde bulunan meta veriler en son Paket sürümü alınır. He
 
 Ad      | Tür    | Gerekli | Notlar
 --------- | ------- | -------- | -----
-@id       | dize  | Evet      | İlişkili için mutlak URL [kayıt yaprak](registration-base-url-resource.md#registration-leaf)
-sürüm   | dize  | Evet      | (Derleme meta verilerini içerebilir) paketin tam SemVer 2.0.0 sürümü dizesi
-İndirmeler | tamsayı | Evet      | Bu belirli bir paket sürümü için indirme sayısı
+@id       | dize  | evet      | İlişkili için mutlak URL [kayıt yaprak](registration-base-url-resource.md#registration-leaf)
+sürüm   | dize  | evet      | (Derleme meta verilerini içerebilir) paketin tam SemVer 2.0.0 sürümü dizesi
+İndirmeler | tamsayı | evet      | Bu belirli bir paket sürümü için indirme sayısı
 
 ### <a name="sample-request"></a>Örnek istek
 

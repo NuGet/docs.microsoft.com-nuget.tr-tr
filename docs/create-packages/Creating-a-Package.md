@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5e362673acfab4b31c8a2e02a521afd8b19d2754
-ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
+ms.openlocfilehash: e3a40a521a3b16d9757ef1bbf2511a1537d8bddb
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812912"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67425810"
 ---
 # <a name="creating-nuget-packages"></a>NuGet paketleri oluşturma
 
 Paketiniz yapar veya hangi kod içeren olursa olsun, CLI araçlarından birini ya da kullandığınız `nuget.exe` veya `dotnet.exe`, paylaşılan ve kullanılan bir bileşen herhangi bir sayıda diğer geliştiriciler tarafından bu işlevselliği paketlemek için. NuGet CLI araçlarını yüklemek için bkz: [Nuget'i yükle istemci araçları](../install-nuget-client-tools.md). Visual Studio otomatik olarak bir CLI aracı içerip içermediğini unutmayın.
 
-- SDK stili biçimini kullanan .NET Core ve .NET Standard projeleri için ([SDK özniteliği](/dotnet/core/tools/csproj#additions)), ve tüm diğer SDK stili projeleri NuGet doğrudan bir paketi oluşturmak için proje dosyasında bilgileri kullanır. Ayrıntılar için bkz [.NET standart paketleri oluşturma Visual Studio 2017 ile](../quickstart/create-and-publish-a-package-using-visual-studio.md) ve [NuGet paketi ve geri yükleme, MSBuild hedefleri](../reference/msbuild-targets.md).
+- SDK stili biçimini kullanan .NET Core ve .NET Standard projeleri için ([SDK özniteliği](/dotnet/core/tools/csproj#additions)), ve tüm diğer SDK stili projeleri NuGet doğrudan bir paketi oluşturmak için proje dosyasında bilgileri kullanır. Ayrıntılar için bkz [.NET standart paketleri oluşturma Visual Studio ile](../quickstart/create-and-publish-a-package-using-visual-studio.md) ve [NuGet paketi ve geri yükleme, MSBuild hedefleri](../reference/msbuild-targets.md).
 
 - SDK stili projeleri için bir paketi oluşturmak için bu makalede açıklanan adımları izleyin.
 
@@ -27,7 +27,7 @@ Teknik terimlerle açıklamak gerekirse, bir NuGet paketi yalnızca ile adlandı
 Derlenmiş kodu (bütünleştirilmiş kodları), simge ve/veya bir paket olarak sunmak istediğiniz diğer dosyaları ile paketleme başlar (bkz [genel bakış ve iş akışı](overview-and-workflow.md)). Bu işlem, derleme veya derlenmiş bütünleştirilmiş kodların ve paketlerin eşitlenmiş şekilde tutmanızı sağlayacak bir proje dosyasında bilgilerden çizebilirsiniz ancak Aksi takdirde pakete Git dosyaları oluşturma bağımsızdır.
 
 > [!Note]
-> Bu konu SDK stili projeleri için genellikle dışında .NET Core projeleri ve Visual Studio 2017 ile NuGet 4.0 +, .NET Standard projelerine uygulanır.
+> Bu konu, SDK stili projeleri, genellikle dışında .NET Core projeleri ve Visual Studio 2017 ve üzeri sürümleri ve NuGet 4.0 + kullanarak .NET Standard projeleri için geçerlidir.
 
 ## <a name="deciding-which-assemblies-to-package"></a>Hangi derlemelerin paketini karar verme
 
@@ -408,7 +408,7 @@ Tüm durumlarda `nuget pack` gibi bir noktayla başlayan klasörleri dışlar `.
 
 NuGet, herhangi bir hata olup olmadığını gösteren `.nuspec` bildiriminde yer tutucu değerlerini değiştirmek unutarak gibi düzeltilmesi gereken bir dosya.
 
-Bir kez `nuget pack` başarılı, sahip olduğunuz bir `.nupkg` açıklandığı gibi uygun bir Galeriye yayımlayabilirsiniz dosya [bir paket yayımlama](../create-packages/publish-a-package.md).
+Bir kez `nuget pack` başarılı, sahip olduğunuz bir `.nupkg` açıklandığı gibi uygun bir Galeriye yayımlayabilirsiniz dosya [bir paket yayımlama](../nuget-org/publish-a-package.md).
 
 > [!Tip]
 > Bir paket oluşturma açılır olduktan sonra incelemek için kullanışlı bir yol [paket Gezgini](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer) aracı. Bu, paket içeriğini ve bildirimi grafik bir görünümünü sağlar. Ayrıca sonuç yeniden adlandırabilirsiniz `.nupkg` dosyasını bir `.zip` dosya ve doğrudan içeriğini inceleyin.
@@ -445,7 +445,7 @@ Visual Studio projeleriyle ortak olan birkaç aşağıdaki seçenekler şunlard�
 
 Bir paket yayımlamadan önce genellikle bir projeye bir paket yükleme işlemini test etmek istediğiniz. Testleri emin mutlaka tüm düştüğünden kendi doğru yerde proje dosyaları.
 
-Yüklemelerini el ile normal kullanarak komut satırında veya Visual Studio'da test edebilirsiniz [paketini yükleme adımlarını](../consume-packages/ways-to-install-a-package.md).
+Yüklemelerini el ile normal kullanarak komut satırında veya Visual Studio'da test edebilirsiniz [paketini yükleme adımlarını](../consume-packages/overview-and-workflow.md#ways-to-install-a-nuget-package).
 
 Otomatik test için temel işlemi aşağıdaki gibidir:
 
@@ -456,7 +456,7 @@ Otomatik test için temel işlemi aşağıdaki gibidir:
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-Olan bir paketi oluşturduktan sonra bir `.nupkg` dosyasını yayımlayabilirsiniz, tercih ettiğiniz Galerisine üzerinde açıklandığı [bir paket yayımlama](../create-packages/publish-a-package.md).
+Olan bir paketi oluşturduktan sonra bir `.nupkg` dosyasını yayımlayabilirsiniz, tercih ettiğiniz Galerisine üzerinde açıklandığı [bir paket yayımlama](../nuget-org/publish-a-package.md).
 
 Paketiniz yeteneklerini genişletmek veya aksi halde aşağıdaki konularda açıklandığı gibi başka senaryoları destekleyecek isteyebilirsiniz:
 

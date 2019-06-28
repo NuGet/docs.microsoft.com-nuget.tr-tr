@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: c2dfce8de6b28aaee99e3d5ab75cd28950a8cb0f
-ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
+ms.openlocfilehash: 16a14a72f8bb2e5d5a56f6c3c277f0988869273d
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812845"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426690"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Proje dosyalarında paket başvuruları (PackageReference)
 
-Paket başvuruları kullanılarak, `PackageReference` düğümü, NuGet bağımlılıklarını doğrudan proje dosyaları içinde yönetme (ayrı bir aksine `packages.config` dosya). PackageReference, kullanarak çağrılır, NuGet diğer yönleri etkilemez; Örneğin, ayarlarında `NuGet.config` (paket kaynaklarını dahil) dosyaları yine de açıklandığı gibi uygulanan [NuGet davranışını yapılandırma](configuring-nuget-behavior.md).
+Paket başvuruları kullanılarak, `PackageReference` düğümü, NuGet bağımlılıklarını doğrudan proje dosyaları içinde yönetme (ayrı bir aksine `packages.config` dosya). PackageReference, kullanarak çağrılır, NuGet diğer yönleri etkilemez; Örneğin, ayarlarında `NuGet.config` (paket kaynaklarını dahil) dosyaları yine de açıklandığı gibi uygulanan [ortak NuGet yapılandırmaları](configuring-nuget-behavior.md).
 
 PackageReference ile paket başvuruları her hedef çerçeve, yapılandırma, platform veya diğer grupları seçmek için MSBuild koşulları kullanabilirsiniz. Ayrıca bağımlılıkları ve içerik akışı üzerinde ayrıntılı denetim sağlar. (Daha fazla ayrıntı için [NuGet paketi ve geri yükleme, MSBuild hedefleri](../reference/msbuild-targets.md).)
 
@@ -166,9 +166,9 @@ Giriş olarak NuGet geri yükleme, paket başvurularının proje dosyası (üst 
 * Kayan kullandığınızda sürümleri ister `<PackageReference Include="My.Sample.Lib" Version="4.*"/>`. Burada amaç, her geri yükleme paketlerinin en son sürüme kaydırmak için olsa da burada kullanıcıların grafiğin belirli en son sürümü ve sonraki bir sürüme kayan nokta varsa, açık bir hareket üzerine kilitlenmesine gerektiren senaryolar vardır.
 * Paket eşleşen PackageReference sürüm gereksinimleri daha yeni bir sürümü yayımlandı. Örneğin 
 
-  * 1. günü: belirttiyseniz `<PackageReference Include="My.Sample.Lib" Version="4.0.0"/>` ancak NuGet depolarda sürüm 4.1.0, 4.2.0 ve 4.3.0 olmuştur. Bu durumda, NuGet (en yakın en düşük sürüm) 4.1.0 çözümlendi
+  * 1\. günü: belirttiyseniz `<PackageReference Include="My.Sample.Lib" Version="4.0.0"/>` ancak NuGet depolarda sürüm 4.1.0, 4.2.0 ve 4.3.0 olmuştur. Bu durumda, NuGet (en yakın en düşük sürüm) 4.1.0 çözümlendi
 
-  * 2. gün: Sürüm 4.0.0 yayımlanan. NuGet şimdi tam eşleşme bulmak ve 4.0.0 için çözülmeye başlanacağı
+  * 2\. gün: Sürüm 4.0.0 yayımlanan. NuGet şimdi tam eşleşme bulmak ve 4.0.0 için çözülmeye başlanacağı
 
 * Belirtilen Paket sürümü depodan kaldırılır. Tüm paket depolarınızın nuget.org paket silme izin vermez ancak bu bir kısıtlama söz konusu. En iyi eşleşen silinen sürümüne çözümleyemediğinde bulma NuGet sonuçlanır.
 

@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/25/2017
 ms.topic: reference
-ms.openlocfilehash: d7c943c1f13edf782dabe4afee9d19a1a42bd42a
-ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
+ms.openlocfilehash: 2eceb6e94a353cb29b83aea114c6cea2acbac266
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58911094"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426154"
 ---
 # <a name="nugetconfig-reference"></a>nuget.config başvurusu
 
-NuGet davranışını farklı ayarları tarafından denetlenir `NuGet.Config` dosyaları açıklandığı [NuGet davranışını yapılandırma](../consume-packages/configuring-nuget-behavior.md).
+NuGet davranışını farklı ayarları tarafından denetlenir `NuGet.Config` dosyaları açıklandığı [ortak NuGet yapılandırmaları](../consume-packages/configuring-nuget-behavior.md).
 
 `nuget.config` bir üst düzey içeren bir XML dosyası `<configuration>` düğümü, ardından bu konuda açıklanan bölüm öğeleri içerir. Her bölüm, sıfır veya daha fazla öğe içerir. Bkz: [örnek yapılandırma dosyası](#example-config-file). Ayar adları büyük/küçük harfe ve değerlerini kullanabilirsiniz [ortam değişkenlerini](#using-environment-variables).
 

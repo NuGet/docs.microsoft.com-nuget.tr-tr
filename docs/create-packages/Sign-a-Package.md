@@ -6,12 +6,12 @@ ms.author: rmpablos
 ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 8ff92e5a3ab2d5c13ee02a9e49709866e2ac0e87
-ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
+ms.openlocfilehash: abdd06642ccc652527a1a005eda2689ce97df74c
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58921578"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426816"
 ---
 # <a name="signing-nuget-packages"></a>NuGet paketlerini imzalama
 
@@ -66,7 +66,7 @@ nuget sign MyPackage.nupkg -CertificatePath <PathToTheCertificate> -Timestamper 
 
 ## <a name="publish-the-package"></a>Paket yayımlama
 
-NuGet.org için paket yayımlamak artık hazırsınız. Bkz: [paketleri yayımlama](Publish-a-package.md).
+NuGet.org için paket yayımlamak artık hazırsınız. Bkz: [paketleri yayımlama](../nuget-org/Publish-a-package.md).
 
 ## <a name="create-a-test-certificate"></a>Bir test sertifikası oluştur
 
@@ -103,5 +103,5 @@ Bu komut, geçerli kullanıcının kişisel sertifika deposunda kullanılabilir 
 
 ## <a name="related-articles"></a>İlgili makaleler
 
-- [İmzalı paketlerin yüklenmesi](../consume-packages/installing-signed-packages.md)
+- [Paket güven sınırları yönetme](../consume-packages/installing-signed-packages.md)
 - [İmzalı paket başvurusu](../reference/Signed-Packages-Reference.md)

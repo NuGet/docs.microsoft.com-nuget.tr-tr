@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: conceptual
-ms.openlocfilehash: c58cf38bab45793bef820e2c52914a91d745ec77
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 9b2a7b299a0cb944ad9045684e14cc7b83e1cff4
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551789"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426674"
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>Yeniden yükleme ve güncelleştirme paketleri
 
@@ -24,6 +24,9 @@ Paketleri yeniden yükleme ve güncelleştirme gibi gerçekleştirilir:
 | Paket Yöneticisi UI | Üzerinde **güncelleştirmeleri** sekmesinde bir veya daha fazla paket seçin ve seçin **güncelleştirme** | Üzerinde **yüklü** sekmesinde, bir paket seçin, kayıt adının ve sonra seçin **kaldırma**. Geçiş **Gözat** sekmesinde, paket adı için arama yapın, seçin ve ardından seçin **yükleme**). |
 | nuget.exe CLI | `nuget update` Komutu | Tüm paketler için paket klasörü silin ve ardından çalıştırın `nuget install`. Tek bir paket için paket klasörü silin ve kullanmak `nuget install <id>` aynı yeniden yüklemek için. |
 
+> [!NOTE]
+> Dotnet CLI için eşdeğer yordam gerekli değildir. Benzer bir senaryoda, yapabilecekleriniz [dotnet CLI'si ile paketleri geri](../consume-packages/install-use-packages-dotnet-cli.md#restore-packages).
+
 Bu makalede:
 
 - [Ne zaman bir paketi yeniden yüklemek için](#when-to-reinstall-a-package)
@@ -31,10 +34,10 @@ Bu makalede:
 
 ## <a name="when-to-reinstall-a-package"></a>Ne zaman bir paketi yeniden yüklemek için
 
-1. **Paket geri yüklemeden sonra başvuruları bozuk**: bir proje ve NuGet paketleri, ancak yine de bozuk bakın başvuruları geri, her biri bu paketleri yeniden yüklemeyi deneyin.
-1. **Project silinen dosyalar nedeniyle bozulur**: NuGet engellemez, yanlışlıkla bir paketinden yüklenen içeriği değiştirmek projenizin kırmayı denerken kolaydır paketlerden, eklenen öğeleri kaldırmasını. Proje geri yüklemek için etkilenen paketleri yeniden yükleyin.
-1. **Paket güncelleştirmesi, proje kesildi**: başarısız bir güncelleştirme paketi için bir proje keserse, genellikle da güncelleştirilmiş olabilir bir bağımlılık paketini tarafından kaynaklanır. Bağımlılık durumunu geri yüklemek için belirli bir paketin yeniden yükleyin.
-1. **Proje yeniden hedefleme veya yükseltme**: Bu bir proje yeniden hedeflendi ya da yükseltilmiş ve paketin hedef framework değişikliği nedeniyle yeniden gerektiriyorsa yararlı olabilir. Sonraki derleme uyarıları paketin yeniden yüklenmesi gerekebilir size bildirmek ve NuGet, proje yeniden hedefleme hemen sonra bu gibi durumlarda, bir yapı hatası gösterir. Proje yükseltme için NuGet proje yükseltme günlüğüne bir hata gösterir.
+1. **Paket geri yüklemeden sonra başvuruları bozuk**: Bir proje ve NuGet paketlerini geri yüklenen açtığınız ancak bozuk başvurularda görmeye devam ediyor, her biri bu paketleri yeniden yüklemeyi deneyin.
+1. **Project silinen dosyalar nedeniyle bozulur**: NuGet, paketleri, yanlışlıkla bir paketinden yüklenen içeriği değiştirmek projenizin kırmayı denerken kolaydır eklenen öğeler kaldırmasını engellemez. Proje geri yüklemek için etkilenen paketleri yeniden yükleyin.
+1. **Paket güncelleştirmesi, proje kesildi**: Bir güncelleştirme paketi için bir proje keserse, hata genellikle da güncelleştirilmiş olabilir bir bağımlılık paketini tarafından neden olur. Bağımlılık durumunu geri yüklemek için belirli bir paketin yeniden yükleyin.
+1. **Proje yeniden hedefleme veya yükseltme**: Bir proje yeniden hedeflendi ya da yükseltilmiş ve paketi hedef framework değişikliği nedeniyle yeniden yüklenmesi gerekiyorsa bu yararlı olabilir. Sonraki derleme uyarıları paketin yeniden yüklenmesi gerekebilir size bildirmek ve NuGet, proje yeniden hedefleme hemen sonra bu gibi durumlarda, bir yapı hatası gösterir. Proje yükseltme için NuGet proje yükseltme günlüğüne bir hata gösterir.
 1. **Geliştirme sırasında bir paket yeniden**: Paket yazarlarının genellikle gerekir geliştirmekte paket aynı sürümünü yeniden yüklemek davranış test etmek için. `Install-Package` Komutu, bir yeniden yükleme zorlamak, bu nedenle kullanın seçeneği sağlamaz `Update-Package -reinstall` yerine.
 
 ## <a name="constraining-upgrade-versions"></a>Kısıtlama yükseltme sürümleri

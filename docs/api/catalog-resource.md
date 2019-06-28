@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/30/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 4884de71151ee1ae3c0a78b803c9222f9c1d86ec
-ms.sourcegitcommit: ef08f376688f0191a8d3d873b6a4386afd799373
+ms.openlocfilehash: 34c205e7dac60c7abfb6323b4dc45bf4f074d46a
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66266355"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426781"
 ---
 # <a name="catalog"></a>Katalog
 
@@ -210,7 +210,7 @@ ReleaseNotes            | dize                     | Yok       |
 requireLicenseAgreement | Boole değeri                    | Yok       | Varsayar `false` dışlanırsa
 özet                 | dize                     | Yok       |
 etiketler                    | dize dizisi           | Yok       |
-başlık                   | dize                     | Yok       |
+title                   | dize                     | Yok       |
 verbatimVersion         | dize                     | Yok       | Sürüm dizesi olarak başlangıçta .nuspec içinde bulunamadı
 
 Paket `version` tam sürüm dizesi sonra normalleştirme özelliğidir. Bu, SemVer 2.0.0 yapılandırma verilerini buraya dahil olabileceğini anlamına gelir.
@@ -236,8 +236,8 @@ AL https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.stora
 
 Katalog öğeleri türüyle `PackageDelete` Kataloğu istemcilere bir paketi paket kaynağından silinir ve herhangi bir paket işlemi (örneğin, geri yükleme) için artık kullanılamıyor gösteren bilgileri en az bir kümesini içerir.
 
-> [!Note]
-> Bir paket silinecek ve daha sonra yeniden yayımlamışsa belki aynı paket Kimliğini ve sürümünü kullanarak için mümkündür. Nuget.org bir paket kimliği ve sürüm belirli paket içeriğini yaptığından emin resmi istemcinin varsayım durdurduğundan çok nadir bir durum budur. Nuget.org paket silme hakkında daha fazla bilgi için bkz. [ilkemizi](../policies/deleting-packages.md).
+> [!NOTE]
+> Bir paket silinecek ve daha sonra yeniden yayımlamışsa belki aynı paket Kimliğini ve sürümünü kullanarak için mümkündür. Nuget.org bir paket kimliği ve sürüm belirli paket içeriğini yaptığından emin resmi istemcinin varsayım durdurduğundan çok nadir bir durum budur. Nuget.org paket silme hakkında daha fazla bilgi için bkz. [ilkemizi](../nuget-org/policies/deleting-packages.md).
 
 Paket Kataloğu öğeleri silme sahip herhangi bir ek özellik listelenenlere [tüm Kataloğu leaves dahil](#catalog-leaf).
 

@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 09/12/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 56125516345b2255998c1f734db60b58b9a92a06
-ms.sourcegitcommit: 585394f063e95dcbc24d7ac0ce07de643eaf6f4d
+ms.openlocfilehash: 40f934f3c3fcea62acae66639c22108a93363b8b
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "55046334"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426774"
 ---
 # <a name="creating-symbol-packages-legacy"></a>Sembol paketleri (eski) oluşturma
 
@@ -102,7 +102,7 @@ Gelen apart `lib` klasöründe bir sembol paketi gerekir bu düzen içerir:
 > [!Important]
 > Anında iletme paketlerine nuget.org'da kullanmalısınız [nuget.exe v4.9.1 veya yukarıdaki](https://www.nuget.org/downloads), gerekli uygulayan [NuGet protokolleri](../api/nuget-protocols.md).
 
-1. Kolaylık olması için NuGet ile ilk API anahtarınızı kaydedin (bkz [paket yayımlama](../create-packages/publish-a-package.md)nuget.org hem symbolsource.org geçerli, symbolsource.org doğrulamak için nuget.org ile denetleyecek çünkü paket sahip olursunuz.
+1. Kolaylık olması için NuGet ile ilk API anahtarınızı kaydedin (bkz [paket yayımlama](../nuget-org/publish-a-package.md)nuget.org hem symbolsource.org geçerli, symbolsource.org doğrulamak için nuget.org ile denetleyecek çünkü paket sahip olursunuz.
 
     ```cli
     nuget SetApiKey Your-API-Key

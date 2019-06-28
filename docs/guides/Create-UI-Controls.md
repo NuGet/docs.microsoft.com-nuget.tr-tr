@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/23/2018
 ms.topic: tutorial
-ms.openlocfilehash: dfbd6a3e6d59dfcea6394891703ea66bce5e8e92
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: 522dbbb2a39eb1cb6f0d23f39a48158b07c9076d
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580281"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426848"
 ---
-# <a name="creating-ui-controls-as-nuget-packages"></a>NuGet paketleri olarak kullanıcı Arabirimi denetimleri oluşturma
+# <a name="creating-ui-controls-as-nuget-packages"></a>NuGet paketleri olarak UI denetimleri oluşturma
 
-Visual Studio 2017 ile NuGet paketlerinde teslim UWP ve WPF denetimleri için eklenen özelliklerin yararlanabilirsiniz. Bu kılavuzu kullanarak UWP denetimleri bağlamında bu özellikler size [ExtensionSDKasNuGetPackage örnek](https://github.com/NuGet/Samples/tree/master/ExtensionSDKasNuGetPackage). Aksi belirtilmediği sürece aynı WPF denetimleri için geçerlidir.
+Visual Studio 2017'den itibaren NuGet paketlerini teslim UWP ve WPF denetimleri için ek özellikler yararlanabilir. Bu kılavuzu kullanarak UWP denetimleri bağlamında bu özellikler size [ExtensionSDKasNuGetPackage örnek](https://github.com/NuGet/Samples/tree/master/ExtensionSDKasNuGetPackage). Aksi belirtilmediği sürece aynı WPF denetimleri için geçerlidir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -60,9 +60,9 @@ Dosya yapısı aşağıdaki gibidir:
 burada:
 
 - *your_package_file*: gibi bir denetimin adını dosya `ManagedPackage.winmd` ("ManagedPackage" olan bir rastgele adlı bu örnek için kullanılan ve diğer bir anlamı yoktur).
-- *vs_category*: denetimin Visual Studio Tasarımcısı araç kutusunda görünmelidir grubun etiketi. A `VSCategory` denetimi araç kutusunda görünmesi için gereklidir.
-- *blend_category*: denetimin Blend tasarımcının varlıklar bölmesinde görünmelidir grubun etiketi. A `BlendCategory` varlıkları görüntülenmesini denetim için gereklidir.
-- *type_full_name_n*: tam adı ad alanı, aşağıdaki gibi her denetim için `ManagedPackage.MyCustomControl`. Nokta biçimi hem yönetilen hem de yerel türleri için kullanıldığını unutmayın.
+- *vs_category*: Denetim Visual Studio Tasarımcısı araç kutusunda görünmesi gereken Grup etiketi. A `VSCategory` denetimi araç kutusunda görünmesi için gereklidir.
+- *blend_category*: Denetim Blend tasarımcının varlıklar bölmesinde görünmelidir grubun etiketi. A `BlendCategory` varlıkları görüntülenmesini denetim için gereklidir.
+- *type_full_name_n*: Tam adı ad alanı, aşağıdaki gibi her denetim için `ManagedPackage.MyCustomControl`. Nokta biçimi hem yönetilen hem de yerel türleri için kullanıldığını unutmayın.
 
 Daha gelişmiş senaryolarda, birden çok de içerebilir `<File>` öğeleri içinde `<FileList>` tek bir paket birden çok denetim derleme içerdiğinde. Birden çok bulundurabilirsiniz `<ToolboxItems>` tek bir düğüm `<File>` denetimlerinizi ayrı kategoriler halinde düzenlemek istiyorsanız.
 
