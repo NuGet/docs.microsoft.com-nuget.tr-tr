@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: e44f7b4040e5450f9f987eef62fd16d12abc6b20
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: c75785d361f25564c8a59d7a2d85924c570a7b9a
+ms.sourcegitcommit: b9a134a6e10d7d8502613f389f7d5f9b9e206ec8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426306"
+ms.locfileid: "67467809"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Hızlı Başlangıç: Visual Studio (.NET Standard, yalnızca Windows) kullanarak bir NuGet paketi oluşturma ve yayımlama
 
@@ -29,7 +29,7 @@ Bir .NET standart sınıf kitaplığı Windows üzerinde Visual Studio'da NuGet 
 
    * İçin `nuget.exe` CLI, indirdiği [nuget.org](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe), kaydetme `.exe` uygun bir klasöre dosya ve klasörün PATH ortam değişkeninize ekleme. Nuget.exe CLI SDK stilinde olmayan biçimde .NET standart kitaplıkları için kullanılır.
 
-1. [Nuget.org üzerindeki bir ücretsiz hesaba kaydolun](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) zaten yoksa. Yeni bir hesap oluşturmadan bir onay e-posta gönderir. Bir paketi karşıya yükleyebilmeniz, hesap onaylamanız gerekir.
+1. [Nuget.org üzerindeki bir ücretsiz hesaba kaydolun](https://docs.microsoft.com/en-us/nuget/nuget-org/individual-accounts#add-a-new-individual-account) zaten yoksa. Yeni bir hesap oluşturmadan bir onay e-posta gönderir. Bir paketi karşıya yükleyebilmeniz, hesap onaylamanız gerekir.
 
 ## <a name="create-a-class-library-project"></a>Bir sınıf kitaplığı projesi oluşturun
 

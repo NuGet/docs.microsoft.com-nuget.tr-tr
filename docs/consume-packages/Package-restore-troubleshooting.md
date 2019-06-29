@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: b85b586e76e424442dc0ba3acfecbee1e8755345
-ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
+ms.openlocfilehash: 3be8d1dad6552db2fc04b2f324145ac7ce86acb2
+ms.sourcegitcommit: b9a134a6e10d7d8502613f389f7d5f9b9e206ec8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52453474"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67467768"
 ---
 # <a name="troubleshooting-package-restore-errors"></a>Paket geri yükleme hatalarını giderme
 
-Bu makalede, paketleri ve bunların çözülmesine yönelik adımları geri yüklerken ortak hataları ele alınmaktadır. Paketleri geri yükleme ile ilgili tüm ayrıntılar için bkz. [paket geri yükleme](../consume-packages/package-restore.md#enabling-and-disabling-package-restore).
+Bu makalede, paketleri ve bunların çözülmesine yönelik adımları geri yüklerken ortak hataları ele alınmaktadır. Paketleri geri yükleme ile ilgili tüm ayrıntılar için bkz. [paket geri yükleme](../consume-packages/package-restore.md#enable-and-disable-package-restore).
 
 Buradaki yönergeleri sizin için işe yaramazsa [Lütfen Github'da sorun kaydedebilir](https://github.com/NuGet/docs.microsoft.com-nuget/issues) böylece biz kendi senaryonuza daha dikkatli bir şekilde inceleyebilir. "Is bu sayfa faydalı?" kullanmayın Bize daha fazla bilgi için sizinle olanağı vermez çünkü bu sayfada görünebilir denetimi.
 
@@ -24,7 +24,7 @@ Buradaki yönergeleri sizin için işe yaramazsa [Lütfen Github'da sorun kayded
 
 1. Seçin **Araçlar > NuGet Paket Yöneticisi > Paket Yöneticisi Ayarları** menü komutu.
 1. Her iki seçenekleri altında **paketi geri yüklemeyi**.
-1. Seçin **Tamam**.
+1. **Tamam**’ı seçin.
 1. Projenizi yeniden derleyin.
 
 ![NuGet paket geri yükleme araç/seçenekler içinde etkinleştir](../consume-packages/media/restore-01-autorestoreoptions.png)

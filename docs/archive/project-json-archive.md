@@ -1,28 +1,28 @@
 ---
-title: NuGet project.json arşiv içeriği
+title: NuGet project.json archive content
 description: Çeşitli bitleri project.json içerik NuGet belgeleri diğer alanlarından kaldırıldı.
 author: karann-msft
 ms.author: karann
 ms.date: 01/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: aa5cd1a2f3e3a6707a9d68204306db85651b0a18
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: d43f002b740b669de13f5872844ac0df97fc8fdc
+ms.sourcegitcommit: b9a134a6e10d7d8502613f389f7d5f9b9e206ec8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545206"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67467782"
 ---
-# <a name="projectjson-archive"></a>Project.JSON arşiv
+# <a name="projectjson-archive"></a>project.json archive
 
 `project.json` Yönetim biçimi, NuGet ile tanıtılmıştır 3.x ve belirli proje türleri kullanılır. Bu bağımlılıklar doğrudan proje dosyasında listelenen PackageReference biçimi sunulmasıyla birlikte kullanım dışı bırakıldı.
 
 Ayrıca bkz:
 
-- [Project.JSON şeması](project-json.md)
+- [project.json schema](project-json.md)
 - [Paket yazarlarının Project.JSON etkisi](project-json-impact.md)
 - [project.json ve UWP](project-json-and-uwp.md)
 
-## <a name="projectjson-management-format"></a>Project.JSON yönetim biçimi
+## <a name="projectjson-management-format"></a>project.json yönetim biçimi
 
 *İlk olarak [paket geri yükleme](../what-is-nuget.md).*
 
@@ -38,7 +38,7 @@ Yönetim biçim listesinde:
 
 ## <a name="constraining-package-versions-with-restore"></a>Geri yükleme ile kısıtlayan paket sürümleri
 
-*İlk olarak [paket geri yükleme](../consume-packages/package-restore.md#constraining-package-versions-with-restore).*
+*İlk olarak [paket geri yükleme](../consume-packages/package-restore.md#constrain-package-versions-with-restore).*
 
 - `project.json`: Doğrudan bağımlılık'ın sürüm numarasına sahip bir sürüm aralığı belirtin. Örneğin:
 
@@ -89,11 +89,11 @@ Hataları çözümleme eklenen anlamına gelir:
 
 - **Tavsiye**: geçici bir çözüm, paket yazarı ile çalışırken, proje hedefleme `netcore`, `netstandard`, ve `netcoreapp` diğer çerçeveler, böylece bu hedefleme paketleri izin vererek, uyumlu olarak belirtmek kullanılacak diğer çerçeveler. Bkz: [project.json içeri aktarır](project-json.md#imports) ve [MSBuild geri yükleme hedefi PackageTargetFallback](../reference/msbuild-targets.md#packagetargetfallback). Bu beklenmeyen davranışlara neden olabilir bir güncelleştirme üzerinde paket yazarı ile çalışarak paket uyumsuzlukları çözmek en iyi şekilde yeniden.
 
-## <a name="target-frameworks"></a>Hedef Çerçeve
+## <a name="target-frameworks"></a>Hedef çerçeveler
 
 *İlk olarak [hedef çerçeveyi](../reference/target-frameworks.md).*
 
-- [Project.JSON](project-json.md): `frameworks` düğüm karşı projenin derlenebilir framework sürümlerini belirtir.
+- [project.json](project-json.md): `frameworks` Düğüm karşı projenin derlenebilir framework sürümlerini belirtir.
 
 ## <a name="creating-a-package"></a>Paket oluşturma
 
@@ -128,7 +128,7 @@ Kullanırken `project.json`, hedef projeye eklenmez ancak kullanılabilir hale g
 
 Kullanırken `project.json` biçimi, NuGet ayrıca bir joker karakter gösterimi kullanılmasını destekler \*büyük, küçük, düzeltme eki ve sayının yayın öncesi son bölümü için.
 
-### <a name="nugetconfig-reference"></a>NuGet.Config başvurusu
+### <a name="nugetconfig-reference"></a>NuGet.Config reference
 
 *İlk olarak [NuGet.Config başvuru](../reference/nuget-config-file.md).*
 
