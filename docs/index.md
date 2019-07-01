@@ -7,12 +7,12 @@ ms.date: 02/12/2018
 ms.topic: overview
 layout: HubPage
 hide_bc: true
-ms.openlocfilehash: 35eef5125c40689da0f888992ea8376bb9eb096b
-ms.sourcegitcommit: a801052aa728a3a137225ca3ef3ff89f2d1c6b76
+ms.openlocfilehash: 399e4f80afb3e3d6278618055dde38a87184e3ff
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54403157"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426650"
 ---
 <div id="main" class="v2">
 <div class="container">
@@ -81,7 +81,7 @@ ms.locfileid: "54403157"
                             </a>
                         </li>
                         <li>
-                            <a href="create-packages/overview-and-workflow.md">
+                            <a href="create-packages/creating-a-package.md">
                             <div class="cardSize">
                                 <div class="cardPadding">
                                     <div class="card">
@@ -148,7 +148,7 @@ ms.locfileid: "54403157"
                     <a href="#tools-all"></a>
                     <ul id="tools-all" class="cardsC">
                         <li>
-                            <a href="tools/nuget-exe-cli-reference.md">
+                            <a href="install-nuget-client-tools.md">
                             <div class="cardSize">
                                 <div class="cardPadding">
                                     <div class="card">
@@ -159,7 +159,7 @@ ms.locfileid: "54403157"
                                         </div>
                                         <div class="cardText">
                                             <h3>Araçlar</h3>
-                                            <p>Nuget.exe komut satırı aracı ve Visual Studio’da Paket Yöneticisi UI ve Paket Yöneticisi Konsolu için tam kılavuzlar.</p>
+                                            <p>NuGet ve ile çalışmak için kullanabileceğiniz araçlar ve bunları edinme hakkında bilgiler.</p>
                                         </div>
                                     </div>
                                 </div>
