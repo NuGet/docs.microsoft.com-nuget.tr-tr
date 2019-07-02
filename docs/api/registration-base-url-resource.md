@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 19a1f48164f65f1ff805e036e55abb110247aa72
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: 0b35e2bbdde63f7f7a5298bd035c180389cd345d
+ms.sourcegitcommit: 2a9d149bc6f5ff76b0b657324820bd0429cddeef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324870"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67496513"
 ---
 # <a name="package-metadata"></a>Paket meta verileri
 
@@ -19,7 +19,7 @@ NuGet V3 API'sini kullanarak bir paket kaynağı üzerinde kullanılabilir paket
 
 Altında bulunan belgeleri koleksiyonunu `RegistrationsBaseUrl` genellikle "kayıtları" veya "kayıt BLOB'ları" denir. Altında tek bir belge kümesini `RegistrationsBaseUrl` "kayıt hive" adlandırılır. Bir kayıt defteri kovanı her bir paket kaynağı üzerinde kullanılabilir paketle ilgili tüm meta veriler içerir.
 
-## <a name="versioning"></a>Sürüm oluşturma
+## <a name="versioning"></a>Sürüm Oluşturma
 
 Aşağıdaki `@type` değerleri kullanılır:
 
@@ -89,7 +89,7 @@ Yanıt, bir kök nesnesi aşağıdaki özelliklere sahip olan bir JSON belgesi.:
 Ad  | Tür             | Gerekli | Notlar
 ----- | ---------------- | -------- | -----
 count | tamsayı          | evet      | Kayıt sayfalarında dizin sayısı
-Öğeleri | Nesne dizisi | evet      | Kayıt sayfaları dizisi
+items | Nesne dizisi | evet      | Kayıt sayfaları dizisi
 
 Dizin nesnesinin her öğesini `items` dizidir kayıt sayfasını temsil eden bir JSON nesnesi.
 
@@ -101,7 +101,7 @@ Ad   | Tür             | Gerekli | Notlar
 ------ | ---------------- | -------- | -----
 @id    | dize           | evet      | Kayıt sayfası URL'si
 count  | tamsayı          | evet      | Kayıt sayısı sayfasında bırakır.
-Öğeleri  | Nesne dizisi | Yok       | Kayıt bırakır ve ilişkilendirme meta verilerinin dizisi
+items  | Nesne dizisi | Yok       | Kayıt bırakır ve ilişkilendirme meta verilerinin dizisi
 Daha düşük  | dize           | evet      | En düşük SemVer 2.0.0 sürümü (kapsamlı) sayfasındaki
 Üst | dize           | Yok       | Kayıt dizini URL'si
 üst  | dize           | evet      | En yüksek SemVer 2.0.0 sürümü (kapsamlı) sayfasındaki
@@ -138,6 +138,7 @@ Ad                     | Tür                       | Gerekli | Notlar
 @id                      | dize                     | evet      | Bu nesne oluşturmak için kullanılan belgesi URL'si
 Yazarları                  | dize veya dize dizisi | Yok       | 
 dependencyGroups         | Nesne dizisi           | Yok       | Hedef framework tarafından gruplandırılmış paket bağımlılıkları
+Kullanımdan kaldırma              | nesne                     | Yok       | Paket ile ilişkili kullanımdan kaldırma
 açıklama              | dize                     | Yok       | 
 IconUrl                  | dize                     | Yok       | 
 kimlik                       | dize                     | evet      | Paket kimliği
@@ -150,7 +151,7 @@ Yayımlanan                | dize                     | Yok       | Paketin ne z
 RequireLicenseAcceptance | Boole değeri                    | Yok       | 
 özet                  | dize                     | Yok       | 
 etiketler                     | dize veya dize dizisi  | Yok       | 
-başlık                    | dize                     | Yok       | 
+title                    | dize                     | Yok       | 
 sürüm                  | dize                     | evet      | Normalleştirme sonra tam sürüm dizesi
 
 Paket `version` tam sürüm dizesi sonra normalleştirme özelliğidir. Bu, SemVer 2.0.0 yapılandırma verilerini buraya dahil olabileceğini anlamına gelir.
@@ -184,6 +185,26 @@ kayıt | dize | Yok       | Bu bağımlılık kaydını dizini URL'si
 
 Varsa `range` özelliği çıkarılır ya da boş bir dize sürüm aralığı için varsayılan istemci `(, )`. Diğer bir deyişle, herhangi bir bağımlılığın sürümü izin verilir.
 
+#### <a name="package-deprecation"></a>Paket kullanımdan kaldırma
+
+Her paket kullanımdan kaldırma, aşağıdaki özelliklere sahiptir:
+
+Ad             | Tür             | Gerekli | Notlar
+---------------- | ---------------- | -------- | -----
+nedenler          | dize dizisi | evet      | Neden paket kullanım dışı nedenleri
+iletisi          | dize           | Yok       | Bu kullanımdan kaldırma hakkında ek ayrıntılar
+alternatePackage | nesne           | Yok       | Bunun yerine kullanılması gereken paket bağımlılığı
+
+`reasons` Özellik en az bir dize içermelidir ve yalnızca aşağıdaki tabloda dizelerden içerir:
+
+Neden       | Açıklama             
+------------ | -----------
+Eski       | Paket artık korunur
+CriticalBugs | Paket kullanım için uygun yapan hataya sahip olduğunu
+Diğer        | Paket bu listede bir nedenle kullanım dışıdır
+
+Varsa `reasons` bilinen kümesinden olmayan dizeler özelliği içerir, bunlar yok sayılır. Dizeler büyük/küçük harfe duyarsızdır, bu nedenle `legacy` olmalıdır aynı olarak kabul `Legacy`. Dizeler düzenlenmiş şekilde herhangi bir rastgele sırayla bir dizi sıralama kısıtlama yoktur. Özelliği bilinen kümesi olmayan dizeler içeriyorsa, yalnızca "Diğer" dize yer alacağı ek olarak, bu düşünülmelidir.
+
 ### <a name="sample-request"></a>Örnek istek
 
     GET https://api.nuget.org/v3/registration3/nuget.server.core/index.json
@@ -204,7 +225,7 @@ Ad   | Tür             | Gerekli | Notlar
 ------ | ---------------- | -------- | -----
 @id    | dize           | evet      | Kayıt sayfası URL'si
 count  | tamsayı          | evet      | Kayıt sayısı sayfasında bırakır.
-Öğeleri  | Nesne dizisi | evet      | Kayıt bırakır ve ilişkilendirme meta verilerinin dizisi
+items  | Nesne dizisi | evet      | Kayıt bırakır ve ilişkilendirme meta verilerinin dizisi
 Daha düşük  | dize           | evet      | En düşük SemVer 2.0.0 sürümü (kapsamlı) sayfasındaki
 Üst | dize           | evet      | Kayıt dizini URL'si
 üst  | dize           | evet      | En yüksek SemVer 2.0.0 sürümü (kapsamlı) sayfasındaki

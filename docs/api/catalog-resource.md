@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/30/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 34c205e7dac60c7abfb6323b4dc45bf4f074d46a
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 8e4fb376e471a207333d241aeb414da7d5c3571e
+ms.sourcegitcommit: 2a9d149bc6f5ff76b0b657324820bd0429cddeef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426781"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67496527"
 ---
 # <a name="catalog"></a>Katalog
 
@@ -194,7 +194,8 @@ Ad                    | Tür                       | Gerekli | Notlar
 ----------------------- | -------------------------- | -------- | -----
 Yazarları                 | dize                     | Yok       |
 Oluşturulan                 | dize                     | Yok       | Paketin ilk oluşturulduğu zaman damgası. Geri dönüş özelliği: `published`.
-dependencyGroups        | Nesne dizisi           | Yok       | Aynı biçimi olarak [paket meta veri kaynağı](registration-base-url-resource.md#package-dependency-group)
+dependencyGroups        | Nesne dizisi           | Yok       | Bağımlılıkları paketin hedef framework tarafından gruplandırılmış ([paket meta veri kaynağı olarak aynı biçimi](registration-base-url-resource.md#package-dependency-group))
+Kullanımdan kaldırma             | nesne                     | Yok       | Paket ile ilişkili kullanımdan kaldırma ([paket meta veri kaynağı olarak aynı biçimi](registration-base-url-resource.md#package-deprecation))
 açıklama             | dize                     | Yok       |
 IconUrl                 | dize                     | Yok       |
 isPrerelease            | Boole değeri                    | Yok       | Olup olmadığı paket yayın öncesi sürümüdür. Gelen algılanabilir `version`.

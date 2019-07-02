@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: d47e1978ab7d827e0b8b97cd4e7237019185b50f
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: a5b5a11ee11d9e2cf6a90d56ac63b1f7bad750ea
+ms.sourcegitcommit: 2a9d149bc6f5ff76b0b657324820bd0429cddeef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546082"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67496486"
 ---
 # <a name="update-package-package-manager-console-in-visual-studio"></a>Update-Package (Visual Studio'da Paket Yöneticisi Konsolu)
 
@@ -36,17 +36,17 @@ Update-Package Microsoft.AspNet.MVC -Version 5.0.0.
 
 |  Parametre | Açıklama |
 | --- | --- |
-| Kimliği | Güncelleştirilecek paket tanımlayıcısı. Atlanırsa, tüm paketleri güncelleştirir. Kimliği anahtarın kendisinde, isteğe bağlıdır. |
+| Id | Güncelleştirilecek paket tanımlayıcısı. Atlanırsa, tüm paketleri güncelleştirir. Kimliği anahtarın kendisinde, isteğe bağlıdır. |
 | IgnoreDependencies | Paket bağımlılıkları güncelleştirme atlar. |
 | ProjectName | Güncelleştirme paketlerini içeren, tüm projeler için varsayılan olarak ayarlanıyor. proje adı. |
 | Sürüm | Varsayılan en son sürüme yükseltme için kullanılacak sürümü. Nuget'te 3.0 +, sürüm değeri şunlardan biri olmalıdır *en düşük, en yüksek HighestMinor*, veya *HighestPatch* (eşdeğer - güvenli). |
 | Güvenli | Yalnızca şu anda yüklü paketleri aynı birincil ve ikincil sürüme sürümleriyle yükseltmeleri kısıtlar. |
-| Kaynak | Aranacak paket kaynağı için URL veya klasör yolu. Yerel klasör yol mutlak veya göreli geçerli klasörde olabilir. Atlanırsa, `Update-Package` seçili paket kaynağı arar. |
+| Source | Aranacak paket kaynağı için URL veya klasör yolu. Yerel klasör yol mutlak veya göreli geçerli klasörde olabilir. Atlanırsa, `Update-Package` seçili paket kaynağı arar. |
 | IncludePrerelease | Yayın öncesi paketleri için güncelleştirmeleri içerir. |
 | Yeniden yükleyin | Şu anda yüklü sürümlerini kullanarak Resintalls paketleri. Bkz: [Reinstalling ve paketlerin güncelleştirilmesi](../consume-packages/reinstalling-and-updating-packages.md). |
 | FileConflictAction | Üzerine ya da proje tarafından başvurulan mevcut dosyaları yoksaymak için sorulan olduğunda gerçekleştirilecek eylem. Olası değerler *üzerine yaz, yoksay, None, OverwriteAll*, ve *IgnoreAll* (3.0 +). |
 | DependencyVersion | Aşağıdakilerden biri olabilen kullanmak için bağımlılık paketlerini sürümü:<br/><ul><li>*En düşük* (varsayılan): en düşük sürüm</li><li>*HighestPatch*: en düşük büyük, en düşük küçük, yüksek düzeltme sürümü</li><li>*HighestMinor*: en düşük ana sürümle, en yüksek ikincil, yüksek düzeltme eki</li><li>*En yüksek* (parametre olmadan Update-Package için varsayılan): en yüksek sürüm</li></ul>Varsayılan değer kullanarak ayarlayabilirsiniz [ `dependencyVersion` ](../reference/nuget-config-file.md#config-section) ayarı `Nuget.Config` dosya. |
-| ToHighestPatch | Yalnızca aynı alt sürümü şu anda yüklü paketleri olarak sürümleriyle yükseltmeleri kısıtlar. |
+| ToHighestPatch | denk - güvenli. |
 | ToHighestMinor | Yükseltmeleri yalnızca sürümleri şu anda yüklü paketleri ile aynı ana sürümle kısıtlar. |
 | WhatIf | Komut güncelleştirme yapmadan çalıştırılırken ne olacağını gösterir. |
 
@@ -54,7 +54,7 @@ Hiçbiri bu parametre ardışık düzen giriş veya joker karakterler kabul edin
 
 ### <a name="common-parameters"></a>Ortak parametreleri
 
-`Update-Package` şunları desteklemektedir [ortak PowerShell parametrelerini](http://go.microsoft.com/fwlink/?LinkID=113216): hata ayıklama, hata eylemi, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, ayrıntılı, WarningAction ve WarningVariable.
+`Update-Package` şunları desteklemektedir [ortak PowerShell parametrelerini](http://go.microsoft.com/fwlink/?LinkID=113216): Hata ayıklama, hata eylemi, ErrorVariable, OutBuffer, OutVariable, ayrıntılı PipelineVariable, WarningAction ve WarningVariable.
 
 ### <a name="examples"></a>Örnekler
 
