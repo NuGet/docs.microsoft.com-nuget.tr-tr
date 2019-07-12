@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/09/2017
 ms.topic: tutorial
-ms.openlocfilehash: d737b70febd1e18aa8a39cc73a9a9cf333f758c6
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 81f78de02d9b6510f195e04c78436e38f9b7353d
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426837"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842417"
 ---
 # <a name="create-packages-for-xamarin-with-visual-studio-2015"></a>Visual Studio 2015 ile Xamarin’e yönelik paketler oluşturma
 
@@ -111,7 +111,7 @@ Platforma özel uygulanışı uygulamak için `ILoggingLibrary` arabirimi ve yö
     ```
 
 1. Bu dosyayı yeniden adlandır `LoggingLibrary.nuspec` ve bir düzenleyicide açın.
-1. Aşağıdaki ile eşleşecek şekilde dosyasını güncelleştirme YOUR_NAME uygun bir değerle değiştirin. `<id>` Değeri, özellikle benzersiz olmalıdır nuget.org arasında (açıklanan adlandırma kuralları bakın [paket oluşturma](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number)). Ayrıca, yazar ve açıklama etiketleri de güncelleştirmeniz gerekir veya paket adımı sırasında bir hata alıyorsunuz unutmayın.
+1. Aşağıdaki ile eşleşecek şekilde dosyasını güncelleştirme YOUR_NAME uygun bir değerle değiştirin. `<id>` Değeri, özellikle benzersiz olmalıdır nuget.org arasında (açıklanan adlandırma kuralları bakın [paket oluşturma](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number)). Ayrıca, yazar ve açıklama etiketleri de güncelleştirmeniz gerekir veya paket adımı sırasında bir hata alıyorsunuz unutmayın.
 
     ```xml
     <?xml version="1.0"?>
@@ -268,5 +268,5 @@ Paketiniz diğer geliştiriciler için kullanılabilir yapmak için yönergeleri
 - [Sembol paketleri](../create-packages/symbol-packages.md)
 - [Paket sürümü oluşturma](../reference/package-versioning.md)
 - [Birden çok .NET Framework sürümleri destekleme](../create-packages/supporting-multiple-target-frameworks.md)
-- [MSBuild özellikler ve hedefler bir pakete dahil etme](../create-packages/creating-a-package.md#including-msbuild-props-and-targets-in-a-package)
+- [Bir pakete MSBuild özellikler ve hedefler](../create-packages/creating-a-package.md#include-msbuild-props-and-targets-in-a-package)
 - [Yerelleştirilmiş Paketler Oluşturma](../create-packages/creating-localized-packages.md)
