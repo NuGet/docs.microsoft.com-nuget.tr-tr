@@ -16,12 +16,12 @@ keywords: NuGet sembol paketleri, hata ayıklama, hata ayıklama, paket sembolle
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 0d82cf8614b88247bc3a3ba3019c11bf1b5e2593
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 9f9cdd188cf2ec678bc9047604e618f1af9124ae
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426796"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842459"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Sembol paketleri (.snupkg) oluşturma
 
@@ -54,7 +54,7 @@ Dotnet.exe veya MSBuild'ı kullanıyorsanız .nupkg dosyasının yanı sıra bir
 
 1. Projenizle paketi `dotnet pack MyPackage.csproj` veya `msbuild -t:pack MyPackage.csproj`.
 
-[ `SymbolPackageFormat` ](/dotnet/core/tools/csproj.md#symbolpackageformat) Özelliği iki değerden birine sahip olabilir: `symbols.nupkg` (varsayılan) veya `snupkg`. Varsa [ `SymbolPackageFormat` ](/dotnet/core/tools/csproj.md#symbolpackageformat) özelliği belirtilmezse, eski sembol paketi oluşturulacak.
+[ `SymbolPackageFormat` ](/dotnet/core/tools/csproj#symbolpackageformat) Özelliği iki değerden birine sahip olabilir: `symbols.nupkg` (varsayılan) veya `snupkg`. Varsa [ `SymbolPackageFormat` ](/dotnet/core/tools/csproj#symbolpackageformat) özelliği belirtilmezse, eski sembol paketi oluşturulacak.
 
 > [!Note]
 > Eski biçim `.symbols.nupkg` ancak yalnızca uyumluluk açısından hala desteklenmektedir (bkz [eski sembol paketleri](Symbol-Packages.md)). Sembol sunucusuna NuGet.org yalnızca yeni sembol paket biçimi - kabul `.snupkg`.

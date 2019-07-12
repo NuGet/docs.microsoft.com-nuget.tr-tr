@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: e4c57c0580fe9018703291c08d60e559f95183dc
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: fd6ecab05a392a2a0b4ddf1ac15eb108f2653703
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426198"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842407"
 ---
 # <a name="nuspec-reference"></a>.nuspec başvurusu
 
@@ -32,7 +32,7 @@ Bu konuda:
 
 - Kullanma `.nuspec` ile `nuget.exe pack` kullanan olmayan-SDK-stili projeleri `packages.config`.
 
-- A `.nuspec` dosya SDK stili projeleri için paketler oluşturmak için gerekli değildir (.NET Core ve .NET Standard projeleri [SDK özniteliği](/dotnet/core/tools/csproj#additions)). (Unutmayın bir `.nuspec` paketi oluşturduğunuzda oluşturulur.)
+- A `.nuspec` dosya için paketler oluşturmak için gerekli değildir [SDK stili projeleri](../resources/check-project-format.md) (genellikle .NET Core ve .NET Standard projeleri [SDK özniteliği](/dotnet/core/tools/csproj#additions)). (Unutmayın bir `.nuspec` paketi oluşturduğunuzda oluşturulur.)
 
    Kullanarak bir paket oluşturuyorsanız `dotnet.exe pack` veya `msbuild pack target`, öneririz, [özellikleri içeren](../reference/msbuild-targets.md#pack-target) , genellikle `.nuspec` bunun yerine proje dosyasında dosya. Ancak, bunun yerine seçebileceğiniz [kullanan bir `.nuspec` kullanarak paketi dosyaya `dotnet.exe` veya `msbuild pack target` ](../reference/msbuild-targets.md#packing-using-a-nuspec).
 
@@ -72,7 +72,7 @@ Aşağıdaki öğeleri bir paket için en düşük gereksinimler olsa da, ekleme
 Bu öğeleri içinde görünmelidir bir `<metadata>` öğesi.
 
 #### <a name="id"></a>kimlik 
-Nuget.org veya ne olursa olsun arasında benzersiz olması gereken büyük küçük harf duyarsız paket tanımlayıcısı galeri paketi bulunduğu. Kimlikleri değil boşluk ya da bir URL için geçerli olmayan karakterler içeren ve genellikle .NET ad alanı kuralları uygulayın. Bkz: [benzersiz paket tanımlayıcısı seçme](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number) Kılavuzu.
+Nuget.org veya ne olursa olsun arasında benzersiz olması gereken büyük küçük harf duyarsız paket tanımlayıcısı galeri paketi bulunduğu. Kimlikleri değil boşluk ya da bir URL için geçerli olmayan karakterler içeren ve genellikle .NET ad alanı kuralları uygulayın. Bkz: [benzersiz paket tanımlayıcısı seçme](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number) Kılavuzu.
 #### <a name="version"></a>sürüm
 Aşağıdaki Paket sürümü *ana.İkincil.yama* deseni. Sürüm numaraları, yayın öncesi son içerebilir, açıklandığı [Paket sürümü oluşturma](../reference/package-versioning.md#pre-release-versions). 
 #### <a name="description"></a>açıklama
@@ -82,25 +82,32 @@ Nuget.org profil adları eşleşen paketleri yazar, virgülle ayrılmış listes
 
 ### <a name="optional-metadata-elements"></a>İsteğe bağlı meta veri öğeleri
 
-#### <a name="title"></a>title
-Nuget.org ve Visual Studio'da Paket Yöneticisi UI görünümlerde genellikle kullanılan paket bir insan dostu başlığı. Belirtilmezse, paket kimliği kullanılır. 
 #### <a name="owners"></a>Sahipleri
 Nuget.org adresinden profil adları kullanarak paket creators virgülle ayrılmış listesi. Bu genellikle aynı liste olarak olur `authors`ve nuget.org için paket karşıya yüklenirken göz ardı edilir. Bkz: [yönetme paket sahipleri nuget.org](../nuget-org/publish-a-package.md#managing-package-owners-on-nugetorg). 
+
 #### <a name="projecturl"></a>ProjectUrl
 Genellikle kullanıcı Arabiriminde gösterilir paketin giriş sayfası için bir URL yanı sıra nuget.org görüntüler. 
+
 #### <a name="licenseurl"></a>LicenseUrl
 > [!Important]
 > licenseUrl kullanımdan kaldırılıyor. Lisans kullanın.
 
-Genellikle kullanıcı Arabirimi görüntüler yanı sıra nuget.org adresinde gösterilir, paketi lisansının URL'si.
+Genellikle kullanıcı arabirimleri nuget.org gibi gösterilir, paketi lisansının URL'si.
+
 #### <a name="license"></a>Lisans
-SPDX lisans ifadesi veya genellikle kullanıcı Arabirimi görüntüler yanı sıra nuget.org adresinde gösterilir, paket içindeki bir lisans dosyasının yolu. Paket BSD 2 yan veya MIT gibi ortak bir lisans kapsamında lisans, ilişkili SPDX lisans tanımlayıcısı kullanın.<br>Örneğin: `<license type="expression">MIT</license>`.
+SPDX lisans ifadesi veya genellikle nuget.org gibi kullanıcı arabirimleri gösterilen paket içindeki bir lisans dosyasının yolu. Paket MIT veya BSD-2-yan gibi ortak bir lisans kapsamında lisans ilişkili kullanırsanız [SPDX lisans tanımlayıcısı](https://spdx.org/licenses/). Örneğin:
 
-Tam listesi sunulmaktadır [SPDX lisans tanımlayıcıları](https://spdx.org/licenses/). NuGet.org yalnızca OSI kabul eder veya kullanırken onaylanan FSF lisans türü ifadesi lisansı.
+`<license type="expression">MIT</license>`
 
-Paketinizi altında birden çok ortak lisansları lisanslanmıştır, kullanarak bir bileşik lisans belirtebilirsiniz [SPDX ifadesi söz dizimi sürümü 2.0](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60).<br>Örneğin: `<license type="expression">BSD-2-Clause OR MIT</license>`.
+> [!Note]
+> NuGet.org yalnızca açık kaynak girişim veya ücretsiz Software Foundation tarafından onaylanan lisans ifadeleri kabul eder.
 
-SPDX tanımlayıcı atanmamış lisans kullandığınız ya da özel bir lisanstır, bir dosya paketini (yalnızca `.txt` veya `.md`) lisans metni. Örneğin:
+Paketinizi altında birden çok ortak lisansları lisanslanmıştır, kullanarak bir bileşik lisans belirtebilirsiniz [SPDX ifadesi söz dizimi sürümü 2.0](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60). Örneğin:
+
+`<license type="expression">BSD-2-Clause OR MIT</license>`
+
+Lisans ifadeleri tarafından desteklenmeyen özel lisans kullanırsanız, paketleyebilir bir `.txt` veya `.md` Lisans'ın metin dosyası. Örneğin:
+
 ```xml
 <package>
   <metadata>
@@ -140,30 +147,41 @@ Kullanıcı Arabirimi ekranı pakette için simge olarak kullanılacak bir URL s
 
 #### <a name="requirelicenseacceptance"></a>RequireLicenseAcceptance
 İstemci paketi yüklemeden önce paket lisansını kabul etmek için tüketici sor olup olmadığını belirten bir Boole değeri.
+
 #### <a name="developmentdependency"></a>DevelopmentDependency
 *(2.8+)* Paket olup olmadığını belirten bir Boole değeri, bir geliştirme-yalnızca-paket bağımlılık diğer paketleri olarak eklenmesini engelleyen bağımlılık olarak işaretlenir. PackageReference (NuGet 4.8 +) bu bayrağı Ayrıca, derleme zamanı varlıklar derlemeden dışladığı anlamına gelir. Bkz: [PackageReference DevelopmentDependency desteği](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference)
+
 #### <a name="summary"></a>özet
 Kullanıcı Arabirimi ekranı için paket kısa bir açıklaması. Atlanırsa, kesilmiş bir sürümünü `description` kullanılır.
+
 #### <a name="releasenotes"></a>ReleaseNotes
 *(1.5+)* Kullanıcı arabiriminde gibi sık kullanılan paketin bu sürümde yapılan değişikliklerin bir açıklaması **güncelleştirmeleri** sekmesini, Visual Studio Paket Yöneticisi ve Paket açıklaması yerine.
+
 #### <a name="copyright"></a>telif hakkı
 *(1.5+)* Ayrıntıları paketi için telif hakkı.
+
 #### <a name="language"></a>dil
 Paket için yerel ayar kimliği. Bkz: [yerelleştirilmiş paketler oluşturma](../create-packages/creating-localized-packages.md).
+
 #### <a name="tags"></a>etiketler
 Etiketleri ve arama ve filtreleme yoluyla paketleri paket ve ürettiği bulunabilirliğini tanımlayan anahtar sözcükleri boşlukla ayrılmış listesi. 
+
 #### <a name="serviceable"></a>tutulabilmesi 
 *(3.3+)* Yalnızca iç NuGet için kullanın.
+
 #### <a name="repository"></a>depo
 Depo meta verileri, dört isteğe bağlı özniteliklerden oluşan: *türü* ve *url* *(4.0 +)* , ve *dal* ve  *işleme* *(4.6 +)* . Bu öznitelikler, alma olasılığı ile oluşturulan depo .nupkg eşlemek izin tek tek bir dalı veya da paket yerleşik işleme olarak ayrıntılı. Bu, doğrudan bir sürüm denetim yazılımı tarafından çağrılabilen genel kullanıma açık bir url olmalıdır. Bu bilgisayar için tasarlanmıştır olarak html sayfasından olmamalıdır. Proje sayfasına bağlamak için kullanın `projectUrl` , bunun yerine alan.
 
 #### <a name="minclientversion"></a>MinClientVersion
 Nuget.exe ve Visual Studio Paket Yöneticisi tarafından zorlanan, bu paketi yüklemek NuGet istemci en düşük sürümünü belirtir. Bu paket belirli özelliklere bağımlı olduğunda kullanılır `.nuspec` belirli bir NuGet istemcisi sürümünde eklenen dosya. Örneğin, bir paketini kullanarak `developmentDependency` özniteliği için "2.8" belirtmelidir `minClientVersion`. Benzer şekilde, bir paketini kullanarak `contentFiles` öğesi (sonraki bölüme bakın) ayarlamalıdır `minClientVersion` "3.3" için. Bu bayrak, 2.5 önce NuGet istemcileri algılanmadığı için de unutmayın bunlar *her zaman* ne olursa olsun paketi yüklemek Reddet `minClientVersion` içerir.
 
+#### <a name="title"></a>title
+Bazı kullanıcı Arabiriminde kullanılabilen paket İnsan dostu başlık görüntülenir. (nuget.org ve Visual Studio'da Paket Yöneticisi başlığını gösterme)
+
 #### <a name="collection-elements"></a>Koleksiyon öğeleri
 
 #### <a name="packagetypes"></a>PackageTypes
-*(3.5 +)*  Sıfır veya daha fazla koleksiyonu `<packageType>` dışında geleneksel bağımlılık paket, paketin türünü belirleyen öğeleri. Her bir packageType öznitelikleri *adı* ve *sürüm*. Bkz: [ayar paket türü](../create-packages/creating-a-package.md#setting-a-package-type).
+*(3.5 +)*  Sıfır veya daha fazla koleksiyonu `<packageType>` dışında geleneksel bağımlılık paket, paketin türünü belirleyen öğeleri. Her bir packageType öznitelikleri *adı* ve *sürüm*. Bkz: [ayar paket türü](../create-packages/set-package-type.md).
 #### <a name="dependencies"></a>bağımlılıklar
 Sıfır veya daha fazla koleksiyonu `<dependency>` paket için bağımlılıkları belirtme öğeleri. Her bir bağımlılığı özniteliklerini *kimliği*, *sürüm*, *dahil* (3.x+) ve *hariç* (3.x+). Bkz: [bağımlılıkları](#dependencies-element) aşağıda.
 #### <a name="frameworkassemblies"></a>frameworkAssemblies

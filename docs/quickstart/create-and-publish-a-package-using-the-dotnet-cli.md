@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: 051fcc355fb78c0ab208125c2295b6316236fd46
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 4e96d9969c8b4570ee69501d6529986f891ea4dc
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426356"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842603"
 ---
 # <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>Hızlı Başlangıç: Bir paketi (dotnet CLI) oluşturma ve yayımlama
 
@@ -18,7 +18,7 @@ Bir .NET sınıf kitaplığı'ndan bir NuGet paketi oluşturmak ve nuget.org kul
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-1. Yükleme [.NET Core SDK'sı](https://www.microsoft.com/net/download/), içeren `dotnet` CLI.
+1. Yükleme [.NET Core SDK'sı](https://www.microsoft.com/net/download/), içeren `dotnet` CLI. Dotnet CLI herhangi bir .NET Core ile otomatik olarak yüklenir, Visual Studio 2017'de başlayarak, iş yüklerini ilgili.
 
 1. [Nuget.org üzerindeki bir ücretsiz hesaba kaydolun](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) zaten yoksa. Yeni bir hesap oluşturmadan bir onay e-posta gönderir. Bir paketi karşıya yükleyebilmeniz, hesap onaylamanız gerekir.
 
@@ -106,7 +106,7 @@ Sonra bir `.nupkg` dosyası yayımladığınızda, nuget.org kullanarak `dotnet 
 - [Paket oluşturma](../create-packages/creating-a-package.md)
 - [Paket Yayımlama](../nuget-org/publish-a-package.md)
 - [Yayın öncesi paketleri](../create-packages/Prerelease-Packages.md)
-- [Birden çok hedef çerçeve desteği](../create-packages/supporting-multiple-target-frameworks.md)
+- [Birden çok hedef çerçeveyi destekleme](../create-packages/supporting-multiple-target-frameworks.md)
 - [Paket sürümü oluşturma](../reference/package-versioning.md)
 - [Yerelleştirilmiş paketler oluşturma](../create-packages/creating-localized-packages.md)
 - [Sembol paketleri oluşturma](../create-packages/symbol-packages-snupkg.md)

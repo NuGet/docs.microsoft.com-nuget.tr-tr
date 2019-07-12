@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: a28b29614dfe5abdeb24438b3451d96634a120db
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: d0d25cb6e21f6d0d42389e08340b6f1e1baf8a64
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551448"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842512"
 ---
 # <a name="get-package-package-manager-console-in-visual-studio"></a>Get-Package (Visual Studio'da Paket Yöneticisi Konsolu)
 
-*Bu konu içindeki komut açıklar [NuGet Paket Yöneticisi Konsolu](package-manager-console.md) Windows üzerinde Visual Studio'da. Genel PowerShell Get-Package komutu için bkz: [PowerShell PackageManagement başvuru](/powershell/module/packagemanagement/?view=powershell-6).*
+*Bu konu içindeki komut açıklar [Paket Yöneticisi Konsolu](package-manager-console.md) Windows üzerinde Visual Studio'da. Genel PowerShell Get-Package komutu için bkz: [PowerShell PackageManagement başvuru](/powershell/module/packagemanagement/?view=powershell-6).*
 
 Yerel depoda yüklü paketler listesini alır, - ListAvailable anahtarla kullanıldığında bir paket kaynağından paketleri listeler veya güncelleştirme anahtarıyla birlikte kullanıldığında kullanılabilir güncelleştirmeleri listeler.
 
@@ -32,7 +32,7 @@ Parametre olmadan `Get-Package` varsayılan projede yüklü paketler listesini g
 
 | Parametre | Açıklama |
 | --- | --- |
-| Kaynak | Paket URL'si veya klasör yolu. Yerel klasör yol mutlak veya göreli geçerli klasörde olabilir. Atlanırsa, `Get-Package` seçili paket kaynağı arar. -ListAvailable ile nuget.org varsayılan olarak kullanıldığında. |
+| Source | Paket URL'si veya klasör yolu. Yerel klasör yol mutlak veya göreli geçerli klasörde olabilir. Atlanırsa, `Get-Package` seçili paket kaynağı arar. -ListAvailable ile nuget.org varsayılan olarak kullanıldığında. |
 | ListAvailable | Nuget.org için varsayılan bir paket kaynağından paketleri listeler. -PageSize ve/veya - ilk belirtilmediği sürece varsayılan olarak 50 paketler gösterilmektedir. |
 | Güncelleştirmeler | Paket kaynağından bir güncelleştirmenin kullanılabilir olduğu paketleri listeler. |
 | ProjectName | Yüklü paketleri alınmaya başlanacağı proje. Atlanırsa, tüm çözüm için projeleri döndürür yüklü. |
@@ -47,7 +47,7 @@ Hiçbiri bu parametre ardışık düzen giriş veya joker karakterler kabul edin
 
 ## <a name="common-parameters"></a>Ortak parametreleri
 
-`Get-Package` şunları desteklemektedir [ortak PowerShell parametrelerini](http://go.microsoft.com/fwlink/?LinkID=113216): hata ayıklama, hata eylemi, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, ayrıntılı, WarningAction ve WarningVariable.
+`Get-Package` şunları desteklemektedir [ortak PowerShell parametrelerini](http://go.microsoft.com/fwlink/?LinkID=113216): Hata ayıklama, hata eylemi, ErrorVariable, OutBuffer, OutVariable, ayrıntılı PipelineVariable, WarningAction ve WarningVariable.
 
 ## <a name="examples"></a>Örnekler
 

@@ -5,12 +5,12 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/03/2019
 ms.topic: conceptual
-ms.openlocfilehash: a8fd525f2446f9468664f1d80ef8808127a24be7
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 64f3a1978cd336064a77c9f3872357e65c37fc10
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67427643"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842353"
 ---
 # <a name="install-and-manage-packages-using-the-dotnet-cli"></a>Yükleme ve dotnet CLI kullanarak paketleri yönetme
 
@@ -95,6 +95,8 @@ NuGet paketinin en son sürümünü yükler kullandığınızda `dotnet add pack
 ## <a name="restore-packages"></a>Paketleri geri yükle
 
 Kullanım [dotnet restore](/dotnet/core/tools/dotnet-restore?tabs=netcore2x) komutu, proje dosyasında listelenen paketleri geri yükler (bkz [PackageReference](../consume-packages/package-references-in-project-files.md)). .NET Core 2.0 ve daha sonra geri yükleme ile otomatik olarak gerçekleştirilir `dotnet build` ve `dotnet run`. Bu NuGet 4.0 itibariyle, aynı kodu çalıştıran `nuget restore`.
+
+Olan diğer `dotnet` CLI komutları, ilk olarak bir komut satırı açın ve proje dosyanızı içeren dizine geçin.
 
 Bir paketi kullanarak geri yüklemek için `dotnet restore`:
 

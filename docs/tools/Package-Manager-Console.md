@@ -1,5 +1,5 @@
 ---
-title: Yükleme ve PowerShell kullanarak Visual Studio'da NuGet paketlerini Yönet
+title: Yükleme ve konsolu kullanarak Visual Studio'da NuGet paketlerini Yönet
 description: Paketlerle çalışmak için Visual Studio'da NuGet Paket Yöneticisi konsolu kullanarak yönelik yönergeler.
 author: karann-msft
 ms.author: karann
@@ -7,14 +7,14 @@ ms.date: 06/24/2019
 ms.topic: conceptual
 f1_keywords:
 - vs.nuget.packagemanager.console
-ms.openlocfilehash: 11ec25598d3110ba84dec5044642e205e13346af
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 91ab3859994e5ae738c6637219681ebbfc92d420
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426214"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842589"
 ---
-# <a name="install-and-manage-packages-using-powershell-in-visual-studio"></a>Yükleme ve Visual Studio'da PowerShell kullanarak paketleri yönetme
+# <a name="install-and-manage-packages-with-the-package-manager-console-in-visual-studio-powershell"></a>Yükleme ve paketleri (PowerShell) Visual Studio'da Paket Yöneticisi konsolu ile yönetme
 
 NuGet Paket Yöneticisi konsolu kullanmanıza olanak tanıyan [NuGet PowerShell komutlarını](../tools/powershell-reference.md) bulmak için yükleme, kaldırma ve NuGet paketlerini güncelleştirin. Konsolunu kullanarak, burada Paket Yöneticisi UI bir işlemi gerçekleştirmek için bir yol sağlamaz durumlarda gereklidir. Kullanılacak `nuget.exe` konsolunda, CLI komutları görmek [konsolunda nuget.exe CLI kullanarak](#using-the-nugetexe-cli-in-the-console).
 

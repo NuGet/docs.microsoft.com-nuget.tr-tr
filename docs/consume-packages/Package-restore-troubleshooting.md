@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3be8d1dad6552db2fc04b2f324145ac7ce86acb2
-ms.sourcegitcommit: b9a134a6e10d7d8502613f389f7d5f9b9e206ec8
+ms.openlocfilehash: 287237cf4041870c562a6a7f48f233d8fdc8ef33
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67467768"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842378"
 ---
 # <a name="troubleshooting-package-restore-errors"></a>Paket geri yükleme hatalarını giderme
 
-Bu makalede, paketleri ve bunların çözülmesine yönelik adımları geri yüklerken ortak hataları ele alınmaktadır. Paketleri geri yükleme ile ilgili tüm ayrıntılar için bkz. [paket geri yükleme](../consume-packages/package-restore.md#enable-and-disable-package-restore).
+Bu makalede, paketleri ve bunların çözülmesine yönelik adımları geri yüklerken ortak hataları ele alınmaktadır. Paketleri geri yükleme ile ilgili tüm ayrıntılar için bkz. [paket geri yükleme](../consume-packages/package-restore.md#enable-and-disable-package-restore-visual-studio).
 
 Buradaki yönergeleri sizin için işe yaramazsa [Lütfen Github'da sorun kaydedebilir](https://github.com/NuGet/docs.microsoft.com-nuget/issues) böylece biz kendi senaryonuza daha dikkatli bir şekilde inceleyebilir. "Is bu sayfa faydalı?" kullanmayın Bize daha fazla bilgi için sizinle olanağı vermez çünkü bu sayfada görünebilir denetimi.
 
@@ -29,7 +29,7 @@ Buradaki yönergeleri sizin için işe yaramazsa [Lütfen Github'da sorun kayded
 
 ![NuGet paket geri yükleme araç/seçenekler içinde etkinleştir](../consume-packages/media/restore-01-autorestoreoptions.png)
 
-Bu ayarlar da içinde değiştirilebilir, `NuGet.config` bakın; dosyası [onay](#consent) bölümü.
+Bu ayarlar da içinde değiştirilebilir, `NuGet.config` bakın; dosyası [onay](#consent) bölümü. Projenizi MSBuild tümleşik paket geri yükleme kullanan eski bir proje üzerinde çalışıyorsanız gerekebilir [geçirme](package-restore.md#migrate-to-automatic-package-restore-visual-studio) otomatik paket geri yükleme.
 
 <a name="missing"></a>
 
@@ -54,10 +54,10 @@ Hata, proje dosyanızı içeren paket konumlara mutlak yollar ve proje taşıyor
 Paketleri geri yüklemek için aşağıdaki yöntemlerden birini kullanın:
 
 - Proje dosyası taşıdıysanız, doğrudan paket başvuruları güncelleştirileceği dosyayı düzenleyin.
-- Visual Studio'da paket geri yükleme seçerek etkinleştirin **Araçlar > NuGet Paket Yöneticisi > Paket Yöneticisi Ayarları** menü komutu, her iki çalışma seçeneklerde ayarlama **paketi geri yüklemeyi**, seçerek **Tamam**. Daha sonra çözümü yeniden oluşturun.
-- .NET Core projeleri için çalıştırma `dotnet restore` veya `dotnet build` (otomatik olarak çalıştığı geri yükleme).
-- Komut satırında çalıştırın `nuget restore` (ile oluşturulan projeleri hariç `dotnet`, bu durumda kullanın `dotnet restore`).
-- PackageReference biçimini kullanarak projeleri ile komut satırında çalıştırın `msbuild -t:restore`.
+- (Visual Studio) Paket geri yükleme seçerek etkinleştirin **Araçlar > NuGet Paket Yöneticisi > Paket Yöneticisi Ayarları** menü komutu, her iki çalışma seçeneklerde ayarlama **paketi geri yüklemeyi**, seçerek **Tamam** . Daha sonra çözümü yeniden oluşturun.
+- (dotnet CLI) Komut satırı, projenizi içeren klasöre geçin ve ardından çalıştırın `dotnet restore` veya `dotnet build` (otomatik olarak çalıştığı geri yükleme).
+- (nuget.exe CLI) Komut satırı, projenizi içeren klasöre geçin ve ardından çalıştırın `nuget restore` (ile oluşturulan projeleri hariç `dotnet` hangi büyük/küçük harf kullanımıyla CLI `dotnet restore`).
+- (Projeleri Project.json'dan) Komut satırında çalıştırın `msbuild -t:restore`.
 
 Paket başarılı bir geri yüklemeden sonra mevcut olmalıdır *genel paketleri* klasör. PackageReference'ı kullanarak projeleri için bir geri yükleme yeniden oluşturmanız gerekir `obj/project.assets.json` dosya; kullanarak projeleri için `packages.config`, paket projesinin görünmelidir `packages` klasör. Şimdi, projeyi başarıyla oluşturmalısınız. Aksi halde [Github'da sorun kaydedebilir](https://github.com/NuGet/docs.microsoft.com-nuget/issues) biz size izleyecek şekilde.
 

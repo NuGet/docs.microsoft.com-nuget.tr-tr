@@ -3,33 +3,33 @@ title: Bir NuGet paketi oluşturma
 description: Ayrıntılı bir kılavuz tasarlama ve dosyaları ve sürüm oluşturma gibi temel karar noktaları da dahil olmak üzere bir NuGet paketi oluşturma işlemidir.
 author: karann-msft
 ms.author: karann
-ms.date: 05/24/2019
+ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: e3a40a521a3b16d9757ef1bbf2511a1537d8bddb
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 1dce8556448131c36680167fdc3605e4378b9178
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67425810"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842299"
 ---
-# <a name="creating-nuget-packages"></a>NuGet paketleri oluşturma
+# <a name="create-nuget-packages"></a>NuGet paketleri oluşturma
 
 Paketiniz yapar veya hangi kod içeren olursa olsun, CLI araçlarından birini ya da kullandığınız `nuget.exe` veya `dotnet.exe`, paylaşılan ve kullanılan bir bileşen herhangi bir sayıda diğer geliştiriciler tarafından bu işlevselliği paketlemek için. NuGet CLI araçlarını yüklemek için bkz: [Nuget'i yükle istemci araçları](../install-nuget-client-tools.md). Visual Studio otomatik olarak bir CLI aracı içerip içermediğini unutmayın.
 
-- SDK stili biçimini kullanan .NET Core ve .NET Standard projeleri için ([SDK özniteliği](/dotnet/core/tools/csproj#additions)), ve tüm diğer SDK stili projeleri NuGet doğrudan bir paketi oluşturmak için proje dosyasında bilgileri kullanır. Ayrıntılar için bkz [.NET standart paketleri oluşturma Visual Studio ile](../quickstart/create-and-publish-a-package-using-visual-studio.md) ve [NuGet paketi ve geri yükleme, MSBuild hedefleri](../reference/msbuild-targets.md).
+- .NET Core ve .NET Standard projeleri [SDK stilinde biçimi](../resources/check-project-format.md), ve tüm diğer SDK stili projeleri NuGet doğrudan bir paketi oluşturmak için proje dosyasında bilgileri kullanır. Ayrıntılı adımlar için bkz. [.NET standart paketleri oluşturma dotnet CLI ile](../quickstart/create-and-publish-a-package-using-the-dotnet-cli.md), [.NET standart paketleri oluşturma Visual Studio ile](../quickstart/create-and-publish-a-package-using-visual-studio.md) veya [NuGet paketi ve geri yükleme MSBuild olarak hedefleyen](../reference/msbuild-targets.md).
 
-- SDK stili projeleri için bir paketi oluşturmak için bu makalede açıklanan adımları izleyin.
+- SDK stili projeleri için genellikle .NET Framework projeleri, bir paketi oluşturmak için bu makalede açıklanan adımları izleyin. Adımları da izleyebilirsiniz [oluşturun ve bir .NET Framework Paketi Yayımlama](../quickstart/create-and-publish-a-package-using-visual-studio-net-framework.md) kullanarak bir paket oluşturmak için `nuget.exe` CLI ve Visual Studio.
 
 - Geçiş projeleri için `packages.config` için [PackageReference](../consume-packages/package-references-in-project-files.md), kullanın [msbuild - t: paketi](../reference/migrate-packages-config-to-package-reference.md#create-a-package-after-migration).
 
-Teknik terimlerle açıklamak gerekirse, bir NuGet paketi yalnızca ile adlandırılmış bir ZIP dosyası olduğu `.nupkg` uzantısı ve içerikleri belirli kuralları eşleşmesi. Bu konuda ayrıntılı bu kuralları karşılayan paket oluşturma işlemi açıklanmaktadır. Odaklanmış bir kılavuz için başvurmak [hızlı başlangıç: bir paketi oluşturma ve yayımlama](../quickstart/create-and-publish-a-package.md).
+Teknik terimlerle açıklamak gerekirse, bir NuGet paketi yalnızca ile adlandırılmış bir ZIP dosyası olduğu `.nupkg` uzantısı ve içerikleri belirli kuralları eşleşmesi. Bu konuda ayrıntılı bu kuralları karşılayan paket oluşturma işlemi açıklanmaktadır.
 
 Derlenmiş kodu (bütünleştirilmiş kodları), simge ve/veya bir paket olarak sunmak istediğiniz diğer dosyaları ile paketleme başlar (bkz [genel bakış ve iş akışı](overview-and-workflow.md)). Bu işlem, derleme veya derlenmiş bütünleştirilmiş kodların ve paketlerin eşitlenmiş şekilde tutmanızı sağlayacak bir proje dosyasında bilgilerden çizebilirsiniz ancak Aksi takdirde pakete Git dosyaları oluşturma bağımsızdır.
 
-> [!Note]
+> [!Important]
 > Bu konu, SDK stili projeleri, genellikle dışında .NET Core projeleri ve Visual Studio 2017 ve üzeri sürümleri ve NuGet 4.0 + kullanarak .NET Standard projeleri için geçerlidir.
 
-## <a name="deciding-which-assemblies-to-package"></a>Hangi derlemelerin paketini karar verme
+## <a name="decide-which-assemblies-to-package"></a>Hangi derlemelerin paketini karar verin
 
 En genel amaçlı paketleri diğer geliştiriciler kendi projelerinde kullanabileceğiniz bir veya daha fazla derlemeleri içerir.
 
@@ -41,7 +41,7 @@ En genel amaçlı paketleri diğer geliştiriciler kendi projelerinde kullanabil
 
 Aslında bir özel durum kaynaklardır. Bir projeye bir paketi yüklendiğinde, NuGet paket DLL'leri derleme başvurularını otomatik olarak ekler. *hariç* adlandırılmış olanlar `.resources.dll` yerelleştirilmiş yardımcı derlemeler (bkz: olarakkabuledilirçünkü[ Yerelleştirilmiş paketler oluşturma](creating-localized-packages.md)). Bu nedenle, kullanmaktan kaçının `.resources.dll` Aksi takdirde, gerekli paket kodu içeren dosyalar için.
 
-COM birlikte çalışma derlemelerini, ek izleme kitaplığınızı yönergeleri içeriyorsa [COM birlikte çalışma derlemelerini paketlerle yazma](#authoring-packages-with-com-interop-assemblies).
+COM birlikte çalışma derlemelerini, ek izleme kitaplığınızı yönergeleri içeriyorsa [COM birlikte çalışma derlemeleriyle paketleri oluşturma](author-packages-with-com-interop-assemblies.md).
 
 ## <a name="the-role-and-structure-of-the-nuspec-file"></a>Rol ve .nuspec dosyası yapısı
 
@@ -151,7 +151,7 @@ Tüm Git *package\version* klasörü, kopyalama `.nupkg` dosyasını bir `.zip` 
 > [!Note]
 > Oluştururken bir `.nuspec` bir Visual Studio projesinden bildirim paketi oluşturulduğunda, projeden bilgileriyle değiştirilir belirteçleri içerir. Bkz: [.nuspec bir Visual Studio projesi oluşturma](#from-a-visual-studio-project).
 
-## <a name="creating-the-nuspec-file"></a>.Nuspec dosyası oluşturma
+## <a name="create-the-nuspec-file"></a>.Nuspec dosyası oluşturma
 
 Tam bir bildirim oluşturmak genellikle başlar ile temel bir `.nuspec` aşağıdaki yöntemlerden biri aracılığıyla oluşturulan dosya:
 
@@ -228,7 +228,7 @@ Bu belirteç ile değiştirilir `AssemblyName` zaman paketleme sırasında proje
 
 Belirteçleri hafifletmek, sürüm numarası gibi önemli değerleri güncelleştirmek gerek `.nuspec` projeyi güncelleştirin. (Her zaman belirteçleri değişmez değer değerlerle isterseniz değiştirebilirsiniz). 
 
-Kullanılabilir olduğundan emin birkaç ek paketleme seçenekleri bir Visual Studio projesinde çalışırken açıklandığı Not [.nupkg dosyası oluşturmak için nuget paketi](#running-nuget-pack-to-generate-the-nupkg-file) daha sonra.
+Kullanılabilir olduğundan emin birkaç ek paketleme seçenekleri bir Visual Studio projesinde çalışırken açıklandığı Not [.nupkg dosyası oluşturmak için nuget paketi](#run-nuget-pack-to-generate-the-nupkg-file) daha sonra.
 
 #### <a name="solution-level-packages"></a>Çözüm düzeyinde paketleri
 
@@ -250,7 +250,7 @@ Atlarsanız \<paket adı\>, sonuçta elde edilen dosya `Package.nuspec`. Gibi bi
 
 Ortaya çıkan `.nuspec` ister değerler için yer tutucular içerir `projectUrl`. En son oluşturmak amacıyla kullanmadan önce dosyayı düzenlemek mutlaka `.nupkg` dosya.
 
-## <a name="choosing-a-unique-package-identifier-and-setting-the-version-number"></a>Benzersiz paket tanımlayıcısı seçme ve sürüm numarasını ayarlama
+## <a name="choose-a-unique-package-identifier-and-setting-the-version-number"></a>Benzersiz paket tanımlayıcısı ve sürüm numarasını ayarlama seçin
 
 Paket tanımlayıcısı (`<id>` öğesi) ve sürüm numarasını (`<version>` öğesi) pakette yer alan tam kodu, benzersiz şekilde tanımlamak için iki en önemli bildirim değerler.
 
@@ -262,7 +262,7 @@ Paket tanımlayıcısı (`<id>` öğesi) ve sürüm numarasını (`<version>` ö
 
 **Paket sürümü için en iyi uygulamalar:**
 
-- Genel olarak, bu kesinlikle gerekli olmasa da kitaplığı eşleşecek şekilde paketin sürümü ayarlayın. Bir paketi tek bir derleme sınırladığınızda ibarettir daha önce açıklandığı gibi budur [pakete hangi derlemelerin karar](#deciding-which-assemblies-to-package). Genel olarak, kendi NuGet Paket sürümü ile derleme sürümlerini bağımlılıkları çözümlenirken anlaştığından emin unutmayın.
+- Genel olarak, bu kesinlikle gerekli olmasa da kitaplığı eşleşecek şekilde paketin sürümü ayarlayın. Bir paketi tek bir derleme sınırladığınızda ibarettir daha önce açıklandığı gibi budur [pakete hangi derlemelerin karar](#decide-which-assemblies-to-package). Genel olarak, kendi NuGet Paket sürümü ile derleme sürümlerini bağımlılıkları çözümlenirken anlaştığından emin unutmayın.
 - Standart sürüm şeması kullanırken, NuGet sürüm oluşturma kuralları açıklandığı şekilde dikkate aldığınızdan emin olun [Paket sürümü oluşturma](../reference/package-versioning.md).
 
 > Aşağıdaki bir dizi kısa blog gönderileri da sürüm anlamak yararlıdır:
@@ -271,33 +271,7 @@ Paket tanımlayıcısı (`<id>` öğesi) ve sürüm numarasını (`<version>` ö
 > - [Bölüm 2: Çekirdek algoritması](http://blog.davidebbo.com/2011/01/nuget-versioning-part-2-core-algorithm.html)
 > - [3. Bölüm: Bağlama yönlendirmeleri aracılığıyla birleştirme](http://blog.davidebbo.com/2011/01/nuget-versioning-part-3-unification-via.html)
 
-## <a name="setting-a-package-type"></a>Ayar paket türü
-
-NuGet ile 3.5 +, paketleri ile belirli bir işaretlenebilir *paket türü* kullanım amacı belirtmek için. NuGet, önceki sürümleriyle oluşturulan tüm paketleri de dahil olmak üzere, bir tür ile işaretlenmemiş paketleri varsayılan `Dependency` türü.
-
-- `Dependency` türü paketler, kitaplıkları ve uygulamaları için derleme veya çalışma zamanı varlıklar eklemek ve (uyumlu olduklarından varsayılarak) herhangi bir proje türü yüklenebilir.
-
-- `DotnetCliTool` tür paketlerin uzantıları [.NET CLI](/dotnet/articles/core/tools/index) ve komut satırından çağrılır. Bu paketler, yalnızca .NET Core projelerinde yüklenebilir ve geri yükleme işlemleri üzerinde hiçbir etkisi yoktur. Bu proje başına uzantılar hakkında daha fazla ayrıntı kullanılabilir [.NET Core genişletilebilirlik](/dotnet/articles/core/tools/extensibility#per-project-based-extensibility) belgeleri.
-
-- Özel tür paketleri paket kimliği olarak aynı biçimi kurallara uyan bir rastgele tür tanımlayıcısı kullanın. Dışında herhangi türdeki `Dependency` ve `DotnetCliTool`, ancak Visual Studio'da NuGet Paket Yöneticisi tarafından tanınmıyor.
-
-Paket türlerinin ayarlanır `.nuspec` dosya. Geriye dönük için en iyi uyumluluk *değil* açıkça ayarlanmış `Dependency` yazın ve bunun yerine NuGet varsayılarak türü yok, bu tür üzerinde yararlanmayı belirtilir.
-
-- `.nuspec`: Paket türü içinde göstermek bir `packageTypes\packageType` düğümünde `<metadata>` öğesi:
-
-    ```xml
-    <?xml version="1.0" encoding="utf-8"?>
-    <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
-        <metadata>
-        <!-- ... -->
-        <packageTypes>
-            <packageType name="DotnetCliTool" />
-        </packageTypes>
-        </metadata>
-    </package>
-    ```
-
-## <a name="adding-a-readme-and-other-files"></a>Benioku ve diğer dosyaları ekleme
+## <a name="add-a-readme-and-other-files"></a>Benioku ve diğer dosyaları Ekle
 
 Pakete dahil edilecek dosyalar doğrudan belirtmek için kullanın `<files>` düğümünde `.nuspec` dosyası, hangi *izleyen* `<metadata>` etiketi:
 
@@ -327,7 +301,7 @@ Adlı bir dosya dahil ettiğinizde `readme.txt` paket kök dizininde, Visual Stu
 > [!Note]
 > Boş bir eklerseniz `<files>` düğümünde `.nuspec` dosya, NuGet içermez herhangi bir içerik paketinde ne olduğunu dışında `lib` klasör.
 
-## <a name="including-msbuild-props-and-targets-in-a-package"></a>MSBuild özellikler ve hedefler bir pakete dahil etme
+## <a name="include-msbuild-props-and-targets-in-a-package"></a>Bir pakete MSBuild özellikler ve hedefler
 
 Bazı durumlarda, derleme sırasında bir özel araç veya işlemin çalıştırma gibi paketinizi kullanan projelerdeki özel yapı hedefleri veya özellikleri eklemek isteyebilirsiniz. Dosya biçiminde yerleştirerek bunu `<package_id>.targets` veya `<package_id>.props` (gibi `Contoso.Utility.UsefulStuff.targets`) içinde `\build` proje klasörü.
 
@@ -367,27 +341,7 @@ MSBuild `.props` ve `.targets` arası framework'ü hedefleyen yerleştirilebilir
 
 İle NuGet 3.x hedefleri projeye eklenmez ancak bunun yerine kullanılabilir hale getirilir `project.lock.json`.
 
-## <a name="authoring-packages-with-com-interop-assemblies"></a>COM birlikte çalışma derlemelerini paketlerle yazma
-
-COM birlikte çalışma derlemelerini içeren paketleri uygun bir içermelidir [hedefler dosyası](#including-msbuild-props-and-targets-in-a-package) böylece doğru `EmbedInteropTypes` PackageReference biçimini kullanan projeler için meta veriler eklenir. Varsayılan olarak, `EmbedInteropTypes` meta verileri olduğundan her zaman tüm derlemeler için false PackageReference kullanıldığında, bu meta veriler, açıkça hedefler dosyası ekler. Çakışmaları önlemek için hedef adı benzersiz olmalıdır; İdeal olarak, paket adınızla ve katıştırılmış, değiştirilmesini olan derleme birleşimini kullanın `{InteropAssemblyName}` aşağıdaki örnekte bu değere sahip. (Ayrıca bkz: [NuGet.Samples.Interop](https://github.com/NuGet/Samples/tree/master/NuGet.Samples.Interop) bir örnek.)
-
-```xml
-<Target Name="Embedding**AssemblyName**From**PackageId**" AfterTargets="ResolveReferences" BeforeTargets="FindReferenceAssembliesForReferences">
-  <ItemGroup>
-    <ReferencePath Condition=" '%(FileName)' == '{InteropAssemblyName}' AND '%(ReferencePath.NuGetPackageId)' == '$(MSBuildThisFileName)' ">
-      <EmbedInteropTypes>true</EmbedInteropTypes>
-    </ReferencePath>
-  </ItemGroup>
-</Target>
-```
-
-Kullanırken dikkat `packages.config` yönetim biçimi paketlerinden derlemelerine başvurular ekleme oluyor NuGet ve Visual Studio için COM birlikte çalışma derlemeleri denetleyin ve ayarlamak `EmbedInteropTypes` proje dosyasındaki true. Bu durumda geçersiz kılınmış hedeflerdir.
-
-Ayrıca, varsayılan olarak [derleme varlıklar akan geçişli](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets). Geçişli bağımlılık gelen bir projeden projeye başvuru olarak çekildiğinde burada iş farklı bir şekilde açıklandığı yazılan paketler. Paket kullanıcısı PrivateAssets varsayılan değer, derleme içermeyecek şekilde değiştirerek akmasına izin verebilirsiniz.
-
-<a name="creating-the-package"></a>
-
-## <a name="running-nuget-pack-to-generate-the-nupkg-file"></a>Nuget paketi .nupkg dosyası oluşturmak için
+## <a name="run-nuget-pack-to-generate-the-nupkg-file"></a>Nuget paketinin .nupkg dosyası oluşturmak için
 
 Bir derleme veya kural tabanlı çalışma dizinini kullanarak, bir paket çalıştırarak oluşturun `nuget pack` ile `.nuspec` değiştirerek, dosya `<project-name>` , belirli bir dosya adına sahip:
 
@@ -441,7 +395,7 @@ Visual Studio projeleriyle ortak olan birkaç aşağıdaki seçenekler şunlard�
     nuget pack MyProject.csproj -symbols
     ```
 
-### <a name="testing-package-installation"></a>Test paketi yükleme
+### <a name="test-package-installation"></a>Test paketi yükleme
 
 Bir paket yayımlamadan önce genellikle bir projeye bir paket yükleme işlemini test etmek istediğiniz. Testleri emin mutlaka tüm düştüğünden kendi doğru yerde proje dosyaları.
 
@@ -465,6 +419,8 @@ Paketiniz yeteneklerini genişletmek veya aksi halde aşağıdaki konularda aç�
 - [Kaynak ve yapılandırma dosyalarını dönüşümleri](../create-packages/source-and-config-file-transformations.md)
 - [Yerelleştirme](../create-packages/creating-localized-packages.md)
 - [Yayın öncesi sürümleri](../create-packages/prerelease-packages.md)
+- [Paket türünü ayarla](../create-packages/set-package-type.md)
+- [COM birlikte çalışma derlemeleriyle paketleri oluşturma](../create-packages/author-packages-with-COM-interop-assemblies.md)
 
 Son olarak, dikkat edilmesi gereken ek paket türü vardır:
 

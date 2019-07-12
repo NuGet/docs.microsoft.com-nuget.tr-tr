@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: overview
-ms.openlocfilehash: 087bb043ba4b388b9de6d94cd838915a2e7247f4
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: e11eed5c614a7634fa578ebc84c3ab2068522fe2
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426140"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842198"
 ---
 # <a name="an-introduction-to-nuget"></a>NuGet giriş
 
@@ -45,8 +45,8 @@ Destek barındırma ek olarak, NuGet çeşitli oluşturucuları ve tüketiciler 
 
 | Aracı | Platformlar | İlgili senaryolar | Açıklama |
 | --- | --- | --- | --- |
-| [dotnet CLI](consume-packages/install-use-packages-dotnet-cli.md) | Tümü | Oluşturma, tüketim | CLI araç ve SDK stili için .NET Core ve .NET standart kitaplıkları, .NET Framework'ü hedefleyen projeleri (bkz [SDK özniteliği](/dotnet/core/tools/csproj#additions)). Belirli NuGet CLI, .NET Core araç zincirinizi içinde doğrudan özellikleri sağlar. NuGet CLI olduğu gibi dotnet CLI Visual Studio projeleri ile etkileşime girmez. |
-| [nuget.exe CLI](consume-packages/install-use-packages-nuget-cli.md) | Tümü | Oluşturma, tüketim | .NET Framework kitaplıkları ve .NET standart kitaplıkları hedef SDK stili projeleri için CLI aracı. Özellikle bazı Tüketiciler, yalnızca uygulama paketini creators uygulama bazı komutlarla tüm NuGet yetenekleri sağlar ve diğerleri hem de uygulama. Oluşturucuları kullanma gibi paket `nuget pack` çeşitli derlemeler ve ilişkili dosyaları bir paket oluşturun, tüketicilerin kullanım paket için komutu `nuget install` kullanan bir proje klasörü ve herkesin paketlerini içerecek şekilde `nuget config` NuGet yapılandırmayı ayarlamak için değişkenler. Bir platformdan aracı olarak NuGet CLI'yı Visual Studio projeleri ile etkileşime girmez. |
+| [dotnet CLI](consume-packages/install-use-packages-dotnet-cli.md) | Tümü | Oluşturma, tüketim | CLI aracı ve .NET Core ve .NET standart kitaplıkları için [SDK stili projeleri](resources/check-project-format.md) .NET Framework'ü hedefleyen projeleri. Belirli NuGet CLI, .NET Core araç zincirinizi içinde doğrudan özellikleri sağlar. NuGet CLI olduğu gibi dotnet CLI Visual Studio projeleri ile etkileşime girmez. |
+| [nuget.exe CLI](consume-packages/install-use-packages-nuget-cli.md) | Tümü | Oluşturma, tüketim | .NET Framework kitaplıkları için CLI aracı ve [SDK stili projeleri](resources/check-project-format.md) .NET standart kitaplıkları hedefleyin. Özellikle bazı Tüketiciler, yalnızca uygulama paketini creators uygulama bazı komutlarla tüm NuGet yetenekleri sağlar ve diğerleri hem de uygulama. Oluşturucuları kullanma gibi paket `nuget pack` çeşitli derlemeler ve ilişkili dosyaları bir paket oluşturun, tüketicilerin kullanım paket için komutu `nuget install` kullanan bir proje klasörü ve herkesin paketlerini içerecek şekilde `nuget config` NuGet yapılandırmayı ayarlamak için değişkenler. Bir platformdan aracı olarak NuGet CLI'yı Visual Studio projeleri ile etkileşime girmez. |
 | [Paket Yöneticisi Konsolu](tools/package-manager-console.md) | Windows üzerinde Visual Studio | Tüketim | Sağlar [PowerShell komutlarını](tools/Powershell-Reference.md) yükleme ve Visual Studio projelerinde paketleri yönetme. |
 | [Paket Yöneticisi UI](tools/package-manager-ui.md) | Windows üzerinde Visual Studio | Tüketim | Yükleme ve Visual Studio projelerinde paketler yönetmeye yönelik kullanımı kolay bir kullanıcı Arabirimi sağlar. |
 | [NuGet UI'ı yönetme](/visualstudio/mac/nuget-walkthrough) | Mac için Visual Studio | Tüketim | Yükleme ve Mac proje Visual Studio'da paketlerini yönetmek için kullanımı kolay bir kullanıcı Arabirimi sağlar. |

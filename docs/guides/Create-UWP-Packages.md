@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/21/2017
 ms.topic: tutorial
-ms.openlocfilehash: 52f2057f7d1012b75bba9e8730eacffd99adacfa
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 344c8d764180d0f33c1bce77b721e3657297e74e
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426869"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842119"
 ---
 # <a name="create-uwp-packages"></a>UWP paketleri oluşturma
 
@@ -58,7 +58,7 @@ Bu izlenecek yolda, hem yönetilen hem de yerel projeleri için kullanılabilir 
     nuget spec
     ```
 
-1. Açık `ImageEnhancer.nuspec` bir düzenleyicide ve aşağıdaki ile eşleşecek şekilde güncelleştirmeniz YOUR_NAME uygun bir değerle değiştirin. `<id>` Değeri, özellikle benzersiz olmalıdır nuget.org arasında (açıklanan adlandırma kuralları bakın [paket oluşturma](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number)). Ayrıca, yazar ve açıklama etiketleri de güncelleştirmeniz gerekir veya paket adımı sırasında bir hata alıyorsunuz unutmayın.
+1. Açık `ImageEnhancer.nuspec` bir düzenleyicide ve aşağıdaki ile eşleşecek şekilde güncelleştirmeniz YOUR_NAME uygun bir değerle değiştirin. `<id>` Değeri, özellikle benzersiz olmalıdır nuget.org arasında (açıklanan adlandırma kuralları bakın [paket oluşturma](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number)). Ayrıca, yazar ve açıklama etiketleri de güncelleştirmeniz gerekir veya paket adımı sırasında bir hata alıyorsunuz unutmayın.
 
     ```xml
     <?xml version="1.0"?>
@@ -256,5 +256,5 @@ Paketiniz diğer geliştiriciler için kullanılabilir yapmak için yönergeleri
 - [Sembol paketleri](../create-packages/symbol-packages.md)
 - [Paket sürümü oluşturma](../reference/package-versioning.md)
 - [Birden çok .NET Framework sürümleri destekleme](../create-packages/supporting-multiple-target-frameworks.md)
-- [Bir pakete MSBuild özellikler ve hedefler](../create-packages/creating-a-package.md#including-msbuild-props-and-targets-in-a-package)
+- [Bir pakete MSBuild özellikler ve hedefler](../create-packages/creating-a-package.md#include-msbuild-props-and-targets-in-a-package)
 - [Yerelleştirilmiş Paketler Oluşturma](../create-packages/creating-localized-packages.md)

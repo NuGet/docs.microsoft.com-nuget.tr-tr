@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: c2fc11c0f5dd5d98c40c8b97f9d5a72c4a334b79
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: fd846632e7a1f5c49fa72d75b18e51cfc7539949
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67427604"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67841951"
 ---
 # <a name="nugetorg-frequently-asked-questions"></a>NuGet.org sık sorulan sorular
 
@@ -252,13 +252,15 @@ Verilen adımları [nuget.org hesabınızı silme](#how-to-delete-my-nugetorg-ac
 
 Hesabınızı silmek için lütfen tek sahibi olduğu tüm paketler sahipliğini aktarma öneririz unutmayın. Daha fazla bilgi edinebilirsiniz [paketinin sahiplerini yönetme](https://docs.microsoft.com/en-us/nuget/create-packages/publish-a-package#managing-package-owners-on-nugetorg) yapmak nasıl. Bu da bize isteğiniz hızlandırmak yardımcı olur.
 
+Hesabınız bir kuruluşun dönüştürmek için arıyorsanız, verilen adımları izleyin [nuget.org Hesabımı kuruluş dönüştürme](#how-to-transform-my-nugetorg-account-to-an-organization).
+
 > [!Important]
 > Aşağıda, bir kullanıcının silinmesi neden olur:
+>  1. Kullanıcı adınızı ayrılmış ve hiç kimse ayrı bir hesap veya bir kuruluş hesabı oluşturmak için yeniden kullanabilmek için olacaktır
 >  1. İlişkili API anahtarları iptal edin. 
->  2. Herhangi bir alt paket sahibi olarak hesabı kaldırın.
->  3. Bu Hesapla daha önce mevcut tüm kimliği öneki ayırmaları ilişkisini kaldırın.
->  4. Hesap kuruluş üyesi olarak kaldırın.
->  5. Adınızı ayrılmış ve hiç kimse tekrar bizim izinler olmadan yeniden kullanmanız mümkün olacaktır.
+>  1. Herhangi bir alt paket sahibi olarak hesabı kaldırın.
+>  1. Bu Hesapla daha önce mevcut tüm kimliği öneki ayırmaları ilişkisini kaldırın.
+>  1. Hesap kuruluş üyesi olarak kaldırın.
 
 Hesap silme işlemine devam etmek için aşağıdaki adımları izleyin.
 1. [Oturum açma nuget.org'da](https://www.nuget.org/users/account/LogOn) silmek istediğiniz hesapla.

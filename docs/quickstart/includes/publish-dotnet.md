@@ -1,6 +1,14 @@
+---
+ms.openlocfilehash: bb39e1056ea97ecf1ac70d7fd8e79e65dc04655c
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842133"
+---
 1. Değiştirmek için içeren klasör `.nupkg` dosya.
 
-1. Paketinizin adını belirterek ve API anahtarınızı anahtar değerini değiştirerek aşağıdaki komutu çalıştırın:
+1. Paketinizin adını (benzersiz paket kimliği) belirtme ve API anahtarınızı anahtar değerini değiştirerek aşağıdaki komutu çalıştırın:
 
     ```cli
     dotnet nuget push AppLogger.1.0.0.nupkg -k qz2jga8pl3dvn2akksyquwcs9ygggg4exypy3bhxy6w6x6 -s https://api.nuget.org/v3/index.json

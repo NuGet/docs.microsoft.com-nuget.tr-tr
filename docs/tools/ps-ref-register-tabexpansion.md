@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 98171c598bd4a3468bd23e2d6060e267c38021b4
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 8adb80af85e2e32fa8c35e5272cf90ff0c0ddcbb
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546611"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842489"
 ---
 # <a name="register-tabexpansion-package-manager-console-in-visual-studio"></a>Register-TabExpansion (Visual Studio'da Paket Yöneticisi Konsolu)
 
-*Yalnızca içinde kullanılabilir [NuGet Paket Yöneticisi Konsolu](package-manager-console.md) Windows üzerinde Visual Studio'da.*
+*Yalnızca içinde kullanılabilir [Paket Yöneticisi Konsolu](package-manager-console.md) Windows üzerinde Visual Studio'da.*
 
 Belirtilen komut parametreleri için bir sekme genişletmeyi sekmesini komutu girerken kullanıldığında, söz konusu parametresi için kullanılabilir seçenekler olarak genişletilmiş değerlerin göründüğü şekilde kaydeder. Komut için önceki tüm genişletmeleri üzerine yazılır.
 
@@ -35,7 +35,7 @@ Hiçbiri bu parametre ardışık düzen giriş veya joker karakterler kabul edin
 
 ## <a name="common-parameters"></a>Ortak parametreleri
 
-`Register-TabExpansion` şunları desteklemektedir [ortak PowerShell parametrelerini](http://go.microsoft.com/fwlink/?LinkID=113216): hata ayıklama, hata eylemi, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, ayrıntılı, WarningAction ve WarningVariable.
+`Register-TabExpansion` şunları desteklemektedir [ortak PowerShell parametrelerini](http://go.microsoft.com/fwlink/?LinkID=113216): Hata ayıklama, hata eylemi, ErrorVariable, OutBuffer, OutVariable, ayrıntılı PipelineVariable, WarningAction ve WarningVariable.
 
 ## <a name="examples"></a>Örnekler
 

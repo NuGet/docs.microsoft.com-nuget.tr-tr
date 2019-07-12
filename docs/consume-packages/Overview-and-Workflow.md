@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/22/2018
 ms.topic: conceptual
-ms.openlocfilehash: eeae62a09a9f405d27cd113ff586393f6305ba47
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 4cfc2fde08b240288851b87a391dc42c1ac8ecaf
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426706"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842314"
 ---
 # <a name="package-consumption-workflow"></a>Paket tüketim iş akışı
 
@@ -49,5 +49,5 @@ NuGet paketlerini indirilir ve aşağıdaki tabloda yöntemlerden birini kullana
 | --- | --- |
 | [dotnet.exe CLI](install-use-packages-dotnet-cli.md) | (Tüm platformlar) CLI araç ve SDK stili için .NET Core ve .NET standart kitaplıkları, .NET Framework'ü hedefleyen projeleri (bkz [SDK özniteliği](/dotnet/core/tools/csproj#additions)). Tarafından tanımlanan paket alır \<package_name\> ve proje dosyasına bir başvuru ekler. Ayrıca alır ve bağımlılıkları yükler. |
 | Visual Studio | (Windows ve Mac) Bir kullanıcı Arabirimi üzerinden göz atabilir, seçin ve belirtilen paket kaynağı bir projeden paketler ve bağımlılıkları yükleme sağlar. Yüklü paketleri başvuruları proje dosyasına ekler.<ul><li>[Yükleme ve Visual Studio kullanarak paketleri yönetme](../tools/package-manager-ui.md)</li><li>[Bir NuGet paketini projenize (Mac) dahil olmak üzere](/visualstudio/mac/nuget-walkthrough)</li></ul> |
-| [Visual Studio'da PowerShell](../tools/package-manager-console.md) | (Yalnızca Windows) Alır ve tarafından tanımlanan paket yükler \<package_name\> çözümde belirtilen projesine seçili kaynaktan ardından proje dosyasına bir başvuru ekler. Ayrıca alır ve bağımlılıkları yükler. |
+| [Visual Studio'da Paket Yöneticisi Konsolu](../tools/package-manager-console.md) | (Yalnızca Windows) Alır ve tarafından tanımlanan paket yükler \<package_name\> çözümde belirtilen projesine seçili kaynaktan ardından proje dosyasına bir başvuru ekler. Ayrıca alır ve bağımlılıkları yükler. |
 | [nuget.exe CLI](install-use-packages-dotnet-cli.md) | (Tüm platformlar) .NET Framework kitaplıkları ve .NET standart kitaplıkları hedef SDK stili projeleri için CLI aracı. Tarafından tanımlanan paket alır \<package_name\> ve içeriğini geçerli dizin bir klasörde genişletir; listelenen tüm paketleri de alabilirsiniz bir `packages.config` dosya. Ayrıca alır ve bağımlılıkları yükler, ancak proje dosyaları için hiçbir değişiklik yapar veya `packages.config`. |

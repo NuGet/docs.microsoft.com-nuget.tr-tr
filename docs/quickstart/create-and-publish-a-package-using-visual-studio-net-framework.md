@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/13/2018
 ms.topic: quickstart
-ms.openlocfilehash: efdaa0128d47f948c86c3cc83d6a332410cbf99f
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: bf561d36a06bf42c029eb96ff1b7930abffa4c0a
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426331"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842063"
 ---
 # <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>Hızlı Başlangıç: Visual Studio (.NET Framework, Windows) kullanarak bir paketi oluşturma ve yayımlama
 
@@ -145,7 +145,7 @@ Sonra bir `.nupkg` dosyası yayımladığınızda, nuget.org kullanarak `nuget.e
 
 ### <a name="publish-with-nuget-push"></a>Nuget itme ile yayımlama
 
-1. Değiştirmek için içeren klasör `.nupkg` dosya.
+1. Bir komut satırı açın ve değiştirmek için içeren klasör `.nupkg` dosya.
 
 1. Paketinizin adını belirterek ve API anahtarınızı anahtar değerini değiştirerek aşağıdaki komutu çalıştırın:
 
@@ -177,6 +177,6 @@ Bkz: [nuget anında iletme](../tools/cli-ref-push.md).
 - [Paket oluşturma](../create-packages/creating-a-package.md)
 - [Paket Yayımlama](../nuget-org/publish-a-package.md)
 - [Yayın öncesi paketleri](../create-packages/Prerelease-Packages.md)
-- [Birden çok hedef çerçeve desteği](../create-packages/supporting-multiple-target-frameworks.md)
+- [Birden çok hedef çerçeveyi destekleme](../create-packages/supporting-multiple-target-frameworks.md)
 - [Paket sürümü oluşturma](../reference/package-versioning.md)
 - [Yerelleştirilmiş paketler oluşturma](../create-packages/creating-localized-packages.md)

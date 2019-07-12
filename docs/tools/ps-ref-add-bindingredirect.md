@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: dec7db04c5cf239863b9c00e9f5bc0dde42c7e47
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: a5f318ddfb2bb8498ab3e608f8036be05dcb0706
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551663"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842534"
 ---
 # <a name="add-bindingredirect-package-manager-console-in-visual-studio"></a>Add-BindingRedirect (Visual Studio'da Paket Yöneticisi Konsolu)
 
-*Yalnızca içinde kullanılabilir [NuGet Paket Yöneticisi Konsolu](package-manager-console.md) Windows üzerinde Visual Studio'da.*
+*Yalnızca içinde kullanılabilir [Paket Yöneticisi Konsolu](package-manager-console.md) Windows üzerinde Visual Studio'da.*
 
 Çıkış yolu için bir proje içindeki tüm derlemeleri inceler ve gerektiğinde uygulama veya web yapılandırma dosyasına bağlama yeniden yönlendirmeleri ekler. Bu komut, bir paket yükleme sırasında otomatik olarak çalıştırılır.
 
@@ -36,7 +36,7 @@ Hiçbiri bu parametre ardışık düzen giriş veya joker karakterler kabul edin
 
 ## <a name="common-parameters"></a>Ortak parametreleri
 
-`Add-BindingRedirect` şunları desteklemektedir [ortak PowerShell parametrelerini](http://go.microsoft.com/fwlink/?LinkID=113216): hata ayıklama, hata eylemi, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, ayrıntılı, WarningAction ve WarningVariable.
+`Add-BindingRedirect` şunları desteklemektedir [ortak PowerShell parametrelerini](http://go.microsoft.com/fwlink/?LinkID=113216): Hata ayıklama, hata eylemi, ErrorVariable, OutBuffer, OutVariable, ayrıntılı PipelineVariable, WarningAction ve WarningVariable.
 
 ## <a name="examples"></a>Örnekler
 

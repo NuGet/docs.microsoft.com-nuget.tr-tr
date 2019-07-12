@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 02/02/2018
 ms.topic: tutorial
-ms.openlocfilehash: af0c42853a9e407557a010ff2793406499b4b2ef
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 1198a781543e581f55740cc0ae5a212d3f8a8b61
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426874"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842450"
 ---
 # <a name="create-net-standard-and-net-framework-packages-with-visual-studio-2015"></a>Visual Studio 2015 ile .NET Standard ve .NET Framework paketleri oluşturma
 
@@ -68,7 +68,7 @@ Bu kılavuzda, .NET Standard kitaplığı 1.4 hedefleyen bir NuGet paketi veya .
     nuget spec
     ```
 
-1. Açık `AppLogger.nuspec` bir düzenleyicide ve aşağıdaki ile eşleşecek şekilde güncelleştirmeniz YOUR_NAME uygun bir değerle değiştirin. `<id>` Değeri, özellikle benzersiz olmalıdır nuget.org arasında (açıklanan adlandırma kuralları bakın [paket oluşturma](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number). Ayrıca, yazar ve açıklama etiketleri de güncelleştirmeniz gerekir veya paket adımı sırasında bir hata alıyorsunuz unutmayın.
+1. Açık `AppLogger.nuspec` bir düzenleyicide ve aşağıdaki ile eşleşecek şekilde güncelleştirmeniz YOUR_NAME uygun bir değerle değiştirin. `<id>` Değeri, özellikle benzersiz olmalıdır nuget.org arasında (açıklanan adlandırma kuralları bakın [paket oluşturma](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number). Ayrıca, yazar ve açıklama etiketleri de güncelleştirmeniz gerekir veya paket adımı sırasında bir hata alıyorsunuz unutmayın.
 
     ```xml
     <?xml version="1.0"?>
@@ -167,7 +167,7 @@ Unutmayın `pack` Mac OS X üzerinde Mono 4.4.2 gerektirir ve Linux sistemlerind
 
 - [.nuspec başvurusu](../reference/nuspec.md)
 - [Birden çok .NET framework sürümleri destekleme](../create-packages/supporting-multiple-target-frameworks.md)
-- [Bir pakete MSBuild özellikler ve hedefler](../create-packages/creating-a-package.md#including-msbuild-props-and-targets-in-a-package)
+- [Bir pakete MSBuild özellikler ve hedefler](../create-packages/creating-a-package.md#include-msbuild-props-and-targets-in-a-package)
 - [Yerelleştirilmiş paketler oluşturma](../create-packages/creating-localized-packages.md)
 - [Sembol paketleri](../create-packages/symbol-packages.md)
 - [Paket sürümü oluşturma](../reference/package-versioning.md)

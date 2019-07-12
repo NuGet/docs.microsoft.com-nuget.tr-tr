@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/26/2017
 ms.topic: conceptual
-ms.openlocfilehash: a285650034c99026e34fcda398ca7ced4855e40a
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 58ad05cb854c8f7233d90d03c1b320f8797ca2ab
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67425724"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842397"
 ---
 # <a name="package-creation-workflow"></a>Paket oluşturma iş akışı
 
@@ -21,9 +21,7 @@ Bir paket, yalnızca kendi herhangi bir kod içeren olmadan herhangi bir sayıda
 > [!Note]
 > Diğer geliştiriciler tarafından kullanılmaya bir paket oluşturduğunuzda, bunlar iş üzerinde bir bağımlılık sürüp anlamak önemlidir. Bu nedenle, oluşturma ve bir paket yayımlama hataları düzeltiyor ve diğer güncelleştirmeler yapma taahhüdü ayrıca gelir veya çok az yapmayı paketi olarak kullanılabilir açık kaynak diğerleri tutmak için yardımcı olabilmemiz için.
 
-Her durumda, paket oluşturma hangi derlemelerin ve diğer dosyaları paketlemek için karar ile başlar. Olarak adlandırılan bir bildirim dosyası oluşturup bir `.nuspec` tanımlayıcısını, sürüm numarası, telif hakkı bilgileri, MSBuild özellikler ve hedefler ve çok daha fazlası ile birlikte paket içeriğini açıklamak için dosyası.
-
-Ne zaman uygun klasörlerdeki tüm gerekli dosyaları hazırladığınıza ve uygun oluşturduğunuz `.nuspec` dosya, daha sonra kullanmanız `nuget pack` komutu (veya [MSBuild paketi hedef](../reference/msbuild-targets.md)) her şeyi birlikte yerleştirmenin bir `.nupkg` dosya. Ardından hangi konak kullanılabilir diğer geliştiriciler getirir için paket dağıtmaya hazırsınız.
+Her durumda, paket oluşturma tanımlayıcısını, sürüm numarası, lisans, telif hakkı bilgileri ve diğer tüm gerekli içeriği karar ile başlar. Bunu yaptıktan sonra her şeyi birlikte yerleştirmenin "paketi" komutunu kullanabilirsiniz bir `.nupkg` dosya. Bu dosya için bir NuGet akışı, nuget.org gibi yayımlanabilir.
 
 > [!Tip]
 > Bir NuGet paketi ile `.nupkg` ZIP dosyası yalnızca bir uzantısıdır. Kolayca bir paket içeriğini incelemek için uzantı değiştirme `.zip` ve içerikleri her zamanki şekilde genişletin. Yalnızca uzantı değiştirdiğinizden emin olun geri `.nupkg` bir konağa karşıya yüklemeyi yeniden denemeden önce.

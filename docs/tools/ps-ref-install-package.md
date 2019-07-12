@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/01/2017
 ms.topic: reference
-ms.openlocfilehash: e7ddf9ad97cbb4ec9cfc8b01f366511239f41416
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 755c87bbc68d3b688c81e16edbc1faabdc9e0520
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546032"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842493"
 ---
 # <a name="install-package-package-manager-console-in-visual-studio"></a>Install-Package (Visual Studio'da Paket Yöneticisi Konsolu)
 
-*Bu konu içindeki komut açıklar [NuGet Paket Yöneticisi Konsolu](package-manager-console.md) Windows üzerinde Visual Studio'da. Genel PowerShell Install-Package komutu için bkz: [PowerShell PackageManagement başvuru](/powershell/module/packagemanagement/?view=powershell-6).*
+*Bu konu içindeki komut açıklar [Paket Yöneticisi Konsolu](package-manager-console.md) Windows üzerinde Visual Studio'da. Genel PowerShell Install-Package komutu için bkz: [PowerShell PackageManagement başvuru](/powershell/module/packagemanagement/?view=powershell-6).*
 
 Bir projeye bir paketi ve bağımlılıkları yükler.
 
@@ -36,10 +36,10 @@ Install-Package Microsoft.AspNet.MVC -Version 5.0.0.
 
 | Parametre | Açıklama |
 | --- | --- |
-| Kimliği | (Gerekli) Yüklenecek paket tanımlayıcısı. (*3.0 +*) tanımlayıcı bir yol veya URL'sini olabilir bir `packages.config` dosya veya `.nupkg` dosya. Kimliği anahtarın kendisinde, isteğe bağlıdır. |
+| Id | (Gerekli) Yüklenecek paket tanımlayıcısı. (*3.0 +* ) tanımlayıcı bir yol veya URL'sini olabilir bir `packages.config` dosya veya `.nupkg` dosya. Kimliği anahtarın kendisinde, isteğe bağlıdır. |
 | IgnoreDependencies | Yalnızca bu paket ve onun bağımlılıklarını yükleyin. |
 | ProjectName | Projeye varsayılan proje için varsayılan olarak ayarlanıyor, paketi yüklemek için. |
-| Kaynak | Aranacak paket kaynağı için URL veya klasör yolu. Yerel klasör yol mutlak veya göreli geçerli klasörde olabilir. Atlanırsa, `Install-Package` seçili paket kaynağı arar. |
+| Source | Aranacak paket kaynağı için URL veya klasör yolu. Yerel klasör yol mutlak veya göreli geçerli klasörde olabilir. Atlanırsa, `Install-Package` seçili paket kaynağı arar. |
 | Sürüm | Yüklemek için paketin sürümü en son sürüme varsayılan olarak ayarlanıyor. |
 | IncludePrerelease | Yayın öncesi paketleri yükleme için göz önünde bulundurur. Atlanırsa, yalnızca kararlı paket olarak kabul edilir. |
 | FileConflictAction | Üzerine ya da proje tarafından başvurulan mevcut dosyaları yoksaymak için sorulan olduğunda gerçekleştirilecek eylem. Olası değerler *üzerine yaz, yoksay, None, OverwriteAll*, ve *(3.0 +)* *IgnoreAll*. |
@@ -50,7 +50,7 @@ Hiçbiri bu parametre ardışık düzen giriş veya joker karakterler kabul edin
 
 ## <a name="common-parameters"></a>Ortak parametreleri
 
-`Install-Package` şunları desteklemektedir [ortak PowerShell parametrelerini](http://go.microsoft.com/fwlink/?LinkID=113216): hata ayıklama, hata eylemi, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, ayrıntılı, WarningAction ve WarningVariable.
+`Install-Package` şunları desteklemektedir [ortak PowerShell parametrelerini](http://go.microsoft.com/fwlink/?LinkID=113216): Hata ayıklama, hata eylemi, ErrorVariable, OutBuffer, OutVariable, ayrıntılı PipelineVariable, WarningAction ve WarningVariable.
 
 ## <a name="examples"></a>Örnekler
 

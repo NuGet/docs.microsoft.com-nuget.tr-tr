@@ -5,18 +5,18 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/03/2019
 ms.topic: conceptual
-ms.openlocfilehash: e60bca8fe2f80b044e466db2a100d6c6d167edb7
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: a7177b956930835693921163e634321548c22462
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67427631"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842364"
 ---
 # <a name="manage-packages-using-the-nugetexe-cli"></a>Nuget.exe CLI kullanarak paketleri yönetme
 
 CLI aracı kolayca güncelleştirmek ve projelerde ve çözümlerde NuGet paketlerini geri yüklemenize olanak sağlar. Bu araç tüm NuGet özellikleri Windows üzerinde sağlar ve ayrıca özelliklerinin çoğu Mac ve Linux üzerinde Mono altında çalışırken sağlar.
 
-Nuget.exe CLI, .NET Framework projesi ve SDK stili projeleri (örneğin, bir .NET standart kitaplıkları hedefleyen) içindir. İçin geçirilmiş olan bir SDK stili projesi kullanıyorsanız `PackageReference`, bunun yerine ' % s'dotnet CLI kullanın. NuGet CLI gerektiren bir [packages.config](../reference/packages-config.md) paket başvuruları için dosya.
+Nuget.exe CLI, .NET Framework projesi ve SDK stili projeleri (.NET Standard kitaplıkları hedefleyen Örneğin, bir SDK olmayan stil projeyi) içindir. İçin geçirilmiş olan bir SDK stili projesi kullanıyorsanız `PackageReference`, bunun yerine ' % s'dotnet CLI kullanın. NuGet CLI gerektiren bir [packages.config](../reference/packages-config.md) paket başvuruları için dosya.
 
 > [!NOTE]
 > Çoğu senaryoda öneririz [SDK stili projeleri geçirme](../reference/migrate-packages-config-to-package-reference.md) kullanan `packages.config` PackageReference için ve ardından dotnet CLI kullanabileceğiniz yerine `nuget.exe` CLI. Geçiş, C++ ve ASP.NET projeleri için şu anda kullanılabilir değil.
@@ -113,6 +113,8 @@ nuget update
 Kullanım [geri](../tools/cli-ref-restore.md) indirir ve yükler gelen eksik herhangi bir paket komutu *paketleri* klasör.
 
 `restore` Yalnızca disk paketleri ekler, ancak bir proje bağımlılıklarınızı değiştirmez. Proje bağımlılıkları geri yüklemek için değiştirme `packages.config`, ardından `restore` komutu.
+
+Olan diğer `dotnet` CLI komutları, ilk olarak bir komut satırı açın ve proje dosyanızı içeren dizine geçin.
 
 Bir paketi kullanarak geri yüklemek için `restore`:
 

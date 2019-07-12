@@ -1,33 +1,34 @@
 ---
 title: Windows üzerinde Visual Studio kullanarak bir .NET Standard paketi oluşturma ve yayımlama
-description: Oluşturma ve Windows üzerinde Visual Studio 2017 kullanılarak bir standart .NET NuGet Paketi Yayımlama Kılavuzu öğretici.
+description: Oluşturma ve Windows üzerinde Visual Studio kullanarak bir standart .NET NuGet Paketi Yayımlama Kılavuzu öğretici.
 author: karann-msft
 ms.author: karann
-ms.date: 05/24/2019
+ms.date: 07/09/2019
 ms.topic: quickstart
-ms.openlocfilehash: c75785d361f25564c8a59d7a2d85924c570a7b9a
-ms.sourcegitcommit: b9a134a6e10d7d8502613f389f7d5f9b9e206ec8
+ms.openlocfilehash: d9eccfa373a5a283542fd158e76ba74b1872f3d6
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67467809"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842135"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Hızlı Başlangıç: Visual Studio (.NET Standard, yalnızca Windows) kullanarak bir NuGet paketi oluşturma ve yayımlama
 
 Bir .NET standart sınıf kitaplığı Windows üzerinde Visual Studio'da NuGet paketi oluşturun ve ardından bir CLI aracını kullanarak nuget.org için yayımlama için basit bir işlemdir.
 
 > [!Note]
-> Bu hızlı başlangıçta, Visual Studio 2017'ye yalnızca Windows için geçerlidir. Mac için Visual Studio, burada açıklanan özellikleri içermez. Kullanım [dotnet CLI Araçları](create-and-publish-a-package-using-the-dotnet-cli.md) yerine.
+> Mac için Visual Studio kullanıyorsanız, başvurmak [bu bilgileri](/xamarin/cross-platform/app-fundamentals/nuget-multiplatform-libraries/existing-library) üzerinde bir NuGet paketi oluşturuluyor veya kullanın [dotnet CLI Araçları](create-and-publish-a-package-using-the-dotnet-cli.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-1. Visual Studio 2017'den herhangi bir sürümünü yükleme [visualstudio.com](https://www.visualstudio.com/) herhangi. AĞ ile ilgili bir iş yükü. .NET iş yükü yüklendiğinde visual Studio 2017, NuGet özellikleri otomatik olarak içerir.
+1. Visual Studio 2017 veya sonraki herhangi bir sürümünü yükleyin [visualstudio.com](https://www.visualstudio.com/) herhangi. AĞ ile ilgili bir iş yükü. Visual Studio 2017 ve üzeri otomatik olarak dahil NuGet özellikleri .NET iş yükü yüklendiğinde.
 
-1. CLI araçlarından birini yükleyin.
+1. Yükleme `dotnet` CLI.
 
-   * İçin `dotnet` CLI yükleme [.NET Core SDK'sı](https://www.microsoft.com/net/download/). Dotnet CLI SDK stilinde biçimini (SDK'sı özniteliği) kullanan .NET Standard projeleri için gereklidir.
-
-   * İçin `nuget.exe` CLI, indirdiği [nuget.org](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe), kaydetme `.exe` uygun bir klasöre dosya ve klasörün PATH ortam değişkeninize ekleme. Nuget.exe CLI SDK stilinde olmayan biçimde .NET standart kitaplıkları için kullanılır.
+   İçin `dotnet` CLI, Visual Studio 2017'den itibaren `dotnet` CLI herhangi bir .NET Core ile otomatik olarak yüklenen ilişkili iş yükleri. Aksi takdirde yükleme [.NET Core SDK'sı](https://www.microsoft.com/net/download/) almak için `dotnet` CLI. `dotnet` CLI kullanan .NET Standard projeleri için gerekli [SDK stilinde biçimi](../resources/check-project-format.md) (SDK'sı özniteliği). Bu makalede kullanılan varsayılan sınıf kitaplığı şablonu Visual Studio 2017 ve üzeri SDK'sı özniteliğini kullanır.
+   
+   > [!Important]
+   > Bu makalede `dotnet` CLI önerilir. Kullanarak herhangi bir NuGet paketi yayınlasa bile `nuget.exe` CLI, bu makaledeki adımlarda bazıları CLI dotnet SDK stili projeleri ile belirli. Nuget.exe CLI için kullanılan [SDK stili projeleri](../resources/check-project-format.md) (genellikle, .NET Framework). SDK stili projesiyle çalışıyorsanız konusundaki yordamları izleyin [oluşturun ve bir .NET Framework paketi (Visual Studio) yayımlama](create-and-publish-a-package-using-visual-studio-net-framework.md) paketi oluşturma ve yayımlama için.
 
 1. [Nuget.org üzerindeki bir ücretsiz hesaba kaydolun](https://docs.microsoft.com/en-us/nuget/nuget-org/individual-accounts#add-a-new-individual-account) zaten yoksa. Yeni bir hesap oluşturmadan bir onay e-posta gönderir. Bir paketi karşıya yükleyebilmeniz, hesap onaylamanız gerekir.
 
@@ -59,7 +60,9 @@ namespace AppLogger
 
 ## <a name="configure-package-properties"></a>Paket özelliklerini yapılandırma
 
-1. Seçin **Proje > Özellikleri** menü komutunu ve ardından **paket** sekmesi. ( **Paket** .NET Framework hedefliyorsanız, yalnızca .NET Standard sınıf kitaplığı projeleri için; sekmesi görünür bkz [oluşturma ve bir .NET Framework Paketi Yayımlama](create-and-publish-a-package-using-visual-studio-net-framework.md) bunun yerine. .NET Standard projesi görünmüyorsa, Visual Studio 2017 en son sürüme güncelleştirmeniz gerekebilir.)
+1. Çözüm Gezgini'nde projeye sağ tıklayıp seçin **özellikleri** menü komutunu ve ardından **paket** sekmesi.
+
+   **Paket** sekmesi görünür yalnızca Visual Studio SDK stili projeleri için genellikle .NET Standard veya .NET Core sınıf kitaplığı projeleri; SDK olmayan stil projeyi (genellikle .NET Framework), ya da hedefliyorsanız [ Projeyi geçirmek](../reference/migrate-packages-config-to-package-reference.md) ve `dotnet` CLI, veya [oluştur ve .NET Framework paket yayımlama](create-and-publish-a-package-using-visual-studio-net-framework.md) veya bkz [oluştur ve .NET Framework paket yayımlama](create-and-publish-a-package-using-visual-studio-net-framework.md) bunun yerine için adım adım yönergeler.
 
     ![Visual Studio projesinde NuGet paket özellikleri](media/qs_create-vs-01-package-properties.png)
 
@@ -75,6 +78,8 @@ namespace AppLogger
 
 1. İsteğe bağlı: doğrudan proje dosyasındaki özellikleri görmek için Çözüm Gezgini'nde projeye sağ tıklayıp **Düzenle AppLogger.csproj**.
 
+   Bu seçenek, yalnızca SDK stilinde öznitelik kullanan projeler için Visual Studio 2017'de başlayarak kullanılabilir. Aksi takdirde, projeye sağ tıklayıp seçin **projeyi**. Ardından bellekten projeye sağ tıklayıp seçin **Düzenle AppLogger.csproj**.
+
 ## <a name="run-the-pack-command"></a>Paketi komutunu çalıştırın
 
 1. Yapılandırmayı ayarlamak **yayın**.
@@ -82,6 +87,8 @@ namespace AppLogger
 1. Projeye sağ tıklayın **Çözüm Gezgini** seçip **paketi** komutu:
 
     ![Visual Studio Proje bağlam menüsündeki NuGet Paketi komutu](media/qs_create-vs-02-pack-command.png)
+
+    Görmüyorsanız **paketi** komutunu kullanmanız gerekir ve projenize SDK stilinde projesinde olan büyük olasılıkla `nuget.exe` CLI. Ya da [projeyi geçirmek](../reference/migrate-packages-config-to-package-reference.md) ve `dotnet` CLI, veya [oluşturma ve bir .NET Framework Paketi Yayımlama](create-and-publish-a-package-using-visual-studio-net-framework.md) bunun yerine adım adım yönergeler için.
 
 1. Visual Studio projeyi derler ve oluşturur `.nupkg` dosya. İnceleme **çıkış** paketi dosyasının yolunu içeren pencere Ayrıntılar (aşağıdakine benzer). Ayrıca derlemesi olduğunu unutmayın. `bin\Release\netstandard2.0` olarak neden önemli olduğuna .NET Standard 2.0 hedef.
 
@@ -116,7 +123,9 @@ Sonra bir `.nupkg` dosyası yayımladığınızda, kullanarak nuget.org için `n
 
 ### <a name="publish-with-dotnet-nuget-push-dotnet-cli"></a>DotNet nuget itme (dotnet CLI) ile yayımlama
 
-Bu adım bir alternatifidir `nuget.exe`.
+Bu adım önerilen alternatifidir `nuget.exe`.
+
+Paket yayımlayabilmeniz için önce bir komut satırı önce açmanız gerekir.
 
 [!INCLUDE [publish-dotnet](includes/publish-dotnet.md)]
 
@@ -124,9 +133,9 @@ Bu adım bir alternatifidir `nuget.exe`.
 
 Bu adım bir alternatifidir `dotnet.exe`.
 
-1. Değiştirmek için içeren klasör `.nupkg` dosya.
+1. Bir komut satırı açın ve değiştirmek için içeren klasör `.nupkg` dosya.
 
-1. Paketinizin adını belirterek ve API anahtarınızı anahtar değerini değiştirerek aşağıdaki komutu çalıştırın:
+1. Paketinizin adını (benzersiz paket kimliği) belirtme ve API anahtarınızı anahtar değerini değiştirerek aşağıdaki komutu çalıştırın:
 
     ```cli
     nuget push AppLogger.1.0.0.nupkg qz2jga8pl3dvn2akksyquwcs9ygggg4exypy3bhxy6w6x6 -Source https://api.nuget.org/v3/index.json
@@ -176,7 +185,7 @@ Bu adlı bir dosya dahil eder `readme.txt` paket kökünde. Visual Studio, hemen
 - [Paket oluşturma](../create-packages/creating-a-package.md)
 - [Paket Yayımlama](../nuget-org/publish-a-package.md)
 - [Yayın öncesi paketleri](../create-packages/Prerelease-Packages.md)
-- [Birden çok hedef çerçeve desteği](../create-packages/supporting-multiple-target-frameworks.md)
+- [Birden çok hedef çerçeveyi destekleme](../create-packages/supporting-multiple-target-frameworks.md)
 - [Paket sürümü oluşturma](../reference/package-versioning.md)
 - [Yerelleştirilmiş paketler oluşturma](../create-packages/creating-localized-packages.md)
 - [.NET standard kitaplığı belgeleri](/dotnet/articles/standard/library)

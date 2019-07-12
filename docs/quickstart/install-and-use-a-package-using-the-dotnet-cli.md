@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/23/2018
 ms.topic: quickstart
-ms.openlocfilehash: 1060d98278fed89ac63ee17c1896ae8bdce72a9e
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 0d637c441cf9f36e8e3e04e47b524b2defecae52
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426159"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67841665"
 ---
 # <a name="quickstart-install-and-use-a-package-using-the-dotnet-cli"></a>Hızlı Başlangıç: Dotnet CLI kullanarak bir paket yükleyip
 
@@ -23,7 +23,7 @@ Kod ile paket yüklendikten sonra başvurmak `using <namespace>` burada \<ad ala
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [.NET Core SDK'sı](https://www.microsoft.com/net/download/), sağlayan `dotnet` komut satırı aracı.
+- [.NET Core SDK'sı](https://www.microsoft.com/net/download/), sağlayan `dotnet` komut satırı aracı. Dotnet CLI herhangi bir .NET Core ile otomatik olarak yüklenir, Visual Studio 2017'de başlayarak, iş yüklerini ilgili.
 
 ## <a name="create-a-project"></a>Proje oluşturma
 
@@ -106,4 +106,4 @@ NuGet paketlerini, tür bir .NET projesine yüklenebilir. Bu kılavuz için şu 
 - [Dotnet CLI kullanarak paketleri yükleyip](../consume-packages/install-use-packages-dotnet-cli.md)
 - [Genel bakış ve paket tüketim iş akışı](../consume-packages/overview-and-workflow.md)
 - [Paketleri bulma ve seçme](../consume-packages/finding-and-choosing-packages.md)
-- [NuGet yapılandırmaların](../consume-packages/configuring-nuget-behavior.md)
+- [Ortak NuGet yapılandırmaları](../consume-packages/configuring-nuget-behavior.md)
