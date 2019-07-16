@@ -15,7 +15,7 @@
 ### [Mac için Visual Studio](/visualstudio/mac/nuget-walkthrough?toc=/nuget/toc.json)
 ### [dotnet CLI](consume-packages/install-use-packages-dotnet-cli.md)
 ### [nuget.exe CLI](consume-packages/install-use-packages-nuget-cli.md)
-### [PowerShell](tools/package-manager-console.md)
+### [Paket Yöneticisi Konsolu (PowerShell)](tools/package-manager-console.md)
 ## NuGet’i yapılandırma
 ### Paket geri yükleme seçenekleri
 #### [Geri yükleme seçenekleri](consume-packages/package-restore.md)
@@ -31,21 +31,23 @@
 ### [packages.config](reference/packages-config.md)
 # Paketleri oluşturma
 ## [Genel bakış ve iş akışı](create-packages/overview-and-workflow.md)
-## [Paket oluşturma - nuget.exe CLI](create-packages/creating-a-package.md)
+## [Paket oluşturma](create-packages/creating-a-package.md)
 ## [MSBuild kullanarak paket oluşturma](reference/msbuild-targets.md)
 ## [Birden çok hedef çerçeveyi destekleme](create-packages/supporting-multiple-target-frameworks.md)
 ## [Yayın öncesi paketi oluşturma](create-packages/prerelease-packages.md)
 ## [Sembol paketi oluşturma](create-packages/symbol-packages-snupkg.md)
 ## Gelişmiş görevler
 ### [Kaynak kodu ve yapılandırma dosyalarını değiştirme](create-packages/source-and-config-file-transformations.md)
-### [Yerelleştirilmiş paket oluşturma](create-packages/creating-localized-packages.md)
 ### [Proje tarafından başvurulan bütünleştirilmiş kodları seçme](create-packages/select-assemblies-referenced-by-projects.md)
+### [Paket türünü ayarlama](create-packages/set-package-type.md)
+### [Yerelleştirilmiş paket oluşturma](create-packages/creating-localized-packages.md)
 ## Belirli bir içeriğe yönelik kılavuzlar
 ### [UWP paketi oluşturma](guides/create-uwp-packages.md)
 ### [Yerel paket oluşturma](create-packages/native-packages.md)
 ### [NuGet paketleri olarak UI denetimleri oluşturma](guides/create-UI-controls.md)
 ### [NuGet paketleri olarak çözümleyici oluşturma](reference/analyzers-conventions.md)
 ### [Visual Studio 2015 ile Xamarin’e yönelik paket oluşturma](guides/create-packages-for-xamarin.md)
+### [COM derlemeleriyle paket oluşturma](create-packages/author-packages-with-COM-interop-assemblies.md)
 ## Paketleri imzalama
 ### [Paketleri imzalama](create-packages/sign-a-package.md)
 ### [İmzalanmış paket imzaları ve gereksinimleri](reference/signed-packages-reference.md)
@@ -335,4 +337,5 @@
 #### [NuGet 1.2](release-notes/NuGet-1.2.md)
 #### [NuGet 1.1](release-notes/NuGet-1.1.md)
 ## [SSS](faqs/nuget-faq.md)
+## [Proje biçimi](resources/check-project-format.md)
 # [NuGet.org](nuget-org/overview-nuget-org.md)
