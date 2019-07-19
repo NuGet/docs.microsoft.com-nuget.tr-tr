@@ -1,52 +1,52 @@
 ---
-title: Yeniden yükleme ve NuGet paketlerini güncelleştirme
-description: Bozuk bir paket başvuruları gibi Visual Studio ile yeniden yükleyin ve güncelleştirme paketleri, gerekli olduğunda ilgili ayrıntılar.
+title: NuGet paketlerini yeniden yükleme ve güncelleştirme
+description: Visual Studio 'daki bozuk paket başvurularına göre paketlerin yeniden yüklenmesi ve güncelleştirilmesi için gerekli olduğu zaman hakkındaki ayrıntılar.
 author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: conceptual
-ms.openlocfilehash: 9b2a7b299a0cb944ad9045684e14cc7b83e1cff4
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 32b01e6066cf60f7a0942508e640fdd5658b4444
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426674"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68316974"
 ---
-# <a name="how-to-reinstall-and-update-packages"></a>Yeniden yükleme ve güncelleştirme paketleri
+# <a name="how-to-reinstall-and-update-packages"></a>Paketleri yeniden yükleme ve güncelleştirme
 
-Birçok durumda, altında aşağıda açıklanan [bir paketi yeniden yüklemek ne zaman](#when-to-reinstall-a-package), burada bir paket başvuruları içinde bir Visual Studio Proje bozuk alabilirsiniz. Bu durumlarda, aynı paket sürümünü kaldırıp yeniden yüklemeyi bu başvuruları çalışma düzenine geri yükler. Paket güncelleştirme yalnızca genellikle bir paket çalışma düzenine geri yükler güncelleştirilmiş bir sürümünü yükleme anlamına gelir.
+Bir paketi [yeniden yüklemek için](#when-to-reinstall-a-package)aşağıda açıklanan bazı durumlar vardır. Bu, bir pakete yapılan başvuruların bir Visual Studio projesi içinde bozulmasına neden olabilir. Bu durumlarda, paketin aynı sürümünün kaldırılması ve yeniden yüklenmesi bu başvuruları çalışma sırasına geri yükler. Bir paketin güncelleştirilmesi, genellikle bir paketi çalışma sırasına geri yükleyen güncelleştirilmiş bir sürümü yükleme anlamına gelir.
 
-Paketleri yeniden yükleme ve güncelleştirme gibi gerçekleştirilir:
+Paketlerin güncelleştirilmesi ve yeniden yüklenmesi şu şekilde gerçekleştirilir:
 
 | Yöntem | Güncelleştirme | Yeniden yükleyin |
 | --- | --- | --- |
-| Paket Yöneticisi Konsolu (açıklanan [Update-Package kullanarak](#using-update-package)) | `Update-Package` Komutu | `Update-Package -reinstall` Komutu |
-| Paket Yöneticisi UI | Üzerinde **güncelleştirmeleri** sekmesinde bir veya daha fazla paket seçin ve seçin **güncelleştirme** | Üzerinde **yüklü** sekmesinde, bir paket seçin, kayıt adının ve sonra seçin **kaldırma**. Geçiş **Gözat** sekmesinde, paket adı için arama yapın, seçin ve ardından seçin **yükleme**). |
-| nuget.exe CLI | `nuget update` Komutu | Tüm paketler için paket klasörü silin ve ardından çalıştırın `nuget install`. Tek bir paket için paket klasörü silin ve kullanmak `nuget install <id>` aynı yeniden yüklemek için. |
+| Paket Yöneticisi Konsolu ( [Update-Package kullanma](#using-update-package)bölümünde açıklanmıştır) | `Update-Package`komutundaki | `Update-Package -reinstall`komutundaki |
+| Paket Yöneticisi UI | **Güncelleştirmeler** sekmesinde bir veya daha fazla paket seçin ve **Güncelleştir** ' i seçin. | **Yüklü** sekmesinde bir paket seçin, adını kaydedin ve **Kaldır**' ı seçin. **Araştır** sekmesine geçin, paket adını arayın, seçin ve sonra da **Install**öğesini seçin. |
+| nuget.exe CLI | `nuget update`komutundaki | Tüm paketler için paket klasörünü silip çalıştırın `nuget install`. Tek bir paket için paket klasörünü silin ve aynısını yeniden yüklemek `nuget install <id>` için kullanın. |
 
 > [!NOTE]
-> Dotnet CLI için eşdeğer yordam gerekli değildir. Benzer bir senaryoda, yapabilecekleriniz [dotnet CLI'si ile paketleri geri](../consume-packages/install-use-packages-dotnet-cli.md#restore-packages).
+> DotNet CLı için eşdeğer yordam gerekli değildir. Benzer bir senaryoda, [DotNet CLI ile paketleri geri yükleyebilirsiniz](../consume-packages/install-use-packages-dotnet-cli.md#restore-packages).
 
 Bu makalede:
 
-- [Ne zaman bir paketi yeniden yüklemek için](#when-to-reinstall-a-package)
-- [Kısıtlama yükseltme sürümleri](#constraining-upgrade-versions)
+- [Bir paketin ne zaman yeniden yüklenmesi](#when-to-reinstall-a-package)
+- [Yükseltme sürümlerini kısıtlama](#constraining-upgrade-versions)
 
-## <a name="when-to-reinstall-a-package"></a>Ne zaman bir paketi yeniden yüklemek için
+## <a name="when-to-reinstall-a-package"></a>Bir paketin ne zaman yeniden yüklenmesi
 
-1. **Paket geri yüklemeden sonra başvuruları bozuk**: Bir proje ve NuGet paketlerini geri yüklenen açtığınız ancak bozuk başvurularda görmeye devam ediyor, her biri bu paketleri yeniden yüklemeyi deneyin.
-1. **Project silinen dosyalar nedeniyle bozulur**: NuGet, paketleri, yanlışlıkla bir paketinden yüklenen içeriği değiştirmek projenizin kırmayı denerken kolaydır eklenen öğeler kaldırmasını engellemez. Proje geri yüklemek için etkilenen paketleri yeniden yükleyin.
-1. **Paket güncelleştirmesi, proje kesildi**: Bir güncelleştirme paketi için bir proje keserse, hata genellikle da güncelleştirilmiş olabilir bir bağımlılık paketini tarafından neden olur. Bağımlılık durumunu geri yüklemek için belirli bir paketin yeniden yükleyin.
-1. **Proje yeniden hedefleme veya yükseltme**: Bir proje yeniden hedeflendi ya da yükseltilmiş ve paketi hedef framework değişikliği nedeniyle yeniden yüklenmesi gerekiyorsa bu yararlı olabilir. Sonraki derleme uyarıları paketin yeniden yüklenmesi gerekebilir size bildirmek ve NuGet, proje yeniden hedefleme hemen sonra bu gibi durumlarda, bir yapı hatası gösterir. Proje yükseltme için NuGet proje yükseltme günlüğüne bir hata gösterir.
-1. **Geliştirme sırasında bir paket yeniden**: Paket yazarlarının genellikle gerekir geliştirmekte paket aynı sürümünü yeniden yüklemek davranış test etmek için. `Install-Package` Komutu, bir yeniden yükleme zorlamak, bu nedenle kullanın seçeneği sağlamaz `Update-Package -reinstall` yerine.
+1. **Paket geri yüklemeden sonra bozuk başvurular**: Bir projeyi açtıysanız ve NuGet paketlerini geri yüklediyseniz ancak hala bozuk başvurular görüyorsanız, bu paketlerin her birini yeniden yüklemeyi deneyin.
+1. **Silinen dosyalar nedeniyle proje bozuk**: NuGet, paketlerden eklenen öğeleri kaldırmanızı engellemez, bu nedenle bir paketten yüklenmiş içerikleri yanlışlıkla değiştirmek ve projenizi bölmek kolaydır. Projeyi geri yüklemek için etkilenen paketleri yeniden yükleyin.
+1. **Paket güncelleştirmesi projeyi**bir daha Yerleştir: Bir paketteki güncelleştirme bir projeyi kesintiye uğramıyorsa, hata genellikle güncelleştirilmiş bir bağımlılık paketi tarafından meydana gelir. Bağımlılığın durumunu geri yüklemek için söz konusu paketi yeniden yükleyin.
+1. **Proje yeniden hedefleme veya Yükselt**: Bu, bir proje yeniden hedeflendiğinde veya yükseltildiğinde ve hedef çerçevesindeki değişiklik nedeniyle paketin yeniden yüklenmesi gerekiyorsa yararlı olabilir. NuGet, proje yeniden hedefledikten hemen sonra bu tür durumlarda derleme hatası gösterir ve sonraki derleme uyarıları paketin yeniden yüklenmesi gerekebileceklerini bilmenizi sağlar. Proje yükseltmesinde, NuGet proje yükseltme günlüğünde bir hata gösterir.
+1. **Bir paketi geliştirme sırasında yeniden yükleme**: Paket yazarları, davranışı test etmek için genellikle geliştirdikleri paketin aynı sürümünü yeniden yüklemeniz gerekir. Komut yeniden yükleme zorlaması için bir seçenek sağlamıyor, bunun yerine kullanın `Update-Package -reinstall`. `Install-Package`
 
-## <a name="constraining-upgrade-versions"></a>Kısıtlama yükseltme sürümleri
+## <a name="constraining-upgrade-versions"></a>Yükseltme sürümlerini kısıtlama
 
-Varsayılan olarak yeniden yüklemek veya bir paket güncelleştirmek *her zaman* paket kaynağından en son sürümünü yükler.
+Varsayılan olarak, bir paketi yeniden yüklemek veya güncelleştirmek, *her zaman* paket kaynağından kullanılabilir olan en son sürümü yüklenir.
 
-Kullanarak projelerinde `packages.config` yönetim biçimi, ancak özellikle sürüm aralığı kısıtlayabilirsiniz. Uygulamanızın çalıştığını biliyorsanız, örneğin, yalnızca sürümüyle 1.x paketi ancak değil 2.0 ve üzeri sürümlerde, belki de API paketindeki büyük bir değişiklik nedeniyle, ardından 1.x sürümüne yükseltmeleri sınırlamak istersiniz. Bu uygulama kesmek yanlışlıkla güncelleştirmelerini engeller.
+Ancak, `packages.config` yönetim biçimini kullanan projelerde, sürüm aralığını özellikle kısıtlayabilirsiniz. Örneğin, uygulamanızın yalnızca bir paketin 1. x sürümüyle ve 2,0 ve üzerinde değil, paket API 'sindeki önemli bir değişiklik nedeniyle, yükseltmelerini 1. x sürümlerine kısıtlamak isteyebilirsiniz. Bu, uygulamayı kesen yanlışlıkla yapılan güncelleştirmeleri önler.
 
-Bir kısıtlama belirlemek için açık `packages.config` bir metin düzenleyicisinde söz konusu bağımlılık bulun ve ekleme `allowedVersions` özniteliği ile bir sürüm aralığı. Örneğin, güncelleştirmeleri sınırlamak için 1.x sürümüne ayarlı `allowedVersions` için `[1,2)`:
+Bir kısıtlama ayarlamak için, bir `packages.config` metin düzenleyicisinde açın, söz konusu bağımlılığı bulun ve `allowedVersions` özniteliği bir sürüm aralığı ile ekleyin. Örneğin, güncelleştirmeleri 1. x sürümüyle kısıtlamak için şu şekilde `allowedVersions` `[1,2)`ayarlayın:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -57,65 +57,65 @@ Bir kısıtlama belirlemek için açık `packages.config` bir metin düzenleyici
 </packages>
 ```
 
-Her durumda, açıklanan gösterimi kullanan [Paket sürümü oluşturma](../reference/package-versioning.md#version-ranges-and-wildcards).
+Her durumda, [paket sürümü oluşturma](../reference/package-versioning.md#version-ranges-and-wildcards)bölümünde açıklanan gösterimi kullanın.
 
-## <a name="using-update-package"></a>Güncelleştirme paketini kullanma
+## <a name="using-update-package"></a>Update-Package kullanma
 
-Oluşturduğunu, olan [konuları](#considerations) aşağıda açıklandığı gibi kolayca kullanarak herhangi bir paket yeniden [Update-Package komut](../Tools/ps-ref-update-package.md) Visual Studio Paket Yöneticisi konsolunda (**araçları**  >  **NuGet Paket Yöneticisi** > **Paket Yöneticisi Konsolu**):
+Aşağıda açıklanan [hususlar göz önünde bulundurmanız](#considerations) , Visual Studio Paket Yöneticisi konsolundaki [Update-Package komutunu](../reference/ps-reference/ps-ref-update-package.md) kullanarak herhangi bir paketi kolayca yeniden yükleyebilirsiniz (**Araçlar** > **NuGet Paket Yöneticisi**  >  **Paket Yöneticisi konsolu**):
 
 ```ps
 Update-Package -Id <package_name> –reinstall
 ```
 
-Bu komutu kullanarak bir paket kaldırarak ve ardından NuGet galerisindeki aynı sürümle aynı paket bulmaya çalışan daha kolaydır. Unutmayın `-Id` anahtar isteğe bağlıdır.
+Bu komutun kullanılması, bir paketi kaldırıp aynı paketi aynı sürüme sahip NuGet galerisinde bulmaya çalışırken çok daha kolaydır. `-Id` Anahtarın isteğe bağlı olduğunu unutmayın.
 
-Aynı komut olmadan `-reinstall` varsa, yeni bir sürüme bir paketi güncelleştirir. Komutu, söz konusu paketin bir projede zaten yüklü değilse hata verir; diğer bir deyişle, `Update-Package` paketleri doğrudan yüklemez.
+Varsa, bir paketi `-reinstall` daha yeni bir sürüme güncelleştirmeksizin aynı komut. Söz konusu paket bir projede zaten yüklenmemişse, komut bir hata verir; diğer bir deyişle `Update-Package` , paketleri doğrudan yüklemez.
 
 ```ps
 Update-Package <package_name>
 ```
 
-Varsayılan olarak, `Update-Package` bir çözümdeki tüm projeleri etkiler. Belirli bir projeye eylem sınırlamak için kullanın `-ProjectName` geçiş, Çözüm Gezgini'nde göründüğü gibi proje adını kullanarak:
+Varsayılan olarak, `Update-Package` bir Çözümdeki tüm projeleri etkiler. Eylemi belirli bir projeyle sınırlandırmak için, Çözüm Gezgini ' de göründüğü `-ProjectName` gibi projenin adını kullanarak anahtarını kullanın:
 
 ```ps
 # Reinstall the package in just MyProject
 Update-Package <package_name> -ProjectName MyProject -reinstall
 ```
 
-İçin *güncelleştirme* bir projedeki tüm paketler (ya da kullanarak yeniden `-reinstall`), kullanın `-ProjectName` herhangi belirli bir paket belirtmeden:
+Bir projedeki tüm paketleri *güncelleştirmek* için (veya kullanarak `-reinstall`yeniden yükleme), belirli bir paketi belirtmeden kullanın: `-ProjectName`
 
 ```ps
 Update-Package -ProjectName MyProject
 ```
 
-Bir çözümdeki tüm paketleri güncelleştir için yalnızca kullanın `Update-Package` diğer bağımsız değişkenler veya anahtarlarının seçemez. Tüm güncelleştirmeleri gerçekleştirmek için büyük miktarda zaman zaman alabildiğinden bu formu dikkatlice kullanın:
+Bir Çözümdeki tüm paketleri güncelleştirmek için, yalnızca diğer bağımsız `Update-Package` değişkenler veya anahtarlar olmadan kendisini kullanın. Tüm güncelleştirmeleri gerçekleştirmek için önemli bir zaman sürebileceğinden bu formu dikkatle kullanın:
 
 ```ps
 # Updates all packages in all projects in the solution
 Update-Package 
 ```
 
-Bir proje veya çözümü kullanarak paketler güncelleştiriliyor [PackageReference](../Consume-Packages/Package-References-in-Project-Files.md) her zaman en son sürüme (yayın öncesi paketleri hariç) paketi güncelleştirir. Projeleri `packages.config` isterseniz, güncelleştirme sürümleri aşağıda açıklanan şekilde sınırlandırabilir [Constraining yükseltme sürümlerinin](#constraining-upgrade-versions).
+Bir proje veya çözüm içinde, [Packagereference](../Consume-Packages/Package-References-in-Project-Files.md) kullanan bir projedeki paketleri güncelleştirmek, paketin en son sürümüne (yayın öncesi paketler hariç) güncelleştirilir. İsterseniz kullanan `packages.config` projeler, güncelleştirme sürümlerini [kısıtlama sürümlerinde](#constraining-upgrade-versions)aşağıda açıklanan şekilde sınırlandırabilir.
 
-Komutunda tüm ayrıntılar için bkz. [Update-Package](../Tools/ps-ref-update-package.md) başvuru.
+Komutuyla ilgili tüm ayrıntılar için bkz. [Update-Package](../reference/ps-reference/ps-ref-update-package.md) Reference.
 
 ### <a name="considerations"></a>Dikkat Edilecekler
 
-Aşağıdaki bir paket yeniden yükleme sırasında etkilenebilir:
+Bir paket yeniden yüklenirken aşağıdakiler etkilenebilir:
 
-1. **Proje hedef framework yeniden hedefleme göre paketleri yeniden yükleme**
-    - Basit bir durumda, yalnızca bir paketini kullanarak yeniden `Update-Package –reinstall <package_name>` çalışır. Karşı eski bir hedef çerçeve yüklü olan bir paket kaldırılır ve aynı paketin geçerli projenin hedef çatısını karşı yüklü.
-    - Bazı durumlarda, bir paketi yeni hedef Framework'ü desteklemiyor olabilir.
-        - Taşınabilir sınıf kitaplıkları (PCLs) bir paket destekliyorsa ve projeyi yeniden hedeflendi bir birleşimi artık paket tarafından desteklenen platformlar için paket başvuruları eksik yeniden yükledikten sonra olur.
-        - Bu paketler, doğrudan kullanıyorsanız veya bağımlılıkları olarak yüklü paketleri ortaya çıkabilir. Bağımlılık çalışmazken doğrudan yeni hedef Framework'ü desteklemek için kullanmakta olduğunuz paket için mümkündür.
-        - Uygulamanızı yeniden hedefleme, derleme veya çalışma zamanı hataları oluşur sonra paketleri yeniden yükleme, hedef Framework'ü veya düzgün bir şekilde, yeni hedef Framework'ü destekleyen alternatif paketleri Ara geri dönmek gerekebilir.
+1. **Paketleri proje hedef çerçevesi yeniden hedeflemeye göre yeniden yükleme**
+    - Basit bir durumda, çalışma kullanarak `Update-Package –reinstall <package_name>` bir paketi yeniden yüklemek yeterlidir. Eski bir hedef çerçeveye karşı yüklenen bir paket kaldırılır ve projenin geçerli hedef çerçevesine karşı aynı paket yüklenir.
+    - Bazı durumlarda, yeni hedef Framework 'ü desteklemeyen bir paket olabilir.
+        - Bir paket taşınabilir sınıf kitaplıklarını (PCLs) destekliyorsa ve proje, artık paket tarafından desteklenmeyen platformların bir birleşimine yeniden hedeflendiğinde, paket başvuruları yeniden yüklendikten sonra eksik olur.
+        - Bu, doğrudan kullandığınız paketlere veya bağımlılıklar olarak yüklenen paketlere yönelik yüzeysel olabilir. Yeni hedef çerçevesini desteklemek için doğrudan kullandığınız paket, bağımlılığı olmasa da mümkündür.
+        - Uygulamanızın yeniden hedeflenmesi sonrasında paketlerin yeniden yüklenmesi, derleme veya çalışma zamanı hatalarıyla sonuçlanırsa, hedef çatısını döndürmeniz veya yeni hedef çatısını düzgün şekilde destekleyen alternatif paketleri aramanız gerekebilir.
 
-1. **Proje yeniden hedefleme veya yükseltmeden sonra Packages.config dosyasının içinde eklenen requireReinstallation özniteliği**
-    - NuGet paketleri yeniden hedefleme veya bir proje yükseltme etkilenmiştir olmadığını algılar, ekler bir `requireReinstallation="true"` özniteliğini `packages.config` etkilenen tüm için paket başvuruları. Bunları yeniden anımsamak için bu nedenle, sonraki her yapı Visual Studio bu paketleri için derleme uyarıları başlatır.
+1. **proje yeniden hedefledikten veya yükseltildikten sonra Packages. config dosyasına eklenen talep ırereınstallation özniteliği**
+    - NuGet bir projeyi yeniden hedefleyerek veya yükseltirken paketlerin etkilendiğini algılarsa, içindeki `requireReinstallation="true"` `packages.config` tüm etkilenen paket başvurularına bir özniteliği ekler. Bu nedenle, Visual Studio 'daki her bir sonraki derleme bu paketlere yönelik derleme uyarıları oluşturur, böylece bunları yeniden yüklemeyi anımsayabilir.
 
 1. **Bağımlılıkları olan paketleri yeniden yükleme**
-    - `Update-Package –reinstall` asıl Paket sürümüyle aynı sürümü yükler, ancak belirli bir sürüm kısıtlamaları belirtilmediği sürece, bağımlılıkları en son sürümünü yükler. Bu yalnızca bir sorunu düzeltmek için gerekli bağımlılıkları güncelleştirmenizi sağlar. Ancak, bu bir bağımlılık önceki bir sürüme geri alır, kullanabileceğiniz `Update-Package <dependency_name>` bağımlı paketi etkilemeden bu bir bağımlılık yeniden yüklemek için.
-    - `Update-Package –reinstall <packageName> -ignoreDependencies` asıl Paket sürümüyle aynı sürümü yükler ancak bağımlılıkları yeniden değil. Paket bağımlılıkları güncelleştirme bozuk durumda neden olabilir, bunu kullanın.
+    - `Update-Package –reinstall`özgün paketin aynı sürümünü yeniden yükler, ancak belirli sürüm kısıtlamaları sağlanmadığı takdirde bağımlılıkların en son sürümünü yükler. Bu, bir sorunu çözebilmeniz için yalnızca gerektiğinde bağımlılıkları güncelleştirmenize olanak tanır. Ancak, bu, önceki bir sürüme bağımlılık kaydederse, bağımlı paketi etkilemeden bu bağımlılığı yeniden `Update-Package <dependency_name>` yüklemek için kullanabilirsiniz.
+    - `Update-Package –reinstall <packageName> -ignoreDependencies`özgün paketin aynı sürümünü yeniden yükler, ancak bağımlılıkları yeniden yüklemez. Paket bağımlılıklarını güncelleştirirken bunu kullan durumu bozulmuş duruma gelebilir
 
-1. **Bağımlı sürümleri söz konusu olduğunda paketleri yeniden yükleme**
-    - Yukarıda açıklandığı gibi bir paketi yeniden yüklemeyi bağımlı herhangi bir yüklü paketleri sürümlerini değiştirmez. Mümkündür ve ardından bağımlı paketi bir bağımlılık yeniden yüklemeyi uğratabilir.
+1. **Bağımlı sürümler dahil edildiğinde paketleri yeniden yükleme**
+    - Yukarıda açıklandığı gibi, bir paketin yeniden yüklenmesi kendisine bağımlı olan diğer yüklü paketlerin sürümlerini değiştirmez. Daha sonra, bir bağımlılığı yeniden yüklemek bağımlı paketi bozabilir.

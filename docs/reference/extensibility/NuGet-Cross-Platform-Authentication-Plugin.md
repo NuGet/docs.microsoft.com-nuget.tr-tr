@@ -1,74 +1,74 @@
 ---
-title: NuGet çapraz platform kimlik doğrulaması eklentisi
-description: NuGet.exe, dotnet.exe, msbuild.exe ve Visual Studio için NuGet çapraz platform kimlik doğrulaması eklentileri
+title: NuGet çoklu platform kimlik doğrulaması eklentisi
+description: NuGet. exe, DotNet. exe, MSBuild. exe ve Visual Studio için NuGet platformlar arası kimlik doğrulama eklentileri
 author: nkolev92
 ms.author: nikolev
 ms.date: 07/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: b76fab1028ec9a4172d2390083fbf9adb4290a6c
-ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
+ms.openlocfilehash: a716737343ea826d28da6de46c32ca73aef590bd
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52453513"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317275"
 ---
-# <a name="nuget-cross-platform-authentication-plugin"></a>NuGet çapraz platform kimlik doğrulaması eklentisi
+# <a name="nuget-cross-platform-authentication-plugin"></a>NuGet çoklu platform kimlik doğrulaması eklentisi
 
-4.8 +, istemciler (NuGet.exe, Visual Studio, dotnet.exe ve MSBuild.exe), üst kısmındaki yerleşik bir kimlik doğrulama eklentisini kullanabileceğiniz tüm NuGet sürümünde [çapraz platform eklentileri NuGet](NuGet-Cross-Platform-Plugins.md) modeli.
+Sürüm 4.8 + ' de tüm NuGet istemcileri (NuGet. exe, Visual Studio, DotNet. exe ve MSBuild. exe), [NuGet platformlar arası eklenti](NuGet-Cross-Platform-Plugins.md) modelinin üzerinde oluşturulmuş bir kimlik doğrulama eklentisi kullanabilir.
 
-## <a name="authentication-in-dotnetexe"></a>Dotnet.exe kimlik doğrulaması
+## <a name="authentication-in-dotnetexe"></a>DotNet. exe ' de kimlik doğrulaması
 
-Visual Studio ve NuGet.exe varsayılan etkileşimli olarak var. NuGet.exe sağlamak için bir anahtar içeren [etkileşimli olmayan](../../tools/nuget-exe-CLI-Reference.md).
-Buna ek olarak NuGet.exe ve Visual Studio eklentileri giriş kullanıcıdan.
-İçinde dotnet.exe yoktur hiç sormak ve etkileşimli olmayan bir varsayılandır.
+Visual Studio ve NuGet. exe varsayılan olarak etkileşimlidir. NuGet. exe [etkileşimli olmayan](../nuget-exe-CLI-Reference.md)hale getirmek için bir anahtar içerir.
+Ayrıca, NuGet. exe ve Visual Studio eklentileri kullanıcıdan giriş ister.
+DotNet. exe ' de istem yoktur ve varsayılan değer etkileşimsiz olur.
 
-Cihaz akışı dotnet.exe içinde kimlik doğrulama mekanizmasıdır. Zaman geri yükleme veya paket işlemi işlemi engeller ve kullanıcıya nasıl için tam kimlik doğrulamaları sağlanacaktır komut satırında yönergeleri etkileşimli olarak çalıştırılır.
-Kullanıcı kimlik doğrulaması tamamlandığında işlemi devam eder.
+DotNet. exe ' deki kimlik doğrulama mekanizması cihaz akışdır. Geri yükleme veya paket ekleme işlemi etkileşimli olarak çalıştırıldığında, işlem blokları ve Kullanıcı kimlik doğrulamaları nasıl tamamlanacaktır komut satırında sağlanır.
+Kullanıcı kimlik doğrulamasını tamamladığında işlem devam edecektir.
 
-Etkileşimli işlem yapmak için bir geçmelidir `--interactive`.
-Şu anda yalnızca dolayımsız `dotnet restore` ve `dotnet add package` komutları destekleyen etkileşimli bir anahtar.
-Etkileşimli anahtarı olmadan yoktur `dotnet build` ve `dotnet publish`.
+İşlemi etkileşimli hale getirmek için bir geçişi `--interactive`gerekir.
+Şu anda yalnızca açık `dotnet restore` ve `dotnet add package` komutlar etkileşimli bir anahtarı destekler.
+`dotnet build` Ve`dotnet publish`üzerinde etkileşimli bir anahtar yoktur.
 
-## <a name="authentication-in-msbuild"></a>MSBuild içinde kimlik doğrulaması
+## <a name="authentication-in-msbuild"></a>MSBuild 'te kimlik doğrulaması
 
-Dotnet.exe, MSBuild.exe varsayılan olmayan cihaz akışını etkileşimli MSBuild.exe kimlik doğrulama mekanizması olan benzer.
-Geri yüklemeyi duraklatmak ve kimlik doğrulaması için beklemesi izin vermek için geri yükleme işlemi çağırma `msbuild -t:restore -p:NuGetInteractive="true"`.
+DotNet. exe ' ye benzer şekilde, MSBuild. exe varsayılan olarak etkileşimli olmayan MSBuild. exe kimlik doğrulama mekanizması cihaz akışdır.
+Geri yüklemenin duraklamasını ve kimlik doğrulaması beklemesini sağlamak için geri yükleme `msbuild -t:restore -p:NuGetInteractive="true"`çağrısı yapın.
 
-## <a name="creating-a-cross-platform-authentication-plugin"></a>Platformlar arası kimlik doğrulaması eklentisi oluşturma
+## <a name="creating-a-cross-platform-authentication-plugin"></a>Platformlar arası kimlik doğrulama eklentisi oluşturma
 
-Örnek uygulama bulunabilir [Microsoft kimlik bilgisi sağlayıcı eklentisi](https://github.com/Microsoft/artifacts-credprovider).
+Örnek bir uygulama, [Microsoft kimlik bilgisi sağlayıcısı eklentisi](https://github.com/Microsoft/artifacts-credprovider)' nde bulunabilir.
 
-Eklentileri NuGet istemci araçları tarafından ortaya konan güvenlik gereksinimlerine uyup çok önemlidir.
-Gereken en düşük sürümü için bir kimlik doğrulama eklentisini olacak şekilde bir eklenti *2.0.0*.
-NuGet için desteklenmeyen bir işlem talepleri el sıkışması eklentisi ve sorgu gerçekleştirir.
-Çapraz platform eklentisi NuGet edinmek [iletişim kuralı iletileri](NuGet-Cross-Platform-Plugins.md#protocol-messages-index) belirli iletileri hakkında daha fazla ayrıntı için.
+Eklentilerin NuGet istemci araçları tarafından belirlenen güvenlik gereksinimlerine uygun olması çok önemlidir.
+Bir eklentinin kimlik doğrulama eklentisi olması için gereken en düşük sürüm *2.0.0*' dir.
+NuGet, desteklenen işlem talepleri için eklenti ve sorgu ile el sıkışma gerçekleştirecek.
+Belirli iletiler hakkında daha fazla ayrıntı için lütfen NuGet platformlar arası eklenti [protokol iletilerine](NuGet-Cross-Platform-Plugins.md#protocol-messages-index) bakın.
 
-NuGet günlük düzeyini ayarlamak ve uygun olduğunda eklentisi için proxy bilgilerini belirtin.
-NuGet, eklenti için günlük düzeyi ayarladıktan sonra için NuGet günlüğü yalnızca kabul edilebilir konsoludur.
+NuGet, günlük düzeyini ayarlar ve uygun olduğunda eklenti için proxy bilgilerini sağlar.
+NuGet konsolunda günlüğe kaydetme yalnızca NuGet, günlük düzeyini eklenti olarak ayarladıktan sonra kabul edilebilir.
 
-- .NET framework eklenti kimlik doğrulama davranışı
+- .NET Framework eklentisi kimlik doğrulama davranışı
 
-.NET Framework, eklentiler bir kullanıcıdan bir iletişim kutusu biçiminde bir giriş için izin verilir.
+.NET Framework, eklentilerden bir iletişim kutusu biçiminde kullanıcıdan giriş yapmasına izin verilir.
 
-- .NET core eklentisi kimlik doğrulama davranışı
+- .NET Core eklentisi kimlik doğrulama davranışı
 
-' De .NET Core, bir iletişim kutusu gösterilemiyor. Eklentileri cihaz akışı kimlik doğrulaması yapmak için kullanmanız gerekir.
-Eklenti kullanıcı yönergeleri için NuGet günlük iletileri gönderebilir.
-Günlük düzeyi eklentisi için ayarlandıktan sonra günlük kullanılabilir olduğunu unutmayın.
-NuGet komut satırından etkileşimli herhangi bir giriş olmayacaktır.
+.NET Core 'da bir iletişim kutusu gösterilemez. Eklentiler kimlik doğrulamak için cihaz akışını kullanmalıdır.
+Eklenti, Kullanıcı talimatlarına sahip NuGet 'e günlük iletileri gönderebilir.
+Günlük düzeyi eklentiye ayarlandıktan sonra günlüğe kaydetme 'nin kullanılabilir olduğunu unutmayın.
+NuGet, komut satırından etkileşimli giriş almaz.
 
-İstemci eklentisi edinin kimlik doğrulama kimlik bilgileri olan çağırdığında, eklentileri etkileşim geçiş için uygun ve iletişim anahtar saygı gerekir. 
+İstemci eklentiyi bir Get kimlik doğrulama kimlik bilgileriyle çağırdığında, eklentilerin etkileşim anahtarına uyması ve iletişim kutusu anahtarına uyması gerekir. 
 
-Aşağıdaki tabloda, eklenti tüm birleşimlerini nasıl davranacağı özetlenmektedir.
+Aşağıdaki tabloda, eklentinin tüm birleşimler için nasıl davranması özetlenmektedir.
 
-| IsNonInteractive | CanShowDialog | Eklenti davranışı |
+| IBU etkileşimsiz | CanShowDialog | Eklenti davranışı |
 | ---------------- | ------------- | --------------- |
-| true | true | IsNonInteractive anahtar iletişim geçiş daha önceliklidir. Eklenti, bir iletişim kutusu açılır izin verilmiyor. Bu birleşim yalnızca .NET Framework eklenti için geçerlidir |
-| true | false | IsNonInteractive anahtar iletişim geçiş daha önceliklidir. Eklenti engellemek için izin verilmiyor. Bu birleşim yalnızca .NET Core eklentileri için geçerlidir |
-| false | true | Eklenti, bir iletişim kutusu göstermelidir. Bu birleşim yalnızca .NET Framework eklenti için geçerlidir |
-| false | false | Eklenti iletişim kutusu göstermek can değil. Eklenti cihaz akış Günlükçü üzerinden bir yönerge ileti günlüğü tarafından kimlik doğrulaması yapmak için kullanmanız gerekir. Bu birleşim yalnızca .NET Core eklentileri için geçerlidir |
+| true | true | Etkileşimli olmayan anahtar, iletişim kutusu anahtarından önceliklidir. Eklentinin bir iletişim kutusu açmasına izin verilmiyor. Bu bileşim yalnızca .NET Framework eklentileri için geçerlidir |
+| true | false | Etkileşimli olmayan anahtar, iletişim kutusu anahtarından önceliklidir. Eklentinin engellenmesine izin verilmiyor. Bu bileşim yalnızca .NET Core eklentileri için geçerlidir |
+| false | true | Eklenti bir iletişim kutusu göstermelidir. Bu bileşim yalnızca .NET Framework eklentileri için geçerlidir |
+| false | false | Eklenti bir iletişim kutusu gösteremez/gösteremez. Eklenti, günlükçü aracılığıyla bir yönerge iletisini günlüğe kaydederek kimlik doğrulamak için cihaz akışını kullanmalıdır. Bu bileşim yalnızca .NET Core eklentileri için geçerlidir |
 
-Lütfen aşağıdaki özellikleri için bir eklenti yazmadan önce bakın.
+Bir eklenti yazmadan önce lütfen aşağıdaki özelliklere bakın.
 
-- [NuGet paketini indirme eklentisi](https://github.com/NuGet/Home/wiki/NuGet-Package-Download-Plugin)
-- [NuGet kimlik doğrulama eklentisini plat çapraz](https://github.com/NuGet/Home/wiki/NuGet-cross-plat-authentication-plugin)
+- [NuGet paketi Indirme eklentisi](https://github.com/NuGet/Home/wiki/NuGet-Package-Download-Plugin)
+- [NuGet çapraz Plat kimlik doğrulama eklentisi](https://github.com/NuGet/Home/wiki/NuGet-cross-plat-authentication-plugin)

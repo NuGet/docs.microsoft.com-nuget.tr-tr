@@ -1,29 +1,29 @@
 ---
 title: Yerel NuGet akışlarını ayarlama
-description: Yerel bir klasör yerel ağınızda kullanarak NuGet paketleri için akış oluşturma
+description: Yerel ağınızdaki klasörleri kullanarak NuGet paketleri için yerel akış oluşturma
 author: karann-msft
 ms.author: karann
 ms.date: 12/06/2017
 ms.topic: conceptual
-ms.openlocfilehash: 91c072c8895ab4267c64fd04deae010ae5af4d37
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 42a5c30c058a9efb35338c1b484235b6ad111bd0
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545458"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317585"
 ---
 # <a name="local-feeds"></a>Yerel akışlar
 
-Yerel NuGet paketi akışlar, paketleri yerleştireceğiniz yerel ağınızda (veya hatta yalnızca kendi bilgisayar) yalnızca hiyerarşik klasör yapılardır. Bu akışları sonra CLI, Paket Yöneticisi UI ve Paket Yöneticisi konsolu kullanarak tüm diğer NuGet işlemleri ile paket kaynağı olarak kullanılabilir.
+Yerel NuGet paket akışları, paketleri yerleştirdiğiniz yerel ağınızdaki (hatta yalnızca kendi bilgisayarınız) hiyerarşik klasör yapılarıdır. Bu akışlar daha sonra CLı, Paket Yöneticisi Kullanıcı arabirimi ve Paket Yöneticisi konsolu kullanılarak diğer tüm NuGet işlemlerinde paket kaynakları olarak kullanılabilir.
 
-Kaynak etkinleştirmek için yol ekleyin (gibi `\\myserver\packages`) kullanarak kaynakları listesine [Paket Yöneticisi UI](../tools/package-manager-ui.md#package-sources) veya [ `nuget sources` ](../tools/cli-ref-sources.md) komutu.
+Kaynağı etkinleştirmek için, dizin adını (gibi `\\myserver\packages`) [Paket Yöneticisi](../consume-packages/install-use-packages-visual-studio.md#package-sources) [`nuget sources`](../reference/cli-reference/cli-ref-sources.md) Kullanıcı arabirimini veya komutunu kullanarak kaynak listesine ekleyin.
 
 > [!Note]
-> Hiyerarşik klasör yapılarını içinde NuGet 3.3 + desteklenir. Yalnızca performans hiyerarşik yapıda çok daha düşük olan paketleri içeren tek bir klasör Nuget'in önceki sürümlerini kullanın.
+> Hiyerarşik klasör yapıları NuGet 3.3 + ' de desteklenir. Daha eski NuGet sürümleri, performansı hiyerarşik yapıdan çok daha düşük olan paketleri içeren tek bir klasör kullanır.
 
-## <a name="initializing-and-maintaining-hierarchical-folders"></a>Başlatma ve hiyerarşik klasör koruma
+## <a name="initializing-and-maintaining-hierarchical-folders"></a>Hiyerarşik klasörleri başlatma ve sürdürme
 
-Hiyerarşik tutulan klasörü ağacında, aşağıdaki genel yapıya sahiptir:
+Hiyerarşik sürümlü klasör ağacı aşağıdaki genel yapıya sahiptir:
 
     \\myserver\packages
       └─<packageID>
@@ -31,18 +31,18 @@ Hiyerarşik tutulan klasörü ağacında, aşağıdaki genel yapıya sahiptir:
           ├─<packageID>.<version>.nupkg
           └─<other files>
 
-Kullanırken NuGet bu yapı otomatik olarak oluşturur. [ `nuget add` ](../tools/cli-ref-add.md) akışa bir paket kopyalamak için komut:
+Bir paketi akışa kopyalamak için [`nuget add`](../reference/cli-reference/cli-ref-add.md) komutunu kullandığınızda NuGet bu yapıyı otomatik olarak oluşturur:
 
 ```cli
 nuget add new_package.1.0.0.nupkg -source \\myserver\packages
 ```
 
-`nuget add` Komutu ile tek bir pakette birden çok paket ile bir akış ayarlarken bilinmelidir bir zaman çalışır.
+`nuget add` Komut aynı anda bir paket ile çalışır ve birden çok pakete sahip bir akış ayarlarken bu kullanışlı olabilir.
 
-Böyle durumlarda kullanmak [ `nuget init` ](../tools/cli-ref-init.md) çalıştırdıysanız gibi tüm paketleri akışa bir klasöre kopyalamak için komut `nuget add` her birinde tek tek. Örneğin, aşağıdaki komutu tüm paketleri kopyalar `c:\packages` hiyerarşik bir için `\\myserver\packages`:
+Bu gibi durumlarda, bir klasördeki [`nuget init`](../reference/cli-reference/cli-ref-init.md) tüm paketleri tek tek çalıştırdığınız `nuget add` gibi akışa kopyalamak için komutunu kullanın. Örneğin, aşağıdaki komut, tüm paketleri içinden `c:\packages` hiyerarşik bir `\\myserver\packages`ağaca kopyalar:
 
 ```cli
 nuget init c:\packages \\myserver\packages
 ```
 
-Olduğu gibi `add` komutu `init` olan uygun paket her biri içeren bir sürüm numarası klasörü içinde her paket tanımlayıcı için bir klasör oluşturur.
+Komutunda olduğu gibi, `init` her biri bir sürüm numarası klasörü içeren her bir paket tanımlayıcısı için bir klasör oluşturur, bu da uygun bir pakettir. `add`

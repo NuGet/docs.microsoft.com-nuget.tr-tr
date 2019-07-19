@@ -1,166 +1,166 @@
 ---
-title: NuGet 2.7 Sürüm Notları
-description: NuGet bilinen sorunları, hata düzeltmeleri yapıldı, eklenen özellikler ve dcr 2.7 Sürüm Notları.
+title: NuGet 2,7 sürüm notları
+description: Bilinen sorunlar, hata düzeltmeleri, eklenen özellikler ve CCR 'ler dahil olmak üzere NuGet 2,7 sürüm notları.
 author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 97d3e5f0238fd6947a54e5eb3229b89b6746f18c
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: f26ac80046ec321ce5bdbf2bac23c0e1939cd69a
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43550971"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317075"
 ---
-# <a name="nuget-27-release-notes"></a>NuGet 2.7 Sürüm Notları
+# <a name="nuget-27-release-notes"></a>NuGet 2,7 sürüm notları
 
-[WebMatrix sürüm notları için NuGet 2.6.1](../release-notes/nuget-2.6.1-for-webmatrix.md) | [NuGet 2.7.1 sürüm notları](../release-notes/nuget-2.7.1.md)
+[WebMatrix için NuGet 2.6.1 sürüm notları](../release-notes/nuget-2.6.1-for-webmatrix.md) | [NuGet 2.7.1 sürüm notları](../release-notes/nuget-2.7.1.md)
 
-NuGet 2.7 22 Ağustos 2013 tarihinde yayınlanmıştır.
+NuGet 2,7, 22 Ağustos 2013 tarihinde yayınlandı.
 
-## <a name="acknowledgements"></a>Onayları
+## <a name="acknowledgements"></a>Bildirimler
 
-Aşağıdaki harici Katkıda Bulunanlar, NuGet 2.7 önemli katkılar için teşekkür ederiz istiyoruz:
+NuGet 2,7 ' e yönelik önemli katkılarına yönelik olarak aşağıdaki dış katkıda bulunanlar için teşekkür ederiz:
 
 1. [Mike Roth](http://www.codeplex.com/site/users/view/mxrss) ([@mxrss](https://twitter.com/mxrss))
-    - Lisans URL'si, paketler ve ayrıntı listeleme ayrıntılı gösterir.
-2. [ADAM Ralph](http://www.codeplex.com/site/users/view/adamralph) ([@adamralph](https://twitter.com/adamralph))
-    - [#1956](http://nuget.codeplex.com/workitem/1956) -developmentDependency özniteliğe eklemek `packages.config` ve paketi komutta yalnızca çalışma zamanı paketlerini içerecek şekilde kullanın
+    - Paket listelenirken ve ayrıntı ayrıntılandırılan lisans URL 'sini göster.
+2. [Adam Canph](http://www.codeplex.com/site/users/view/adamralph) ([@adamralph](https://twitter.com/adamralph))
+    - [#1956](http://nuget.codeplex.com/workitem/1956) -yalnızca çalışma zamanı paketlerini dahil etmek `packages.config` için geliştirme ve paketleme komutunda kullanın
 3. [Rafael Nicoletti](http://www.codeplex.com/site/users/view/tkrafael) ([@tkrafael](https://twitter.com/tkrafael))
-    - Nuget.exe paketi komut yinelenen özellikler anahtar kaçının.
+    - NuGet. exe paketi komutunda yinelenen özellikler anahtarından kaçının.
 4. [Ben Phegan](http://www.codeplex.com/site/users/view/benphegan) ([@BenPhegan](https://twitter.com/benphegan))
-    - [#2610](http://nuget.codeplex.com/workitem/2610) -200 makine önbellek boyutunu artırın.
-5. [Slava Trenogin](http://www.codeplex.com/site/users/view/derigel) ([@derigel](https://twitter.com/derigel))
-    - [#3217](http://nuget.codeplex.com/workitem/3217) -yanlış sekmede güncelleştirmeleri gösteren düzeltme NuGet iletişim
-    - Düzeltme Project.TargetFramework ProjectManager içinde null olabilir
-    - [#3248](http://nuget.codeplex.com/workitem/3248) -SharedPackageRepository FindPackage/FindPackagesById düzeltme üzerinde mevcut olmayan PackageId başarısız olur
-6. [Kevin Boyle](http://www.codeplex.com/site/users/view/KevinBoyleRG) ([@kevfromireland](https://twitter.com/kevfromireland))
-    - [#3234](http://nuget.codeplex.com/workitem/3234) -Nomad proje desteğini etkinleştir
-7. [Corin Blaikie](http://www.codeplex.com/site/users/view/corinblaikie) ([@corinblaikie](https://twitter.com/corinblaikie))
-    - [#3252](http://nuget.codeplex.com/workitem/3252) -dosya mevcut değilse düzeltme anında iletme komutu başarısız çıkış kodu 0.
-8. [Martin Veselý](http://www.codeplex.com/site/users/view/veselkamartin)
-    - [#3226](http://nuget.codeplex.com/workitem/3226) -hata veritabanı projesi bir projeye başvuruda bulunduğunda BindingRedirect Ekle komutu.
-9. [Miroslav Bajtos](http://www.codeplex.com/site/users/view/miroslavbajtos) ([@bajtos](https://twitter.com/bajtos))
-    - [#2891](http://nuget.codeplex.com/workitem/2891) -joker karakter 'exclude' özniteliğinde yanlış ayrıştırma nuget.pack hata düzeltmesi.
-10. [Justin Dearing](http://www.codeplex.com/site/users/view/zippy1981) ([@zippy1981](https://twitter.com/zippy1981))
-     - [#3307](http://nuget.codeplex.com/workitem/3307) -hata `NuGet.targets` $(Platform) nuget.exe için paketler geri yüklenirken geçirmez.
-11. [Brian Federici](http://www.codeplex.com/site/users/view/benerdin)
-     - [#3294](http://nuget.codeplex.com/workitem/3294) -düzeltme hata dosyalarla aynı ada ancak sonuçta "Öğe zaten var." özel durum neden farklı büyük/küçük harf, ekleme izin nuget.exe paket komutu.
+    - [#2610](http://nuget.codeplex.com/workitem/2610) -makine önbelleği boyutunu 200 olarak arttırın.
+5. [SLA Trenogin](http://www.codeplex.com/site/users/view/derigel) ([@derigel](https://twitter.com/derigel))
+    - [#3217](http://nuget.codeplex.com/workitem/3217) -güncelleştirmeleri yanlış sekmede gösteren NuGet iletişim kutusunu düzeltir
+    - Projeyi düzeltir. TargetFramework, ProjectManager 'da null olabilir
+    - var olmayan PackageID 'de [#3248](http://nuget.codeplex.com/workitem/3248) -SharedPackageRepository findpackage/Findpackagesbyıd başarısız olacak
+6. [Kevin boyle](http://www.codeplex.com/site/users/view/KevinBoyleRG) ([@kevfromireland](https://twitter.com/kevfromireland))
+    - [#3234](http://nuget.codeplex.com/workitem/3234) -Nomad projesi desteğini etkinleştir
+7. [Korkie](http://www.codeplex.com/site/users/view/corinblaikie) ([@corinblaikie](https://twitter.com/corinblaikie))
+    - dosya mevcut olmadığında, [#3252](http://nuget.codeplex.com/workitem/3252) -Push komutu 0 çıkış koduyla başarısız oluyor.
+8. [MARTIN Veselý](http://www.codeplex.com/site/users/view/veselkamartin)
+    - [#3226](http://nuget.codeplex.com/workitem/3226) -bir proje bir veritabanı projesine başvurduğunda Add-bindingRedirect komutuyla hatayı düzeltir.
+9. [Mırosla v Bajtos](http://www.codeplex.com/site/users/view/miroslavbajtos) ([@bajtos](https://twitter.com/bajtos))
+    - [#2891](http://nuget.codeplex.com/workitem/2891) -' exclude ' özniteliğinde hatalı joker karakter ayrıştırma hata ayıklama hatası düzeltildi.
+10. Bir [kaldırma](http://www.codeplex.com/site/users/view/zippy1981) ([@zippy1981](https://twitter.com/zippy1981))
+     - [#3307](http://nuget.codeplex.com/workitem/3307) -hata `NuGet.targets` giderme, paketler geri yüklenirken NuGet. exe ' ye $ (Platform) geçirmiyor.
+11. [Brian Federbir](http://www.codeplex.com/site/users/view/benerdin)
+     - [#3294](http://nuget.codeplex.com/workitem/3294) -aynı ada ancak büyük küçük harflere sahip dosya eklemeye izin veren NuGet. exe paket komutunda hata düzeltildi, sonuçta "öğe zaten var" özel durumuna neden olur.
 12. [Daniel Cazzulino](http://www.codeplex.com/site/users/view/dcazzulino) ([@kzu](https://twitter.com/kzu))
-     - [#2990](http://nuget.codeplex.com/workitem/2990) -sürüm Ekle özelliğini NetPortableProfile sınıfı.
+     - [#2990](http://nuget.codeplex.com/workitem/2990) -NetPortableProfile sınıfına sürüm özelliği ekleyin.
 13. [David Simner](https://www.codeplex.com/site/users/view/DavidSimner)
-     - [#3460](https://nuget.codeplex.com/workitem/3460) -hata NullReferenceException, düzeltme requireApiKey = true ancak üst bilgisi X-NUGET-APIKEY mevcut değil
-14. [Michael Friis](https://www.codeplex.com/site/users/view/friism) ([@friism](https://twitter.com/friism))
-     - [#3278](https://nuget.codeplex.com/workitem/3278) -çalışan MonoDevelop doğru çalıştığından emin düzeltmeleri NuGet.Build hedef dosya
+     - [#3460](https://nuget.codeplex.com/workitem/3460) -requireapikey = true olduğunda hata NullReferenceException hatası, ancak X-NUGET-apikey üst bilgisi yok
+14. [Michael Fri](https://www.codeplex.com/site/users/view/friism) ([@friism](https://twitter.com/friism))
+     - [#3278](https://nuget.codeplex.com/workitem/3278) -NuGet. Build hedef dosyasını, MonoDevelop üzerinde doğru çalışacak şekilde düzeltir
 15. [Pranav Krishnamoorthy](https://www.codeplex.com/site/users/view/pranavkm) ([@pranav_km](https://twitter.com/pranav_km))
-     - Geri yükleme komutu paralelleştirme artırarak performansı
+     - Paralelleştirme arttırılarak geri yükleme komutunun performansını artırma
 
-## <a name="notable-features-in-the-release"></a>Sürümündeki önemli özelliklere
+## <a name="notable-features-in-the-release"></a>Yayındaki önemli özellikler
 
-### <a name="package-restore-by-default-with-implicit-consent"></a>Varsayılan (ile tanımlanabilen) paket geri yükleme
+### <a name="package-restore-by-default-with-implicit-consent"></a>Varsayılan olarak paket geri yükleme (örtük onay ile)
 
-NuGet 2.7 paket geri yükleme için yeni bir yaklaşım sunmaktadır ve ayrıca önemli hurdle yelken: paket geri yükleme onayı artık varsayılan olarak açıktır! Yeni yaklaşıma ve tanımlanabilen birleşimi paket geri yükleme senaryolarında büyük ölçüde basitleştirir.
+NuGet 2,7, paket geri yükleme için yeni bir yaklaşım sunar ve ayrıca büyük bir aceden büyük bir zarar verir: Paket geri yükleme onayı artık varsayılan olarak açık! Yeni yaklaşımın birleşimi ve örtük onay, paket geri yükleme senaryolarını büyük ölçüde basitleştirir.
 
-#### <a name="implicit-consent"></a>Örtülü izin
+#### <a name="implicit-consent"></a>Örtük onay
 
-NuGet sürümü ile 2.0 ve 2.1, 2.2, 2.5 ve 2.6, açıkça sırasında eksik paketleri indirmek NuGet izin vermek için gerekli kullanıcıları oluşturun. Bu onay sahipse değil, kullanıcı onayı verilen kadar oluşturmak paket geri yükleme etkin çözümler başarısız olacağı daha sonra açıkça, verilen.
+NuGet sürümleri 2,0, 2,1, 2,2, 2,5 ve 2,6 sayesinde, kullanıcıların derleme sırasında eksik paketleri indirmesini, NuGet 'e açıkça izin vermek için ihtiyacı vardır. Bu onay açıkça verilmemişse, paket geri yükleme özelliği etkinleştirilmiş olan çözümler, Kullanıcı izin verene kadar derlemeyebilir.
 
-NuGet 2.7 ile başlayarak, paket geri yükleme onayı varsayılan olarak kullanıcılara açıkça izin verirken açıktır *çıkma* istenirse, Visual Studio'da NuGet ayarlarında onay kutularını kullanarak, paket geri yükleme. Bu değişiklik için tanımlanabilen şu Masaüstü ortamlarında NuGet etkiler:
+NuGet 2,7 ' den başlayarak, paket geri yükleme onayı varsayılan olarak açık olur, ancak istenirse, NuGet 'in Visual Studio 'daki ayarlarındaki onay kutusu kullanılarak, istenirse paket geri yükleme *devre dışı olarak devre dışı* . Bu örtük onay değişikliği, aşağıdaki ortamlarda NuGet 'i etkiler:
 
 * Visual Studio 2013 Preview
 * Visual Studio 2012
 * Visual Studio 2010
-* nuget.exe komut satırı yardımcı programı
+* NuGet. exe komut satırı yardımcı programı
 
-#### <a name="automatic-package-restore-in-visual-studio"></a>Visual Studio'da otomatik paket geri yükleme
+#### <a name="automatic-package-restore-in-visual-studio"></a>Visual Studio 'da otomatik paket geri yükleme
 
-Paket geri yükleme açıkça çözüm için bile etkinleştirilmemişse NuGet 2.7 ile başlayarak, NuGet otomatik olarak eksik paketleri Visual Studio'da derleme sırasında indirir. Bu otomatik geri yükleme paketi Visual Studio'da bir proje veya çözümü oluşturduğunuzda, ancak MSBuild çağrılmadan önce'olmuyor. Bu, birkaç önemli avantajlar verir:
+NuGet 2,7 ' den başlayarak, çözüm için paket geri yüklemesi açıkça etkinleştirilmediği halde NuGet, Visual Studio 'da derleme sırasında eksik paketleri otomatik olarak indirirler. Bu otomatik paket geri yükleme, Visual Studio 'da bir proje veya çözüm oluşturduğunuzda, ancak MSBuild çağrılmadan önce gerçekleşir. Bu, birkaç önemli avantajı verir:
 
-1. Daha fazla "NuGet paketi geri yüklemeyi etkinleştir" hareketi, çözümünüzde kullanmanız gerekir
-1. Projeleri değiştirilmesine gerek yoktur ve NuGet paket geri yükleme etkinleştirildiğinden emin olmak için projenize değişiklik olmaz
-1. Özellikler/MSBuild, MSBuild Imports dahil de dahil olmak üzere tüm NuGet paketlerini geri yüklenecek *önce* MSBuild çağrıldığında, sağlayarak özellikler/hedeflerin doğru yapı sırasında tanınan
+1. Çözümünüzde "NuGet paketini geri yüklemeyi etkinleştir" hareketini kullanmaya gerek yoktur
+1. Projenin değiştirilmesi gerekmez ve paket geri yüklemenin etkinleştirildiğinden emin olmak için NuGet projenizde değişiklik yapamaz
+1. Props/targets dosyaları için MSBuild içeri aktarmaları dahil olanlar da dahil olmak üzere tüm NuGet paketleri, MSBuild çağrılmadan *önce* , bu props/hedeflerin derleme sırasında düzgün şekilde tanınmasını sağlamak için geri yüklenecek
 
-Visual Studio'da paket otomatik geri yükleme kullanmak için yalnızca bir (iş) başında olması gerekir:
+Visual Studio 'da otomatik paket geri yüklemeyi kullanabilmek için yalnızca bir (ın) eylemde olması gerekir:
 
-1. Giriş yapmazsa, `packages` klasörü
+1. `packages` Klasörünüzü iade etme
 
-Atlamak için birkaç yolu vardır, `packages` kaynak denetiminden klasör. Daha fazla bilgi için [paketleri ve kaynak denetimi](../consume-packages/packages-and-source-control.md) konu.
+Kaynak denetiminden `packages` klasörünüzü atlamak için birkaç yol vardır. Daha fazla bilgi için bkz. [paketler ve kaynak denetimi](../consume-packages/packages-and-source-control.md) konusu.
 
-Tüm kullanıcıları örtük olarak çalışırken paket otomatik geri yükleme onayı seçimi yaptıysanız, kolayca Visual Studio'da Paket Yöneticisi Ayarları aracılığıyla geri çevirebilirsiniz.
+Tüm kullanıcılar örtük olarak otomatik paket geri yükleme onayını kabul ettiğinde, Visual Studio 'da Paket Yöneticisi ayarları aracılığıyla kolayca gezinebilirsiniz.
 
-![Paket Yöneticisi Ayarları](./media/NuGet-2.7/package-manager-settings.png)
+![Paket Yöneticisi ayarları](./media/NuGet-2.7/package-manager-settings.png)
 
-#### <a name="simplified-package-restore-from-the-command-line"></a>Komut satırından Basitleştirilmiş paket geri yükleme
+#### <a name="simplified-package-restore-from-the-command-line"></a>Komut satırından Basitleştirilmiş paket geri yüklemesi
 
-NuGet 2.7 nuget.exe için yeni bir özellik sunar: `nuget.exe restore`
+NuGet 2,7, NuGet. exe için yeni bir özellik sunar:`nuget.exe restore`
 
-Bu yeni Restore komutu tüm paketleri tek bir komutla bir çözüm için'ın bir çözüm dosyası veya klasörü bağımsız değişken olarak kabul ederek kolayca geri yüklemenize olanak sağlar. Ayrıca, geçerli klasörde yalnızca tek bir çözüm olduğunda, bağımsız değişken yapılmamaktadır. Tek bir çözüm dosyasını (MySolution.sln) içeren klasörden aşağıdaki tüm iş anlamına gelir:
+Bu yeni geri yükleme komutu, bir çözüm dosyasını veya klasörünü bağımsız değişken olarak kabul ederek tek bir komutla bir çözüme yönelik tüm paketleri kolayca geri yüklemenize olanak tanır. Ayrıca, bu bağımsız değişken geçerli klasörde yalnızca tek bir çözüm varsa kapsanır. Yani, tek bir çözüm dosyası (MySolution. sln) içeren bir klasörden aşağıdaki tüm çalışmalar anlamına gelir:
 
-1. nuget.exe geri yükleme MySolution.sln
-1. nuget.exe geri yükleme.
-1. nuget.exe geri yükleme
+1. NuGet. exe restore MySolution. sln
+1. NuGet. exe geri yükleme.
+1. NuGet. exe geri yükleme
 
-Restore komutu, çözüm dosyasını açın ve çözüm içindeki tüm projeler bulun. Buradan, bunu bulabilirsiniz `packages.config` tüm projeleri ve bulunan tüm paketlerin geri yükleme dosyaları. Ayrıca bulunan çözüm düzeyinde paketleri geri yükler `.nuget\packages.config` dosya. Yeni Restore komutu hakkında daha fazla bilgi bulunabilir [komut satırı başvurusu](../tools/cli-ref-restore.md).
+Restore komutu çözüm dosyasını açar ve çözüm içindeki tüm projeleri bulur. Buradan, projelerin her biri için `packages.config` dosyaları bulur ve bulunan tüm paketleri geri yükler. Ayrıca `.nuget\packages.config` dosyada bulunan çözüm düzeyi paketleri de geri yükler. Yeni restore komutu hakkında daha fazla bilgi için [komut satırı başvurusunda](../reference/cli-reference/cli-ref-restore.md)bulabilirsiniz.
 
-#### <a name="the-new-package-restore-workflow"></a>Yeni paket geri yükleme iş akışı
+#### <a name="the-new-package-restore-workflow"></a>Yeni paket geri yükleme Iş akışı
 
-Yeni bir iş akışı tanıtan bu paket geri yükleme, bu değişiklikler hakkında heyecan duyuyoruz. Kaynak denetiminden paketlerinizi atlamak istiyorsanız, yalnızca tamamlama yoksa `packages` klasör. Açın ve çözümü visual Studio kullanıcılar otomatik olarak geri paketleri görürsünüz. Komut satırı derlemeleri için yalnızca çağırma `nuget.exe restore` çağırmadan önce `msbuild`. Artık "NuGet paketi geri yüklemeyi etkinleştir" hareketi, çözümünüzde kullanmayı unutmayın gerekmez ve biz artık projelerinizi derleme değiştirmek için değiştirmeniz gerekir. Ve bu da özellikle NuGet'ın en son özellik için eklenen içe aktarmalar için MSBuild içeri aktarmaları içeren paketler için daha gelişmiş bir deneyim verir [otomatik olarak içeri özellikler/hedefleri dosyaları](../release-notes/nuget-2.5.md#automatic-import-of-msbuild-targets-and-props-files) \build klasöründen.
+Yeni bir iş akışı kullanıma sunmakta olduğu için paket geri yükleme ile ilgili bu değişiklikler hakkında heyecanlıyız. Kaynak denetiminden paketlerinizi atlamak istiyorsanız, `packages` yalnızca klasörü yürütmeyin. Çözümü açan ve oluşturan Visual Studio kullanıcıları paketleri otomatik olarak geri yükledi. Komut satırı derlemeleri için, çağırmadan `nuget.exe restore` `msbuild`önce komutunu çağırmanız yeterlidir. Artık çözümünüzde "NuGet paketini geri yüklemeyi etkinleştir" hareketini kullanmayı unutmamanız gerekmez; artık, derlemeyi değiştirmek için projelerinizi değiştirmemiz gerekmez. Ayrıca bu durum, MSBuild içeri aktarmaları içeren paketlere yönelik daha gelişmiş bir deneyim de verir, özellikle de NuGet 'in son özelliği aracılığıyla \Build klasöründen [props/targets dosyalarını otomatik olarak içeri aktarmak](../release-notes/nuget-2.5.md#automatic-import-of-msbuild-targets-and-props-files) için.
 
-Kendimize yaptığımız iş yanı sıra, ayrıca bu yeni bir yaklaşım yuvarlamak önemli bazı iş ortaklarıyla çalışıyoruz. Biz somut zaman çizelgeleri aşağıdakilerden herhangi biri için henüz yoksa, ancak her yeni yaklaşıma bizim yaptığımız gibi heyecan ortağıdır.
+Yaptığımız işin yanı sıra, bu yeni yaklaşımı yuvarlamak için bazı önemli iş ortaklarıyla de çalışacağız. Bunlardan herhangi biri için somut zaman çizelgeleri yoktur, ancak yeni yaklaşımda yaptığımız için her iş ortağı heyecanlıyız.
 
-* Team Foundation Service - bunlar çalıştığınız çağrısı tümleştirmek için `nuget.exe restore` varsayılan senaryoları oluşturun.
-* Windows Azure Web siteleri - bunlar çalıştığınız, projenizi Azure'a gönderin ve izin vermek için `nuget.exe restore` web sitenizi oluşturulmadan önce çağrılır.
-* TeamCity - bunlar güncelleştirdiğiniz kendi NuGet Yükleyicisi eklentisi için TeamCity 8.x
-* AppHarbor - bunlar çalıştığınız için AppHarbor deponuza gönderin ve olanak `nuget.exe restore` çözümünüzü derleme önce çağrılır.
+* Team Foundation Service, çağrısı `nuget.exe restore` varsayılan derleme senaryolarıyla tümleştirilecek şekilde çalışır.
+* Windows Azure Web siteleri-projenizi Azure 'a itmeniz ve `nuget.exe restore` Web siteniz oluşturulmadan önce çağırılabilmesi için çalışıyoruz.
+* TeamCity-TeamCity 8. x için NuGet yükleyici eklentisini güncelleştirirler
+* Uygulama, deponuzu uygulamanıza dağıtmanıza ve `nuget.exe restore` çözümünüz derlemeden önce çağırılmasına olanak tanımak için çalışıyoruz.
 
-Her iş ortaklarının yukarıdaki nuget.exe kendilerine ait kopyasında kullanmanız gerekir ve çözümünüzde nuget.exe gerçekleştirmek zorunda kalmaz.
+Yukarıdaki iş ortaklarının her biri ile, NuGet. exe ' nin kendi kopyalarını kullanır ve çözümünüzde NuGet. exe ' yi uygulamanız gerekmez.
 
 #### <a name="known-issues"></a>Bilinen Sorunlar
 
-Nuget.exe geri yükleme ile ilk 2.7 Sürüm ile iki bilinen sorunlar vardı, ancak 6/9/2013 yönelik bir güncelleştirme ile'te düzeltilen [NuGet.CommandLine paket](http://www.nuget.org/packages/NuGet.CommandLine/).  Bu güncelleştirme ayrıca şurada bulunur [NuGet 2.7 İndirme sayfası](https://nuget.codeplex.com/releases/view/107605) CodePlex üzerinde.  Çalışan `nuget.exe update -self` en son sürüme güncelleştirir.
+İlk 2,7 sürümüyle NuGet. exe geri yükleme ile ilgili iki bilinen sorun vardı, ancak [NuGet. CommandLine paketine](http://www.nuget.org/packages/NuGet.CommandLine/)yönelik bir güncelleştirmeyle 9/6/2013 tarihinde düzeltildi.  Bu güncelleştirme, CodePlex 'teki [NuGet 2,7 indirme sayfasında](https://nuget.codeplex.com/releases/view/107605) da kullanılabilir.  Çalışan `nuget.exe update -self` , en son sürüme güncelleştirilecek.
 
-Sabit şöyleydi:
+Düzeltilen:
 
-1. [Yeni paket geri yükleme üzerinde Mono SLN dosyasını kullanırken çalışmıyor](https://nuget.codeplex.com/workitem/3596)
-1. [Yeni paket geri yükleme Wix projeleriyle çalışmıyor](https://nuget.codeplex.com/workitem/3598)
+1. [Yeni paket geri yüklemesi, SLN dosyası kullanılırken mono üzerinde çalışmıyor](https://nuget.codeplex.com/workitem/3596)
+1. [Yeni paket geri yüklemesi Wix projeleriyle çalışmıyor](https://nuget.codeplex.com/workitem/3598)
 
-Ayrıca bir bilinen sorun olup yeni paket geri yükleme iş akışı yapabildiği [paket otomatik geri çalışmıyor bir çözüm klasörü altındaki projelerde](https://nuget.codeplex.com/workitem/3625). Nuget'te 2.7.1 Bu sorunu düzeltildi.
+Ayrıca, [otomatik paket geri yükleme işlemi bir çözüm klasörü altındaki projeler için çalışmadığı](https://nuget.codeplex.com/workitem/3625)yeni paket geri yükleme iş akışı ile ilgili bilinen bir sorun da vardır. Bu sorun NuGet 2.7.1 'de düzeltildi.
 
-### <a name="project-retargeting-and-upgrade-build-errorswarnings"></a>Proje yeniden hedefleme ve yükseltme hataları/uyarıları oluşturma
+### <a name="project-retargeting-and-upgrade-build-errorswarnings"></a>Proje yeniden hedefleme ve yükseltme derleme hataları/uyarıları
 
-Birden çok kez yeniden hedefleme veya projenize yükselttikten sonra NuGet paketlerinden bazıları düzgün olmayan bulabilirsiniz. Ne yazık ki, bu bir gösterge yoktur ve ardından yoktur hiçbir kılavuz ele nasıl. NuGet 2.7 ile artık bazı Visual Studio olayları yeniden hedeflendi veya projenizi yüklü olan NuGet paketlerinizi etkileyen bir biçimde yükseltilmiş tanımak için kullanırız.
+Projenizi yeniden hedefledikten veya yükselttikten sonra, bazı NuGet paketlerinin düzgün çalışmadığını fark edersiniz. Ne yazık ki bunun bir göstergesi yoktur ve bunun nasıl ele alınacağını gösteren bir rehberlik yoktur. NuGet 2,7 ile, artık projenizi, yüklü NuGet paketlerinizi etkileyecek şekilde yeniden hedeflediğiniz veya yükselttiğiniz zaman tanımak için bazı Visual Studio olaylarını kullanacağız.
 
-Paketlerinizi birini yeniden hedefleme veya yükseltme tarafından etkilendi belirlersek anında derleme hataları bildirmek için hazırladığımız. Anında derleme hatası yanı sıra, biz de kalıcı bir `requireReinstallation="true"` bayrağını, `packages.config` dosya Visual Studio'da yeniden hedefleme tarafından etkilenen ve sonraki her tüm paketleri oluşturmak için yükseltmek için bu paketleri derleme uyarıları.
+Paketlerinizin herhangi birinin yeniden hedefleme veya yükseltme tarafından etkilendiğini tespit ettiğimiz takdirde, size bildirmek için anında derleme hataları üreteceğiz. Anında derleme hatasına ek olarak, yeniden hedeflemenin etkilediği tüm paketler `requireReinstallation="true"` için `packages.config` dosyanızda bir bayrak de kalıcı hale getiriyoruz ve Visual Studio 'daki sonraki her derleme bu paketlere yönelik derleme uyarıları oluşturacak.
 
-NuGet etkilenen paketleri yeniden yüklemek için otomatik eylem alamaz ve bu gösterimi umuyoruz uyarı Yardım yönlendirecektir olsa da paket yeniden gerektiğinde keşfedin. Ayrıca üzerinde çalışılmaktadır [paketini yeniden Rehber belgeleri](../consume-packages/reinstalling-and-updating-packages.md) bu hata iletileri için doğrudan.
+NuGet, etkilenen paketleri yeniden yüklemek için otomatik eylem yapamasa da bu gösterge ve uyarı, paketleri yeniden yüklemeniz gerektiğinde bulmanıza yardımcı olur. Ayrıca, bu hata iletilerinin size yönlendirçalıştığı [paket yeniden yükleme kılavuzu belgeleri](../consume-packages/reinstalling-and-updating-packages.md) üzerinde çalışıyoruz.
 
 ### <a name="nuget-configuration-defaults"></a>NuGet yapılandırma Varsayılanları
 
-Birçok şirket, NuGet dahili olarak kullanarak, ancak iç paket kaynakları nuget.org yerine kullanılacak geliştiricileri erişeceğinizi gösteren sabit bir süre beklendiğinden. NuGet 2.7 için belirtilecek makine genelinden Varsayılanları sağlayan bir yapılandırma Varsayılanları özelliği sunar:
+Birçok şirket, NuGet 'i dahili olarak kullanıyor, ancak geliştiricilerin nuget.org yerine iç paket kaynaklarını kullanmasını sağlayan bir süre daha vardı. NuGet 2,7, için makine genelindeki varsayılan değerlerin belirtilmesini sağlayan bir yapılandırma Varsayılanları özelliği sunar:
 
 1. Etkin paket kaynakları
-1. Kayıtlı ancak devre dışı paket kaynaklarını
-1. Varsayılan nuget.exe anında iletme kaynağı
+1. Kaydedildi, ancak devre dışı paket kaynakları
+1. Varsayılan NuGet. exe gönderme kaynağı
 
-Her birinde bulunan bir dosya içinde artık yapılandırılabilir `%ProgramData%\NuGet\NuGetDefaults.Config`. Bu yapılandırma dosyasını, paket kaynaklarını belirtir sonra varsayılan nuget.org paket kaynağı otomatik olarak kaydedilmez ve dışındaki `NuGetDefaults.Config` yerine kaydedilir.
+Bunların her biri, artık konumunda `%ProgramData%\NuGet\NuGetDefaults.Config`bulunan bir dosya içinde yapılandırılabilir. Bu yapılandırma dosyasında paket kaynakları belirtilmişse, varsayılan NuGet.org paket kaynağı otomatik olarak kaydedilmeyecektir ve `NuGetDefaults.Config` bunun yerine kayıt yapılır.
 
-Bu özelliği kullanmak için gerekli olmasa da dağıtmak için şirketlerin bekliyoruz `NuGetDefaults.Config` Grup İlkesi kullanarak dosyaları.
+Bu özelliğin kullanılması gerekmediği sürece, şirketlerin Grup İlkesi kullanarak dosya dağıtmaları `NuGetDefaults.Config` beklenir.
 
-*Bu özellik, bir geliştiricinin NuGet ayarlarından kaldırılmış bir paket kaynağı hiçbir zaman neden olacağını unutmayın. Geliştirici NuGet zaten kullandı ve bu nedenle nuget.org paket kaynağı olan anlamına kayıtlı, oluşturulmasından sonra kaldırılmaz bir `NuGetDefaults.Config` dosya.*
+*Bu özelliğin hiçbir şekilde bir geliştirici NuGet ayarlarından bir paket kaynağı kaldırılmasına neden olacağını unutmayın. Yani, geliştirici zaten NuGet kullanıyorsa ve bu nedenle NuGet.org paket kaynağı kayıtlıysa, bir `NuGetDefaults.Config` Dosya oluşturulduktan sonra kaldırılmaz.*
 
-Bkz: [NuGet yapılandırma varsayılanları](../consume-packages/configuring-nuget-behavior.md#nuget-defaults-file) bu özellik hakkında daha fazla bilgi.
+Bu özellik hakkında daha fazla bilgi için bkz. [NuGet yapılandırma Varsayılanları](../consume-packages/configuring-nuget-behavior.md#nuget-defaults-file) .
 
-### <a name="renaming-the-default-package-source"></a>Varsayılan paket kaynağı yeniden adlandırma
+### <a name="renaming-the-default-package-source"></a>Varsayılan paket kaynağını yeniden adlandırma
 
-NuGet, her zaman "nuget.org için işaret NuGet resmi paket kaynağı" olarak adlandırılan bir varsayılan paket kaynağı kaydettirildi. Bu ada ayrıntılı ve de burada bu gerçekten işaret ettiği belirtmediniz. İki sorunları gidermek için bu paket kaynağının yalnızca "nuget.org'da" kullanıcı arabiriminde değiştirdiniz. Paket kaynağı URL'si aynı zamanda "www." içerecek şekilde değiştirildi önek. NuGet 2.7 kullandıktan sonra mevcut "NuGet resmi paket kaynağı" otomatik olarak "nuget.org" ad olarak güncelleştirilir ve "<https://www.nuget.org/api/v2/>" URL olarak.
+NuGet, nuget.org 'e işaret eden "NuGet resmi paket kaynağı" adlı varsayılan bir paket kaynağını her zaman kaydetti. Bu ad ayrıntılıdır ve gerçekten nerede işaret ettiğinden de belirtmiyordu. Bu iki sorunu gidermek için, bu paket kaynağını Kullanıcı arabiriminde yalnızca "nuget.org" olarak yeniden adlandırdık. Paket kaynağının URL 'SI de "www" de dahil olacak şekilde değiştirilmiştir. koy. NuGet 2,7 kullanıldıktan sonra, mevcut "NuGet resmi paket kaynağınız", URL 'si olarak "NuGet.org" olarak ""<https://www.nuget.org/api/v2/>olarak güncelleştirilir.
 
 ### <a name="performance-improvements"></a>Performans Geliştirmeleri
 
-İçinde daha küçük bellek Ayak izi, daha az disk kullanımı ve daha hızlı paket yükleme verecek 2.7 bazı performans geliştirmesi yaptık. Ayrıca, genel yükü azaltır OData tabanlı Özet akışlarını daha akıllı sorgular hale.
+2,7 ' de daha küçük bellek ayak, daha az disk kullanımı ve daha hızlı paket yüklemesi sağlayacak performans iyileştirmesi yaptık. Ayrıca, genel yükü azaltacak OData tabanlı akışlara daha akıllı sorgular yaptık.
 
-### <a name="new-extensibility-apis"></a>Yeni genişletilebilirlik API'leri
+### <a name="new-extensibility-apis"></a>Yeni genişletilebilirlik API 'Leri
 
-Önceki sürümlerde eksik işlevleri boşluğu doldurmak için genişletilebilirlik hizmetlerimiz için bazı yeni API ekledik.
+Önceki sürümlerde eksik işlevlerin boşluğunu dolduracak genişletilebilirlik hizmetlerimize bazı yeni API 'Ler ekledik.
 
 #### <a name="ivspackageinstallerservices"></a>IVsPackageInstallerServices
 
@@ -184,16 +184,16 @@ NuGet, her zaman "nuget.org için işaret NuGet resmi paket kaynağı" olarak ad
 
 ### <a name="development-only-dependencies"></a>Yalnızca geliştirme bağımlılıkları
 
-Bu özellik tarafından katkıda bulunulan [Adam Ralph](https://twitter.com/adamralph) ve yalnızca geliştirme sırasında kullanılan bağımlılık süresi ve Paket bağımlılıklarını gerektirmeyen bildirmek paket yazarlarının verir. Ekleyerek bir `developmentDependency="true"` öznitelik pakete `packages.config`, `nuget.exe pack` artık o paketi bir bağımlılık olarak dahil edilir.
+Bu özellik, [adam Canph](https://twitter.com/adamralph) tarafından katkıda bulunulmuş ve paket yazarlarının yalnızca geliştirme zamanında kullanılan ve paket bağımlılıkları gerektirmeyen bağımlılıkları bildirmesine izin veriyor. `nuget.exe pack` İçindeki `developmentDependency="true"` birpakete`packages.config`bir öznitelik eklenerek, bu paket artık bağımlılık olarak dahil olmayacaktır.
 
 ### <a name="removed-support-for-visual-studio-2010-express-for-windows-phone"></a>Windows Phone için Visual Studio 2010 Express desteği kaldırıldı
 
-2.7 yeni paket geri yükleme modelinde ana NuGet VSPackage farklı olan yeni bir VSPackage tarafından uygulanır. Teknik bir sorun nedeniyle, bu yeni VSPackage içinde düzgün çalışmıyor *Visual Studio 2010 Express için Windows Phone* SKU sizinle aynı kod tabanını diğer paylaşıyoruz Visual Studio'SKU ' ları desteklenir. Bu nedenle, NuGet 2.7 ile başlayarak, biz desteği atar *Visual Studio 2010 Express için Windows Phone* yayımlanmış uzantı. Destek *Visual Studio 2010 Express Web* hala Visual Studio uzantısı galeride yayımlanmış uzantı birincil dahildir.
+2,7 sürümündeki yeni paket geri yükleme modeli, ana NuGet VSPackage 'dan farklı olan yeni bir VSPackage tarafından uygulanır. Teknik bir sorun nedeniyle, aynı kod tabanını desteklenen diğer Visual Studio SKU 'Ları ile paylaştiğimiz için bu yeni VSPackage Windows Phone SKU 'su *Için Visual studio 2010 Express* 'te doğru çalışmaz. Bu nedenle, NuGet 2,7 ' den itibaren, yayımlanan uzantıdan *Windows Phone Için Visual Studio 2010 Express* desteğini bıraktık. *Web Için Visual studio 2010 Express* desteği, Visual Studio Uzantı galerisine yayımlanan birincil uzantıya hala dahildir.
 
-Biz kaç geliştiricilerin yine de bu sürümü Visual Studio'nun NuGet kullandığını emin değilseniz bu yana, biz bu kullanıcılar için özel olarak ayrı bir Visual Studio uzantısı yayımlama ve CodePlex (Visual Studio uzantı Galerisi yerine) yayımlama . Bu sizi etkiliyorsa ancak bu uzantı kullanmaya devam etmek planlamıyor Codeplex'te bir sorun kaydederek bize bildirin.
+Visual Studio 'nun bu sürümünde/sürümünde kaç geliştirici hala NuGet kullandığından emin olduğumuz için, bu kullanıcılar için özel olarak ayrı bir Visual Studio uzantısı yayımlıyoruz ve CodePlex 'te yayımlıyoruz (Visual Studio Uzantı Galerisi yerine) . Bu uzantının bakımını yapmaya devam etmeyi planlıyoruz, ancak bu, bu uzantıyı etkiliyorsa, lütfen CodePlex üzerinde bir sorun kaydederek bize bilgi verin.
 
-NuGet Paket Yöneticisi (Visual Studio 2010 Express için Windows Phone için) indirmek için şurayı ziyaret edin [2.7 NuGet indirir](https://nuget.codeplex.com/releases/view/107605) sayfası.
+NuGet paket yöneticisini indirmek için (Windows Phone için Visual Studio 2010 Express için), [nuget 2,7 İndirmeleri](https://nuget.codeplex.com/releases/view/107605) sayfasını ziyaret edin.
 
 ### <a name="bug-fixes"></a>Hata Düzeltmeleri
 
-Bu özelliklerin yanı sıra bu NuGet sürümü ayrıca diğer birçok hata düzeltmeleri içerir. Sürümünde giderilen 97 toplam sorunlar oluştu. Tam bir listesi için iş öğeleri NuGet 2.7, lütfen görünümü sabit [bu sürüm için NuGet sorun İzleyicisi](https://nuget.codeplex.com/workitem/list/advanced?release=NuGet%202.7&status=all).
+Bu özelliklere ek olarak, NuGet 'in bu sürümü diğer birçok hata düzeltmesi de içerir. Yayında ele alınan toplam 97 sorun oluştu. NuGet 2,7 ' de düzeltilen iş öğelerinin tam listesi için lütfen [Bu sürüm Için NuGet sorun İzleyicisi](https://nuget.codeplex.com/workitem/list/advanced?release=NuGet%202.7&status=all)' ni görüntüleyin.

@@ -1,66 +1,66 @@
 ---
-title: NuGet 1.4 sürüm notları
-description: NuGet bilinen sorunları, hata düzeltmeleri yapıldı, eklenen özellikler ve dcr 1.4 için sürüm notları.
+title: NuGet 1,4 sürüm notları
+description: Bilinen sorunlar, hata düzeltmeleri, eklenen özellikler ve CCR 'ler dahil olmak üzere NuGet 1,4 sürüm notları.
 author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 3f4d712f83ea108a82a1bc4910c2a721a8c24d51
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: de76cf610e580a36014be9274b9c2c762b1015ac
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43550637"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317171"
 ---
-# <a name="nuget-14-release-notes"></a>NuGet 1.4 sürüm notları
+# <a name="nuget-14-release-notes"></a>NuGet 1,4 sürüm notları
 
-[1.3 NuGet sürüm notları](../release-notes/nuget-1.3.md) | [1.5 NuGet sürüm notları](../release-notes/nuget-1.5.md)
+[NuGet 1,3 sürüm notları](../release-notes/nuget-1.3.md) | [NuGet 1,5 sürüm notları](../release-notes/nuget-1.5.md)
 
-NuGet 1.4 17 Haziran 2011'de yayınlanmıştır.
+NuGet 1,4, 17 Haziran 2011 tarihinde yayınlanmıştır.
 
 ## <a name="features"></a>Özellikler
 
-### <a name="update-package-improvements"></a>Update-Package geliştirmeleri
-NuGet 1.4 birçok geliştirme paketlerini bir çözümde birden çok proje boyunca aynı sürümde tutmak kolaylaştırarak Update-Package komutuna tanıtır. Örneğin, bir paketin en son sürüme yükselttiğinizde, tüm projeler için aynı verision güncelleştirilecek yüklü, paketin ile istediğiniz yaygın olarak.
+### <a name="update-package-improvements"></a>Güncelleştirme-paket iyileştirmeleri
+NuGet 1,4, bir çözümdeki birden çok projedeki paketleri aynı sürümde tutmayı kolaylaştıran Update-Package komutuna yönelik birçok geliştirme sunar. Örneğin, bir paketi en son sürüme yükseltirken, bu paketin yüklü olduğu tüm projelerin aynı Verision güncelleştirilmesini istemeniz çok yaygındır.
 
-`Update-Package` Komutu artık kolaylaştırır için:
+`Update-Package` Komut şu anda şunları kolaylaştırır:
 
-#### <a name="update-all-packages-in-a-single-project"></a>Tek bir projede tüm paketleri güncelleştir
+#### <a name="update-all-packages-in-a-single-project"></a>Tek bir projedeki tüm paketleri Güncelleştir
 
     Update-Package -Project MvcApplication1
 
-#### <a name="update-a-package-in-all-projects"></a>Bir paketteki tüm projeleri güncelleştir
+#### <a name="update-a-package-in-all-projects"></a>Tüm projelerdeki bir paketi güncelleştirme
 
     Update-Package PackageId
 
-#### <a name="update-all-packages-in-all-projects"></a>Tüm projelerde tüm paketleri güncelleştir
+#### <a name="update-all-packages-in-all-projects"></a>Tüm projelerdeki tüm paketleri Güncelleştir
 
     Update-Package
 
-#### <a name="perform-a-safe-update-on-all-packages"></a>Tüm paketleri "güvenli" güncelleştirme gerçekleştirme
-`-Safe` Bayrağı yükseltmeleri yalnızca sürümleri aynı ana ve alt sürüm bileşeni ile kısıtlar. Örneğin bir paket 1.0.0 sürümü yüklü ve 1.0.1, 1.0.2 ve 1.1 sürümleri akışında kullanılabilir `-Safe` bayrağı için 1.0.2 paketi güncelleştirir. Olmadan yükseltme `-Safe` bayrağı en son sürüm 1.1 paketi yükseltmeniz.
+#### <a name="perform-a-safe-update-on-all-packages"></a>Tüm paketlerde "güvenli" bir güncelleştirme gerçekleştir
+Bayrak `-Safe` , yükseltmeleri yalnızca aynı ana ve alt sürüm bileşeni olan sürümlerle kısıtlar. Örneğin, bir paketin 1.0.0 sürümü yüklüyse ve 1.0.1, 1.0.2 ve 1,1 sürümleri akışta varsa, `-Safe` bayrak paketi 1.0.2 olarak güncelleştirir. `-Safe` Bayrak olmadan yükseltme, paketi en son 1,1 sürümüne yükseltir.
 
     Update-Package -Safe
 
-### <a name="managing-packages-at-the-solution-level"></a>Paketleri çözüm düzeyinde yönetme
-NuGet 1.4 önce hantal iletişim kutusunu kullanarak birden çok proje bir paketi yükleniyor. Her proje için bir kez iletişim kutusunu başlatarak gerekli.
+### <a name="managing-packages-at-the-solution-level"></a>Çözüm düzeyinde paketleri yönetme
+NuGet 1,4 ' den önce, iletişim kutusunu kullanarak bir paketin birden fazla projeye yüklenmesi çok daha fazla. Her proje için iletişim kutusunun bir kez başlatılmasını gerektirdi.
 
-NuGet 1.4, aynı anda birden çok proje yükleme/kaldırma/güncelleştirme paketleri için destek ekler. Yalnızca başlatma çözüme sağ tıklayarak ve seçerek **NuGet paketlerini Yönet** menü seçeneği.
+NuGet 1,4 aynı anda birden çok projedeki paketleri yükleme/kaldırma/güncelleştirme desteği ekler. Çözümü sağ tıklayıp **NuGet Paketlerini Yönet** menü seçeneğini belirleyerek başlatmanız yeterlidir.
 
-![Çözüm düzeyi NuGet paketlerini Yönet iletişim kutusu](./media/manage-nuget-packages-solution-dialog.png)
+![Çözüm düzeyi NuGet Paketlerini Yönet iletişim kutusu](./media/manage-nuget-packages-solution-dialog.png)
 
-İletişim kutusunun başlık çubuğunda çözümün adına görüntülendiğini bildirimi, bir proje adı değil.
-Paket işlemleri artık onay kutularını listesiyle işlemi uygulamalısınız projelerinin listesini sağlar.
+İletişim kutusunun başlık çubuğunda, bir projenin adı değil, çözümün adının görüntülendiğini unutmayın.
+Paket işlemleri artık işlemin uygulanması gereken projelerin listesine sahip onay kutularının bir listesini sağlar.
 
-![NuGet paketleri proje seçimi yönetme](./media/manage-nuget-packages-project-selection.png)
+![NuGet paketleri proje seçimini Yönet](./media/manage-nuget-packages-project-selection.png)
 
-Daha fazla ayrıntı için üzerinde konusuna bakın. [çözüm için paketler yönetme](../tools/package-manager-ui.md#managing-packages-for-the-solution).
+Daha fazla ayrıntı için, [çözüm Için paketleri yönetme](../consume-packages/install-use-packages-visual-studio.md#manage-packages-for-the-solution)konusuna bakın.
 
-### <a name="constraining-upgrades-to-allowed-versions"></a>Sınırlamak için izin verilen sürümler yükseltme
-Varsayılan olarak çalıştırırken `Update-Package` bir paket (veya iletişim kutusunu kullanarak paketi güncelleştiriliyor) komutunu akıştaki en son sürüme güncelleştirilir. Tüm paketleri güncelleştirmeye yönelik yeni destek sayesinde, belirli bir sürüm aralığı için bir paket kilitlemek istediğiniz durumlar olabilir. Örneğin, uygulamanızın yalnızca bir paketin, ancak değil 3.0 ve sonraki sürüm 2.* ile çalışmasını önceden haberdar olabilirsiniz. Yanlışlıkla Paketi 3'e güncelleştiriliyor önlemek için NuGet 1.4 aralığını paketleri elle düzenleyerek yükseltilebilir sürümleri için destek ekler `packages.config` kullanarak yeni dosya `allowedVersions` özniteliği.
+### <a name="constraining-upgrades-to-allowed-versions"></a>Yükseltmeleri Izin verilen sürümlere kısıtlama
+Varsayılan olarak, bir pakette `Update-Package` komutu çalıştırırken (veya iletişim kutusunu kullanarak paketi güncelleştirirken), akıştaki en son sürüme güncelleştirilir. Tüm paketlerin güncelleştirilmesiyle ilgili yeni destek sayesinde, bir paketi belirli bir sürüm aralığına kilitlemek istediğiniz durumlar olabilir. Örneğin, uygulamanızın yalnızca bir paketin 2. * sürümüyle çalışabileceklerini, ancak 3,0 ve üzeri olduğunu bilirsiniz. Paketin yanlışlıkla 3 ' e güncelleştirilmesini engellemek için, NuGet 1,4, paketlerin yükseltilecekse, yeni `packages.config` `allowedVersions` özniteliğini kullanarak dosyayı düzenleyerek sürümüne yükseltebilen sürüm aralığını kısıtlayan destek ekler.
 
-Örneğin, aşağıdaki örnekte nasıl kilitleneceği gösterilir `SomePackage` paket sürüm aralığı 2.0-3.0 (dışlamalı).
-`allowedVersions` Öznitelik değerlerini kullanarak kabul [sürüm aralığı biçim](../reference/package-versioning.md#version-ranges-and-wildcards).
+Örneğin, aşağıdaki örnek 2,0-3,0 (özel) sürüm `SomePackage` aralığını paketin nasıl kilitleneceği gösterilmektedir.
+Öznitelik, [Sürüm aralığı biçimini](../reference/package-versioning.md#version-ranges-and-wildcards)kullanarak değerleri kabul eder. `allowedVersions`
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -69,52 +69,52 @@ Varsayılan olarak çalıştırırken `Update-Package` bir paket (veya iletişim
 </packages>
 ```
 
-1.4 içinde belirli bir sürüm aralığı için bir paket kilitleme elle düzenlenerek olması gerektiğini unutmayın. Bu aralık üzerinden yerleştirmek için destek eklemeyi planlıyoruz NuGet 1.5 `Install-Package` komutu.
+1,4 ' de, bir paketin belirli bir sürüm aralığına kilitlenmesini el ile düzenlenmiş olması gerektiğini unutmayın. NuGet 1,5 ' de, `Install-Package` bu aralığı komut aracılığıyla yerleştirmeye yönelik destek eklemeyi planlıyoruz.
 
 ### <a name="package-visualizer"></a>Paket görselleştiricisi
-Aracılığıyla başlatılan yeni paket Görselleştirici **Araçları** -> **kitaplık Paket Yöneticisi** -> **paket Görselleştirici** menü seçeneğini olanak tanır kolayca tüm projeleri ve bir çözüm içindeki Paket bağımlılıklarını görselleştirin.
+**Araçlar** -> **kitaplığı Paket Yöneticisi** -> **paket görselleştiricisi** menü seçeneği aracılığıyla başlatılan yeni paket görselleştiricisi, tüm projeleri ve bunların paket bağımlılıklarını kolayca görselleştirmenizi sağlar. çözümden.
 
-_**Önemli Not:** bu özellik DGML destek Visual Studio'da yararlanır. Görselleştirmenin oluşturulması yalnızca bu kadar Visual Studio Ultimate içinde desteklenir. DGML diyagramını görüntüleme, yalnızca Visual Studio Premium veya yüksek desteklenir._
+_**Önemli bir dikkat:** Bu özellik, Visual Studio 'daki DGML desteğinden yararlanır. Görselleştirmenin oluşturulması yalnızca Visual Studio Ultimate desteklenir. DGML diyagramını görüntülemek yalnızca Visual Studio Premium veya üzeri sürümlerde desteklenir._
 
 ![Paket görselleştiricisi](./media/package-visualizer.png)
 
-### <a name="automatic-update-check-for-the-nuget-dialog"></a>NuGet iletişim kutusu için otomatik güncelleştirme denetimi
-NuGet'ün bazı sürümleri ile ifade edilen yeni özellikleri tanıtan `.nuspec` NuGet iletişim daha eski sürümleri tarafından anlaşılmayan dosyası.
-Bir örnektir giriş için NuGet 1.4 [framework derlemeleri belirtme](../release-notes/nuget-1.2.md#framework-assembly-refs).
-Bu nedenle, en yeni özelliklerinden yararlanarak paketleri kullanabilir emin olmak için en son sürümünü kullanmak önemlidir.
-Güncelleştirmeler için NuGet daha görünür yapmak için NuGet iletişim daha yeni bir sürümü kullanılabilir olduğunda vurgulamak için mantığı içerir.
+### <a name="automatic-update-check-for-the-nuget-dialog"></a>NuGet Iletişim kutusu için otomatik güncelleştirme denetimi
+NuGet 'in bazı sürümleri, `.nuspec` NuGet iletişim kutusunun eski sürümleri tarafından anlaşılmayan dosya aracılığıyla ifade edilen yeni özellikler sunar.
+Örnek olarak, [çerçeve derlemelerini belirtmek](../release-notes/nuget-1.2.md#framework-assembly-refs)için NuGet 1,4 ' de giriş bir örnektir.
+Bu nedenle, en son özelliklerden yararlanarak paketleri kullanabilmeniz için NuGet 'in en son sürümünü kullanmak önemlidir.
+NuGet güncelleştirmelerini daha görünür hale getirmek için NuGet iletişim kutusu, daha yeni bir sürüm kullanılabilir olduğunda vurgulanacak mantığı içerir.
 
-_**Not**: onay ise yalnızca gerçekleştirilir **çevrimiçi** sekmesinde geçerli oturumda seçilmiştir._
+_**Note**: Denetim yalnızca, geçerli oturumda **çevrimiçi** sekme seçiliyse yapılır._
 
-![NuGet paketlerini iletişim yeni sürüm ile yönetme](./media/manage-nuget-packages-update-notification.png)
+![NuGet Paketlerini Yönet iletişim kutusunu yeni sürümü kullanılabilir](./media/manage-nuget-packages-update-notification.png)
 
-Güncelleştirmeleri otomatik olarak denetlenmesi kapatmak için NuGet Ayarları iletişim kutusuna gidin ve işaretini kaldırın **güncelleştirmeleri otomatik olarak denetle**.
+Güncelleştirmelerin otomatik denetimini devre dışı bırakmak için NuGet ayarları iletişim kutusuna gidin ve **güncelleştirmeleri otomatik olarak denetle onay**kutusunun işaretini kaldırın.
 
 ![NuGet ayarları](./media/nuget-settings.png)
 
-Bu özellik, NuGet 1.3 aslında eklendi ancak Elbette, 1.3, 1.4 NuGet gibi bir güncelleştirme kadar görünür olmayacaktır, kullanıma sunuldu.
+Bu özellik aslında NuGet 1,3 ' ye eklenmiştir, ancak, NuGet 1,4 gibi 1,3 ' ye bir güncelleştirme yapıldığından, bu özellik görünür olmaz.
 
-### <a name="package-manager-dialog-improvements"></a>Paket Yöneticisi iletişim kutusu iyileştirmeleri
-* **Menü adları geliştirilmiş**: Menü Seçenekleri iletişim kutusunu başlatmak için daha anlaşılır olması için yeniden adlandırıldı. Menü seçeneği sunulmuştur **NuGet paketlerini Yönet**.
-* **Ayrıntılar bölmesinde, en son güncelleştirme tarihi gösterir**: NuGet iletişim Ayrıntılar bölmesinde bir paket için en son güncelleştirme tarihi görüntüler olduğunda **çevrimiçi** veya **güncelleştirmeleri** sekmesi seçili.
-* **Görüntülenen etiketler listesi**: Nuget iletişim kutusu, etiketler görüntüler.
+### <a name="package-manager-dialog-improvements"></a>Paket Yöneticisi Iletişim geliştirmeleri
+* **Gelişmiş menü adları**: İletişim kutusunu başlatmak için menü seçenekleri açıklık için yeniden adlandırıldı. Menü seçeneği artık **NuGet paketlerini yönetir**.
+* **Ayrıntılar bölmesi en son güncelleştirme tarihini gösterir**: NuGet iletişim kutusu, **çevrimiçi** veya **güncelleştirmeler** sekmesi seçildiğinde bir paketin Ayrıntılar bölmesindeki en son güncelleştirme tarihini görüntüler.
+* **Gösterilecek etiketlerin listesi**: NuGet iletişim kutusu etiketleri görüntüler.
 
-### <a name="powershell-improvements"></a>PowerShell iyileştirmeleri
-* **PowerShell komut dosyalarını oturum açmış**: NuGet daha kısıtlayıcı ortamlarda kullanımını etkinleştirme imzalı Powershell betikleri içerir.
-* **Destek isteyen**: Paket Yöneticisi konsolu destekler aracılığıyla isteyen `$host.ui.Prompt` ve `$host.ui.PromptForChoice` komutları.
-* **Paket kaynak adları**: bir paket kaynağının adını sağlama desteklenir kullanarak bir paket kaynak belirtirken `-Source` bayrağı.
+### <a name="powershell-improvements"></a>PowerShell geliştirmeleri
+* **Imzalı PowerShell betikleri**: NuGet, daha kısıtlayıcı ortamlarda kullanımı etkinleştiren imzalı PowerShell betikleri içerir.
+* **Destek sorma**: Paket Yöneticisi konsolu artık `$host.ui.Prompt` ve `$host.ui.PromptForChoice` komutları aracılığıyla sorma desteği desteklemektedir.
+* **Paket kaynağı adları**: Bir paket kaynağının adı, `-Source` bayrağını kullanarak bir paket kaynağı belirtirken desteklenir.
 
-### <a name="nugetexe-command-line-improvements"></a>nuget.exe komut satırı geliştirmeleri
-* **NuGet özel komutlar**: nuget.exe MEF kullanarak özel komutları genişletilebilir.
-* **Daha basit sembol paketleri oluşturmak için iş akışı**: `-Symbols` bayrağı yalnızca kaynak ekleyerek sembolleri paket oluşturma normal kuralına göre klasör yapısı uygulanabilir ve `.pdb` klasördeki dosyaları.
-* **Birden çok kaynaktan belirtme**: `NuGet install` komutu destekler belirterek veya sınırlayıcı olarak noktalı virgül kullanarak birden çok kaynaktan belirtme `-Source` birden çok kez.
-* **Proxy kimlik doğrulaması desteği**: NuGet 1.4 NuGet kimlik doğrulaması gerektiren bir proxy kullanırken kullanıcı kimlik bilgileri istemi için destek ekler.
-* **nuget.exe yeni değişiklik güncelleştirme**: `-Self` bayrağı, artık kendisini güncelleştirmek nuget.exe için gereklidir. `nuget.exe Update` artık bir yol alır `packages.config` dosya ve güncelleştirme paketleri dener. Gerçekleştirmez, bu güncelleştirme sınırlı olduğunu unutmayın: ** güncelleştirme, Ekle, içeriğini proje dosyasında kaldırın.
-** Paket içindeki Powershell betiklerini çalıştırın.
+### <a name="nugetexe-command-line-improvements"></a>NuGet. exe komut satırı geliştirmeleri
+* **NuGet özel komutları**: NuGet. exe, MEF kullanılarak özel komutlar aracılığıyla Genişletilebilir.
+* **Sembol paketleri oluşturmak için iş akışını daha basit**hale getirir: Bayrak `-Symbols` , yalnızca klasör içindeki kaynak ve `.pdb` dosyalar dahil olmak üzere bir semboller paketi oluşturan normal bir kural tabanlı klasör yapısına uygulanabilir.
+* **Birden çok kaynak belirtme**: Komutu ayırıcı olarak noktalı virgül kullanarak veya birden çok kez belirterek `-Source` birden çok kaynağı belirtmeyi destekler. `NuGet install`
+* **Proxy kimlik doğrulaması desteği**: NuGet 1,4, kimlik doğrulaması gerektiren bir proxy 'nin arkasında NuGet kullanılırken Kullanıcı kimlik bilgileri istemek için destek ekler.
+* **NuGet. exe güncelleştirme bölünmesi değişikliği**: Artık `-Self` bayrak, NuGet. exe ' nin kendisini güncelleştirmesi için gereklidir. `nuget.exe Update`Şimdi `packages.config` dosyanın bir yolunu alır ve paketleri güncelleştirmeye çalışır. Bu güncelleştirmenin sınırlı olduğunu unutmayın: * * proje dosyasındaki içeriği Güncelleştir, Ekle, kaldır.
+\* * Paket içinde PowerShell betikleri çalıştırın.
 
-### <a name="nuget-server-support-for-pushing-packages-using-nugetexe"></a>Nuget.exe kullanarak paketleri gönderme için NuGet sunucu desteği
-NuGet içeren basit bir yol barındırmak için bir [basit bir web tabanlı NuGet depo](../hosting-packages/nuget-server.md) aracılığıyla `NuGet.Server` NuGet paketi. NuGet 1.4 ile dağıtmaya ve nuget.exe kullanarak paketleri silme basit sunucusu destekler.
-En son sürümünü `NuGet.Server` yeni ekler `appSetting`, adlandırılmış `apiKey`. Anahtar atlanırsa veya boş bırakılması, akışa paketleri gönderme devre dışı bırakıldı. ApiKey (İdeal olarak güçlü bir parola) bir değere ayarlama nuget.exe kullanarak koymadan paketleri sağlar.
+### <a name="nuget-server-support-for-pushing-packages-using-nugetexe"></a>NuGet. exe kullanarak paketleri göndermek için NuGet sunucu desteği
+NuGet, `NuGet.Server` NuGet paketi aracılığıyla [basit bir Web tabanlı NuGet deposunu](../hosting-packages/nuget-server.md) barındırmak için basit bir yol içerir. NuGet 1,4 ile, hafif sunucu NuGet. exe kullanarak paketleri göndermeyi ve silmeyi destekler.
+En son sürümü `NuGet.Server` , adlı `apiKey`yeni `appSetting`bir ekler. Anahtar atlanmışsa veya boş bırakılırsa, paketleri akışa göndermek devre dışı bırakılır. ApiKey değerini bir değer olarak ayarlama (ideal bir parola), NuGet. exe kullanarak paketlerin ititmesine olanak sağlar.
 
 ```xml
 <appSettings>
@@ -124,29 +124,29 @@ En son sürümünü `NuGet.Server` yeni ekler `appSetting`, adlandırılmış `a
 </appSettings>
 ```
 
-### <a name="support-for-windows-phone-tools-mango-edition"></a>Windows Phone araçları Mango sürümü için destek
-NuGet, Windows Phone araçları Mango için yayın adayı sürümünde artık desteklenmektedir.
-Şu anda Windows Phone araçları, bu nedenle Windows Phone araçları için NuGet yüklemek Visual Studio uzantısı Yöneticisi için destek yok, indirin ve VSIX elle çalıştırmanız gerekebilir.
+### <a name="support-for-windows-phone-tools-mango-edition"></a>Windows Phone araçları Mango sürümü desteği
+NuGet, şimdi Mango için Windows Phone araçları sürüm adayı sürümünde desteklenmektedir.
+Şu anda Windows Phone araçları Visual Studio Uzantı Yöneticisi için desteğe sahip olmadığından, Windows Phone araçları için NuGet 'i yüklemeniz, VSıX 'i el ile indirip çalıştırmanız gerekebilir.
 
-Windows Phone araçları için NuGet kaldırmak için aşağıdaki komutu çalıştırın.
+NuGet Windows Phone araçları 'nı kaldırmak için aşağıdaki komutu çalıştırın.
 
      vsixinstaller.exe /uninstall:NuPackToolsVsix.Microsoft.67e54e40-0ae3-42c5-a949-fddf5739e7a5
 
 ## <a name="bug-fixes"></a>Hata Düzeltmeleri
-NuGet 1.4 88 toplam iş öğeleri sabit vardı. Bu 71 hataları olarak işaretlenmiş.
+NuGet 1,4, Toplam 88 iş öğesine sahipti. 71 tanesi hata olarak işaretlendi.
 
-Tam bir listesi için iş öğeleri NuGet 1.4 içinde lütfen görünümü sabit [bu sürüm için NuGet sorun İzleyicisi](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=All&type=All&priority=All&release=NuGet%201.4&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0).
+NuGet 1,4 ' de düzeltilen iş öğelerinin tam listesi için lütfen [Bu sürüm Için NuGet sorun İzleyicisi](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=All&type=All&priority=All&release=NuGet%201.4&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0)' ni görüntüleyin.
 
-## <a name="bug-fixes-worth-noting"></a>Önemli hata düzeltmeleri:
+## <a name="bug-fixes-worth-noting"></a>Hata düzeltmeleri dikkat edilecek değer:
 
-* [Sorun 603](http://nuget.codeplex.com/workitem/603): farklı depoları Paket bağımlılıklarını çözümler doğru şekilde belirli bir paket kaynağını belirtmek için.
-* [Sorun 1036](http://nuget.codeplex.com/workitem/1036): ekleme `NuGet Pack SomeProject.csproj` artık derleme sonrası olay için sonsuz bir döngüye neden olur.
-* [Sorun 961](http://nuget.codeplex.com/workitem/961): `-Source` bayrağı göreli yolları destekler.
+* [Sorun 603](http://nuget.codeplex.com/workitem/603): Farklı depolardaki paket bağımlılıkları, belirli bir paket kaynağı belirtirken doğru şekilde çözümlenir.
+* [Sorun 1036](http://nuget.codeplex.com/workitem/1036): Derleme `NuGet Pack SomeProject.csproj` sonrası olayına ekleme sonsuz bir döngüye neden oluyor.
+* [Sorun 961](http://nuget.codeplex.com/workitem/961): `-Source` bayrak göreli yolları destekler.
 
-## <a name="nuget-14-update"></a>NuGet 1.4 Güncelleştirme
-Kısa bir süre içinde sürümünden NuGet 1.4 sonra birkaç düzeltmek önemli sorunları bulduk.
-Belirli sürüm 1.4 Bu güncelleştirmeyi 1.4.20615.9020 sayısıdır.
+## <a name="nuget-14-update"></a>NuGet 1,4 Güncelleştirmesi
+NuGet 1,4 yayımlandıktan kısa bir süre sonra, düzeltilmesi gereken birkaç sorunu bulduk.
+Bu güncelleştirmenin 1,4 sürümüne özgü sürüm numarası 1.4.20615.9020 ' dir.
 
 ### <a name="bug-fixes"></a>Hata Düzeltmeleri
-* [Sorun 1220](http://nuget.codeplex.com/workitem/1220): Update-Package değil yürütme `install.ps1` / `uninstall.ps1` birden fazla proje olduğunda tüm projelerde
-* [Sorunu 1156](http://nuget.codeplex.com/workitem/1156): Paket Yöneticisi konsol takılı W2K3/XP'de (Powershell 2 yüklü olmadığında)
+* [Sorun 1220](http://nuget.codeplex.com/workitem/1220): Birden fazla proje olduğunda, `install.ps1` güncelleştirme paketi tüm projelerde yürütülmez / `uninstall.ps1`
+* [Sorun 1156](http://nuget.codeplex.com/workitem/1156): Paket Yöneticisi W2K3/XP 'de takıldı (PowerShell 2 yüklü olmadığında)

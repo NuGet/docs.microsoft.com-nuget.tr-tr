@@ -1,108 +1,108 @@
 ---
-title: Nuget.exe CLI kullanarak NuGet paketlerini Yönet
-description: Nuget.exe CLI NuGet paketleri ile çalışmak için kullanma yönergeleri.
+title: NuGet. exe CLı kullanarak NuGet paketlerini yönetme
+description: NuGet paketleri ile çalışmak için NuGet. exe CLı kullanma yönergeleri.
 author: mikejo5000
 ms.author: mikejo
 ms.date: 06/03/2019
 ms.topic: conceptual
-ms.openlocfilehash: a7177b956930835693921163e634321548c22462
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 9eefed6f2c1a362f27c4a5d33d07645d743379fa
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842364"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317741"
 ---
-# <a name="manage-packages-using-the-nugetexe-cli"></a>Nuget.exe CLI kullanarak paketleri yönetme
+# <a name="manage-packages-using-the-nugetexe-cli"></a>NuGet. exe CLı kullanarak paketleri yönetme
 
-CLI aracı kolayca güncelleştirmek ve projelerde ve çözümlerde NuGet paketlerini geri yüklemenize olanak sağlar. Bu araç tüm NuGet özellikleri Windows üzerinde sağlar ve ayrıca özelliklerinin çoğu Mac ve Linux üzerinde Mono altında çalışırken sağlar.
+CLı Aracı, projelerde ve çözümlerinde NuGet paketlerini kolayca güncelleştirmenize ve geri yüklemenize olanak tanır. Bu araç Windows üzerinde tüm NuGet yeteneklerini sağlar ve ayrıca Mono altında çalışırken Mac ve Linux özelliklerinin çoğunu sağlar.
 
-Nuget.exe CLI, .NET Framework projesi ve SDK stili projeleri (.NET Standard kitaplıkları hedefleyen Örneğin, bir SDK olmayan stil projeyi) içindir. İçin geçirilmiş olan bir SDK stili projesi kullanıyorsanız `PackageReference`, bunun yerine ' % s'dotnet CLI kullanın. NuGet CLI gerektiren bir [packages.config](../reference/packages-config.md) paket başvuruları için dosya.
+`nuget.exe` CLI .NET Framework projeniz ve SDK olmayan bir stil projem (örneğin, .NET Standard kitaplıklarını hedefleyen SDK olmayan bir stil Projesi) içindir. Öğesine `PackageReference`geçirilmiş SDK olmayan bir proje kullanıyorsanız bunun yerine `dotnet` CLI kullanın. CLI `nuget.exe` , paket başvuruları için bir [Packages. config](../reference/packages-config.md) dosyası gerektirir.
 
 > [!NOTE]
-> Çoğu senaryoda öneririz [SDK stili projeleri geçirme](../reference/migrate-packages-config-to-package-reference.md) kullanan `packages.config` PackageReference için ve ardından dotnet CLI kullanabileceğiniz yerine `nuget.exe` CLI. Geçiş, C++ ve ASP.NET projeleri için şu anda kullanılabilir değil.
+> Çoğu senaryoda, packagereference için kullanılan `packages.config` [SDK olmayan projeler arasında geçiş](../reference/migrate-packages-config-to-package-reference.md) `dotnet` yapmanızı öneririz ve `nuget.exe` CLI yerine CLI kullanabilirsiniz. Geçiş Şu anda ve ASP.NET projeleri C++ için kullanılabilir değil.
 
-Bu makalede en yaygın nuget.exe CLI komutlarına birkaç temel kullanımını gösterir. Bir proje dosyası komutta belirtilmediği sürece bu komutların çoğu için CLI aracı bir proje dosyasını geçerli dizinde arar. Komut ve bağımsız değişkenler kullanabilirsiniz tam listesi için bkz: [nuget.exe CLI başvurusu](../tools/nuget-exe-cli-reference.md).
+Bu makalede, en sık kullanılan `nuget.exe` CLI komutlarının birçoğuna ilişkin temel kullanım gösterilmektedir. Bu komutların çoğu için, komutta bir proje dosyası belirtilmediği takdirde CLı aracı geçerli dizinde bir proje dosyası arar. Komutların ve kullanabileceğiniz bağımsız değişkenlerin tamamı listesi için bkz. [NuGet. exe CLI başvurusu](../reference/nuget-exe-cli-reference.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- Yükleme `nuget.exe` ondan indirerek CLI [nuget.org](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe), kaydetme `.exe` uygun bir klasöre dosya ve klasörün PATH ortam değişkeninize ekleme.
+- [NuGet.org adresinden](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe)indirerek, bu `.exe` dosyayı uygun bir klasöre kaydederek ve bu klasörü PATH ortam değişkeninizden ekleyerek CLI'yıyükleme.`nuget.exe`
 
-## <a name="install-a-package"></a>Paket yükleme
+## <a name="install-a-package"></a>Paket yükler
 
-[Yükleme](../tools/cli-ref-install.md) komut indirir ve belirtilen paket kaynaklarını kullanan geçerli klasöre varsayarak, bir projeye bir paketi yükler. Yeni paketler halinde yükleme *paketleri* klasöründe proje kök dizini.
+[Install](../reference/cli-reference/cli-ref-install.md) komutu, belirtilen paket kaynaklarını kullanarak bir paketi indirir ve geçerli klasörü varsayılan olarak bir projeye yükler. Yeni paketleri proje kök dizininizde *paketler* klasörüne yükler.
 
 > [!IMPORTANT]
-> `install`Komutu, bir proje dosyası değiştirmez veya *packages.config*; benzer şekilde, bu şekilde `restore` yalnızca diske paketleri ekler ancak bir proje bağımlılıklarınızı değiştirmez. Bir bağımlılık eklemek için Visual Studio'da Paket Yöneticisi kullanıcı Arabirimi veya konsol üzerinden paket ekleme veya değiştirme *packages.config* ve ya da çalıştırın `install` veya `restore`.
+> Komut bir proje dosyasını veya *Packages. config*; bu şekilde, yalnızca paketleri diske eklemesine, ancak projenin bağımlılıklarını `restore` değiştirmediğinden bu şekilde değişiklik yapmaz. `install` Bir bağımlılık eklemek için, Visual Studio 'da Paket Yöneticisi Kullanıcı arabirimi veya konsolundan bir paket ekleyin veya *Packages. config dosyasını* değiştirip ya `install` `restore`da çalıştırın.
 
-1. Bir komut satırı açın ve proje dosyanızı içeren dizine geçin.
+1. Bir komut satırı açın ve proje dosyanızı içeren dizine geçiş yapın.
 
-2. Bir NuGet paketini yüklemek için aşağıdaki komutu kullanın *paketleri* klasör.
+2. *Packages* klasörüne bir NuGet paketi yüklemek için aşağıdaki komutu kullanın.
 
     ```cli
     nuget install <packageID> -OutputDirectory packages
     ```
 
-    Yüklenecek `Newtonsoft.json` paketini *paketleri* klasörüne aşağıdaki komutu kullanın:
+    `Newtonsoft.json` Paketi *paketler* klasörüne yüklemek için şu komutu kullanın:
 
     ```cli
     nuget install Newtonsoft.Json -OutputDirectory packages
     ```
 
-Alternatif olarak, var olan bir bir NuGet paketini yüklemek için aşağıdaki komutu kullanabilirsiniz `packages.config` dosyasını *paketleri* klasör. Bu paket proje bağımlılıklarınızı eklemez, ancak yerel olarak yükler.
+Alternatif olarak, `packages.config` *paketler* klasörüne var olan bir dosyayı kullanarak bir NuGet paketini yüklemek için aşağıdaki komutu kullanabilirsiniz. Bu, paketi proje bağımlılıklarınızla eklemez, ancak yerel olarak yüklemez.
 
 ```cli
 nuget install packages.config -OutputDirectory packages
 ```
 
-## <a name="install-a-specific-version-of-a-package"></a>Bir paketi belirli bir sürümünü yükleme
+## <a name="install-a-specific-version-of-a-package"></a>Bir paketin belirli bir sürümünü yükler
 
-Kullandığınız sürüm belirtilmezse [yükleme](../tools/cli-ref-install.md) komutu, NuGet paketinin en son sürümünü yükler. Bir Nuget paketi belirli bir sürümünü de yükleyebilirsiniz:
+[Yükleme](../reference/cli-reference/cli-ref-install.md) komutunu kullandığınızda sürüm belirtilmemişse, NuGet paketin en son sürümünü yükler. Ayrıca, bir NuGet paketinin belirli bir sürümünü de yükleyebilirsiniz:
 
 ```cli
 nuget install <packageID | configFilePath> -Version <version>
 ```
 
-Örneğin, 12.0.1 sürümünü eklemek için `Newtonsoft.json` paketi, bu komutu kullanın:
+Örneğin, `Newtonsoft.json` paketin sürüm 12.0.1 ' i eklemek için şu komutu kullanın:
 
 ```cli
 nuget install Newtonsoft.Json -Version 12.0.1
 ```
 
-Sınırlamalar ve davranışı hakkında daha fazla bilgi için `install`, bkz: [paket yükleme](#install-a-package).
+Sınırlamaları ve davranışı `install`hakkında daha fazla bilgi için bkz. [paket yüklemesi](#install-a-package).
 
-## <a name="remove-a-package"></a>Paket kaldırma
+## <a name="remove-a-package"></a>Bir paketi kaldırma
 
-Bir veya daha fazla paket silmek için kaldırmak istediğiniz paketleri silmek *paketleri* klasör.
+Bir veya daha fazla paketi silmek için, *paketler* klasöründen kaldırmak istediğiniz paketleri silin.
 
-Paketleri yeniden yüklemek istiyorsanız, kullanın `restore` veya `install` komutu.
+Paketleri yeniden yüklemek istiyorsanız `restore` veya `install` komutunu kullanın.
 
-## <a name="list-packages"></a>Liste paketleri
+## <a name="list-packages"></a>Paketleri Listele
 
-Kullanarak belirtilen kaynak paketlerinin listesini görüntüleyebileceğiniz [listesi](../tools/cli-ref-list.md) komutu. Kullanım `-Source` arama kısıtlamak için seçeneği.
+[Liste](../reference/cli-reference/cli-ref-list.md) komutunu kullanarak belirli bir kaynaktaki paketlerin listesini görüntüleyebilirsiniz. Aramayı kısıtlamak için seçeneğini kullanın. `-Source`
 
 ```cli
 nuget list -Source <source>
 ```
 
-Örneğin, paketleri listesi *paketleri* klasör.
+Örneğin, *paketler klasöründeki paketleri* listeleyin.
 
 ```cli
 nuget list -Source C:\Users\username\source\repos\MyProject\packages
 ```
 
-Bir arama terimi kullanırsanız, arama, paketler, etiketler ve paket açıklamaları adlarını içerir.
+Arama terimi kullanırsanız, arama paket, etiket ve paket açıklamalarının adlarını içerir.
 
 ```cli
 nuget list <search term>
 ```
 
-## <a name="update-an-individual-package"></a>Tek bir paket güncelleştirmesi
+## <a name="update-an-individual-package"></a>Tek bir paketi güncelleştirme
 
-NuGet paketinin en son sürümünü yükler kullandığınızda `install` Paket sürümü belirtmediğiniz sürece komutu.
+Paket sürümünü belirtmediğiniz takdirde NuGet, `install` komutunu kullandığınızda paketin en son sürümünü yüklenir.
 
-## <a name="update-all-packages"></a>Tüm paketleri güncelleştir
+## <a name="update-all-packages"></a>Tüm paketleri Güncelleştir
 
-Kullanım [güncelleştirme](../tools/cli-ref-update.md) tüm paketleri Güncelleştir komutu. Güncelleştirmeleri bir projedeki tüm paketleri (kullanarak `packages.config`), en son kullanılabilir sürümler için. Çalıştırmak için önerilen `restore` çalıştırmadan önce `update`.
+Tüm paketleri güncelleştirmek için [Güncelleştir](../reference/cli-reference/cli-ref-update.md) komutunu kullanın. Projedeki tüm paketleri (kullanarak `packages.config`) en son kullanılabilir sürümlerine güncelleştirir. `restore` Çalıştırılmadan`update`önce çalıştırılması önerilir.
 
 ```cli
 nuget update
@@ -110,13 +110,13 @@ nuget update
 
 ## <a name="restore-packages"></a>Paketleri geri yükle
 
-Kullanım [geri](../tools/cli-ref-restore.md) indirir ve yükler gelen eksik herhangi bir paket komutu *paketleri* klasör.
+*Paketler* klasöründe eksik olan paketleri indiren ve yükleyen [restore](../reference/cli-reference/cli-ref-restore.md) komutunu kullanın.
 
-`restore` Yalnızca disk paketleri ekler, ancak bir proje bağımlılıklarınızı değiştirmez. Proje bağımlılıkları geri yüklemek için değiştirme `packages.config`, ardından `restore` komutu.
+`restore`yalnızca paketleri diske ekler ancak projenin bağımlılıklarını değiştirmez. Proje bağımlılıklarını geri yüklemek için, `packages.config`öğesini değiştirin, sonra `restore` komutunu kullanın.
 
-Olan diğer `dotnet` CLI komutları, ilk olarak bir komut satırı açın ve proje dosyanızı içeren dizine geçin.
+Diğer `nuget.exe` CLI komutlarında olduğu gibi, önce bir komut satırını açın ve proje dosyanızı içeren dizine geçiş yapın.
 
-Bir paketi kullanarak geri yüklemek için `restore`:
+Paketini kullanarak `restore`geri yüklemek için:
 
 ```cli
 nuget restore MySolution.sln

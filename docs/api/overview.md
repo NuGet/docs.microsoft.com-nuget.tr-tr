@@ -1,133 +1,133 @@
 ---
-title: NuGet API'si genel bakış
-description: NuGet paketlerini indirin, meta verileri getirir, yeni paketleri vb. yayımlamak için kullanılan HTTP uç noktaları bir dizi API'dir.
+title: NuGet API 'sine genel bakış
+description: NuGet API 'SI, paketleri indirmek, meta verileri getirmek, yeni paketleri yayımlamak vb. için kullanılabilen bir HTTP uç noktası kümesidir.
 author: joelverhagen
 ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: bb15b4decef104f1aefe37fd18f3358181a848af
-ms.sourcegitcommit: 2af17c8bb452a538977794bf559cdd78d58f2790
+ms.openlocfilehash: e8e8fdeee4f0765e2409aea261db8217744ae2c7
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58637668"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317004"
 ---
-# <a name="nuget-api"></a>NuGet API'si
+# <a name="nuget-api"></a>NuGet API
 
-NuGet paketlerini indirin, meta verileri getirir, yeni paket yayımlamasına ve birçok diğer resmi NuGet istemcisinde bulunan işlemleri için kullanılan HTTP uç noktaları bir dizi API'dir.
+NuGet API 'SI, paketleri indirmek, meta verileri getirmek, yeni paketleri yayımlamak ve resmi NuGet istemcilerinde bulunan diğer birçok işlemi gerçekleştirmek için kullanılabilen bir HTTP uç noktası kümesidir.
 
-Bu API gibi NuGet işlemleri gerçekleştirmek için Visual Studio, nuget.exe ve .NET CLI NuGet istemci tarafından kullanılır [ `dotnet restore` ](/dotnet/core/tools/dotnet-restore?tabs=netcore2x), Visual Studio kullanıcı arabiriminde, arama ve [ `nuget.exe push` ](../tools/cli-ref-push.md).
+Bu API, Visual Studio, NuGet. exe ve .net CLI içinde, gibi NuGet işlemleri [`dotnet restore`](/dotnet/core/tools/dotnet-restore?tabs=netcore2x)gerçekleştirmek için, Visual Studio Kullanıcı arabiriminde ve [`nuget.exe push`](../reference/cli-reference/cli-ref-push.md)içinde arama yapmak için kullanılan NuGet istemcisi tarafından kullanılır.
 
-Not Bazı durumlarda, nuget.org başka bir paket kaynak tarafından zorlanmaz ek gereksinimleri vardır. Bu farklar tarafından belgelenen [nuget.org protokolleri](nuget-protocols.md).
+Not Bazı durumlarda nuget.org, diğer paket kaynakları tarafından zorlanan ek gereksinimlere sahiptir. Bu farklılıklar [NuGet.org protokolleri](nuget-protocols.md)tarafından belgelenmiştir.
 
-Basit bir numaralandırma ve indirme kullanılabilir nuget.exe sürümleri için bkz [tools.json](tools-json.md) uç noktası.
+Basit bir numaralandırma ve kullanılabilir NuGet. exe sürümlerinin indirilmesi için bkz [. Tools. JSON](tools-json.md) Endpoint.
 
 ## <a name="service-index"></a>Hizmet dizini
 
-İyi bilinen bir konumda bir JSON belgesi API'si için giriş noktasıdır. Bu belge adlı **hizmet dizini**. Hizmet dizini nuget.org için'ın konumudur `https://api.nuget.org/v3/index.json`.
+API için giriş noktası, iyi bilinen bir konumdaki JSON belgesidir. Bu belgeye **hizmet dizini**adı verilir. Nuget.org için hizmet dizininin konumu `https://api.nuget.org/v3/index.json`.
 
-Bu JSON belgesini listesini içeren *kaynakları* farklı işlevsellik ve farklı kullanım durumlarına karşılamak.
+Bu JSON belgesi, farklı işlevler sağlayan ve farklı kullanım durumlarını karşılayan *kaynakların* listesini içerir.
 
-API'ı destekleyen istemcilerinin ilgili paket kaynaklarına bağlanma yolu olarak bir veya daha fazla bu hizmet dizini URL'si kabul etmelidir.
+API 'YI destekleyen istemciler, ilgili paket kaynaklarına bağlanma yoluyla bu hizmet dizin URL 'sinden bir veya daha fazlasını kabul etmelidir.
 
-Hizmet dizini hakkında daha fazla bilgi için bkz: [, API Başvurusu](service-index.md).
+Hizmet dizini hakkında daha fazla bilgi için bkz. [API başvurusu](service-index.md).
 
-## <a name="versioning"></a>Sürüm oluşturma
+## <a name="versioning"></a>Sürüm Oluşturma
 
-NuGet HTTP protokolü sürümü 3 API'dir. Bu protokol, bazen "V3 API olarak" da denir. Bu başvuru belgeleri protokol bu sürümü yalnızca "API'SİYLE." başvuracaktır.
+API, NuGet 'in HTTP protokolünün sürüm 3 ' ü. Bu protokol bazen "v3 API" olarak adlandırılır. Bu başvuru belgeleri, protokolün "API" gibi bu sürümüne başvuracaktır.
 
-Hizmet dizini şema sürümü tarafından belirtilen `version` hizmet dizini özelliği. API sürüm dizesi bir ana sürüm numarasını sahip olduğunu taahhütlerin `3`. Hizmet dizin şeması için hataya neden olmayan değişiklikler yapıldıkça, sürüm dizesinin alt sürümü artırılır.
+Hizmet dizini şema sürümü, hizmet dizinindeki `version` özelliği tarafından belirtilir. Sürüm dizesinin ana sürüm numarası `3`olan API mantarihlerinin. Hizmet dizini şemasında, önemli olmayan değişiklikler yapıldığından, sürüm dizesinin ikincil sürümü artar.
 
-Eski istemciler (nuget.exe gibi 2.x) değil V3 API desteği ve yalnızca eski V2 burada belgelenmemiş API'ı destekler.
+Eski istemciler (örneğin, NuGet. exe 2. x) v3 API 'sini desteklemez ve burada belgelenmeyen eski v2 API 'sini destekler.
 
-OData tabanlı bir protokol sürümü olan 2.x sürümüne resmi bir NuGet istemcisi tarafından uygulanan olduğu V2 API'si ardılı olduğu için NuGet V3 API şekilde adlandırılır. V3 API 3.0 sürümü resmi bir NuGet istemcisi tarafından desteklenen ilk ve son ana Protokolü sürüm 4.0 NuGet istemci tarafından ve hala desteklenmektedir. 
+NuGet v3 API 'SI, resmi NuGet istemcisinin 2. x sürümü tarafından uygulanan OData tabanlı protokol olan v2 API 'sinin ardıl sürümü olduğu için adlandırılır. V3 API 'SI ilk olarak resmi NuGet istemcisinin 3,0 sürümü tarafından desteklenmektedir ve NuGet istemcisi, 4,0 ve üzerinde en son ana protokol sürümüdür. 
 
-İlk yayımlandıktan API'sine bölünemez Protokolü değişiklikler yapılmıştır.
+İlk çıkarılmasından bu yana, API 'de bölünmez olmayan protokol değişiklikleri yapılmıştır.
 
 ## <a name="resources-and-schema"></a>Kaynaklar ve şema
 
-**Hizmet dizini** çeşitli kaynaklara açıklar. Desteklenen kaynak geçerli kümesini aşağıdaki gibidir:
+**Hizmet dizini** çeşitli kaynakları açıklar. Geçerli desteklenen kaynaklar kümesi aşağıdaki gibidir:
 
 Kaynak adı                                                        | Gerekli | Açıklama
 -------------------------------------------------------------------- | -------- | -----------
-[Katalog](catalog-resource.md)                                       | Yok       | Tüm paket olayların tam kayıt.
-[PackageBaseAddress](package-base-address-resource.md)               | evet      | Paket içeriğini (.nupkg) alın.
-[PackageDetailsUriTemplate](package-details-template-resource.md)    | Yok       | Paket Ayrıntıları web sayfasına erişim URL'si oluşturun.
-[PackagePublish](package-publish-resource.md)                        | evet      | Anında iletme ve silme (veya listeden) paketleri.
+[Katalog](catalog-resource.md)                                       | Eşleşen       | Tüm paket olaylarının tam kaydı.
+[PackageBaseAddress](package-base-address-resource.md)               | evet      | Paket içeriğini al (. nupkg).
+[PackageDetailsUriTemplate](package-details-template-resource.md)    | Eşleşen       | Paket ayrıntıları Web sayfasına erişmek için bir URL oluşturun.
+[PackagePublish](package-publish-resource.md)                        | evet      | Paketleri gönder ve Sil (veya listeden kaldır).
 [RegistrationsBaseUrl](registration-base-url-resource.md)            | evet      | Paket meta verilerini alın.
-[ReportAbuseUriTemplate](report-abuse-resource.md)                   | Yok       | Bir rapor kötüye web sayfasına erişmek için bir URL oluşturur.
-[RepositorySignatures](repository-signatures-resource.md)            | Yok       | Depo imzalamak için kullanılan sertifika alın.
-[SearchAutocompleteService](search-autocomplete-service-resource.md) | Yok       | Paket kimlikleri ve sürümleri tarafından alt dizeyi bulur.
-[SearchQueryService](search-query-service-resource.md)               | evet      | Filtre ve paketleri anahtar sözcüğe göre arayın.
-[SymbolPackagePublish](symbol-package-publish-resource.md)           | Yok       | Sembol paketleri gönderin.
+[ReportAbuseUriTemplate](report-abuse-resource.md)                   | Eşleşen       | Rapor kötüye kullanımı Web sayfasına erişmek için bir URL oluşturun.
+[Imza](repository-signatures-resource.md)            | Eşleşen       | Depo imzalama için kullanılan sertifikaları alın.
+[SearchAutocompleteService](search-autocomplete-service-resource.md) | Eşleşen       | Alt dizeden paket kimliklerini ve sürümlerini bulur.
+[SearchQueryService](search-query-service-resource.md)               | evet      | Paketleri anahtar sözcüğe göre filtreleyin ve arayın.
+[SymbolPackagePublish](symbol-package-publish-resource.md)           | Eşleşen       | Sembol paketlerini gönder.
 
-Genel olarak, bir API kaynak tarafından döndürülen tüm ikili olmayan veriler JSON kullanarak serileştirilir. Hizmet dizini her bir kaynak tarafından döndürülen yanıt şeması, bu kaynak için ayrı ayrı tanımlanır. Her kaynak hakkında daha fazla bilgi için yukarıda listelenen konulara bakın.
+Genel olarak, bir API kaynağı tarafından döndürülen tüm ikili olmayan veriler JSON kullanılarak serileştirilir. Hizmet dizinindeki her kaynak tarafından döndürülen yanıt şeması, bu kaynak için ayrı ayrı tanımlanır. Her kaynak hakkında daha fazla bilgi için yukarıda listelenen konulara bakın.
 
-Gelecekte Protokolü geliştikçe yeni özellikleri JSON yanıtlarını eklenebilir. İstemcinin geleceğe hazır olması için uygulama yanıt şeması kalıcıdır ve ek veri içeremez varsaymanız gerekir değil. Uygulama anlamadığı tüm özellikleri yok sayılır.
+Gelecekte protokol geliştikçe, JSON yanıtlarına yeni özellikler eklenebilir. İstemcinin gelecekte kanıt sağlaması için, uygulamanın yanıt şemasının nihai olduğunu varsaymamalıdır ve ek verileri içerememelidir. Uygulamanın anladığı tüm özellikler yok sayılacak.
 
 > [!Note]
-> Ne zaman bir kaynak uygulamıyor `SearchAutocompleteService` herhangi bir otomatik tamamlama davranış düzgün bir şekilde devre dışı bırakılmalıdır. Zaman `ReportAbuseUriTemplate` , uygunsuz kullanım bildirme URL'si resmi NuGet istemci geri döner nuget.org bildirin uygulanmamış (tarafından izlenen [NuGet/giriş #4924](https://github.com/NuGet/Home/issues/4924)). Diğer istemciler yalnızca bir rapor Uygunsuz kullanım bildirme URL'si kullanıcıyı gösterme kullanmamayı seçebilirsiniz.
+> Bir kaynak hiçbir otomatik tamamlama davranışı `SearchAutocompleteService` uygulamadığınızda, düzgün şekilde devre dışı bırakılmalıdır. Uygulanmamıştır, resmi NuGet istemcisi NuGet. org 'ın uygunsuz kullanım URL 'sine geri döner ( [NuGet/Home # 4924](https://github.com/NuGet/Home/issues/4924)tarafından izlenir). `ReportAbuseUriTemplate` Diğer istemciler, kullanıcıya bir rapor kötüye kullanımı URL 'SI göstermeyebilir.
 
-### <a name="undocumented-resources-on-nugetorg"></a>Nuget.org belgelenmemiş kaynakları
+### <a name="undocumented-resources-on-nugetorg"></a>Nuget.org üzerinde belgelenmemiş kaynaklar
 
-Nuget.org V3 hizmet dizini, yukarıda belgelediğiniz olmayan bazı kaynaklara sahip. Bir kaynak belgeleme değil birkaç nedeni vardır.
+Nuget.org üzerindeki v3 hizmeti dizininde, yukarıda belgelenmeyen bazı kaynaklar bulunur. Bir kaynağı belgeleme konusunda birkaç neden vardır.
 
-İlk olarak biz nuget.org uygulama ayrıntısıdır kullanılan kaynak belge yok. `SearchGalleryQueryService` Bu kategoriye girer. [NuGetGallery](https://github.com/NuGet/NuGetGallery) bazı V2 temsilci seçmek için bu kaynak kullandığı veritabanını kullanma yerine arama dizinimizi (OData) sorgular. Bu kaynak için ölçeklenebilirlik eklenmiştir ve dış kullanılmak üzere tasarlanmamıştır.
+İlk olarak, nuget.org uygulamasının uygulama ayrıntısı olarak kullanılan kaynakları belgeliyoruz. `SearchGalleryQueryService` Bu kategoriye girer. [Nugetgallery](https://github.com/NuGet/NuGetGallery) bu kaynağı, veritabanı kullanmak yerine, bazı v2 (OData) sorgularını arama dizinimize devretmek için kullanır. Bu kaynak ölçeklenebilirlik nedenleriyle sunulmuştur ve dış kullanım için tasarlanmamıştır.
 
-İkinci olarak, biz, hiçbir zaman bir resmi istemci RTM sürümünde sunulan kaynakları belge yok.
-`PackageDisplayMetadataUriTemplate` ve `PackageVersionDisplayMetadataUriTemplate` bu kategoriye girer.
+İkinci olarak, resmi istemcinin RTM sürümünde hiçbir şekilde gönderilmeyen kaynakları belgeliyoruz.
+`PackageDisplayMetadataUriTemplate`ve `PackageVersionDisplayMetadataUriTemplate` bu kategoriye girer.
 
-Biz sıkı bir şekilde olan kaynakların thirdly, belge yok V2 protokolü ile birlikte kendisi kasıtlı olarak belgelenmemiş. `LegacyGallery` Kaynak, bu kategoriye döner. Bu kaynak için karşılık gelen bir V2 kaynak URL'si işaret edecek şekilde V3 hizmet dizini sağlar. Bu kaynak destekler `nuget.exe list`.
+Üçüncü olarak, v2 protokolüyle sıkı bir şekilde bağlanmış olan ve kendisi bilinçli olarak belgelenmemiş olan kaynakları belgeliyoruz. `LegacyGallery` Kaynak bu kategoriye girer. Bu kaynak, bir v3 hizmet dizininin karşılık gelen v2 kaynak URL 'sini işaret etmesine olanak tanır. Bu kaynak tarafından desteklenir `nuget.exe list`.
 
-Bir kaynak burada belgelenmez, biz *kesin* , bir bağımlılık üzerlerinde yazmamanızı önerilir. Kaldırın veya uygulamanızın beklenmedik bir şekilde uğratabilir bu belgelenmemiş kaynakları davranışını değiştirmek edebiliriz.
+Bir kaynak burada açıklanmadığımızda, bunlara bir bağımlılık *yapmamanız önemle* önerilir. Bu belgelenmemiş kaynakların davranışını kaldırabilir veya değiştirebiliriz. Bu, uygulamanızı beklenmedik yollarla bozabilecek.
 
 ## <a name="timestamps"></a>Zaman damgaları
 
-API tarafından döndürülen tüm zaman damgaları UTC ya da aksi takdirde kullanarak belirtilen [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) gösterimi. 
+API tarafından döndürülen tüm zaman damgaları UTC, aksi durumda [ıso 8601](https://www.iso.org/iso-8601-date-and-time-format.html) temsili kullanılarak belirtilir. 
 
 ## <a name="http-methods"></a>HTTP yöntemleri
 
 Fiili   | Bir yönetim grubuna bağlanmak veya bağlı bir yönetim grubunun özelliklerini düzenlemek için Yönetim çalışma alanında
 ------ | -----------
-GET    | Genellikle veri alma salt okunur bir işlemi gerçekleştirir.
-HEAD   | Yanıt üstbilgileri için karşılık gelen getirir `GET` isteği.
-PUT    | Mevcut değil veya mevcut değilse, güncelleştirmeleri bir kaynak oluşturur. Bazı kaynaklar güncelleştirme desteklemiyor olabilir.
-DELETE | Bir kaynak unlists veya siler.
+GET    | Genellikle verileri alarak salt okunurdur bir işlem gerçekleştirir.
+BAŞLI   | Karşılık gelen `GET` istek için yanıt üst bilgilerini getirir.
+PUT    | Mevcut olmayan veya varsa, güncelleştiren bir kaynak oluşturur. Bazı kaynaklar güncelleştirmeyi desteklemiyor olabilir.
+DELETE | Bir kaynağı siler veya listesini kaldırır.
 
 ## <a name="http-status-codes"></a>HTTP durum kodları
 
 Kod | Açıklama
 ---- | -----
-200  | Başarı ve yanıt gövdesi yok.
-201  | Başarı ve kaynak oluşturuldu.
-202  | Başarılı, isteği kabul etti ancak bazı iş hala zaman uyumsuz olarak tamamlanmamış ve tamamlanmış olabilir.
-204  | Başarılı, ancak hiç yanıt gövdesi.
+200  | Başarılı olur ve bir yanıt gövdesi vardır.
+201  | Başarılı ve kaynak oluşturuldu.
+202  | Başarılı oldu, istek kabul edildi ancak bazı işler hala tamamlanmamış ve zaman uyumsuz olarak tamamlandı olabilir.
+204  | Başarılı, ancak yanıt gövdesi yok.
 301  | Kalıcı bir yeniden yönlendirme.
-302  | Geçici bir yeniden yönlendirme.
-400  | URL veya istek gövdesinde parametreleri geçerli değil.
-401  | Sağlanan kimlik bilgileri geçersiz.
-403  | Sağlanan kimlik bilgilerini belirtilen eyleme izin verilmiyor.
+302  | Geçici yeniden yönlendirme.
+400  | URL 'deki veya istek gövdesindeki parametreler geçerli değil.
+401  | Belirtilen kimlik bilgileri geçersiz.
+403  | Verilen kimlik bilgileri verilen eyleme izin verilmiyor.
 404  | İstenen kaynak yok.
-409  | Mevcut bir kaynağı isteği çakışıyor.
+409  | İstek, var olan bir kaynakla çakışıyor.
 500  | Hizmet beklenmeyen bir hatayla karşılaştı.
 503  | Hizmet geçici olarak kullanılamıyor.
 
-Tüm `GET` bir API uç noktası için yapılan istek HTTP yeniden yönlendirmesi (301 veya 302) döndürebilir. İstemciler düzgün olarak işleyebileceğiniz gibi yeniden yönlendirmeleri gözlemleyerek `Location` başlığı ve bir sonraki kesme `GET`. Özel uç noktaları ile ilgili belgeler, burada yeniden yönlendirmeleri kullanılabilir kullanıma açıkça çağırmayacaktır.
+Bir `GET` API uç noktasına yapılan herhangi bir istek, http yeniden yönlendirme (301 veya 302) döndürebilir. İstemciler, `Location` üstbilgiyi gözlemleyerek ve daha sonra `GET`yayımlayarak bu yeniden yönlendirmeleri düzgün şekilde işlemelidir. Belirli uç noktalarla ilgili belgeler, yeniden yönlendirmelerin nerede kullanılabileceğini açıkça çağırmaz.
 
-Bir düzey 500 durum kodu söz konusu olduğunda istemci, makul bir yeniden deneme mekanizması uygulayabilirsiniz. Üç kez herhangi bir düzey 500 durum kodu veya TCP/DNS hatası ile karşılaşıldığında resmi NuGet istemci yeniden deneme sayısı.
+500 düzeyinde bir durum kodu söz konusu olduğunda, istemci makul bir yeniden deneme mekanizması uygulayabilir. Resmi NuGet istemcisi, 500 düzeyinde bir durum kodu veya TCP/DNS hatası ile karşılaşıldığında üç kez yeniden dener.
 
-## <a name="http-request-headers"></a>HTTP isteği üstbilgileri
+## <a name="http-request-headers"></a>HTTP istek üstbilgileri
 
 Ad                     | Açıklama
 ------------------------ | -----------
-X-NuGet-ApiKey           | Push ve delete için gerekli bkz [ `PackagePublish` kaynak](package-publish-resource.md)
-X-NuGet-Client-Version   | **Kullanım dışı** tarafından değiştirildi `X-NuGet-Protocol-Version`
-X-NuGet-protokol-sürüm | Nuget.org üzerindeki yalnızca belirli durumlarda gerekli bkz [nuget.org protokolleri](NuGet-Protocols.md)
-X-NuGet-Session-Id       | *İsteğe bağlı*. NuGet istemcileri v4.7 + aynı NuGet istemci oturumunun parçası olan HTTP isteklerini belirleyin.
+X-NuGet-ApiKey           | Gönderme ve silme için gerekli, bkz [ `PackagePublish` . kaynak](package-publish-resource.md)
+X-NuGet-Client-Version   | **Kullanım dışı** ve değiştirilmiş`X-NuGet-Protocol-Version`
+X-NuGet-protokol-sürümü | Yalnızca nuget.org üzerinde bazı durumlarda gereklidir, bkz. [NuGet.org Protocols](NuGet-Protocols.md)
+X-NuGet-Session-Id       | *Isteğe bağlı*. NuGet istemcileri v 4.7 + aynı NuGet istemci oturumunun parçası olan HTTP isteklerini belirler.
 
-`X-NuGet-Session-Id` Tek bir geri yükleme ile ilgili tüm işlemleri için tek bir değere sahip `PackageReference`. Otomatik Tamamlama gibi diğer senaryolar için ve `packages.config` geri yükleme birkaç farklı oturum olabilir kimliğin kodu nasıl factored nedeniyle.
+, `X-NuGet-Session-Id` İçinde`PackageReference`tek bir geri yükleme ile ilgili tüm işlemler için tek bir değere sahiptir. Otomatik tamamlama ve `packages.config` geri yükleme gibi diğer senaryolar için kodun birbirine nasıl bağlı olduğu ile ilgili birkaç farklı oturum kimliği olabilir.
 
 ## <a name="authentication"></a>Kimlik doğrulaması
 
-Kimlik doğrulaması tanımlamak için paket kaynağı uygulaması kadar bırakılır. Nuget.org, yalnızca için `PackagePublish` kaynak, özel bir API anahtarı üstbilgi aracılığıyla kimlik doğrulaması gerektirir. Bkz: [ `PackagePublish` kaynak](package-publish-resource.md) Ayrıntılar için.
+Kimlik doğrulaması, tanımlanacak paket kaynak uygulamasına bırakılır. NuGet.org için yalnızca `PackagePublish` kaynak, özel bir API anahtarı üst bilgisi aracılığıyla kimlik doğrulaması gerektirir. Ayrıntılar [ `PackagePublish` ](package-publish-resource.md) için bkz. kaynak.

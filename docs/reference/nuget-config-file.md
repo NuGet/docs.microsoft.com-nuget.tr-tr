@@ -1,34 +1,34 @@
 ---
-title: nuget.config dosyası başvurusu
-description: NuGet.Config dosyası başvurusu yapılandırma, SecurityPermission packageRestore, çözüm ve packageSource bölümler dahil olmak üzere.
+title: NuGet. config dosyası başvurusu
+description: Config, Bindingyönlendirmeler, Packageresist, Solution ve packageSource bölümlerini içeren NuGet. config dosyası başvurusu.
 author: karann-msft
 ms.author: karann
 ms.date: 10/25/2017
 ms.topic: reference
-ms.openlocfilehash: 2eceb6e94a353cb29b83aea114c6cea2acbac266
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: b03bb8da0191a679671e5898ac70fff2024d52f2
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426154"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317216"
 ---
-# <a name="nugetconfig-reference"></a>nuget.config başvurusu
+# <a name="nugetconfig-reference"></a>NuGet. config başvurusu
 
-NuGet davranışını farklı ayarları tarafından denetlenir `NuGet.Config` dosyaları açıklandığı [ortak NuGet yapılandırmaları](../consume-packages/configuring-nuget-behavior.md).
+NuGet davranışı, [yaygın NuGet yapılandırmalarında](../consume-packages/configuring-nuget-behavior.md)açıklandığı gibi `NuGet.Config` farklı dosyalardaki ayarlarla denetlenir.
 
-`nuget.config` bir üst düzey içeren bir XML dosyası `<configuration>` düğümü, ardından bu konuda açıklanan bölüm öğeleri içerir. Her bölüm, sıfır veya daha fazla öğe içerir. Bkz: [örnek yapılandırma dosyası](#example-config-file). Ayar adları büyük/küçük harfe ve değerlerini kullanabilirsiniz [ortam değişkenlerini](#using-environment-variables).
+`nuget.config`, daha sonra bu konuda açıklanan bölüm öğelerini içeren `<configuration>` üst düzey bir düğüm içeren bir XML dosyasıdır. Her bölüm sıfır veya daha fazla öğe içerir. [Örnekler yapılandırma dosyasına](#example-config-file)bakın. Ayar adları büyük/küçük harfe duyarlıdır ve değerler [ortam değişkenlerini](#using-environment-variables)kullanabilir.
 
 Bu konuda:
 
 - [yapılandırma bölümü](#config-section)
-- [SecurityPermission bölümü](#bindingredirects-section)
-- [packageRestore bölümü](#packagerestore-section)
-- [Çözüm bölümü](#solution-section)
-- [Paket kaynak bölümler](#package-source-sections):
-  - [packageSources](#packagesources)
+- [Bindingyönlendirmeler bölümü](#bindingredirects-section)
+- [Packageresesme bölümü](#packagerestore-section)
+- [çözüm bölümü](#solution-section)
+- [Paket kaynağı bölümleri](#package-source-sections):
+  - [packagesonak](#packagesources)
   - [packageSourceCredentials](#packagesourcecredentials)
   - [apikeys](#apikeys)
-  - [disabledPackageSources](#disabledpackagesources)
+  - [disabledpackagesonak](#disabledpackagesources)
   - [activePackageSource](#activepackagesource)
 - [trustedSigners bölümü](#trustedsigners-section)
 - [Ortam değişkenlerini kullanma](#using-environment-variables)
@@ -41,18 +41,18 @@ Bu konuda:
 
 ## <a name="config-section"></a>yapılandırma bölümü
 
-Kullanarak ayarlayabileceğiniz çeşitli yapılandırma ayarlarını içeren [ `nuget config` komut](../tools/cli-ref-config.md).
+Komutu kullanılarak ayarlanbilen çeşitli yapılandırma ayarlarını içerir. [ `nuget config` ](../reference/cli-reference/cli-ref-config.md)
 
-`dependencyVersion` ve `repositoryPath` kullanarak projeleri için geçerli `packages.config`. `globalPackagesFolder` PackageReference biçimini kullanan projeler için geçerlidir.
+`dependencyVersion`ve `repositoryPath` yalnızca kullanan `packages.config`projeler için geçerlidir. `globalPackagesFolder`yalnızca PackageReference biçimini kullanan projeler için geçerlidir.
 
 | Anahtar | Değer |
 | --- | --- |
-| dependencyVersion (`packages.config` yalnızca) | Varsayılan `DependencyVersion` değeri paket yükleme, geri yükleme ve güncelleştirme, zaman `-DependencyVersion` anahtar doğrudan belirtiliyor. Bu değer ayrıca NuGet Paket Yöneticisi kullanıcı Arabirimi tarafından kullanılır. Değerler `Lowest`, `HighestPatch`, `HighestMinor`, `Highest`. |
-| globalPackagesFolder (PackageReference yalnızca kullanarak projeleri) | Varsayılan Genel paketleri klasörün konumu. Varsayılan değer `%userprofile%\.nuget\packages` (Windows) veya `~/.nuget/packages` (Mac/Linux). Göreli bir yol projeye özgü kullanılabilir `nuget.config` dosyaları. Bu ayarı önceliklidir NUGET_PACKAGES ortam değişkeni tarafından geçersiz kılındı. |
-| repositoryPath (`packages.config` yalnızca) | NuGet paketleri yerine varsayılan yükleme konumu `$(Solutiondir)/packages` klasör. Göreli bir yol projeye özgü kullanılabilir `nuget.config` dosyaları. Bu ayarı önceliklidir NUGET_PACKAGES ortam değişkeni tarafından geçersiz kılındı. |
-| defaultPushSource | URL veya yol için bir işlem başka bir paket kaynaklarını bulunmazsa, varsayılan olarak kullanılması gereken paket kaynağının tanımlar. |
-| http_proxy http_proxy.user http_proxy.password no_proxy | Paket kaynaklarını bağlanırken kullanması için proxy ayarlarını; `http_proxy` biçiminde olması gerektiğini `http://<username>:<password>@<domain>`. Parolaları şifrelenir ve el ile eklenemez. İçin `no_proxy`, değeri etki alanlarının virgülle ayrılmış listesi olduğu proxy sunucusunu atla. Alternatif olarak, bu değerler için http_proxy ve no_proxy ortam değişkenlerini kullanabilirsiniz. Ek ayrıntılar için bkz. [NuGet proxy ayarlarını](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (skolima.blogspot.com). |
-| signatureValidationMode | Paket yüklemesi için paket imzaları doğrulamak ve geri yüklemek için kullanılan doğrulama modunu belirtir. Değerler `accept`, `require`. Varsayılan olarak `accept`.
+| dependencyversion (`packages.config` yalnızca) | Anahtar doğrudan `DependencyVersion` belirtilmediğinde, paket yükleme, geri yükleme ve güncelleştirme için varsayılan değer. `-DependencyVersion` Bu değer, NuGet Paket Yöneticisi Kullanıcı arabirimi tarafından da kullanılır. Değerler,,, .`Highest` `Lowest` `HighestPatch` `HighestMinor` |
+| globalPackagesFolder (yalnızca PackageReference kullanan projeler) | Varsayılan genel paketler klasörünün konumu. Varsayılan `%userprofile%\.nuget\packages` değer (Windows) veya `~/.nuget/packages` (Mac/Linux). Göreli bir yol, projeye özgü `nuget.config` dosyalarda kullanılabilir. Bu ayar, öncelik veren NUGET_PACKAGES ortam değişkeni tarafından geçersiz kılınır. |
+| depoyolu (`packages.config` yalnızca) | Varsayılan `$(Solutiondir)/packages` klasör yerine NuGet paketlerinin yükleneceği konum. Göreli bir yol, projeye özgü `nuget.config` dosyalarda kullanılabilir. Bu ayar, öncelik veren NUGET_PACKAGES ortam değişkeni tarafından geçersiz kılınır. |
+| defaultPushSource | Bir işlem için başka bir paket kaynağı bulunmazsa varsayılan olarak kullanılması gereken paket kaynağının URL 'sini veya yolunu tanımlar. |
+| http_proxy http_proxy. User http_proxy. Password no_proxy | Paket kaynaklarına bağlanırken kullanılacak proxy ayarları; `http_proxy` biçiminde`http://<username>:<password>@<domain>`olmalıdır. Parolalar şifrelenir ve el ile eklenemez. İçin `no_proxy`, değer, proxy sunucusunu atlayan etki alanlarının virgülle ayrılmış listesidir. Bu değerler için http_proxy ve no_proxy ortam değişkenlerini alternatif olarak kullanabilirsiniz. Daha fazla bilgi için bkz. [NuGet proxy ayarları](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (skolima.blogspot.com). |
+| signatureValidationMode | Paket yüklemesi için paket imzalarını doğrulamak ve geri yüklemek için kullanılan doğrulama modunu belirtir. `accept`Değerler, .`require` Varsayılan olarak `accept`.
 
 **Örnek**:
 
@@ -66,13 +66,13 @@ Kullanarak ayarlayabileceğiniz çeşitli yapılandırma ayarlarını içeren [ 
 </config>
 ```
 
-## <a name="bindingredirects-section"></a>SecurityPermission bölümü
+## <a name="bindingredirects-section"></a>Bindingyönlendirmeler bölümü
 
-Bir paketi yüklendiğinde NuGet otomatik bağlama yeniden yönlendirmeleri yapar paylaşamayacağını yapılandırır.
+Bir paket yüklendiğinde NuGet 'in otomatik bağlama yeniden yönlendirmelerini yapıp yönlendirmeyeceğini yapılandırır.
 
 | Anahtar | Değer |
 | --- | --- |
-| Atla | Otomatik bağlama yeniden yönlendirmeleri atlanmayacağını belirten bir Boole değeri. Varsayılan olarak yanlıştır. |
+| Atla | Otomatik bağlama yeniden yönlendirmelerinin atlanıp atlanmayacağını belirten bir Boole değeri. Varsayılan olarak yanlıştır. |
 
 **Örnek**:
 
@@ -82,14 +82,14 @@ Bir paketi yüklendiğinde NuGet otomatik bağlama yeniden yönlendirmeleri yapa
 </bindingRedirects>
 ```
 
-## <a name="packagerestore-section"></a>packageRestore bölümü
+## <a name="packagerestore-section"></a>Packageresesme bölümü
 
-Denetimleri paket geri yükleme sırasında oluşturur.
+Derlemeler sırasında paket geri yüklemeyi denetler.
 
 | Anahtar | Değer |
 | --- | --- |
-| Etkin | NuGet otomatik geri yükleme gerçekleştirme olup olmadığını gösteren bir Boole değeri. Ayrıca `EnableNuGetPackageRestore` ortam değişkeni değerinin `True` yerine bu anahtarı yapılandırma dosyasında ayarı. |
-| otomatik | NuGet eksik paketleri için bir yapı sırasında denetleyin olup olmadığını gösteren bir Boole değeri. |
+| Etkinletir | NuGet 'in otomatik geri yükleme yapıp yapamadığını gösteren bir Boole değeri. Ayrıca, `EnableNuGetPackageRestore` yapılandırma dosyasında bu anahtarı ayarlamak `True` yerine, ortam değişkenini bir değeriyle ayarlayabilirsiniz. |
+| otomatik | Bir derleme sırasında NuGet 'in eksik paketleri denetleyip denetmeyeceğini belirten bir Boole değeri. |
 
 **Örnek**:
 
@@ -100,13 +100,13 @@ Denetimleri paket geri yükleme sırasında oluşturur.
 </packageRestore>
 ```
 
-## <a name="solution-section"></a>Çözüm bölümü
+## <a name="solution-section"></a>çözüm bölümü
 
-Denetimleri olmadığını `packages` bir çözüm klasörü kaynak denetimine dahil edilir. Bu bölüm yalnızca çalışır `nuget.config` çözüm klasöründe bulunan dosyaları.
+Kaynak denetimine bir `packages` çözüm klasörünün eklenip eklenmeyeceğini denetler. Bu bölüm yalnızca `nuget.config` bir çözüm klasöründeki dosyalarda kullanılabilir.
 
 | Anahtar | Değer |
 | --- | --- |
-| disableSourceControlIntegration | Kaynak denetimi ile çalışırken packages klasörünü yoksay verilip verilmeyeceğini gösteren bir Boole değeri. Varsayılan değer false'tur. |
+| Disablesourcecontrolintefini | Kaynak denetimiyle çalışırken paketler klasörünün yoksayılıp yoksayılmadığını gösteren bir Boole değeri. Varsayılan değer false'tur. |
 
 **Örnek**:
 
@@ -116,21 +116,21 @@ Denetimleri olmadığını `packages` bir çözüm klasörü kaynak denetimine d
 </solution>
 ```
 
-## <a name="package-source-sections"></a>Paket kaynak bölümler
+## <a name="package-source-sections"></a>Paket kaynak bölümleri
 
-`packageSources`, `packageSourceCredentials`, `apikeys`, `activePackageSource`, `disabledPackageSources` Ve `trustedSigners` birlikte yükleme, geri yükleme ve güncelleştirme işlemleri sırasında NuGet paketi depoları ile nasıl çalıştığını yapılandırmak için tüm işler.
+`packageSources` ,`packageSourceCredentials` ,,`trustedSigners`Vetüm çalışmaları birlikte çalışarak, NuGet 'in yükleme, geri yükleme ve güncelleştirme işlemleri sırasında paket depolarıyla nasıl çalıştığını yapılandırır. `disabledPackageSources` `apikeys` `activePackageSource`
 
-[ `nuget sources` Komut](../tools/cli-ref-sources.md) dışında bu ayarları yönetmek için genel olarak kullanılan `apikeys` hangi kullanılarak yönetilir [ `nuget setapikey` komut](../tools/cli-ref-setapikey.md), ve `trustedSigners` hangi yönetilir kullanarak [ `nuget trusted-signers` komut](../tools/cli-ref-trusted-signers.md).
+[ `nuget setapikey` ](../reference/cli-reference/cli-ref-setapikey.md) `trustedSigners` [ `nuget trusted-signers` ](../reference/cli-reference/cli-ref-trusted-signers.md)Komutu genellikle Bu`apikeys` ayarları yönetmek için kullanılır, ancak komutu kullanılarak yönetilir ve komutu kullanılarak yönetilir. [ `nuget sources` ](../reference/cli-reference/cli-ref-sources.md)
 
-Nuget.org kaynak URL'si Not `https://api.nuget.org/v3/index.json`.
+Nuget.org için kaynak URL 'sinin olduğunu `https://api.nuget.org/v3/index.json`unutmayın.
 
-### <a name="packagesources"></a>packageSources
+### <a name="packagesources"></a>packagesonak
 
-Tüm bilinen paket kaynaklarını listeler. Geri yükleme işlemleri sırasında ve herhangi bir projeyi PackageReference biçimi kullanarak ile sırası göz ardı edilir. NuGet kaynakları sırasını yükleme için uyar ve güncelleştirme işlemleri kullanarak projeleriyle `packages.config`.
+Bilinen tüm paket kaynaklarını listeler. Geri yükleme işlemleri sırasında ve PackageReference biçimi kullanılarak herhangi bir proje için sıra yok sayılır. NuGet, kullanan `packages.config`projelerle ilgili güncelleştirme ve güncelleştirme işlemlerine yönelik kaynakların sırasını duyar.
 
 | Anahtar | Değer |
 | --- | --- |
-| (adı paket kaynağına atamak için) | Yol veya paket kaynağının URL'si. |
+| (paket kaynağına atanacak ad) | Paket kaynağının yolu veya URL 'SI. |
 
 **Örnek**:
 
@@ -144,17 +144,17 @@ Tüm bilinen paket kaynaklarını listeler. Geri yükleme işlemleri sırasında
 
 ### <a name="packagesourcecredentials"></a>packageSourceCredentials
 
-Kullanıcı adları ve parolalar kaynakları, genellikle ile belirtilen için depolar `-username` ve `-password` ile geçer `nuget sources`. Parolaları sürece varsayılan olarak şifrelenmiş `-storepasswordincleartext` seçeneği de kullanılır.
+Genellikle `-username` ve `-password` anahtarlarıyla belirtilenkaynaklariçinKullanıcıadlarınıveparolalarıdepolar.`nuget sources` `-storepasswordincleartext` Seçeneği de kullanılmamışsa parolalar varsayılan olarak şifrelenir.
 
 | Anahtar | Değer |
 | --- | --- |
-| kullanıcı adı | Kaynak düz metin biçiminde kullanıcı adı. |
-| password | Kaynağı için şifrelenmiş parola. |
-| cleartextpassword | Kaynağı için şifrelenmemiş parola. |
+| kullanıcı adı | Kaynağın düz metin olarak Kullanıcı adı. |
+| password | Kaynak için şifrelenmiş parola. |
+| cleartextpassword | Kaynak için şifrelenmemiş parola. |
 
 **Örnek:**
 
-Yapılandırma dosyasında `<packageSourceCredentials>` öğeyi içeren her bir geçerli kaynak adı için alt düğümleri (adında boşluklar ile değiştirilir `_x0020_`). Diğer bir deyişle, "Contoso" ve "Test kaynağı" olarak adlandırılan kaynaklar için yapılandırma dosyasına aşağıdaki şifrelenmiş parolalar kullanırken içerir:
+Yapılandırma dosyasında, `<packageSourceCredentials>` öğesi ilgili her kaynak adı için alt düğümleri içerir (ad içindeki boşluklar ile `_x0020_`değiştirilmiştir). Diğer bir deyişle, "contoso" ve "test kaynağı" adlı kaynaklar için, şifreli parolalar kullanılırken yapılandırma dosyası aşağıdakileri içerir:
 
 ```xml
 <packageSourceCredentials>
@@ -169,7 +169,7 @@ Yapılandırma dosyasında `<packageSourceCredentials>` öğeyi içeren her bir 
 </packageSourceCredentials>
 ```
 
-Şifrelenmemiş parolaları kullanırken:
+Şifrelenmemiş parolalar kullanırken:
 
 ```xml
 <packageSourceCredentials>
@@ -184,9 +184,9 @@ Yapılandırma dosyasında `<packageSourceCredentials>` öğeyi içeren her bir 
 </packageSourceCredentials>
 ```
 
-### <a name="apikeys"></a>apikeys
+### <a name="apikeys"></a>apikeys tuşları
 
-Depolar ile belirlenen API anahtar kimlik doğrulaması kullanan kaynakları için anahtarları [ `nuget setapikey` komut](../tools/cli-ref-setapikey.md).
+Komutuyla ayarlanan API anahtarı kimlik doğrulaması kullanan kaynaklar için anahtarları depolar. [ `nuget setapikey` ](../reference/cli-reference/cli-ref-setapikey.md)
 
 | Anahtar | Değer |
 | --- | --- |
@@ -200,13 +200,13 @@ Depolar ile belirlenen API anahtar kimlik doğrulaması kullanan kaynakları iç
 </apikeys>
 ```
 
-### <a name="disabledpackagesources"></a>disabledPackageSources
+### <a name="disabledpackagesources"></a>disabledpackagesonak
 
-Şu anda devre dışı bırakılmış kaynakları belirledik. Boş olabilir.
+Şu anda devre dışı olan kaynaklar tanımlandı. Boş olabilir.
 
 | Anahtar | Değer |
 | --- | --- |
-| (kaynak adı) | Kaynak etkinleştirilip etkinleştirilmeyeceğini gösteren bir Boole değeri. |
+| (kaynağın adı) | Kaynağın devre dışı olup olmadığını gösteren bir Boole değeri. |
 
 **Örnek:**
 
@@ -221,13 +221,13 @@ Depolar ile belirlenen API anahtar kimlik doğrulaması kullanan kaynakları iç
 
 ### <a name="activepackagesource"></a>activePackageSource
 
-*(yalnızca 2.x; 3.x+ içinde kullanım dışı)*
+*(yalnızca 2. x, 3. x + ' de kullanım dışı)*
 
-Etkin kaynak tanımlayan veya toplama tüm kaynakları gösterir.
+Şu anda etkin olan kaynağı tanımlar veya tüm kaynakların toplamasını gösterir.
 
 | Anahtar | Değer |
 | --- | --- |
-| (kaynak adı) veya `All` | Anahtarı bir kaynak adı ise kaynak yolu veya URL değerdir. Varsa `All`, değeri `(Aggregate source)` Aksi durumda devre dışı paket kaynaklarının tümüne birleştirilecek. |
+| (kaynağın adı) veya`All` | Anahtar bir kaynağın adı ise, değer kaynak yolu veya URL olur. Eğer `All`değeri, aksi durumda `(Aggregate source)` devre dışı bırakılmayan tüm paket kaynaklarını birleştirmek için olmalıdır. |
 
 **Örnek**:
 
@@ -242,19 +242,19 @@ Etkin kaynak tanımlayan veya toplama tüm kaynakları gösterir.
 ```
 ## <a name="trustedsigners-section"></a>trustedSigners bölümü
 
-Depoları İmzalayanları paketi yüklemek veya geri yükleme sırasında izin vermek için kullanılan güvenilir. Kullanıcı ayarlar, bu liste boş olamaz `signatureValidationMode` için `require`. 
+Yükleme veya geri yükleme sırasında pakete izin vermek için kullanılan güvenilen İmzalayanları depolar. Kullanıcı `signatureValidationMode` öğesine`require`ayarlandığında bu liste boş olamaz. 
 
-Bu bölümde ile güncelleştirilebilir [ `nuget trusted-signers` komut](../tools/cli-ref-trusted-signers.md).
+Bu bölüm, [ `nuget trusted-signers` komutuyla](../reference/cli-reference/cli-ref-trusted-signers.md)birlikte güncelleştirilemeyebilir.
 
 **Şema**:
 
-Güvenilen imzalayan koleksiyonu vardır `certificate` verilen imzalayan tanımlayan tüm sertifikaları listeleme öğeleri. Güvenilen imzalayan olabilir bir `Author` veya `Repository`.
+Güvenilen bir imzalayan, belirli bir İmzalayanın `certificate` tanımlayan tüm sertifikaları içeren bir öğe koleksiyonuna sahiptir. Güvenilen bir imzalayan ya da `Author` `Repository`olabilir.
 
-Güvenilen bir *depo* ayrıca belirtir `serviceIndex` deponun (sahip geçerli bir `https` URI'si) ve isteğe bağlı olarak noktalı virgülle ayrılmış listesini belirtebilirsiniz `owners` daha güvenilir kim kısıtlamak için Bu özel depodan.
+Güvenilen bir *Depo* Ayrıca depo `serviceIndex` için (geçerli `https` bir URI olması gerekir) belirtir ve isteğe bağlı olarak, bu belirli `owners` bir istemciden güvenilir bir şekilde kısıtlamak için noktalı virgülle ayrılmış bir liste belirtebilir Depo.
 
-Sertifika parmak izi için kullanılan desteklenen karma algoritmaları `SHA256`, `SHA384` ve `SHA512`.
+Bir sertifika parmak izi için kullanılan desteklenen karma algoritmaları, `SHA256`ve `SHA384` `SHA512`' dir.
 
-Varsa bir `certificate` belirtir `allowUntrustedRoot` olarak `true` verilen sertifika zinciri güvenilmeyen bir kökü için imza doğrulaması bir parçası olarak sertifika zinciri oluşturulurken izin verilir.
+Bir `certificate` ise, imza `true` doğrulamasının parçası olarak sertifika zincirini oluştururken, belirtilen sertifikanın güvenilmeyen bir köke zincirine izin verileceğini belirtir `allowUntrustedRoot` .
 
 **Örnek**:
 
@@ -272,17 +272,17 @@ Varsa bir `certificate` belirtir `allowUntrustedRoot` olarak `true` verilen sert
 
 ## <a name="using-environment-variables"></a>Ortam değişkenlerini kullanma
 
-Ortam değişkenleri kullanabilirsiniz `nuget.config` çalışma zamanında değerleri (ayarları uygulamak için NuGet 3.4 +).
+Çalışma zamanında ayarları uygulamak için değerler `nuget.config` (NuGet 3.4 +) cinsinden ortam değişkenlerini kullanabilirsiniz.
 
-Örneğin, varsa `HOME` Windows ortam değişkeni ayarlandığında `c:\users\username`, ardından değerini `%HOME%\NuGetRepository` dosya yapılandırmada çözümler `c:\users\username\NuGetRepository`.
+Örneğin, `HOME` Windows üzerindeki ortam değişkeni olarak `c:\users\username`ayarlandıysa `%HOME%\NuGetRepository` , yapılandırma dosyasındaki değeri olarak `c:\users\username\NuGetRepository`çözümlenir.
 
-Benzer şekilde, varsa `HOME` Mac/Linux üzerinde ayarlanır `/home/myStuff`, ardından `%HOME%/NuGetRepository` dosya yapılandırmada çözümler `/home/myStuff/NuGetRepository`.
+Benzer şekilde, Mac/Linux `%HOME%/NuGetRepository` , olarak `/home/myStuff`ayarlanmışsa yapılandırma dosyasında olarak `/home/myStuff/NuGetRepository`çözümlenir. `HOME`
 
-Bir ortam değişkeni bulunamadı, NuGet yapılandırma dosyasından değişmez değer kullanır.
+Bir ortam değişkeni bulunmazsa, NuGet yapılandırma dosyasından sabit değeri kullanır.
 
 ## <a name="example-config-file"></a>Örnek yapılandırma dosyası
 
-Aşağıda bir örnek verilmiştir `nuget.config` ayar gösterilmektedir dosyanın:
+Aşağıda, bir dizi `nuget.config` ayarı gösteren örnek bir dosya verilmiştir:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
