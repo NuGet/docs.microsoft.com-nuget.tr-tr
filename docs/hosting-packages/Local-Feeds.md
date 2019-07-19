@@ -1,29 +1,29 @@
 ---
 title: Yerel NuGet akışlarını ayarlama
-description: Yerel bir klasör yerel ağınızda kullanarak NuGet paketleri için akış oluşturma
+description: Yerel ağınızdaki klasörleri kullanarak NuGet paketleri için yerel akış oluşturma
 author: karann-msft
 ms.author: karann
 ms.date: 12/06/2017
 ms.topic: conceptual
-ms.openlocfilehash: 91c072c8895ab4267c64fd04deae010ae5af4d37
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 42a5c30c058a9efb35338c1b484235b6ad111bd0
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545458"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317585"
 ---
-# <a name="local-feeds"></a><span data-ttu-id="b2494-103">Yerel akışlar</span><span class="sxs-lookup"><span data-stu-id="b2494-103">Local feeds</span></span>
+# <a name="local-feeds"></a><span data-ttu-id="86b5c-103">Yerel akışlar</span><span class="sxs-lookup"><span data-stu-id="86b5c-103">Local feeds</span></span>
 
-<span data-ttu-id="b2494-104">Yerel NuGet paketi akışlar, paketleri yerleştireceğiniz yerel ağınızda (veya hatta yalnızca kendi bilgisayar) yalnızca hiyerarşik klasör yapılardır.</span><span class="sxs-lookup"><span data-stu-id="b2494-104">Local NuGet package feeds are simply hierarchical folder structures on your local network (or even just your own computer) in which you place packages.</span></span> <span data-ttu-id="b2494-105">Bu akışları sonra CLI, Paket Yöneticisi UI ve Paket Yöneticisi konsolu kullanarak tüm diğer NuGet işlemleri ile paket kaynağı olarak kullanılabilir.</span><span class="sxs-lookup"><span data-stu-id="b2494-105">These feeds can then be used as package sources with all other NuGet operations using the CLI, the Package Manager UI, and the Package Manager Console.</span></span>
+<span data-ttu-id="86b5c-104">Yerel NuGet paket akışları, paketleri yerleştirdiğiniz yerel ağınızdaki (hatta yalnızca kendi bilgisayarınız) hiyerarşik klasör yapılarıdır.</span><span class="sxs-lookup"><span data-stu-id="86b5c-104">Local NuGet package feeds are simply hierarchical folder structures on your local network (or even just your own computer) in which you place packages.</span></span> <span data-ttu-id="86b5c-105">Bu akışlar daha sonra CLı, Paket Yöneticisi Kullanıcı arabirimi ve Paket Yöneticisi konsolu kullanılarak diğer tüm NuGet işlemlerinde paket kaynakları olarak kullanılabilir.</span><span class="sxs-lookup"><span data-stu-id="86b5c-105">These feeds can then be used as package sources with all other NuGet operations using the CLI, the Package Manager UI, and the Package Manager Console.</span></span>
 
-<span data-ttu-id="b2494-106">Kaynak etkinleştirmek için yol ekleyin (gibi `\\myserver\packages`) kullanarak kaynakları listesine [Paket Yöneticisi UI](../tools/package-manager-ui.md#package-sources) veya [ `nuget sources` ](../tools/cli-ref-sources.md) komutu.</span><span class="sxs-lookup"><span data-stu-id="b2494-106">To enable the source, add its pathname (such as `\\myserver\packages`) to the list of sources using the [Package Manager UI](../tools/package-manager-ui.md#package-sources) or the [`nuget sources`](../tools/cli-ref-sources.md) command.</span></span>
+<span data-ttu-id="86b5c-106">Kaynağı etkinleştirmek için, dizin adını (gibi `\\myserver\packages`) [Paket Yöneticisi](../consume-packages/install-use-packages-visual-studio.md#package-sources) [`nuget sources`](../reference/cli-reference/cli-ref-sources.md) Kullanıcı arabirimini veya komutunu kullanarak kaynak listesine ekleyin.</span><span class="sxs-lookup"><span data-stu-id="86b5c-106">To enable the source, add its pathname (such as `\\myserver\packages`) to the list of sources using the [Package Manager UI](../consume-packages/install-use-packages-visual-studio.md#package-sources) or the [`nuget sources`](../reference/cli-reference/cli-ref-sources.md) command.</span></span>
 
 > [!Note]
-> <span data-ttu-id="b2494-107">Hiyerarşik klasör yapılarını içinde NuGet 3.3 + desteklenir.</span><span class="sxs-lookup"><span data-stu-id="b2494-107">Hierarchical folder structures are supported in NuGet 3.3+.</span></span> <span data-ttu-id="b2494-108">Yalnızca performans hiyerarşik yapıda çok daha düşük olan paketleri içeren tek bir klasör Nuget'in önceki sürümlerini kullanın.</span><span class="sxs-lookup"><span data-stu-id="b2494-108">Older versions of NuGet use only a single folder containing packages, with which performance is much lower than the hierarchical structure.</span></span>
+> <span data-ttu-id="86b5c-107">Hiyerarşik klasör yapıları NuGet 3.3 + ' de desteklenir.</span><span class="sxs-lookup"><span data-stu-id="86b5c-107">Hierarchical folder structures are supported in NuGet 3.3+.</span></span> <span data-ttu-id="86b5c-108">Daha eski NuGet sürümleri, performansı hiyerarşik yapıdan çok daha düşük olan paketleri içeren tek bir klasör kullanır.</span><span class="sxs-lookup"><span data-stu-id="86b5c-108">Older versions of NuGet use only a single folder containing packages, with which performance is much lower than the hierarchical structure.</span></span>
 
-## <a name="initializing-and-maintaining-hierarchical-folders"></a><span data-ttu-id="b2494-109">Başlatma ve hiyerarşik klasör koruma</span><span class="sxs-lookup"><span data-stu-id="b2494-109">Initializing and maintaining hierarchical folders</span></span>
+## <a name="initializing-and-maintaining-hierarchical-folders"></a><span data-ttu-id="86b5c-109">Hiyerarşik klasörleri başlatma ve sürdürme</span><span class="sxs-lookup"><span data-stu-id="86b5c-109">Initializing and maintaining hierarchical folders</span></span>
 
-<span data-ttu-id="b2494-110">Hiyerarşik tutulan klasörü ağacında, aşağıdaki genel yapıya sahiptir:</span><span class="sxs-lookup"><span data-stu-id="b2494-110">The hierarchical versioned folder tree has the following general structure:</span></span>
+<span data-ttu-id="86b5c-110">Hiyerarşik sürümlü klasör ağacı aşağıdaki genel yapıya sahiptir:</span><span class="sxs-lookup"><span data-stu-id="86b5c-110">The hierarchical versioned folder tree has the following general structure:</span></span>
 
     \\myserver\packages
       └─<packageID>
@@ -31,18 +31,18 @@ ms.locfileid: "43545458"
           ├─<packageID>.<version>.nupkg
           └─<other files>
 
-<span data-ttu-id="b2494-111">Kullanırken NuGet bu yapı otomatik olarak oluşturur. [ `nuget add` ](../tools/cli-ref-add.md) akışa bir paket kopyalamak için komut:</span><span class="sxs-lookup"><span data-stu-id="b2494-111">NuGet creates this structure automatically when you use the [`nuget add`](../tools/cli-ref-add.md) command to copy a package to the feed:</span></span>
+<span data-ttu-id="86b5c-111">Bir paketi akışa kopyalamak için [`nuget add`](../reference/cli-reference/cli-ref-add.md) komutunu kullandığınızda NuGet bu yapıyı otomatik olarak oluşturur:</span><span class="sxs-lookup"><span data-stu-id="86b5c-111">NuGet creates this structure automatically when you use the [`nuget add`](../reference/cli-reference/cli-ref-add.md) command to copy a package to the feed:</span></span>
 
 ```cli
 nuget add new_package.1.0.0.nupkg -source \\myserver\packages
 ```
 
-<span data-ttu-id="b2494-112">`nuget add` Komutu ile tek bir pakette birden çok paket ile bir akış ayarlarken bilinmelidir bir zaman çalışır.</span><span class="sxs-lookup"><span data-stu-id="b2494-112">The `nuget add` command works with one package at a time, which can be inconvenient when setting up a feed with multiple packages.</span></span>
+<span data-ttu-id="86b5c-112">`nuget add` Komut aynı anda bir paket ile çalışır ve birden çok pakete sahip bir akış ayarlarken bu kullanışlı olabilir.</span><span class="sxs-lookup"><span data-stu-id="86b5c-112">The `nuget add` command works with one package at a time, which can be inconvenient when setting up a feed with multiple packages.</span></span>
 
-<span data-ttu-id="b2494-113">Böyle durumlarda kullanmak [ `nuget init` ](../tools/cli-ref-init.md) çalıştırdıysanız gibi tüm paketleri akışa bir klasöre kopyalamak için komut `nuget add` her birinde tek tek.</span><span class="sxs-lookup"><span data-stu-id="b2494-113">In such cases, use the [`nuget init`](../tools/cli-ref-init.md) command to copy all packages in a folder to the feed as if you ran `nuget add` on each one individually.</span></span> <span data-ttu-id="b2494-114">Örneğin, aşağıdaki komutu tüm paketleri kopyalar `c:\packages` hiyerarşik bir için `\\myserver\packages`:</span><span class="sxs-lookup"><span data-stu-id="b2494-114">For example, the following command copies all packages from `c:\packages` to a hierarchical tree on `\\myserver\packages`:</span></span>
+<span data-ttu-id="86b5c-113">Bu gibi durumlarda, bir klasördeki [`nuget init`](../reference/cli-reference/cli-ref-init.md) tüm paketleri tek tek çalıştırdığınız `nuget add` gibi akışa kopyalamak için komutunu kullanın.</span><span class="sxs-lookup"><span data-stu-id="86b5c-113">In such cases, use the [`nuget init`](../reference/cli-reference/cli-ref-init.md) command to copy all packages in a folder to the feed as if you ran `nuget add` on each one individually.</span></span> <span data-ttu-id="86b5c-114">Örneğin, aşağıdaki komut, tüm paketleri içinden `c:\packages` hiyerarşik bir `\\myserver\packages`ağaca kopyalar:</span><span class="sxs-lookup"><span data-stu-id="86b5c-114">For example, the following command copies all packages from `c:\packages` to a hierarchical tree on `\\myserver\packages`:</span></span>
 
 ```cli
 nuget init c:\packages \\myserver\packages
 ```
 
-<span data-ttu-id="b2494-115">Olduğu gibi `add` komutu `init` olan uygun paket her biri içeren bir sürüm numarası klasörü içinde her paket tanımlayıcı için bir klasör oluşturur.</span><span class="sxs-lookup"><span data-stu-id="b2494-115">As with the `add` command, `init` creates a folder for each package identifier, each of which contains a version number folder, within which is the appropriate package.</span></span>
+<span data-ttu-id="86b5c-115">Komutunda olduğu gibi, `init` her biri bir sürüm numarası klasörü içeren her bir paket tanımlayıcısı için bir klasör oluşturur, bu da uygun bir pakettir. `add`</span><span class="sxs-lookup"><span data-stu-id="86b5c-115">As with the `add` command, `init` creates a folder for each package identifier, each of which contains a version number folder, within which is the appropriate package.</span></span>
