@@ -1,16 +1,16 @@
 ---
-title: Windows üzerinde Visual Studio kullanarak bir .NET Framework paketi oluşturma ve yayımlama
+title: Windows üzerinde Visual Studio 'Yu kullanarak .NET Framework NuGet paketi oluşturma ve yayımlama
 description: Windows üzerinde Visual Studio kullanarak .NET Framework NuGet paketi oluşturma ve yayımlama hakkında bir adım adım öğretici.
 author: karann-msft
 ms.author: karann
 ms.date: 05/13/2018
 ms.topic: quickstart
-ms.openlocfilehash: e85a0576afbd5796db5cb576f39c168313d3c9a9
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 75160bf2b01f6d4707162e019a6263ddc64a6f5e
+ms.sourcegitcommit: 0f5363353f9dc1c3d68e7718f51b7ff92bb35e21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317573"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68342511"
 ---
 # <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>Hızlı Başlangıç: Visual Studio (.NET Framework, Windows) kullanarak paket oluşturma ve yayımlama
 
@@ -172,9 +172,15 @@ Bkz. [NuGet Push](../reference/cli-reference/cli-ref-push.md).
 
 [!INCLUDE [publish-manage](includes/publish-manage.md)]
 
-## <a name="related-topics"></a>İlgili konular
+## <a name="next-steps"></a>Sonraki adımlar
 
-- [Paket oluşturma](../create-packages/creating-a-package.md)
+İlk NuGet paketinizi oluştururken Tebrikler!
+
+> [!div class="nextstepaction"]
+> [Paket oluşturma](../create-packages/creating-a-package.md)
+
+NuGet 'in sunabileceği daha fazlasını araştırmak için aşağıdaki bağlantıları seçin.
+
 - [Paket Yayımlama](../nuget-org/publish-a-package.md)
 - [Yayın öncesi paketler](../create-packages/Prerelease-Packages.md)
 - [Birden çok hedef çerçeveyi destekleme](../create-packages/supporting-multiple-target-frameworks.md)

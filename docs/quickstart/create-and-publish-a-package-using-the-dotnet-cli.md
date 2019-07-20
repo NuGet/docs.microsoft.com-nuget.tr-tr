@@ -1,40 +1,40 @@
 ---
-title: Oluşturma ve yayımlama dotnet CLI kullanarak bir NuGet paketi
-description: Oluşturma ve yayımlama dotnet .NET Core CLI kullanarak bir NuGet paketi bir gözden geçirme Öğreticisi.
+title: DotNet CLı kullanarak bir NuGet paketi oluşturma ve yayımlama
+description: .NET Core CLI, DotNet kullanarak bir NuGet paketi oluşturma ve yayımlama hakkında bir adım adım öğretici.
 author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: 4e96d9969c8b4570ee69501d6529986f891ea4dc
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 71acc177e0f74f5dad3bd77fa1920af4619cbafb
+ms.sourcegitcommit: 0f5363353f9dc1c3d68e7718f51b7ff92bb35e21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842603"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68342549"
 ---
-# <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>Hızlı Başlangıç: Bir paketi (dotnet CLI) oluşturma ve yayımlama
+# <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>Hızlı Başlangıç: Paket oluşturma ve yayımlama (DotNet CLı)
 
-Bir .NET sınıf kitaplığı'ndan bir NuGet paketi oluşturmak ve nuget.org kullanarak yayımlamak için basit bir işlemdir `dotnet` komut satırı arabirimi (CLI).
+.NET sınıf kitaplığından bir NuGet paketi oluşturmak ve `dotnet` komut satırı arabirimini (CLI) kullanarak NuGet.org 'de yayımlamak basit bir işlemdir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-1. Yükleme [.NET Core SDK'sı](https://www.microsoft.com/net/download/), içeren `dotnet` CLI. Dotnet CLI herhangi bir .NET Core ile otomatik olarak yüklenir, Visual Studio 2017'de başlayarak, iş yüklerini ilgili.
+1. `dotnet` CLI içeren [.NET Core SDK](https://www.microsoft.com/net/download/)' yi yükler. Visual Studio 2017 ' den başlayarak DotNet CLı, .NET Core ile ilgili iş yükleriyle otomatik olarak yüklenir.
 
-1. [Nuget.org üzerindeki bir ücretsiz hesaba kaydolun](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) zaten yoksa. Yeni bir hesap oluşturmadan bir onay e-posta gönderir. Bir paketi karşıya yükleyebilmeniz, hesap onaylamanız gerekir.
+1. Henüz bir [hesabınız yoksa NuGet.org üzerinde ücretsiz bir hesaba kaydolun](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) . Yeni hesap oluşturma onay e-postası gönderir. Bir paketi karşıya yükleyebilmek için önce hesabı onaylamanız gerekir.
 
-## <a name="create-a-class-library-project"></a>Bir sınıf kitaplığı projesi oluşturun
+## <a name="create-a-class-library-project"></a>Sınıf kitaplığı projesi oluşturma
 
-Mevcut bir .NET sınıf kitaplığı projesi paketini veya basit bir şekilde oluşturmak istediğiniz kodu kullanabilirsiniz:
+Paketlemek istediğiniz kod için mevcut bir .NET sınıf kitaplığı projesi kullanabilir veya basit bir tane aşağıdaki gibi oluşturabilirsiniz:
 
-1. Adlı bir klasör oluşturun `AppLogger` ve içine değiştirin.
+1. Adlı `AppLogger` bir klasör oluşturun ve içine değiştirin.
 
-1. Kullanarak proje oluşturduğunuzda `dotnet new classlib`, proje için geçerli klasörün adını kullanır.
+1. Proje için geçerli klasörün `dotnet new classlib`adını kullanan öğesini kullanarak projeyi oluşturun.
 
-## <a name="add-package-metadata-to-the-project-file"></a>Paket meta verileri proje dosyasına ekleyin
+## <a name="add-package-metadata-to-the-project-file"></a>Proje dosyasına paket meta verileri ekleyin
 
-Her bir NuGet paketi paketin içeriği ve bağımlılıkları tanımlayan bir bildirim gerekiyor. Son bir pakette bildirimidir bir `.nuspec` proje dosyasına eklenecek NuGet meta verileri özelliklerinden oluşturulan dosya.
+Her NuGet paketinin, paketin içeriğini ve bağımlılıklarını açıklayan bir bildirime ihtiyacı vardır. Son bir pakette bildirim, proje dosyasına dahil ettiğiniz `.nuspec` NuGet meta verileri özelliklerinden oluşturulan bir dosyadır.
 
-1. Proje dosyanızı açın (`.csproj`) ve mevcut içinde en az aşağıdaki özellikleri ekleyin `<PropertyGroup>` değerleri uygun şekilde değiştirerek etiketi:
+1. Proje dosyanızı (`.csproj`) açın ve mevcut `<PropertyGroup>` etiketin içine aşağıdaki en az özellikleri ekleyerek değerleri uygun şekilde değiştirerek:
 
     ```xml
     <PackageId>AppLogger</PackageId>
@@ -44,23 +44,23 @@ Her bir NuGet paketi paketin içeriği ve bağımlılıkları tanımlayan bir bi
     ```
 
     > [!Important]
-    > Nuget.org veya, konak arasında benzersiz bir tanımlayıcı kullanmakta olduğunuz paket verin. Bu kılavuz için (Bu herkes gerçekten kullanacağı olsa da) yayımlama sonraki adım paketi herkese görünür hale "Örnek" veya "Test" adı dahil olmak üzere öneririz.
+    > Pakete, nuget.org genelinde veya kullandığınız herhangi bir konakta benzersiz bir tanımlayıcı verin. Bu izlenecek yol için, "örnek" veya "test" adını, sonraki yayımlama adımı, paketi herkese açık hale getirir (ancak gerçekten onu kullanacağından çok fazla olabilir).
 
-1. Üzerinde tanımlanan herhangi bir isteğe bağlı özellikler Ekle [NuGet meta veri özelliklerini](/dotnet/core/tools/csproj#nuget-metadata-properties).
+1. [NuGet meta veri özelliklerinde](/dotnet/core/tools/csproj#nuget-metadata-properties)açıklanan isteğe bağlı özellikleri ekleyin.
 
     > [!Note]
-    > Ortak tüketim için oluşturulan paketler için özel dikkat **PackageTags** özelliği olarak etiketler diğerlerinin paketinize bulun ve ne yaptığını anlamanıza yardımcı olur.
+    > Genel tüketim için derlenmiş paketler için, paket **etiketleri** özelliğine özel bir dikkat edin, Etiketler başkalarının paketinizi bulmasına ve ne yaptığını anlamalarına yardımcı olur.
 
-## <a name="run-the-pack-command"></a>Paketi komutunu çalıştırın
+## <a name="run-the-pack-command"></a>Pack komutunu çalıştırın
 
-Bir NuGet paketi oluşturmak için (bir `.nupkg` dosya) projeden çalıştırma `dotnet pack` komutu ayrıca projeyi otomatik olarak oluşturur:
+Projeden bir NuGet paketi (bir `.nupkg` dosya) oluşturmak için `dotnet pack` komutunu çalıştırın, bu da projeyi otomatik olarak oluşturur:
 
 ```cli
 # Uses the project file in the current folder by default
 dotnet pack
 ```
 
-Çıktı yolu gösterir `.nupkg` dosyası:
+Çıktı, `.nupkg` dosyanın yolunu gösterir:
 
 ```output
 Microsoft (R) Build Engine version 15.5.180.51428 for .NET Core
@@ -71,41 +71,47 @@ Copyright (C) Microsoft Corporation. All rights reserved.
   Successfully created package 'D:\proj\AppLoggerNet\AppLogger\bin\Debug\AppLogger.1.0.0.nupkg'.
 ```
 
-### <a name="automatically-generate-package-on-build"></a>Derleme paketi otomatik olarak oluştur
+### <a name="automatically-generate-package-on-build"></a>Derleme üzerinde otomatik olarak paket oluştur
 
-Otomatik olarak çalışacak şekilde `dotnet pack` çalıştırdığınızda `dotnet build`, proje dosyanızın aşağıdaki satırı ekleyin `<PropertyGroup>`:
+`<PropertyGroup>`Çalıştırdığınızda `dotnet pack` otomatikolarakçalıştırmakiçin,aşağıdakisatırıiçindeki`dotnet build`proje dosyanıza ekleyin:
 
 ```xml
 <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 ```
 
-## <a name="publish-the-package"></a>Paket yayımlama
+## <a name="publish-the-package"></a>Paketi Yayımla
 
-Sonra bir `.nupkg` dosyası yayımladığınızda, nuget.org kullanarak `dotnet nuget push` nuget.org adresinden alınan bir API anahtarı ile birlikte komutu.
+Bir `.nupkg` dosyaya sahip olduktan sonra, NuGet.org. NuGet.org ' den alınan bir `dotnet nuget push` API anahtarı ile birlikte komutunu kullanarak bu dosyayı yayımlayın.
 
 [!INCLUDE [publish-notes](includes/publish-notes.md)]
 
-### <a name="acquire-your-api-key"></a>API anahtarınızı alma
+### <a name="acquire-your-api-key"></a>API anahtarınızı alın
 
 [!INCLUDE [publish-api-key](includes/publish-api-key.md)]
 
-### <a name="publish-with-dotnet-nuget-push"></a>DotNet nuget itme ile yayımlama
+### <a name="publish-with-dotnet-nuget-push"></a>DotNet NuGet Push ile yayımlama
 
 [!INCLUDE [publish-dotnet](includes/publish-dotnet.md)]
 
-### <a name="publish-errors"></a>Hataları yayımlama
+### <a name="publish-errors"></a>Yayımlama hataları
 
 [!INCLUDE [publish-errors](includes/publish-errors.md)]
 
-### <a name="manage-the-published-package"></a>Yayımlanan paket yönetme
+### <a name="manage-the-published-package"></a>Yayınlanan paketi yönetme
 
 [!INCLUDE [publish-manage](includes/publish-manage.md)]
 
-## <a name="related-topics"></a>İlgili konular
+## <a name="next-steps"></a>Sonraki adımlar
 
-- [Paket oluşturma](../create-packages/creating-a-package.md)
+İlk NuGet paketinizi oluştururken Tebrikler!
+
+> [!div class="nextstepaction"]
+> [Paket oluşturma](../create-packages/creating-a-package-dotnet-cli.md)
+
+NuGet 'in sunabileceği daha fazlasını araştırmak için aşağıdaki bağlantıları seçin.
+
 - [Paket Yayımlama](../nuget-org/publish-a-package.md)
-- [Yayın öncesi paketleri](../create-packages/Prerelease-Packages.md)
+- [Yayın öncesi paketler](../create-packages/Prerelease-Packages.md)
 - [Birden çok hedef çerçeveyi destekleme](../create-packages/supporting-multiple-target-frameworks.md)
 - [Paket sürümü oluşturma](../reference/package-versioning.md)
 - [Yerelleştirilmiş paketler oluşturma](../create-packages/creating-localized-packages.md)
