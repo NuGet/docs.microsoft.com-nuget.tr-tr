@@ -31,12 +31,14 @@
 ### [packages.config](reference/packages-config.md)
 # Paketleri oluşturma
 ## [Genel bakış ve iş akışı](create-packages/overview-and-workflow.md)
-## [Paket oluşturma](create-packages/creating-a-package.md)
+## [Paket oluşturma (dotnet CLI)](create-packages/creating-a-package-dotnet-cli.md)
+## [Paket oluşturma (nuget.exe CLI)](create-packages/creating-a-package.md)
 ## [MSBuild kullanarak paket oluşturma](reference/msbuild-targets.md)
-## [Birden çok hedef çerçeveyi destekleme](create-packages/supporting-multiple-target-frameworks.md)
+## [Proje dosyanızda birden çok hedef çerçeveyi destekleme](create-packages/multiple-target-frameworks-project-file.md)
 ## [Yayın öncesi paketi oluşturma](create-packages/prerelease-packages.md)
 ## [Sembol paketi oluşturma](create-packages/symbol-packages-snupkg.md)
 ## Gelişmiş görevler
+### [Birden çok hedef çerçeveyi destekleme](create-packages/supporting-multiple-target-frameworks.md)
 ### [Kaynak kodu ve yapılandırma dosyalarını değiştirme](create-packages/source-and-config-file-transformations.md)
 ### [Proje tarafından başvurulan bütünleştirilmiş kodları seçme](create-packages/select-assemblies-referenced-by-projects.md)
 ### [Paket türünü ayarlama](create-packages/set-package-type.md)
