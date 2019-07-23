@@ -1,113 +1,113 @@
 ---
 title: NuGet istemci araçlarını yükleme
-description: İstemci araçlarını Yükleme Kılavuzu dotnet ve nuget komut satırı arabirimi (CLI) ve Visual Studio Paket Yöneticisi.
+description: İstemci araçları, DotNet ve NuGet komut satırı arabirimleri (CLı) ve Visual Studio için Paket Yöneticisi yükleme kılavuzu.
 author: karann-msft
 ms.author: karann
 ms.date: 06/20/2019
 ms.topic: quickstart
-ms.openlocfilehash: a4a3f5509792e56c09d18b3da98588d17f4756ee
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 70dd640e34f917bcba99bea6b53652a949a5d00a
+ms.sourcegitcommit: 0f5363353f9dc1c3d68e7718f51b7ff92bb35e21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67841936"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68342481"
 ---
 # <a name="install-nuget-client-tools"></a>NuGet istemci araçlarını yükleme
 
-> **Bir paketi yüklemek mi istiyorsunuz? Bkz: [NuGet paketlerini yükleme yolları](consume-packages/overview-and-workflow.md#ways-to-install-a-nuget-package).**
+> **Bir paket yüklemek mi istiyorsunuz? Bkz. [NuGet paketlerini yüklemeye yönelik yollar](consume-packages/overview-and-workflow.md#ways-to-install-a-nuget-package).**
 
-Bir paket kullanıcısı veya Oluşturucu, NuGet ile çalışmak için Visual Studio'da NuGet özelliklerin yanı sıra komut satırı arabirimi (CLI) araçlarını kullanabilirsiniz. Bu makalede farklı araçları özelliklerini kısaca özetler. bunları ve bunların karşılaştırmalı yükleme [Özellik kullanılabilirliği](#feature-availability). NuGet paketlerini kullanmak için kullanmaya başlamak için bkz: [yükleme ve kullanma (.NET CLI) bir paket](quickstart/install-and-use-a-package-using-the-dotnet-cli.md) ve [yükleme ve kullanma (Visual Studio) bir paket](quickstart/install-and-use-a-package-in-visual-studio.md). NuGet paketleri oluşturmaya başlamak için bkz. [oluştur ve NET Standard paketi (dotnet CLI) yayımlama](quickstart/create-and-publish-a-package-using-the-dotnet-cli.md) ve [oluştur ve NET Standard paketi (Visual Studio) yayımlama](quickstart/create-and-publish-a-package-using-visual-studio.md).
+NuGet ile bir paket tüketicisi veya Oluşturucu olarak çalışmak için, komut satırı arabirimi (CLı) araçlarının yanı sıra Visual Studio 'da NuGet özelliklerini de kullanabilirsiniz. Bu makale, farklı araçların yeteneklerini, nasıl yükleneceğini ve karşılaştırılma [özelliklerinin kullanılabilirliğini](#feature-availability)kısaca özetler. Paketleri kullanmak üzere NuGet kullanmaya başlamak için bkz. [bir paket (DotNet CLI) yüklemek ve kullanmak](quickstart/install-and-use-a-package-using-the-dotnet-cli.md) ve [bir paketi yüklemek ve kullanmak (Visual Studio)](quickstart/install-and-use-a-package-in-visual-studio.md). NuGet paketleri oluşturmaya başlamak için bkz. [BIR ağ standart paketi (DotNet CLI) oluşturma ve yayımlama](quickstart/create-and-publish-a-package-using-the-dotnet-cli.md) ve [bir ağ standart paketi oluşturma ve yayımlama (Visual Studio)](quickstart/create-and-publish-a-package-using-visual-studio.md).
 
 | Aracı&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Açıklama | İndirme&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
 |:------------- |:-------------|:-----|
-| [dotnet.exe](#dotnetexe-cli) | .NET Core ve .NET standart kitaplıkları ve tüm CLI aracı [SDK stilinde proje](resources/check-project-format.md) gibi .NET Framework hedefleyen bir. .NET Core SDK'sı ile dahil ve tüm platformlarda temel NuGet özellikleri sağlar. (Dotnet CLI herhangi bir .NET Core ile otomatik olarak yüklenir, Visual Studio 2017'de başlangıç iş yükleri ile ilişkili.)| [.NET core SDK'sı](https://www.microsoft.com/net/download/) |
-| [nuget.exe](#nugetexe-cli) | CLI aracı ve .NET Framework kitaplıkları için [SDK stil projeyi](resources/check-project-format.md) .NET standart kitaplıkları hedefleyin. Windows üzerinde NuGet özelliklerin tümünü sağlar, Mono altında çalışırken çoğu özelliği Mac ve Linux'ta sağlar. | [nuget.exe](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe) |
-| [Visual Studio](#visual-studio) | Windows üzerinde Paket Yöneticisi UI ve Paket Yöneticisi konsolu üzerinden NuGet özellikleri sağlar. bulunan. NET ilgili iş yükleri. Mac bilgisayarlarda, kullanıcı Arabirimi aracılığıyla belirli özellikleri sağlar. Visual Studio Code, uzantılar aracılığıyla NuGet özellikleri sağlanır. | [Visual Studio 2017](https://www.visualstudio.com/downloads/) |
+| [dotnet.exe](#dotnetexe-cli) | .NET Core ve .NET Standard kitaplıkları için CLı aracı ve .NET Framework hedefleyen her bir [SDK stili proje](resources/check-project-format.md) . .NET Core SDK eklenmiştir ve tüm platformlarda çekirdek NuGet özellikleri sağlar. (Visual Studio 2017 ' den itibaren, DotNet CLı, .NET Core ile ilgili tüm iş yükleri ile otomatik olarak yüklenir.)| [.NET Core SDK](https://www.microsoft.com/net/download/) |
+| [nuget.exe](#nugetexe-cli) | .NET Framework kitaplıkları için CLı aracı ve .NET Standard kitaplıklarını hedefleyen [SDK olmayan stil projesi](resources/check-project-format.md) . Tüm NuGet yeteneklerini Windows üzerinde sağlar. Mono altında çalışırken Mac ve Linux özelliklerinin çoğunu sağlar. | [nuget.exe](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe) |
+| [Visual Studio](#visual-studio) | Windows 'da, Paket Yöneticisi Kullanıcı arabirimi ve Paket Yöneticisi konsolu aracılığıyla NuGet özellikleri sağlar; ile dahildir. NET ilgili iş yükleri. Mac 'te, Kullanıcı arabirimi aracılığıyla belirli özellikleri sağlar. Visual Studio Code, NuGet özellikleri uzantılar aracılığıyla sağlanır. | [Visual Studio 2017](https://www.visualstudio.com/downloads/) |
 
-[MSBuild CLI](reference/msbuild-targets.md) geri yükleme ve yapı sunucularında öncelikle faydalı olan paketler, oluşturma olanağı da sağlar. MSBuild, NuGet ile çalışmak için genel amaçlı bir aracı değil.
+[MSBUILD CLI](reference/msbuild-targets.md) , temel olarak yapı sunucularında yararlı olan paketleri geri yükleme ve oluşturma özelliği de sağlar. MSBuild, NuGet ile çalışmak için genel amaçlı bir araç değildir.
 
-## <a name="cli-tools"></a>CLI araçları
+## <a name="cli-tools"></a>CLı araçları
 
-İki NuGet CLI Araçları `dotnet.exe` ve `nuget.exe`. Bkz: [Özellik kullanılabilirliği](#feature-availability) bir karşılaştırma için.
+İki NuGet CLI aracı ve ' `dotnet.exe` `nuget.exe`dir. Karşılaştırma için [özellik kullanılabilirliğine](#feature-availability) bakın.
 
-* .NET Core veya .NET Standard hedeflemek için ' % s'dotnet CLI kullanın. Dotnet CLI kullanan SDK stilinde proje biçimi için gerekli olan [SDK özniteliği](/dotnet/core/tools/csproj#additions).
-* (Yalnızca SDK stili Proje), .NET Framework kullanan hedef `nuget.exe CLI`. Proje geçiş yaptıysanız `packages.config` dotnet CLI PackageReference için kullanın.
+* .NET Core veya .NET Standard hedeflemek için DotNet CLı kullanın. SDK [özniteliğini](/dotnet/core/tools/csproj#additions)kullanan SDK stili proje biçimi IÇIN DotNet CLI gereklidir.
+* .NET Framework (yalnızca SDK olmayan proje) hedeflemek için öğesini kullanın `nuget.exe CLI`. Proje öğesinden `packages.config` packagereference öğesine geçirilirse DotNet CLI kullanın.
 
 ### <a name="dotnetexe-cli"></a>dotnet.exe CLI
 
-.NET Core 2.0 CLI `dotnet.exe`, tüm platformlar (Windows, Mac ve Linux) çalışır ve paketleri yayımlama yükleme ve geri yükleme gibi temel NuGet özellikleri sağlar. `dotnet` .NET Core proje dosyaları ile doğrudan tümleştirme sağlar (gibi `.csproj`), çoğu senaryoda faydalı olduğu. `dotnet` Ayrıca doğrudan her platform için yerleşik olarak bulunur ve Mono yükleme gerektirmez.
+.NET Core 2,0 CLI `dotnet.exe`, tüm platformlarda (Windows, Mac ve Linux) çalışarak paketleri yükleme, geri yükleme ve yayımlama gibi temel NuGet özellikleri sağlar. `dotnet`Çoğu senaryoda yararlı olan .NET Core proje dosyaları (gibi `.csproj`) ile doğrudan tümleştirme sağlar. `dotnet`, her platform için doğrudan de oluşturulmuştur ve mono yüklemenizi gerektirmez.
 
-Yükleme:
+Yüklemesinden
 
-- Geliştirici bilgisayarlara yüklemek [.NET Core SDK'sı](https://aka.ms/dotnetcoregs). Dotnet CLI herhangi bir .NET Core ile otomatik olarak yüklenir, Visual Studio 2017'de başlayarak, iş yüklerini ilgili.
-- Derleme sunucuları için yönergeleri izleyin [kullanarak .NET Core SDK'sını ve sürekli tümleştirme araçlarını](/dotnet/core/tools/using-ci-with-cli).
+- Geliştirici bilgisayarlarında [.NET Core SDK](https://aka.ms/dotnetcoregs)' yi yükler. Visual Studio 2017 ' den başlayarak DotNet CLı, .NET Core ile ilgili iş yükleriyle otomatik olarak yüklenir.
+- Yapı sunucuları için [sürekli tümleştirmede .NET Core SDK ve araçları kullanma](/dotnet/core/tools/using-ci-with-cli)yönergelerini izleyin.
 
-Temel komutlar dotnet CLI ile kullanmayı öğrenmek için bkz [yükleyin ve dotnet CLI kullanarak paketleri kullanma](consume-packages/install-use-packages-dotnet-cli.md).
+DotNet CLı ile temel komutları kullanmayı öğrenmek için bkz. [DotNet CLI kullanarak paketleri yüklemek ve kullanmak](consume-packages/install-use-packages-dotnet-cli.md).
 
 ### <a name="nugetexe-cli"></a>nuget.exe CLI
 
-`nuget.exe` CLI `nuget.exe`, komut satırı yardımcı programıdır Windows için NuGet özelliklerin tümünü sağlar; Mac OSX ve Linux'ı kullanarak da çalıştırılabilir [Mono](http://www.mono-project.com/docs/getting-started/install/) bazı sınırlamalarla birlikte.
+CLI, tüm NuGet yeteneklerini sağlayan Windows için komut satırı yardımcı programıdır; Ayrıca, bazı sınırlamalar ile [mono](http://www.mono-project.com/docs/getting-started/install/) kullanarak Mac OSX ve Linux 'ta de çalıştırılabilir. `nuget.exe` `nuget.exe`
 
-Temel komutlarıyla kullanırsınız öğrenmek için `nuget.exe` CLI bkz [yükleyin ve CLI nuget.exe kullanarak paketleri kullanma](consume-packages/install-use-packages-nuget-cli.md).
+`nuget.exe` CLI ile temel komutları kullanmayı öğrenmek için bkz. [NuGet. exe CLI kullanarak paketleri yüklemek ve kullanmak](consume-packages/install-use-packages-nuget-cli.md).
 
-Yükleme:
+Yüklemesinden
 
 [!INCLUDE [install-cli](includes/install-cli.md)]
 
 > [!Tip]
-> Kullanım `nuget update -self` var olan bir nuget.exe en son sürüme güncelleştirmek için Windows üzerinde.
+> Mevcut `nuget update -self` bir NuGet. exe ' yi en son sürüme güncelleştirmek için Windows 'ta kullanın.
 
 > [!Note]
-> NuGet CLI bulunabilir, her zaman en son önerilen `https://dist.nuget.org/win-x86-commandline/latest/nuget.exe`. Eski sürekli tümleştirme sistemleri, önceki bir URL ile uyumluluk amacıyla `https://nuget.org/nuget.exe` şu anda sağlar [2.8.6 kullanım dışı CLI aracı](https://github.com/NuGet/NuGetGallery/issues/5381).
+> En son önerilen NuGet CLı, ' de her `https://dist.nuget.org/win-x86-commandline/latest/nuget.exe`zaman kullanılabilir. Önceki bir URL `https://nuget.org/nuget.exe` olan eski bir sürekli tümleştirme sistemiyle uyumluluk amaçları için şu anda [kullanım dışı 2.8.6 CLI aracını](https://github.com/NuGet/NuGetGallery/issues/5381)sağlamaktadır.
 
 ## <a name="visual-studio"></a>Visual Studio
 
-- Visual Studio kodu: NuGet yetenekleri Market uzantıları kullanılabilir veya kullanın `dotnet.exe` veya `nuget.exe` CLI araçları.
+- Visual Studio Code: NuGet özellikleri Market uzantıları aracılığıyla kullanılabilir veya `dotnet.exe` ya `nuget.exe` da CLI araçlarını kullanır.
 
-- Mac için Visual Studio: belirli NuGet özellikleri doğrudan yerleşiktir. Bkz: [dahil olmak üzere bir NuGet paketini projenize](/visualstudio/mac/nuget-walkthrough) kılavuz. Diğer yeteneklerini kullanan `dotnet.exe` veya `nuget.exe` CLI araçları.
+- Mac için Visual Studio: belirli NuGet özellikleri doğrudan yerleşiktir. İzlenecek yol için [projenize bir NuGet paketi ekleme](/visualstudio/mac/nuget-walkthrough) bölümüne bakın. Diğer yetenekler için `dotnet.exe` veya `nuget.exe` CLI araçlarını kullanın.
 
-- Windows üzerinde Visual Studio: **NuGet Paket Yöneticisi** Visual Studio 2012 ile birlikte sunulan ve üzerinde desteklenir. Visual Studio sağlar [Paket Yöneticisi UI](tools/package-manager-ui.md) ve [Paket Yöneticisi Konsolu](tools/package-manager-console.md), aracılığıyla NuGet işlemlerinin çoğu çalıştırabilirsiniz.
-  - Visual Studio 2017'den itibaren NuGet Paket Yöneticisi .NET kullanan herhangi bir iş yüküyle yükleyici içerir. Ayrı olarak yüklemeniz veya Paket Yöneticisi'nin yüklü olduğunu doğrulamak için Visual Studio Yükleyicisi'ni çalıştırın ve altında seçeneği işaretleyin **tek tek bileşenler > kod Araçlar > NuGet Paket Yöneticisi**.
-  - Paket Yöneticisi UI ve konsol Windows üzerinde Visual Studio için benzersizdir. Mac için Visual Studio şu anda kullanılabilir değil
-  - CLI aracını IDE içinde NuGet özellikleri desteklemek için gereklidir. Kullanabilirsiniz `dotnet` CLI veya `nuget.exe` CLI. `dotnet` CLI, .NET Core gibi bazı Visual Studio iş yükleri ile yüklenir. `nuget.exe` CLI ayrı olarak daha önce anlatıldığı gibi yüklenmelidir.
-  - Paket Yöneticisi Konsolu komutları yalnızca Visual Studio içinde Windows üzerinde çalışır ve diğer PowerShell ortamlar içinde çalışmaz.
-  - Visual Studio 2010 ve önceki sürümlerinde, "NuGet Paket Yöneticisi için Visual Studio" uzantıyı yükleyin.
-  - NuGet uzantıları Visual Studio 2013 ve 2015 de nden indirilebilir [ https://dist.nuget.org/index.html ](https://dist.nuget.org/index.html).
-  - Yaklaşan NuGet özelliklerin önizlemesini sağlamak isterseniz yükleme [Visual Studio 2017 Preview](https://www.visualstudio.com/vs/preview/), yan yana kararlı Visual Studio sürümleriyle çalışır. Sorun bildirin veya Önizleme için fikir alışverişinde bulunmak için bir sorun açın [NuGet GitHub deposu](https://github.com/Nuget/Home/issues).
+- Windows üzerinde Visual Studio: **NuGet Paket Yöneticisi** , Visual Studio 2012 ve üzeri sürümlerde bulunur. Visual Studio, çoğu NuGet işlemini çalıştırabileceğiniz [Paket Yöneticisi Kullanıcı arabirimi](consume-packages/install-use-packages-visual-studio.md) ve [Paket Yöneticisi konsolu](consume-packages/install-use-packages-powershell.md)sağlar.
+  - Visual Studio 2017 ' den başlayarak, yükleyici, .NET kullanan herhangi bir iş yüküne sahip NuGet Paket Yöneticisi 'Ni içerir. Ayrı olarak yüklemek veya paket yöneticisinin yüklendiğini doğrulamak için, Visual Studio yükleyicisi 'ni çalıştırın ve **tek tek bileşenler altında, NuGet paket yöneticisi > kod araçları >** .
+  - Paket Yöneticisi Kullanıcı arabirimi ve konsolu, Windows üzerinde Visual Studio 'ya özeldir. Mac için Visual Studio şu anda mevcut değildir.
+  - IDE 'de NuGet özelliklerini desteklemek için bir CLı aracı gereklidir. `dotnet` CLI veya`nuget.exe` CLI kullanabilirsiniz. `dotnet` CLI, .NET Core gibi bazı Visual Studio iş yükleri ile yüklenir. CLI `nuget.exe` , daha önce açıklandığı gibi ayrı olarak yüklenmelidir.
+  - Paket Yöneticisi konsol komutları yalnızca Windows üzerinde Visual Studio 'da çalışır ve diğer PowerShell ortamları içinde çalışmaz.
+  - Visual Studio 2010 ve önceki sürümlerde, "Visual Studio için NuGet Paket Yöneticisi" uzantısını yükler.
+  - Visual Studio 2013 ve 2015 için NuGet uzantıları, adresinden [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html)de indirilebilir.
+  - Yaklaşan NuGet özelliklerini önizlemek istiyorsanız, Visual Studio 'nun kararlı sürümleriyle yan yana çalışan [Visual studio 2017 Preview](https://www.visualstudio.com/vs/preview/)sürümünü yükleyebilirsiniz. Sorunları bildirmek veya önizlemelerde fikir paylaşmak için [NuGet GitHub deposunda](https://github.com/Nuget/Home/issues)bir sorun açın.
 
 ## <a name="feature-availability"></a>Özellik kullanılabilirliği
 
-| Özellik | DotNet CLI | nuget CLI (Windows) | nuget CLI (tekli) | Visual Studio (Windows) | Mac için Visual Studio |
+| Özellik | DotNet CLı | NuGet CLı (Windows) | NuGet CLı (mono) | Visual Studio (Windows) | Mac için Visual Studio |
 | --- | --- | --- | --- | --- | --- |
-| Paketleri Ara |  | &#10004; | &#10004; | &#10004; | &#10004; |
+| Paketleri ara |  | &#10004; | &#10004; | &#10004; | &#10004; |
 | Paketleri yükleme/kaldırma | &#10004; | &#10004;(1) | &#10004; | &#10004; | &#10004; |
 | Güncelleştirme paketleri | &#10004; | &#10004; | | &#10004; | &#10004; |
 | Paketleri geri yükle | &#10004; | &#10004; | &#10004;(2) | &#10004; | &#10004; |
-| Paket akışları (kaynaklar) yönetme | | &#10004; | &#10004; | &#10004; | &#10004; |
-| Bir akış paketleri yönetin | &#10004; | &#10004; | &#10004; | | |
-| Akışları kümesi API anahtarları | | &#10004; | &#10004; | | |
-| Packages(3) oluşturma | &#10004; | &#10004; | &#10004;(4) | &#10004; | |
+| Paket akışlarını yönetme (kaynaklar) | | &#10004; | &#10004; | &#10004; | &#10004; |
+| Bir akıştaki paketleri yönetme | &#10004; | &#10004; | &#10004; | | |
+| Akışlar için API anahtarlarını ayarlama | | &#10004; | &#10004; | | |
+| Paket oluşturma (3) | &#10004; | &#10004; | &#10004;4 | &#10004; | |
 | Paketleri yayımlama | &#10004; | &#10004; | &#10004; | &#10004; |  |
-| Çoğaltma paketleri |  | &#10004; | &#10004; | | |
-| Yönetme *paket genel* ve önbellek klasörleri | &#10004; | &#10004; | &#10004; | | |
-| NuGet yapılandırmasını yönetme | | &#10004; | &#10004; | | |
+| Paketleri Çoğalt |  | &#10004; | &#10004; | | |
+| *Genel paket* ve önbellek klasörlerini yönetme | &#10004; | &#10004; | &#10004; | | |
+| NuGet yapılandırmasını Yönet | | &#10004; | &#10004; | | |
 
-(1) proje dosyalarını etkilemez. kullanma `dotnet.exe` yerine.
+(1) proje dosyalarını etkilemez; Bunun `dotnet.exe` yerine kullanın.
 
-(2) yalnızca ile çalışır `packages.config` dosya ve çözümü ile değil (`.sln`) dosyaları.
+(2) yalnızca dosya ile `packages.config` birlikte çalışarak çözüm (`.sln`) dosyaları ile değil.
 
-(3) çeşitli Gelişmiş paket özelliklerini yalnızca, Visual Studio kullanıcı Arabirimi araçları temsil olmayan CLI aracılığıyla kullanıma sunuldu.
+(3) CLı aracılığıyla yalnızca Visual Studio Kullanıcı arabirimi araçlarında temsil edilmeyen çeşitli gelişmiş paket özellikleri vardır.
 
-(4) çalışır `.nuspec` dosyaları ancak proje dosyaları ile değil.
+(4) dosyalarla birlikte `.nuspec` çalışarak, proje dosyaları ile değil.
 
 ### <a name="related-topics"></a>İlgili konular
 
-- [Yükleme ve Visual Studio kullanarak paketleri yönetme](tools/package-manager-ui.md)
-- [Yükleme ve Paket Yöneticisi konsolu kullanarak paketleri yönetme](tools/package-manager-console.md)
-- [Yükleme ve dotnet CLI kullanarak paketleri yönetme](consume-packages/install-use-packages-dotnet-cli.md)
-- [Yükleme ve CLI nuget.exe kullanarak paketleri yönetme](consume-packages/install-use-packages-nuget-cli.md)
-- [Paket Yöneticisi konsolu PowerShell başvurusu](tools/powershell-reference.md)
+- [Visual Studio kullanarak paketleri yükleyip yönetme](consume-packages/install-use-packages-visual-studio.md)
+- [PowerShell kullanarak paket yükleyip yönetme](consume-packages/install-use-packages-powershell.md)
+- [DotNet CLı kullanarak paketleri yükleyip yönetme](consume-packages/install-use-packages-dotnet-cli.md)
+- [NuGet. exe CLı kullanarak paketleri yükleyip yönetme](consume-packages/install-use-packages-nuget-cli.md)
+- [Paket Yöneticisi konsolu PowerShell Başvurusu](reference/powershell-reference.md)
 - [Paket oluşturma](create-packages/creating-a-package.md)
 - [Paket yayımlama](nuget-org/publish-a-package.md)
 
-Windows üzerinde çalışan geliştiriciler de keşfedebilir [NuGet paket Gezgini](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer), görsel olarak keşfedin, oluşturmak ve NuGet paketleri düzenlemek için açık kaynak, tek başına bir araç. Örneğin, Deneysel bir paket yapısı için paket derlenmeden değişiklik çok yararlı olduğu.
+Windows üzerinde çalışan geliştiriciler, NuGet paketlerini görsel olarak keşfetmeye, oluşturmaya ve düzenlemeye yönelik açık kaynaklı, tek başına bir araç olan [NuGet paket Gezginini](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer)de keşfedebilir. Örneğin, paketi yeniden oluşturmadan bir paket yapısında deneysel değişiklikler yapmak çok faydalı olur.
