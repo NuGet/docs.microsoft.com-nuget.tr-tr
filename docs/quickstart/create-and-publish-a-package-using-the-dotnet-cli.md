@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: 71acc177e0f74f5dad3bd77fa1920af4619cbafb
-ms.sourcegitcommit: 0f5363353f9dc1c3d68e7718f51b7ff92bb35e21
+ms.openlocfilehash: 30a77b427fe0a33b41262c5784045e5a6b10852f
+ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68342549"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68419989"
 ---
 # <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>Hızlı Başlangıç: Paket oluşturma ve yayımlama (DotNet CLı)
 
@@ -112,7 +112,7 @@ NuGet 'in sunabileceği daha fazlasını araştırmak için aşağıdaki bağlan
 
 - [Paket Yayımlama](../nuget-org/publish-a-package.md)
 - [Yayın öncesi paketler](../create-packages/Prerelease-Packages.md)
-- [Birden çok hedef çerçeveyi destekleme](../create-packages/supporting-multiple-target-frameworks.md)
+- [Birden çok hedef çerçeveyi destekleme](../create-packages/multiple-target-frameworks-project-file.md)
 - [Paket sürümü oluşturma](../reference/package-versioning.md)
 - [Yerelleştirilmiş paketler oluşturma](../create-packages/creating-localized-packages.md)
 - [Sembol paketleri oluşturma](../create-packages/symbol-packages-snupkg.md)

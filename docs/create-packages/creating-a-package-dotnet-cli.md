@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6774329138c2bf26908496860267e3570a94d39c
-ms.sourcegitcommit: 0f5363353f9dc1c3d68e7718f51b7ff92bb35e21
+ms.openlocfilehash: c95d10ca2c4098aff5bc031e3c9a2d079b9fd7d0
+ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68346159"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68419891"
 ---
 # <a name="create-a-nuget-package-using-the-dotnet-cli"></a>DotNet CLı kullanarak bir NuGet paketi oluşturma
 
@@ -125,7 +125,7 @@ Bir `.nupkg` dosya olan bir paket oluşturduktan sonra, bir [paket yayımlama](.
 Ayrıca, aşağıdaki konularda açıklandığı gibi, paketinizin yeteneklerini genişletmek veya diğer senaryoları desteklemek isteyebilirsiniz:
 
 - [Paket sürümü oluşturma](../reference/package-versioning.md)
-- [Birden çok hedef çerçeveyi destekleme](../create-packages/supporting-multiple-target-frameworks.md)
+- [Birden çok hedef çerçeveyi destekleme](../create-packages/multiple-target-frameworks-project-file.md)
 - [Kaynak ve yapılandırma dosyalarının dönüştürmeleri](../create-packages/source-and-config-file-transformations.md)
 - [Yerelleştirme](../create-packages/creating-localized-packages.md)
 - [Yayın öncesi sürümler](../create-packages/prerelease-packages.md)

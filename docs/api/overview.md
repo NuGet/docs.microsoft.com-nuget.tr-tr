@@ -1,21 +1,21 @@
 ---
-title: NuGet API 'sine genel bakış
-description: NuGet API 'SI, paketleri indirmek, meta verileri getirmek, yeni paketleri yayımlamak vb. için kullanılabilen bir HTTP uç noktası kümesidir.
+title: NuGet sunucu API 'sine genel bakış
+description: NuGet sunucu API 'SI, paketleri indirmek, meta verileri getirmek, yeni paketleri yayımlamak vb. için kullanılabilen bir HTTP uç noktası kümesidir.
 author: joelverhagen
 ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: e8e8fdeee4f0765e2409aea261db8217744ae2c7
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: aacf56a5dc5af9abf6f60d42bc7fd530a128d0d8
+ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317004"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68419836"
 ---
-# <a name="nuget-api"></a>NuGet API
+# <a name="nuget-server-api"></a>NuGet sunucu API 'SI
 
-NuGet API 'SI, paketleri indirmek, meta verileri getirmek, yeni paketleri yayımlamak ve resmi NuGet istemcilerinde bulunan diğer birçok işlemi gerçekleştirmek için kullanılabilen bir HTTP uç noktası kümesidir.
+NuGet sunucu API 'SI, paketleri indirmek, meta verileri getirmek, yeni paketleri yayımlamak ve resmi NuGet istemcilerinde bulunan diğer birçok işlemi gerçekleştirmek için kullanılabilen bir HTTP uç noktası kümesidir.
 
 Bu API, Visual Studio, NuGet. exe ve .net CLI içinde, gibi NuGet işlemleri [`dotnet restore`](/dotnet/core/tools/dotnet-restore?tabs=netcore2x)gerçekleştirmek için, Visual Studio Kullanıcı arabiriminde ve [`nuget.exe push`](../reference/cli-reference/cli-ref-push.md)içinde arama yapmak için kullanılan NuGet istemcisi tarafından kullanılır.
 

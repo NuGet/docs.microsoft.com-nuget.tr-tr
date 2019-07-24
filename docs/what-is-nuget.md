@@ -1,118 +1,118 @@
 ---
-title: NuGet nedir ve ne işe yarar?
-description: Hangi NuGet kapsamlı bir giriş olduğundan ve mi?
+title: NuGet nedir ve ne yapar?
+description: NuGet 'in ne olduğunu ve ne yaptığını kapsamlı bir giriş
 author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: overview
-ms.openlocfilehash: e11eed5c614a7634fa578ebc84c3ab2068522fe2
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: e8e806e0a893d62d9d3189396dc47250ae9c8cf3
+ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842198"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68420021"
 ---
-# <a name="an-introduction-to-nuget"></a>NuGet giriş
+# <a name="an-introduction-to-nuget"></a>NuGet 'e giriş
 
-Herhangi bir modern geliştirme platformu için gerekli bir araç üzerinden geliştiriciler oluşturabilir, paylaşın ve faydalı kod tüketen bir mekanizmadır. Genellikle bu kod, "(dll) olarak derlenmiş kod birlikte bu paketleri kullanan projelerde gereken diğer içeriği içeren paketleri" olarak sunulur.
+Tüm modern geliştirme platformları için gerekli olan bir araç, geliştiricilerin yararlı kod oluşturma, paylaşma ve kullanma konusunda bir mekanizmadır. Bu tür kodlar genellikle derlenen kodu (dll 'Ler olarak) içeren "paketler" şeklinde paketlenmiştir ve bu paketleri kullanan projelerde gereken diğer içeriklerle birlikte paketlenir.
 
-(.NET Core dahil), .NET için kod paylaşmak için Microsoft tarafından desteklenen mekanizmadır **NuGet**, tanımlayan nasıl paketleri .NET için barındırılan ve tüketilen, oluşturulur ve [araçları sağlar](install-nuget-client-tools.md) her biri için Bu roller.
+.NET için (.NET Core dahil), .NET için Microsoft tarafından desteklenen kod paylaşma mekanizması, .NET için paketlerin oluşturulma, barındırılan ve tüketilen şeklini tanımlar ve bu rollerin her biri için [Araçlar sağlar](install-nuget-client-tools.md) .
 
-Basitçe, bir NuGet paketi ile tek bir ZIP dosyasına olan `.nupkg` derlenmiş kodda (DLL'ler), bu kod, ilgili diğer dosyaları içeren bir uzantı ve paketin sürüm numarası gibi bilgileri içeren bir açıklayıcı bildirim. Kod geliştiricilerle paylaşmak için paketler oluşturmak ve bunları genel veya özel bir ana bilgisayara yayımlayın. Paketi tüketicileri bu paketleri, uygun konakları elde, bunları kendi projelerine ekleyin ve ardından Proje kodlarını bir paketin işlevi çağırabilir. NuGet kendisini ardından Ara ayrıntılarını işler.
+Yalnızca bir NuGet paketi, derlenen kod (dll 'ler), bu `.nupkg` kodla ilgili diğer dosyalar ve paketin sürüm numarası gibi bilgileri içeren açıklayıcı bir bildirimle birlikte bulunan uzantıya sahip tek bir ZIP dosyasıdır. Kod içeren geliştiriciler, paket oluşturma ve bunları herkese açık veya özel bir konakta yayımlamaktır. Paket tüketicileri, bu paketleri uygun konaklardan elde eder, projelerine ekler ve ardından Proje kodlarında bir paketin işlevini çağırır. Ardından NuGet, tüm ara ayrıntıları işler.
 
-NuGet genel nuget.org konak yanı sıra özel konaklar desteklediğinden, bir kuruluş veya iş grubu için özel kod paylaşmak için NuGet paketlerini kullanabilirsiniz. NuGet paketlerini, kendi kodunuzu kullanılmak üzere kendi projeleriniz ancak hiçbir şey faktörü için kullanışlı bir yol olarak da kullanabilirsiniz. Kısacası, bir NuGet paketi kodu paylaşılabilir birimidir ancak değil gerektirir veya paylaşım herhangi belirli anlamına gelmez.
+NuGet ortak nuget.org ana bilgisayarıyla birlikte özel Konakları desteklediğinden, bir kuruluşa veya bir iş grubuna özel kod paylaşmak için NuGet paketlerini kullanabilirsiniz. NuGet paketlerini aynı zamanda kendi projelerinizi herhangi bir yerde kullanmak üzere kendi kodunuzu çarpanlara katmanın kolay bir yolu olarak da kullanabilirsiniz. Kısaca, bir NuGet paketi paylaşılabilir bir kod birimidir, ancak belirli bir paylaşım yolu gerektirmez veya göstermez.
 
-## <a name="the-flow-of-packages-between-creators-hosts-and-consumers"></a>Oluşturucular, konaklar ve tüketicileri arasında paketlerin akışı
+## <a name="the-flow-of-packages-between-creators-hosts-and-consumers"></a>Oluşturucular, konaklar ve tüketiciler arasındaki paketlerin akışı
 
-Ortak bir konak olarak kendi rolünde merkezi depo 100. 000'den benzersiz paket NuGet kendisi tutar [nuget.org](https://www.nuget.org). Bu paketler milyonlarca.NET/.NET Core geliştirici tarafından her gün çalışan. NuGet ayrıca sağlar, özel olarak bulutta paketlerini barındıracak (gibi Azure DevOps üzerine), özel bir ağda veya hatta yalnızca yerel dosya sisteminize. Bunu yaptığınızda, bu paketleri paketlerini belirli bir tüketici grubu için kullanılabilir hale olanağı sağlayan, konak erişimi geliştiricilerin kullanımına sunulur. Seçenekler üzerinde açıklanmıştır [kendi NuGet akışlarınızı barındırma](hosting-packages/overview.md). Yapılandırma seçenekleri ile tam olarak hangi konakların herhangi belirli bir bilgisayar tarafından böylece paketleri nuget.org gibi ortak bir depoya yerine, belirli kaynakları edinilir sağlama erişilebilir denetleyebilirsiniz.
+Ortak ana bilgisayar rolünde olan NuGet, [NuGet.org](https://www.nuget.org)adresinde 100.000 benzersiz paketin üzerinden merkezi depoyu saklar. Bu paketler, her gün milyonlarca .NET/.NET Core geliştiricisi tarafından işe alınır. NuGet Ayrıca, paketleri bulutta (Azure DevOps gibi), özel bir ağda veya hatta yalnızca yerel dosya sisteminizde barındırmanıza olanak sağlar. Bu şekilde, bu paketler yalnızca konağa erişimi olan geliştiriciler tarafından kullanılabilir ve paketleri belirli bir tüketici grubu için kullanılabilir hale getirme olanağı sunar. Seçenekler [kendi NuGet akışlarınızı barındırırken](hosting-packages/overview.md)açıklanmıştır. Yapılandırma seçenekleri sayesinde, belirli bir bilgisayar tarafından hangi konaklara erişilebileceğini de denetleyebilir ve böylece paketlerin, nuget.org gibi bir genel depo yerine belirli kaynaklardan elde edildiğine emin olabilirsiniz.
 
-Her bir konak doğası hizmet paket arasında bir bağlantı noktası olarak *creators* ve paket *tüketiciler*. Creators yararlı NuGet paketleri oluşturun ve bunları bir konağa yayımlayın. Tüketiciler kullanışlı ve uyumlu paketleri indirme ve bu paketleri, projelere dahil etme erişilebilen konaklarda öğesini arayın. Bir projede yüklendikten sonra paketleri API'leri proje kodunu geri kalanı için kullanılabilir.
+Doğası ne olursa olsun, ana bilgisayar paket *oluşturucular* ve paket *tüketicileri*arasındaki bağlantı noktası görevi görür. Creators Build yararlı NuGet paketleri ve bunları bir konakta yayımlayın. Müşteriler daha sonra, bu paketleri projelerinde, indirerek ve dahil olmak üzere erişilebilir konaklarda kullanışlı ve uyumlu paketler arar. Bir projeye yüklendikten sonra paketlerin API 'Leri proje kodunun geri kalanı tarafından kullanılabilir.
 
-![Paket oluşturucuları, paket konaklar ve paketi tüketicileri arasındaki ilişki](media/nuget-roles.png)
+![Paket oluşturucular, paket konakları ve paket tüketicileri arasındaki ilişki](media/nuget-roles.png)
 
-## <a name="package-targeting-compatibility"></a>Paket uyumluluğu hedefleme
+## <a name="package-targeting-compatibility"></a>Paket hedefleme uyumluluğu
 
-"Uyumlu" bir paket kaybı projenin hedef çerçevesi ile uyumlu olan en az bir hedef .NET framework için oluşturulmuş derlemeler içerdiği anlamına gelir. Geliştiriciler, paketleri olarak UWP denetimleri ile bir çerçevesine özgü oluşturabilir veya geniş bir hedeflerini destekler. Bir paketin uyumluluk, geliştiricilerin hedef en üst düzeye çıkarmak için [.NET Standard](/dotnet/standard/net-standard), hangi tüm .NET ve .NET Core projeleri kullanabilir. Tek bir paket (genellikle tek bir derleme içeren) kullanan tüm projeler için çalıştığı oluşturucuları hem tüketicileri için en verimli yol budur.
+"Uyumlu" bir paket, en az bir hedef .NET Framework için oluşturulmuş derlemeleri, tüketen projenin hedef çerçevesiyle uyumlu olarak içerir. Geliştiriciler, UWP denetimlerinde olduğu gibi, bir çerçeveye özgü paketler oluşturabilir veya daha geniş bir hedef yelpazesi destekleyebilir. Bir paketin uyumluluğunu en üst düzeye çıkarmak için, geliştiriciler tüm .NET ve .NET Core projelerinin kullanabileceği [.NET Standard](/dotnet/standard/net-standard)hedef alabilir. Bu, tek bir paket (genellikle tek bir derleme içeren) tüm projeler için çalışarak, hem oluşturucular hem de tüketiciler için en verimli yoldur.
 
-.NET Standard dışında API'leri gerektiren paket geliştiriciler, öte yandan, destek ve tüm bu derlemeleri (hangi "multi-targeting'e" olarak adlandırılır) aynı paket içerisine dâhil istedikleri farklı bir hedef çerçeveler için ayrı derlemeler oluşturun. Tüketici bu tür bir paketi yüklendiğinde, proje tarafından gerekli olan derlemeleri NuGet ayıklar. Bu paketin son uygulama yükümlülüğünden en aza indirir ve/veya derlemeleri bu proje tarafından üretilen. Bir çoklu sürüm desteği paketi Elbette oluşturana korumak daha zor olduğu.
+.NET Standard dışında API 'Leri gerektiren paket geliştiricileri, diğer yandan, desteklemek istedikleri farklı hedef çerçeveler için ayrı derlemeler oluşturun ve bu derlemelerin tümünü aynı pakette ("Çoklu hedefleme" olarak adlandırılır) dahil eder. Bir tüketici böyle bir paketi yüklediğinde, NuGet yalnızca proje için gereken derlemeleri ayıklar. Bu, paketin, son uygulamada ve/veya bu proje tarafından oluşturulan derlemelerdeki parmak izini en aza indirir. Birden çok hedefleme paketinin, oluşturucusunun bakımını yapmak için daha zordur.
 
 > [!Note]
-> .NET Standard desteği, çeşitli taşınabilir sınıf kitaplığı (PCL) hedefleri kullanarak önceki yaklaşımına yerini alır. Bu belgeler, bu nedenle .NET Standard için paketleri oluşturmaya odaklıdır.
+> .NET Standard hedefleme, çeşitli taşınabilir sınıf kitaplığı (PCL) hedeflerini kullanmanın önceki yaklaşımının yerini alır. Bu belge, .NET Standard için paket oluşturmaya odaklanır.
 
 ## <a name="nuget-tools"></a>NuGet araçları
 
-Destek barındırma ek olarak, NuGet çeşitli oluşturucuları ve tüketiciler tarafından kullanılan araçlar da sağlar. Bkz: [yükleme NuGet istemci araçları](install-nuget-client-tools.md) için belirli araçları edinme.
+NuGet, barındırma desteğinin yanı sıra hem oluşturucular hem de tüketiciler tarafından kullanılan çeşitli araçlar da sağlar. Bkz. belirli araçları edinme için [NuGet istemci araçları 'Nı yükleme](install-nuget-client-tools.md) .
 
 | Aracı | Platformlar | İlgili senaryolar | Açıklama |
 | --- | --- | --- | --- |
-| [dotnet CLI](consume-packages/install-use-packages-dotnet-cli.md) | Tümü | Oluşturma, tüketim | CLI aracı ve .NET Core ve .NET standart kitaplıkları için [SDK stili projeleri](resources/check-project-format.md) .NET Framework'ü hedefleyen projeleri. Belirli NuGet CLI, .NET Core araç zincirinizi içinde doğrudan özellikleri sağlar. NuGet CLI olduğu gibi dotnet CLI Visual Studio projeleri ile etkileşime girmez. |
-| [nuget.exe CLI](consume-packages/install-use-packages-nuget-cli.md) | Tümü | Oluşturma, tüketim | .NET Framework kitaplıkları için CLI aracı ve [SDK stili projeleri](resources/check-project-format.md) .NET standart kitaplıkları hedefleyin. Özellikle bazı Tüketiciler, yalnızca uygulama paketini creators uygulama bazı komutlarla tüm NuGet yetenekleri sağlar ve diğerleri hem de uygulama. Oluşturucuları kullanma gibi paket `nuget pack` çeşitli derlemeler ve ilişkili dosyaları bir paket oluşturun, tüketicilerin kullanım paket için komutu `nuget install` kullanan bir proje klasörü ve herkesin paketlerini içerecek şekilde `nuget config` NuGet yapılandırmayı ayarlamak için değişkenler. Bir platformdan aracı olarak NuGet CLI'yı Visual Studio projeleri ile etkileşime girmez. |
-| [Paket Yöneticisi Konsolu](tools/package-manager-console.md) | Windows üzerinde Visual Studio | Tüketim | Sağlar [PowerShell komutlarını](tools/Powershell-Reference.md) yükleme ve Visual Studio projelerinde paketleri yönetme. |
-| [Paket Yöneticisi UI](tools/package-manager-ui.md) | Windows üzerinde Visual Studio | Tüketim | Yükleme ve Visual Studio projelerinde paketler yönetmeye yönelik kullanımı kolay bir kullanıcı Arabirimi sağlar. |
-| [NuGet UI'ı yönetme](/visualstudio/mac/nuget-walkthrough) | Mac için Visual Studio | Tüketim | Yükleme ve Mac proje Visual Studio'da paketlerini yönetmek için kullanımı kolay bir kullanıcı Arabirimi sağlar. |
-| [MSBuild](reference/msbuild-targets.md) | Windows | Oluşturma, tüketim | MSBuild araç zinciri üzerinden doğrudan projesinde kullanılan paketleri geri yükle ve paketleri oluşturma olanağı sağlar. |
+| [dotnet CLI](consume-packages/install-use-packages-dotnet-cli.md) | Tümü | Oluşturma, tüketim | .NET Core ve .NET Standard kitaplıkları için CLı aracı ve .NET Framework hedefi olan SDK stili projeler için (bkz. [SDK özniteliği](/dotnet/core/tools/csproj#additions)). , Doğrudan .NET Core araç zinciri içinde belirli NuGet CLı özellikleri sağlar. `nuget.exe` CLI ile birlikte DotNet CLI, Visual Studio projeleriyle etkileşime girmiyor. |
+| [nuget.exe CLI](consume-packages/install-use-packages-nuget-cli.md) | Tümü | Oluşturma, tüketim | .NET Standard kitaplıklarını hedefleyen .NET Framework kitaplıkları ve SDK olmayan projeler için CLı aracı. Özellikle paket oluşturucuları, bazı ve yalnızca tüketicilere uygulanan ve her ikisine de uygulanan bazı komutlarla, tüm NuGet yeteneklerini sağlar. Örneğin, paket oluşturucuları, çeşitli derlemelerden `nuget pack` ve ilgili dosyalardan bir paket oluşturmak için komutunu kullanır, paket `nuget install` tüketicileri bir proje klasörüne paketleri dahil etmek için kullanır ve herkes NuGet yapılandırmasını ayarlamak `nuget config` için kullanır değişkenlerinin. Platformdan bağımsız bir araç olan NuGet CLı, Visual Studio projeleriyle etkileşime girmiyor. |
+| [Paket Yöneticisi Konsolu](consume-packages/install-use-packages-powershell.md) | Windows üzerinde Visual Studio | Tüketim | Visual Studio projelerindeki paketleri yüklemek ve yönetmek için [PowerShell komutları](reference/Powershell-Reference.md) sağlar. |
+| [Paket Yöneticisi UI](consume-packages/install-use-packages-visual-studio.md) | Windows üzerinde Visual Studio | Tüketim | , Visual Studio projelerindeki paketleri yüklemek ve yönetmek için kullanımı kolay bir kullanıcı arabirimi sağlar. |
+| [NuGet Kullanıcı arabirimini yönetme](/visualstudio/mac/nuget-walkthrough) | Mac için Visual Studio | Tüketim | Mac için Visual Studio projelerindeki paketleri yüklemek ve yönetmek için kullanımı kolay bir kullanıcı arabirimi sağlar. |
+| [MSBuild](reference/msbuild-targets.md) | Windows | Oluşturma, tüketim | Doğrudan MSBuild araç zinciri aracılığıyla bir projede kullanılan paketleri ve geri yükleme paketlerini oluşturma yeteneği sağlar. |
 
-Gördüğünüz gibi birlikte çalıştığınız NuGet araçları, oluşturma, kullanma veya paketler ve üzerinde çalıştığınız platforma yayımlama üzerinde büyük ölçüde bağlıdır. Diğer NuGet paketlerinde var olan işlevselliği üzerine oluşturdukça paket creators genellikle ayrıca tüketicileri olur. Ve bu paketleri, sırayla hala bazılarında bağlı olabilir.
+Gördüğünüz gibi, birlikte çalıştığınız NuGet araçları, paketleri oluşturma, kullanma veya yayımlama ve üzerinde çalıştığınız platformu önemli ölçüde temel alır. Paket oluşturucuları, genellikle diğer NuGet paketlerinde bulunan işlevselliğin üzerine inşa ettikleri tüketicilerlerdir. Tabii ki bu paketler yine de diğerleri için de değişebilir.
 
-Daha fazla bilgi için başlayan [paket oluşturma iş akışı](create-packages/Overview-and-Workflow.md) ve [paket tüketim iş akışı](consume-packages/Overview-and-Workflow.md) makaleler.
+Daha fazla bilgi için [paket oluşturma iş akışı](create-packages/Overview-and-Workflow.md) ve [paket tüketimi iş akışı](consume-packages/Overview-and-Workflow.md) makaleleriyle başlayın.
 
-## <a name="managing-dependencies"></a>Bağımlılık Yönetimi
+## <a name="managing-dependencies"></a>Bağımlılıkları yönetme
 
-Başkalarının çalışmalarını kolayca oluşturma imkanı bir paket yönetim sistemi en güçlü özelliklerinden biridir. Buna göre NuGet yaptığı çoğunu, bağımlılık ağacı ya da bir proje adına "Grafik" yönetiyor. Kısaca, size yalnızca kendiniz doğrudan bir projede kullanıyorsanız bu paketleri ile ilgili. Bu paketleri birini (bu sırayla hala diğerleri kullanabilir) diğer paketleri kullanma, NuGet bu tüm alt düzey bağımlılıklarını üstlenir.
+Başkalarının çalışmasına kolayca derleme yeteneği, bir paket yönetim sistemi en güçlü özelliklerinden biridir. Buna uygun olarak, NuGet 'in bu bağımlılık ağacını veya bir proje adına "Graph" i yönetdiklediğine benzer. Yalnızca bir projede doğrudan kullandığınız paketlerle sorun olması gerektiğini söyleriz. Bu paketlerin herhangi biri diğer paketleri kullanıyorsa (Bu durumda, hala diğerleri de kullanılabilir), NuGet bu alt düzey bağımlılıklardan yararlanır.
 
-Aşağıdaki görüntüde, sırayla birkaç diğer bağlı beş paketleri bağımlı bir proje gösterilmektedir.
+Aşağıdaki görüntüde, beş pakete bağımlı olan bir proje gösterilmektedir ve bu da başka bir sayıya göre değişir.
 
-![Bir .NET projesi için bir örnek NuGet bağımlılık grafiği](media/dependency-graph.png)
+![.NET projesi için örnek bir NuGet bağımlılığı grafiği](media/dependency-graph.png)
 
-Bazı paketler, birden çok kez bağımlılık grafiğinde görüntülendiğine dikkat edin. Örneğin, üç farklı tüketicilerinin Paket B vardır ve her tüketici, paketin (gösterilmemiştir) için farklı bir sürüm de belirtebilir. Bu, özellikle yaygın olarak kullanılan paketler için ortak bir yinelenme zamanıdır. NuGet Paket B hangi sürümünün tüm tüketicilere tam olarak karşılayan belirlemek için tüm zorlu işler Neyse yapar. NuGet sonra nasıl olursa olsun tüm diğer paketleri, aynı ayrıntılı bağımlılık grafiği yapar.
+Bazı paketlerin bağımlılık grafiğinde birden çok kez göründüğünü unutmayın. Örneğin, B paketinin üç farklı tüketicisi vardır ve her tüketici bu paket için farklı bir sürüm (gösterilmez) belirtebilir. Bu, özellikle yaygın olarak kullanılan paketler için yaygın bir oluşumdır. NuGet neyse ki, tüm tüketicilere, B paketinin hangi sürümünün tüm müşterileri karşılayıp karşılamadığını tespit etmek için tüm sabit çalışmalarınız. Ardından NuGet, bağımlılık grafiğinin ne kadar derin olduğuna bakılmaksızın diğer tüm paketler için de aynı şekilde yapılır.
 
-NuGet bu hizmetin performansını daha fazla ayrıntı için bkz: [bağımlılık çözümlemesi](consume-packages/dependency-resolution.md).
+NuGet 'in bu hizmeti nasıl gerçekleştirdiği hakkında daha fazla bilgi için bkz. [bağımlılık çözünürlüğü](consume-packages/dependency-resolution.md).
 
-## <a name="tracking-references-and-restoring-packages"></a>İzleme başvurularını ve paketler geri yükleniyor
+## <a name="tracking-references-and-restoring-packages"></a>Başvuruları izleme ve paketleri geri yükleme
 
-Projeler kaynak denetimi depolarından Geliştirici bilgisayarlar arasında kolayca taşıyabilirsiniz için yapı sunucusu ve diğerleri, NuGet paketlerini doğrudan bir projeye bağlı ikili derlemeleri tutmak oldukça zordur. Bunun yapılması gereksiz yere bloated projeyi her kopyasını (ve böylece kaynak denetim depolarından alanı boşa). Bu ayrıca, güncelleştirmeleri, tüm projenin kopyalarını uygulanacak yaptığınız gibi yeni sürümlere paketi ikili dosyaları güncelleştirmek oldukça zor hale getirir.
+Projeler geliştirici bilgisayarları, kaynak denetimi depoları, derleme sunucuları ve benzeri kolay bir şekilde hareket edebildiğinden, NuGet paketlerinin ikili derlemelerinin doğrudan bir projeye bağlanmasını sağlamak son derece pratik değildir. Bunu yaptığınızda, projenin her bir kopyasının gereksiz yere eşit hale getirilmiş olması (ve böylece kaynak denetimi depolarında alan olması) sağlanır. Güncelleştirme, projenin tüm kopyalarına uygulanması gerektiği için paket ikililerini daha yeni sürümlere güncelleştirmeyi de zorlaştırır.
 
-NuGet, bunun yerine bir proje, üst düzey ve alt düzey bağımlılıklar dahil olmak üzere bağımlı olduğu paketleri basit başvuru listesini tutar. Bir projeye bazı konaktan bir paketi yüklediğinizde, diğer bir deyişle, NuGet paket tanımlayıcısı ve sürüm numarasını başvuru listesinde kaydeder. (Bir paket kaldırılıyor, listeden kaldırır.) NuGet üzerinde açıklandığı istek, başvurulan tüm paketlerini geri yüklemek için bir yol ardından sağlar [paket geri yükleme](consume-packages/package-restore.md).
+Bunun yerine NuGet, üst düzey ve alt düzey bağımlılıklar dahil olmak üzere bir projenin bağımlı olduğu paketlerin basit başvuru listesini tutar. Diğer bir deyişle, bir ana bilgisayardan bir projeye paket yüklediğinizde NuGet, başvuru listesindeki paket tanımlayıcısını ve sürüm numarasını kaydeder. (Bir paket kaldırıldığında, bunu listeden kaldırır.) NuGet daha sonra, [paket geri yükleme](consume-packages/package-restore.md)bölümünde anlatıldığı gibi istek üzerine tüm başvurulan paketleri geri yüklemek için bir yol sağlar.
 
-![NuGet başvuru listesini paket yüklemesinde oluşturulur ve başka bir yerde paketlerini geri yüklemek için kullanılabilir](media/nuget-restore.png)
+![Paket yüklemesinde bir NuGet başvuru listesi oluşturulur ve paketleri başka bir yerde geri yüklemek için kullanılabilir](media/nuget-restore.png)
 
-Yalnızca başvuru listesi ile NuGet daha sonra yeniden&mdash;diğer bir deyişle, *geri*&mdash;tüm genel ve/veya özel konakları daha sonra dilediğiniz zaman bu paketleri. Bir proje kaynak denetimi veya başka bir şekilde paylaşımı geliştirme yaptığınızda, yalnızca başvuru listesi dahil ve hariç herhangi bir paketi ikili (bkz [paketleri ve kaynak denetimi](consume-packages/packages-and-source-control.md).)
+Yalnızca başvuru listesi ile NuGet bunu yeniden yükleyebilir&mdash;, bu paketlerin tümünü daha sonra herkese açık ve/veya özel konaklardan *geri yükleyebilir*&mdash;. Kaynak denetimine bir proje kaydederken veya başka bir şekilde paylaşılırken, yalnızca başvuru listesini dahil edersiniz ve paket ikililerini hariç tut (bkz. [paketleri ve kaynak denetimi](consume-packages/packages-and-source-control.md).)
 
-Bir yapı sunucusunda bir otomatik dağıtım sisteminin bir parçası olarak projenin bir kopyasını almak gibi bir proje alan bilgisayar yalnızca ihtiyaç duyulan her bağımlılıkları geri yüklemek için NuGet ister. Azure DevOps tam bu amaç için "NuGet geri yükleme" adımları sağlayan sistemler oluşturabilir. Benzer şekilde, ne zaman geliştiriciler elde bir projenin bir kopyasını (gibi bir depoyu kopyalarken), bunlar gibi komutunu çağırabilirsiniz `nuget restore` (NuGet CLI) `dotnet restore` (dotnet CLI) veya `Install-Package` tüm gerekli paketlerini almak için (Paket Yöneticisi Konsolu). Visual Studio, kendi bölümü için bir proje derlenirken paketleri otomatik olarak yükler (Otomatik geri yükleme etkin, üzerinde açıklandığı olması koşuluyla [paket geri yükleme](consume-packages/package-restore.md)).
+Otomatik dağıtım sisteminin bir parçası olarak projenin bir kopyasını elde eden bir yapı sunucusu gibi bir projeyi alan bilgisayar, her gerektiğinde yalnızca bir NuGet bağımlılıkları geri yüklemeyi ister. Azure DevOps gibi derleme sistemleri, bu tam amaçla "NuGet geri yükleme" adımlarını sağlar. Benzer şekilde, geliştiriciler projenin bir kopyasını edindiklerinde (bir depoyu kopyalarken olduğu gibi), gerekli tüm paketleri elde etmek için `nuget restore` (NuGet CLI), `dotnet restore` (DotNet CLI) veya `Install-Package` (Paket Yöneticisi konsolu) gibi komutları çağırabilir. Visual Studio 'Nun parçası olarak, bir proje oluştururken paketleri otomatik olarak geri yükler ( [paket geri yükleme](consume-packages/package-restore.md)bölümünde açıklandığı gibi otomatik geri yükleme özelliği etkin olur).
 
-NET bir şekilde, daha sonra NuGet'ın birincil role geliştiriciler endişe nerede projenizin adına bu başvuru listesini koruma ve sağlayarak bu başvurulan bir paket verimli bir şekilde geri yükleme (ve güncelleştirmek için) anlamına gelir. Bu liste, iki birinde tutulur *paket Yönetimi biçimleri*adlı gibi:
+Daha sonra, NuGet 'in geliştiricilerin ilgilenmediği birincil rolü, projeniz adına başvuru listesinin saklanması ve bu başvurulan paketleri etkin bir şekilde geri yükleme (ve güncelleştirme) araçlarını sağlamaktır. Bu liste, çağrıldıklarında iki *paket yönetim biçiminden*birinde tutulur:
 
-- [PackageReference](consume-packages/package-references-in-project-files.md) (veya "paket başvuruları proje dosyalarındaki") | *(NuGet 4.0 +)* ayrı bir dosya gerektiği şekilde doğrudan proje dosyası içinde bir projenin üst düzey bağımlılıkların bir listesini tutar. İlişkili bir dosya `obj/project.assets.json`, genel bir bağımlılık grafiği yanı sıra tüm alt düzey bağımlılıkları kullanan bir proje paketlerini yönetmek için dinamik olarak oluşturulur. PackageReference her zaman .NET Core projeleri tarafından kullanılır.
+- [Packagereference](consume-packages/package-references-in-project-files.md) (veya "proje dosyalarındaki paket başvuruları") | *(NuGet 4.0 +)* Projenin en üst düzey bağımlılıklarının listesini doğrudan proje dosyasında tutar, bu yüzden ayrı bir dosya gerekmez. İlişkili bir dosya `obj/project.assets.json`, bir projenin tüm alt düzey bağımlılıklarla birlikte kullandığı paketlerin genel bağımlılık grafiğini yönetmek için dinamik olarak oluşturulur. PackageReference, her zaman .NET Core projeleri tarafından kullanılır.
 
-- [`packages.config`](reference/packages-config.md): *(NuGet 1.0 +)*  Projedeki diğer bağımlılıklar dahil olmak üzere tüm bağımlılıkları düz bir listesini tutar bir XML dosyası yüklü paketler. Yüklü veya geri yüklenen paketler depolanır bir `packages` klasör.
+- [`packages.config`](reference/packages-config.md): *(NuGet 1.0 +)* Diğer yüklü paketlerin bağımlılıkları da dahil olmak üzere, projedeki tüm bağımlılıkların düz bir listesini tutan bir XML dosyası. Yüklenen veya geri yüklenen paketler bir `packages` klasörde depolanır.
 
-Herhangi bir proje içinde hangi paket Yönetimi biçimi işe proje türü ve sürümünü NuGet (ve/veya Visual Studio) bağlıdır. Hangi biçimde kullanılan denetlemek için yalnızca Ara `packages.config` ilk paketinizi yükledikten sonra proje kökündeki. Bu dosya yoksa, doğrudan proje dosyasında konum bir \<PackageReference\> öğesi.
+Herhangi bir projede hangi paket yönetimi biçiminin çalıştırıldığı, proje türüne ve NuGet (ve/veya Visual Studio) sürümüne bağlıdır. Hangi biçimin kullanıldığını denetlemek için, ilk paketinizi yükledikten sonra proje `packages.config` kökünde öğesine bakmanız yeterlidir. Bu dosya yoksa, \<packagereference\> öğesi için proje dosyasına doğrudan bakın.
 
-Bir seçenek varsa PackageReference kullanmanızı öneririz. `packages.config` eski amacıyla korunur ve artık etkin geliştirilme aşamasındadır.
+Bir seçiminiz olduğunda, PackageReference kullanmanızı öneririz. `packages.config`, eski amaçlar için korunur ve artık etkin geliştirme aşamasındadır.
 
 > [!Tip]
-> Çeşitli `nuget.exe` gibi CLI komutları `nuget install`, otomatik olarak paket başvurusu listesine eklemeyin. Listeden bir paket ve Visual Studio Paket Yöneticisi ile (kullanıcı Arabirimi veya konsol) ile yüklerken güncelleştirilir `dotnet.exe` CLI.
+> `nuget.exe` Gibi`nuget install`çeşitli CLI komutları, paketi otomatik olarak başvuru listesine eklemez. Bu liste, Visual Studio Paket Yöneticisi (UI veya konsol) ile ve CLI ile `dotnet.exe` bir paket yüklenirken güncelleştirilir.
 
-## <a name="what-else-does-nuget-do"></a>Başka NuGet ne yapar?
+## <a name="what-else-does-nuget-do"></a>NuGet ne yapmalıyım?
 
-Şu ana kadar NuGet aşağıdaki özelliklerini öğrendiniz:
+Şu ana kadar NuGet 'in aşağıdaki özelliklerini öğrendiniz:
 
-- NuGet, Destek Merkezi nuget.org deposuyla özel barındırma için sağlar.
-- NuGet araçları geliştiricilerin oluşturmak, yayımlamak ve paketleri kullanma için gereken sağlar.
-- En önemlisi, NuGet paketlerini geri yükleyin ve bu paketleri, listeden güncelleştirmek için bir proje ve özelliği kullanılan başvuru listesini tutar.
+- NuGet, merkezi nuget.org deposunu özel barındırma desteğiyle sağlar.
+- NuGet, geliştiricilerin paket oluşturmak, yayımlamak ve tüketmesi için ihtiyacı olan araçları sağlar.
+- En önemlisi, NuGet bir projede kullanılan paketlerin başvuru listesini ve bu paketleri ilgili listeden geri yükleme ve güncelleştirme olanağı sağlar.
 
-Bu işlemlerin verimli bir şekilde çalışmasını sağlamak için NuGet Sahne Arkası bazı iyileştirmeler yapar. En önemlisi, NuGet paket önbelleğini ve genel paketleri klasör kısayol yükleme ve yeniden yönetir. Makinede zaten yüklü bir paket indirme önbelleği önler. Genel packages klasörünü, böylece bilgisayarda NuGet'ın bütün kapladığı alanı azaltmak aynı yüklü paket paylaşımı birden çok proje sağlar. Çok sayıda paketleri, sık geri yüklerken önbellek ve genel paketleri klasör ayrıca gibi bir yapı sunucusunda çok yararlı olur. Bu mekanizmaları hakkında daha fazla bilgi için bkz. [genel paketleri ve önbellek klasörlerini yönetme](consume-packages/managing-the-global-packages-and-cache-folders.md).
+Bu işlemlerin verimli bir şekilde çalışmasını sağlamak için NuGet, bazı arka planda iyileştirmeler yapar. En önemlisi, NuGet bir paket önbelleğini ve bir genel paketler klasörünü, kısayol yükleme ve yeniden yükleme için yönetir. Önbellek zaten makinede yüklü olan bir paketin indirilmesini önler. Genel paketler klasörü, birden çok projenin aynı yüklü paketi paylaşmasına olanak tanır ve böylece NuGet 'in bilgisayardaki genel ayak izini azaltır. Önbellek ve genel paketler klasörü, bir yapı sunucusunda olduğu gibi daha fazla sayıda paketi sık geri yüklerken de çok yararlı olur. Bu mekanizmalar hakkında daha fazla bilgi için bkz. [genel paketleri ve önbellek klasörlerini yönetme](consume-packages/managing-the-global-packages-and-cache-folders.md).
 
-Tek bir proje içinde NuGet tekrar birden fazla aynı paketin farklı sürümlerine başvuruları çözümleniyor içeren genel bir bağımlılık grafiği yönetir. Bir proje bir bağımlılık kendileri aynı bağımlılıkları olan bir veya daha fazla paketleri alır oldukça yaygındır. Tarafından birçok diğer paketleri bazı faydalı yardımcı programı paketleri nuget.org üzerinde çalışan. Tüm bağımlılık grafiğinde, daha sonra kolayca on farklı aynı paketin farklı sürümlerine başvuruları olabilir. Bu paket birden çok sürümünü uygulamasına getirmekten kaçının için NuGet tek hangi sürümünün tüm tüketicileri tarafından kullanılan çıkış sıralar. (Daha fazla bilgi için [bağımlılık çözümlemesi](consume-packages/dependency-resolution.md).)
+Tek bir projede, NuGet genel bağımlılık grafiğini yönetir, bu da aynı paketin farklı sürümlerine birden fazla başvuruyu çözmeyi içerir. Projenin aynı bağımlılıklara sahip bir veya daha fazla pakete bağımlılığı olması oldukça yaygındır. Nuget.org üzerindeki en faydalı yardımcı program paketlerinin bazıları diğer birçok paket tarafından kullanılabilir. Tüm bağımlılık grafiğinde, aynı paketin farklı sürümlerine yönelik olarak kolayca on farklı başvuruya sahip olabilirsiniz. Bu paketin birden çok sürümünün uygulamaya ait olmasını önlemek için, NuGet tüm tüketiciler tarafından hangi tek sürümün kullanılabileceğini sıralar. (Daha fazla bilgi için bkz. [bağımlılık çözünürlüğü](consume-packages/dependency-resolution.md).)
 
-Bundan sonraki miktarlar NuGet paketleri nasıl yapılandırılmıştır için ilgili özellikleri tutar (dahil olmak üzere [yerelleştirme](create-packages/creating-localized-packages.md) ve [hata ayıklama sembolleri](create-packages/symbol-packages.md)) ve nasıl başvurulan (dahil olmak üzere [ Sürüm aralıklarını](reference/package-versioning.md#version-ranges-and-wildcards) ve [yayın öncesi sürümleri](create-packages/prerelease-packages.md).) NuGet Ayrıca kendi Hizmetleri ile program aracılığıyla çalışma için çeşitli API'ler sağlar ve geliştiriciler için Visual Studio uzantıları ve proje şablonları yazma desteği sağlar.
+Bunun ötesinde, NuGet paketlerin nasıl yapılandırıldığı ( [Yerelleştirme](create-packages/creating-localized-packages.md) ve [hata ayıklama sembolleri](create-packages/symbol-packages.md)dahil) ve nasıl başvurulduğu ( [Sürüm aralıkları](reference/package-versioning.md#version-ranges-and-wildcards) ve [yayın öncesi sürümler](create-packages/prerelease-packages.md)dahil) ile ilgili tüm belirtimleri korur. NuGet Ayrıca, hizmetleriyle birlikte çalışmaya yönelik çeşitli API 'Ler sağlar ve Visual Studio uzantıları ve proje şablonları yazan geliştiriciler için destek sağlar.
 
-Bu belge için içindekiler tablosunu göz atmak için bir dakikanızı ayırın ve sürüm notları için NuGet beginnings geri ilk yanı sıra, gösterilen bu özelliklerin tümünü görürsünüz.
+Bu belgelerin içindekiler tablosuna göz atabilmeniz için bir dakikanızı ayırın ve bu özellikleri, NuGet 'in Beginnings 'e geri dönme sürüm notlarıyla birlikte görebilirsiniz.
 
-## <a name="comments-contributions-and-issues"></a>Açıklamalar, Katkıları ve sorunları
+## <a name="comments-contributions-and-issues"></a>Yorumlar, katılımlar ve sorunlar
 
-Son olarak, bizim için çok büyük oranda yorumlar ve bu belgede yapılan katkılar önemli&mdash;yalnızca select **geri bildirim** ve **Düzenle** herhangi üst kısmındaki komutları sayfasında veya ziyaret [belgeleri Depo](https://github.com/NuGet/docs.microsoft.com-nuget/) ve [docs sorun listesi](https://github.com/NuGet/docs.microsoft.com-nuget/issues) GitHub üzerinde.
+Son&mdash;olarak, bu belgelerde çok fazla hoş geldiniz açıklamaları ve katkımız yapmanız yeterlidir, her sayfanın üst kısmında **geri bildirim** ve **düzenleme** komutlarını seçin ya da GitHub 'daki [docs Repository](https://github.com/NuGet/docs.microsoft.com-nuget/) ve [docs sorun listesini](https://github.com/NuGet/docs.microsoft.com-nuget/issues) ziyaret edin.
 
-Katkılar NuGet'ın kendisi için de bizim için çok önemli aracılığıyla kendi [çeşitli GitHub depoları](https://github.com/NuGet/Home); NuGet sorunları bulunabilir [ https://github.com/NuGet/home/issues ](https://github.com/NuGet/home/issues).
+Ayrıca, [çeşitli GitHub depoları](https://github.com/NuGet/Home)aracılığıyla NuGet 'e katkılara katkıda bulunuyoruz; NuGet sorunları üzerinde [https://github.com/NuGet/home/issues](https://github.com/NuGet/home/issues)bulunabilir.
 
-NuGet deneyiminizi keyfini çıkarın!
+NuGet deneyiminizin keyfini çıkarın!

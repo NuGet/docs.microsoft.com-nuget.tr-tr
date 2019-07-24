@@ -1,21 +1,23 @@
 ---
-ms.openlocfilehash: 5acdc54726e4cb07794f8ee07d5e0d357ff622a3
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 20851cd71cc5eb6735fe5e0cd8b0f314f9100be4
+ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842049"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68419909"
 ---
-1. [Nuget.org hesabınızda oturum](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) veya zaten yoksa, bir hesap oluşturun.
+1. [NuGet.org hesabınızda oturum açın](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) veya henüz yoksa bir hesap oluşturun.
 
-1. Kullanıcı adınıza (sağ üstte) seçin ve ardından **API anahtarları**.
+   Hesabınızı oluşturma hakkında daha fazla bilgi için bkz. [bireysel hesaplar](../../nuget-org/individual-accounts.md).
 
-1. Seçin **Oluştur**, anahtarınız için bir ad belirtin, seçin **kapsamları seçin > anında iletme**. Girin * için **Glob deseni**, ardından **Oluştur**. (Aşağıda kapsamları hakkında daha fazla bilgi için bkz.)
+1. Kullanıcı adınızı (sağ üst köşedeki) seçin ve ardından **API anahtarları**' nı seçin.
 
-1. Anahtar oluşturulduktan sonra seçin **kopyalama** erişim almak için anahtar CLI'daki gerekir:
+1. **Oluştur**' u seçin, anahtarınız için bir ad sağlayın, **kapsamları Seç > Gönder**' i seçin. **Glob deseninin*** girin ve ardından **Oluştur**' u seçin. (Kapsamlar hakkında daha fazla bilgi için aşağıya bakın.)
 
-    ![API anahtarını Panoya kopyalama](../media/QS_Create-02-APIKey.png)
+1. Anahtar oluşturulduktan sonra, CLı 'de ihtiyacınız olan erişim anahtarını almak için **Kopyala** ' yı seçin:
 
-1. **Önemli**: Anahtar üzerinde yeniden daha sonra kopyalanamıyor çünkü anahtarınızı güvenli bir konuma kaydedin. API anahtarı sayfasına geri dönün, kopyalamak için anahtar gerekir. Artık paketler CLI göndermek istemiyorsanız, API anahtarı kaldırabilirsiniz.
+    ![API anahtarını panoya kopyalama](../media/QS_Create-02-APIKey.png)
 
-Kapsam, farklı amaçlar için ayrı API anahtarları oluşturmanıza olanak sağlar. Her anahtar, sona erme zaman çerçevesi olan ve özel paketler (veya glob desenleri) ile sınırlayabilirsiniz. Her anahtar ayrıca belirli işlemler için kapsamlı: yeni paketleri ve güncelleştirmeler, yalnızca güncelleştirmelerini gönderimini veya delisting anında iletme. Kapsam aracılığıyla yalnızca ihtiyaç duydukları iznine sahip oldukları gibi kuruluşunuz için paketleri yöneten farklı kişiler için API anahtarları oluşturabilirsiniz. Daha fazla bilgi için [Introducing kapsamlı API anahtarları](https://blog.nuget.org/20170202/introducing-scoped-api-keys.html) (blogs.nuget.org).
+1. **Önemli**: Anahtarı daha sonra tekrar kopyalayamadığından Anahtarınızı güvenli bir konuma kaydedin. API anahtarı sayfasına geri dönerseniz, kopyalamak için anahtarı yeniden oluşturmanız gerekir. Artık paketleri CLı aracılığıyla göndermek istemiyorsanız API anahtarını da kaldırabilirsiniz.
+
+Kapsam oluşturma, farklı amaçlar için ayrı API anahtarları oluşturmanıza olanak sağlar. Her anahtarın süre sonu zaman çerçevesi vardır ve belirli paketlere (veya glob desenlerine) kapsamı atanabilir. Her anahtar Ayrıca belirli işlemlere göre kapsamlandırılır: yeni paketleri ve güncelleştirmeleri gönderme, yalnızca güncelleştirmelerin gönderimi veya listesini kaldırma. Kapsam aracılığıyla, kuruluşunuzda yalnızca ihtiyaç duydukları izinlere sahip olmaları için paketleri yöneten farklı kişiler için API anahtarları oluşturabilirsiniz. Daha fazla bilgi için bkz. [KAPSAMLı API anahtarları](../../nuget-org/scoped-api-keys.md).

@@ -1,141 +1,142 @@
 ---
-title: NuGet paket bağımlılık çözümlemesi
-description: Üzerinden bir NuGet paketi bağımlılıkları çözümlendi ve her iki Nuget'te yüklü işlemiyle ilgili ayrıntılar 2.x ve NuGet 3.x+.
+title: NuGet paket bağımlılığı çözümlemesi
+description: NuGet paketinin bağımlılıklarının çözümlenme ve hem NuGet 2. x hem de NuGet 3. x + ' da yüklendiği işlemle ilgili ayrıntılar.
 author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: a2aed3950b3e19e30d9d026ad1b9bdaef44c9d37
-ms.sourcegitcommit: 1ab750ff17e55c763d646c50e7630138804ce8b8
+ms.openlocfilehash: 178af1975fc4e6fcde8988d773812820f1f1bb84
+ms.sourcegitcommit: f9e39ff9ca19ba4a26e52b8a5e01e18eb0de5387
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56247652"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68433353"
 ---
-# <a name="how-nuget-resolves-package-dependencies"></a>NuGet Paket bağımlılıklarını nasıl çözümler?
+# <a name="how-nuget-resolves-package-dependencies"></a>NuGet paket bağımlılıklarını çözümler
 
-Bir parçası olarak yüklenen içeren bir paket yüklü veya yeniden, dilediğiniz zaman bir [geri](../consume-packages/package-restore.md) işlemi, NuGet de, ilk paketi bağımlı olduğu tüm ek paketleri yükler.
+Bir [geri yükleme](../consume-packages/package-restore.md) işleminin parçası olarak yüklenmekte olan bir paketin yüklenmesi veya yeniden yüklenmesi her seferinde, NuGet, ilk paketin bağımlı olduğu ek paketleri de yükler.
 
-Bu anında bağımlılıkları, için rasgele bir derinlik devam edebilirsiniz, kendi ilgili bağımlılıkları da olabilir. Bu ne çağrılır oluşturur bir *bağımlılık grafiği* , tüm düzeylerdeki paketleri arasındaki ilişkileri açıklar.
+Bu anlık bağımlılıklar daha sonra kendi bağımlılıkları olabilir ve bu da rastgele bir derinliğe devam edebilir. Bu, tüm düzeylerde paketler arasındaki ilişkileri açıklayan bir *bağımlılık grafiği* olarak adlandırılan öğeleri oluşturur.
 
-Birden çok paket aynı bağımlılık varsa, ardından aynı paket kimliği grafikte birden çok kez büyük olasılıkla farklı sürüm kısıtlamaları ile görünür. Ancak, NuGet hangi sürümünün kullanıldığını seçmeniz gerekir, böylece bir projede belirli bir paketin yalnızca bir sürümü kullanılabilir. Tam geçiş işlemi kullanılan paket Yönetimi biçimi bağlıdır.
+Birden çok paketin aynı bağımlılığı varsa, aynı paket KIMLIĞI birden çok kez grafikte görünebilir ve potansiyel olarak farklı sürüm kısıtlamalarına sahip olabilir. Ancak, belirli bir paketin yalnızca bir sürümü bir projede kullanılabilir; Bu nedenle NuGet, hangi sürümün kullanıldığını seçmelidir. Tam işlem, kullanılmakta olan paket yönetimi biçimine bağlıdır.
 
 ## <a name="dependency-resolution-with-packagereference"></a>PackageReference ile bağımlılık çözümlemesi
 
-Paketleri PackageReference biçimini kullanarak projelere yüklerken, NuGet uygun dosyasında bir düz paket grafik başvuruları ekler ve önceden çakışmaları çözer. Bu işlem olarak adlandırılır *geçişli geri yükleme*. Paketler geri yükleniyor veya yeniden yüklemeyi daha hızlı výsledek grafikte listelenen paketleri indirme işlemi ise ve daha öngörülebilir oluşturur. 2.8 gibi joker karakter (değişken) sürümleri avantajlarından da sürebilir. \*, pahalı önleme ve hata yapmaya açık çağrılar `nuget update` derleme sunucuları ve istemci makineleri.
+, PackageReference biçimini kullanarak projelere paket yüklerken, NuGet ilgili dosyadaki düz bir paket grafiğine başvurular ekler ve çakışmaları önceden çözer. Bu işlem *geçişli geri yükleme*olarak adlandırılır. Paketleri yeniden yükleme veya geri yükleme işlemi daha sonra grafikte listelenen paketlerin indirilerek daha hızlı ve öngörülebilir yapılar elde edilir. Ayrıca, 2,8 gibi joker karakter (kayan) sürümlerden de yararlanabilirsiniz. , istemci makinelerde ve yapı sunucularında pahalı ve `nuget update` hataya açık çağrılardan kaçının. \*
 
-NuGet geri yükleme işlemi önce bir yapı çalıştırıldığında, bağımlılıkları ilk bellekte giderir ve sonra elde edilen grafiğin adlı bir dosyaya yazar `project.assets.json`. Varlık dosyası şu konumdadır `MSBuildProjectExtensionsPath`, projenin 'obj' klasörü için varsayılan olarak. MSBuild bu dosyasını okur ve burada olası başvuruları bulunabilir ve ardından onları bellek proje ağacında ekler klasörleri kümesine çevirir.
+NuGet geri yükleme işlemi bir derlemeden önce çalıştırıldığında, öncelikle bellekte bulunan bağımlılıkları çözer, ardından sonuç grafiğini adlı `project.assets.json`dosyaya yazar. Ayrıca, `packages.lock.json` [dosya kilitleme işlevi etkinse](https://docs.microsoft.com/en-us/nuget/consume-packages/package-references-in-project-files#locking-dependencies), çözümlenmiş bağımlılıkları adlı bir kilit dosyasına yazar.
+Varlıklar dosyası konumunda `MSBuildProjectExtensionsPath`bulunur ve varsayılan olarak projenin ' obj ' klasörüdür. MSBuild sonra bu dosyayı okur ve olası başvuruların bulunabileceği bir klasör kümesine çevirir ve sonra bunları bellekte proje ağacına ekler.
 
-Kilit dosyası geçicidir ve kaynak denetimine eklenmedi. Varsayılan olarak her ikisini de listelenen `.gitignore` ve `.tfignore`. Bkz: [paketleri ve kaynak denetimi](packages-and-source-control.md).
+`project.assets.json` Dosya geçicidir ve kaynak denetimine eklenmemelidir. Varsayılan olarak `.gitignore` , ve `.tfignore`' de listelenir. Bkz. [paketler ve kaynak denetimi](packages-and-source-control.md).
 
-### <a name="dependency-resolution-rules"></a>Bağımlılık çözümlemesi kuralları
+### <a name="dependency-resolution-rules"></a>Bağımlılık çözümleme kuralları
 
-Geçişli geri yükleme bağımlılıkları çözümlemek için dört ana kuralları uygular: en düşük uygun sürümü, kayan sürümleri, en yakın WINS ve Kuzen bağımlılıkları.
+Geçişli geri yükleme, bağımlılıkları çözümlemek için dört ana kural uygular: en düşük uygulanabilir sürüm, kayan sürümler, en yakın WINS ve Cousin bağımlılıkları.
 
 <a name="lowest-applicable-version"></a>
 
-#### <a name="lowest-applicable-version"></a>En düşük uygun sürümü
+#### <a name="lowest-applicable-version"></a>En düşük uygulanabilir sürüm
 
-En düşük uygun sürüm kuralı bağımlılıklarını tarafından tanımlandığı şekilde bir paketin olası en düşük sürümü geri yükler. Ayrıca uygulama veya sınıf kitaplığı bağımlılıkları olarak bildirilmedikleri sürece geçerli [kayan](#floating-versions).
+En düşük uygulanabilir sürüm kuralı, bağımlılıklarıyla tanımlanan bir paketin olası en düşük sürümünü geri yükler. Ayrıca, [kayan](#floating-versions)olarak bildirilmeyen sürece uygulama veya sınıf kitaplığındaki bağımlılıklar için de geçerlidir.
 
-NuGet seçer 1.0 sürümü için aşağıdaki şekilde, örneğin, 1.0 beta 1.0 düşük olarak kabul edilir:
+Aşağıdaki şekilde, örneğin, 1,0-Beta 1,0 ' den daha düşük kabul edilir, böylece NuGet 1,0 sürümünü seçer:
 
-![Geçerli en düşük sürüm seçme](media/projectJson-dependency-1.png)
+![Uygulanabilir en düşük sürümü seçme](media/projectJson-dependency-1.png)
 
-Sonraki şekilde, sürüm 2.1 akış üzerinde kullanılabilir değil ancak sürüm kısıtlaması olduğundan > bulabildiği, bu durumda 2.2 sonraki en düşük sürüm 2.1 NuGet Çekmeleri =:
+Sonraki şekilde, sürüm 2,1 akışta kullanılamaz, ancak sürüm kısıtlaması > = 2,1, bu 2,2 örnekte, bulabileceği bir sonraki en düşük sürümü seçer:
 
-![Özet akışı kullanılabilir bir sonraki en düşük sürüm seçme](media/projectJson-dependency-2.png)
+![Akışta bulunan bir sonraki en düşük sürümü seçme](media/projectJson-dependency-2.png)
 
-Akış üzerinde kullanılabilir değil, 1.2 gibi bir tam sürüm numarası uygulamanın belirttiğinde, NuGet yükleyin veya paket geri yükleme girişimi sırasında bir hatayla başarısız:
+Bir uygulama, akışta bulunmayan 1,2 gibi tam bir sürüm numarası belirttiğinde, paketi yüklemeye veya yüklemeye çalışırken NuGet hata vererek başarısız olur:
 
-![Tam paket sürümünün kullanılabilir olmadığı durumlarda NuGet bir hata oluşturur.](media/projectJson-dependency-3.png)
+![Tam paket sürümü kullanılabilir olmadığında NuGet bir hata oluşturuyor](media/projectJson-dependency-3.png)
 
 <a name="floating-versions"></a>
 
-#### <a name="floating-wildcard-versions"></a>Kayan sürümleri (joker karakter)
+#### <a name="floating-wildcard-versions"></a>Kayan (joker karakter) sürümleri
 
-Bir kayan veya joker karakter bağımlılık sürümü ile belirtilen \* joker karakter, 6.0 olduğu gibi.\*. Bu sürüm belirtimi "6.0.x en son sürümü kullan;" diyor. 4.\* anlamına gelir "en son 4.x sürümü kullanın." Joker karakter kullanarak, bir değişiklik kullanıcı uygulamanın gerek kalmadan gelişen devam etmek için bağımlılık paketini (veya paket) sağlar.
+Bir kayan veya joker karakter bağımlılığı sürümü, \* \*6,0 ile olduğu gibi joker karakterle birlikte belirtilir. Bu sürüm belirtimi "en son 6.0. x sürümünü kullan" ifadesini belirtir. 4.\* "en son 4. x sürümünü kullanın" anlamına gelir. Joker karakter kullanmak, bir bağımlılık paketinin, tüketim uygulamada (veya pakette) değişiklik yapmaya gerek kalmadan gelişmeye devam etmesine olanak tanır.
 
-Joker karakter kullanırken, NuGet örneğin 6.0 sürüm deseni ile eşleşen bir paketin en yüksek sürümü çözümler. \* en yüksek sürüm 6.0 ile başlayan bir paketin alır:
+Bir joker karakter kullanırken NuGet, sürüm düzeniyle eşleşen bir paketin en yüksek sürümünü (örneğin, 6,0) çözümler. \* 6,0 ile başlayan bir paketin en yüksek sürümünü alır:
 
-![Sürüm 6.0.1 kayan bir sürüm olduğunda 6.0 seçme. * İstenen](media/projectJson-dependency-4.png)
+![6,0. * kayan sürümü istendiğinde sürüm 6.0.1 seçiliyor](media/projectJson-dependency-4.png)
 
 > [!Note]
-> Joker karakterler ve yayın öncesi sürümleri davranışı hakkında bilgi için [Paket sürümü oluşturma](../reference/package-versioning.md#version-ranges-and-wildcards).
+> Joker karakterler ve yayın öncesi sürümlerin davranışı hakkında daha fazla bilgi için bkz. [paket sürümü oluşturma](../reference/package-versioning.md#version-ranges-and-wildcards).
 
 
 <a name="nearest-wins"></a>
 
 #### <a name="nearest-wins"></a>En yakın WINS
 
-Bir uygulama için paket grafı aynı paketin farklı sürümlerini içerdiğinde, NuGet paketi uygulamaya grafikteki en yakın ve diğer tüm yok sayar seçer. Bu davranış, bağımlılık grafiği herhangi bir belirli bir paket sürümü geçersiz kılmak bir uygulama sağlar.
+Bir uygulamanın paket grafı aynı paketin farklı sürümlerini içerdiğinde, NuGet grafikteki uygulamaya en yakın paketi seçer ve diğerlerini yoksayar. Bu davranış, bir uygulamanın bağımlılık grafiğinde belirli bir paket sürümünü geçersiz kılmasına izin verir.
 
-Aşağıdaki örnekte, uygulamanın doğrudan paket B ile bir sürüm kısıtlamasını bağımlı > 2.0 =. Uygulamanın sırayla Ayrıca paket B, ancak ile bağlı bir paket de bağımlı bir > = 1,0 kısıtlaması. Grafik uygulamada nearer to Paket B 2.0 bağımlı olduğundan, bu sürüm kullanılır:
+Aşağıdaki örnekte, uygulama, > = 2.0 sürüm kısıtlaması ile doğrudan B paketine bağlıdır. Uygulama Ayrıca pakete bağımlıdır ve ayrıca, B paketine bağlıdır, ancak bir > = 1.0 kısıtlaması vardır. B 2,0 paketindeki bağımlılık grafikteki uygulamaya yaklaştığında, bu sürüm kullanılır:
 
-![En yakın WINS kural kullanarak uygulama](media/projectJson-dependency-5.png)
+![En yakın WINS kuralını kullanan uygulama](media/projectJson-dependency-5.png)
 
 >[!Warning]
-> En yakın WINS kural diğer bağımlılıkları grafikte bozucu olabilecek böylece paket sürümünün indirgeme neden olabilir. Bu nedenle bu kural bir uyarı ile kullanıcıyı uyarmak için uygulanır.
+> En yakın WINS kuralı, paket sürümünün indirgenmesine neden olabilir ve bu sayede grafikteki diğer bağımlılıkları büyük olasılıkla bozabilir. Bu nedenle, bu kural kullanıcıyı uyarmak için bir uyarıyla uygulanır.
 
-NuGet belirli bir bağımlılık göz ardı edilir sonra da bu dalı grafiğin kalan tüm bağımlılıkları yoksayar. çünkü bu kural ayrıca verimliliği (örneğin BCL paketleri olanlar) büyük bir bağımlılık grafiği ile sonuçlanır. Paket C 2.0 kullanıldığından Aşağıdaki diyagramda, örneğin, NuGet paket C: daha eski bir sürümüne başvuruda bulunan herhangi bir dal graftaki yoksayar.
+Bu kural, büyük bir bağımlılık grafiğine (BCL paketleri gibi) daha fazla verimlilik elde eder, çünkü belirli bir bağımlılık yoksayılırsa NuGet Ayrıca grafiğin o dalında kalan tüm bağımlılıkları yoksayar. Aşağıdaki diyagramda, örneğin, C 2,0 paketi kullanıldığı için, NuGet, grafikteki paket C 'nin eski bir sürümüne başvuran dalları yok sayar:
 
-![Graftaki bir paket NuGet yoksayar, tüm bu dalı yoksayar.](media/projectJson-dependency-6.png)
+![NuGet grafikteki bir paketi yok saydığı zaman, tüm dalı yoksayar](media/projectJson-dependency-6.png)
 
 <a name="cousin-dependencies"></a>
 
-#### <a name="cousin-dependencies"></a>Kuzen bağımlılıkları
+#### <a name="cousin-dependencies"></a>Cousin bağımlılıkları
 
-Farklı bir paket sürümleri için grafikteki aynı uzaklıkta uygulamadan adlandırılır, tüm sürüm gereksinimlerini karşılayan en düşük sürüm NuGet kullanır (olduğu gibi [en düşük uygun sürüm](#lowest-applicable-version) ve [ Kayan sürümleri](#floating-versions) kuralları). Aşağıdaki görüntüde, örneğin, paket B 2.0 sürümünü diğer karşılayan > = 1,0 kısıtlaması ve bu nedenle kullanılır:
+Farklı paket sürümlerine uygulamanın grafiğinde aynı uzaklıkta başvurulur, NuGet tüm sürüm gereksinimlerini karşılayan en düşük sürümü ( [En düşük ilgili sürüm](#lowest-applicable-version) ve [kayan sürümler](#floating-versions) kuralları) kullanır. Aşağıdaki görüntüde, örneğin B paketinin 2,0 sürümü diğer > = 1.0 kısıtlamasını karşılar ve bu nedenle kullanılır:
 
-![Tüm kısıtlamalar karşılayan daha düşük sürümünü kullanarak Kuzen bağımlılıkları çözümleniyor](media/projectJson-dependency-7.png)
+![Tüm kısıtlamaları karşılayan alt sürümü kullanarak Cousin bağımlılıkları çözümleniyor](media/projectJson-dependency-7.png)
 
-Bazı durumlarda, tüm sürüm gereksinimlerini karşılamak mümkün değildir. Aşağıda gösterildiği gibi bir paket tam olarak 1.0 B paketi gerektirir ve paket C gerektiriyorsa Paket B > 2.0, =, NuGet bağımlılıklarını çözümlenemiyor ve bir hata verir.
+Bazı durumlarda, tüm sürüm gereksinimlerini karşılamak mümkün değildir. Aşağıda gösterildiği gibi, A paketi tam olarak B 1,0 paketini gerektiriyorsa ve C paketi B > = 2.0 paketini gerektiriyorsa, NuGet bağımlılıkları çözümleyemez ve bir hata verir.
 
-![Çözümlenemeyen bağımlılıklar nedeniyle bir tam sürüm gereksinimi](media/projectJson-dependency-8.png)
+![Kesin bir sürüm gereksinimi nedeniyle çözümlenebilen bağımlılıklar](media/projectJson-dependency-8.png)
 
-Bu gibi durumlarda, üst düzey bir tüketici (uygulama veya Paketle) doğrudan kendi bağımlılık Paket B eklemeniz gerekir böylece [yakın WINS](#nearest-wins) kural uygular.
+Bu durumlarda, en [yakın WINS](#nearest-wins) kuralının uygulanması için üst düzey tüketici (uygulama veya paket) B paketine kendi doğrudan bağımlılığını eklemesi gerekir.
 
-## <a name="dependency-resolution-with-packagesconfig"></a>Bağımlılık çözümlemesi packages.config ile
+## <a name="dependency-resolution-with-packagesconfig"></a>Packages. config ile bağımlılık çözümlemesi
 
-İle `packages.config`, bir proje bağımlılıklarınızı yazılır `packages.config` düz liste olarak. Bu paketlerin herhangi bir bağımlılığın aynı listesinde de yazılır. NuGet paketleri yüklendiğinde, ayrıca değişiklik yapabileceğiniz `.csproj` dosyası `app.config`, `web.config`ve diğer tek tek dosyaları.
+İle `packages.config`, projenin bağımlılıkları düz bir liste `packages.config` olarak yazılır. Bu paketlerin tüm bağımlılıkları aynı listeye de yazılır. Paketler yüklendiğinde, NuGet `.csproj` `app.config`dosyayı,, `web.config`ve diğer tek dosyaları da değiştirebilir.
 
-İle `packages.config`, NuGet tek tek her paket yüklemesi sırasında bağımlılık çakışmaları dener. Bir paket yüklendiği ve paket B ve paket B bağlıdır, diğer bir deyişle, zaten listede `packages.config` bir bağımlılık, başka bir NuGet paketi istenen B sürümlerini karşılaştırır ve tüm sürüm karşılayan bir sürümünü bulmaya çalışır kısıtlamaları. Özellikle, NuGet alt seçer *AnaSürüm.altsürüm* bağımlılıkları karşılayan sürümü.
+İle `packages.config`, NuGet her bir paketin yüklenmesi sırasında bağımlılık çakışmalarını çözmeye çalışır. Diğer bir deyişle, A paketi yüklenip b paketine bağlı ise ve b paketi zaten başka bir şeyin bağımlılığı `packages.config` olarak listeleniyorsa, NuGet, istenen paket b 'nin sürümlerini karşılaştırır ve tüm sürümü karşılayan bir sürüm bulmaya çalışır kısıtlamaları. Özellikle NuGet, bağımlılıkları karşılayan düşük *ana. Minor* sürümünü seçer.
 
-Varsayılan olarak, en düşük düzeltme eki sürümü için NuGet 2.8 görünür (bkz [NuGet 2.8 sürüm notları](../release-notes/nuget-2.8.md#patch-resolution-for-dependencies)). Bu ayar aracılığıyla denetleyebilirsiniz `DependencyVersion` özniteliğini `Nuget.Config` ve `-DependencyVersion` anahtarını komut satısına.  
+Varsayılan olarak, NuGet 2,8 en düşük düzeltme eki sürümünü arar (bkz. [nuget 2,8 sürüm notları](../release-notes/nuget-2.8.md#patch-resolution-for-dependencies)). Bu ayarı, içindeki `DependencyVersion` `Nuget.Config` özniteliği ve `-DependencyVersion` komut satırındaki anahtar aracılığıyla denetleyebilirsiniz.  
 
-`packages.config` Bağımlılıkları çözümlemek için daha büyük bir bağımlılık grafikleri karmaşık alır için işlem. Her yeni paket yükleme, tüm grafik geçişini gerektirir ve sürüm çakışmaları için Fırsat başlatır. Bir çakışma oluştuğunda, proje proje dosyasına olası değişiklikler ile özellikle belirsiz bir durumda bırakarak yükleme durduruldu. Bu sorun diğer paket Yönetimi biçimleri kullanırken değil.
+Bağımlılıkları `packages.config` çözme işlemi, daha büyük bağımlılık grafikleri için karmaşıktır. Her yeni paket yüklemesi için tüm grafiğin bir çapraz geçişi gerekir ve sürüm çakışmaları için şans yükseltilir. Bir çakışma oluştuğunda, yükleme durdurulur ve özellikle proje dosyasının kendisinde olası değişiklikler ile projeyi belirsiz bir durumda bırakır. Diğer paket yönetim biçimleri kullanılırken bu bir sorun değildir.
 
 ## <a name="managing-dependency-assets"></a>Bağımlılık varlıklarını yönetme
 
-PackageReference biçimini kullanırken, hangi üst düzey proje bağımlılıkları akışına varlıklarından denetleyebilirsiniz. Ayrıntılar için bkz [PackageReference](package-references-in-project-files.md#controlling-dependency-assets).
+PackageReference biçimini kullanırken, bağımlılıklardan hangi varlıkların en üst düzey projeye akabilir olduğunu denetleyebilirsiniz. Ayrıntılar için bkz. [Packagereference](package-references-in-project-files.md#controlling-dependency-assets).
 
-Üst düzey proje kendisi bir paketi olduğunda, bu akış bir denetime kullanarak'iniz de `include` ve `exclude` içinde listelenen bağımlılıkları özniteliklerle `.nuspec` dosya. Bkz: [.nuspec başvuru - bağımlılıkları](../reference/nuspec.md#dependencies).
+Üst düzey proje bir paket olduğunda, `include` ve `exclude` özniteliklerini `.nuspec` dosyasında listelenen bağımlılıklarla birlikte kullanarak da bu akış üzerinde denetime sahip olursunuz. Bkz [. nuspec başvurusu-bağımlılıklar](../reference/nuspec.md#dependencies).
 
-## <a name="excluding-references"></a>Başvuruları hariç
+## <a name="excluding-references"></a>Başvuruları dışlama
 
-Hangi derlemelerin aynı ada sahip birden çok kez bir projede, tasarım zamanı ve derleme zamanı hataları üreten başvurabilecek senaryo vardır. Özel bir sürümünü içeren bir projeye göz önünde bulundurun `C.dll`ve ayrıca içeren bir paket C başvurur `C.dll`. Aynı zamanda, projenin de Ayrıca paket C bağımlı bir paket B bağlıdır ve `C.dll`. NuGet, sonuç olarak, belirlenemiyor `C.dll` kullanmak için ancak yalnızca paket B de ona bağımlı olduğundan paket C bağımlı projenin kaldırılamıyor.
+Aynı ada sahip derlemelere bir projede birden fazla kez başvurulabileceği, tasarım zamanı ve derleme zamanı hataları üreten senaryolar vardır. Özel bir sürümünü `C.dll`içeren bir proje düşünün ve ayrıca içeren `C.dll`C paketine başvurur. Aynı zamanda, proje Ayrıca C ve `C.dll`paketine bağlı olan B paketine bağımlıdır. Sonuç olarak, NuGet ne `C.dll` kullanacağınızı belirleyemez, ancak B paketi de bağlı olduğundan, projenin C paketine yönelik bağımlılığını kaldıramazsınız.
 
-Bu sorunu çözmek için doğrudan başvurmalıdır `C.dll` , istediğiniz (veya doğru olanı başvuran başka bir paket kullanın) ve ardından paketi hariç tüm varlıklar üzerinde C bağımlılık ekleme. Bu gibi paket Yönetimi biçime bağlı olarak gerçekleştirilir:
+Bu sorunu çözmek için doğrudan istediğiniz öğesine başvurmalı `C.dll` (veya doğru bir şekilde başvuran başka bir paket kullanmanız) ve ardından tüm varlıklarını dışlayan bir Package C 'ye bağımlılık eklersiniz. Bu, kullanımdaki paket yönetimi biçimine bağlı olarak aşağıdaki gibi gerçekleştirilir:
 
-- [PackageReference](../consume-packages/package-references-in-project-files.md): ekleme `ExcludeAssets="All"` bağımlılık olarak:
+- [Packagereference](../consume-packages/package-references-in-project-files.md): bağımlılığa `ExcludeAssets="All"` ekleme:
 
     ```xml
     <PackageReference Include="PackageC" Version="1.0.0" ExcludeAssets="All" />
     ```
 
-- `packages.config`: PackageC başvurusunu kaldırın `.csproj` yalnızca sürümü başvurduğu dosyasını `C.dll` istediğiniz.
+- `packages.config`: yalnızca istediğiniz `.csproj` `C.dll` sürümüne başvuracak şekilde dosyanın PackageC başvurusunu kaldırın.
     
-## <a name="dependency-updates-during-package-install"></a>Paket bağımlılık güncelleştirirken yükleyin 
+## <a name="dependency-updates-during-package-install"></a>Paket yüklemesi sırasında bağımlılık güncelleştirmeleri 
 
-Bağımlılık, bağımlılık sürümü zaten getirildiyse diğer paket yüklemeleri sırasında güncelleştirilmez. Örneğin, paket B paketine bağlıdır ve 1.0 için sürüm numarasını belirten bir düşünün. Sürümlerinde 1.0, 1.1 ve 1.2 b paketinin kaynak deposu içerir A B sürüm 1.0 zaten var. bir projede yüklediyseniz, sürüm kısıtlamasını karşılayan çünkü B 1.0 kullanımda kalır. Bir paket istekleri sürüm 1.1 veya üzeri b olsaydı, ancak daha sonra B 1.2 yüklenecek. 
+Bağımlılık sürümü zaten karşılandıysa, diğer paket yüklemeleri sırasında bağımlılık güncellenmez. Örneğin, B paketine bağlı A paketini düşünün ve sürüm numarası için 1,0 öğesini belirtin. Kaynak Depo, B paketinin 1,0, 1,1 ve 1,2 sürümlerini içerir. Zaten B sürüm 1,0 içeren bir projede yüklüyse, sürüm kısıtlamasını karşıladığından B 1,0 kullanımda kalır. Ancak, paketi B 'nin 1,1 veya üzeri bir sürümünü isterse, B 1,2 yüklenir. 
 
 ## <a name="resolving-incompatible-package-errors"></a>Uyumsuz paket hatalarını çözme
 
-Sırasında paket geri yükleme işlemi, "bir veya daha fazla paket uyumlu değil..." veya bir paketi "uyumlu değil" hatasıyla karşılaşabilirsiniz projenin hedef çerçevesi ile.
+Bir paket geri yükleme işlemi sırasında, "bir veya daha fazla paket uyumlu değil..." hatasını görebilirsiniz. ya da projenin hedef çerçevesiyle bir "uyumlu değil" paketi.
 
-Bu hata, bir veya daha fazla paket, projenizde başvurulan projenin hedef çerçevesi destekledikleri göstermez oluşur; diğer bir deyişle, paketi uygun bir DLL içinde içermiyor, `lib` proje ile uyumlu bir hedef çerçeve için klasör. (Bkz [hedef çerçeveyi](../reference/target-frameworks.md) bir listesi.) 
+Bu hata, projenizde başvurulan bir veya daha fazla paketin projenin hedef çerçevesini desteklediğini belirtmediğinde oluşur; diğer bir deyişle, paket, proje ile uyumlu bir hedef çerçeve için `lib` klasöründe uygun bir dll içermez. (Bkz. bir liste için [hedef çerçeveler](../reference/target-frameworks.md) .) 
 
-Örneğin, bir projenin hedeflediği `netstandard1.6` ve DLL içinde sadece içeren bir paket yüklemeye `lib\net20` ve `\lib\net45` klasörleri ve ardından paketi ve muhtemelen Etkilenenleri için şunun gibi iletilerine bakın:
+Örneğin, bir proje hedefliyorsa `netstandard1.6` ve `lib\net20` yalnızca ve `\lib\net45` klasörlerinde dll 'leri içeren bir paketi yüklemeye çalışırsanız, paket ve muhtemelen bağımlıları için aşağıdakiler gibi iletiler görürsünüz:
 
 ```output
 Restoring packages for myproject.csproj...
@@ -151,8 +152,8 @@ One or more packages are incompatible with .NETStandard,Version=v1.6.
 Package restore failed. Rolling back package changes for 'MyProject'.
 ```
 
-Uyumsuzluk çözmek için şunlardan birini yapın:
+Uyumsuzlukları çözümlemek için aşağıdakilerden birini yapın:
 
-- Kullanmak istediğiniz paketleri tarafından desteklenen bir çerçeve için projenizi yeniden hedeflendi.
-- Paketleri yazarıyla iletişime geçin ve bunları seçtiğiniz çerçeveniz için destek eklemek için bunlarla çalışabilirsiniz. Sayfa üzerinde listeleme her paket [nuget.org](https://www.nuget.org/) sahip bir **kişi sahipleri** bu amaç için bağlantı.
+- Projenizi kullanmak istediğiniz paketler tarafından desteklenen bir çerçeveye yeniden hedefleyin.
+- Paketlerin yazarına başvurun ve seçtiğiniz çerçeve için destek eklemek üzere bunlarla birlikte çalışın. [NuGet.org](https://www.nuget.org/) üzerindeki her paket listeleme sayfasında bu amaçla bir **iletişim sahipleri** bağlantısı bulunur.
 

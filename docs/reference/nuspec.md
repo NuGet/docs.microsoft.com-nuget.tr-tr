@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: cd9e223a4ee93552b67e7357afa2ccb4e6fdb432
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 5b9be55b593890127d8fe0ad1a9357b89527a09a
+ms.sourcegitcommit: f9e39ff9ca19ba4a26e52b8a5e01e18eb0de5387
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317245"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68433367"
 ---
 # <a name="nuspec-reference"></a>. nuspec başvurusu
 
@@ -170,7 +170,19 @@ Paketi tanımlayan ve arama ve filtreleme aracılığıyla paketlerin bulunabili
 *(3.3+)* Yalnızca iç NuGet için kullanın.
 
 #### <a name="repository"></a>depo
-Dört isteğe bağlı öznitelikten oluşan depo meta verileri: *Type* ve *URL* *(4.0 +)* ve *Branch* ve *COMMIT* *(4.6 +)* . Bu öznitelikler,. nupkg 'yı oluşturan depoya eşlemenizi sağlar. Bu, paketi oluşturan tek bir dal veya COMMIT gibi daha ayrıntılı bir şekilde ele alınır. Bu, doğrudan bir sürüm denetim yazılımıyla çağrılabilen, genel olarak kullanılabilir bir URL olmalıdır. Bu, bilgisayar için amaçlanmış olduğu için bir HTML sayfası olmamalıdır. Proje sayfasına bağlantı için, bunun yerine `projectUrl` alanını kullanın.
+Dört isteğe bağlı öznitelikten oluşan depo meta verileri `type` : `url` ve *(4.0 +)* ve `branch` ve `commit` *(4.6 +)* . Bu öznitelikler, `.nupkg` kendisini oluşturan depoya eşlemenize olanak tanır. Bu, tek bir dal adı olarak daha ayrıntılı bir şekilde ele alınır ve/veya paketi oluşturan SHA-1 karmasını işleyin. Bu, doğrudan bir sürüm denetim yazılımıyla çağrılabilen, genel olarak kullanılabilir bir URL olmalıdır. Bu, bilgisayar için amaçlanmış olduğu için bir HTML sayfası olmamalıdır. Proje sayfasına bağlantı için, bunun yerine `projectUrl` alanını kullanın.
+
+Örneğin:
+```xml
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2016/06/nuspec.xsd">
+    <metadata>
+        ...
+        <repository type="git" url="https://github.com/NuGet/NuGet.Client.git" branch="dev" commit="e1c65e4524cd70ee6e22abe33e6cb6ec73938cb3" />
+        ...
+    </metadata>
+</package>
+```
 
 #### <a name="minclientversion"></a>minClientVersion
 NuGet. exe ve Visual Studio Paket Yöneticisi tarafından zorlanan, bu paketi yükleyesağlayan NuGet istemcisinin en düşük sürümünü belirtir. Bu, paket, NuGet istemcisinin belirli bir sürümünde eklenmiş olan `.nuspec` dosyanın belirli özelliklerine bağlı olduğunda kullanılır. Örneğin, `developmentDependency` özniteliğini kullanan bir paket için `minClientVersion`"2,8" belirtmelidir. Benzer şekilde, `contentFiles` öğesini kullanan bir paket (sonraki bölüme bakın) "3,3" `minClientVersion` olarak ayarlanmalıdır. Ayrıca, 2,5 ' den önceki NuGet istemcileri bu bayrağı tanımadığı için, *her zaman* ne `minClientVersion` içermesi gerektiğine bakılmaksızın paketi yüklemeyi reddeder.

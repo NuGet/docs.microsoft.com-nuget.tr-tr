@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: deedebfc6ac03b374c44e2c07a191da26a7dd68c
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 726f983c2522fdb538dfce858fdf2371ec0ce188
+ms.sourcegitcommit: f9e39ff9ca19ba4a26e52b8a5e01e18eb0de5387
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317662"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68433335"
 ---
 # <a name="building-pre-release-packages"></a>Yayın öncesi paketleri oluşturma
 
@@ -81,10 +81,12 @@ Ancak kullandığınız son ekler, NuGet 'e ters alfabetik sırada öncelik vere
     1.0.1-zzz
     1.0.1-rc
     1.0.1-open
-    1.0.1-beta12
-    1.0.1-beta05
+    1.0.1-beta.12
+    1.0.1-beta.5
     1.0.1-beta
-    1.0.1-alpha2
+    1.0.1-alpha.2
     1.0.1-alpha
 
-Gösterildiği gibi, herhangi bir sonek olmadan sürüm, yayın öncesi sürümlerden her zaman öncelikli olur. Ayrıca, Çift basamaklı sayılar (veya daha fazla) kullanan serbest bırakma etiketleriyle sayısal sonekler kullanırsanız, sayılar daha büyük olduğunda doğru sıraladıklarından emin olmak için beta01 ve beta05 içinde önde gelen sıfırları kullanın.
+Gösterildiği gibi, herhangi bir sonek olmadan sürüm, yayın öncesi sürümlerden her zaman öncelikli olur.
+
+Önde gelen 0s, semver2 için gerekli değildir, ancak eski sürüm şemasıyla bulunur. Çift basamaklı sayılar (veya daha fazla) kullanan serbest bırakma etiketleriyle sayısal sonekler kullanırsanız, sayılar daha büyük olduğunda doğru sıraladıklarından emin olmak için Beta. 01 ve Beta. 05 ' de önde gelen sıfırları kullanın. Bu öneri yalnızca eski sürüm şeması için geçerlidir.

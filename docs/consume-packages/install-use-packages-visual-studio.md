@@ -10,14 +10,14 @@ f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager.general
 - vs.toolsoptionspages.nuget_package_manager.package_sources
 - vs.nuget.packagemanager.ui
-ms.openlocfilehash: db901d3bdfd5eb50f9f81eaf73ebe1efd69e8430
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 7e4ea59b9954e787e7ab060adc964f3097a8240b
+ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68328401"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68419977"
 ---
-# <a name="install-and-manage-packages-in-visual-studio"></a>Visual Studio 'da paket yükleyip yönetme
+# <a name="install-and-manage-packages-in-visual-studio-using-the-nuget-package-manager"></a>NuGet Paket Yöneticisi 'Ni kullanarak Visual Studio 'da paket yükleyip yönetme
 
 Windows üzerinde Visual Studio 'daki NuGet Paket Yöneticisi Kullanıcı arabirimi, projelerde ve çözümlerde NuGet paketlerini kolayca yüklemenize, kaldırmanıza ve güncelleştirmenize olanak tanır. Mac için Visual Studio deneyim için, bkz. [projenizde bir NuGet paketi ekleme](/visualstudio/mac/nuget-walkthrough?toc=/nuget/toc.json). Paket Yöneticisi Kullanıcı arabirimi Visual Studio Code dahil değildir.
 

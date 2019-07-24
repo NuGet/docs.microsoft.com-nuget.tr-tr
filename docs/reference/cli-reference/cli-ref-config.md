@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 51c4c9937483e7f8a57356515c06a60c0f9e6f62
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 384e708187a747221de103720cc51af07acf713e
+ms.sourcegitcommit: f9e39ff9ca19ba4a26e52b8a5e01e18eb0de5387
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68328359"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68433314"
 ---
 # <a name="config-command-nuget-cli"></a>config komutu (NuGet CLı)
 
@@ -36,7 +36,7 @@ NuGet 3.4 + ' `<value>` da [ortam değişkenlerini](cli-ref-environment-variable
 | Seçenek | Açıklama |
 | --- | --- |
 | AsPath | Yapılandırma değerini bir yol olarak döndürür, kullanıldığında yok sayılır `-Set` . |
-| ConfigFile | Değiştirilecek NuGet yapılandırma dosyası. Belirtilmemişse, `%AppData%\NuGet\NuGet.Config` (Windows) veya `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) kullanılır.|
+| ConfigFile | Değiştirilecek NuGet yapılandırma dosyası. Belirtilmemişse, varsayılan dosya kullanılır-`%AppData%\NuGet\NuGet.Config` (Windows) veya `~/.config/NuGet/NuGet.Config` (Mac/Linux) veya `~/.nuget/NuGet/NuGet.Config` (OS dağıtımına göre değişir).|
 | ForceEnglishOutput | *(3,5 +)* NuGet. exe ' yi sabit, Ingilizce tabanlı bir kültür kullanarak çalışmaya zorlar. |
 | Help | Komut için yardım bilgilerini görüntüler. |
 | NonInteractive | Kullanıcı girişi veya onayları için istemleri bastırır. |

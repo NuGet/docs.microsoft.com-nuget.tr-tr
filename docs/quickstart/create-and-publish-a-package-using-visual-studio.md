@@ -1,16 +1,16 @@
 ---
-title: Windows üzerinde Visual Studio kullanarak bir NuGet paketi oluşturma ve yayımlama
+title: Windows üzerinde Visual Studio 'Yu kullanarak .NET Standard NuGet paketi oluşturma ve yayımlama
 description: Windows üzerinde Visual Studio kullanarak .NET Standard NuGet paketi oluşturma ve yayımlama hakkında bir adım adım öğretici.
 author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: quickstart
-ms.openlocfilehash: 949c49d77ef088f802bdbd9c681f7df41d9a4c67
-ms.sourcegitcommit: 0f5363353f9dc1c3d68e7718f51b7ff92bb35e21
+ms.openlocfilehash: 86e71460094de9b799384db83456a68db57647af
+ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68342558"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68419908"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Hızlı Başlangıç: Visual Studio (.NET Standard, yalnızca Windows) kullanarak bir NuGet paketi oluşturma ve yayımlama
 
@@ -21,9 +21,9 @@ Windows üzerinde Visual Studio 'da bir .NET Standard sınıf kitaplığından b
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-1. [VisualStudio.com](https://www.visualstudio.com/) ' den herhangi bir Visual Studio 2017 veya üzeri sürümü ile yükleyin. NET ilgili iş yükü. Visual Studio 2017 ve üzeri sürümleri, .NET iş yükü yüklendiğinde NuGet yeteneklerini otomatik olarak içerir.
+1. .NET Core ile ilgili iş yüküyle [VisualStudio.com](https://www.visualstudio.com/) 'tan herhangi bir Visual Studio 2017 veya üzeri sürümünü yükleyin.
 
-1. `dotnet` CLI 'yı yükler.
+1. Zaten yüklü değilse, `dotnet` CLI 'yı yükleme.
 
    CLI için, Visual Studio 2017 ' den başlayarak `dotnet` , CLI, .NET Core ile ilgili tüm iş yükleri ile otomatik olarak yüklenir. `dotnet` Aksi takdirde, `dotnet` CLI 'yı almak için [.NET Core SDK](https://www.microsoft.com/net/download/) ' yi yüklemelisiniz. CLI `dotnet` , [SDK stili biçimini](../resources/check-project-format.md) kullanan .NET Standard projeleri için gereklidir (SDK özniteliği). Visual Studio 2017 ve üzeri sürümlerde, bu makalede kullanılan varsayılan sınıf kitaplığı şablonu SDK özniteliğini kullanır.
    
@@ -185,7 +185,7 @@ Bu, paket kökünde adlı `readme.txt` bir dosya içerir. Visual Studio, paketi 
 - [Paket oluşturma](../create-packages/creating-a-package.md)
 - [Paket Yayımlama](../nuget-org/publish-a-package.md)
 - [Yayın öncesi paketler](../create-packages/Prerelease-Packages.md)
-- [Birden çok hedef çerçeveyi destekleme](../create-packages/supporting-multiple-target-frameworks.md)
+- [Birden çok hedef çerçeveyi destekleme](../create-packages/multiple-target-frameworks-project-file.md)
 - [Paket sürümü oluşturma](../reference/package-versioning.md)
 - [Yerelleştirilmiş paketler oluşturma](../create-packages/creating-localized-packages.md)
 - [.NET Standard kitaplığı belgeleri](/dotnet/articles/standard/library)
