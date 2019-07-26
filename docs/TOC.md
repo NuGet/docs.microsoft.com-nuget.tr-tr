@@ -103,7 +103,7 @@
 ### [Sync-Package](reference/ps-reference/ps-ref-sync-package.md)
 ### [Uninstall-Package](reference/ps-reference/ps-ref-uninstall-package.md)
 ### [Update-Package](reference/ps-reference/ps-ref-update-package.md)
-## NuGet API
+## NuGet Server API
 ### [Genel bakış](api/overview.md)
 ### Kaynaklar
 #### [Otomatik Tamamlama](api/search-autocomplete-service-resource.md)
@@ -275,7 +275,10 @@
 ### [NuGet.org ilkeleri](nuget-org/policies/data-requests.md)
 ## Sürüm notları
 ### [Bilinen Sorunlar](release-notes/known-issues.md)
-### [NuGet 5.0 RTM](release-notes/NuGet-5.0-RTM.md)
+### NuGet 5.x
+#### [NuGet 5.2 RTM](release-notes/NuGet-5.2-RTM.md)
+#### [NuGet 5.1 RTM](release-notes/NuGet-5.1-RTM.md)
+#### [NuGet 5.0 RTM](release-notes/NuGet-5.0-RTM.md)
 ### NuGet 4.x
 #### [NuGet 4.9 RTM](release-notes/NuGet-4.9-RTM.md)
 #### [NuGet 4.8 RTM](release-notes/NuGet-4.8-RTM.md)
