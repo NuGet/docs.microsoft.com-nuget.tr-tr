@@ -1,47 +1,47 @@
 ---
-title: Genel paketleri, önbellek NuGet geçici klasörlere yönetmek nasıl
-description: Genel paket yükleme klasörü, paket önbelleğini ve yüklenirken kullanılan bir bilgisayar, geri yükleme ve güncelleştirme paketlerini mevcut geçici klasör yönetmek nasıl.
+title: NuGet 'de küresel paketleri, önbelleği, temp klasörlerini yönetme
+description: Paket yükleme, geri yükleme ve güncelleştirme sırasında kullanılan genel paket yükleme klasörünü, paket önbelleğini ve bir bilgisayarda bulunan temp klasörlerini yönetme.
 author: karann-msft
 ms.author: karann
 ms.date: 03/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: 4b365488c8dd0e081449552b06451e7b40b5223b
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: f5d418fd5b6b9bb88958d6b7e9e3034f40485a7d
+ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426621"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68419967"
 ---
-# <a name="managing-the-global-packages-cache-and-temp-folders"></a>Genel paketleri, önbellek ve geçici klasör yönetme
+# <a name="managing-the-global-packages-cache-and-temp-folders"></a>Küresel paketleri, önbelleği ve temp klasörlerini yönetme
 
-Yüklemek, güncelleştirmek ya da bir paket geri yükleme olduğunda, NuGet paketleri ve Proje yapısı dışında birçok klasörlerdeki paket bilgilerini yönetir:
+Bir paketi yüklediğinizde, güncelleştirdiğinizde veya geri yükledikten sonra, NuGet paketleri ve paket bilgilerini proje yapınız dışında çeşitli klasörlerde yönetir:
 
-| Ad | Açıklama ve konumu (kullanıcı başına)|
+| Ad | Açıklama ve konum (Kullanıcı başına)|
 | --- | --- |
-| Genel&#8209;paketleri | *Genel paketleri* klasördür burada NuGet herhangi indirilen paketi yükler. Her paket tam sürüm numarası ve paket tanımlayıcısı ile eşleşen bir alt klasör içine genişletilir. PackageReference'ı kullanarak projeleri, her zaman kullan paketlerini doğrudan bu klasörden biçimlendirin. Kullanırken `packages.config`, için yüklü paketleri *genel paketleri* klasörü, ardından projenin kopyalanır `packages` klasör.<br/><ul><li>Windows: `%userprofile%\.nuget\packages`</li><li>Mac/Linux: `~/.nuget/packages`</li><li>Geçersiz kılma NUGET_PACKAGES ortam değişkenini kullanarak `globalPackagesFolder` veya `repositoryPath` [yapılandırma ayarlarını](../reference/nuget-config-file.md#config-section) (PackageReference kullanırken ve `packages.config`sırasıyla), veya `RestorePackagesPath` MSBuild özellik (yalnızca MSBuild). Ortam değişkenini üzerinden yapılandırma ayarı önceliklidir.</li></ul> |
-| http&#8209;cache | Visual Studio Paket Yöneticisi'ni (NuGet 3.x+) ve `dotnet` aracı bu önbellek içinde indirilen paketler deposu kopyalarını (olarak kaydedilen `.dat` dosyaları), her paket kaynağı için alt klasörler halinde düzenlenmiş. Paketleri genişletilmemiş ve sona erme süresini 30 dakika bir önbelleğe sahiptir.<br/><ul><li>Windows: `%localappdata%\NuGet\v3-cache`</li><li>Mac/Linux: `~/.local/share/NuGet/v3-cache`</li><li>NUGET_HTTP_CACHE_PATH ortam değişkenini kullanarak geçersiz kılar.</li></ul> |
-| Temp | NuGet, çeşitli işlemleri sırasında geçici dosyaları depoladığı bir klasör.<br/><li>Windows: `%temp%\NuGetScratch`</li><li>Mac/Linux: `/tmp/NuGetScratch`</li></ul> |
-| Eklentileri önbellek **4.8 +** | NuGet işlem talepleri isteği sonuçlardan depoladığı bir klasör.<br/><ul><li>Windows: `%localappdata%\NuGet\plugins-cache`</li><li>Mac/Linux: `~/.local/share/NuGet/plugins-cache`</li><li>NUGET_PLUGINS_CACHE_PATH ortam değişkenini kullanarak geçersiz kılar.</li></ul> |
+| Genel&#8209;paketler | *Genel paketler* klasörü, NuGet 'in indirilen tüm paketleri yüklediği yerdir. Her paket, paket tanımlayıcısı ve sürüm numarasıyla eşleşen bir alt klasöre tamamen genişletilir. [Packagereference](package-references-in-project-files.md) biçimini kullanan projeler her zaman paketleri doğrudan bu klasörden kullanır. Packages [. config dosyası](../reference/packages-config.md)kullanılırken, paketler *genel paketler* klasörüne yüklenir ve ardından projenin `packages` klasörüne kopyalanır.<br/><ul><li>Windows: `%userprofile%\.nuget\packages`</li><li>Mac/Linux:`~/.nuget/packages`</li><li>`globalPackagesFolder` NUGET_PACKAGES ortam değişkenini, veya [](../reference/nuget-config-file.md#config-section) `packages.config` `RestorePackagesPath` yapılandırma ayarlarını (, packagereference ve sırasıyla) veya MSBuild özelliğini (yalnızca MSBuild) kullanarak geçersiz kılın. `repositoryPath` Ortam değişkeni yapılandırma ayarından önceliklidir.</li></ul> |
+| http&#8209;cache | Visual Studio Paket Yöneticisi (NuGet 3. x +) ve `dotnet` araç, indirilen paketlerin kopyalarını, her bir paket kaynağı için alt klasörlere düzenlenmiş bu önbellekte (dosya olarak `.dat` kaydedilir) depolar. Paketler genişletilmez ve önbellekte 30 dakikalık bir sona erme saati bulunur.<br/><ul><li>Windows: `%localappdata%\NuGet\v3-cache`</li><li>Mac/Linux:`~/.local/share/NuGet/v3-cache`</li><li>NUGET_HTTP_CACHE_PATH ortam değişkenini kullanarak geçersiz kılın.</li></ul> |
+| kopyalar | NuGet 'in farklı işlemleri sırasında geçici dosyaları depoladığı bir klasör.<br/><li>Windows: `%temp%\NuGetScratch`</li><li>Mac/Linux:`/tmp/NuGetScratch`</li></ul> |
+| Eklentiler-önbellek **4.8 +** | NuGet 'in işlem talep isteğinden sonuçları depoladığı bir klasör.<br/><ul><li>Windows: `%localappdata%\NuGet\plugins-cache`</li><li>Mac/Linux:`~/.local/share/NuGet/plugins-cache`</li><li>NUGET_PLUGINS_CACHE_PATH ortam değişkenini kullanarak geçersiz kılın.</li></ul> |
 
 > [!Note]
-> NuGet 3.5 ve önceki kullanımlar *paketleri önbellek* yerine *http önbellek*, bulunan `%localappdata%\NuGet\Cache`.
+> NuGet 3,5 ve önceki sürümleri, ' de `%localappdata%\NuGet\Cache`bulunan *http önbelleği*yerine *paketler-önbellek* kullanır.
 
-Önbellek kullanarak ve *genel paketleri* klasörleri NuGet genellikle önler bilgisayarda zaten mevcut olan paketleri indirme, yükleme performansını iyileştirme, güncelleştirme ve geri yükleme işlemleri. PackageReference, kullanırken *genel paketleri* klasör ayrıca tutma indirilen paketler nerede bunlar yanlışlıkla eklenmesi için kaynak denetimi, proje klasörleri içindeki önler ve bilgisayar NuGet'ın genel etkisini azaltır depolama alanı.
+NuGet, önbellek ve *küresel paketler* klasörlerini kullanarak, yükleme, güncelleştirme ve geri yükleme işlemlerinin performansını artırarak, genellikle bilgisayarda zaten mevcut olan paketleri indirmeyi önler. PackageReference kullanılırken, *genel paketler* klasörü, karşıdan yüklenen paketlerin proje klasörleri içinde tutulmasını önler. Bu dosyalar, yanlışlıkla kaynak denetimine eklenmiş olabilir ve NuGet 'in bilgisayar depolamada genel etkisini azaltır.
 
-Bir paket almaya isteyip istemediğiniz sorulduğunda NuGet ilk baktığı *genel paketleri* klasör. Paket'ün tam sürümünü yoksa, NuGet HTTP olmayan paket kaynaklarının tümüne denetler. Paket hala bulunamıyorsa, NuGet paketi arar *http önbellek* belirtmediğiniz sürece `--no-cache` ile `dotnet.exe` komutları veya `-NoCache` ile `nuget.exe` komutları. Paket önbellekte değil ya da önbelleği kullanılmaz, NuGet paketi ardından HTTP üzerinden alır.
+Bir paketi almak isteyip istemediğiniz sorulduğunda, NuGet ilk olarak *genel paketler* klasörüne bakar. Paketin tam sürümü orada yoksa NuGet, HTTP olmayan tüm paket kaynaklarını denetler. Paket hala bulunamazsa NuGet, `dotnet.exe` komutlarla veya `--no-cache` `-NoCache` `nuget.exe` komutlarla belirtmediğiniz takdirde, paketi *http önbelleğinde* arar. Paket önbellekte değilse veya önbellek kullanılmıyorsa, NuGet paketi HTTP üzerinden alır.
 
-Daha fazla bilgi için [bir paket yüklendikten sonra ne olur?](../concepts/package-installation-process.md).
+Daha fazla bilgi için bkz. [bir paket yüklendiğinde ne olur?](../concepts/package-installation-process.md).
 
 ## <a name="viewing-folder-locations"></a>Klasör konumlarını görüntüleme
 
-Konumları kullanarak görüntüleyebileceğiniz [nuget Yereller komutu](../tools/cli-ref-locals.md):
+[NuGet Yereller komutunu](../reference/cli-reference/cli-ref-locals.md)kullanarak konumları görüntüleyebilirsiniz:
 
 ```cli
 # Display locals for all folders: global-packages, http cache, temp and plugins cache
 nuget locals all -list
 ```
 
-Tipik çıkış (Windows; "user1" olan geçerli kullanıcı adı):
+Tipik çıkış (Windows; "kullanıcı1" geçerli kullanıcı adıdır):
 
 ```output
 http-cache: C:\Users\user1\AppData\Local\NuGet\v3-cache
@@ -50,15 +50,15 @@ temp: C:\Users\user1\AppData\Local\Temp\NuGetScratch
 plugins-cache: C:\Users\user1\AppData\Local\NuGet\plugins-cache
 ```
 
-(`package-cache` Nuget'te kullanılan 2.x ve NuGet 3.5 ve önceki sürümleri görüntülenir.)
+(`package-cache` NuGet 2. x içinde kullanılır ve NuGet 3,5 ve önceki sürümlerde görüntülenir.)
 
-Klasör konumlarını kullanarak da görüntüleyebilirsiniz [dotnet nuget Yereller komutu](/dotnet/core/tools/dotnet-nuget-locals):
+Ayrıca, [DotNet NuGet Yereller komutunu](/dotnet/core/tools/dotnet-nuget-locals)kullanarak klasör konumlarını görüntüleyebilirsiniz:
 
 ```cli
 dotnet nuget locals all --list
 ```
 
-Tipik çıkış (Mac/Linux; "user1" olan geçerli kullanıcı adı):
+Tipik çıkış (Mac/Linux; "kullanıcı1" geçerli kullanıcı adıdır):
 
 ```output
 info : http-cache: /home/user1/.local/share/NuGet/v3-cache
@@ -67,11 +67,11 @@ info : temp: /tmp/NuGetScratch
 info : plugins-cache: /home/user1/.local/share/NuGet/plugins-cache
 ```
 
-Tek bir klasör konumunu görüntülemek için kullanın `http-cache`, `global-packages`, `temp`, veya `plugins-cache` yerine `all`.
+Tek bir klasörün konumunu görüntüleme,,, `http-cache`veya `plugins-cache` yerine `all`kullanın `global-packages` `temp`.
 
-## <a name="clearing-local-folders"></a>Yerel klasörler temizleme
+## <a name="clearing-local-folders"></a>Yerel klasörleri Temizleme
 
-Paket yükleme sorunlarla veya aksi halde uzak galerisinden, kullanım paketleri güvenilirliğinden emin olmak isterseniz `locals --clear` seçeneği (dotnet.exe) veya `locals -clear` (nuget.exe) temizlemek için bir klasör belirterek veya `all` için tüm klasörleri temizleyin:
+Paket yükleme sorunlarıyla karşılaşırsanız veya uzak bir galeriden paket yüklediğinizden emin olmak istiyorsanız, temizlenecek `locals --clear` `all` klasörü belirterek (DotNet. exe) veya `locals -clear` (NuGet. exe) seçeneğini kullanın, aksi takdirde Tüm klasörleri temizle:
 
 ```cli
 # Clear the 3.x+ cache (use either command)
@@ -98,24 +98,24 @@ dotnet nuget locals all --clear
 nuget locals all -clear
 ```
 
-Visual Studio'da açık olan projeler tarafından kullanılan tüm paketler gelen temizlenmez *genel paketleri* klasör.
+Visual Studio 'da Şu anda açık olan projeler tarafından kullanılan tüm paketler, *genel paketler* klasöründen silinmez.
 
-Visual Studio 2017'den itibaren kullanın **Araçlar > NuGet Paket Yöneticisi > Paket Yöneticisi Ayarları** menü komutunu ve ardından **Temizle tüm NuGet önbellekler**. Önbellek Yönetimi, Paket Yöneticisi konsolu aracılığıyla şu anda kullanılamıyor. Visual Studio 2015'te, bunun yerine CLI komutlarını kullanın.
+Visual Studio 2017 ' den başlayarak, **araç > NuGet paket yöneticisi > Paket Yöneticisi ayarları** menü komutunu kullanın ve **Tüm NuGet önbelleklerini temizle**' yi seçin. Önbelleğin yönetilmesi, şu anda Paket Yöneticisi konsolu aracılığıyla kullanılamaz. Visual Studio 2015 ' de, bunun yerine CLı komutlarını kullanın.
 
-![Önbellek Temizleme için NuGet seçeneği komutu](media/options-clear-caches.png)
+![Önbellekleri temizlemek için NuGet seçenek komutu](media/options-clear-caches.png)
 
 ## <a name="troubleshooting-errors"></a>Sorun giderme hataları
 
-Kullanırken aşağıdaki hatalar oluşabilir `nuget locals` veya `dotnet nuget locals`:
+`nuget locals` Veya`dotnet nuget locals`kullanırken aşağıdaki hatalar oluşabilir:
 
-- *Hata: İşlem dosyaya erişemiyor <package> başka bir işlem tarafından kullanıldığından* veya *yerel kaynakları temizleme başarısız oldu: Bir veya daha fazla dosya silinemedi*
+- *Hata: İşlem, başka bir işlem <package>*  tarafından kullanıldığından veya *yerel kaynakları temizlerken başarısız olduğu için dosyaya erişemiyor: Bir veya daha fazla dosya silinemiyor*
 
-    Bir veya daha fazla dosya klasörüne başka bir işlem tarafından kullanılıyor; Örneğin, Visual Studio projesi paketlerine başvuran açık olan *genel paketleri* klasör. Bu işlemleri kapatın ve yeniden deneyin.
+    Klasördeki bir veya daha fazla dosya başka bir işlem tarafından kullanılıyor; Örneğin, *genel paketler* klasöründeki paketlere başvuran bir Visual Studio projesi açıktır. Bu işlemi kapatın ve yeniden deneyin.
 
-- *Hata: Yoluna erişim <path> reddedildi* veya *dizini boş değil*
+- *Hata: Yola <path> erişim engellendi* veya *Dizin boş değil*
 
-    Önbellekteki dosyaları silmek için izniniz yok. Mümkünse, klasör izinlerini değiştirin ve yeniden deneyin. Aksi takdirde, sistem yöneticinize başvurun.
+    Önbellekteki dosyaları silme izniniz yok. Mümkünse klasör izinlerini değiştirip yeniden deneyin. Aksi takdirde, sistem yöneticinize başvurun.
 
-- *Hata: Belirtilen yol, dosya adı veya her ikisi çok uzun olabilir. Tam dosya adı 260 karakterden az olmalıdır ve dizin adı 248 karakterden kısa olmalıdır.*
+- *Hata: Belirtilen yol, dosya adı veya her ikisi çok uzun. Tam dosya adı 260 karakterden az olmalıdır ve dizin adı 248 karakterden az olmalıdır.*
 
-    Klasör adları kısaltın ve yeniden deneyin.
+    Klasör adlarını kısaltın ve yeniden deneyin.

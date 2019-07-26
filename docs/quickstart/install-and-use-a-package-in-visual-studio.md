@@ -3,30 +3,29 @@ title: Visual Studio 'da bir NuGet paketi yükleyip kullanma
 description: Visual Studio projesindeki bir NuGet paketini yükleme ve kullanma işleminde izlenecek yol.
 author: karann-msft
 ms.author: karann
-ms.date: 01/23/2018
+ms.date: 07/24/2018
 ms.topic: quickstart
-ms.openlocfilehash: 05fd30a9d9d51c81b89d83a16b2fb08a55875e47
-ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
+ms.openlocfilehash: a2be42aeb322cfd0ab43c9cec6ad1b063cbc3089
+ms.sourcegitcommit: f291ff91561a6b58c2aec41c624d798e00ce41fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68420006"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68462518"
 ---
-# <a name="quickstart-install-and-use-a-package-in-visual-studio"></a>Hızlı Başlangıç: Visual Studio 'da paket yükleyip kullanma
+# <a name="quickstart-install-and-use-a-package-in-visual-studio-windows-only"></a>Hızlı Başlangıç: Visual Studio 'da paket yükleyip kullanma (yalnızca Windows)
 
-NuGet paketleri, diğer geliştiricilerin projelerinizde kullanabileceğiniz bir yeniden kullanılabilir kod içerir. Arka plan için bkz. [NuGet nedir?](../What-is-NuGet.md) . Paketler bir Visual Studio projesine Paket Yöneticisi Kullanıcı arabirimi veya paket Yöneticisi konsolu kullanılarak yüklenir. Bu makalede, popüler [Newtonsoft. JSON](https://www.nuget.org/packages/Newtonsoft.Json/) paketini ve bir evrensel WINDOWS platformu (UWP) projesini kullanan işlem gösterilmektedir. Aynı işlem, diğer tüm .NET veya .NET Core projeleri için de geçerlidir.
+NuGet paketleri, diğer geliştiricilerin projelerinizde kullanabileceğiniz bir yeniden kullanılabilir kod içerir. Arka plan için bkz. [NuGet nedir?](../What-is-NuGet.md) . Paketler, NuGet Paket Yöneticisi veya paket Yöneticisi konsolu kullanılarak Visual Studio projesine yüklenir. Bu makalede, popüler [Newtonsoft. JSON](https://www.nuget.org/packages/Newtonsoft.Json/) paketini ve bir WINDOWS PRESENTATION FOUNDATION (WPF) projesini kullanan işlem gösterilmektedir. Aynı işlem, diğer tüm .NET veya .NET Core projeleri için de geçerlidir.
 
 Yüklendikten sonra, koddaki `using <namespace>` \<pakete, ad alanının\> kullandığınız pakete özgü olduğunu bakın. Başvuru yapıldıktan sonra, paketini API 'SI aracılığıyla çağırabilirsiniz.
 
 > [!Tip]
-> **NuGet.org Ile Başlat**: Nuget.org gözatma, .NET geliştiricilerinin kendi uygulamalarında yeniden kullanabilecekleri bileşenleri genellikle bulmasıdır. Bu makalede gösterildiği gibi, nuget.org doğrudan arayabilir veya Visual Studio içinde paketleri bulabilir ve yükleyebilirsiniz.
+> **NuGet.org Ile Başlat**: *NuGet.org* gözatma, .NET geliştiricilerinin kendi uygulamalarında yeniden kullanabilecekleri bileşenleri genellikle bulmasıdır. Bu makalede gösterildiği gibi, *NuGet.org* doğrudan arayabilir veya Visual Studio içinde paketleri bulabilir ve yükleyebilirsiniz. Genel bilgi için bkz. [NuGet paketlerini bulma ve değerlendirme](../consume-packages/finding-and-choosing-packages.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- Evrensel Windows Platformu geliştirme iş yüküyle Visual Studio 2017 veya
-- Evrensel Windows uygulamaları için araçlar içeren Visual Studio 2015 güncelleştirme 3.
+- .NET masaüstü geliştirme iş yüküyle Visual Studio 2019.
 
-2017 Community Edition 'ı [VisualStudio.com](https://www.visualstudio.com/) adresinden ücretsiz olarak yükleyebilir veya profesyonel ya da Enterprise sürümlerini kullanabilirsiniz.
+2019 Community Edition 'ı [VisualStudio.com](https://www.visualstudio.com/) adresinden ücretsiz olarak yükleyebilir veya profesyonel ya da Enterprise sürümlerini kullanabilirsiniz.
 
 Mac için Visual Studio kullanıyorsanız, bkz. [projenize bir NuGet paketi ekleme](/visualstudio/mac/nuget-walkthrough).
 
@@ -34,13 +33,15 @@ Mac için Visual Studio kullanıyorsanız, bkz. [projenize bir NuGet paketi ekle
 
 NuGet paketleri, paketin proje ile aynı hedef Framework 'ü desteklemesi kaydıyla herhangi bir .NET projesine yüklenebilir.
 
-Bu izlenecek yol için basit bir Evrensel Windows (UWP) uygulaması kullanın. Visual Studio 'da **dosya > yeni proje...** öğesini kullanarak ve **Windows Evrensel > boş uygulamasını (Evrensel Windows)** seçerek bir proje oluşturun. İstendiğinde, hedef sürüm için varsayılan değerleri ve en düşük sürümü kabul edin.
+Bu izlenecek yol için basit bir WPF uygulaması kullanın. Visual Studio 'da **dosya > yeni proje...** öğesini kullanarak bir proje oluşturun, arama kutusuna **.net** yazın ve ardından **WPF uygulamasını (.NET Framework)** seçin.           **İleri**'ye tıklayın. İstendiğinde **Framework** için varsayılan değerleri kabul edin.
+
+Visual Studio, Çözüm Gezgini ' de açılan projeyi oluşturur.
 
 ## <a name="add-the-newtonsoftjson-nuget-package"></a>Newtonsoft. JSON NuGet paketini ekleyin
 
-Paketi yüklemek için Paket Yöneticisi Kullanıcı arabirimini ya da Paket Yöneticisi konsolunu kullanabilirsiniz. Bir paket yüklediğinizde NuGet, proje dosyanıza ya da bir `packages.config` dosyaya bağımlılığı kaydeder. Daha fazla bilgi için bkz. [paket tüketimine genel bakış ve iş akışı](../consume-packages/Overview-and-Workflow.md).
+Paketi yüklemek için, NuGet Paket Yöneticisi 'Ni ya da Paket Yöneticisi konsolunu kullanabilirsiniz. Bir paket yüklediğinizde, NuGet, proje dosyanıza ya da bir `packages.config` dosyaya (proje biçimine bağlı olarak) bağımlılığı kaydeder. Daha fazla bilgi için bkz. [paket tüketimine genel bakış ve iş akışı](../consume-packages/Overview-and-Workflow.md).
 
-### <a name="package-manager-ui"></a>Paket Yöneticisi UI
+### <a name="nuget-package-manager"></a>NuGet Paket Yöneticisi
 
 1. Çözüm Gezgini ' de, **Başvurular** ' a sağ tıklayın ve **NuGet Paketlerini Yönet**' i seçin.
 
@@ -50,9 +51,11 @@ Paketi yüklemek için Paket Yöneticisi Kullanıcı arabirimini ya da Paket Yö
 
     ![Newtonsoft. JSON paketi bulunuyor](media/QS_Use-03-NewtonsoftJson.png)
 
+    NuGet Paket Yöneticisi hakkında daha fazla bilgi edinmek istiyorsanız bkz. [Visual Studio kullanarak paketleri yükleyip yönetme](../consume-packages/install-use-packages-visual-studio.md).
+
 1. Tüm lisans istemlerini kabul edin.
 
-1. (Visual Studio 2017) Paket Yönetimi biçimi seçmek isteyip istemediğiniz sorulursa **Proje dosyasında Packagereference**öğesini seçin:
+1. (Yalnızca Visual Studio 2017) Paket Yönetimi biçimi seçmek isteyip istemediğiniz sorulursa **Proje dosyasında Packagereference**öğesini seçin:
 
     ![Paket yönetim biçimi seçme](media/QS_Use-03b-SelectFormat.png)
 
@@ -68,22 +71,24 @@ Paketi yüklemek için Paket Yöneticisi Kullanıcı arabirimini ya da Paket Yö
 
 1. Komutu `Install-Package Newtonsoft.Json` girin (bkz. [Install-Package](../reference/ps-reference/ps-ref-install-package.md)). Konsol penceresinde komutun çıktısı gösterilir. Hatalar genellikle paketin projenin hedef çerçevesiyle uyumlu olmadığını gösterir.
 
+   Paket Yöneticisi Konsolu hakkında daha fazla bilgi edinmek istiyorsanız bkz. [Paket Yöneticisi konsolu kullanılarak paketleri yükleyip yönetme](../consume-packages/install-use-packages-powershell.md).
+
 ## <a name="use-the-newtonsoftjson-api-in-the-app"></a>Uygulamada Newtonsoft. JSON API 'sini kullanma
 
 Projedeki Newtonsoft. JSON paketiyle, bir nesneyi insan tarafından okunabilen bir dizeye dönüştürmek `JsonConvert.SerializeObject` için yöntemini çağırabilirsiniz.
 
-1. Öğesini `MainPage.xaml` açın ve var olan `Grid` öğeyi şu şekilde değiştirin:
+1. Öğesini `MainWindow.xaml` açın ve var olan `Grid` öğeyi şu şekilde değiştirin:
 
     ```xaml
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="White">
         <StackPanel VerticalAlignment="Center">
-            <Button Click="Button_Click" Content="Click Me" Margin="10"/>
-            <TextBlock Name="TextBlock" Text="TextBlock" Margin="10"/>
+            <Button Click="Button_Click" Width="100px" HorizontalAlignment="Center" Content="Click Me" Margin="10"/>
+            <TextBlock Name="TextBlock" HorizontalAlignment="Center" Text="TextBlock" Margin="10"/>
         </StackPanel>
     </Grid>
     ```
 
-1. Dosyasını açın ( `MainPage.xaml` düğüm altında Çözüm Gezgini bulunur) ve aşağıdaki kodu `MainPage` sınıfına ekleyin: `MainPage.xaml.cs`
+1. Dosyasını açın ( `MainWindow.xaml` düğüm altında Çözüm Gezgini bulunur) ve aşağıdaki kodu `MainWindow` sınıfına ekleyin: `MainWindow.xaml.cs`
 
     ```cs
     public class Account
@@ -114,11 +119,11 @@ Projedeki Newtonsoft. JSON paketiyle, bir nesneyi insan tarafından okunabilen b
 
 1. F5 tuşuna basarak veya **hata ayıklamayı başlatmak > hata ayıkla**' yı seçerek uygulamayı derleyin ve çalıştırın:
 
-    ![UWP uygulamasının ilk çıkışı](media/QS_Use-06-AppStart.png)
+    ![WPF uygulamasının ilk çıkışı](media/QS_Use-06-AppStart.png)
 
 1. Bir JSON metniyle değiştirilmiş olan TextBlock içeriğini görmek için düğmeyi seçin:
 
-    ![Düğmeyi seçtikten sonra UWP uygulamasının çıkışı](media/QS_Use-07-AppEnd.png)
+    ![Düğmeyi seçtikten sonra WPF uygulamasının çıkışı](media/QS_Use-07-AppEnd.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -126,6 +131,9 @@ Projedeki Newtonsoft. JSON paketiyle, bir nesneyi insan tarafından okunabilen b
 
 > [!div class="nextstepaction"]
 > [Visual Studio kullanarak paketleri yükleyip yönetme](../consume-packages/install-use-packages-visual-studio.md)
+
+> [!div class="nextstepaction"]
+> [Paket Yöneticisi konsolu 'Nu kullanarak paket yükleyip yönetme](../consume-packages/install-use-packages-powershell.md)
 
 NuGet 'in sunabileceği daha fazlasını araştırmak için aşağıdaki bağlantıları seçin.
 

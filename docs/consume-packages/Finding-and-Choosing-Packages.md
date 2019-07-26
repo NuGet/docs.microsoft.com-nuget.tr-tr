@@ -1,128 +1,128 @@
 ---
-title: NuGet paketleri bulma ve seçme
-description: Genel Bakış nasıl bulacağınızı ve NuGet arama söz dizimi hakkında ayrıntılar dahil olmak üzere bir proje için en iyi NuGet paketlerini seçin.
+title: NuGet paketlerini bulma ve seçme
+description: NuGet arama söz dizimi hakkında ayrıntılar dahil olmak üzere bir proje için en iyi NuGet paketlerini bulma ve seçme hakkında genel bakış.
 author: karann-msft
 ms.author: karann
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8cd7529c4a1ecf659abde03fb1632e26431aebf3
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 3af29e2f9b09ba5bd82779f9aacf314bd8933436
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426744"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317021"
 ---
-# <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Bulma ve projenizin NuGet paketlerini değerlendiriliyor
+# <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Projeniz için NuGet paketlerini bulma ve değerlendirme
 
-Herhangi bir .NET projesine başlatırken veya uygulamanızı veya hizmetinizi işlevsel bir gereksinimi tanımlamak olduğunda, bu gereksinimi karşılayan mevcut NuGet paketlerini kullanarak kendiniz zaman ve sorun çok sayıda kaydedebilirsiniz. Bu paketler genel koleksiyondan gelen [nuget.org](http://www.nuget.org/packages/), ya da kuruluşunuzun veya başka bir üçüncü taraf tarafından sağlanan özel bir kaynak.
+Herhangi bir .NET projesi başlatırken veya uygulamanız veya hizmetiniz için bir işlevsel ihtiyacı her belirlediğinizde, bu ihtiyacı karşılayan mevcut NuGet paketlerini kullanarak kendinize ait birçok zaman ve sorunu kaydedebilirsiniz. Bu paketler, [NuGet.org](http://www.nuget.org/packages/)üzerindeki genel koleksiyondan veya kuruluşunuz ya da başka bir üçüncü taraf tarafından sunulan özel bir kaynaktan gelebilir.
 
 ## <a name="finding-packages"></a>Paketleri bulma
 
-Visual Studio'da Paket Yöneticisi UI nuget.org ziyaret edin veya açtığınızda, paketlerin toplam yüklemeleri tarafından sıralanan listesini görürsünüz. Bu hemen, en yaygın olarak kullanılan paketler arasında .NET projeleri milyonlarca gösterir. Yok şansı ve sonra en az ilk birkaç sayfalarında listelenen paketlerin bazıları projelerinizde yararlı olacaktır.
+Visual Studio 'da nuget.org 'i ziyaret ettiğinizde veya paket yöneticisi Kullanıcı arabirimini açtığınızda, toplam indirmelere göre sıralanan paketlerin bir listesini görürsünüz. Bu, neredeyse milyonlarca .NET projesi genelinde en yaygın olarak kullanılan paketleri gösterir. Daha sonra, ilk birkaç sayfada listelenen paketlerin en az bir kısmı projelerinizde yararlı olacaktır.
 
-![En popüler paketlerin gösteren nuget.org/packages varsayılan görünümü](media/Finding-01-Popularity.png)
+![En popüler paketleri gösteren nuget.org/packages varsayılan görünümü](media/Finding-01-Popularity.png)
 
-Bildirim **ön sürümü dahil et** sayfanın sağ üst seçeneği. Bu onay kutusu seçildiğinde, nuget.org beta ve erken diğer sürümleri de dahil olmak üzere paketlerin tüm sürümlerini gösterir. Yalnızca kararlı gösterecek şekilde serbest bırakıldı, seçeneğini kaldırın.
+Sayfanın sağ üst kısmındaki **ön sürümü dahil et** seçeneğine dikkat edin. Seçildiğinde, nuget.org Beta ve diğer erken sürümler dahil tüm paketlerin sürümlerini gösterir. Yalnızca kararlı olarak yayınlanan öğesini göstermek için seçeneği temizleyin.
 
-Belirli gereksinimleriniz için etiketler (Visual Studio Paket Yöneticisi içinde veya portal nuget.org gibi) ile aramayı uygun paket keşfetme en yaygın yoludur. Örneğin, "json" üzerinde arama bu anahtar sözcüğü ile etiketlenir ve bu nedenle bazı ilişki JSON veri biçimine sahip tüm NuGet paketlerini listeler.
+Belirli gereksinimler için, etiketlere göre arama (Visual Studio Paket Yöneticisi veya nuget.org gibi bir portal içinde) uygun bir paket bulmak için en yaygın yollardan biridir. Örneğin, "JSON" araması, bu anahtar sözcükle etiketlenmiş tüm NuGet paketlerini listeler ve bu nedenle JSON veri biçimiyle bir ilişki bulunur.
 
-![Nuget.org 'json' için arama sonuçları](media/Finding-02-SearchResults.png)
+![Nuget.org üzerinde ' JSON ' için arama sonuçları](media/Finding-02-SearchResults.png)
 
-Biliyorsanız paket Kimliğini kullanarak da arama yapabilirsiniz. Bkz: [arama söz dizimi](#search-syntax) aşağıda.
+Biliyorsanız, paket KIMLIĞINI kullanarak da arama yapabilirsiniz. Aşağıdaki [arama sözdizimine](#search-syntax) bakın.
 
-Şu anda genel sonuçları ihtiyaçlarınızı paketler için en az ilk birkaç sayfalarına bakın veya arama terimlerinizi daha belirgin iyileştirmek istediğiniz şekilde arama sonuçları yalnızca uygunluğa göre sıralanır.
+Şu anda arama sonuçları yalnızca ilgiye göre sıralanır. bu nedenle, gereksinimlerinize uyan paketlerin en az ilk birkaç sayfasına bakmak veya arama terimlerinizi daha belirgin olacak şekilde daraltmak isteyeceksiniz.
 
-### <a name="does-the-package-support-my-projects-target-framework"></a>Paket Projemin hedef Framework'ü destekliyor mu?
+### <a name="does-the-package-support-my-projects-target-framework"></a>Paket, projem 'ın hedef çerçevesini destekliyor mu?
 
-Bu paketin desteklenen çerçeveler projenin hedef çerçevesi eklerseniz NuGet bir projeye bir paketi yükler. NuGet, paket uyumlu değilse, bir hata verir.
+NuGet yalnızca paketin desteklenen çerçeveleri projenin hedef çerçevesini içeriyorsa bir projeyi bir projeye ekler. Paket uyumlu değilse, NuGet bir hata yayınlar.
 
-Bazı paketler kendi desteklenen çerçeveler doğrudan nuget.org galerisinde listelemek, ancak bu tür veriler gerekli olmadığından, birçok paketi listeleyen içermez. Şu anda belirli hedef Framework'ü destekleyen paketleri nuget.org aramak için hiçbir yol yok (değerlendirilmektedir özelliğidir, bkz: [NuGet sorunu 2936](https://github.com/NuGet/NuGetGallery/issues/2936)).
+Bazı paketler desteklenen çerçeveleri doğrudan nuget.org galerisinde listeler, ancak bu tür veriler gerekli olmadığından birçok paket bu listeyi içermez. Mevcut olduğunda, belirli bir hedef Framework 'ü destekleyen paketler için nuget.org araması yapmanız gerekir (özellik dikkate alınmaz, bkz. [NuGet sorunu 2936](https://github.com/NuGet/NuGetGallery/issues/2936)).
 
-Neyse ki, desteklenen çerçeveler iki diğer araçlarla belirleyebilirsiniz:
+Neyse ki, desteklenen çerçeveleri iki farklı yöntemle de belirleyebilirsiniz:
 
-1. Bir proje kullanarak paket yüklemeye çalışırsanız [ `Install-Package` ](../tools/ps-ref-install-package.md) NuGet Paket Yöneticisi konsolunda komutu. Paket uyumlu değilse, bu komut paketin desteklenen çerçeveler gösterir.
+1. NuGet Paket Yöneticisi konsolundaki [`Install-Package`](../reference/ps-reference/ps-ref-install-package.md) komutunu kullanarak bir projeye paket yüklemeyi deneyin. Paket uyumsuzsa, bu komutta paketin desteklenen çerçeveleri gösterilir.
 
-1. Nuget.org kullanarak kendi sayfasından paketini indirme **el ile yükleme** altında bağlantı **bilgisi**. Uzantı değiştirme `.nupkg` için `.zip`, içeriğini incelemek için dosyasını açın, `lib` klasör. Alt klasörleri her desteklenen çerçeveler, her alt bir hedef çerçeve adı ile adlandırılan burada görmek vardır (TFM; bkz [hedef çerçeve](../reference/target-frameworks.md)). Hiçbir alt klasör altında görürseniz `lib` ve yalnızca tek bir DLL'nin olduktan sonra paketi yükleyin uyumluluğunu bulmak için projenizde denemelidir.
+1. **Bilgi**altında **el ile indirme** bağlantısını kullanarak paketi NuGet.org sayfasındaki sayfasından indirin. Uzantısını `.nupkg` `lib` olarak `.zip`değiştirin ve klasörünün içeriğini incelemek için dosyayı açın. Her bir alt klasörün bir hedef çerçeve adıyla (tfd; bkz. [hedef çerçeveler](../reference/target-frameworks.md)) adlandırılmış olduğu her bir desteklenen çerçeve için alt klasörler görürsünüz. Ve yalnızca tek bir dll altında `lib` alt klasör yoksa, uyumluluğunu öğrenmek için bu paketi projenize yüklemeyi denemeniz gerekir.
 
-## <a name="pre-release-packages"></a>Yayın öncesi paketleri
+## <a name="pre-release-packages"></a>Yayın öncesi paketler
 
-Çok sayıda paket yazarlarının önizleme yapın ve iyileştirme yapın ve en son düzeltmeleri hakkında geri bildirim arama indikçe beta sürümleri kullanılabilir.
+Birçok paket yazarı, önizleme ve Beta yayınları, en son düzeltmelerinde iyileştirmeler yapmaya ve geri bildirimde bulunmalarına devam ederken kullanılabilir hale getirir.
 
-Varsayılan olarak, arama sonuçlarına yayın öncesi paketleri nuget.org gösterir. Yalnızca kararlı sürümler aramak için temizleyin **ön sürümü dahil et** sayfanın sağ üst seçeneği
+Nuget.org, varsayılan olarak, arama sonuçlarında yayın öncesi paketleri gösterir. Yalnızca kararlı sürümlerde arama yapmak için sayfanın sağ üst kısmındaki **ön sürümü dahil et** seçeneğini temizleyin
 
-![Nuget.org üzerindeki ön onay kutusu Ekle](media/Finding-06-include-prerelease.png)
+![Nuget.org üzerine yayın öncesi onay kutusunu Ekle](media/Finding-06-include-prerelease.png)
 
-Visual Studio'da ve NuGet ve dotnet CLI araçlarını kullanırken, NuGet yayın öncesi sürümleri varsayılan olarak içermez. Bu davranışı değiştirmek için aşağıdaki adımları uygulayın:
+Visual Studio 'da ve NuGet ve DotNet CLı araçları kullanılırken, NuGet varsayılan olarak yayın öncesi sürümleri içermez. Bu davranışı değiştirmek için aşağıdaki adımları uygulayın:
 
-- **Visual Studio'da Paket Yöneticisi UI**: İçinde **NuGet paketlerini Yönet** kullanıcı Arabirimi ayarlama **ön sürümü dahil et** kutusu. Ayarlama ya da bu kutuyu temizleyerek Paket Yöneticisi UI ve yükleyebileceğiniz kullanılabilir sürümlerin listesini yeniler.
+- **Visual Studio 'Da Paket Yöneticisi Kullanıcı arabirimi**: **NuGet Paketlerini Yönet** Kullanıcı arabiriminde, **ön sürümü dahil et** kutusunu belirleyin. Bu kutuyu ayarlama veya Temizleme, Paket Yöneticisi Kullanıcı arabirimini ve yükleyebileceğiniz sürümlerin listesini yeniler.
 
-    ![Visual Studio'da INCLUDE Ön onay kutusu](media/Prerelease_02-CheckPrerelease.png)
+    ![Visual Studio 'da ön sürümü dahil et onay kutusu](media/Prerelease_02-CheckPrerelease.png)
 
-- **Paket Yöneticisi Konsolu**: Kullanım `-IncludePrerelease` anahtarı ile `Find-Package`, `Get-Package`, `Install-Package`, `Sync-Package`, ve `Update-Package` komutları. Başvurmak [PowerShell başvurusu](../tools/powershell-reference.md).
+- **Paket Yöneticisi konsolu**: `Find-Package`, `-IncludePrerelease` ,,`Install-Package`Ve komutlarıyla`Update-Package` anahtarı kullanın. `Get-Package` `Sync-Package` [PowerShell başvurusuna](../reference/powershell-reference.md)bakın.
 
-- **nuget.exe CLI**: Kullanım `-prerelease` anahtarı ile `install`, `update`, `delete`, ve `mirror` komutları. Başvurmak [NuGet CLI başvurusu](../tools/nuget-exe-cli-reference.md)
+- **NuGet. exe CLI**: `install` `-prerelease` , ,`update`Vekomutlarıyla anahtarıkullanın`mirror` . `delete` [NUGET CLI başvurusuna](../reference/nuget-exe-cli-reference.md) bakın
 
-- **dotnet.exe CLI**: Tam yayın öncesi sürümünü kullanarak belirttiğiniz `-v` bağımsız değişken. Başvurmak [dotnet paket başvurusu ekleme](/dotnet/core/tools/dotnet-add-package).
+- **DotNet. exe CLI**: `-v` Bağımsız değişkenini kullanarak tam yayın öncesi sürümü belirtin. [DotNet paket başvurusu Ekle](/dotnet/core/tools/dotnet-add-package)' ye başvurun.
 
 <a name="native-cpp-packages"></a>
 
-### <a name="native-c-packages"></a>Yerel C++ paketleri
+### <a name="native-c-packages"></a>Yerel C++ paketler
 
-Visual Studio'da C++ projelerinde kullanılan yerel C++ paketler için NuGet destekler. Böylece **NuGet paketlerini Yönet** projeleri için bağlam menüsü komutu tanıtır bir `native` hedef framework ve MSBuild tümleştirme sağlar.
+NuGet, yerel C++ paketleri destekler ve bu, Visual Studio C++ 'da projelerde kullanılabilir. Bu, projeler için **NuGet Paketlerini Yönet** bağlam-menü komutunu sağlar, bir `native` hedef çerçeve sunar ve MSBuild tümleştirmesi sağlar.
 
-Yerel paketler bulmak için [nuget.org](https://www.nuget.org/packages), kullanarak arama `tag:native`. Bu paketleri genellikle sağlar `.targets` ve `.props` dosyaları paket için bir proje eklendiğinde, NuGet otomatik olarak içeri aktarır.
+[NuGet.org](https://www.nuget.org/packages)üzerindeki yerel paketleri bulmak için kullanarak `tag:native`arama yapın. Bu tür paketler genellikle `.targets` ve `.props` dosyalarını sağlar ve paket bir projeye eklendiğinde otomatik olarak NuGet içeri aktarır.
 
-## <a name="evaluating-packages"></a>Paketleri değerlendiriliyor
+## <a name="evaluating-packages"></a>Paketler değerlendiriliyor
 
-Bir paket kullanışlılığını değerlendirmek için en iyi yolu, indirin ve deneyin (tüm paketleri nuget.org üzerinde düzenli olarak virüs, biçimde taranır) kodunuzda sağlamaktır. Sonuçta, son derece popüler her paketi kullanmadan yalnızca birkaç geliştiricilere çalışmaya başladınız ve erken Benimseyenler biri olabilir!
+Bir paketin kullanışlılığını değerlendirmek için en iyi yol, bunu indirmek ve kodunuzda denemek (nuget.org üzerindeki tüm paketler düzenli olarak virüsler için taranır). Her ne kadar popüler olan her paket, kendisini kullanan birkaç geliştirici ile başlatılır ve ilk benimseyenlerden biri olabilirsiniz!
 
-Aynı anda bir NuGet paketi kullanarak emin olmak, istediğiniz şekilde üzerine bağımlılık almak, sağlam ve güvenilir olduğu anlamına gelir. Zaman alan yükleme ve doğrudan bir paketi test olduğundan da çok paketin kalitesi hakkında bir paketin Listesi sayfasında bilgileri kullanarak bilgi alabilirsiniz:
+Aynı zamanda, bir NuGet paketinin kullanılması, bunun sağlam ve güvenilir olduğundan emin olmak için buna bir bağımlılık alınması anlamına gelir. Bir paketin yüklenmesi ve doğrudan sınanması zaman alıcı olduğundan, bir paketin liste sayfasındaki bilgileri kullanarak bir paketin kalitesi hakkında çok fazla bilgi edinebilirsiniz:
 
-- *İstatistikleri indirir*: nuget.org, paket sayfasında **istatistikleri** bölüm toplam yüklemeler, indirmeler en son sürümünün gösterir ve ortalama günlük indirir. Diğer birçok geliştirici, kendini kanıtlamış yani paket bağımlılık gerçekleştirdiğinizden daha büyük bir sayı belirtin.
+- *İndirmeler istatistikleri*: NuGet.org üzerindeki paket sayfasında, **İstatistikler** bölümünde Toplam indirme, en son sürüm indirmeleri ve günde ortalama indirme işlemleri gösterilir. Daha büyük sayılar, diğer birçok geliştiricinin pakete bağımlılığı olduğunu, yani kendini kanıtlamış olduğunu gösterir.
 
-    ![Bir paketin Listesi sayfasında istatistikleri indirin](media/Finding-03-Downloads.png)
+    ![Bir paketin listeleme sayfasına istatistik yükleme](media/Finding-03-Downloads.png)
 
-- *Sürüm Geçmişi*: altına paketi sayfasında bakın **bilgisi** en son tarih için güncelleştirme ve incelemek **sürüm geçmişi**. En son güncelleştirmeleri ve zengin sürüm geçmişi iyi tutulan bir paket vardır. İhmal edilen paketler birkaç güncelleştirmelerine sahip olması ve genellikle bir süre içinde güncelleştirilmedi.
+- *Sürüm geçmişi*: Paket sayfasında, en son güncelleştirme tarihi için **bilgi** ' yi arayın ve **sürüm geçmişini**inceleyin. İyi tutulan bir pakette, son güncelleştirmeler ve zengin bir sürüm geçmişi bulunur. İhmal edilen paketlerin birkaç güncelleştirmesi vardır ve genellikle bir süre güncelleştirilmemiş demektir.
 
-    ![Bir paketin Listesi sayfasında sürüm geçmişi](media/Finding-04-VersionHistory.png)
+    ![Paketin listeleme sayfasında sürüm geçmişi](media/Finding-04-VersionHistory.png)
 
-- *Son yükler*: Paket sayfasında altında **istatistikleri**seçin **tam istatistikleri görüntüleme**. Tam istatistikleri sayfası, paketin sürüm numarası tarafından son altı hafta boyunca yükler gösterir. Diğer geliştiriciler etkin olarak kullanan bir genellikle daha iyi bir seçenek değil bir pakettir.
+- *Son yüklemeler*: Paket sayfasında **İstatistikler**altında, **tam istatistikleri görüntüle**' yi seçin. Tüm İstatistikler sayfasında, paketin sürüm numarasına göre son altı haftaya göre yüklemesi gösterilmektedir. Diğer geliştiricilerin etkin şekilde kullandığı bir paket, genellikle daha iyi bir seçenektir.
 
-- *Destek*: Paket sayfasında altında **bilgisi**seçin **proje sitesi** (varsa) Yazar hangi destek seçeneklerini görmek için sağlar. Adanmış bir siteyse projesiyle genellikle daha iyi desteklenir.
+- *Destek*: Yazar **' ın altındaki**paket sayfasında, yazarın sağladığı destek seçeneklerini görmek için **Proje sitesi** ' ni (varsa) seçin. Adanmış bir siteye sahip bir proje genellikle daha iyi desteklenir.
 
-- *Geliştirici geçmişi*: Paket sayfasında altında **sahipleri**, sahip yayımlanan diğer paketleri görmek için seçin. Birden çok paket olanlar işlerini gelecekte desteklemeye devam olasılığı daha yüksektir.
+- *Geliştirici geçmişi*: **sahipler**altındaki paket sayfasında, yayımladıkları diğer paketleri görmek için bir sahip seçin. Birden çok pakete sahip olanlar, işlerini daha sonra desteklemeye devam edememe olasılığı yüksektir.
 
-- *Açık kaynak katkı*: birçok paketi, doğrudan katkıda hata düzeltmeleri ve özellik geliştirmeleri bağlı olarak bunları geliştiricilere edinerek açık kaynaklı depolarında korunur. Herhangi bir paket katkı geçmişini ayrıca geliştiricilerin kaç tane aktif, iyi bir göstergesidir.
+- *Açık kaynak katkıları*: birçok paket açık kaynaklı depolarda tutulur ve bunlar, geliştiricilerin doğrudan hata düzeltmeleri ve özellik iyileştirmeleri katkıda bulunmasına olanak tanır. Belirli bir paketin katkı geçmişi Ayrıca, kaç geliştirici etkin bir şekilde dahil olduğu konusunda iyi bir göstergedir.
 
-- *Sahipleri görüşme*: yeni geliştiriciler kesinlikle kullanabilmeniz için harika paketleri üretmek için eşit olarak kaydedilmiş olabilir ve bunları NuGet ekosistemi için yeni bir şeyler getirmek için bir şans verin daha iyidir. Bunu aklınızda, doğrudan paket geliştiricilere ulaşın **kişi sahipleri** altındaki **bilgisi** Listesi sayfasında. Büyük olasılıkla, size ihtiyaçlarınızı karşılamak için sizi mutlu edecektir demektir!
+- *Sahipleri*arayın: yeni geliştiriciler, sizin için harika paketler oluşturmaya tamamen eşit bir şekilde kararlıdır ve bu kullanıcılara NuGet ekosistemine yeni bir şey getirmenin bir şansı vermek iyi olabilir. Bu göz önünde bulundurularak, liste sayfasında **bilgi** altında **kişi sahipleri** ' nı kullanarak doğrudan paket geliştiricilerine ulaşın. Olasılığınızı karşılamak için sizinle birlikte çalışmak iyi olacaktır!
 
-- *Ayrılmış paket kimliği ön ekleri*: çok sayıda paket sahipleri için uygulanan ve verilmiş bir [ayrılmış paket kimliği öneki](../nuget-org/id-prefix-reservation.md). Üzerinde bir paket kimliği yanındaki visual onay kutusunu gördüğünüzde [nuget.org](https://www.nuget.org/), veya Visual Studio'da anlamına paket sahibinden karşılaşmış bizim [ölçütleri](../nuget-org/id-prefix-reservation.md#id-prefix-reservation-criteria) rezervasyon kimliği öneki. Bu, paket sahibinden kendilerini ve bunların paket tanımlamaya Temizle anlamına gelir.
+- *Ayrılmış paket kimliği önekleri*: için çok sayıda paket sahibi uygulandı ve [ayrılmış bir paket kimliği öneki](../nuget-org/id-prefix-reservation.md)verdi. [NuGet.org](https://www.nuget.org/)veya Visual Studio 'daki BIR paket kimliğinin yanındaki görsel onay işaretini gördüğünüzde, bu, paket sahibinin kimlik ön eki ayırma ölçütlerimizi karşıladığı anlamına [](../nuget-org/id-prefix-reservation.md#id-prefix-reservation-criteria) gelir. Bu, paket sahibinin kendilerini ve paketini tanımlamaya açık olduğu anlamına gelir.
 
 > [!Note]
-> Her zaman seçerek gördüğünüz bir paketin Lisans Koşulları'nın dikkatli olmanızı **lisans bilgilerini** bir paketin listeleme nuget.org sayfasında. Bir paketi lisans koşulları belirtmezse kullanarak doğrudan paket sahibiyle iletişime geçin **sahipleriyle temas** bağlantı paketi sayfasında. Microsoft hiçbir fikri mülkiyet, üçüncü taraf paketi sağlayıcılarından lisans değil ve üçüncü taraflarca sağlanan bilgileri sorumlu değildir.
+> Her zaman bir paketin lisans koşullarına sahip olun, bu, nuget.org üzerindeki bir paketin liste sayfasında **Lisans bilgileri** ' ni seçerek görebilirsiniz. Bir paket lisans koşulları belirtmezse, paket sayfasındaki **kişi sahipleri** bağlantısını kullanarak doğrudan paket sahibine başvurun. Microsoft, üçüncü taraf paket sağlayıcılarından sizin için herhangi bir fikri mülkiyet hakkı vermez ve üçüncü taraflar tarafından sunulan bilgilerden sorumlu değildir.
 
-## <a name="license-url-deprecation"></a>Lisans URL'si kullanımdan kaldırma
-Biz durumundan gibi [licenseUrl](../reference/nuspec.md#licenseurl) için [lisans](../reference/nuspec.md#license), bazı NuGet istemcileri ve NuGet akışları henüz yüzey lisans bilgilerini yeteneği bazı durumlarda sahip olmayabilir. Geriye dönük uyumluluk sağlamak için bu belgeye bu gibi durumlarda lisans bilgilerini almak nasıl hakkında konuşuyor ve lisans URL'sini işaret eder.
+## <a name="license-url-deprecation"></a>Lisans URL 'sinin kullanımdan kaldırılması
+[Licenseurl](../reference/nuspec.md#licenseurl) 'den [lisansa](../reference/nuspec.md#license)geçiş yaptığımız gibi, bazı NuGet istemcileri ve NuGet akışları, bazı durumlarda lisanslama bilgilerini henüz yüzeye sunmayabilir. Geriye dönük uyumluluğu sürdürmek için lisans URL 'SI bu belgeyi işaret eder ve bu nedenle lisans bilgilerinin bu gibi durumlarda nasıl alınacağı ele alınır.
 
-Üzerinde lisans URL'si için bir paket için bu sayfayı duruma tıkladığınızda, paketi içeren bir lisans dosyası gelir ve
-* Henüz nasıl yorumlanacağı ve yeni lisans bilgilerini istemciye yüzey bilmez bir akışa bağlı olduğunuz **veya**
-* Henüz nasıl yorumlanacağı ve potansiyel olarak akış tarafından sağlanan yeni lisans bilgilerini okuma bilmez bir istemci kullanıyorsanız **veya**
-* Her ikisinin bir birleşimi
+Bu sayfaya getirilen bir paketin lisans URL 'sine tıkladığınızda, paketin bir lisans dosyası içermesi ve
+* Henüz yeni lisans bilgilerini nasıl yorumlayabileceğinizi ve bu bilgileri istemciye **ya** da
+* Henüz akış tarafından sağlanmış olan yeni lisans bilgilerini nasıl yorumlayacağını ve okuyabileceğinizi bilmiyor olmayan bir istemci kullanıyorsunuz **veya**
+* Her ikisinin birleşimi
 
-Lisans dosyası paketi içinde yer alan bilgilerin nasıl okuyabilir aşağıda verilmiştir:
-1. NuGet paketini indirin ve içeriğini bir klasöre çıkartın.
-1. Açık `.nuspec` dosyası bu klasörün kökünde olacaktır.
-1. Gibi bir etiketi olması gereken `<license type="file">license\license.txt</license>`. Bu lisans dosyası adlı gelir `license.txt` ve adlı bir klasör içinde `license` klasörün kökünde da olacak.
-1. Gidin `license` klasörü ve açık `license.txt` dosya.
+Paketin içindeki lisans dosyasında yer alan bilgileri şu şekilde okuyabilirsiniz:
+1. NuGet paketini indirin ve içeriğini bir klasöre ayıklayın.
+1. Bu klasörün kökünde olacak dosyayıaçın.`.nuspec`
+1. Şöyle `<license type="file">license\license.txt</license>`bir etiketi olmalıdır. Bu, lisans dosyasının adlandırıldığını `license.txt` ve bu klasörün kökünde de olacak adlı `license` bir klasörün içinde olduğunu gösterir.
+1. Klasöre gidin ve `license.txt` dosyayı açın. `license`
 
 
 ## <a name="search-syntax"></a>Arama söz dizimi
 
-NuGet paket arama aynı nuget.org, NuGet CLI ve Visual Studio'da NuGet paket yöneticisini uzantısı içinde çalışır. Genel olarak, arama paket açıklamaları yanı sıra anahtar sözcükleri uygulanır.
+NuGet paket araması, NuGet CLı ve Visual Studio 'daki NuGet Paket Yöneticisi uzantısı içindeki nuget.org üzerinde aynı şekilde çalışmaktadır. Genel olarak, arama anahtar sözcüklere ve paket açıklamalarına uygulanır.
 
-- **Anahtar sözcükler**: Arama için sağlanan anahtar sözcükleri içeremez ilgili paketleri arar. Örnek: `modern UI`. Bir hüküm arasında paketlerin tüm sağlanan anahtar sözcükleri içeren, kullanmak için "+" gibi aranacak `modern+UI`.
-- **İfadeleri**: Terimleri tırnak içine girerek bu koşulları tam büyük/küçük harfe eşleşme arar. Örnek: `"modern UI" package`
-- **Filtreleme**: Söz dizimi kullanarak belirli bir özellik için bir arama terimi uygulayabilirsiniz `<property>:<term>` burada `<property>` (büyük-küçük harf duyarsız) olabilir `id`, `packageid`, `version`, `title`, `tags`, `author`, `description`, `summary`, ve `owner`. Koşulları gerekirse tırnak içinde yer alabilir ve aynı anda birden çok özellik için arama yapabilirsiniz. Ayrıca, arama yapar `id` özelliği olan eşleşmelerini, oysa `packageid` tam bir eşleşme kullanır. Örnekler:
+- **Anahtar sözcükler**: Arama, belirtilen anahtar sözcüklerden herhangi birini içeren ilgili paketleri arar. Örnek: `modern UI`. Tüm sunulan anahtar kelimeleri içeren paketleri aramak için, gibi terimler `modern+UI`arasında "+" kullanın.
+- **Tümcecikler**: Tırnak işaretleri içine terimleri girmek, bu şartların tam büyük/küçük harf duyarsız eşleşmelerini arar. Örnek: `"modern UI" package`
+- **Filtreleme**: `packageid` `id` (Büyük`version`/küçük harf duyarsız) ,`tags`,,,,,,,,,,,,,,,,,,,,,,,, `title` `<property>:<term>` `<property>` `author` `description` ,`summary`ve .`owner` Şartlar gerektiğinde tırnak içinde bulunabilir ve aynı anda birden çok özellik arayabilirsiniz. Ayrıca, `id` özelliğindeki aramalar alt dize eşleşmelerinde `packageid` , tam eşleşme kullanır. Örnekler:
 
     ```
     id:NuGet.Core                # Match any part of the id property

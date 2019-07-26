@@ -1,41 +1,41 @@
 ---
-title: Kendi NuGet akışlarınızı barındırma genel bakış
-description: Yerel olarak veya uzaktan kendi NuGet paket akışları veya galeriler barındırmak için açılır genel bakış.
+title: Kendi NuGet akışlarınızı barındırılmasına genel bakış
+description: Kendi NuGet paket akışlarınızı veya galerinizi yerel olarak veya uzaktan barındırmak için açılan bir genel bakış.
 author: karann-msft
 ms.author: karann
 ms.date: 08/25/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: f05c3a7a51bdc0760097422004cfc4339bf9ee2c
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 737b13be70de9aaa7dec7904d4c2a4ec494ef7b3
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426603"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317548"
 ---
-# <a name="hosting-your-own-nuget-feeds"></a>Barındırma kendi NuGet akışları
+# <a name="hosting-your-own-nuget-feeds"></a>Kendi NuGet akışlarınızı barındırma
 
-Paketleri herkese yapmak yerine, paketleri yalnızca sınırlı bir hedef kitle için kuruluşunuz veya çalışma grubu gibi serbest bırakmak isteyebilirsiniz. Ayrıca, bazı şirketler, hangi üçüncü taraf kitaplıkların geliştiricileri kullanın ve bu nedenle bir sınırlı paket kaynağı nuget.org yerine çizmek için bu geliştiriciler doğrudan sınırlamak isteyebilirsiniz.
+Paketleri genel kullanıma hazır hale getirmek yerine, paketleri yalnızca kuruluşunuz veya çalışma grubunuz gibi sınırlı bir hedef kitleye serbest bırakmak isteyebilirsiniz. Ayrıca, bazı şirketler geliştiricilerin hangi üçüncü taraf kitaplıklarını kullandığını kısıtlamak ve böylece bu geliştiricilerin nuget.org yerine sınırlı bir paket kaynağından çizim yapmak isteyebilir.
 
-Tüm bu amaçlarla NuGet aşağıdaki yollarla özel paket kaynaklarını ayarlamayı destekler:
+NuGet, bu gibi tüm amaçlar için özel paket kaynaklarını aşağıdaki yollarla ayarlamayı destekler:
 
-- Yerel akış: Paketler, ideal olarak kullanarak bir uygun bir ağ dosya paylaşımında, yalnızca yerleştirilir `nuget init` ve `nuget add` hiyerarşik klasör yapısı (NuGet 3.3 +) oluşturmak için. Ayrıntılar için bkz [yerel akışları](../hosting-packages/local-feeds.md).
-- NuGet.Server: Paketler, yerel bir HTTP sunucusu sunulur. Ayrıntılar için bkz [NuGet.Server](../hosting-packages/nuget-server.md).
-- NuGet Galerisi: Paketler, bir sunucu kullanarak Internet üzerinde barındırıldığı [NuGet Galerisi proje](https://github.com/NuGet/NuGetGallery#build-and-run-the-gallery-in-arbitrary-number-easy-steps) (github.com). NuGet Galerisi, kullanıcı yönetimi ve kapsamlı bir web araması yapın ve paketleri nuget.org için benzer ve tarayıcıdaki keşfetmeye sağlayan kullanıcı Arabirimi gibi özellikleri sağlar.
+- Yerel akış: Paketler, bir hiyerarşik klasör yapısı (NuGet 3.3 +) oluşturmak için `nuget init` ve `nuget add` kullanarak ideal bir ağ dosya paylaşımında yer alır. Ayrıntılar için bkz. [Yerel akışlar](../hosting-packages/local-feeds.md).
+- NuGet. Server: Paketler yerel bir HTTP sunucusu üzerinden kullanılabilir hale getirilir. Ayrıntılar için bkz. [NuGet. Server](../hosting-packages/nuget-server.md).
+- NuGet Galerisi: Paketler, [NuGet Galeri projesi](https://github.com/NuGet/NuGetGallery#build-and-run-the-gallery-in-arbitrary-number-easy-steps) (GitHub.com) kullanılarak bir Internet sunucusunda barındırılır. NuGet Galerisi, nuget.org benzer şekilde, tarayıcı içinden paket aramaya ve keşfetmeye izin veren kapsamlı bir Web Kullanıcı arabirimi gibi Kullanıcı yönetimi ve özellikler sağlar.
 
-Aşağıdakiler dahil olmak üzere uzaktan özel akışlarını destekleyen ürünleri barındırma birkaç NuGet vardır:
+Aşağıdakiler de dahil olmak üzere uzak özel akışları destekleyen diğer çeşitli NuGet barındırma ürünleri de mevcuttur:
 
-- [Azure yapılarını](https://www.visualstudio.com/docs/package/nuget/publish), olduğu da kullanılabilir Team Foundation Server 2017 ve üzeri.
+- [Azure Artifacts](https://www.visualstudio.com/docs/package/nuget/publish), Team Foundation Server 2017 ve sonraki sürümlerde de kullanılabilir.
 - [MyGet](http://myget.org)
-- [ProGet](http://inedo.com/proget) Inedo gelen
-- [GitHub paketini kayıt defteri](https://help.github.com/articles/configuring-nuget-for-use-with-github-package-registry)
-- [NuGet sunucusu](http://nugetserver.net/), Inedo topluluk projeden
-- [NuGet sunucusu (açık kaynak)](http://nuget-server.net), Inedo'nın NuGet sunucusu için benzer bir açık kaynak uygulama
-- [LiGet](https://github.com/ai-traders/liget), açık kaynak uygulaması kestrel docker'da çalışan NuGet V2 sunucusu
-- [BaGet](https://github.com/loic-sharma/BaGet), ASP.NET Core üzerine yapılandırılan NuGet V3 sunucusu açık kaynak uygulaması
-- [Sleet](https://github.com/emgarten/sleet), bir açık kaynak NuGet V3 statik Oluşturucu akışı
-- [Artifactory](https://www.jfrog.com/artifactory/) JFrog öğesinden.
-- [Nexus](http://www.sonatype.org/nexus/) Sonatype öğesinden.
-- [TeamCity](https://www.jetbrains.com/teamcity/) JetBrains öğesinden.
+- Inedo 'dan [temin edin](http://inedo.com/proget)
+- [GitHub paket kayıt defteri](https://help.github.com/articles/configuring-nuget-for-use-with-github-package-registry)
+- Inedo 'dan bir topluluk projesi olan [NuGet sunucusu](http://nugetserver.net/)
+- Inedo 'ın NuGet sunucusuna benzer bir açık kaynaklı uygulama olan [NuGet sunucusu (açık kaynak)](http://nuget-server.net)
+- Docker 'da Kestrel üzerinde çalışan NuGet v2 sunucusunun açık kaynaklı bir uygulama olan [Liget](https://github.com/ai-traders/liget)
+- [Baget](https://github.com/loic-sharma/BaGet), NuGet v3 sunucusunun açık kaynaklı ASP.NET Core yerleşik bir uygulamasıdır
+- [](https://github.com/emgarten/sleet)Açık kaynaklı bir NuGet v3 statik akış Oluşturucu olan uyma
+- JFrog 'den [Artifactory](https://www.jfrog.com/artifactory/) .
+- Sonatype 'dan [Nexus](http://www.sonatype.org/nexus/) .
+- JetBrains 'den [TeamCity](https://www.jetbrains.com/teamcity/) .
 
-Paketleri nasıl barındırılan bağımsız olarak, kullanılabilir kaynakları listesine ekleyerek erişim `NuGet.Config`. Bu Visual Studio içinde açıklanan şekilde yapılabilir [paket kaynaklarını](../tools/package-manager-ui.md#package-sources), veya komut satırı kullanarak [ `nuget sources` ](../tools/cli-ref-sources.md). Bir kaynak yolu bir yerel klasör yol adı, bir ağ adı veya bir URL olabilir.
+Paketlerin nasıl barındırıldığından bağımsız olarak, ' deki `NuGet.Config`kullanılabilir kaynaklar listesine ekleyerek bunlara erişebilirsiniz. Bu, [paket kaynakları](../consume-packages/install-use-packages-visual-studio.md#package-sources)' nda veya kullanılarak [`nuget sources`](../reference/cli-reference/cli-ref-sources.md)komut satırından açıklandığı şekilde Visual Studio 'da yapılabilir. Bir kaynağın yolu yerel bir klasör yol adı, ağ adı veya URL olabilir.
