@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: quickstart
-ms.openlocfilehash: 86e71460094de9b799384db83456a68db57647af
-ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
+ms.openlocfilehash: 0fc3b15c6d5ffa93eb6e26660f71cea2286ba77d
+ms.sourcegitcommit: aed04cc04b0902403612de6736a900d41c265afd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68419908"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68821429"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Hızlı Başlangıç: Visual Studio (.NET Standard, yalnızca Windows) kullanarak bir NuGet paketi oluşturma ve yayımlama
 
@@ -67,7 +67,7 @@ namespace AppLogger
     ![Visual Studio projesindeki NuGet paket özellikleri](media/qs_create-vs-01-package-properties.png)
 
     > [!Note]
-    > Genel tüketim için oluşturulmuş paketler için **Etiketler özelliğine özel** dikkat edin, Etiketler başkalarının paketinizi bulmasına ve ne yaptığını anlamasına yardımcı olur.
+    > Genel tüketim için oluşturulmuş paketler için Etiketler özelliğine özel dikkat edin, Etiketler başkalarının paketinizi bulmasına ve ne yaptığını anlamasına yardımcı olur.
 
 1. Paketinize benzersiz bir tanımlayıcı verin ve istediğiniz diğer özellikleri doldurun. Farklı özelliklerin bir açıklaması için bkz. [. nuspec dosya başvurusu](../reference/nuspec.md). Buradaki tüm özellikler, Visual Studio 'nun proje `.nuspec` için oluşturduğu bildirime gider.
 
@@ -99,17 +99,24 @@ namespace AppLogger
     ========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
     ```
 
-### <a name="alternate-option-pack-with-msbuild"></a>Alternatif seçenek: MSBuild ile paket
+### <a name="optional-generate-package-on-build"></a>Seçim Derleme üzerinde paket oluştur
+
+Visual Studio 'Yu, projeyi oluşturduğunuzda NuGet paketini otomatik olarak oluşturacak şekilde yapılandırabilirsiniz.
+
+1. Çözüm Gezgini'nde projeye sağ tıklayıp seçin **özellikleri**.
+
+2. **Paket** sekmesinde **derlemede NuGet paketi oluştur**' u seçin.
+
+   ![Derleme üzerinde otomatik olarak paket oluştur](media/qs_create-vs-05-generate-on-build.png)
+
+> [!NOTE]
+> Paketi otomatik olarak oluşturduğunuzda, paketlenecek süre projenizin derleme süresini arttırır.
+
+### <a name="optional-pack-with-msbuild"></a>MSBuild ile (isteğe bağlı) paket
 
 **Paket** menü komutunun kullanılmasına alternatif olarak, NuGet 4. x + ve MSBuild 15.1 +, proje gerekli paket verilerini `pack` içerdiğinde bir hedefi destekler. Bir komut istemi açın, proje klasörünüze gidin ve aşağıdaki komutu çalıştırın. (MSBuild için gereken tüm yollarla yapılandırıldıklarında, genellikle başlangıç menüsünden "Visual Studio için Geliştirici Komut İstemi" başlatmak istersiniz.)
 
-```cli
-msbuild -t:pack -p:Configuration=Release
-```
-
-Paket daha sonra `bin\Release` klasöründe bulunabilir.
-
-Ek Seçenekler `msbuild -t:pack`için bkz. [NuGet Pack ve geri yükleme MSBuild hedefleri olarak](../reference/msbuild-targets.md#pack-target).
+Daha fazla bilgi için bkz. [MSBuild kullanarak paket oluşturma](../create-packages/creating-a-package-msbuild.md).
 
 ## <a name="publish-the-package"></a>Paketi Yayımla
 

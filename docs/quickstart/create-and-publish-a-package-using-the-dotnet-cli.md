@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: 30a77b427fe0a33b41262c5784045e5a6b10852f
-ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
+ms.openlocfilehash: f663b1b2176a5f0ae5bc6d82873193638e0efdaa
+ms.sourcegitcommit: ba8ad1bd13a4bba3df94374e34e20c425a05af2f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68419989"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68833388"
 ---
 # <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>Hızlı Başlangıç: Paket oluşturma ve yayımlama (DotNet CLı)
 
@@ -26,9 +26,15 @@ ms.locfileid: "68419989"
 
 Paketlemek istediğiniz kod için mevcut bir .NET sınıf kitaplığı projesi kullanabilir veya basit bir tane aşağıdaki gibi oluşturabilirsiniz:
 
-1. Adlı `AppLogger` bir klasör oluşturun ve içine değiştirin.
+1. Adlı `AppLogger`bir klasör oluşturun.
 
-1. Proje için geçerli klasörün `dotnet new classlib`adını kullanan öğesini kullanarak projeyi oluşturun.
+1. Bir komut istemi açın ve `AppLogger` klasöre geçiş yapın.
+
+1. Proje `dotnet new classlib`için geçerli klasörün adını kullanan türü.
+
+   Bu, yeni projeyi oluşturur.
+
+1. Uygulamanın `dotnet run` düzgün şekilde oluşturulduğunu test etmek için kullanın.
 
 ## <a name="add-package-metadata-to-the-project-file"></a>Proje dosyasına paket meta verileri ekleyin
 

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3af29e2f9b09ba5bd82779f9aacf314bd8933436
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: cbe6fd964e88b054b9e2c5c8ead71d1f9090d63c
+ms.sourcegitcommit: 5aa49478dc466c67db5c3edda7c6ce8dcd8ae033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317021"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68817572"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Projeniz için NuGet paketlerini bulma ve değerlendirme
 
@@ -82,13 +82,17 @@ Aynı zamanda, bir NuGet paketinin kullanılması, bunun sağlam ve güvenilir o
 
     ![Bir paketin listeleme sayfasına istatistik yükleme](media/Finding-03-Downloads.png)
 
+- *GitHub kullanımı*: Paket sayfasında, **GitHub kullanım** bölümü, bu pakete bağımlı olan en üst GitHub depolarını listeler. Birçok popüler GitHub depolarının bağımlı olduğu bir paket genellikle daha iyi bir seçenektir.
+
+    ![GitHub kullanımı](media/GitHub-Usage.png)
+
 - *Sürüm geçmişi*: Paket sayfasında, en son güncelleştirme tarihi için **bilgi** ' yi arayın ve **sürüm geçmişini**inceleyin. İyi tutulan bir pakette, son güncelleştirmeler ve zengin bir sürüm geçmişi bulunur. İhmal edilen paketlerin birkaç güncelleştirmesi vardır ve genellikle bir süre güncelleştirilmemiş demektir.
 
     ![Paketin listeleme sayfasında sürüm geçmişi](media/Finding-04-VersionHistory.png)
 
 - *Son yüklemeler*: Paket sayfasında **İstatistikler**altında, **tam istatistikleri görüntüle**' yi seçin. Tüm İstatistikler sayfasında, paketin sürüm numarasına göre son altı haftaya göre yüklemesi gösterilmektedir. Diğer geliştiricilerin etkin şekilde kullandığı bir paket, genellikle daha iyi bir seçenektir.
 
-- *Destek*: Yazar **' ın altındaki**paket sayfasında, yazarın sağladığı destek seçeneklerini görmek için **Proje sitesi** ' ni (varsa) seçin. Adanmış bir siteye sahip bir proje genellikle daha iyi desteklenir.
+- *Destek*: Yazar ' ın altındaki paketsayfasında, yazarın sağladığı destek seçeneklerini görmek için **Proje sitesi** ' ni (varsa) seçin. Adanmış bir siteye sahip bir proje genellikle daha iyi desteklenir.
 
 - *Geliştirici geçmişi*: **sahipler**altındaki paket sayfasında, yayımladıkları diğer paketleri görmek için bir sahip seçin. Birden çok pakete sahip olanlar, işlerini daha sonra desteklemeye devam edememe olasılığı yüksektir.
 
@@ -115,6 +119,7 @@ Paketin içindeki lisans dosyasında yer alan bilgileri şu şekilde okuyabilirs
 1. Şöyle `<license type="file">license\license.txt</license>`bir etiketi olmalıdır. Bu, lisans dosyasının adlandırıldığını `license.txt` ve bu klasörün kökünde de olacak adlı `license` bir klasörün içinde olduğunu gösterir.
 1. Klasöre gidin ve `license.txt` dosyayı açın. `license`
 
+İçinde `.nuspec`lisansı ayarlamaya yönelik MSBuild eşdeğeri için [Lisans ifadesi veya lisans dosyası paketleme](/nuget/reference/msbuild-targets#packing-a-license-expression-or-a-license-file)konusuna göz atın.
 
 ## <a name="search-syntax"></a>Arama söz dizimi
 

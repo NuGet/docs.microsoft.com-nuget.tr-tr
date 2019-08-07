@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8e662194fffc031d0cfc0aa129a5a15b555a4231
-ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
+ms.openlocfilehash: 8403ae38b5d2e907c6f06b162a18cdcd5425565b
+ms.sourcegitcommit: 5aa49478dc466c67db5c3edda7c6ce8dcd8ae033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68420014"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68817528"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet paketi ve geri yükleme MSBuild hedefleri olarak
 
@@ -18,7 +18,7 @@ ms.locfileid: "68420014"
 
 [Packagereference](../consume-packages/package-references-in-project-files.md) biçimi sayesinde, NuGet 4.0 + tüm bildirim meta verilerini ayrı `.nuspec` bir dosya kullanmak yerine doğrudan proje dosyası içinde depolayabilirler.
 
-MSBuild 15.1 + ile NuGet, aşağıda açıklandığı gibi, `pack` ve `restore` hedefleri ile birinci sınıf MSBuild vatandaşlık da vardır. Bu hedefler, diğer herhangi bir MSBuild görevi veya hedefi ile yaptığınız gibi NuGet ile çalışmanıza olanak sağlar. (NuGet 3. x ve öncesi için, bunun yerine NuGet CLı aracılığıyla [paketle](../reference/cli-reference/cli-ref-pack.md) ve [geri yükleme](../reference/cli-reference/cli-ref-restore.md) komutlarını kullanırsınız.)
+MSBuild 15.1 + ile NuGet, aşağıda açıklandığı gibi, `pack` ve `restore` hedefleri ile birinci sınıf MSBuild vatandaşlık da vardır. Bu hedefler, diğer herhangi bir MSBuild görevi veya hedefi ile yaptığınız gibi NuGet ile çalışmanıza olanak sağlar. MSBuild kullanarak bir NuGet paketi oluşturma yönergeleri için bkz. [MSBuild kullanarak NuGet paketi oluşturma](../create-packages/creating-a-package-msbuild.md). (NuGet 3. x ve öncesi için, bunun yerine NuGet CLı aracılığıyla [paketle](../reference/cli-reference/cli-ref-pack.md) ve [geri yükleme](../reference/cli-reference/cli-ref-restore.md) komutlarını kullanırsınız.)
 
 ## <a name="target-build-order"></a>Hedef derleme sırası
 
@@ -50,18 +50,18 @@ Aşağıdaki tabloda, ilk `<PropertyGroup>` düğüm içindeki bir proje dosyas�
 | VersionPrefix | PackageVersionPrefix | empty | PackageVersion ayarı PackageVersionPrefix üzerine yazıyor |
 | VersionSuffix | PackageVersionSuffix | empty | MSBuild 'ten $ (VersionSuffix). PackageVersion ayarı PackageVersionSuffix üzerine yazıyor |
 | Yazarlar | Yazarlar | Geçerli kullanıcının Kullanıcı adı | |
-| lere | Yok | NuSpec içinde yok | |
+| Lere | Yok | NuSpec içinde yok | |
 | Başlık | Başlık | PackageID| |
 | Açıklama | Açıklama | "Paket açıklaması" | |
 | Yaptırımlar | Yaptırımlar | empty | |
 | Requirelicensekabulünü | PackageRequireLicenseAcceptance | false | |
-| Lisan | PackageLicenseExpression | empty | Karşılık gelen`<license type="expression">` |
-| Lisan | PackageLicenseFile | empty | Öğesine `<license type="file">`karşılık gelir. Başvurulan lisans dosyasını açık bir şekilde paketetmeniz gerekebilir. |
+| lisan | PackageLicenseExpression | empty | Karşılık gelen`<license type="expression">` |
+| lisan | PackageLicenseFile | empty | Öğesine `<license type="file">`karşılık gelir. Başvurulan lisans dosyasını açık bir şekilde paketetmeniz gerekebilir. |
 | LicenseUrl | PackageLicenseUrl | empty | `licenseUrl`kullanım dışı bırakılıyor, PackageLicenseExpression veya PackageLicenseFile özelliğini kullanın |
 | ProjectUrl | PackageProjectUrl | empty | |
 | IconUrl | PackageIconUrl | empty | |
 | Etiketler | PackageTags | empty | Etiketler noktalı virgülle ayrılır. |
-| relet 'ler | PackageReleaseNotes | empty | |
+| Relet 'ler | PackageReleaseNotes | empty | |
 | Depo/URL | Depourl 'Si | empty | Kaynak kodu kopyalamak veya almak için kullanılan depo URL 'SI. Örneğinde *https://github.com/NuGet/NuGet.Client.git* |
 | Depo/tür | Repositorytype parametrelerinin sağlanması | empty | Depo türü. Örnekler: *Git*, *TFS*. |
 | Depo/dal | Depodalı | empty | İsteğe bağlı depo dalı bilgileri. Bu özelliğin dahil olması için aynı zamanda bir *Depo-URL* belirtilmelidir. Örnek: *Master* (NuGet 4.7.0 +) |
@@ -79,7 +79,7 @@ Aşağıdaki tabloda, ilk `<PropertyGroup>` düğüm içindeki bir proje dosyas�
 - Açıklama
 - Yaptırımlar
 - PackageRequireLicenseAcceptance
-- developmentDependency
+- DevelopmentDependency
 - PackageLicenseExpression
 - PackageLicenseFile
 - PackageLicenseUrl
@@ -97,7 +97,7 @@ Aşağıdaki tabloda, ilk `<PropertyGroup>` düğüm içindeki bir proje dosyas�
 - Depodalı
 - Kayıt yapma
 - NoPackageAnalysis
-- minClientVersion
+- MinClientVersion
 - IncludeBuildOutput
 - IncludeContentInPack
 - BuildOutputTargetFolder
@@ -329,7 +329,7 @@ Bir nuspec dosyası paketiçin bir *. csproj* dosyası örneği:
 1. Paketleri İndir
 1. Varlıklar dosyası, hedefler ve props yazma
 
-Hedef yalnızca packagereference biçimini kullanan projeler için kullanılabilir.  `restore` Bu, `packages.config` biçimi kullanan projeler **için çalışmaz;** bunun yerine [NuGet geri yüklemeyi](../reference/cli-reference/cli-ref-restore.md) kullanın.
+Hedef yalnızca packagereference biçimini kullanan projeler için kullanılabilir. `restore` Bu, `packages.config` biçimi kullanan projeler için çalışmaz; bunun yerine [NuGet geri yüklemeyi](../reference/cli-reference/cli-ref-restore.md) kullanın.
 
 ### <a name="restore-properties"></a>Özellikleri geri yükle
 

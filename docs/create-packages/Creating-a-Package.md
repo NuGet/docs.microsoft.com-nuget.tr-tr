@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: 894a39e9e67508234295db128928b09da7f468f0
-ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
+ms.openlocfilehash: f33624cf50248d8a137216ed0d725ed88c0defd2
+ms.sourcegitcommit: ba8ad1bd13a4bba3df94374e34e20c425a05af2f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68419822"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68833366"
 ---
 # <a name="create-a-package-using-the-nugetexe-cli"></a>NuGet. exe CLı kullanarak paket oluşturma
 
@@ -39,7 +39,7 @@ Genel amaçlı paketlerin çoğu, diğer geliştiricilerin kendi projelerinde ku
 
 - Benzer şekilde, `Utilities.dll` ne olursa `Utilities.resources.dll`yapın, her ikisi de kendi üzerinde yararlı değildir ve her ikisini de aynı pakete koyun.
 
-Kaynaklar aslında özel bir durumdur. Bir paket projeye yüklendiğinde NuGet otomatik olarak paketin dll 'lerine derleme başvuruları ekler, `.resources.dll` çünkü yerelleştirilmiş uydu derlemeleri oldukları varsayılanlar (bkz.  [yerelleştirilmiş oluşturma paketler](creating-localized-packages.md)). Bu nedenle, başka bir şekilde `.resources.dll` temel paket kodu içeren dosyalar için kullanmaktan kaçının.
+Kaynaklar aslında özel bir durumdur. Bir paket projeye yüklendiğinde NuGet otomatik olarak paketin dll 'lerine derleme başvuruları ekler, `.resources.dll` çünkü yerelleştirilmiş uydu derlemeleri oldukları varsayılanlar (bkz. [yerelleştirilmiş oluşturma paketler](creating-localized-packages.md)). Bu nedenle, başka bir şekilde `.resources.dll` temel paket kodu içeren dosyalar için kullanmaktan kaçının.
 
 Kitaplığınız COM birlikte çalışma derlemelerini içeriyorsa, [com birlikte çalışma Derlemeleriyle paket oluşturma](author-packages-with-com-interop-assemblies.md)' daki ek yönergeleri izleyin.
 
@@ -138,7 +138,7 @@ Aşağıda, özellikleri açıklayan açıklamalar içeren tipik bir ( `.nuspec`
 </package>
 ```
 
-Bağımlılıkları bildirme ve sürüm numaralarını belirtme hakkında ayrıntılar için bkz. [paket sürümü oluşturma](../reference/package-versioning.md). Ayrıca, `include` öğe`dependency` üzerindeki ve `exclude` özniteliklerini kullanarak doğrudan pakette bulunan bağımlılıklardan yüzeylerden yüzey mümkündür. Bkz [. nuspec başvurusu-bağımlılıklar](../reference/nuspec.md#dependencies).
+Bağımlılıkları bildirme ve sürüm numaralarını belirtme hakkında ayrıntılar için bkz. [Packages. config](../reference/packages-config.md) ve [Package sürümü oluşturma](../reference/package-versioning.md). Ayrıca, `include` öğe`dependency` üzerindeki ve `exclude` özniteliklerini kullanarak doğrudan pakette bulunan bağımlılıklardan yüzeylerden yüzey mümkündür. Bkz [. nuspec başvurusu-bağımlılıklar](../reference/nuspec.md#dependencies).
 
 Bildirim bundan oluşturulan pakete eklendiğinden, var olan paketleri inceleyerek istediğiniz sayıda ek örnek bulabilirsiniz. İyi bir kaynak, bilgisayarınızdaki *genel paketler* klasörüdür ve aşağıdaki komut tarafından döndürülen konumudur:
 
@@ -185,7 +185,7 @@ Klasör kuralları aşağıdaki gibidir:
 | zamanları | Mimariye özgü bütünleştirilmiş kod (`.dll`), simge (`.pdb`) ve yerel kaynak (`.pri`) dosyaları | Derlemeler yalnızca çalışma zamanı için başvuru olarak eklenir; diğer dosyalar proje klasörlerine kopyalanır. Karşılık gelen derleme zamanı derlemesini sağlamak için klasörü altında `AnyCPU` `/ref/{tfm}` her zaman karşılık gelen (TFE) özel bütünleştirilmiş kod olmalıdır. Bkz. [birden çok hedef çerçeveyi destekleme](supporting-multiple-target-frameworks.md). |
 | içerik | Rastgele dosyalar | İçerikler proje köküne kopyalanır. **İçerik** klasörünü, son olarak paketi tüketen hedef uygulamanın kökü olarak düşünün. Paketin uygulamanın */Images* klasörüne görüntü eklemesi için, paketin *içerik/görüntüler* klasörüne yerleştirin. |
 | derleme | MSBuild `.targets` ve `.props` dosyalar | Proje dosyasına otomatik olarak eklenmesi veya `project.lock.json` (NuGet 3. x +). |
-| araçlar | Paket Yöneticisi konsolundan erişilebilen PowerShell betikleri ve programları | Klasör, yalnızca Paket Yöneticisi Konsolu `PATH` için ortam değişkenine eklenir ( `PATH` özellikle, proje oluşturulurken MSBuild için ayarlanan as kümesine uygulanmaz).  `tools` |
+| araçlar | Paket Yöneticisi konsolundan erişilebilen PowerShell betikleri ve programları | Klasör, yalnızca Paket Yöneticisi Konsolu `PATH` için ortam değişkenine eklenir ( `PATH` özellikle, proje oluşturulurken MSBuild için ayarlanan as kümesine uygulanmaz). `tools` |
 
 Klasör yapınız herhangi bir sayıda hedef çerçeve için herhangi bir sayıda derleme içerebildiğinden, bu yöntem birden çok çerçeveyi destekleyen paketler oluştururken gereklidir.
 
