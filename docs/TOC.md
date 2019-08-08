@@ -39,7 +39,6 @@
 ## [Sembol paketi oluşturma](create-packages/symbol-packages-snupkg.md)
 ## Gelişmiş görevler
 ### [Birden çok hedef çerçeveyi destekleme](create-packages/supporting-multiple-target-frameworks.md)
-### [MSBuild paketini ve geri yükleme hedeflerini belirtme](reference/msbuild-targets.md)
 ### [Kaynak kodu ve yapılandırma dosyalarını değiştirme](create-packages/source-and-config-file-transformations.md)
 ### [Proje tarafından başvurulan bütünleştirilmiş kodları seçme](create-packages/select-assemblies-referenced-by-projects.md)
 ### [Paket türünü ayarlama](create-packages/set-package-type.md)
@@ -71,6 +70,7 @@
 ## [.nuspec](reference/nuspec.md)
 ## [nuget.config file](reference/nuget-config-file.md)
 ## [Hedef çerçeveler](reference/target-frameworks.md)
+## [Paketleme ve MSBuild hedefi olarak geri yükleme](reference/msbuild-targets.md)
 ## [dotnet CLI](reference/dotnet-Commands.md)
 ## [nuget.exe CLI başvurusu](reference/nuget-exe-cli-reference.md)
 ### [add](reference/cli-reference/cli-ref-add.md)

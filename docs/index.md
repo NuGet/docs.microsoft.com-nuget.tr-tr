@@ -7,12 +7,12 @@ ms.date: 02/12/2018
 ms.topic: hub-page
 layout: HubPage
 hide_bc: true
-ms.openlocfilehash: cdd032a5a7268a7ffddff5141229fd021ec275a5
-ms.sourcegitcommit: 5aa49478dc466c67db5c3edda7c6ce8dcd8ae033
+ms.openlocfilehash: 8f4fca447d61b6f435399a24ef4151604d43291d
+ms.sourcegitcommit: ba8ad1bd13a4bba3df94374e34e20c425a05af2f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 08/06/2019
-ms.locfileid: "68817535"
+ms.locfileid: "68833355"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -122,13 +122,16 @@ ms.locfileid: "68817535"
                             <a href="create-packages/overview-and-workflow.md">İş akışı (genel bakış)</a>
                         </p>
                         <p>
-                            <a href="create-packages/creating-a-package-dotnet-cli.md">Paket oluşturma - dotnet CLI</a>
+                            <a href="quickstart/create-and-publish-a-package-using-visual-studio.md">Visual Studio kullanma</a>
                         </p>
                         <p>
-                            <a href="create-packages/creating-a-package.md">Paket oluşturma - nuget.exe CLI</a>
+                            <a href="create-packages/creating-a-package-dotnet-cli.md">dotnet CLI kullanma</a>
                         </p>
                         <p>
-                            <a href="create-packages/creating-a-package.md">Paket oluşturma - MSBuild</a>
+                            <a href="create-packages/creating-a-package.md">nuget.exe CLI kullanma</a>
+                        </p>
+                        <p>
+                            <a href="create-packages/creating-a-package.md">MSBuild kullanma</a>
                         </p>
                         <p>
                             <a href="create-packages/multiple-target-frameworks-project-file.md">Birden çok hedef çerçeveyi destekleme</a>
@@ -210,6 +213,8 @@ ms.locfileid: "68817535"
                         <p>
                             <a href="consume-packages/package-references-in-project-files.md">Paket başvuruları</a>
                         </p>
+                        <p>
+                            <a href="reference/msbuild-targets.md">Paketleme ve MSBuild hedefi olarak geri yükleme</a>
                         </p>
                         <p>
                             <a href="reference/nuspec.md">.nuspec</a>
