@@ -5,16 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: conceptual
-ms.openlocfilehash: 32b01e6066cf60f7a0942508e640fdd5658b4444
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: bc077220e05b14180baac9611fda9234675ad640
+ms.sourcegitcommit: e763d9549cee3b6254ec2d6382baccb44433d42c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68316974"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68860534"
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>Paketleri yeniden yükleme ve güncelleştirme
 
 Bir paketi [yeniden yüklemek için](#when-to-reinstall-a-package)aşağıda açıklanan bazı durumlar vardır. Bu, bir pakete yapılan başvuruların bir Visual Studio projesi içinde bozulmasına neden olabilir. Bu durumlarda, paketin aynı sürümünün kaldırılması ve yeniden yüklenmesi bu başvuruları çalışma sırasına geri yükler. Bir paketin güncelleştirilmesi, genellikle bir paketi çalışma sırasına geri yükleyen güncelleştirilmiş bir sürümü yükleme anlamına gelir.
+
+Visual Studio 'da Paket Yöneticisi konsolu paketleri güncelleştirmek ve yeniden yüklemek için birçok esnek seçenek sağlar.
 
 Paketlerin güncelleştirilmesi ve yeniden yüklenmesi şu şekilde gerçekleştirilir:
 
@@ -25,7 +27,7 @@ Paketlerin güncelleştirilmesi ve yeniden yüklenmesi şu şekilde gerçekleşt
 | nuget.exe CLI | `nuget update`komutundaki | Tüm paketler için paket klasörünü silip çalıştırın `nuget install`. Tek bir paket için paket klasörünü silin ve aynısını yeniden yüklemek `nuget install <id>` için kullanın. |
 
 > [!NOTE]
-> DotNet CLı için eşdeğer yordam gerekli değildir. Benzer bir senaryoda, [DotNet CLI ile paketleri geri yükleyebilirsiniz](../consume-packages/install-use-packages-dotnet-cli.md#restore-packages).
+> DotNet CLı için eşdeğer yordam gerekli değildir. Benzer bir senaryoda, [DotNet CLI ile paketleri geri yükleyebilirsiniz](package-restore.md#restore-using-the-dotnet-cli).
 
 Bu makalede:
 
@@ -61,7 +63,7 @@ Her durumda, [paket sürümü oluşturma](../reference/package-versioning.md#ver
 
 ## <a name="using-update-package"></a>Update-Package kullanma
 
-Aşağıda açıklanan [hususlar göz önünde bulundurmanız](#considerations) , Visual Studio Paket Yöneticisi konsolundaki [Update-Package komutunu](../reference/ps-reference/ps-ref-update-package.md) kullanarak herhangi bir paketi kolayca yeniden yükleyebilirsiniz (**Araçlar** > **NuGet Paket Yöneticisi**  >  **Paket Yöneticisi konsolu**):
+Aşağıda açıklanan [hususlar göz önünde bulundurmanız](#considerations) , Visual Studio Paket Yöneticisi konsolundaki [Update-Package komutunu](../reference/ps-reference/ps-ref-update-package.md) kullanarak herhangi bir paketi kolayca yeniden yükleyebilirsiniz (**Araçlar** > **NuGet Paket Yöneticisi**  >  **Paket Yöneticisi konsolu**).
 
 ```ps
 Update-Package -Id <package_name> –reinstall

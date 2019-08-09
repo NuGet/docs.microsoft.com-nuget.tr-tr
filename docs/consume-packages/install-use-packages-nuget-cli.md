@@ -5,12 +5,12 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/03/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9eefed6f2c1a362f27c4a5d33d07645d743379fa
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 9ef990c16cca62a1fbad25ff1582bfa543135fab
+ms.sourcegitcommit: e763d9549cee3b6254ec2d6382baccb44433d42c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317741"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68860574"
 ---
 # <a name="manage-packages-using-the-nugetexe-cli"></a>NuGet. exe CLı kullanarak paketleri yönetme
 
@@ -84,7 +84,7 @@ Paketleri yeniden yüklemek istiyorsanız `restore` veya `install` komutunu kull
 nuget list -Source <source>
 ```
 
-Örneğin, *paketler klasöründeki paketleri* listeleyin.
+Örneğin, paketler klasöründeki paketleri listeleyin.
 
 ```cli
 nuget list -Source C:\Users\username\source\repos\MyProject\packages
@@ -110,14 +110,4 @@ nuget update
 
 ## <a name="restore-packages"></a>Paketleri geri yükle
 
-*Paketler* klasöründe eksik olan paketleri indiren ve yükleyen [restore](../reference/cli-reference/cli-ref-restore.md) komutunu kullanın.
-
-`restore`yalnızca paketleri diske ekler ancak projenin bağımlılıklarını değiştirmez. Proje bağımlılıklarını geri yüklemek için, `packages.config`öğesini değiştirin, sonra `restore` komutunu kullanın.
-
-Diğer `nuget.exe` CLI komutlarında olduğu gibi, önce bir komut satırını açın ve proje dosyanızı içeren dizine geçiş yapın.
-
-Paketini kullanarak `restore`geri yüklemek için:
-
-```cli
-nuget restore MySolution.sln
-```
+[!INCLUDE [restore-nuget-exe-cli](includes/restore-nuget-exe-cli.md)]

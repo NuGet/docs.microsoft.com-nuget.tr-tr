@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: a0db6dc95ffa5ad73741ae53a6be9d6f937c1dbf
-ms.sourcegitcommit: ba8ad1bd13a4bba3df94374e34e20c425a05af2f
+ms.openlocfilehash: 92b42f0a6133565844d0b6df2cb50770793055ec
+ms.sourcegitcommit: e763d9549cee3b6254ec2d6382baccb44433d42c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68833234"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68860628"
 ---
 # <a name="create-a-nuget-package-using-msbuild"></a>MSBuild kullanarak bir NuGet paketi oluşturma
 
@@ -105,7 +105,7 @@ SDK olmayan bir proje ve PackageReference ile MSBuild kullanıyorsanız, projeni
 
 Projeden bir NuGet paketi (bir `.nupkg` dosya) oluşturmak için `msbuild -t:pack` komutunu çalıştırın, bu da projeyi otomatik olarak oluşturur:
 
-Geliştirici komut isteminde aşağıdaki komutu yazın:
+Visual Studio için geliştirici komut isteminde aşağıdaki komutu yazın:
 
 ```cmd
 # Uses the project file in the current folder by default
