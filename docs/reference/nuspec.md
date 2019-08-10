@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 5b9be55b593890127d8fe0ad1a9357b89527a09a
-ms.sourcegitcommit: f9e39ff9ca19ba4a26e52b8a5e01e18eb0de5387
+ms.openlocfilehash: 9c608c5455bc83874b670b7f2b9a0ceeeafdc8e5
+ms.sourcegitcommit: dec3fa44547c6a00d0ae6cbb6c64cdc65660d808
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68433367"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912580"
 ---
 # <a name="nuspec-reference"></a>. nuspec başvurusu
 
@@ -94,7 +94,7 @@ Genellikle kullanıcı arabiriminde gösterildiği gibi, paketin ana sayfası i�
 
 Genellikle Unuget.org gibi gösterilen paket lisansının URL 'SI.
 
-#### <a name="license"></a>Lisan
+#### <a name="license"></a>lisan
 Bir SPDX lisans ifadesi veya paket içindeki bir lisans dosyasının yolu, genellikle Usıs nuget.org gibidir. Paketi MıT veya BSD-2 yan tümcesi gibi ortak bir lisans altında lisansladıysanız, ilişkili [Spdx lisans tanımlayıcısını](https://spdx.org/licenses/)kullanın. Örneğin:
 
 `<license type="expression">MIT</license>`
@@ -293,7 +293,8 @@ Aşağıdaki satırlar aynı paketlere `contentFiles` `PackageA` `build` `Packag
 </dependencies>
 ```
 
-Not: `.nuspec` Kullanarak `.nuspec` birprojedenoluştururken,buprojedebulunanbağımlılıklarotomatikolarakeldeedilendosyayaeklenir.`nuget spec`
+> [!Important]
+> `.nuspec` Kullanarak `.nuspec` birprojedenoluştururken,buprojedevarolanbağımlılıklareldeedilendosyayaotomatikolarakeklenmez.`nuget spec` Bunun yerine, `nuget pack myproject.csproj`öğesini kullanın ve oluşturulan *. nupkg* dosyasının içinden *. nuspec* dosyasını alın. Bu *. nuspec* , bağımlılıkları içerir.
 
 ### <a name="dependency-groups"></a>Bağımlılık grupları
 
@@ -400,7 +401,7 @@ Aşağıdaki örnekte, tüm hedef çerçeveler `System.Net` için bir başvuru v
 [Paket oluşturma](../create-packages/creating-a-package.md)bölümünde açıklanan kuralları izlerseniz, `.nuspec` dosyadaki dosyaların listesini açıkça belirtmeniz gerekmez. Komut `nuget pack` , gerekli dosyaları otomatik olarak seçer.
 
 > [!Important]
-> Bir paket projeye yüklendiğinde NuGet otomatik olarak paketin dll 'lerine derleme başvuruları `.resources.dll` *ekler, çünkü* bu, yerelleştirilmiş uydu derlemeleri oldukları varsayılacaktır. Bu nedenle, başka bir şekilde `.resources.dll` temel paket kodu içeren dosyalar için kullanmaktan kaçının.
+> Bir paket projeye yüklendiğinde NuGet otomatik olarak paketin dll 'lerine derleme başvuruları ekler, `.resources.dll` çünkü bu, yerelleştirilmiş uydu derlemeleri oldukları varsayılacaktır. Bu nedenle, başka bir şekilde `.resources.dll` temel paket kodu içeren dosyalar için kullanmaktan kaçının.
 
 Bu otomatik davranışı atlamak ve bir pakete hangi dosyaların ekleneceğini açıkça denetlemek `<files>` için, bir öğeyi bir `<package>` alt öğesi `<metadata>`(ve eşdüzey) olarak yerleştirin ve her bir dosyayı ayrı `<file>` bir öğeyle tanımlayarak. Örneğin:
 
