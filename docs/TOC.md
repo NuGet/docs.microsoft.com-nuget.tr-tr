@@ -18,7 +18,7 @@
 ### [Paket Yöneticisi Konsolu (PowerShell)](consume-packages/install-use-packages-powershell.md)
 ## NuGet’i yapılandırma
 ### Paket geri yükleme seçenekleri
-#### [Geri yükleme seçenekleri](consume-packages/package-restore.md)
+#### [Paketleri geri yükleme](consume-packages/package-restore.md)
 #### [Sorun giderme](consume-packages/package-restore-troubleshooting.md)
 ### [Paketleri yeniden yükleme ve güncelleştirme](consume-packages/reinstalling-and-updating-packages.md)
 ### [Genel paketleri ve önbellek klasörlerini yönetme](consume-packages/managing-the-global-packages-and-cache-folders.md)
