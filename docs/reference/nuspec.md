@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 9c608c5455bc83874b670b7f2b9a0ceeeafdc8e5
-ms.sourcegitcommit: dec3fa44547c6a00d0ae6cbb6c64cdc65660d808
+ms.openlocfilehash: 67bc95135f746c4a4685773808756df399cbf01e
+ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68912580"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959696"
 ---
 # <a name="nuspec-reference"></a>. nuspec başvurusu
 
@@ -184,9 +184,6 @@ Dört isteğe bağlı öznitelikten oluşan depo meta verileri `type` : `url` ve
 </package>
 ```
 
-#### <a name="minclientversion"></a>minClientVersion
-NuGet. exe ve Visual Studio Paket Yöneticisi tarafından zorlanan, bu paketi yükleyesağlayan NuGet istemcisinin en düşük sürümünü belirtir. Bu, paket, NuGet istemcisinin belirli bir sürümünde eklenmiş olan `.nuspec` dosyanın belirli özelliklerine bağlı olduğunda kullanılır. Örneğin, `developmentDependency` özniteliğini kullanan bir paket için `minClientVersion`"2,8" belirtmelidir. Benzer şekilde, `contentFiles` öğesini kullanan bir paket (sonraki bölüme bakın) "3,3" `minClientVersion` olarak ayarlanmalıdır. Ayrıca, 2,5 ' den önceki NuGet istemcileri bu bayrağı tanımadığı için, *her zaman* ne `minClientVersion` içermesi gerektiğine bakılmaksızın paketi yüklemeyi reddeder.
-
 #### <a name="title"></a>title
 Paketin bazı Kullanıcı arabiriminde kullanılabilen, okunabilir bir başlığı. (nuget.org ve Visual Studio 'da Paket Yöneticisi başlık gösterme)
 
@@ -204,6 +201,29 @@ Paketin bağımlılıklarını belirten sıfır veya daha `<dependency>` fazla �
 *(3.3 +)* Tüketim projesinde içerilecek `<files>` içerik dosyalarını tanımlayan öğelerin koleksiyonu. Bu dosyalar, proje sistemi içinde nasıl kullanılması gerektiğini betimleyen bir öznitelikler kümesiyle belirtilmiştir. Aşağıdaki [pakete dahil edilecek dosyaları belirtme](#specifying-files-to-include-in-the-package) bölümüne bakın.
 #### <a name="files"></a>dosyaları 
 `<metadata>` `<files>` `<metadata>` `<contentFiles>` Düğüm, pakete dahil edilecek derleme ve içerik dosyalarını belirtmek için eşdüzey öğesi olarak bir düğüm ve altında bir alt öğe içerebilir. `<package>` Ayrıntılar için bu konunun ilerleyen kısımlarında [derleme dosyalarını](#including-assembly-files) ve [içerik dosyalarını](#including-content-files) dahil etme bölümüne bakın.
+
+### <a name="metadata-attributes"></a>meta veri öznitelikleri
+
+#### <a name="minclientversion"></a>minClientVersion
+NuGet. exe ve Visual Studio Paket Yöneticisi tarafından zorlanan, bu paketi yükleyesağlayan NuGet istemcisinin en düşük sürümünü belirtir. Bu, paket, NuGet istemcisinin belirli bir sürümünde eklenmiş olan `.nuspec` dosyanın belirli özelliklerine bağlı olduğunda kullanılır. Örneğin, `developmentDependency` özniteliğini kullanan bir paket için `minClientVersion`"2,8" belirtmelidir. Benzer şekilde, `contentFiles` öğesini kullanan bir paket (sonraki bölüme bakın) "3,3" `minClientVersion` olarak ayarlanmalıdır. Ayrıca, 2,5 ' den önceki NuGet istemcileri bu bayrağı tanımadığı için, *her zaman* ne `minClientVersion` içermesi gerektiğine bakılmaksızın paketi yüklemeyi reddeder.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/01/nuspec.xsd">
+    <metadata minClientVersion="100.0.0.1">
+        <id>dasdas</id>
+        <version>2.0.0</version>
+        <title />
+        <authors>dsadas</authors>
+        <owners />
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>My package description.</description>
+    </metadata>
+    <files>
+        <file src="content\one.txt" target="content\one.txt" />
+    </files>
+</package>
+```
 
 ## <a name="replacement-tokens"></a>Değiştirme belirteçleri
 
@@ -261,7 +281,7 @@ Belirteçler, [derleme dosyalarını](#including-assembly-files) ve [içerik dos
 | Öznitelik | Açıklama |
 | --- | --- |
 | `id` | Istenir "EntityFramework" ve "NUnit" gibi bağımlılığın paket KIMLIĞI, nuget.org paketinin adı bir paket sayfasında gösterilmektedir. |
-| `version` | Istenir Bağımlılık olarak kabul edilebilir sürüm aralığı. Tam sözdizimi için [paket sürümü oluşturma](../reference/package-versioning.md#version-ranges-and-wildcards) bölümüne bakın. |
+| `version` | Istenir Bağımlılık olarak kabul edilebilir sürüm aralığı. Tam sözdizimi için [paket sürümü oluşturma](../reference/package-versioning.md#version-ranges-and-wildcards) bölümüne bakın. Joker karakter (kayan) sürümleri desteklenmez. |
 | include | Son pakete dahil edilecek bağımlılığı belirten, etiketleri ekle/çıkar (aşağıya bakın) listesi. Varsayılan değer `all` şeklindedir. |
 | exclude | Son pakette hariç tutulacak bağımlılığı belirten, etiketleri dahil et/hariç tut (aşağıya bakın) listesi. Varsayılan değer `build,analyzers` , üzerine yazılabilir. Ancak `content/ ContentFiles` , üzerine yazılabilir olmayan son pakette da örtük olarak hariç tutulur. İle belirtilen Etiketler `exclude` , ile `include`belirtilen değerlere göre önceliğe sahip olacak şekilde belirlenir. Örneğin, `include="runtime, compile" exclude="compile"` ile `include="runtime"`aynıdır. |
 
@@ -318,8 +338,8 @@ Aşağıdaki örnek, `<group>` öğesinin farklı çeşitlemelerini göstermekte
     </group>
 
     <group targetFramework="net40">
-        <dependency id="jQuery" />
-        <dependency id="WebActivator" />
+        <dependency id="jQuery" version="1.6.2" />
+        <dependency id="WebActivator" version="1.4.4" />
     </group>
 
     <group targetFramework="sl30">
@@ -626,7 +646,7 @@ Bu dosyalar, proje sistemi içinde nasıl kullanılması gerektiğini betimleyen
 
 | Öznitelik | Açıklama |
 | --- | --- |
-| **include** | Istenir `exclude` Özniteliği tarafından belirtilen Dışlamalar ile ilgili olarak içerilecek dosyanın veya dosyaların konumu. Mutlak bir yol belirtilmediği takdirde yol `.nuspec` dosyayla ilişkilidir. Joker karaktere `*` izin verilir ve çift joker `**` karakter özyinelemeli bir klasör aramasını ifade etmenizi gerektirir. |
+| **include** | Istenir `exclude` Özniteliği tarafından belirtilen Dışlamalar ile ilgili olarak içerilecek dosyanın veya dosyaların konumu. Mutlak bir yol belirtilmediği takdirde yol `contentFiles` klasöre göre değişir. Joker karaktere `*` izin verilir ve çift joker `**` karakter özyinelemeli bir klasör aramasını ifade etmenizi gerektirir. |
 | **amaz** | `src` Konumdan hariç tutulacak dosyaların veya dosya desenlerinin noktalı virgülle ayrılmış listesi. Joker karaktere `*` izin verilir ve çift joker `**` karakter özyinelemeli bir klasör aramasını ifade etmenizi gerektirir. |
 | **buildAction** | ,,, `Content`Vb. gibi MSBuild `None` `Embedded Resource` `Compile`için içerik öğesine atanacak yapı eylemi. Varsayılan, `Compile` değeridir. |
 | **copyToOutput** | İçerik öğelerinin derleme (veya yayımlama) çıkış klasörüne kopyalanıp kopyalanmayacağını gösteren bir Boole değeri. Varsayılan olarak yanlıştır. |

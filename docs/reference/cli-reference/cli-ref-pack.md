@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 0e12944bdd5d43b8b9e84908be480a5249dd924f
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: cab56cb87f46335f9fdebdbc1649fead16459877
+ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68328302"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959733"
 ---
 # <a name="pack-command-nuget-cli"></a>Pack komutu (NuGet CLı)
 
 **Uygulama hedefi:** paket oluşturma &bullet; **Desteklenen sürümler:** 2.7+
 
-Belirtilen `.nuspec` veya proje dosyasını temel alan bir NuGet paketi oluşturur. Komut (bkz. [DotNet komutları](../dotnet-Commands.md)) ve `msbuild -t:pack` (bkz. [MSBuild hedefleri](../msbuild-targets.md)), alternatifler olarak kullanılabilir. `dotnet pack`
+Belirtilen [. nuspec](../nuspec.md) veya proje dosyasını temel alan bir NuGet paketi oluşturur. Komut (bkz. [DotNet komutları](../dotnet-Commands.md)) ve `msbuild -t:pack` (bkz. [MSBuild hedefleri](../msbuild-targets.md)), alternatifler olarak kullanılabilir. `dotnet pack`
 
 > [!Important]
 > Mono bölümünde proje dosyasından bir paket oluşturmak desteklenmez. NuGet. exe Windows yol adları 'in kendisini dönüştürmediğinden, `.nuspec` dosyadaki yerel olmayan yolları UNIX stili yollarla da ayarlamanız gerekir.
@@ -33,7 +33,7 @@ Burada `<nuspecPath>` veya proje dosyasını sırasıyla belirtin.`<projectPath>
 
 | Seçenek | Açıklama |
 | --- | --- |
-| BasePath | `.nuspec` Dosyada tanımlanan dosyaların temel yolunu ayarlar. |
+| BasePath | [. Nuspec](../nuspec.md) dosyasında tanımlanan dosyaların temel yolunu ayarlar. |
 | Yapı | Paketi oluşturmadan önce projenin oluşturulması gerektiğini belirtir. |
 | Amaz | Bir paket oluştururken dışlanacak bir veya daha fazla joker karakter deseni belirtir. Birden fazla model belirtmek için-exclude bayrağını tekrarlayın. Aşağıdaki örneğe bakın. |
 | Excludeemptydizinler | Paketi oluştururken boş dizinlerin eklenmesini engeller. |
@@ -41,7 +41,7 @@ Burada `<nuspecPath>` veya proje dosyasını sırasıyla belirtin.`<projectPath>
 | ConfigFile | Paket komutu için yapılandırma dosyasını belirtin. |
 | Help | Komut için yardım bilgilerini görüntüler. |
 | IncludeReferencedProjects | Oluşturulan paketin, bağımlılık olarak veya paketin parçası olarak başvurulan projeleri içermesi gerektiğini gösterir. Başvurulan bir proje, projeyle aynı ada `.nuspec` sahip karşılık gelen bir dosya içeriyorsa, bu başvurulan proje bir bağımlılık olarak eklenir. Aksi takdirde, başvurulan proje, paketin parçası olarak eklenir. |
-| minClientVersion | Oluşturulan paket için *Minclientversion* özniteliğini ayarlayın. Bu değer, `.nuspec` dosyadaki var olan *minclientversion* özniteliğinin (varsa) değerini geçersiz kılar. |
+| MinClientVersion | Oluşturulan paket için *Minclientversion* özniteliğini ayarlayın. Bu değer, `.nuspec` dosyadaki var olan *minclientversion* özniteliğinin (varsa) değerini geçersiz kılar. |
 | MSBuildPath | *(4.0 +)* Komutuyla birlikte kullanılacak MSBuild 'in yolunu belirtir `-MSBuildVersion`. |
 | MSBuildVersion | *(3.2 +)* Bu komutla kullanılacak MSBuild sürümünü belirtir. Desteklenen değerler şunlardır 4, 12, 14, 15,1, 15,3, 15,4, 15,5, 15,6, 15,7, 15,8, 15,9. Varsayılan olarak, yolunuzda MSBuild çekilir, aksi takdirde en yüksek MSBuild 'in yüklü sürümü varsayılan olarak ayarlanır. |
 | NoDefaultExcludes | , `.svn` Ve`.gitignore`gibi bir noktayla başlayan NuGet paket dosyalarının ve dosyalarının ve klasörlerinin varsayılan dışlamasını engeller. |

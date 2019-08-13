@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8403ae38b5d2e907c6f06b162a18cdcd5425565b
-ms.sourcegitcommit: 5aa49478dc466c67db5c3edda7c6ce8dcd8ae033
+ms.openlocfilehash: d8d1b2ef0185381d16c1bb73035588fe90bcfd14
+ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68817528"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959686"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet paketi ve geri yükleme MSBuild hedefleri olarak
 
@@ -34,6 +34,9 @@ MSBuild 15.1 + ile NuGet, aşağıda açıklandığı gibi, `pack` ve `restore` 
 ```
 
 Benzer şekilde, MSBuild görevinde bir MSBuild görevi yazabilir, kendi hedefini yazabilir ve NuGet özelliklerini kullanabilirsiniz.
+
+> [!NOTE]
+> `$(OutputPath)`görelidir ve bu komutu proje kökünden çalıştırdığınız için bekliyor.
 
 ## <a name="pack-target"></a>paket hedefi
 

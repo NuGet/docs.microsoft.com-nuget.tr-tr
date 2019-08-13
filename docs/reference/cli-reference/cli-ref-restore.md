@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 82113d460f7f5ff467b0a0552cc49283de95de25
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 211f24ff67c06da00d6a014e679cc422d493d6d5
+ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68328296"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959738"
 ---
 # <a name="restore-command-nuget-cli"></a>restore komutu (NuGet CLı)
 
@@ -26,7 +26,7 @@ Mac OSX ve Linux 'ta, mono üzerinde CLı ile, paketleri geri yükleme, PackageR
 nuget restore <projectPath> [options]
 ```
 
-bir çözümün`packages.config` veya dosyanın konumunu belirtir.`<projectPath>` Davranış ayrıntıları [için aşağıdaki açıklamalara](#remarks) bakın.
+bir çözümün`packages.config` veya dosyanın konumunu belirtir.`<projectPath>` Davranış [](#remarks) ayrıntıları için aşağıdaki açıklamalara bakın.
 
 ## <a name="options"></a>Seçenekler
 
@@ -35,7 +35,7 @@ bir çözümün`packages.config` veya dosyanın konumunu belirtir.`<projectPath>
 | ConfigFile | Uygulanacak NuGet yapılandırma dosyası. Belirtilmemişse, `%AppData%\NuGet\NuGet.Config` (Windows) veya `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) kullanılır.|
 | DirectDownload | *(4.0 +)* Herhangi bir ikili dosya veya meta veri ile önbellekleri doldurmadan paketleri doğrudan indirir. |
 | DisableParallelProcessing | Birden çok paketin paralel olarak geri yüklenmesini devre dışı bırakır. |
-| FallbackSource | *(3.2 +)* Paketin birincil veya varsayılan kaynakta bulunamaması durumunda fallyedekler olarak kullanılacak paket kaynaklarının bir listesi. |
+| FallbackSource | *(3.2 +)* Paketin birincil veya varsayılan kaynakta bulunamaması durumunda fallyedekler olarak kullanılacak paket kaynaklarının bir listesi. Liste girdilerini ayırmak için noktalı virgül kullanın. |
 | ForceEnglishOutput | *(3,5 +)* NuGet. exe ' yi sabit, Ingilizce tabanlı bir kültür kullanarak çalışmaya zorlar. |
 | Help | Komut için yardım bilgilerini görüntüler. |
 | MSBuildPath | *(4.0 +)* Komutuyla birlikte kullanılacak MSBuild 'in yolunu belirtir `-MSBuildVersion`. |
@@ -49,7 +49,7 @@ bir çözümün`packages.config` veya dosyanın konumunu belirtir.`<projectPath>
 | özyinelemeli | *(4.0 +)* UWP ve .NET Core projeleri için tüm başvuru projelerini geri yükler. Kullanılarak `packages.config`projeler için geçerlidir. |
 | Requireonayı | Paketleri indirmeden ve yüklemeden önce paketlerin geri yükleme işleminin etkinleştirildiğini doğrular. Ayrıntılar için bkz. [paket geri yükleme](../../consume-packages/package-restore.md). |
 | SolutionDirectory | Çözüm klasörünü belirtir. Bir çözümün paketleri geri yüklenirken geçerli değildir. Veya `packages.config` `PackagesDirectory` kullanılmamışsa bir dosyayla geri yüklenirken gereklidir. `OutputDirectory` |
-| Source | Geri yükleme için kullanılacak paket kaynaklarının (URL 'Ler olarak) listesini belirtir. Atlanırsa, komut yapılandırma dosyalarında belirtilen kaynakları kullanır, bkz. [NuGet davranışını yapılandırma](../../consume-packages/configuring-nuget-behavior.md). |
+| Source | Geri yükleme için kullanılacak paket kaynaklarının (URL 'Ler olarak) listesini belirtir. Atlanırsa, komut yapılandırma dosyalarında belirtilen kaynakları kullanır, bkz. [NuGet davranışını yapılandırma](../../consume-packages/configuring-nuget-behavior.md). Liste girdilerini ayırmak için noktalı virgül kullanın. |
 | Verbosity | Çıktıda görünen ayrıntı miktarını belirtir: *normal*, *sessiz*, *ayrıntılı*. |
 
 Ayrıca bkz. [ortam değişkenleri](cli-ref-environment-variables.md)
