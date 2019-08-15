@@ -3,36 +3,20 @@ title: NuGet. config dosyası başvurusu
 description: Config, Bindingyönlendirmeler, Packageresist, Solution ve packageSource bölümlerini içeren NuGet. config dosyası başvurusu.
 author: karann-msft
 ms.author: karann
-ms.date: 10/25/2017
+ms.date: 08/13/2019
 ms.topic: reference
-ms.openlocfilehash: b03bb8da0191a679671e5898ac70fff2024d52f2
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: a2955617b899bfadab42d1ae98dd20c8fc6ddca9
+ms.sourcegitcommit: fc1b716afda999148eb06d62beedb350643eb346
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317216"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69020046"
 ---
 # <a name="nugetconfig-reference"></a>NuGet. config başvurusu
 
 NuGet davranışı, [yaygın NuGet yapılandırmalarında](../consume-packages/configuring-nuget-behavior.md)açıklandığı gibi `NuGet.Config` farklı dosyalardaki ayarlarla denetlenir.
 
 `nuget.config`, daha sonra bu konuda açıklanan bölüm öğelerini içeren `<configuration>` üst düzey bir düğüm içeren bir XML dosyasıdır. Her bölüm sıfır veya daha fazla öğe içerir. [Örnekler yapılandırma dosyasına](#example-config-file)bakın. Ayar adları büyük/küçük harfe duyarlıdır ve değerler [ortam değişkenlerini](#using-environment-variables)kullanabilir.
-
-Bu konuda:
-
-- [yapılandırma bölümü](#config-section)
-- [Bindingyönlendirmeler bölümü](#bindingredirects-section)
-- [Packageresesme bölümü](#packagerestore-section)
-- [çözüm bölümü](#solution-section)
-- [Paket kaynağı bölümleri](#package-source-sections):
-  - [packagesonak](#packagesources)
-  - [packageSourceCredentials](#packagesourcecredentials)
-  - [apikeys](#apikeys)
-  - [disabledpackagesonak](#disabledpackagesources)
-  - [activePackageSource](#activepackagesource)
-- [trustedSigners bölümü](#trustedsigners-section)
-- [Ortam değişkenlerini kullanma](#using-environment-variables)
-- [Örnek yapılandırma dosyası](#example-config-file)
 
 <a name="dependencyVersion"></a>
 <a name="globalPackagesFolder"></a>
@@ -88,7 +72,7 @@ Derlemeler sırasında paket geri yüklemeyi denetler.
 
 | Anahtar | Değer |
 | --- | --- |
-| Etkinletir | NuGet 'in otomatik geri yükleme yapıp yapamadığını gösteren bir Boole değeri. Ayrıca, `EnableNuGetPackageRestore` yapılandırma dosyasında bu anahtarı ayarlamak `True` yerine, ortam değişkenini bir değeriyle ayarlayabilirsiniz. |
+| etkinletir | NuGet 'in otomatik geri yükleme yapıp yapamadığını gösteren bir Boole değeri. Ayrıca, `EnableNuGetPackageRestore` yapılandırma dosyasında bu anahtarı ayarlamak `True` yerine, ortam değişkenini bir değeriyle ayarlayabilirsiniz. |
 | otomatik | Bir derleme sırasında NuGet 'in eksik paketleri denetleyip denetmeyeceğini belirten bir Boole değeri. |
 
 **Örnek**:
@@ -240,6 +224,7 @@ Komutuyla ayarlanan API anahtarı kimlik doğrulaması kullanan kaynaklar için 
     <add key="All" value="(Aggregate source)" />
 </activePackageSource>
 ```
+
 ## <a name="trustedsigners-section"></a>trustedSigners bölümü
 
 Yükleme veya geri yükleme sırasında pakete izin vermek için kullanılan güvenilen İmzalayanları depolar. Kullanıcı `signatureValidationMode` öğesine`require`ayarlandığında bu liste boş olamaz. 
@@ -268,6 +253,50 @@ Bir `certificate` ise, imza `true` doğrulamasının parçası olarak sertifika 
         <owners>microsoft;aspnet;nuget</owners>
     </repository>
 </trustedSigners>
+```
+
+## <a name="fallbackpackagefolders-section"></a>fallbackPackageFolders bölümü
+
+*(3,5 +)* Paket, geri dönüş klasörlerinde bulunursa hiçbir işin gerçekleştirilmesi gerekmediği için paketleri önceden yüklemeye yönelik bir yol sağlar. Geri dönüş paketi klasörleri, genel paket klasörüyle aynı klasöre ve dosya yapısına sahiptir: *. nupkg* var ve tüm dosyalar ayıklandı.
+
+Bu yapılandırma için arama mantığı:
+
+- Paketin/sürümün zaten indirildiğini görmek için genel paket klasörüne bakın.
+
+- Paket/sürüm eşleşmesi için geri dönüş klasörlerine bakın.
+
+Her iki arama başarılı olursa, indirme gerekmez.
+
+Bir eşleşme bulunmazsa, NuGet dosya kaynaklarını ve ardından http kaynakları ' nı denetleyip paketleri indirir.
+
+| Anahtar | Değer |
+| --- | --- |
+| (geri dönüş klasörünün adı) | Geri dönüş klasörünün yolu. |
+
+**Örnek**:
+
+```xml
+<fallbackPackageFolders>
+   <add key="XYZ Offline Packages" value="C:\somePath\someFolder\"/>
+</fallbackPackageFolders>
+```
+
+## <a name="packagemanagement-section"></a>packageManagement bölümü
+
+Varsayılan paket yönetim biçimini Package *. config* ya da packagereference olarak ayarlar. SDK stilindeki projeler her zaman PackageReference kullanır.
+
+| Anahtar | Değer |
+| --- | --- |
+| biçim | Varsayılan paket yönetimi biçimini gösteren bir Boole değeri. İse `1`format, packagereference olur. İse `0`, biçimi *Packages. config*olur. |
+| devre dışı | İlk paket yüklemesi sırasında varsayılan bir paket biçimi seçme isteminin gösterilip gösterilmeyeceğini belirten bir Boole değeri. `False`istemi gizler. |
+
+**Örnek**:
+
+```xml
+<packageManagement>
+   <add key="format" value="1" />
+   <add key="disabled" value="False" />
+</packageManagement>
 ```
 
 ## <a name="using-environment-variables"></a>Ortam değişkenlerini kullanma

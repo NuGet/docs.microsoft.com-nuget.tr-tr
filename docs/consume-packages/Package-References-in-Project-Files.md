@@ -1,32 +1,32 @@
 ---
-title: NuGet Packagereference'a biçimi (proje dosyalarında paket başvuruları)
-description: NuGet 4.0 + ve VS2017 ve .NET Core 2.0 tarafından desteklenen proje dosyalarında NuGet PackageReference hakkında ayrıntılar
+title: NuGet PackageReference biçimi (proje dosyalarındaki paket başvuruları)
+description: NuGet 4.0 + ve VS2017 ve .NET Core 2,0 tarafından desteklenen proje dosyalarında NuGet PackageReference ile ilgili ayrıntılar
 author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 16a14a72f8bb2e5d5a56f6c3c277f0988869273d
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 05ece5f36ff7ae5920960c42cfde8b271dc3e712
+ms.sourcegitcommit: fc1b716afda999148eb06d62beedb350643eb346
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426690"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69020007"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Proje dosyalarında paket başvuruları (PackageReference)
 
-Paket başvuruları kullanılarak, `PackageReference` düğümü, NuGet bağımlılıklarını doğrudan proje dosyaları içinde yönetme (ayrı bir aksine `packages.config` dosya). PackageReference, kullanarak çağrılır, NuGet diğer yönleri etkilemez; Örneğin, ayarlarında `NuGet.config` (paket kaynaklarını dahil) dosyaları yine de açıklandığı gibi uygulanan [ortak NuGet yapılandırmaları](configuring-nuget-behavior.md).
+Paket başvuruları, `PackageReference` düğümü kullanarak, NuGet bağımlılıklarını doğrudan proje dosyaları içinde (ayrı `packages.config` bir dosyanın aksine) yönetir. Çağrılan, PackageReference kullanarak NuGet 'in diğer yönlerini etkilemez; Örneğin, `NuGet.config` dosyalardaki (paket kaynakları dahil) ayarlar, [ortak NuGet yapılandırmalarında](configuring-nuget-behavior.md)açıklandığı gibi hala uygulanır.
 
-PackageReference ile paket başvuruları her hedef çerçeve, yapılandırma, platform veya diğer grupları seçmek için MSBuild koşulları kullanabilirsiniz. Ayrıca bağımlılıkları ve içerik akışı üzerinde ayrıntılı denetim sağlar. (Daha fazla ayrıntı için [NuGet paketi ve geri yükleme, MSBuild hedefleri](../reference/msbuild-targets.md).)
+PackageReference ile, MSBuild koşullarını hedef çerçeve, yapılandırma, platform veya diğer gruplandırmalar için paket başvuruları seçmek üzere de kullanabilirsiniz. Ayrıca bağımlılıklar ve içerik akışı üzerinde ayrıntılı denetim sağlar. (Daha fazla ayrıntı Için bkz. [NuGet paketi ve geri yükleme MSBuild hedefleri olarak](../reference/msbuild-targets.md).)
 
 ## <a name="project-type-support"></a>Proje türü desteği
 
-Varsayılan olarak, .NET Core projeleri, .NET Standard projelerine ve Windows 10 derleme 15063 (Creators Update) hedefleyen UWP projeleri için ve sonraki sürümlerinde, C++ UWP projeleri hariç PackageReference kullanılır. .NET framework projeleri PackageReference destekler, ancak şu anda varsayılan `packages.config`. PackageReference, kullanılacak [geçirme](../reference/migrate-packages-config-to-package-reference.md) bağımlılıklardan `packages.config` proje dosyanıza ardından packages.config kaldırın.
+Varsayılan olarak, PackageReference, .NET Core projeleri, .NET Standard projeleri ve Windows 10 Build 15063 (Creators Update) ve üstünü hedefleyen UWP projeleri için, C++ UWP projelerinin dışında kullanılır. .NET Framework projeler, PackageReference destekler, ancak şu anda `packages.config`varsayılan olarak. Packagereference kullanmak için, [](../reference/migrate-packages-config-to-package-reference.md) bağımlılıkları `packages.config` proje dosyanıza geçirin, sonra Packages. config 'i kaldırın.
 
-.NET Framework'ün tamamını hedefleyen ASP.NET uygulamaları dahil yalnızca [sınırlı destek](https://github.com/NuGet/Home/issues/5877) PackageReference için. C++ve JavaScript proje türleri desteklenmez.
+Tam .NET Framework hedefleyen uygulamalar, PackageReference için yalnızca [sınırlı desteği](https://github.com/NuGet/Home/issues/5877) içerir. C++ve JavaScript proje türleri desteklenmez.
 
 ## <a name="adding-a-packagereference"></a>PackageReference ekleme
 
-Bir bağımlılık aşağıdaki sözdizimini kullanarak proje dosyanıza ekleyin:
+Aşağıdaki sözdizimini kullanarak proje dosyanıza bir bağımlılık ekleyin:
 
 ```xml
 <ItemGroup>
@@ -38,7 +38,7 @@ Bir bağımlılık aşağıdaki sözdizimini kullanarak proje dosyanıza ekleyin
 
 ## <a name="controlling-dependency-version"></a>Bağımlılık sürümünü denetleme
 
-Bir paketin sürümü belirtmek için kural aynı kullanıldığında `packages.config`:
+Bir paketin sürümünü belirtme kuralı, kullanırken `packages.config`olduğu gibi aynıdır:
 
 ```xml
 <ItemGroup>
@@ -48,10 +48,10 @@ Bir paketin sürümü belirtmek için kural aynı kullanıldığında `packages.
 </ItemGroup>
 ```
 
-Yukarıdaki örnekte, 3.6.0 olan herhangi bir sürümü anlamına gelir > üzerinde açıklandığı 3.6.0 tercih en düşük sürümü ile = [Paket sürümü oluşturma](../reference/package-versioning.md#version-ranges-and-wildcards).
+Yukarıdaki örnekte 3.6.0, [paket sürümü oluşturma](../reference/package-versioning.md#version-ranges-and-wildcards)bölümünde açıklandığı gibi en düşük sürüm için tercihe sahip > = 3.6.0 olan herhangi bir sürüm anlamına gelir.
 
-## <a name="using-packagereference-for-a-project-with-no-packagereferences"></a>Hiçbir packagereferences'ı içeren bir proje için PackageReference kullanma
-Gelişmiş: Artık paketler, bir projede (proje dosyasında hiçbir PackageReferences) ve hiçbir packages.config dosyası yüklü olan, ancak projesi stili Packagereference'a geri yüklenmesini istiyorsanız, projenizde bir proje özelliğini RestoreProjectStyle Packagereference'a ayarlayabilirsiniz dosya.
+## <a name="using-packagereference-for-a-project-with-no-packagereferences"></a>Packagereferde olmayan bir proje için PackageReference kullanma
+İleri Bir projede yüklü paketleriniz yoksa (proje dosyasında ve hiçbir paket. config dosyası yoksa), ancak projenin PackageReference stili olarak geri yüklenmesini istiyorsanız, bir proje özelliği RestoreProjectStyle öğesini projenizde PackageReference olarak ayarlayabilirsiniz dosyasýný.
 ```xml
 <PropertyGroup>
     <!--- ... -->
@@ -59,11 +59,11 @@ Gelişmiş: Artık paketler, bir projede (proje dosyasında hiçbir PackageRefer
     <!--- ... -->
 </PropertyGroup>    
 ```
-(Mevcut csproj veya SDK stili projeleri) stili Packagereference'a olan projeleri başvuruyorsa yararlı olabilir. Bu projelerdeki "geçişli" projeniz tarafından başvurulabilmesi için başvuran paketleri olanak sağlar.
+Bu, PackageReference stilli (mevcut csproj veya SDK stili projeler) projelere başvuru yaparsanız yararlı olabilir. Bu, bu projelerin başvurduğu paketleri projeniz tarafından "geçişli" olacak şekilde sağlayacak şekilde etkinleştirir.
 
-## <a name="floating-versions"></a>Kayan sürümleri
+## <a name="floating-versions"></a>Kayan sürümler
 
-[Kayan sürümleri](../consume-packages/dependency-resolution.md#floating-versions) ile desteklenen `PackageReference`:
+[Kayan sürümler](../consume-packages/dependency-resolution.md#floating-versions) ile `PackageReference`desteklenir:
 
 ```xml
 <ItemGroup>
@@ -74,9 +74,9 @@ Gelişmiş: Artık paketler, bir projede (proje dosyasında hiçbir PackageRefer
 </ItemGroup>
 ```
 
-## <a name="controlling-dependency-assets"></a>Bağımlılık varlıkları denetleme
+## <a name="controlling-dependency-assets"></a>Bağımlılık varlıklarını denetleme
 
-Bir bağımlılık yalnızca bir geliştirme bandı kullanabilecek ve, paketiniz tüketecektir projeler için kullanıma sunmak istemeyebilirsiniz. Bu senaryoda kullanabileceğiniz `PrivateAssets` bu davranışını denetlemek için meta verileri.
+Yalnızca bir geliştirme bandı olarak bir bağımlılık kullanıyor olabilirsiniz ve bunu paketinizi kullanacak projelere göstermek istemeyebilirsiniz. Bu senaryoda, bu davranışı denetlemek için `PrivateAssets` meta verileri kullanabilirsiniz.
 
 ```xml
 <ItemGroup>
@@ -90,28 +90,30 @@ Bir bağımlılık yalnızca bir geliştirme bandı kullanabilecek ve, paketiniz
 </ItemGroup>
 ```
 
-Şu meta veri etiketleri bağımlılık varlıklar kontrol edin:
+Aşağıdaki meta veri etiketleri denetim bağımlılığı varlıkları:
 
 | Etiket | Açıklama | Varsayılan Değer |
 | --- | --- | --- |
-| IncludeAssets | Bu varlıklar tarafından kullanılabilir | tüm |
-| ExcludeAssets | Bu varlıklar tüketilir değil | yok |
-| PrivateAssets | Bu varlıklar tarafından kullanılabilir ancak üst projeye akış olmaz | contentfiles, çözümleyiciler; derleme |
+| Includevarlıklarını | Bu varlıklar tüketilecektir | tüm |
+| Excludevarlıklarının | Bu varlıklar tüketilmeyecek | yok |
+| Privatevarlıkların | Bu varlıklar tüketilecektir, ancak üst projeye akamaz | ContentFiles; çözümleyiciler; derleme |
 
-Bu etiketler için izin verilen değerler aşağıdaki gibidir, dışında noktalı virgül ile ayırarak birden çok değer ile `all` ve `none` gerekir göründüğü başlarına:
+Bu etiketler için izin verilen değerler aşağıdaki gibidir: ile `all` , ve arasında bir noktalı virgülle ayrılmış birden çok değer ve `none` kendileri tarafından görünmesi gerekir:
 
 | Değer | Açıklama |
 | --- | ---
-| Derleme | İçeriğini `lib` klasörü ve denetimleri klasördeki derlemelere karşı olup projenizi derleyin |
-| çalışma zamanı | İçeriğini `lib` ve `runtimes` klasörü ve denetimleri bu derlemeler için derleme olup kopyalanacak çıktı dizini |
-| contentFiles | İçeriğini `contentfiles` klasörü |
-| derleme | Özellikler ve hedeflediğini `build` klasörü |
-| Çözümleyiciler | .NET çözümleyiciler |
-| yerel | İçeriğini `native` klasörü |
-| yok | Yukarıdakilerin hiçbiri kullanılır. |
-| tüm | Yukarıdakilerin tümü (dışında `none`) |
+| se | `lib` Klasörün içeriği ve projenizin içindeki derlemelere göre derleyemeyeceğini denetler |
+| çalışma zamanı | `lib` Ve`runtimes` klasörünün içeriği ve bu derlemelerin derleme çıkış dizinine kopyalanıp kopyalanmayacağını denetler |
+| contentFiles | `contentfiles` Klasörün içeriği |
+| derleme | `.props`ve `.targets` klasörü`build` |
+| Buildmultihedefleme | `.props`ve `.targets`klasöründe,platformlar arasıhedeflemeiçin`buildMultitargeting` |
+| buildTransitive | *(5.0 +)* `.props` ve`.targets` klasörü, her bir tüketen projeye geçişli olarak akan varlıklar içindir. `buildTransitive` Bkz. [özellik](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior) sayfası. |
+| Çözümleyicileri | .NET Çözümleyicileri |
+| yerel | `native` Klasörün içeriği |
+| yok | Yukarıdakilerin hiçbiri kullanılmaz. |
+| tüm | Yukarıdakilerin tümü (hariç `none`) |
 
-Aşağıdaki örnekte, içerik dosyalarını paketinden dışında her şeyi proje tarafından tüketilen ve içerik dosyaları ve çözümleyiciler dışında her şeyi üst projeye akış.
+Aşağıdaki örnekte, paketteki içerik dosyaları hariç her şey proje tarafından, içerik dosyaları ve çözümleyiciler hariç her şey üst projeye akacaktır.
 
 ```xml
 <ItemGroup>
@@ -127,13 +129,13 @@ Aşağıdaki örnekte, içerik dosyalarını paketinden dışında her şeyi pro
 </ItemGroup>
 ```
 
-Dikkat edin çünkü `build` ile bulunmaz `PrivateAssets`, hedeflerini ve özellik *olur* üst projeye akış. Örneğin, yukarıdaki başvuru AppLogger adlı bir NuGet paketi oluşturan bir projesinde kullanıldığını düşünün. AppLogger hedeflerini ve özellik gelen kullanabileceği `Contoso.Utility.UsefulStuff`, AppLogger kullanan projeler gibi.
+İle `build` birlikte`PrivateAssets`dahil edilmediğinden, hedefler ve props ana projeye akacağından emin olmanız gerekir. Örneğin, yukarıdaki başvurunun Appgünlükçü adlı bir NuGet paketi oluşturan bir projede kullanıldığını göz önünde bulundurun. Appgünlükçü, appgünlükçü kullanan projeler gibi, `Contoso.Utility.UsefulStuff`öğesinden hedefleri ve props 'ı kullanabilir.
 
-## <a name="adding-a-packagereference-condition"></a>PackageReference koşul ekleme
+## <a name="adding-a-packagereference-condition"></a>PackageReference koşulu ekleme
 
-Koşullar herhangi bir MSBuild değişken kullanabilirsiniz veya bir değişkeni hedefler ya da Özellikler dosyasında tanımlanan bir paket dahil olup olmadığını denetlemek için bir koşul kullanabilirsiniz. Ancak, şu anda, yalnızca `TargetFramework` değişkeni desteklenir.
+Bir paketin dahil edilip edilmeyeceğini denetlemek için bir koşul kullanabilirsiniz. burada koşullar herhangi bir MSBuild değişkeni veya hedefler veya props dosyasında tanımlanan bir değişken kullanabilir. Ancak şu anda yalnızca `TargetFramework` değişken desteklenir.
 
-Örneğin, hedefleyen düşünelim `netstandard1.4` yanı `net452` ancak yalnızca için geçerli olan bir bağımlılığa sahip `net452`. Bu durumda istemediğiniz bir `netstandard1.4` paketiniz, gereksiz bağımlılık eklemek için kullanan bir proje. Bunu önlemek için bir koşul belirttiğiniz `PackageReference` gibi:
+Örneğin, hedeflentiğinizi `netstandard1.4` `net452` ve yalnızca için `net452`geçerli olan bir bağımlılığa sahip olduğunuzu varsayalım. Bu durumda, paketinize tüketen bir `netstandard1.4` projenin bu gereksiz bağımlılığı eklemesini istemezsiniz. Bunu engellemek için aşağıdaki `PackageReference` şekilde bir koşul belirtirsiniz:
 
 ```xml
 <ItemGroup>
@@ -143,11 +145,11 @@ Koşullar herhangi bir MSBuild değişken kullanabilirsiniz veya bir değişkeni
 </ItemGroup>
 ```
 
-Bu proje kullanılarak oluşturulan bir paket Newtonsoft.Json yalnızca bağımlılık olarak dahil olduğunu gösterir bir `net452` hedef:
+Bu proje kullanılarak oluşturulan bir paket, Newtonsoft. json ' ın yalnızca bir `net452` hedef için bağımlılık olarak ekleneceğini gösterir:
 
-![Bir koşul ile VS2017 PackageReference üzerinde sonucu](media/PackageReference-Condition.png)
+![VS2017 ile PackageReference üzerinde koşul uygulamanın sonucu](media/PackageReference-Condition.png)
 
-Koşul da uygulanabilir `ItemGroup` düzeyi ve tüm alt öğelere uygulanacak `PackageReference` öğeleri:
+Koşullar da `ItemGroup` düzeyde uygulanabilir ve tüm alt `PackageReference` öğeler için geçerli olacaktır:
 
 ```xml
 <ItemGroup Condition = "'$(TargetFramework)' == 'net452'">
@@ -158,22 +160,22 @@ Koşul da uygulanabilir `ItemGroup` düzeyi ve tüm alt öğelere uygulanacak `P
 </ItemGroup>
 ```
 
-## <a name="locking-dependencies"></a>Kilitleme bağımlılıkları
-*Bu özellik, NuGet ile kullanılabilir **4.9** veya yukarıda ve Visual Studio 2017 ile **15.9** veya üzeri.*
+## <a name="locking-dependencies"></a>Bağımlılıkları kilitleme
+*Bu özellik NuGet **4,9** veya sonraki sürümlerde ve Visual Studio 2017 **15,9** veya üzeri sürümlerde kullanılabilir.*
 
-Giriş olarak NuGet geri yükleme, paket başvurularının proje dosyası (üst düzey veya doğrudan bağımlılıkları) kümesidir ve tam bir kapanış geçişli bağımlılıklar dahil olmak üzere tüm paket bağımlılıklarının çıkış alınır. NuGet Packagereference'a listesi girişi değiştirilmediyse her zaman paket bağımlılıklarının aynı tam kapatma üretmek çalışır. Ancak, bunu yapmanız mümkün olduğu bazı senaryolar vardır. Örneğin:
+NuGet geri yükleme girdisi, proje dosyasından (en üst düzey veya doğrudan bağımlılıklar) paket başvuruları kümesidir ve çıkış geçişli bağımlılıklar dahil olmak üzere tüm paket bağımlılıklarının tam bir kapasitesinden oluşur. NuGet, giriş PackageReference listesi değişmediğinde paket bağımlılıklarının her zaman aynı tam kapatılmasını üretmeye çalışır. Ancak, bunu yapamaması gereken bazı senaryolar vardır. Örneğin:
 
-* Kayan kullandığınızda sürümleri ister `<PackageReference Include="My.Sample.Lib" Version="4.*"/>`. Burada amaç, her geri yükleme paketlerinin en son sürüme kaydırmak için olsa da burada kullanıcıların grafiğin belirli en son sürümü ve sonraki bir sürüme kayan nokta varsa, açık bir hareket üzerine kilitlenmesine gerektiren senaryolar vardır.
-* Paket eşleşen PackageReference sürüm gereksinimleri daha yeni bir sürümü yayımlandı. Örneğin 
+* Gibi `<PackageReference Include="My.Sample.Lib" Version="4.*"/>`kayan sürümler kullandığınızda. Buradaki amaç paketlerin her geri yükleme işlemi için en son sürüme kaymalıdır, ancak kullanıcıların grafiğin belirli bir en son sürüme kilitlenmesini gerektiren senaryolar vardır ve açık bir hareket üzerine varsa, daha sonraki bir sürüme float olur.
+* Bir paketin, PackageReference sürümü gereksinimleriyle eşleşen daha yeni bir sürümü yayımlandı. Örneğin 
 
-  * 1\. günü: belirttiyseniz `<PackageReference Include="My.Sample.Lib" Version="4.0.0"/>` ancak NuGet depolarda sürüm 4.1.0, 4.2.0 ve 4.3.0 olmuştur. Bu durumda, NuGet (en yakın en düşük sürüm) 4.1.0 çözümlendi
+  * 1\. gün: ancak NuGet `<PackageReference Include="My.Sample.Lib" Version="4.0.0"/>` depolarında kullanılabilen sürümler 4.1.0, 4.2.0 ve 4.3.0 olarak belirtilmiştir. Bu durumda, NuGet 4.1.0 (en yakın minimum sürüm) olarak çözümlenmelidir
 
-  * 2\. gün: Sürüm 4.0.0 yayımlanan. NuGet şimdi tam eşleşme bulmak ve 4.0.0 için çözülmeye başlanacağı
+  * Gün 2: Sürüm 4.0.0 yayımlandı. NuGet artık tam eşleşmeyi bulacak ve 4.0.0 'e çözümlemeyi başlatacak
 
-* Belirtilen Paket sürümü depodan kaldırılır. Tüm paket depolarınızın nuget.org paket silme izin vermez ancak bu bir kısıtlama söz konusu. En iyi eşleşen silinen sürümüne çözümleyemediğinde bulma NuGet sonuçlanır.
+* Belirli bir paket sürümü depodan kaldırılır. Nuget.org, paket silmeleri için izin vermediği halde tüm paket depolarında bu kısıtlamalar yoktur. Bu, NuGet 'e, silinen sürüme çözümleyemediği zaman en iyi eşleşmeyi bulma sonucu verir.
 
-### <a name="enabling-lock-file"></a>Etkinleştirme kilidi dosyası
-Tam kapatma, kabul etme kilidi dosya özelliğini MSBuild özelliğini ayarlayarak paket bağımlılıklarının kalıcı hale getirmek için `RestorePackagesWithLockFile` projeniz için:
+### <a name="enabling-lock-file"></a>Kilit dosyası etkinleştiriliyor
+Paket bağımlılıklarının tam kapatılmasını kalıcı hale getirmek için, projeniz için MSBuild özelliğini `RestorePackagesWithLockFile` ayarlayarak dosya kilitle özelliğini kabul edebilirsiniz:
 
 ```xml
 <PropertyGroup>
@@ -183,29 +185,29 @@ Tam kapatma, kabul etme kilidi dosya özelliğini MSBuild özelliğini ayarlayar
 </PropertyGroup>    
 ```
 
-Bu özelliği ayarlarsanız, NuGet geri yükleme bir kilit dosyası - oluşturur `packages.lock.json` dosya proje kök dizininde tüm paket bağımlılıkları listeler. 
+Bu özellik ayarlandıysa, NuGet geri yükleme proje kök dizininde tüm paket bağımlılıklarını listeleyen `packages.lock.json` bir kilit dosya dosyası oluşturacaktır. 
 
 > [!Note]
-> Bir proje olduğunda `packages.lock.json` kök dizinde, kilit dosyanın dosyasındadır her zaman özelliği geri yükleme bile ile kullanılan `RestorePackagesWithLockFile` ayarlı değil. İşlevsiz bir boş oluşturmak için kabul etmek için bu özellik için başka bir yolu, bu nedenle `packages.lock.json` proje kök dizinine dosyasında.
+> Bir projenin kök dizininde `packages.lock.json` dosyası varsa, özellik `RestorePackagesWithLockFile` ayarlanmamışsa bile kilit dosyası her zaman restore ile birlikte kullanılır. Bu nedenle, bu özelliği kabul etmenin başka bir yolu da projenin kök dizininde kukla boş `packages.lock.json` bir dosya oluşturmaktır.
 
-### <a name="restore-behavior-with-lock-file"></a>`restore` Kilit dosyasıyla davranışı
-Proje için bir kilit dosyası varsa, NuGet bu kilit dosyasını çalıştırmak için kullanır. `restore`. NuGet Paket bağımlılıklarını proje dosyası (veya bağımlı proje dosyalarının) belirtildiği gibi herhangi bir değişiklik yoktu ve herhangi bir değişiklik varsa, yalnızca kilit dosyasında belirtilen paketleri geri yükler görmek için hızlı bir denetimi yapar. Hiçbir Paket bağımlılıklarını değerlendirmeleri yoktur.
+### <a name="restore-behavior-with-lock-file"></a>`restore`kilit dosyası ile davranış
+Proje için bir kilit dosyası varsa, NuGet bu kilit dosyasını çalıştırmak `restore`için kullanır. NuGet, paket bağımlılıklarında proje dosyasında (veya bağımlı proje dosyaları) bahsedildiği gibi herhangi bir değişiklik olup olmadığını görmek için hızlı bir denetim yapar ve değişiklik yapılmadığında yalnızca kilit dosyasında bahsedilen paketleri geri yükler. Paket bağımlılıklarının yeniden değerlendirilmesi yoktur.
 
-Proje dosyasında belirtildiği gibi bir değişiklik NuGet içinde tanımlanan bağımlılıklar algılar, paket grafiği yeniden değerlendirir ve kilit dosyası proje için yeni paket kapanış yansıtacak şekilde güncelleştirir.
+NuGet, proje dosyasında bahsedildiği gibi tanımlanan bağımlılıklarda bir değişiklik algılarsa, paket grafiğini yeniden değerlendirir ve kilit dosyasını proje için yeni paket kapanışını yansıtacak şekilde güncelleştirir.
 
-CI/CD ve değil istediğiniz paket bağımlılıklarını hareket halindeyken değiştirmek için diğer senaryolar için ayarlayarak bunu yapabilirsiniz `lockedmode` için `true`:
+CI/CD ve diğer senaryolar için, anında paket bağımlılıklarını değiştirmek istemediğiniz için, ' yi ' `lockedmode` e `true`ayarlayarak bunu yapabilirsiniz:
 
-DotNet.exe için çalıştırın:
+DotNet. exe için şunu çalıştırın:
 ```
 > dotnet.exe restore --locked-mode
 ```
 
-MSBuild.exe için çalıştırın:
+MSBuild. exe için şunu çalıştırın:
 ```
 > msbuild.exe -t:restore -p:RestoreLockedMode=true
 ```
 
-Ayrıca, proje dosyanızda koşullu bu MSBuild özelliği ayarlayabilir:
+Bu koşullu MSBuild özelliğini, proje dosyanızda de ayarlayabilirsiniz:
 ```xml
 <PropertyGroup>
     <!--- ... -->
@@ -214,12 +216,12 @@ Ayrıca, proje dosyanızda koşullu bu MSBuild özelliği ayarlayabilir:
 </PropertyGroup> 
 ```
 
-Kilitli modda ise `true`, geri yükleme ya da kilit dosyasında listelenen tam paketler geri veya proje için tanımlanmış Paket bağımlılıklarını kilit dosyası oluşturulduktan sonra güncelleştirdiyseniz başarısız.
+Kilitli mod ise `true`geri yükleme işlemi, kilit dosyası oluşturulduktan sonra, proje için tanımlanan paket bağımlılıklarını güncelleştirdikten sonra tam paketleri kilit dosyasında listelenen şekilde geri yükler ya da başarısız olur.
 
-### <a name="make-lock-file-part-of-your-source-repository"></a>Kilit dosya kaynak deponuza parçası olun
-NuGet yapabilmeleri için yürütülebilir bir uygulama oluşturuyorsanız ve söz konusu bağımlılık zincirinden başlangıcında projedir kilit dosyanın kaynak kod deposuna iade edin geri yükleme sırasında bunu kullanın.
+### <a name="make-lock-file-part-of-your-source-repository"></a>Kaynak deponuzun kilit dosyası parçasını oluşturma
+Bir uygulama oluşturuyorsanız, bir çalıştırılabilir dosya ve söz konusu proje, bağımlılık zincirinin başlangıcında yer alıyorsa, NuGet 'in geri yükleme sırasında kullanabilmesi için kilit dosyasını kaynak kodu deposuna iade edin.
 
-Projenizi gönderilen bir kitaplık projesi veya hangi diğer ortak bir kod projesi varsa ancak projeleri bağlı bağlıdır **barındırmamalıdır** kaynak kodunuzu bir parçası olarak kilit dosyasında denetleyin. Kilit dosyası tutma içinde hiçbir zarar yoktur, ancak ortak kod projesi için kilitli paket bağımlılıkları, bu ortak kod projesi üzerinde bağımlı bir proje geri yükleme/derleme sırasında kilit dosyasında listelenen kullanılamaz.
+Ancak, projeniz sevk ettiğiniz bir kitaplık projem veya diğer projelerin bağımlı olduğu ortak bir kod projesi ise, kilit dosyasını kaynak kodunuzun bir parçası olarak iade etmeniz **gerekir** . Kilit dosyası tutulmayan bir sorun yoktur ancak ortak kod projesi için kilitli paket bağımlılıkları, bu ortak kod projesine bağlı bir projenin geri yükleme/oluşturma işlemi sırasında kilit dosyasında listelendiği gibi kullanılamaz.
 
 Örn.
 ```
@@ -228,14 +230,14 @@ ProjectA
   |------> ProjectB
              |------>PackageX 1.0.0
 ```
-Varsa `ProjectA` bir bağımlılığa sahip bir `PackageX` sürüm `2.0.0` ve ayrıca başvuran `ProjectB` , bağımlı `PackageX` sürüm `1.0.0`, ardından kilit dosyası için `ProjectB` üzerinde bir bağımlılık listeler `PackageX` Sürüm `1.0.0`. Ancak, `ProjectA` yapılandırıldığında, kendi kilit dosya çubuğunda bir bağımlılık içerecek `PackageX` sürüm **`2.0.0`** ve **değil** `1.0.0` kilitdosyasındalistelenen`ProjectB`. Bu nedenle, ortak bir kod projesi kilit dosyanın bağımlı projeler için çözülmüş paketleri üzerinde çok az say sahiptir.
+Bir `ProjectA` `PackageX` sürüme bağımlılığının`ProjectB` yanı sıra `ProjectB` `PackageX` sürüme bağlı`1.0.0`olan başvurular varsa, için kilit dosyası şuna bir bağımlılık listeleyecek `PackageX` `2.0.0` Sürüm `1.0.0`. Ancak, `ProjectA` yapılandırıldığında kilit dosyası, için kilit dosyasında listelenenlerin **değil** `1.0.0` , `PackageX` sürüm **`2.0.0`** için `ProjectB`bir bağımlılık içerecektir. Bu nedenle, ortak bir kod projesinin kilit dosyası, kendisine bağımlı olan projeler için çözümlenen paketlerin üzerinde çok daha fazla bilgiye sahiptir.
 
-### <a name="lock-file-extensibility"></a>Kilit dosya genişletilebilirliği
-Aşağıda açıklandığı gibi çeşitli geri yükleme davranışlarını kilit dosyasıyla denetleyebilirsiniz:
+### <a name="lock-file-extensibility"></a>Kilit dosyası genişletilebilirliği
+Aşağıda açıklandığı gibi kilit dosyası ile geri yükleme davranışlarını çeşitli davranışlar için denetleyebilirsiniz:
 
 | Seçenek | MSBuild eşdeğer seçeneği | 
 |:---  |:--- |
-| `--use-lock-file` | Bir proje için kilit dosyasının bootstraps kullanın. Alternatif olarak ayarlayabilirsiniz `RestorePackagesWithLockFile` proje dosyasındaki özelliği | 
-| `--locked-mode` | Geri yükleme modunu etkinleştirir kilitli. Bu, yinelenebilir derlemeleri almak istediğiniz CI/CD senaryolarda yararlıdır. Bu ayarlayarak olabilir `RestoreLockedMode` MSBuild özelliği `true` |  
-| `--force-evaluate` | Bu seçenek projede tanımlanan kayan sürümüyle paketlerle yararlıdır. Geri yükleme işlemi çalıştırmadığınız sürece varsayılan olarak NuGet geri yükleme Paket sürümü her geri yükleme sırasında otomatik olarak güncelleştirmez `--force-evaluate` seçeneği. |
-| `--lock-file-path` | Bir proje için özel kilit dosya konumu tanımlar. Bu ayrıca MSBuild özelliği ayarlanarak sağlanabilir `NuGetLockFilePath`. Varsayılan olarak, NuGet destekler `packages.lock.json` kök dizininde. Aynı dizinde birden çok proje varsa, NuGet proje belirli kilit dosyası destekler. `packages.<project_name>.lock.json` |
+| `--use-lock-file` | Önyükleme bir proje için kilit dosyası kullanımı. Alternatif olarak proje dosyasında `RestorePackagesWithLockFile` özelliği ayarlayabilirsiniz | 
+| `--locked-mode` | Geri yükleme için kilitli modu etkinleştirilir. Bu, yinelenebilir derlemeleri almak istediğiniz CI/CD senaryolarında yararlıdır. Bu, `RestoreLockedMode` MSBuild özelliğinin ' i olarak ayarlanmasına de izin verebilir`true` |  
+| `--force-evaluate` | Bu seçenek, projede tanımlanmış kayan sürüme sahip paketlerle faydalıdır. Varsayılan olarak, geri yükle seçeneğini birlikte `--force-evaluate` çalıştırmadığınız takdirde NuGet geri yükleme, her geri yükleme sırasında paket sürümünü otomatik olarak güncelleştirmez. |
+| `--lock-file-path` | Bir proje için özel bir kilit dosyası konumu tanımlar. Bu, MSBuild özelliği `NuGetLockFilePath`ayarlanarak da elde edilebilir. Varsayılan olarak, NuGet kök `packages.lock.json` dizinde destekler. Aynı dizinde birden çok projeniz varsa, NuGet projeye özgü kilit dosyasını destekler`packages.<project_name>.lock.json` |

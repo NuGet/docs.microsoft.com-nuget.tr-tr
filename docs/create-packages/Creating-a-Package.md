@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: a8d082b3c04ef4d45bef1ef91b3f06484cb8ff4f
-ms.sourcegitcommit: dec3fa44547c6a00d0ae6cbb6c64cdc65660d808
+ms.openlocfilehash: a9224ce4e515cf98893a7134077c90a47df1862a
+ms.sourcegitcommit: fc1b716afda999148eb06d62beedb350643eb346
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68912592"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69020078"
 ---
 # <a name="create-a-package-using-the-nugetexe-cli"></a>NuGet. exe CLı kullanarak paket oluşturma
 
@@ -184,7 +184,9 @@ Klasör kuralları aşağıdaki gibidir:
 | ref/{tfd} | Verilen hedef`.dll`çerçeve bilinen adı (TFI) için bütünleştirilmiş kod () ve sembol (`.pdb`) dosyaları | Derlemeler yalnızca derleme süresi için başvuru olarak eklenir; Bu nedenle proje bin klasörüne hiçbir şey kopyalanmayacak. |
 | zamanları | Mimariye özgü bütünleştirilmiş kod (`.dll`), simge (`.pdb`) ve yerel kaynak (`.pri`) dosyaları | Derlemeler yalnızca çalışma zamanı için başvuru olarak eklenir; diğer dosyalar proje klasörlerine kopyalanır. Karşılık gelen derleme zamanı derlemesini sağlamak için klasörü altında `AnyCPU` `/ref/{tfm}` her zaman karşılık gelen (TFE) özel bütünleştirilmiş kod olmalıdır. Bkz. [birden çok hedef çerçeveyi destekleme](supporting-multiple-target-frameworks.md). |
 | içerik | Rastgele dosyalar | İçerikler proje köküne kopyalanır. **İçerik** klasörünü, son olarak paketi tüketen hedef uygulamanın kökü olarak düşünün. Paketin uygulamanın */Images* klasörüne görüntü eklemesi için, paketin *içerik/görüntüler* klasörüne yerleştirin. |
-| derleme | MSBuild `.targets` ve `.props` dosyalar | Proje dosyasına otomatik olarak eklenmesi veya `project.lock.json` (NuGet 3. x +). |
+| derleme | MSBuild `.targets` ve `.props` dosyalar | Projeye otomatik olarak ekleniyor (NuGet 3. x +). |
+| Buildmultihedefleme | Platformlar `.targets` arası `.props` hedefleme için MSBuild ve dosyalar | Projeye otomatik olarak ekleniyor. |
+| buildTransitive | *(5.0 +)* Herhangi `.targets` bir `.props` tüketen projeye geçişli olarak akan MSBuild ve dosyalar. Bkz. [özellik](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior) sayfası. | Projeye otomatik olarak ekleniyor. |
 | araçlar | Paket Yöneticisi konsolundan erişilebilen PowerShell betikleri ve programları | Klasör, yalnızca Paket Yöneticisi Konsolu `PATH` için ortam değişkenine eklenir ( `PATH` özellikle, proje oluşturulurken MSBuild için ayarlanan as kümesine uygulanmaz). `tools` |
 
 Klasör yapınız herhangi bir sayıda hedef çerçeve için herhangi bir sayıda derleme içerebildiğinden, bu yöntem birden çok çerçeveyi destekleyen paketler oluştururken gereklidir.
@@ -347,7 +349,7 @@ NuGet dosyaları içeren `\build` bir paket yüklediğinde `.targets` , ve `.pro
 
 Çapraz `.props` çerçeve `.targets` hedefleme için MSBuild ve dosyalar `\buildMultiTargeting` klasöre yerleştirilebilir. Paket yüklemesi sırasında, NuGet ilgili `<Import>` öğeleri koşul ile proje dosyasına ekler; hedef Framework ayarlanmadı (MSBuild özelliği `$(TargetFramework)` boş olmalıdır).
 
-NuGet 3. x ile, hedefleri projeye eklenmez, ancak bunun yerine üzerinden `project.lock.json`kullanılabilir hale getirilir.
+NuGet 3. x ile, hedefleri projeye eklenmez, ancak bunun yerine `{projectName}.nuget.g.targets` ve `{projectName}.nuget.g.props`ile kullanılabilir hale getirilir.
 
 ## <a name="run-nuget-pack-to-generate-the-nupkg-file"></a>. Nupkg dosyasını oluşturmak için NuGet paketini çalıştırın
 

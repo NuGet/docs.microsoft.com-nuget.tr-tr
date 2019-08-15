@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: b7870bb6aac39f0865d88efc8c16751fdbecc3a8
-ms.sourcegitcommit: cae759ad8518c049575a30ad3bf04fe5d06244fb
+ms.openlocfilehash: 8c1d8a479747f6f7bce388c1555589543c8824a0
+ms.sourcegitcommit: fc1b716afda999148eb06d62beedb350643eb346
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68616781"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69020067"
 ---
 # <a name="support-multiple-net-framework-versions-in-your-project-file"></a>Proje dosyanızda birden çok .NET Framework sürümü destekleme
 
@@ -27,9 +27,13 @@ SDK stilindeki projeler için, proje dosyanızda birden çok hedef çerçeve ([T
 
    En iyi uyumluluk için bir .NET Standard sınıf kitaplığı oluşturmanızı öneririz.
 
-2. Hedef çerçeveleri desteklemek için *. csproj* dosyasını düzenleyin.
-
-   Örneğin, olarak `<TargetFrameworks>netstandard2.0;net45</TargetFrameworks>`değiştirin `<TargetFramework>netstandard2.0</TargetFramework>` .
+2. Hedef çerçeveleri desteklemek için *. csproj* dosyasını düzenleyin. Örneğin, Değiştir
+   
+   `<TargetFramework>netstandard2.0</TargetFramework>`
+   
+   Yeni değer:
+   
+   `<TargetFrameworks>netstandard2.0;net45</TargetFrameworks>`
 
    XML öğesini tekil iken plural olarak değiştirdiğinizden emin olun ("s" öğesini hem açma hem de kapatma etiketlerine ekleyin).
 
