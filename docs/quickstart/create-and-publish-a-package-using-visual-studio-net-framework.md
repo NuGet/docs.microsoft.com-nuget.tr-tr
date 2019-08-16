@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/13/2018
 ms.topic: quickstart
-ms.openlocfilehash: 75160bf2b01f6d4707162e019a6263ddc64a6f5e
-ms.sourcegitcommit: 0f5363353f9dc1c3d68e7718f51b7ff92bb35e21
+ms.openlocfilehash: 7bfe041c01114ac61e811497ecc31ebfdad45029
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68342511"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488894"
 ---
 # <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>Hızlı Başlangıç: Visual Studio (.NET Framework, Windows) kullanarak paket oluşturma ve yayımlama
 
@@ -121,7 +121,7 @@ Birlikte ve proje özellikleri ayarlanmış bir dll ile, bundan sonra projeden b
     - relet 'ler
     - etiketler
 
-1. Genel kullanım için oluşturulmuş paketler için **Etiketler özelliğine özel** dikkat edin, Etiketler başkalarının paketinizi NuGet.org gibi kaynaklar üzerinde bulmasına yardımcı olur ve ne yaptığını anlayın.
+1. Genel kullanım için oluşturulmuş paketler için Etiketler özelliğine özel dikkat edin, Etiketler başkalarının paketinizi NuGet.org gibi kaynaklar üzerinde bulmasına yardımcı olur ve ne yaptığını anlayın.
 
 1. Ayrıca, [. nuspec dosya başvurusu](../reference/nuspec.md)bölümünde açıklandığı gibi, şu anda bildirime başka öğeler de ekleyebilirsiniz.
 
@@ -184,5 +184,5 @@ NuGet 'in sunabileceği daha fazlasını araştırmak için aşağıdaki bağlan
 - [Paket Yayımlama](../nuget-org/publish-a-package.md)
 - [Yayın öncesi paketler](../create-packages/Prerelease-Packages.md)
 - [Birden çok hedef çerçeveyi destekleme](../create-packages/supporting-multiple-target-frameworks.md)
-- [Paket sürümü oluşturma](../reference/package-versioning.md)
+- [Paket sürümü oluşturma](../concepts/package-versioning.md)
 - [Yerelleştirilmiş paketler oluşturma](../create-packages/creating-localized-packages.md)

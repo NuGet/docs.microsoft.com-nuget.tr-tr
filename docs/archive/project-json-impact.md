@@ -1,74 +1,74 @@
 ---
-title: NuGet paket yazarlarının Project.JSON etkisi
-description: Nasıl NuGet 3.x etkiler project.json uygulama paketini yazar, desteklenmeyen özellikler, içerik ve paket biçimi gibi ayrıntılar.
+title: NuGet paket yazarları üzerinde Project. JSON etkisi
+description: NuGet 3. x içindeki Project. JSON uygulamasının uygulamanın desteklenmeyen özellikler, içerik ve paket biçimi gibi paket yazarlarıyla nasıl etkilendiğine ilişkin ayrıntılar.
 author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8c85c1a89469c491c6be1f81961197450744349c
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 34b08f06f04efdcf7bf73efc2cbdb5a5494ae2d9
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545579"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488192"
 ---
-# <a name="impact-of-projectjson-when-creating-packages"></a>Paket oluştururken project.json etkisi
+# <a name="impact-of-projectjson-when-creating-packages"></a>Paket oluştururken Project. json ' un etkileri
 
 > [!Important]
-> Bu içerik kullanım dışı bırakılmıştır. Projeleri ya da kullanması gereken `packages.config` veya PackageReference biçimleri.
+> Bu içerik kullanımdan kaldırılmıştır. Projeler ya `packages.config` ya da packagereference biçimlerini kullanmalıdır.
 
-`project.json` Nuget'te 3 + kullanılan sistem aşağıdaki bölümlerde açıklandığı gibi çeşitli şekillerde paket yazarlarının etkiler.
+NuGet `project.json` 3 + ' de kullanılan sistem, paket yazarlarını aşağıdaki bölümlerde açıklandığı gibi çeşitli yollarla etkiler.
 
-## <a name="changes-affecting-existing-packages-usage"></a>Var olan paketler kullanım etkileyen değişiklikler
+## <a name="changes-affecting-existing-packages-usage"></a>Mevcut paketlerin kullanımını etkileyen değişiklikler
 
-Geleneksel NuGet paketlerini geçişli dünya taşınmaz özellikleriyle destekler.
+Geleneksel NuGet paketleri geçişli dünyaya taşınmayan bir özellik kümesini destekler.
 
-### <a name="install-and-uninstall-scripts-are-ignored"></a>Yükleme ve kaldırma betiklerini yoksayıldı
+### <a name="install-and-uninstall-scripts-are-ignored"></a>Yükleme ve kaldırma betikleri yoksayıldı
 
-Açıklanan geçişli geri yükleme modeli [bağımlılık çözümlemesi](../consume-packages/dependency-resolution.md#dependency-resolution-with-packagereference), "paket yükleme saati" kavramını sahip değil. Mevcut değil ya da mevcut bir pakettir, ancak bir paket yüklendikten sonra gerçekleşen tutarlı işlem yok.
+[Bağımlılık çözümlemesi](../concepts/dependency-resolution.md#dependency-resolution-with-packagereference)bölümünde açıklanan geçişli geri yükleme modelinin "paket yükleme süresi" kavramı yoktur. Bir paket mevcut değil veya yok, ancak paket yüklendiğinde oluşan tutarlı bir işlem yok.
 
-Ayrıca, komut dosyaları yalnızca Visual Studio ile desteklenen yükleyin. Diğer Ide'leri API gibi komut dosyalarını destekleyen denemek için Visual Studio genişletilebilirlik gerekiyordu ve ortak düzenleyiciler ve komut satırı araçları desteği yoktu.
+Ayrıca, yüklenen betikler yalnızca Visual Studio 'da desteklenmektedir. Diğer Ides 'ler, bu tür betikleri desteklemeyi denemek için Visual Studio genişletilebilirlik API 'sini sahte ve ortak düzenleyiciler ve komut satırı araçlarında hiçbir destek yoktu.
 
-### <a name="content-transforms-are-not-supported"></a>İçerik dönüştürmeleri desteklenmez.
+### <a name="content-transforms-are-not-supported"></a>İçerik dönüştürmeleri desteklenmez
 
-Benzer betikleri yüklemek için paketi üzerinde çalıştırılan dönüşümler yükleyin ve genellikle etkili değildir. Artık hiçbir yükleme zamanı olduğundan, XDT dönüştürün ve benzer özellikleri desteklenmez ve bu tür bir paket geçişli bir senaryoda kullanılıyorsa, göz ardı edilir.
+Betikleri yüklemeye benzer şekilde, dönüşümler paket yüklemesi üzerinde çalışır ve genellikle ıdempotent değildir. Artık bir yük süresi olmadığından, XDT dönüşümü ve benzer özellikler desteklenmez ve bu tür bir paket geçişli bir senaryoda kullanılıyorsa yok sayılır.
 
 ### <a name="content"></a>İçerik
 
-Kaynak kodu gibi içerik dosyaları ve yapılandırma dosyaları geleneksel NuGet paketlerini yayımlayan. Var. tipik olarak iki senaryolarda kullanılır:
+Geleneksel NuGet paketleri, kaynak kodu ve yapılandırma dosyaları gibi içerik dosyalarını aktarıyor. Genellikle iki senaryoda kullanılır:
 
-1. Kullanıcı daha sonraki bir zamanda düzenleyebilmeniz ilk dosyalar projeye bırakıldı. Varsayılan yapılandırma dosyalarını ortak örnektir.
+1. Kullanıcının bunları daha sonra düzenleyebilmesi için ilk dosyalar projeye bırakılmış. Ortak örnek, varsayılan yapılandırma dosyalarıdır.
 
-1. İçerik dosyalarının projede yüklü derlemelere arkadaşlarımız olarak kullanılır. Örnek, bir derleme tarafından kullanılan bir logo resmi olacaktır.
+1. Projede yüklü olan derlemeler için companmı olarak kullanılan içerik dosyaları. Buradaki örnek, bir derleme tarafından kullanılan bir logo görüntüsü olacaktır.
 
-İçerik betikleri ve dönüştürmeler için benzer nedeniyle şu anda devre dışıdır, ancak içerik desteğini tasarlama aşamasında olan desteği.
+İçerik desteği şu anda betiklerin ve dönüştürmelerdeki benzer nedenlerle devre dışıdır, ancak içerik için destek tasarlama sürecimiz vardır.
 
-İçerik dosyaları yine de paketleri aktarılabilen ve şu anda göz ardı edilir, ancak son kullanıcı yine de bunları doğru nokta kopyalayabilirsiniz.
+İçerik dosyaları yine de paketler içinde taşınırlar ve şu anda yok sayılır, ancak son kullanıcı bunları yine de doğru noktaya kopyalayabilir.
 
-İçerik dosyalarını geri getirmek için teklifleri birine bakın ve ilerleme durumunu, burada izleyin: [ https://github.com/NuGet/Home/issues/627 ](https://github.com/NuGet/Home/issues/627).
+İçerik dosyalarını geri getirme tekliflerinden birini görebilir ve ilerleme durumunu takip edebilirsiniz: [https://github.com/NuGet/Home/issues/627](https://github.com/NuGet/Home/issues/627).
 
-## <a name="impact-for-package-authors"></a>Paket yazarlarının için etkisi
+## <a name="impact-for-package-authors"></a>Paket yazarları için etki
 
-Yukarıdaki özellikleri kullanarak paketleri farklı mekanizmasının kullanılması gerekir. Bunun en yaygın olarak yararlı mekanizması, MSBuild hedefleri/tam olarak desteklenen için devam eden özellikler olacaktır. Derleme sistemi paketi diğer kuralları yerden devam edebiliyorduk seçebilirsiniz. MSBuild hedefleri Roslyn Çözümleyicileri yanı sıra nasıl desteklenen budur. Hedefleri ve çözümleyiciler için destekleyen paketleri oluşturmak mümkündür `packages.config` ve `project.json` senaryoları.
+Yukarıdaki özellikleri kullanan paketlerin farklı bir mekanizma kullanması gerekir. Bunun için en yaygın faydalı mekanizma, tam olarak desteklenmeye devam eden MSBuild hedefleri/props olacaktır. Yapı sistemi, pakette diğer kuralları da çekmeyi seçebilir. Bu, MSBuild hedeflerinin yanı sıra Roslyn Çözümleyicileri de desteklenir. `packages.config` Ve`project.json` senaryolarına yönelik hedefleri ve Çözümleyicileri destekleyen paketler oluşturmak mümkündür.
 
-Başlangıç genellikle kolaylaştırmak için proje değiştirmeyi deneyen paketleri senaryoları çok sınırlı kümesi içinde çalışır ve paketin nasıl kullanılacağı hakkında bir Benioku ya da yönergeler yerine sağlamalıdır.
+Projeyi kolay bir şekilde değiştirmeye çalışan paketler, genellikle çok sınırlı bir dizi senaryoda çalışır ve bunun yerine paketin nasıl kullanılacağına ilişkin bir Benioku veya bir kılavuz sağlamalıdır.
 
-Birçok var olan paketi aşağıda açıklanan paket biçimi kullanmanız gerekmez.
+Birçok mevcut paketin aşağıda açıklanan paket biçimini kullanması gerekmez.
 
-Biçim, birinci sınıf bir senaryo yerel içerik sağlar. Bu, yönetilen bütünleştirilmiş kodların donanım uygulamaları, hedef platforma göre Yönetilen derlemeler yanı sıra ikili uygulamaları dağıtmayı yakın bağımlı olduğunu gösterir. Örneğin System.IO.Compression paketi bu teknoloji kullanılmaktadır. [https://www.nuget.org/packages/System.IO.Compression](https://www.nuget.org/packages/System.IO.Compression)
+Biçim, yerel içeriği ilk sınıf senaryosu olarak sunar. Bu, yönetilen derlemelerin, hedef platforma bağlı olarak yönetilen derlemelerle birlikte ikili uygulamalar göndermek için donanım uygulamalarına yakın dayanmasıdır. Örneğin, System. ıO. Compression paketi bu teknolojinin kullanılmasıyla sorumludur. [https://www.nuget.org/packages/System.IO.Compression](https://www.nuget.org/packages/System.IO.Compression)
 
-Yukarıdaki işlevselliğini kesinlikle gerekli değilse, burada açıklanan biçimde yalnızca NuGet 3.x+ tarafından desteklenmediğinden özetinde kalmanız mevcut paket biçimi öneririz.
+Özet ' te, yukarıdaki işlev kesinlikle gerekli değilse, burada açıklanan biçim yalnızca NuGet 3. x + tarafından desteklenene kadar, mevcut paket biçimiyle bir çıkartma önerilir.
 
-Hem çalışma için paketler oluşturmak mümkün `packages.config` ve `project.json` senaryolar aracılığıyla için dolgu oluşturuluyor, ancak bu genellikle yalnızca yukarıdaki kullanım dışı bırakılan özellikler olmadan geleneksel paketleri yapı daha kolaydır.
+Paketler, için dolgu oluşturuluyor aracılığıyla her iki `packages.config` `project.json` senaryo için de çalışacak şekilde oluşturulabilir; ancak, yukarıda bahsedilen kullanım dışı özellikler olmadan paketleri geleneksel olarak yapılandırmak genellikle daha kolay bir yöntemdir.
 
-## <a name="3x-package-format"></a>3.x paket biçimi
+## <a name="3x-package-format"></a>3. x paket biçimi
 
-Birkaç ek özelliklerin ötesinde NuGet 3.x paket biçimi sağlar 2.x:
+3\. x paket biçimi, NuGet 2. x ' in ötesinde birkaç ek özellik sağlar:
 
-1. Derleme ve farklı platformları/cihaz üzerinde çalışma zamanı için kullanılan bir uygulama derleme kümesi için kullanılan bir başvuru bütünleştirilmiş kodu tanımlama. Belirli platformunun avantajlarından yararlanmanıza olanak tanıyan tüketicileriniz için ortak bir yüzey alanı sağlarken API'leri. Özellikle bu şekilde, daha kolay Ara taşınabilir kitaplıklar yazmayı kolaylaştırır.
+1. Derleme için kullanılan bir başvuru bütünleştirilmiş kodu ve farklı platformlarda/cihazlarda çalışma zamanı için kullanılan bir uygulama derlemeleri kümesi tanımlama. Tüketicileriniz için ortak bir yüzey alanı sağlarken platforma özgü API 'lerden yararlanmanızı sağlar. Bu, özellikle de ara taşınabilir kitaplıkların yazılmasını kolaylaştırır.
 
-1. İşletim sistemleri veya CPU mimarisi platformlarda örn Özet paketleri sağlar.
+1. Paketlerin platformlar (işletim sistemleri veya CPU mimarisi) üzerinde özetlemesini sağlar.
 
-1. Belirli platform uygulamalarını Yardımcısı paketlerine ayrımı sağlar.
+1. Platforma özgü uygulamaların eşlik eden paketlere ayrılmasını sağlar.
 
-1. Yerel bağımlılıkları öncelikli bir yere destekler.
+1. Birinci sınıf vatandaşlık olarak yerel bağımlılıkları destekler.

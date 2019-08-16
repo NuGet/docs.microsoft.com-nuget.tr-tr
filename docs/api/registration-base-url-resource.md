@@ -1,76 +1,76 @@
 ---
-title: Paket meta verileri, NuGet API'si
-description: Paket kayıt temel URL paketlerle ilgili meta verilerini getirmek sağlar.
+title: Paket meta verileri, NuGet API 'SI
+description: Paket kayıt taban URL 'SI, paketlerle ilgili meta verilerin getirilmesi için izin verir.
 author: joelverhagen
 ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 0b35e2bbdde63f7f7a5298bd035c180389cd345d
-ms.sourcegitcommit: 2a9d149bc6f5ff76b0b657324820bd0429cddeef
+ms.openlocfilehash: 1a2e98ab36c8dc08e5f14b19b57f5ea0d790524c
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67496513"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488310"
 ---
 # <a name="package-metadata"></a>Paket meta verileri
 
-NuGet V3 API'sini kullanarak bir paket kaynağı üzerinde kullanılabilir paketler hakkındaki meta verileri getirmek mümkündür. Bu meta veriler kullanılarak getirilebilir `RegistrationsBaseUrl` kaynak bulunan [hizmet dizini](service-index.md).
+NuGet v3 API kullanarak bir paket kaynağında bulunan paketlerle ilgili meta verileri getirmek mümkündür. Bu meta veriler, [hizmet dizininde](service-index.md)bulunan `RegistrationsBaseUrl` kaynak kullanılarak getirilebilir.
 
-Altında bulunan belgeleri koleksiyonunu `RegistrationsBaseUrl` genellikle "kayıtları" veya "kayıt BLOB'ları" denir. Altında tek bir belge kümesini `RegistrationsBaseUrl` "kayıt hive" adlandırılır. Bir kayıt defteri kovanı her bir paket kaynağı üzerinde kullanılabilir paketle ilgili tüm meta veriler içerir.
+Altında `RegistrationsBaseUrl` bulunan belgelerin koleksiyonu, genellikle "kayıtlar" veya "kayıt Blobları" olarak adlandırılır. Tek tek `RegistrationsBaseUrl` altındaki belge kümesi, "kayıt Hive" olarak adlandırılır. Kayıt Hive bir paket kaynağında bulunan her pakete ilişkin tüm meta verileri içerir.
 
 ## <a name="versioning"></a>Sürüm Oluşturma
 
-Aşağıdaki `@type` değerleri kullanılır:
+Aşağıdaki `@type` değerler kullanılır:
 
-@type Değer                     | Notlar
+@typedeeri                     | Notlar
 ------------------------------- | -----
 RegistrationsBaseUrl            | İlk yayın
-RegistrationsBaseUrl/3.0.0-beta | Diğer adı `RegistrationsBaseUrl`
-RegistrationsBaseUrl/3.0.0-rc   | Diğer adı `RegistrationsBaseUrl`
-RegistrationsBaseUrl/3.4.0      | Gzipped yanıtları
-RegistrationsBaseUrl/3.6.0      | SemVer 2.0.0 paketleri içerir.
+RegistrationsBaseUrl/3.0.0-Beta | Diğer adı`RegistrationsBaseUrl`
+RegistrationsBaseUrl/3.0.0-RC   | Diğer adı`RegistrationsBaseUrl`
+RegistrationsBaseUrl/3.4.0      | Gdaraltılmış yanıtlar
+RegistrationsBaseUrl/3.6.0      | SemVer 2.0.0 paketlerini içerir
 
-Bu, çeşitli istemci sürümleri için kullanılabilir üç farklı kayıt kovanı temsil eder.
+Bu, çeşitli istemci sürümleri için kullanılabilen üç farklı kayıt kovanlarını temsil eder.
 
 ### <a name="registrationsbaseurl"></a>RegistrationsBaseUrl
 
-Bu kayıtları sıkıştırılmaz (örtük kullandıkları anlamı `Content-Encoding: identity`). SemVer 2.0.0 paketleri **dışlanan** bu hive öğesinden.
+Bu kayıtlar sıkıştırılmaz (örtük `Content-Encoding: identity`olarak kullandıkları anlamına gelir). SemVer 2.0.0 paketleri bu Hive **dışında tutulur** .
 
 ### <a name="registrationsbaseurl340"></a>RegistrationsBaseUrl/3.4.0
 
-Bu kayıtları kullanarak sıkıştırılmış `Content-Encoding: gzip`. SemVer 2.0.0 paketleri **dışlanan** bu hive öğesinden.
+Bu kayıtlar kullanılarak `Content-Encoding: gzip`sıkıştırılır. SemVer 2.0.0 paketleri bu Hive **dışında tutulur** .
 
 ### <a name="registrationsbaseurl360"></a>RegistrationsBaseUrl/3.6.0
 
-Bu kayıtları kullanarak sıkıştırılmış `Content-Encoding: gzip`. SemVer 2.0.0 paketleri **dahil** bu kovanında.
-SemVer 2.0.0 hakkında daha fazla bilgi için bkz: [nuget.org SemVer 2.0.0 desteği](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29).
+Bu kayıtlar kullanılarak `Content-Encoding: gzip`sıkıştırılır. SemVer 2.0.0 paketleri bu kovana **dahildir** .
+SemVer 2.0.0 hakkında daha fazla bilgi için bkz. [NuGet.org Için semver 2.0.0 desteği](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29).
 
-## <a name="base-url"></a>Temel URL
+## <a name="base-url"></a>Taban URL 'SI
 
-Aşağıdaki API'leri için temel URL değeri `@id` yukarıda sözü edilen kaynakla ilişkilendirilmiş özelliği `@type` değerleri. Aşağıdaki belgede, yer tutucu temel URL `{@id}` kullanılır.
+Aşağıdaki API 'lerin temel URL 'si, belirtilen kaynak `@id` `@type` değerleriyle ilişkili özelliğin değeridir. Aşağıdaki belgede, yer tutucu temel URL 'si `{@id}` kullanılacaktır.
 
 ## <a name="http-methods"></a>HTTP yöntemleri
 
-Kayıt kaynak desteği HTTP yöntemleri bulunan tüm URL'ler `GET` ve `HEAD`.
+Kayıt kaynağında bulunan tüm URL 'ler http yöntemlerini `GET` ve ' i `HEAD`destekler.
 
 ## <a name="registration-index"></a>Kayıt dizini
 
-Kayıt kaynak gruplarını meta verileri paket kimliği ile paket Aynı anda birden fazla paket kimliği hakkındaki verileri almak mümkün değildir. Bu kaynak paketi kimliklerini bulmak için hiçbir yol sağlar. Bunun yerine istemci istenen paket kimliğini zaten bildiğiniz varsayılır Sunucu uygulaması tarafından kullanılabilen meta verileri her paket sürümü hakkında değişir. Paket kayıt BLOB'ları aşağıdaki hiyerarşik yapıya sahiptir:
+Kayıt kaynağı paket meta verilerini paket KIMLIĞIYLE gruplandırır. Aynı anda birden fazla paket KIMLIĞI hakkında veri almak mümkün değildir. Bu kaynak paket kimliklerini bulmayı sağlayan bir yol sağlar. Bunun yerine, istemcinin istenen paket KIMLIĞINI zaten öğrenmiş olduğu varsayılır. Her paket sürümü hakkında kullanılabilir meta veriler sunucu uygulamasına göre değişir. Paket kayıt Blobları aşağıdaki hiyerarşik yapıya sahiptir:
 
-- **Dizin**: tüm paketleri aynı paket kimliğine sahip bir kaynak tarafından paylaşılan paket meta verileri için giriş noktası
-- **Sayfa**: Paket sürümlerini gruplandırmasıdır. Paket sürümleri sayfasındaki sayısını sunucu uygulama tarafından tanımlanır.
+- **Dizin**: aynı paket kimliğine sahip bir kaynaktaki tüm paketler tarafından paylaşılan paket meta verileri için giriş noktası.
+- **Sayfa**: paket sürümlerinin gruplandırması. Bir sayfadaki paket sürümü sayısı sunucu uygulamasına göre tanımlanır.
 - **Yaprak**: tek bir paket sürümüne özgü bir belge.
 
-Kayıt dizinini URL'sini tahmin edilebilir ve paket Kimliğini ve kayıt kaynağın verilen istemci tarafından belirlenebilir `@id` hizmet dizini değeri. Kayıt dizinini inceleyerek bırakır ve kayıt sayfaları için URL'leri bulunur.
+Kayıt dizininin URL 'si öngörülebilir olur ve istemci tarafından, hizmet dizininden bir paket kimliği ve kayıt kaynağının `@id` değeri verildiğinde belirlenebilir. Kayıt sayfaları ve yaprakları için URL 'Ler kayıt dizinini inceleyerek bulunur.
 
-### <a name="registration-pages-and-leaves"></a>Kayıt sayfaları ve bırakır
+### <a name="registration-pages-and-leaves"></a>Kayıt sayfaları ve yaprakları
 
-Kayıt ayrı kayıt sayfasına belgelerde leafs gerektirmesidir depolamak bir sunucu uygulaması için zorunludur olsa da, istemci tarafı bellekten kazanacak şekilde önerilen bir yöntemdir. Yerine satır içi kullanım tüm dizin veya leaves sayfa belgelerde hemen depolama kaydı bırakır, sunucu uygulama paket sürümlerini sayısına göre iki yaklaşım arasında seçim yapmanızı bazı buluşsal tanımlamanız önerilir veya toplam boyutu, paket bırakır.
+Bir sunucu uygulamasının kayıt Leafs 'i ayrı kayıt sayfası belgelerinde depolaması için kesinlikle gerekli olmasa da, istemci tarafı belleği korumak önerilen bir uygulamadır. Tüm kayıt, dizinde bırakılır veya sayfa belgelerinde yaprakları hemen depolarken, sunucu uygulamasının paket sürümü sayısına göre iki yaklaşım arasından seçim yapmak için bazı buluşsal yöntemleri tanımlamasına önerilir veya paketin birikmiş boyutu bırakılır.
 
-Tüm paket sürümlerini depolamak (kayıt dizin kaydeder HTTP istek sayısına getirme paket meta verileri, ancak daha büyük bir belge indirilmelidir ve daha fazla istemci bellek ayrılması gereken anlamına gelir gerekli bırakır). Öte yandan, sunucu uygulaması, kaydı bırakır hemen ayrı sayfa belgelerde depolar. istemcinin ihtiyaç duyduğu bilgileri almak için daha fazla HTTP isteklerini gerçekleştirmeniz gerekir.
+Kayıt dizininde tüm paket sürümlerinin (yaprakları) depolanması, paket meta verilerini getirmek için gereken HTTP isteklerinin sayısına kaydedilir, ancak daha büyük bir belge indirilmeli ve daha fazla istemci belleği ayrılmalıdır. Öte yandan, sunucu uygulamasının kaydı ayrı bir sayfa belgelerinde bırakırsa, istemcinin ihtiyaç duyması gereken bilgileri almak için daha fazla HTTP isteği gerçekleştirmesi gerekir.
 
-Buluşsal yöntem nuget.org kullanan şu şekildedir: 128 veya daha fazla paket sürümleri varsa, boyutu 64 sayfalarına bırakır Kes. 128'den az sürümleri varsa, tüm satır içi kaydı dizine bırakır.
+Nuget.org 'in kullandığı buluşsal yöntem şu şekildedir: bir paketin 128 veya daha fazla sürümü varsa, yaprakları 64 boyutundaki sayfalara bölün. 128 'den az sürüm varsa, satır içi tümü kayıt dizininde kalır.
 
     GET {@id}/{LOWER_ID}/index.json
 
@@ -78,100 +78,100 @@ Buluşsal yöntem nuget.org kullanan şu şekildedir: 128 veya daha fazla paket 
 
 Ad     | İçindeki     | Tür    | Gerekli | Notlar
 -------- | ------ | ------- | -------- | -----
-LOWER_ID | URL    | dize  | evet      | Küçük harfli paket kimliği
+LOWER_ID | URL    | dize  | evet      | Paket KIMLIĞI, küçük harf
 
-`LOWER_ID` Tarafından uygulanan kurallar kullanarak küçük harfli istenen paket kimliği bir değerdir. NET [ `System.String.ToLowerInvariant()` ](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) yöntemi.
+`LOWER_ID` Değer, tarafından uygulanan kurallar kullanılarak istenen paket kimliği küçük harf olarak belirlenir. NET 'in [`System.String.ToLowerInvariant()`](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) yöntemi.
 
 ### <a name="response"></a>Yanıt
 
-Yanıt, bir kök nesnesi aşağıdaki özelliklere sahip olan bir JSON belgesi.:
+Yanıt, aşağıdaki özelliklere sahip bir kök nesnesi olan bir JSON belgesidir:
 
 Ad  | Tür             | Gerekli | Notlar
 ----- | ---------------- | -------- | -----
-count | tamsayı          | evet      | Kayıt sayfalarında dizin sayısı
-items | Nesne dizisi | evet      | Kayıt sayfaları dizisi
+count | tamsayı          | evet      | Dizindeki kayıt sayfası sayısı
+items | nesne dizisi | evet      | Kayıt sayfaları dizisi
 
-Dizin nesnesinin her öğesini `items` dizidir kayıt sayfasını temsil eden bir JSON nesnesi.
+Dizin nesnesi `items` dizisindeki her öğe, bir kayıt sayfasını temsil eden bir JSON nesnesidir.
 
-#### <a name="registration-page-object"></a>Kayıt sayfa nesnesi
+#### <a name="registration-page-object"></a>Kayıt sayfası nesnesi
 
-Kayıt dizinde bulunan kayıt sayfa nesnesi, aşağıdaki özelliklere sahiptir:
+Kayıt dizininde bulunan kayıt sayfası nesnesi aşağıdaki özelliklere sahiptir:
 
 Ad   | Tür             | Gerekli | Notlar
 ------ | ---------------- | -------- | -----
-@id    | dize           | evet      | Kayıt sayfası URL'si
-count  | tamsayı          | evet      | Kayıt sayısı sayfasında bırakır.
-items  | Nesne dizisi | Yok       | Kayıt bırakır ve ilişkilendirme meta verilerinin dizisi
-Daha düşük  | dize           | evet      | En düşük SemVer 2.0.0 sürümü (kapsamlı) sayfasındaki
-Üst | dize           | Yok       | Kayıt dizini URL'si
-üst  | dize           | evet      | En yüksek SemVer 2.0.0 sürümü (kapsamlı) sayfasındaki
+@id    | dize           | evet      | Kayıt sayfasının URL 'SI
+count  | tamsayı          | evet      | Kayıt sayısı sayfada kalır
+items  | nesne dizisi | eşleşen       | Kayıt dizisi ve onların ilişkilendirme meta verileri
+düşürül  | dize           | evet      | Sayfada en düşük SemVer 2.0.0 sürümü (dahil)
+üst | dize           | eşleşen       | Kayıt dizininin URL 'SI
+üst  | dize           | evet      | Sayfada en yüksek SemVer 2.0.0 sürümü (dahil)
 
-`lower` Ve `upper` sayfasında nesnenin sınırları, belirli bir sayfaya sürümü için meta verileri gerektiğinde kullanışlıdır.
-Bu sınırlar, gerekli yalnızca kayıt sayfasına getirmek için kullanılabilir. Sürüm dizeleri izliyor [NuGet sürümü kurallarını](../reference/package-versioning.md). Sürüm dizeleri normalleştirilir ve derleme meta verileri içermez. NuGet ekosisteminde tüm sürümleri ile birlikte kullanarak sürüm dizeleri karşılaştırma uygulandığı şekilde [2.0.0's SemVer sürümü öncelik kuralları](http://semver.org/spec/v2.0.0.html#spec-item-11).
+Sayfa nesnesinin `upper` ve sınırları, belirli bir sayfa sürümü için meta veriler gerektiğinde faydalıdır. `lower`
+Bu sınırlar, gereken tek kayıt sayfasını getirmek için kullanılabilir. Sürüm dizeleri [NuGet 'in sürüm kurallarına](../concepts/package-versioning.md)uyar. Sürüm dizeleri normalleştirilir ve derleme meta verilerini içermez. NuGet ekosistemindeki tüm sürümlerde olduğu gibi, sürüm dizelerinin karşılaştırması, [Semver 2.0.0 'in sürüm önceliği kuralları](http://semver.org/spec/v2.0.0.html#spec-item-11)kullanılarak uygulanır.
 
-`parent` Özelliği yalnızca görünür kayıt sayfasına nesneye sahipse `items` özelliği.
+Özelliği yalnızca kayıt sayfası nesnesinin `items` özelliği varsa görünür. `parent`
 
-Varsa `items` özelliği kayıt sayfası nesne mevcut değil, URL belirtilen `@id` tek tek Paket sürümlerini hakkındaki meta verileri getirmek için kullanılmalıdır. `items` Dizi bir iyileştirme olarak sayfa nesnesinden bazen çıkarılır. Tek bir paket kimliği sürüm sayısı çok büyük ise, kayıt dizin belge çok büyük ve yalnızca belirli bir sürüm veya küçük bir aralık sürümleri hakkında önemli bir istemci için işleme kısıp olacaktır.
+Özellik, kayıt sayfası nesnesinde yoksa, tek tek Paket sürümleriyle ilgili meta verileri getirmek için `@id` üzerinde belirtilen URL kullanılmalıdır. `items` `items` Dizi bazen en iyi duruma getirme olarak sayfa nesnesinden çıkarılır. Tek bir paket KIMLIĞININ sürüm sayısı çok büyükse, kayıt dizini belgesi büyük önem verir ve yalnızca belirli bir sürümü veya küçük bir sürüm aralığını gösteren bir istemci için işlem yapar.
 
-Unutmayın `items` özelliği varsa `@id` özelliği kullanılamaz, tüm sayfa verileri olduğundan zaten içinde satır içine alınmış `items` özelliği.
+Özellik varsa, tüm sayfa verileri `items` özelliğinde zaten satır içine alınmış olduğundan özelliğin kullanılması gerektiğini unutmayın. `@id` `items`
 
-Sayfa nesnesinin her öğesini `items` dizidir kayıt yaprak temsil eden bir JSON nesnesi ve ilişkili meta verileri.
+Sayfa nesnesi `items` dizisindeki her öğe, bir kayıt yaprağı ve onunla ilişkili meta verileri temsil eden bir JSON nesnesidir.
 
-#### <a name="registration-leaf-object-in-a-page"></a>Kayıt yaprak nesneyi sayfasındaki
+#### <a name="registration-leaf-object-in-a-page"></a>Bir sayfada kayıt yaprak nesnesi
 
-Bir kayıt sayfasında bulunan kayıt yaprak nesne, aşağıdaki özelliklere sahiptir:
+Kayıt sayfasında bulunan kayıt yaprak nesnesi aşağıdaki özelliklere sahiptir:
 
 Ad           | Tür   | Gerekli | Notlar
 -------------- | ------ | -------- | -----
-@id            | dize | evet      | Kayıt yaprak URL'si
-catalogEntry   | nesne | evet      | Paket meta verileri içeren bir katalog girişi
-packageContent | dize | evet      | Paket içeriğini (.nupkg) URL'si
+@id            | dize | evet      | Kayıt yaprağın URL 'SI
+catalogEntry   | nesne | evet      | Paket meta verilerini içeren katalog girdisi
+packageContent | dize | evet      | Paket içeriğinin URL 'SI (. nupkg)
 
-Her kayıt yaprak nesnesini tek bir paket sürümü ile ilişkili verileri temsil eder.
+Her kayıt yaprak nesnesi, tek bir paket sürümüyle ilişkili verileri temsil eder.
 
 #### <a name="catalog-entry"></a>Katalog girişi
 
-`catalogEntry` Kayıt yaprak nesnedeki bir özellik, aşağıdaki özelliklere sahiptir:
+Kayıt yaprak nesnesindeki özelliği aşağıdaki özelliklere sahiptir: `catalogEntry`
 
 Ad                     | Tür                       | Gerekli | Notlar
 ------------------------ | -------------------------- | -------- | -----
-@id                      | dize                     | evet      | Bu nesne oluşturmak için kullanılan belgesi URL'si
-Yazarları                  | dize veya dize dizisi | Yok       | 
-dependencyGroups         | Nesne dizisi           | Yok       | Hedef framework tarafından gruplandırılmış paket bağımlılıkları
-Kullanımdan kaldırma              | nesne                     | Yok       | Paket ile ilişkili kullanımdan kaldırma
-açıklama              | dize                     | Yok       | 
-IconUrl                  | dize                     | Yok       | 
-kimlik                       | dize                     | evet      | Paket kimliği
-LicenseUrl               | dize                     | Yok       |
-licenseExpression        | dize                     | Yok       | 
-listelenen                   | Boole değeri                    | Yok       | Listelenen çalıştırıyorsa olarak düşünülmelidir
-MinClientVersion         | dize                     | Yok       | 
-ProjectUrl               | dize                     | Yok       | 
-Yayımlanan                | dize                     | Yok       | Paketin ne zaman yayımlandı, bir ISO 8601 zaman damgası içeren bir dize
-RequireLicenseAcceptance | Boole değeri                    | Yok       | 
-özet                  | dize                     | Yok       | 
-etiketler                     | dize veya dize dizisi  | Yok       | 
-title                    | dize                     | Yok       | 
-sürüm                  | dize                     | evet      | Normalleştirme sonra tam sürüm dizesi
+@id                      | dize                     | evet      | Bu nesneyi oluşturmak için kullanılan belgenin URL 'SI
+düzenliyor                  | dizelerin dizesi veya dizisi | eşleşen       | 
+dependencyGroups         | nesne dizisi           | eşleşen       | Hedef çerçeveye göre gruplanmış paketin bağımlılıkları
+kullanımdan kaldırma              | nesne                     | eşleşen       | Paketle ilişkili kullanımdan kaldırma
+açıklama              | dize                     | eşleşen       | 
+Iurl                  | dize                     | eşleşen       | 
+kimlik                       | dize                     | evet      | Paketin KIMLIĞI
+licenseUrl               | dize                     | eşleşen       |
+licenseExpression        | dize                     | eşleşen       | 
+listelenen                   | Boole değeri                    | eşleşen       | Yoksa listelenen olarak kabul edilmelidir
+minClientVersion         | dize                     | eşleşen       | 
+projectUrl               | dize                     | eşleşen       | 
+yayımladığı                | dize                     | eşleşen       | Paketin yayımlandığı zamana ait ISO 8601 zaman damgasını içeren bir dize
+Requirelicensekabulünü | Boole değeri                    | eşleşen       | 
+özet                  | dize                     | eşleşen       | 
+etiketler                     | dize veya dize dizisi  | eşleşen       | 
+title                    | dize                     | eşleşen       | 
+sürüm                  | dize                     | evet      | Normalleştirme sonrasında tam sürüm dizesi
 
-Paket `version` tam sürüm dizesi sonra normalleştirme özelliğidir. Bu, SemVer 2.0.0 yapılandırma verilerini buraya dahil olabileceğini anlamına gelir.
+Package `version` özelliği, normalleştirmenin ardından tam sürüm dizesidir. Bu, SemVer 2.0.0 derleme verilerinin buraya dahil edileceğini gösterir.
 
-`dependencyGroups` Özelliğidir paketin hedef framework tarafından gruplandırılmış bağımlılıkları temsil eden nesneler dizisi. Paket bağımlılıkları hakkında daha fazla varsa `dependencyGroups` özelliği eksik, boş bir dizi veya `dependencies` tüm grupların özelliği boş veya eksik.
+`dependencyGroups` Özelliği, hedef çerçeveye göre gruplanan, paketin bağımlılıklarını temsil eden bir nesne dizisidir. Paketin bağımlılığı yoksa, `dependencyGroups` özelliği eksik, boş bir dizi `dependencies` veya tüm grupların özelliği boş veya eksik.
 
-Değerini `licenseExpression` özelliği uyumlu ile [NuGet lisans ifadesi söz dizimi](https://docs.microsoft.com/en-us/nuget/reference/nuspec#license).
+`licenseExpression` Özelliğin değeri [NuGet lisans ifadesi söz dizimi](https://docs.microsoft.com/en-us/nuget/reference/nuspec#license)ile uyumludur.
 
-#### <a name="package-dependency-group"></a>Paket bağımlılık grubu
+#### <a name="package-dependency-group"></a>Paket bağımlılığı grubu
 
-Her bağımlılık grup nesnesi, aşağıdaki özelliklere sahiptir:
+Her bağımlılık grubu nesnesi aşağıdaki özelliklere sahiptir:
 
 Ad            | Tür             | Gerekli | Notlar
 --------------- | ---------------- | -------- | -----
-targetFramework | dize           | Yok       | Bu bağımlılıklar için geçerli olan hedef çerçeve
-bağımlılıklar    | Nesne dizisi | Yok       |
+targetFramework | dize           | eşleşen       | Bu bağımlılıkların geçerli olduğu hedef çerçeve
+bağımlılıklar    | nesne dizisi | eşleşen       |
 
-`targetFramework` NuGet'ın .NET kitaplığı tarafından uygulanan biçim dizesini kullanır [NuGet.Frameworks](https://www.nuget.org/packages/NuGet.Frameworks/). Hayır ise `targetFramework` belirtilirse, bağımlılık grubunun tüm hedef çerçeveler için geçerlidir.
+Dize `targetFramework` , NuGet 'in .NET Library [NuGet. çerçeveleri](https://www.nuget.org/packages/NuGet.Frameworks/)tarafından uygulanan biçimi kullanır. Hayır `targetFramework` belirtilirse, bağımlılık grubu tüm hedef çerçeveler için geçerlidir.
 
-`dependencies` Her bir paket bağımlılığı geçerli paketin temsil eden bir nesne dizisi, bir özelliktir.
+`dependencies` Özelliği, her biri geçerli paketin paket bağımlılığını temsil eden bir nesne dizisidir.
 
 #### <a name="package-dependency"></a>Paket bağımlılığı
 
@@ -179,31 +179,31 @@ Her paket bağımlılığı aşağıdaki özelliklere sahiptir:
 
 Ad         | Tür   | Gerekli | Notlar
 ------------ | ------ | -------- | -----
-kimlik           | dize | evet      | Paket bağımlılık kimliği
-aralık        | nesne | Yok       | İzin verilen [sürüm aralığı](../reference/package-versioning.md#version-ranges-and-wildcards) bağımlılık
-kayıt | dize | Yok       | Bu bağımlılık kaydını dizini URL'si
+kimlik           | dize | evet      | Paket bağımlılığının KIMLIĞI
+aralık        | nesne | eşleşen       | Bağımlılığın izin verilen [Sürüm aralığı](../concepts/package-versioning.md#version-ranges-and-wildcards)
+kayıt | dize | eşleşen       | Bu bağımlılık için kayıt dizininin URL 'SI
 
-Varsa `range` özelliği çıkarılır ya da boş bir dize sürüm aralığı için varsayılan istemci `(, )`. Diğer bir deyişle, herhangi bir bağımlılığın sürümü izin verilir.
+Özellik dışlanmazsa veya boş bir dize ise, istemci varsayılan sürüm aralığı `(, )`olmalıdır. `range` Yani, bağımlılığın herhangi bir sürümüne izin verilir.
 
-#### <a name="package-deprecation"></a>Paket kullanımdan kaldırma
+#### <a name="package-deprecation"></a>Paketin kullanımdan kaldırılması
 
-Her paket kullanımdan kaldırma, aşağıdaki özelliklere sahiptir:
+Her bir paket kullanımdan kaldırılması aşağıdaki özelliklere sahiptir:
 
 Ad             | Tür             | Gerekli | Notlar
 ---------------- | ---------------- | -------- | -----
-nedenler          | dize dizisi | evet      | Neden paket kullanım dışı nedenleri
-iletisi          | dize           | Yok       | Bu kullanımdan kaldırma hakkında ek ayrıntılar
-alternatePackage | nesne           | Yok       | Bunun yerine kullanılması gereken paket bağımlılığı
+olası          | dizeler dizisi | evet      | Paketin kullanım dışı olma nedenleri
+iletisi          | dize           | eşleşen       | Bu kullanımdan kaldırma ile ilgili ek ayrıntılar
+alternatePackage | nesne           | eşleşen       | Bunun yerine kullanılması gereken paket bağımlılığı
 
-`reasons` Özellik en az bir dize içermelidir ve yalnızca aşağıdaki tabloda dizelerden içerir:
+`reasons` Özelliğin en az bir dize içermesi ve yalnızca aşağıdaki tablodaki dizeleri içermesi gerekir:
 
 Neden       | Açıklama             
 ------------ | -----------
-Eski       | Paket artık korunur
-CriticalBugs | Paket kullanım için uygun yapan hataya sahip olduğunu
-Diğer        | Paket bu listede bir nedenle kullanım dışıdır
+Eski       | Paket artık korunmaz
+Kritikhatalar | Pakette kullanım için uygun olmayan hatalar vardır
+Diğer        | Bu listede olmayan bir nedenden dolayı paket kullanım dışı bırakıldı
 
-Varsa `reasons` bilinen kümesinden olmayan dizeler özelliği içerir, bunlar yok sayılır. Dizeler büyük/küçük harfe duyarsızdır, bu nedenle `legacy` olmalıdır aynı olarak kabul `Legacy`. Dizeler düzenlenmiş şekilde herhangi bir rastgele sırayla bir dizi sıralama kısıtlama yoktur. Özelliği bilinen kümesi olmayan dizeler içeriyorsa, yalnızca "Diğer" dize yer alacağı ek olarak, bu düşünülmelidir.
+`reasons` Özelliği bilinen kümeden olmayan dizeler içeriyorsa, bunlar göz ardı edilmelidir. Dizeler büyük/küçük harfe duyarlıdır, bu `legacy` nedenle `Legacy`aynı şekilde değerlendirilmelidir. Dizide herhangi bir sıralama kısıtlaması yoktur, bu nedenle dizeler herhangi bir rastgele sıraya göre düzenlenebilirler. Ayrıca, özelliği bilinen kümeden olmayan dizeler içeriyorsa, yalnızca "diğer" dizesini içermiş gibi kabul edilmelidir.
 
 ### <a name="sample-request"></a>Örnek istek
 
@@ -213,24 +213,24 @@ Varsa `reasons` bilinen kümesinden olmayan dizeler özelliği içerir, bunlar y
 
 [!code-JSON [package-registration-index.json](./_data/package-registration-index.json)]
 
-Tek tek Paket sürümlerini hakkındaki meta verileri getirmek için hiçbir ek istekler gerekeceğinden bu nedenle bu durumda, satır içine alınmış kayıt sayfasına kayıt dizini içeriyor.
+Bu durumda, kayıt dizininde kayıt sayfası satır içine alınır ve bu nedenle tek tek paket sürümleri hakkında meta veri getirmek için fazladan istek gerekmez.
 
 ## <a name="registration-page"></a>Kayıt sayfası
 
-Kayıt sayfasına kaydı bırakır içerir. Bir kayıt sayfasına getirilecek URL tarafından belirlenir `@id` özelliğinde [kayıt sayfa nesnesi](#registration-page-object) yukarıda belirtilen.
+Kayıt sayfası, kayıt yaprakları içerir. Kayıt sayfasını getirecek URL, yukarıda belirtilen `@id` [kayıt sayfası nesnesindeki](#registration-page-object) özelliği tarafından belirlenir.
 
-Zaman `items` dizi kayıt dizin sağlanmadıysa, HTTP GET isteği `@id` kökü olarak bir nesne içeren bir JSON belgesi değeri döndürür. Nesne, aşağıdaki özelliklere sahiptir:
+Dizi kayıt dizininde sağlanmazsa, bu `@id` değerin http get isteği, kökü olarak bir nesnesi olan bir JSON belgesi döndürür. `items` Nesnesi aşağıdaki özelliklere sahiptir:
 
 Ad   | Tür             | Gerekli | Notlar
 ------ | ---------------- | -------- | -----
-@id    | dize           | evet      | Kayıt sayfası URL'si
-count  | tamsayı          | evet      | Kayıt sayısı sayfasında bırakır.
-items  | Nesne dizisi | evet      | Kayıt bırakır ve ilişkilendirme meta verilerinin dizisi
-Daha düşük  | dize           | evet      | En düşük SemVer 2.0.0 sürümü (kapsamlı) sayfasındaki
-Üst | dize           | evet      | Kayıt dizini URL'si
-üst  | dize           | evet      | En yüksek SemVer 2.0.0 sürümü (kapsamlı) sayfasındaki
+@id    | dize           | evet      | Kayıt sayfasının URL 'SI
+count  | tamsayı          | evet      | Kayıt sayısı sayfada kalır
+items  | nesne dizisi | evet      | Kayıt dizisi ve onların ilişkilendirme meta verileri
+düşürül  | dize           | evet      | Sayfada en düşük SemVer 2.0.0 sürümü (dahil)
+üst | dize           | evet      | Kayıt dizininin URL 'SI
+üst  | dize           | evet      | Sayfada en yüksek SemVer 2.0.0 sürümü (dahil)
 
-Kayıt yaprak nesnelerin şeklini kayıt dizini ile aynı olduğu [yukarıda](#registration-leaf-object-in-a-page).
+Kayıt yaprak nesnelerinin şekli [Yukarıdaki](#registration-leaf-object-in-a-page)kayıt diziniyle aynıdır.
 
 ## <a name="sample-request"></a>Örnek istek
 
@@ -242,23 +242,23 @@ Kayıt yaprak nesnelerin şeklini kayıt dizini ile aynı olduğu [yukarıda](#r
 
 ## <a name="registration-leaf"></a>Kayıt yaprak
 
-Kayıt yaprak belirli bir paket kimliği ve sürüm hakkında bilgi içerir. Bu belgede belirli bir sürüm hakkındaki meta veriler kullanılamayabilir. Paket meta verileri getirilen gelen [kayıt dizin](#registration-index) veya [kayıt sayfasına](#registration-page) (hangi bulunan kayıt dizini kullanarak).
+Kayıt yaprağı, belirli bir paket KIMLIĞI ve sürümü hakkında bilgi içerir. Belirli bir sürümle ilgili meta veriler bu belgede kullanılamıyor olabilir. Paket meta verileri [kayıt dizininden](#registration-index) veya kayıt [sayfasından](#registration-page) (kayıt dizini kullanılarak bulunan) alınmalıdır.
 
-Bir kayıt yaprak getirilecek URL'yi elde edilen `@id` kayıt dizini veya kayıt sayfasına bir kayıt yaprak nesnesinin özelliği.
+Kayıt yaprak getiren URL, kayıt dizini veya kayıt sayfasındaki bir `@id` kayıt yaprak nesnesinin özelliğinden alınır.
 
-Kayıt, aşağıdaki özelliklere sahip bir kök nesnesi içeren bir JSON belgesi dağıtımdır:
+Kayıt yaprağı, aşağıdaki özelliklere sahip bir kök nesnesine sahip bir JSON belgesidir:
 
 Ad           | Tür    | Gerekli | Notlar
 -------------- | ------- | -------- | -----
-@id            | dize  | evet      | Kayıt yaprak URL'si
-catalogEntry   | dize  | Yok       | Üretilen bu yaprak katalog girişi URL'si
-listelenen         | Boole değeri | Yok       | Listelenen çalıştırıyorsa olarak düşünülmelidir
-packageContent | dize  | Yok       | Paket içeriğini (.nupkg) URL'si
-Yayımlanan      | dize  | Yok       | Paketin ne zaman yayımlandı, bir ISO 8601 zaman damgası içeren bir dize
-kayıt   | dize  | Yok       | Kayıt dizini URL'si
+@id            | dize  | evet      | Kayıt yaprağın URL 'SI
+catalogEntry   | dize  | eşleşen       | Bu yaprağı üreten Katalog girişinin URL 'SI
+listelenen         | Boole değeri | eşleşen       | Yoksa listelenen olarak kabul edilmelidir
+packageContent | dize  | eşleşen       | Paket içeriğinin URL 'SI (. nupkg)
+yayımladığı      | dize  | eşleşen       | Paketin yayımlandığı zamana ait ISO 8601 zaman damgasını içeren bir dize
+kayıt   | dize  | eşleşen       | Kayıt dizininin URL 'SI
 
 > [!Note]
-> Nuget.org, `published` değeri 1900 paketi olduğunda listelenmemiş yıl için ayarlanır.
+> NuGet.org 'de, `published` paket listelenmemiş olduğunda değer 1900 olarak ayarlanır.
 
 ### <a name="sample-request"></a>Örnek istek
 

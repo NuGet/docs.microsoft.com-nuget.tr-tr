@@ -1,33 +1,33 @@
 ---
-title: Proje biçimi tanımlayın
-description: Kimlik için projenizi biçimini açıklar
+title: Proje biçimini tanımla
+description: Proje biçiminizi nasıl kullanacağınızı açıklar
 author: mikejo5000
 ms.author: mikejo
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: 3d8745ea30115a2d7f3954d171d92b75a434a55b
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: b151547e40e567b38acc2b0b9ee84c50d85000c9
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67843520"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488488"
 ---
-# <a name="identify-the-project-format"></a>Proje biçimi tanımlayın
+# <a name="identify-the-project-format"></a>Proje biçimini tanımla
 
-NuGet tüm .NET projeleriyle çalışır. Ancak, proje biçimi (SDK stilinde veya SDK stilinde olmayan) bazı araçlar ve kullanmak ve NuGet paketleri oluşturmak için kullanmanız gereken yöntemleri belirler. SDK stili projeleri kullanmak [SDK özniteliği](/dotnet/core/tools/csproj#additions). Kullanma ve NuGet paketleri oluşturmak için kullandığınız araçları ve yöntemleri üzerinde proje biçimi bağımlı olduğundan, proje türünü tanımlamak önemlidir. SDK stili projeleri için Araçlar ve yöntemler de bağımlı olup olmadığını proje için geçirilmiş olan üzerinde `PackageReference` biçimi.
+NuGet tüm .NET projeleriyle birlikte çalışmaktadır. Ancak, proje biçimi (SDK stili veya SDK olmayan stili), NuGet paketlerini tüketmek ve oluşturmak için kullanmanız gereken bazı araç ve yöntemleri belirler. SDK stili projeler [SDK özniteliğini](/dotnet/core/tools/csproj#additions)kullanır. NuGet paketlerini tüketmek ve oluşturmak için kullandığınız yöntemler ve araçlar proje biçimine bağlı olduğundan, proje türünü tanımlamak önemlidir. SDK olmayan stil projeleri için, Yöntemler ve araçlar projenin `PackageReference` biçime geçirilme biçimine de bağlıdır.
 
-Projenize SDK stilinde olup, projeyi oluşturmak için kullandığınız yönteme bağlıdır. Visual Studio 2017 ve sonraki sürümler kullanarak oluşturduğunuzda varsayılan proje biçimi ve ilişkili CLI aracı projeniz için aşağıdaki tabloda gösterilmektedir.
+Projenizin SDK stili olup olmadığı veya proje oluşturmak için kullanılan yönteme bağlı olup olmadığı. Aşağıdaki tabloda, Visual Studio 2017 ve sonraki sürümlerini kullanarak oluşturduğunuzda projeniz için varsayılan proje biçimi ve ilişkili CLı aracı gösterilmektedir.
 
-| Project&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Varsayılan proje biçimi | CLI aracı&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Notlar |
+| Proje&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Varsayılan proje biçimi | CLı aracı&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Notlar |
 |:------------- |:-------------|:-----|:-----|
-| .NET Standard | SDK stili | [dotnet CLI](../install-nuget-client-tools.md#dotnetexe-cli) | Visual Studio 2017'den önce oluşturulan projeleri olmayan-SDK-style ' dir. Kullanım `nuget.exe` CLI. |
-| .NET Core | SDK stili | [dotnet CLI](../install-nuget-client-tools.md#dotnetexe-cli) | Visual Studio 2017'den önce oluşturulan projeleri olmayan-SDK-style ' dir. Kullanım `nuget.exe` CLI. |
-| .NET Framework | SDK stili | [nuget.exe CLI](../install-nuget-client-tools.md#nugetexe-cli) | Diğer yöntemleri kullanarak oluşturulan .NET framework projeleri SDK stili projeleri olabilir. Bu, [dotnet CLI](../install-nuget-client-tools.md#dotnetexe-cli) yerine. |
-| [Geçirilen](../reference/migrate-packages-config-to-package-reference.md) .NET projesi | SDK stili| Paket oluşturmak üzere kullanmak [msbuild - t: paketi](../reference/migrate-packages-config-to-package-reference.md#create-a-package-after-migration) paketleri oluşturmak için. | Paket oluşturmayı `msbuild -t:pack` önerilir. Aksi takdirde kullanın [dotnet CLI](../install-nuget-client-tools.md#dotnetexe-cli). Geçirilen proje SDK stili projeleri değildir. |
+| .NET Standard | SDK stili | [dotnet CLI](../install-nuget-client-tools.md#dotnetexe-cli) | Visual Studio 2017 ' den önce oluşturulan projeler SDK olmayan stillerdir. CLI `nuget.exe` kullanın. |
+| .NET Core | SDK stili | [dotnet CLI](../install-nuget-client-tools.md#dotnetexe-cli) | Visual Studio 2017 ' den önce oluşturulan projeler SDK olmayan stillerdir. CLI `nuget.exe` kullanın. |
+| .NET Framework | SDK olmayan stil | [nuget.exe CLI](../install-nuget-client-tools.md#nugetexe-cli) | Diğer yöntemler kullanılarak oluşturulan .NET Framework projeleri SDK stilinde projeler olabilir. Bunlar için bunun yerine [DotNet CLI](../install-nuget-client-tools.md#dotnetexe-cli) kullanın. |
+| [Geçirilen](../consume-packages/migrate-packages-config-to-package-reference.md) .NET projesi | SDK olmayan stil| Paket oluşturmak için, paketler oluşturmak üzere [MSBuild-t:Pack](../consume-packages/migrate-packages-config-to-package-reference.md#create-a-package-after-migration) kullanın. | Paket `msbuild -t:pack` oluşturmak için önerilir. Aksi takdirde, [DotNet CLI](../install-nuget-client-tools.md#dotnetexe-cli)kullanın. Geçirilen projeler SDK stilinde projeler değildir. |
 
-## <a name="check-the-project-format"></a>Proje biçimini denetleyin
+## <a name="check-the-project-format"></a>Proje biçimini denetle
 
-Proje SDK stilinde biçim olup olmadığından emin değilseniz SDK'sı özniteliğinde arayın `<Project>` öğesi proje dosyasında (için C#, bu *.csproj dosyasıdır). Varsa, projeye bir SDK stilinde bir projedir.
+Projenin SDK stili biçim olup olmadığı konusunda emin değilseniz, proje dosyasındaki `<Project>` öğesinde SDK özniteliğini arayın (için C#, bu, *. csproj dosyasıdır). Varsa, proje bir SDK stili projem olur.
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -42,29 +42,29 @@ Proje SDK stilinde biçim olup olmadığından emin değilseniz SDK'sı öznitel
 </Project>
 ```
 
-## <a name="check-the-project-format-in-visual-studio"></a>Visual Studio'da proje biçimini denetleyin
+## <a name="check-the-project-format-in-visual-studio"></a>Visual Studio 'da proje biçimini denetleme
 
-Visual Studio'da çalışıyorsanız, aşağıdaki yöntemlerden birini kullanarak proje biçimi hızlı bir şekilde denetleyebilirsiniz:
+Visual Studio 'da çalışıyorsanız, aşağıdaki yöntemlerden birini kullanarak proje biçimini hızlıca kontrol edebilirsiniz:
 
-- Çözüm Gezgini'nde projeye sağ tıklayıp **myprojectname.csproj Düzenle**.
+- Çözüm Gezgini projeye sağ tıklayın ve **MyProjectName. csproj Düzenle**' yi seçin.
 
-   Bu seçenek, yalnızca SDK stilinde öznitelik kullanan projeler için Visual Studio 2017'de başlayarak kullanılabilir. Aksi takdirde, diğer bir yöntem kullanın.
+   Bu seçenek yalnızca SDK stili özniteliği kullanan projeler için Visual Studio 2017 ' den itibaren kullanılabilir. Aksi takdirde, diğer yöntemi kullanın.
 
-   ![Proje dosyası Düzenle](media/edit-project-file.png)
+   ![Proje dosyasını düzenleme](media/edit-project-file.png)
 
-   SDK stili projeyi gösteren [SDK özniteliği](/dotnet/core/tools/csproj#additions) proje dosyasındaki.
+   SDK stili bir proje, proje dosyasında [SDK özniteliğini](/dotnet/core/tools/csproj#additions) gösterir.
    
-- Gelen **proje** menüsünde seçin **projeyi** (veya projeye sağ tıklayıp seçin **projeyi**).
+- **Proje** menüsünden **Projeyi Kaldır** ' ı seçin (veya projeye sağ tıklayıp **Projeyi Kaldır**' ı seçin).
 
-   Bu proje, proje dosyasında SDK özniteliği içermeyecek. SDK stili projesi değil.
+   Bu proje, proje dosyasında SDK özniteliğini içermez. Bu bir SDK stili proje değildir.
 
-   ![Projeyi](media/unload-project.png)
+   ![Projeyi Kaldır](media/unload-project.png)
 
-   Ardından bellekten projeye sağ tıklayın ve seçin **myprojectname.csproj Düzenle**.
+   Ardından, yüklenmeyen projeye sağ tıklayın ve **MyProjectName. csproj öğesini Düzenle**' yi seçin.
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-- [Dotnet CLI ile .NET standart paketleri oluşturma](../quickstart/create-and-publish-a-package-using-the-dotnet-cli.md)
-- [Visual Studio ile .NET standart paketleri oluşturma](../quickstart/create-and-publish-a-package-using-visual-studio.md)
-- [.NET Framework paketi (Visual Studio) oluşturma ve yayımlama](../quickstart/create-and-publish-a-package-using-visual-studio-net-framework.md)
-- [NuGet paketi ve MSBuild hedefleri olarak geri yükleme](../reference/msbuild-targets.md)
+- [DotNet CLı ile .NET Standard paketleri oluşturma](../quickstart/create-and-publish-a-package-using-the-dotnet-cli.md)
+- [Visual Studio ile .NET Standard paketleri oluşturma](../quickstart/create-and-publish-a-package-using-visual-studio.md)
+- [.NET Framework paketi oluşturma ve yayımlama (Visual Studio)](../quickstart/create-and-publish-a-package-using-visual-studio-net-framework.md)
+- [NuGet paketi ve geri yükleme MSBuild hedefleri olarak](../reference/msbuild-targets.md)

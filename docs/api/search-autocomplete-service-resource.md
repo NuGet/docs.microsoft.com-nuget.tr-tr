@@ -1,45 +1,45 @@
 ---
-title: Otomatik Tamamlama, NuGet API'si
-description: Arama otomatik tamamlama hizmeti etkileşimli olarak paket kimlikleri bulunmasını ve sürümleri destekler.
+title: Otomatik tamamlama, NuGet API 'SI
+description: Arama otomatik tamamlama hizmeti, paket kimliklerinin ve sürümlerinin etkileşimli bulmayı destekler.
 author: joelverhagen
 ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: fdc3ad8aa239a42d8a4c169a757715e856bdcb41
-ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
+ms.openlocfilehash: 1179ad649da560766f28c18ab6fa670fd8fa6d8b
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58911055"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488299"
 ---
 # <a name="autocomplete"></a>Otomatik Tamamlama
 
-V3 API'sini kullanarak bir paket Kimliğini ve sürümünü otomatik tamamlama deneyimi oluşturmak mümkündür. Otomatik Tamamlama sorguları yapmak için kullanılan kaynak `SearchAutocompleteService` kaynak bulunan [hizmet dizini](service-index.md).
+V3 API kullanarak bir paket KIMLIĞI ve sürüm otomatik tamamlama deneyimi oluşturmak mümkündür. Otomatik tamamlama sorguları `SearchAutocompleteService` yapmak için kullanılan kaynak, [hizmet dizininde](service-index.md)bulunan kaynaktır.
 
 ## <a name="versioning"></a>Sürüm Oluşturma
 
-Aşağıdaki `@type` değerleri kullanılır:
+Aşağıdaki `@type` değerler kullanılır:
 
-@type Değer                          | Notlar
+@typedeeri                          | Notlar
 ------------------------------------ | -----
 SearchAutocompleteService            | İlk yayın
-SearchAutocompleteService/3.0.0-beta | Diğer adı `SearchAutocompleteService`
-SearchAutocompleteService/3.0.0-rc   | Diğer adı `SearchAutocompleteService`
+SearchAutocompleteService/3.0.0-Beta | Diğer adı`SearchAutocompleteService`
+SearchAutocompleteService/3.0.0-RC   | Diğer adı`SearchAutocompleteService`
 
-## <a name="base-url"></a>Temel URL
+## <a name="base-url"></a>Taban URL 'SI
 
-Aşağıdaki API'leri için temel URL değeri `@id` yukarıda sözü edilen kaynak biriyle ilişkili özelliği `@type` değerleri. Aşağıdaki belgede, yer tutucu temel URL `{@id}` kullanılır.
+Aşağıdaki API 'lerin temel URL 'si, belirtilen kaynak `@id` `@type` değerlerinden biriyle ilişkili özelliğin değeridir. Aşağıdaki belgede, yer tutucu temel URL 'si `{@id}` kullanılacaktır.
 
 ## <a name="http-methods"></a>HTTP yöntemleri
 
-Kayıt kaynak desteği HTTP yöntemleri bulunan tüm URL'ler `GET` ve `HEAD`.
+Kayıt kaynağında bulunan tüm URL 'ler http yöntemlerini `GET` ve ' i `HEAD`destekler.
 
-## <a name="search-for-package-ids"></a>Paket kimlikleri için arama
+## <a name="search-for-package-ids"></a>Paket kimliklerini ara
 
-Bir paket kimliği dizesi bir parçası için arama ilk otomatik tamamlama API'sini destekler. NuGet paket kaynağı ile tümleşik kullanıcı arabiriminde bir paket typeahead özelliği sağlamak istediğinizde mükemmeldir.
+İlk otomatik tamamlama API 'SI, bir paket KIMLIĞI dizesinin bir parçası için aramayı destekler. Bu, bir NuGet paket kaynağıyla tümleşik Kullanıcı arabirimine bir paket typeahead özelliği sağlamak istediğinizde idealdir.
 
-Yalnızca listede bulunmayan sürümler ile bir pakete sonuçlarında görünmez.
+Sonuçlarda yalnızca listelenmemiş sürümlerin yer aldığı bir paket görünmez.
 
     GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
 
@@ -47,34 +47,34 @@ Yalnızca listede bulunmayan sürümler ile bir pakete sonuçlarında görünmez
 
 Ad        | İçindeki     | Tür    | Gerekli | Notlar
 ----------- | ------ | ------- | -------- | -----
-q           | URL    | dize  | Yok       | Paket kimlikleri karşı Karşılaştırılacak dize
-Atla        | URL    | tamsayı | Yok       | İçin sayfalandırma atlanacak sonuç sayısı
-sınav zamanı        | URL    | tamsayı | Yok       | Sayfalandırma için döndürülecek sonuç sayısı
-yayın öncesi  | URL    | Boole değeri | Yok       | `true` veya `false` dahil edilip edilmeyeceğini belirleme [yayın öncesi paketleri](../create-packages/prerelease-packages.md)
-semVerLevel | URL    | dize  | Yok       | Bir SemVer 1.0.0 sürüm dizesi 
+q           | URL    | dize  | eşleşen       | Paket kimliklerine göre Karşılaştırılacak dize
+Atla        | URL    | tamsayı | eşleşen       | Sayfalama için atlanacak sonuç sayısı
+take        | URL    | tamsayı | eşleşen       | Sayfalama için döndürülecek sonuç sayısı
+sp1'in  | URL    | Boole değeri | eşleşen       | `true`veya `false` [yayın öncesi paketlerin](../create-packages/prerelease-packages.md) eklenip eklenmeyeceğini belirleme
+semVerLevel | URL    | dize  | eşleşen       | Bir SemVer 1.0.0 sürüm dizesi 
 
-Otomatik Tamamlama sorgu `q` sunucu uygulama tarafından tanımlanan bir şekilde ayrıştırılır. nuget.org spliting tarafından üretilen kimliği parçalarıdır paket kimliği belirteçleri öneki özgün camel çalışması ve sembol karakterlerinin sorgulama destekler.
+AutoComplete sorgusu `q` , sunucu uygulamasıyla tanımlanan bir şekilde ayrıştırılır. nuget.org, orijinal kamel Case ve symbol karakterleri tarafından oluşturulan KIMLIğIN parçaları olan paket KIMLIĞI belirteçlerinin ön ekinin sorgulanmasını destekler.
 
-`skip` 0 varsayılan parametre değeri.
+`skip` Parametresinin varsayılan değeri 0 ' dır.
 
-`take` Parametresi, sıfırdan büyük bir tamsayı olmalıdır. Sunucu uygulaması, maksimum değer yükleyebilir.
+`take` Parametre sıfırdan büyük bir tamsayı olmalıdır. Sunucu uygulamasında en büyük değer uygulanabilir.
 
-Varsa `prerelease` değil yayın öncesi paketleri dışlanmaz sağlanır.
+`prerelease` Sağlanmazsa, yayın öncesi paketler hariç tutulur.
 
-`semVerLevel` Sorgu parametresi için katılım için kullanılan [SemVer 2.0.0 paketleri](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29#identifying-semver-v200-packages).
-Bu sorgu parametresi dışlanırsa, yalnızca paket kimlikleri SemVer 1.0.0 uyumlu sürümler ile döndürülür (ile [standart NuGet sürüm](../reference/package-versioning.md) uyarılar, 4 tamsayı parçalı sürüm dizeleri gibi).
-Varsa `semVerLevel=2.0.0` SemVer 1.0.0 hem SemVer 2.0.0 uyumlu paketleri döndürülecek sağlanır. Bkz: [nuget.org SemVer 2.0.0 desteği](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29) daha fazla bilgi için.
+Sorgu `semVerLevel` parametresi, [semver 2.0.0 paketlerini](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29#identifying-semver-v200-packages)kabul etmek için kullanılır.
+Bu sorgu parametresi dışlanmazsa, yalnızca SemVer 1.0.0 uyumlu sürümlerine sahip paket kimlikleri döndürülür (4 tamsayı parçalı sürüm dizeleri gibi [Standart NuGet sürüm oluşturma](../concepts/package-versioning.md) uyarıları ile).
+`semVerLevel=2.0.0` Sağlanmışsa, hem semver 1.0.0 hem de semver 2.0.0 uyumlu paketler döndürülür. Daha fazla bilgi için bkz. [NuGet.org Için Semver 2.0.0 desteği](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29) .
 
 ### <a name="response"></a>Yanıt
 
-En fazla içeren JSON belgesi yanıttır `take` otomatik tamamlama sonuçları.
+Yanıt, `take` otomatik tamamlama sonuçlarını içeren JSON belgesidir.
 
-Kök JSON nesnesinin aşağıdaki özelliklere sahiptir:
+Kök JSON nesnesi aşağıdaki özelliklere sahiptir:
 
 Ad      | Tür             | Gerekli | Notlar
 --------- | ---------------- | -------- | -----
-totalHits | tamsayı          | evet      | Toplam sayısı atlayıp bir eşleşme `skip` ve `take`
-veri      | dize dizisi | evet      | ' % S'paketi istek tarafından eşleştirilen kimlikleri
+Toplam Isabet sayısı | tamsayı          | evet      | Toplam eşleşme sayısı, ile ilgili `skip` ve`take`
+veri      | dizeler dizisi | evet      | İstekle eşleşen paket kimlikleri
 
 ### <a name="sample-request"></a>Örnek istek
 
@@ -86,9 +86,9 @@ veri      | dize dizisi | evet      | ' % S'paketi istek tarafından eşleştiri
 
 ## <a name="enumerate-package-versions"></a>Paket sürümlerini listeleme
 
-Önceki API'sini kullanarak bir paket kimliği bulununca istemci API otomatik tamamlama sağlanan paket kimliği için paket sürümlerini Numaralandırılacak kullanabilir
+Bir paket KIMLIĞI önceki API kullanılarak bulunduğunda, istemci, belirtilen paket KIMLIĞI için paket sürümlerini numaralandırmak üzere otomatik tamamlama API 'sini kullanabilir.
 
-Listede bulunmayan bir paket sürümüne sonuçlarında görünmez.
+Listelenmemiş bir paket sürümü sonuçlarda görünmez.
 
     GET {@id}?id={ID}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
 
@@ -96,25 +96,25 @@ Listede bulunmayan bir paket sürümüne sonuçlarında görünmez.
 
 Ad        | İçindeki     | Tür    | Gerekli | Notlar
 ----------- | ------ | ------- | -------- | -----
-kimlik          | URL    | dize  | evet      | Sürümleri için getirmek için paket kimliği
-yayın öncesi  | URL    | Boole değeri | Yok       | `true` veya `false` dahil edilip edilmeyeceğini belirleme [yayın öncesi paketleri](../create-packages/prerelease-packages.md)
-semVerLevel | URL    | dize  | Yok       | Bir SemVer 2.0.0 sürümü dizesi 
+kimlik          | URL    | dize  | evet      | İçin sürümlerinin getirileceği paket KIMLIĞI
+sp1'in  | URL    | Boole değeri | eşleşen       | `true`veya `false` [yayın öncesi paketlerin](../create-packages/prerelease-packages.md) eklenip eklenmeyeceğini belirleme
+semVerLevel | URL    | dize  | eşleşen       | Bir SemVer 2.0.0 sürüm dizesi 
 
-Varsa `prerelease` değil yayın öncesi paketleri dışlanmaz sağlanır.
+`prerelease` Sağlanmazsa, yayın öncesi paketler hariç tutulur.
 
-`semVerLevel` Katılımı SemVer 2.0.0 paketler için sorgu parametresi kullanılır. Bu sorgu parametresi dışlanırsa, yalnızca SemVer 1.0.0 sürümler döndürülür. Varsa `semVerLevel=2.0.0` SemVer 1.0.0 hem SemVer 2.0.0 sürümlerinin döndürülecek sağlanır. Bkz: [nuget.org SemVer 2.0.0 desteği](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29) daha fazla bilgi için.
+Sorgu `semVerLevel` parametresi, semver 2.0.0 paketlerini kabul etmek için kullanılır. Bu sorgu parametresi dışlanmazsa, yalnızca SemVer 1.0.0 sürümleri döndürülür. `semVerLevel=2.0.0` Sağlanmışsa, hem semver 1.0.0 hem de semver 2.0.0 sürümleri döndürülür. Daha fazla bilgi için bkz. [NuGet.org Için Semver 2.0.0 desteği](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29) .
 
 ### <a name="response"></a>Yanıt
 
-Yanıt, filtreleme verilen sorgu parametreleri tarafından sağlanan paket kimliği, tüm paket sürümlerini içeren JSON belgesidir.
+Yanıt, sağlanan paket KIMLIĞININ tüm paket sürümlerini içeren, belirtilen Sorgu parametrelerine göre filtreleyerek JSON belgesidir.
 
-Kök JSON nesnesinin aşağıdaki özellik vardır:
+Kök JSON nesnesi aşağıdaki özelliğe sahiptir:
 
 Ad      | Tür             | Gerekli | Notlar
 --------- | ---------------- | -------- | -----
-veri      | dize dizisi | evet      | İstek tarafından eşleşen paket sürümleri
+veri      | dizeler dizisi | evet      | İstekle eşleşen paket sürümleri
 
-Paket sürümlerinde `data` dizi SemVer 2.0.0 derleme meta verileri içerebilir (örneğin `1.0.0+metadata`) varsa `semVerLevel=2.0.0` sorgu dizesinde sağlanan.
+`data` Dizideki paket sürümleri, sorgu dizesinde sağlanmışsa, `semVerLevel=2.0.0` semver 2.0.0 derleme meta verileri (ör `1.0.0+metadata`.) içerebilir.
 
 ### <a name="sample-request"></a>Örnek istek
 

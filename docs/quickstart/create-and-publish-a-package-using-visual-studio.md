@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: quickstart
-ms.openlocfilehash: 0fc3b15c6d5ffa93eb6e26660f71cea2286ba77d
-ms.sourcegitcommit: aed04cc04b0902403612de6736a900d41c265afd
+ms.openlocfilehash: f386808430c9d2315dba7388d38e0890a88b829b
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68821429"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488923"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Hızlı Başlangıç: Visual Studio (.NET Standard, yalnızca Windows) kullanarak bir NuGet paketi oluşturma ve yayımlama
 
@@ -62,7 +62,7 @@ namespace AppLogger
 
 1. Çözüm Gezgini ' de projeye sağ tıklayın, **Özellikler** menü komutu ' nı ve ardından **paket** sekmesini seçin.
 
-   **Paket** sekmesi yalnızca Visual STUDIO 'da SDK stilindeki projeler için, genellikle .NET Standard veya .NET Core sınıf kitaplığı projelerinde görünür; SDK olmayan bir stil projesini hedefliyorsanız (genellikle .NET Framework), [projeyi geçirin](../reference/migrate-packages-config-to-package-reference.md) ve CLI kullanın `dotnet` veya [bir .NET Framework paketi oluşturma ve](create-and-publish-a-package-using-visual-studio-net-framework.md) yayımlama konusuna bakın veya [.NET Framework paketi oluşturma ve yayımlama](create-and-publish-a-package-using-visual-studio-net-framework.md) konusuna bakın. Bunun yerine adım adım yönergeler için.
+   **Paket** sekmesi yalnızca Visual STUDIO 'da SDK stilindeki projeler için, genellikle .NET Standard veya .NET Core sınıf kitaplığı projelerinde görünür; SDK olmayan bir stil projesini hedefliyorsanız (genellikle .NET Framework), [projeyi geçirin](../consume-packages/migrate-packages-config-to-package-reference.md) ve CLI kullanın `dotnet` veya [bir .NET Framework paketi oluşturma ve](create-and-publish-a-package-using-visual-studio-net-framework.md) yayımlama konusuna bakın veya [.NET Framework paketi oluşturma ve yayımlama](create-and-publish-a-package-using-visual-studio-net-framework.md) konusuna bakın. Bunun yerine adım adım yönergeler için.
 
     ![Visual Studio projesindeki NuGet paket özellikleri](media/qs_create-vs-01-package-properties.png)
 
@@ -88,7 +88,7 @@ namespace AppLogger
 
     ![Visual Studio proje bağlam menüsünde NuGet paketi komutu](media/qs_create-vs-02-pack-command.png)
 
-    **Paket** komutunu görmüyorsanız, projeniz muhtemelen bir SDK stili proje değildir ve `nuget.exe` CLI kullanmanız gerekir. [Projeyi geçirin](../reference/migrate-packages-config-to-package-reference.md) ve CLI kullanın `dotnet` ya da adım adım yönergeler için [.NET Framework paketi oluşturma ve yayımlama](create-and-publish-a-package-using-visual-studio-net-framework.md) konusuna bakın.
+    **Paket** komutunu görmüyorsanız, projeniz muhtemelen bir SDK stili proje değildir ve `nuget.exe` CLI kullanmanız gerekir. [Projeyi geçirin](../consume-packages/migrate-packages-config-to-package-reference.md) ve CLI kullanın `dotnet` ya da adım adım yönergeler için [.NET Framework paketi oluşturma ve yayımlama](create-and-publish-a-package-using-visual-studio-net-framework.md) konusuna bakın.
 
 1. Visual Studio projeyi oluşturur ve `.nupkg` dosyayı oluşturur. Paket dosyasının yolunu içeren ayrıntılar için **Çıkış** penceresini inceleyin (aşağıdakine benzer). Ayrıca, derlenmiş derlemenin `bin\Release\netstandard2.0` .NET Standard 2,0 hedefine uygun olduğunu unutmayın.
 
@@ -193,7 +193,7 @@ Bu, paket kökünde adlı `readme.txt` bir dosya içerir. Visual Studio, paketi 
 - [Paket Yayımlama](../nuget-org/publish-a-package.md)
 - [Yayın öncesi paketler](../create-packages/Prerelease-Packages.md)
 - [Birden çok hedef çerçeveyi destekleme](../create-packages/multiple-target-frameworks-project-file.md)
-- [Paket sürümü oluşturma](../reference/package-versioning.md)
+- [Paket sürümü oluşturma](../concepts/package-versioning.md)
 - [Yerelleştirilmiş paketler oluşturma](../create-packages/creating-localized-packages.md)
 - [.NET Standard kitaplığı belgeleri](/dotnet/articles/standard/library)
 - [.NET Framework .NET Core 'a taşıma](/dotnet/articles/core/porting/index)

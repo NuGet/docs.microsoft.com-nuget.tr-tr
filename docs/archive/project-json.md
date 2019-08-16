@@ -1,26 +1,26 @@
 ---
-title: NuGet için Project.JSON dosyası başvurusu
-description: Bazı proje türlerinde project.json projede kullanılan NuGet paketleri listesini tutar.
+title: NuGet için Project. JSON dosya başvurusu
+description: Bazı proje türlerinde, Project. JSON projede kullanılan NuGet paketlerinin listesini tutar.
 author: karann-msft
 ms.author: karann
 ms.date: 07/27/2017
 ms.topic: reference
-ms.openlocfilehash: e4d8b5b9ab4605516827ead8939f278d110c7a48
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 5ecbcd4855de8ea7b6301a5e307779216baf96fc
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547790"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488292"
 ---
-# <a name="projectjson-reference"></a>Project.JSON başvurusu
+# <a name="projectjson-reference"></a>Project. JSON başvurusu
 
-*NuGet 3.x+*
+*NuGet 3. x +*
 
-`project.json` Dosyası bir paket Yönetimi biçimi olarak bilinen, bir projede kullanılan paketler listesini tutar. Sürümlereni `packages.config` sırayla yerine geçen ancak [PackageReference](../consume-packages/package-references-in-project-files.md) NuGet 4.0 + ile.
+`project.json` Dosya, bir projede kullanılan paketlerin bir listesini tutar ve paket yönetim biçimi olarak bilinir. Onun yerini `packages.config` alır ancak bu, NuGet 4.0 + ile [packagereference](../consume-packages/package-references-in-project-files.md) 'ın yerini almıştır.
 
-[ `project.lock.json` ](#projectlockjson) (Aşağıda açıklanmıştır) dosyası da kullanan projelerinde kullanılan `project.json`.
+Dosya (aşağıda açıklanmıştır), kullanan `project.json`projelerde de kullanılır. [`project.lock.json`](#projectlockjson)
 
-`project.json` aşağıdaki temel yapısını dört üst düzey nesnelerin her biri herhangi bir sayıda alt nesneler burada sahip sahiptir:
+`project.json`Aşağıdaki temel yapıya sahiptir ve burada dört üst düzey nesne herhangi bir sayıda alt nesneye sahip olabilir:
 
 ```json
 {
@@ -39,9 +39,9 @@ ms.locfileid: "43547790"
 }
 ```
 
-## <a name="dependencies"></a>Bağımlılıkları
+## <a name="dependencies"></a>Bağımlılıklar
 
-NuGet Paket bağımlılıklarını projenizin aşağıdaki biçimde listeler:
+Projenizin NuGet paketi bağımlılıklarını aşağıdaki biçimde listeler:
 
 ```json
 "PackageID" : "version_constraint"
@@ -56,31 +56,31 @@ NuGet Paket bağımlılıklarını projenizin aşağıdaki biçimde listeler:
 }
 ```
 
-`dependencies` Bölümdür burada NuGet Paket Yöneticisi iletişim paket bağımlılıkları projenize ekler.
+Bu `dependencies` bölüm, NuGet Paket Yöneticisi iletişim kutusunun projenize paket bağımlılıkları eklediği yerdir.
 
-Nuget.org, Paket Yöneticisi Konsolu'nda kullanılan kimliği ile aynı paket kimliği için paket kimliği karşılık gelir: `Install-Package Microsoft.NETCore`.
+Paket kimliği, Paket Yöneticisi konsolunda kullanılan kimlikle aynı nuget.org üzerindeki paketin kimliğine karşılık gelir: `Install-Package Microsoft.NETCore`.
 
-Ne zaman geri yükleme paketleri sürüm kısıtlamasını `"5.0.0"` gelir `>= 5.0.0`. Diğer bir deyişle, sunucuda 5.0.0 kullanılamıyor, ancak 5.0.1 olduğundan, NuGet 5.0.1 yükler ve yükseltme hakkında sizi uyarır. NuGet, aksi takdirde olası en düşük sürüm kısıtlaması eşleşen sunucuda seçer.
+Paketleri geri yüklerken, öğesinin `"5.0.0"` sürüm kısıtlaması anlamına gelir. `>= 5.0.0` Diğer bir deyişle, 5.0.0 sunucuda kullanılabilir değilse ancak 5.0.1 ise NuGet, 5.0.1 ' yi yükleyip yükseltme hakkında sizi uyarır. NuGet, kısıtlama ile eşleşen sunucuda mümkün olan en düşük sürümü de seçer.
 
-Bkz: [bağımlılık çözümlemesi](../consume-packages/dependency-resolution.md) çözümleme kuralları hakkında daha fazla ayrıntı için.
+Çözüm kuralları hakkında daha fazla bilgi için bkz. [bağımlılık çözünürlüğü](../concepts/dependency-resolution.md) .
 
 ### <a name="managing-dependency-assets"></a>Bağımlılık varlıklarını yönetme
 
-Hangi bağımlılıklar varlıklarından en üst düzey projeye akış etiketleri virgülle ayrılmış bir dizi belirterek denetlenir `include` ve `exclude` bağımlılık başvurusu özellikleri. Etiketleri listelenen aşağıdaki tabloda:
+Bağımlılıklardan en üst düzey projeye akan varlıkların, `include` bağımlılık başvurusunun ve `exclude` özelliklerinde virgülle ayrılmış bir etiket kümesi belirtilerek denetlenir. Etiketler aşağıdaki tabloda listelenmiştir:
 
-| Etiket Ekle/Dışla | Etkilenen hedef klasör |
+| Dahil etme/hariç tutma etiketi | Hedefin etkilenen klasörleri |
 | --- | --- |
 | contentFiles | İçerik  |
 | çalışma zamanı | Çalışma zamanı, kaynaklar ve FrameworkAssemblies  |
-| Derleme | lib |
-| derleme | derleme (MSBuild özellikler ve hedefler) |
+| se | LIB |
+| derleme | Build (MSBuild props ve targets) |
 | yerel | yerel |
 | yok | Klasör yok |
 | tüm | Tüm klasörler |
 
-İle belirtilen etiketlere `exclude` ile belirtilenler üzerinde önceliklidir `include`. Örneğin, `include="runtime, compile" exclude="compile"` aynı `include="runtime"`.
+İle belirtilen Etiketler `exclude` , ile `include`belirtilen değerlere göre önceliğe sahip olacak şekilde belirlenir. Örneğin, `include="runtime, compile" exclude="compile"` ile `include="runtime"`aynıdır.
 
-Örneğin, dahil etmek için `build` ve `native` klasörleri, bağımlılık aşağıdakileri kullanın:
+Örneğin, bir bağımlılığın `build` ve `native` klasörlerinin dahil olması için aşağıdakileri kullanın:
 
 ```json
 {
@@ -93,7 +93,7 @@ Hangi bağımlılıklar varlıklarından en üst düzey projeye akış etiketler
 }
 ```
 
-Dışlanacak `content` ve `build` klasörleri, bağımlılık aşağıdakileri kullanın:
+Bir bağımlılığın `content` ve `build` klasörlerinin hariç tutulması için aşağıdakileri kullanın:
 
 ```json
 {
@@ -108,7 +108,7 @@ Dışlanacak `content` ve `build` klasörleri, bağımlılık aşağıdakileri k
 
 ## <a name="frameworks"></a>Çerçeveler
 
-Listeler gibi proje üzerinde çalıştığı çerçeveleri `net45`, `netcoreapp`, `netstandard`.
+Projenin üzerinde çalıştığı çerçeveleri listeler, örneğin `net45` `netcoreapp` `netstandard`,,.
 
 ```json
 "frameworks": {
@@ -116,11 +116,11 @@ Listeler gibi proje üzerinde çalıştığı çerçeveleri `net45`, `netcoreapp
     }
  ```
 
-Yalnızca tek bir giriş izin `frameworks` bölümü. (Bir özel durum `project.json` dosyaları derleme kullanım dışı DNX ile olan ASP.NET projeleri için araç için birden çok hedef sağlayan zinciri.)
+`frameworks` Bölümünde yalnızca tek bir girdiye izin verilir. (Bir özel durum `project.json` , birden çok hedefe izin veren kullanım dışı DNX araç zinciri ile oluşturulan ASP.net projelerine yönelik dosyalardır.)
 
-## <a name="runtimes"></a>Çalışma zamanları
+## <a name="runtimes"></a>Zamanları
 
-Gibi uygulamanızın üzerinde çalıştığı işletim sistemleri ve mimariler listeler `win10-arm`, `win8-x64`, `win8-x86`.
+Uygulamanızın üzerinde çalıştığı işletim sistemlerini ve mimarilerini listeler, örneğin `win10-arm` `win8-x64` `win8-x86`,,.
 
 ```json
 "runtimes": {
@@ -133,14 +133,14 @@ Gibi uygulamanızın üzerinde çalıştığı işletim sistemleri ve mimariler 
 }
 ```
 
-Herhangi bir çalışma zamanı üzerinde çalışabilen bir PCL içeren bir paket, bir çalışma zamanı belirtmeniz gerekmez. Bu ayrıca herhangi bir bağımlılığın true olmalıdır, aksi takdirde, çalışma zamanları belirtmeniz gerekir.
+Herhangi bir çalışma zamanı üzerinde çalışabilecek bir PCL içeren paketin çalışma zamanı belirtmesi gerekmez. Bu, herhangi bir bağımlılıkda doğru olmalıdır, aksi takdirde çalışma zamanlarını belirtmeniz gerekir.
 
 
-## <a name="supports"></a>Destekler
+## <a name="supports"></a>Desteklememektedir
 
-Paket bağımlılıkları için denetimleri kümesini tanımlar. Burada, PCL veya uygulamanın çalışmasını beklediğiniz tanımlayabilirsiniz. Tanımları kısıtlayıcı olmayan kod başka bir yerde çalıştırmak mümkün olabilir. Ancak bu denetimleri belirten tüm bağımlılıklar üzerinde listelenen TxMs karşılanır denetleyin NuGet yapar. Örnek değerler için bu şunlardır: `net46.app`, `uwp.10.0.app`vb.
+Paket bağımlılıkları için bir denetim kümesi tanımlar. PCL veya uygulamayı hangi noktada çalıştıracağınızı belirtebilirsiniz. Kodunuzun başka bir yerde çalıştırılabilmesi için tanımlar kısıtlayıcı değildir. Ancak bu denetimlerin belirlenmesi, tüm bağımlılıkların listelenen TxMs üzerinde karşılanıp karşılanmadığını, NuGet denetimi yapar. Bunun değerlerine örnek olarak şunlar verilebilir: `net46.app`, `uwp.10.0.app`, vb.
 
-Bu bölümde, taşınabilir sınıf kitaplığı hedefleri iletişim kutusunda bir girişi seçtiğinizde otomatik olarak doldurulur.
+Bu bölüm, taşınabilir sınıf kitaplığı hedefleri iletişim kutusunda bir giriş seçtiğinizde otomatik olarak doldurulmalıdır.
 
 ```json
 "supports": {
@@ -149,9 +149,9 @@ Bu bölümde, taşınabilir sınıf kitaplığı hedefleri iletişim kutusunda b
 }
 ```
 
-## <a name="imports"></a>İçeri aktarmalar
+## <a name="imports"></a>İşlemlerinin
 
-İçeri aktarmalar kullanan paketleri izin verecek şekilde tasarlanmıştır `dotnet` TxM bir dotnet TxM bildirmeyin paketlerle çalışılacak. Projenizi kullanıyorsa `dotnet` TxM sonra bağlı olduğu tüm paketleri ayrıca olmalıdır bir `dotnet` TxM, aşağıdaki eklemediğiniz sürece, `project.json` olmayan izin vermek için `dotnet` platformları ile uyumlu olacak şekilde `dotnet`:
+İçeri aktarmalar, `dotnet` bir DotNet TXD bildirmeyin paketlerle çalışmak üzere TXD kullanan paketlere izin vermek için tasarlanmıştır. Projeniz `dotnet` TXI kullanıyorsa, `dotnet` platformların ile `project.json` `dotnet`uyumlu olmasını sağlamak için aşağıdaki öğesine eklemediğiniz sürece bağlı olduğunuz tüm `dotnet` paketler bir TXD içermelidir.
 
 ```json
 "frameworks": {
@@ -159,23 +159,23 @@ Bu bölümde, taşınabilir sınıf kitaplığı hedefleri iletişim kutusunda b
 }
 ```
 
-Kullanıyorsanız `dotnet` TxM ardından PCL proje sistemi ekler uygun `imports` tabanlı desteklenen hedeflerde bildirimi.
+`dotnet` TXD 'yi kullanıyorsanız, PCL proje sistemi desteklenen hedeflere göre uygun `imports` ifadeyi ekler.
 
-## <a name="differences-from-portable-apps-and-web-projects"></a>Taşınabilir uygulamaları ve web projeleri arasındaki farklar
+## <a name="differences-from-portable-apps-and-web-projects"></a>Taşınabilir uygulamalardan ve Web projelerinden farklılıklar
 
-`project.json` NuGet tarafından kullanılan dosya, ASP.NET Core projelerinde bulunan özelliklerinin bir alt kümesidir. ASP.NET core'da `project.json` proje meta verileri, derleme bilgilerini ve bağımlılıklar için kullanılır. Diğer proje sistemleri kullanıldığında, bu üç şey ayrı dosyalar halinde bölme ve `project.json` daha az bilgi içerir. Önemli farklar şunlardır:
+NuGet tarafından kullanılan dosya ASP.NET Core projelerinde bulunan bir alt kümesidir. `project.json` ASP.NET Core `project.json` , proje meta verileri, derleme bilgileri ve Bağımlılıklar için kullanılır. Diğer proje sistemlerinde kullanıldığında, bu üç şey ayrı dosyalara bölünür ve `project.json` daha az bilgi içerir. Önemli farklar şunlardır:
 
-- Ayrıca bir framework yalnızca olabilir `frameworks` bölümü.
+- `frameworks` Bölümde yalnızca bir çerçeve olabilir.
 
-- Dosya içeremez bağımlılıkları, derleme seçenekleri vb. DNX içinde gördüğünüz `project.json` dosyaları. Yalnızca olabilir koşuluyla, tek bir çerçeve bu çerçeveye özgü bağımlılıkları girmek için anlam ifade etmez.
+- Bu dosya DNX `project.json` dosyalarında gördüğünüz bağımlılıklar, derleme seçenekleri vb. içeremez. Yalnızca tek bir çerçeve olabilir. Bu, çerçeveye özgü bağımlılıklar girmek mantıklı değildir.
 
-- Derleme tarafından işlenir derleme seçenekleri, önişlemci tanımlar için MSBuild, vb. tüm MSBuild proje dosyası parçası olan ve olmayan `project.json`.
+- Derleme MSBuild, derleme seçenekleri, Önişlemci tanımlar, vb., MSBuild proje dosyasının `project.json`tüm parçasıdır.
 
-Nuget'te 3 +, geliştiricilerin el ile düzenlemek için beklenmiyor `project.json`gibi Visual Studio'da Paket Yöneticisi UI içeriği yönetir. Bu, dosyanın kesinlikle düzenleyebilirsiniz; ama bir paket geri yüklemeyi başlatmak veya başka bir şekilde geri çağırma için projeyi oluşturmalısınız da belirtti. Bkz: [paket geri yükleme](../consume-packages/package-restore.md).
+NuGet 3 + ' de, Visual Studio 'da Paket Yöneticisi Kullanıcı arabirimi `project.json`içeriği yaparken geliştiricilerin el ile düzenlemesi beklenmez. Yani, dosyayı kesinlikle düzenleyebilirsiniz, ancak bir paket geri yüklemeyi başlatmak veya geri yüklemeyi başka bir şekilde çağırmak için projeyi derlemeniz gerekir. Bkz. [paket geri yükleme](../consume-packages/package-restore.md).
 
 
 ## <a name="projectlockjson"></a>project.lock.json
 
-`project.lock.json` Kullanılan projelerde NuGet paketlerini geri yükleme işleminde dosya oluşturulduğunda `project.json`. Bu bir anlık görüntüsünü NuGet paketleri grafiği size yol gösterir ve projenizde sürüm, içeriği ve Paket bağımlılıklarını içerir oluşturulan tüm bilgileri içerir. Derleme sistemi, bu paket yerine projeyi yerel paketleri klasöründe bağlı olarak projeyi derlerken ilgili genel bir konum seçmek için kullanır. Salt okunur olarak gerekli olduğundan bu daha hızlı derleme performansla sonuçlanır `project.lock.json` birçok yerine ayrı `.nuspec` dosyaları.
+Dosya, kullanan `project.json`projelerde NuGet paketlerini geri yükleme işleminde oluşturulur. `project.lock.json` NuGet olarak oluşturulan tüm bilgilerin bir anlık görüntüsünü tutar ve kuruluşunuzdaki tüm paketlerin sürümünü, içeriğini ve bağımlılıklarını içerir. Yapı sistemi, projenin kendisindeki yerel paketler klasörüne bağlı olmak yerine, projeyi oluştururken uygun olan küresel bir konumdan paket seçmek için bunu kullanır. Bu, çok sayıda ayrı `project.lock.json` `.nuspec` dosya yerine yalnızca okunması gerektiğinden daha hızlı derleme performansına neden olur.
 
-`project.lock.json` kaynak denetiminden bu atlanabilir ekleyerek için paket geri yükleme, otomatik olarak oluşturulan `.gitignore` ve `.tfignore` dosyaları (bkz [paketleri ve kaynak denetimi](../consume-packages/packages-and-source-control.md). Kaynak denetimine dahil, ancak zaman içinde çözümlenen bağımlılıklar değişiklikleri değişiklik geçmişini gösterir.
+`project.lock.json`paket geri yükleme sırasında otomatik olarak oluşturulur. bu nedenle, `.gitignore` ve `.tfignore` dosyalarına ekleyerek kaynak denetiminden atlanabilir (bkz. [paketler ve kaynak denetimi](../consume-packages/packages-and-source-control.md). Ancak, kaynak denetimine eklerseniz, değişiklik geçmişi zaman içinde çözümlenen bağımlılıklarda yapılan değişiklikleri gösterir.

@@ -1,52 +1,52 @@
 ---
-title: (İOS, Android ve Windows için) Xamarin ile Visual Studio 2015 için NuGet paketleri oluşturma
-description: Xamarin için NuGet paketleri oluşturmak üzere bir uçtan uca izlenecek yol, iOS, Android ve Windows üzerinde yerel API'lerini kullanın.
+title: Visual Studio 2015 ile Xamarin (iOS, Android ve Windows için) için NuGet paketleri oluşturma
+description: İOS, Android ve Windows 'da yerel API 'Ler kullanan Xamarin için NuGet paketleri oluşturmaya yönelik uçtan uca bir anlatım.
 author: karann-msft
 ms.author: karann
 ms.date: 01/09/2017
 ms.topic: tutorial
-ms.openlocfilehash: 81f78de02d9b6510f195e04c78436e38f9b7353d
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 927991429d8d4ce54aa35be3e450475a38141b11
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842417"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488907"
 ---
 # <a name="create-packages-for-xamarin-with-visual-studio-2015"></a>Visual Studio 2015 ile Xamarin’e yönelik paketler oluşturma
 
-Bir paket için Xamarin iOS, Android ve Windows, yerel API'lerin çalışma zamanı işletim sistemine bağlı olarak kullanan kod içerir. Bunu yapmak basit olsa da, .NET standart kitaplıkları aracılığıyla ortak bir API yüzey ya da geliştiriciler bir PCL paketinden kullanmasına izin vermek için tercih edilir.
+Xamarin için bir paket, çalışma zamanı işletim sistemine bağlı olarak iOS, Android ve Windows 'da yerel API 'Ler kullanan kod içerir. Bu, basit olsa da, geliştiricilerin ortak bir API yüzey alanı aracılığıyla bir PCL veya .NET Standard kitaplıklarından paketi kullanmasına izin vermek tercih edilir.
 
-Bu izlenecek yolda, kullandığınız Visual Studio 2015 iOS, Android ve Windows mobil projeleri kullanılabilir platformlar arası bir NuGet paketi oluşturun.
+Bu kılavuzda, Visual Studio 2015 ' u kullanarak iOS, Android ve Windows 'da mobil projelerde kullanılabilecek bir platformlar arası NuGet paketi oluşturun.
 
 1. [Önkoşullar](#prerequisites)
-1. [Proje yapısını ve Özet kodu oluşturma](#create-the-project-structure-and-abstraction-code)
-1. [Platforma özgü kod yazma](#write-your-platform-specific-code)
-1. [Oluşturma ve güncelleştirme .nuspec dosyası](#create-and-update-the-nuspec-file)
-1. [Paket bileşeni](#package-the-component)
-1. [İlgili Konular](#related-topics)
+1. [Proje yapısı ve soyutlama kodu oluşturma](#create-the-project-structure-and-abstraction-code)
+1. [Platforma özgü kodunuzu yazma](#write-your-platform-specific-code)
+1. [. Nuspec dosyasını oluşturun ve güncelleştirin](#create-and-update-the-nuspec-file)
+1. [Bileşeni paketleme](#package-the-component)
+1. [İlgili konular](#related-topics)
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-1. Evrensel Windows Platformu (UWP) ve Xamarin ile Visual Studio 2015. Yamasını ücretsiz Community edition [visualstudio.com](https://www.visualstudio.com/); Elbette Professional ve Enterprise sürümleri de kullanabilirsiniz. UWP ve Xamarin araçları dahil etmek için bir özel yükleme seçeneğini belirleyin ve uygun seçeneklerini işaretleyin.
-1. NuGet CLI. Nuget.exe en son sürümünü indirin [nuget.org/downloads](https://nuget.org/downloads), seçtiğiniz bir konuma kaydetme. Zaten yoksa bu konum, PATH ortam değişkenine ekleyin.
+1. Evrensel Windows Platformu (UWP) ve Xamarin ile Visual Studio 2015. Community Edition 'ı [VisualStudio.com](https://www.visualstudio.com/)'ten ücretsiz yükleyin; Profesyonel ve kurumsal sürümlerini de kullanabilirsiniz. UWP ve Xamarin araçlarını dahil etmek için özel bir yüklemeyi seçin ve uygun seçenekleri kontrol edin.
+1. NuGet CLı. NuGet. exe ' nin en son sürümünü [NuGet.org/downloads](https://nuget.org/downloads)adresinden indirin ve seçtiğiniz bir konuma kaydederek yükleyin. Daha sonra bu konumu yol ortam değişkeninizin zaten olmaması durumunda ekleyin.
 
 > [!Note]
-> nuget.exe CLI aracı kendisini bir yükleyici dolayısıyla bunu çalıştırmak yerine tarayıcınızdan indirilen dosyayı kaydettiğinizden emin olur.
+> NuGet. exe, bir yükleyici değil CLı aracının kendisidir, bu nedenle indirilen dosyayı çalıştırmak yerine tarayıcınızdan kaydettiğinizden emin olun.
 
-## <a name="create-the-project-structure-and-abstraction-code"></a>Proje yapısını ve Özet kodu oluşturma
+## <a name="create-the-project-structure-and-abstraction-code"></a>Proje yapısı ve soyutlama kodu oluşturma
 
-1. İndirme ve çalıştırma [Xamarin Şablonları uzantısı için eklenti](https://marketplace.visualstudio.com/items?itemName=vs-publisher-473885.PluginForXamarinTemplates) Visual Studio için. Bu şablonlar Bu izlenecek yol için gerekli proje yapısını oluşturmak kolaylaştıracak.
-1. Visual Studio'da **Dosya > Yeni > Proje**, arama `Plugin`seçin **Xamarin için eklentisi** şablon LoggingLibrary için adı değiştirin ve Tamam'a tıklayın.
+1. Visual Studio için [Xamarin şablonları uzantısı eklentisini](https://marketplace.visualstudio.com/items?itemName=vs-publisher-473885.PluginForXamarinTemplates) indirip çalıştırın. Bu şablonlar, Bu izlenecek yol için gerekli proje yapısını oluşturmayı kolaylaştırır.
+1. Visual Studio 'da **Dosya > Yeni > proje**, arama `Plugin`, **Xamarin şablonu için eklentiyi** seçme, adı logginglibrary olarak değiştirme ve Tamam ' ı tıklatın.
 
-    ![Visual Studio'da yeni bir boş uygulama (Xamarin.Forms taşınabilir) projesine](media/CrossPlatform-NewProject.png)
+    ![Visual Studio 'da yeni boş uygulama (Xamarin. Forms taşınabilir) projesi](media/CrossPlatform-NewProject.png)
 
-Sonuçta elde edilen çözümü ile çeşitli platforma özgü projeleri birlikte iki PCL projeleri içerir:
+Elde edilen çözüm, platforma özgü çeşitli projelerle birlikte iki adet PCL projesi içerir:
 
-- Adlı PCL `Plugin.LoggingLibrary.Abstractions (Portable)`, bu durumda bileşenin genel arabirimi (API yüzey alanı) tanımlar `ILoggingLibrary` ILoggingLibrary.cs dosyasında yer alan arabirimi. Arayüzü kitaplığınıza tanımladığınız budur.
-- Diğer PCL `Plugin.LoggingLibrary (Portable)`, platforma özel uygulanışı soyut arabirimi çalışma zamanında bulur CrossLoggingLibrary.cs kodunu içerir. Genellikle bu dosyayı değiştirmek gerekmez.
-- Gibi platforma özgü projeleri `Plugin.LoggingLibrary.Android`, her içeren ilgili LoggingLibraryImplementation.cs dosyalarına arabiriminde yerel bir uygulama içerir. Kitaplığınızın kodu, oluşturduğunuz budur.
+- PCL adlı `Plugin.LoggingLibrary.Abstractions (Portable)`, bileşenin genel arabirimini (API yüzey alanı) tanımlar, bu `ILoggingLibrary` durumda arabirim ILoggingLibrary.cs dosyasında yer alır. Bu, kitaplığınızın arabirimini tanımladığınız yerdir.
+- Diğer PCL `Plugin.LoggingLibrary (Portable)`, çalışma zamanında soyut arabirimin platforma özgü bir uygulamasını bulacak CrossLoggingLibrary.cs içinde kod içerir. Genellikle bu dosyayı değiştirmeniz gerekmez.
+- Her biri gibi platforma özgü projeler `Plugin.LoggingLibrary.Android`, ilgili LoggingLibraryImplementation.cs dosyalarında arabirimin yerel bir uygulamasını içerir. Bu, kitaplığınızın kodunu oluşturduğunuz yerdir.
 
-Varsayılan olarak, arabirim tanımı, ancak hiçbir yöntemleri soyutlama projenin ILoggingLibrary.cs dosyası içerir. Bu izlenecek yolda amacı doğrultusunda, ekleme bir `Log` yöntemini aşağıdaki şekilde:
+Varsayılan olarak, soyut olanaklar projesinin ILoggingLibrary.cs dosyası bir arabirim tanımı içerir, ancak hiçbir yöntem yoktur. Bu izlenecek yolun amaçları doğrultusunda, aşağıdaki gibi bir `Log` yöntem ekleyin:
 
 ```cs
 using System;
@@ -66,11 +66,11 @@ namespace Plugin.LoggingLibrary.Abstractions
 }
 ```
 
-## <a name="write-your-platform-specific-code"></a>Platforma özgü kod yazma
+## <a name="write-your-platform-specific-code"></a>Platforma özgü kodunuzu yazma
 
-Platforma özel uygulanışı uygulamak için `ILoggingLibrary` arabirimi ve yöntemlerinin, aşağıdakileri yapın:
+`ILoggingLibrary` Arabirimin ve yöntemlerinin platforma özgü bir uygulamasını uygulamak için aşağıdakileri yapın:
 
-1. Açık `LoggingLibraryImplementation.cs` dosya her platform için proje ve gerekli kodu eklemek. Örneğin (kullanarak `Plugin.LoggingLibrary.Android` Proje):
+1. Her platform projesinin dosyasını açın ve gerekli kodu ekleyin. `LoggingLibraryImplementation.cs` Örneğin ( `Plugin.LoggingLibrary.Android` projeyi kullanarak):
 
     ```cs
     using Plugin.LoggingLibrary.Abstractions;
@@ -94,24 +94,24 @@ Platforma özel uygulanışı uygulamak için `ILoggingLibrary` arabirimi ve yö
     }
     ```
 
-1. Bu uygulama projelerindeki desteklemek istediğiniz her platform için yineleyin.
-1. İOS projesine sağ tıklayın, **özellikleri**, tıklayın **derleme** sekmesini tıklatın ve "\iPhone" kaldırma **çıkış yolu** ve **XML belge dosyası**  ayarları. Bu kılavuzda daha sonra kolaylık olması için yalnızca budur. İşiniz bittiğinde dosyayı kaydedin.
-1. Çözüme sağ tıklayın, **Configuration Manager...** ve **derleme** PCLs ve destekleyen her platform için kutuları.
-1. Çözüme sağ tıklayıp **Çözümü Derle** iş denetleyin ve sonraki paketini yapıları üretmek için. Eksik başvurular hakkında hataları alırsanız, çözüme sağ tıklayın, **NuGet paketlerini geri yükle** bağımlılıklarını yükleyin ve yeniden oluşturun.
+1. Desteklemek istediğiniz her platform için bu uygulamayı projelerde tekrarlayın.
+1. İOS projesine sağ tıklayın, **Özellikler**' i seçin, **derleme** sekmesine tıklayın ve "\Iphone" öğesini **çıkış yolundan** ve **XML belge dosyası** ayarlarından kaldırın. Bu, bu kılavuzda daha sonra kolaylık sağlaması için yeterlidir. Bitince dosyayı kaydedin.
+1. Çözüme sağ tıklayın, **Configuration Manager...** öğesini seçin ve ardından, destekettiğiniz her platform için **Yapı** kutularını işaretleyin.
+1. Çözüme sağ tıklayın ve işinizi denetlemek ve daha sonra paketettiğiniz yapıtları oluşturmak için **çözüm oluştur** ' u seçin. Eksik başvurular hakkında hata alırsanız, çözüme sağ tıklayın, bağımlılıkları yüklemek için **NuGet paketlerini geri yükle** ' yi seçin ve yeniden derleyin.
 
 > [!Note]
-> İOS için oluşturmak için bir ağa bağlı Mac üzerinde açıklandığı gibi Visual Studio'ya bağlı gereksinim [Visual Studio için Xamarin.ios'a giriş](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/introduction_to_xamarin_ios_for_visual_studio/). Kullanılabilir Mac yoksa, Yapılandırma Yöneticisi'nin (yukarıdaki adım 3) iOS projesi temizleyin.
+> İOS için derlemek için, Visual Studio için [Xamarin. iOS 'A giriş bölümünde](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/introduction_to_xamarin_ios_for_visual_studio/)açıklandığı gibi, Visual Studio 'ya bağlı ağa bağlı bir Mac gereklidir. Kullanılabilir bir Mac yoksa, Configuration Manager 'daki iOS projesi seçimini kaldırın (yukarıdaki 3. adım).
 
-## <a name="create-and-update-the-nuspec-file"></a>Oluşturma ve güncelleştirme .nuspec dosyası
+## <a name="create-and-update-the-nuspec-file"></a>. Nuspec dosyasını oluşturun ve güncelleştirin
 
-1. Bir komut istemi açın ve gidin `LoggingLibrary` nerede aşağıda bir düzey klasör `.sln` dosyası olduğunu ve NuGet komutunu çalıştırarak `spec` ilk oluşturmak için komut `Package.nuspec` dosyası:
+1. Bir `LoggingLibrary` komut istemi açın, `.sln` dosyanın altında bir düzey olan klasöre gidin ve ilk `Package.nuspec` dosyayı oluşturmak için NuGet `spec` komutunu çalıştırın:
 
     ```cli
     nuget spec
     ```
 
-1. Bu dosyayı yeniden adlandır `LoggingLibrary.nuspec` ve bir düzenleyicide açın.
-1. Aşağıdaki ile eşleşecek şekilde dosyasını güncelleştirme YOUR_NAME uygun bir değerle değiştirin. `<id>` Değeri, özellikle benzersiz olmalıdır nuget.org arasında (açıklanan adlandırma kuralları bakın [paket oluşturma](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number)). Ayrıca, yazar ve açıklama etiketleri de güncelleştirmeniz gerekir veya paket adımı sırasında bir hata alıyorsunuz unutmayın.
+1. Bu dosyayı olarak `LoggingLibrary.nuspec` yeniden adlandırın ve bir düzenleyicide açın.
+1. Dosyayı aşağıdaki ile eşleşecek şekilde güncelleştirin, YOUR_NAME değiştirerek uygun bir değerle değiştirin. Değer, özellikle NuGet.org genelinde benzersiz olmalıdır ( [paket oluşturma](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number)bölümünde açıklanan adlandırma kurallarına bakın). `<id>` Ayrıca, yazar ve Açıklama etiketlerini de güncelleştirmeniz gerektiğini veya paketleme adımı sırasında bir hata almanızı unutmayın.
 
     ```xml
     <?xml version="1.0"?>
@@ -132,11 +132,11 @@ Platforma özel uygulanışı uygulamak için `ILoggingLibrary` arabirimi ve yö
     ```
 
 > [!Tip]
-> Paket sürümünüzle sonekine sahip `-alpha`, `-beta` veya `-rc` paketinizi yayın öncesi olarak işaretlemek için denetleme [yayın öncesi sürümleri](../create-packages/prerelease-packages.md) yayın öncesi sürümleri hakkında daha fazla bilgi.
+> Paket `-alpha`sürümünüzü ile `-beta` sonekine veya `-rc` paketinizi ön sürüm olarak işaretlemek için yayın öncesi sürümler hakkında daha fazla bilgi için [yayın öncesi sürümleri](../create-packages/prerelease-packages.md) kontrol edebilirsiniz.
 
-### <a name="add-reference-assemblies"></a>Başvuru bütünleştirilmiş kodları Ekle
+### <a name="add-reference-assemblies"></a>Başvuru derlemeleri Ekle
 
-Platforma özgü başvuru bütünleştirilmiş kodları eklemek için aşağıdaki ekleyin `<files>` öğesinin `LoggingLibrary.nuspec` , desteklenen platformlar için uygun şekilde:
+Platforma özgü başvuru derlemelerini dahil etmek için, aşağıdaki `<files>` öğesine desteklenen platformlarınız için uygun olan `LoggingLibrary.nuspec` öğesine ekleyin:
 
 ```xml
 <!-- Insert below <metadata> element -->
@@ -162,11 +162,11 @@ Platforma özgü başvuru bütünleştirilmiş kodları eklemek için aşağıda
 ```
 
 > [!Note]
-> DLL ve XML dosyalarının adlarını kısaltmak için herhangi bir proje üzerinde select sağ **Kitaplığı** sekme ve derleme adları değiştirin.
+> DLL ve XML dosyalarının adlarını kısaltmak için, belirli bir projeye sağ tıklayın, **kitaplık** sekmesini seçin ve derleme adlarını değiştirin.
 
-### <a name="add-dependencies"></a>Bağımlılıkları ekleyin
+### <a name="add-dependencies"></a>Bağımlılık Ekle
 
-Yerel uygulamaları için belirli bağımlılıkları varsa, `<dependencies>` öğeyle `<group>` öğeleri, örneğin belirtmek için:
+Yerel uygulamalar için belirli bağımlılıklarınız varsa, bu `<dependencies>` öğeyi belirtmek için öğeleri ile `<group>` kullanın, örneğin:
 
 ```xml
 <!-- Insert within the <metadata> element -->
@@ -183,7 +183,7 @@ Yerel uygulamaları için belirli bağımlılıkları varsa, `<dependencies>` ö
 </dependencies>
 ```
 
-Örneğin, aşağıdaki iTextSharp UAP hedefi için bağımlılık olarak ayarlayabilirsiniz:
+Örneğin, aşağıdaki, IAP hedefi için bir bağımlılık olarak ıtextsharp olarak ayarlanır:
 
 ```xml
 <dependencies>
@@ -193,9 +193,9 @@ Yerel uygulamaları için belirli bağımlılıkları varsa, `<dependencies>` ö
 </dependencies>
 ```
 
-### <a name="final-nuspec"></a>Son .nuspec
+### <a name="final-nuspec"></a>Final. nuspec
 
-Son `.nuspec` dosya artık görünmelidir aşağıdaki gibi burada yeniden YOUR_NAME uygun bir değer ile değiştirilmelidir:
+Son `.nuspec` dosyanız artık aşağıdaki gibi görünmelidir, burada yeniden YOUR_NAME uygun bir değerle değiştirilmelidir:
 
 ```xml
 <?xml version="1.0"?>
@@ -245,28 +245,28 @@ Son `.nuspec` dosya artık görünmelidir aşağıdaki gibi burada yeniden YOUR_
 </package>
 ```
 
-## <a name="package-the-component"></a>Paket bileşeni
+## <a name="package-the-component"></a>Bileşeni paketleme
 
-Tamamlanan ile `.nuspec` paket içerisine dâhil için ihtiyacınız olan tüm dosyaları başvuran, çalıştırmaya hazır olduğunuz `pack` komutu:
+Pakete dahil etmeniz `.nuspec` gereken tüm dosyalara başvuran tamamlandığında, `pack` komutunu çalıştırmaya hazırsınız demektir:
 
 ```cli
 nuget pack LoggingLibrary.nuspec
 ```
 
-Bu işlem oluşturur `LoggingLibrary.YOUR_NAME.1.0.0.nupkg`. Gibi bir aracı bu dosyayı açmayı [NuGet paket Gezgini](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer) ve tüm düğümleri genişleterek, aşağıdaki içeriğe bakın:
+Bu işlem `LoggingLibrary.YOUR_NAME.1.0.0.nupkg`oluşturacaktır. Bu dosyayı [NuGet Paket Gezgini](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer) gibi bir araçta açıp tüm düğümleri genişleterek aşağıdaki içerikleri görürsünüz:
 
-![NuGet paket Gezgini LoggingLibrary paket gösteriliyor](media/Cross-Platform-PackageExplorer.png)
+![LoggingLibrary paketini gösteren NuGet Paket Gezgini](media/Cross-Platform-PackageExplorer.png)
 
 > [!Tip]
-> A `.nupkg` bir ZIP dosyası yalnızca farklı uzantılı bir dosyadır. Ayrıca paket içeriğini, ardından değiştirerek inceleyebilirsiniz `.nupkg` için `.zip`, ancak uzantı nuget.org için bir paket karşıya yüklemeden önce geri unutmayın.
+> `.nupkg` Dosya, yalnızca farklı bir uzantıya sahip bir ZIP dosyasıdır. Paket içeriğini `.nupkg` de inceleyebilir, ancak öğesini olarak `.zip`değiştirebilir, ancak paketi NuGet.org 'e yüklemeden önce uzantıyı geri yüklemeyi unutmayın.
 
-Paketiniz diğer geliştiriciler için kullanılabilir yapmak için yönergeleri takip edin [paket yayımlama](../nuget-org/publish-a-package.md).
+Paketinizi diğer geliştiriciler için kullanılabilir hale getirmek için, [paket yayımlama](../nuget-org/publish-a-package.md)yönergelerini izleyin.
 
 ## <a name="related-topics"></a>İlgili konular
 
 - [Nuspec başvurusu](../reference/nuspec.md)
 - [Sembol paketleri](../create-packages/symbol-packages.md)
-- [Paket sürümü oluşturma](../reference/package-versioning.md)
-- [Birden çok .NET Framework sürümleri destekleme](../create-packages/supporting-multiple-target-frameworks.md)
-- [Bir pakete MSBuild özellikler ve hedefler](../create-packages/creating-a-package.md#include-msbuild-props-and-targets-in-a-package)
+- [Paket sürümü oluşturma](../concepts/package-versioning.md)
+- [Çoklu .NET Framework sürümlerini destekleme](../create-packages/supporting-multiple-target-frameworks.md)
+- [Bir pakete MSBuild props ve hedefleri dahil etme](../create-packages/creating-a-package.md#include-msbuild-props-and-targets-in-a-package)
 - [Yerelleştirilmiş Paketler Oluşturma](../create-packages/creating-localized-packages.md)

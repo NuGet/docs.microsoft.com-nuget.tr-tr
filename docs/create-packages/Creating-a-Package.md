@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: a9224ce4e515cf98893a7134077c90a47df1862a
-ms.sourcegitcommit: fc1b716afda999148eb06d62beedb350643eb346
+ms.openlocfilehash: 7d952fcbf5cb864e8adbc0b483f42949817e1efa
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69020078"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488870"
 ---
 # <a name="create-a-package-using-the-nugetexe-cli"></a>NuGet. exe CLı kullanarak paket oluşturma
 
@@ -20,7 +20,7 @@ Paketinizin ne yaptığını veya hangi kodu içerdiğini bağımsız olarak, bu
 
 - .NET Core .NET Standard ve [SDK stili biçimi](../resources/check-project-format.md)kullanan projeleri ve diğer SDK stili projeleri için, bkz. [DotNet CLI kullanarak bir NuGet paketi oluşturma](creating-a-package-dotnet-cli.md).
 
-- ' Den `packages.config` [packagereference](../consume-packages/package-references-in-project-files.md)'a geçirilen projeler için [MSBuild-t:Pack](../reference/migrate-packages-config-to-package-reference.md#create-a-package-after-migration)kullanın.
+- ' Den `packages.config` [packagereference](../consume-packages/package-references-in-project-files.md)'a geçirilen projeler için [MSBuild-t:Pack](../consume-packages/migrate-packages-config-to-package-reference.md#create-a-package-after-migration)kullanın.
 
 Teknik olarak, bir NuGet paketi yalnızca `.nupkg` uzantısıyla yeniden adlandırılan ve içeriği belirli kurallara uyan bir ZIP dosyasıdır. Bu konuda, bu kuralları karşılayan bir paket oluşturmanın ayrıntılı süreci açıklanmaktadır.
 
@@ -138,7 +138,7 @@ Aşağıda, özellikleri açıklayan açıklamalar içeren tipik bir ( `.nuspec`
 </package>
 ```
 
-Bağımlılıkları bildirme ve sürüm numaralarını belirtme hakkında ayrıntılar için bkz. [Packages. config](../reference/packages-config.md) ve [Package sürümü oluşturma](../reference/package-versioning.md). Ayrıca, `include` öğe`dependency` üzerindeki ve `exclude` özniteliklerini kullanarak doğrudan pakette bulunan bağımlılıklardan yüzeylerden yüzey mümkündür. Bkz [. nuspec başvurusu-bağımlılıklar](../reference/nuspec.md#dependencies).
+Bağımlılıkları bildirme ve sürüm numaralarını belirtme hakkında ayrıntılar için bkz. [Packages. config](../reference/packages-config.md) ve [Package sürümü oluşturma](../concepts/package-versioning.md). Ayrıca, `include` öğe`dependency` üzerindeki ve `exclude` özniteliklerini kullanarak doğrudan pakette bulunan bağımlılıklardan yüzeylerden yüzey mümkündür. Bkz [. nuspec başvurusu-bağımlılıklar](../reference/nuspec.md#dependencies).
 
 Bildirim bundan oluşturulan pakete eklendiğinden, var olan paketleri inceleyerek istediğiniz sayıda ek örnek bulabilirsiniz. İyi bir kaynak, bilgisayarınızdaki *genel paketler* klasörüdür ve aşağıdaki komut tarafından döndürülen konumudur:
 
@@ -184,8 +184,8 @@ Klasör kuralları aşağıdaki gibidir:
 | ref/{tfd} | Verilen hedef`.dll`çerçeve bilinen adı (TFI) için bütünleştirilmiş kod () ve sembol (`.pdb`) dosyaları | Derlemeler yalnızca derleme süresi için başvuru olarak eklenir; Bu nedenle proje bin klasörüne hiçbir şey kopyalanmayacak. |
 | zamanları | Mimariye özgü bütünleştirilmiş kod (`.dll`), simge (`.pdb`) ve yerel kaynak (`.pri`) dosyaları | Derlemeler yalnızca çalışma zamanı için başvuru olarak eklenir; diğer dosyalar proje klasörlerine kopyalanır. Karşılık gelen derleme zamanı derlemesini sağlamak için klasörü altında `AnyCPU` `/ref/{tfm}` her zaman karşılık gelen (TFE) özel bütünleştirilmiş kod olmalıdır. Bkz. [birden çok hedef çerçeveyi destekleme](supporting-multiple-target-frameworks.md). |
 | içerik | Rastgele dosyalar | İçerikler proje köküne kopyalanır. **İçerik** klasörünü, son olarak paketi tüketen hedef uygulamanın kökü olarak düşünün. Paketin uygulamanın */Images* klasörüne görüntü eklemesi için, paketin *içerik/görüntüler* klasörüne yerleştirin. |
-| derleme | MSBuild `.targets` ve `.props` dosyalar | Projeye otomatik olarak ekleniyor (NuGet 3. x +). |
-| Buildmultihedefleme | Platformlar `.targets` arası `.props` hedefleme için MSBuild ve dosyalar | Projeye otomatik olarak ekleniyor. |
+| derleme | MSBuild `.targets` ve `.props` dosyalar | *(3. x +)* Projeye otomatik olarak ekleniyor. |
+| Buildmultihedefleme | *(3. x +)* Platformlar `.targets` arası `.props` hedefleme için MSBuild ve dosyalar | Projeye otomatik olarak ekleniyor. |
 | buildTransitive | *(5.0 +)* Herhangi `.targets` bir `.props` tüketen projeye geçişli olarak akan MSBuild ve dosyalar. Bkz. [özellik](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior) sayfası. | Projeye otomatik olarak ekleniyor. |
 | araçlar | Paket Yöneticisi konsolundan erişilebilen PowerShell betikleri ve programları | Klasör, yalnızca Paket Yöneticisi Konsolu `PATH` için ortam değişkenine eklenir ( `PATH` özellikle, proje oluşturulurken MSBuild için ayarlanan as kümesine uygulanmaz). `tools` |
 
@@ -226,9 +226,8 @@ Elde edilen `<project-name>.nuspec` dosya, zaten yüklenmiş olan diğer paketle
 # Use in a folder containing a project file <project-name>.csproj or <project-name>.vbproj
 nuget pack myproject.csproj
 ```
-```
 
-A token is delimited by `$` symbols on both sides of the project property. For example, the `<id>` value in a manifest generated in this way typically appears as follows:
+Belirteç, proje özelliğinin her `$` iki tarafında da semboller tarafından sınırlandırılır. Örneğin, `<id>` bu şekilde oluşturulan bir bildirimin değeri, genellikle aşağıdaki gibi görünür:
 
 ```xml
 <id>$id$</id>
@@ -273,7 +272,7 @@ Paket tanımlayıcısı (`<id>` öğe) ve sürüm numarası (`<version>` öğe),
 **Paket sürümü için en iyi uygulamalar:**
 
 - Genel olarak, paketin sürümünü kitaplıkla eşleşecek şekilde ayarlayın, ancak bu kesinlikle gerekli değildir. Bu, [Hangi derlemelerin paketlenecek olduğuna karar verirken](#decide-which-assemblies-to-package)daha önce açıklandığı gibi, bir paketi tek bir derlemeyle sınırlandırdığınızda bu basit bir işlemdir. Genel olarak, NuGet 'in derleme sürümlerini değil, bağımlılıkları çözümlerken Paket sürümleriyle uğraşır olduğunu unutmayın.
-- Standart olmayan bir sürüm düzeni kullanırken, [paket sürümü oluşturma](../reference/package-versioning.md)bölümünde açıklandığı gibi NuGet sürüm oluşturma kurallarını dikkate aldığınızdan emin olun.
+- Standart olmayan bir sürüm düzeni kullanırken, [paket sürümü oluşturma](../concepts/package-versioning.md)bölümünde açıklandığı gibi NuGet sürüm oluşturma kurallarını dikkate aldığınızdan emin olun.
 
 > Aşağıdaki kısa blog gönderisi serisi, sürüm oluşturmayı anlamak için de yararlıdır:
 >
@@ -424,7 +423,7 @@ Bir `.nupkg` dosya olan bir paket oluşturduktan sonra, bir [paket yayımlama](.
 
 Ayrıca, aşağıdaki konularda açıklandığı gibi, paketinizin yeteneklerini genişletmek veya diğer senaryoları desteklemek isteyebilirsiniz:
 
-- [Paket sürümü oluşturma](../reference/package-versioning.md)
+- [Paket sürümü oluşturma](../concepts/package-versioning.md)
 - [Birden çok hedef çerçeveyi destekleme](../create-packages/supporting-multiple-target-frameworks.md)
 - [Kaynak ve yapılandırma dosyalarının dönüştürmeleri](../create-packages/source-and-config-file-transformations.md)
 - [Yerelleştirme](../create-packages/creating-localized-packages.md)
@@ -434,5 +433,5 @@ Ayrıca, aşağıdaki konularda açıklandığı gibi, paketinizin yeteneklerini
 
 Son olarak, bilmeniz için ek paket türleri vardır:
 
-- [Yerel Paketler](../create-packages/native-packages.md)
+- [Yerel Paketler](../guides/native-packages.md)
 - [Sembol Paketleri](../create-packages/symbol-packages.md)

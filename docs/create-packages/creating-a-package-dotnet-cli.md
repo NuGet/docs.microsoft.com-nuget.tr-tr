@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8222e1edfa13951d2fda9a2384d93bba38ef4979
-ms.sourcegitcommit: ba8ad1bd13a4bba3df94374e34e20c425a05af2f
+ms.openlocfilehash: 40a42be91d3848db3e721a674e3fec4096fccd08
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68833296"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69489020"
 ---
 # <a name="create-a-nuget-package-using-the-dotnet-cli"></a>DotNet CLı kullanarak bir NuGet paketi oluşturma
 
@@ -66,7 +66,7 @@ Ayrıca,, ve `Title` `PackageDescription` `PackageTags`gibi isteğe bağlı öze
 > [!NOTE]
 > Genel tüketim için derlenmiş paketler için, paket **etiketleri** özelliğine özel bir dikkat edin, Etiketler başkalarının paketinizi bulmasına ve ne yaptığını anlamalarına yardımcı olur.
 
-Bağımlılıkları bildirme ve sürüm numaralarını belirtme hakkında ayrıntılar için bkz. proje dosyaları ve [paket sürümü oluşturma](../reference/package-versioning.md) [içindeki paket başvuruları](../consume-packages/package-references-in-project-files.md) . Ayrıca, `<IncludeAssets>` ve `<ExcludeAssets>` özniteliklerini kullanarak doğrudan pakette bulunan bağımlılıklardan gelen bir varlık için de mümkündür. Daha fazla bilgi için, [bağımlılık varlıklarını denetleyen](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets)seee.
+Bağımlılıkları bildirme ve sürüm numaralarını belirtme hakkında ayrıntılar için bkz. proje dosyaları ve [paket sürümü oluşturma](../concepts/package-versioning.md) [içindeki paket başvuruları](../consume-packages/package-references-in-project-files.md) . Ayrıca, `<IncludeAssets>` ve `<ExcludeAssets>` özniteliklerini kullanarak doğrudan pakette bulunan bağımlılıklardan gelen bir varlık için de mümkündür. Daha fazla bilgi için, [bağımlılık varlıklarını denetleyen](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets)seee.
 
 ## <a name="choose-a-unique-package-identifier-and-set-the-version-number"></a>Benzersiz bir paket tanımlayıcısı seçin ve sürüm numarasını ayarlayın
 
@@ -120,7 +120,7 @@ Bir `.nupkg` dosya olan bir paket oluşturduktan sonra, bir [paket yayımlama](.
 
 Ayrıca, aşağıdaki konularda açıklandığı gibi, paketinizin yeteneklerini genişletmek veya diğer senaryoları desteklemek isteyebilirsiniz:
 
-- [Paket sürümü oluşturma](../reference/package-versioning.md)
+- [Paket sürümü oluşturma](../concepts/package-versioning.md)
 - [Birden çok hedef çerçeveyi destekleme](../create-packages/multiple-target-frameworks-project-file.md)
 - [Kaynak ve yapılandırma dosyalarının dönüştürmeleri](../create-packages/source-and-config-file-transformations.md)
 - [Yerelleştirme](../create-packages/creating-localized-packages.md)
@@ -130,5 +130,5 @@ Ayrıca, aşağıdaki konularda açıklandığı gibi, paketinizin yeteneklerini
 
 Son olarak, bilmeniz için ek paket türleri vardır:
 
-- [Yerel Paketler](../create-packages/native-packages.md)
+- [Yerel Paketler](../guides/native-packages.md)
 - [Sembol Paketleri](../create-packages/symbol-packages.md)

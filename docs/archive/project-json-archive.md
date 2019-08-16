@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8d732e87f01c55bde87da0a2e382fd6d509886a3
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 87116669c1e685ffd0dbe4142c2f7e357c413497
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317011"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488253"
 ---
 # <a name="projectjson-archive"></a>Project. JSON Arşivi
 
@@ -54,19 +54,19 @@ Yönetim biçimleri listesinde:
 
 ## <a name="dependency-resolution-with-packagereference"></a>PackageReference ile bağımlılık çözümlemesi
 
-*İlk olarak [bağımlılık çözünürlüğünde](../consume-packages/dependency-resolution.md#dependency-resolution-with-packagereference).*
+*İlk olarak [bağımlılık çözünürlüğünde](../concepts/dependency-resolution.md#dependency-resolution-with-packagereference).*
 
 PackageReference davranışı için `project.json`de geçerlidir. NuGet geri yükleme, bağımlılık grafiğini, adlı `project.lock.json` `project.json`bir dosyaya yazar.
 
 ## <a name="managing-dependency-assets"></a>Bağımlılık varlıklarını yönetme
 
-*İlk olarak [bağımlılık çözünürlüğünde](../consume-packages/dependency-resolution.md#managing-dependency-assets).*
+*İlk olarak [bağımlılık çözünürlüğünde](../concepts/dependency-resolution.md#managing-dependency-assets).*
 
 `project.json` Biçimini kullanırken, hangi varlıkların bağımlılıklardan en üst düzey projeye akabildiğini denetleyebilirsiniz. Ayrıntılar için bkz. [Project. JSON](project-json.md).
 
 ## <a name="excluding-references"></a>Başvuruları dışlama
 
-*İlk olarak [bağımlılık çözünürlüğünde](../consume-packages/dependency-resolution.md#excluding-references).*
+*İlk olarak [bağımlılık çözünürlüğünde](../concepts/dependency-resolution.md#excluding-references).*
 
 - `project.json`: PackageC `"exclude" : "all"` için bağımlılığa ekleyin:
 
@@ -83,7 +83,7 @@ PackageReference davranışı için `project.json`de geçerlidir. NuGet geri yü
 
 ## <a name="resolving-incompatible-package-errors"></a>Uyumsuz paket hatalarını çözme
 
-*İlk olarak [bağımlılık çözünürlüğünde](../consume-packages/dependency-resolution.md#resolving-incompatible-package-errors).*
+*İlk olarak [bağımlılık çözünürlüğünde](../concepts/dependency-resolution.md#resolving-incompatible-package-errors).*
 
 Hatanın çözümlenme yöntemi:
 
@@ -124,7 +124,7 @@ Kullanırken `project.json`, hedefler projeye eklenmez, `project.lock.json`ancak
 
 ### <a name="package-versioning"></a>Paket sürümü oluşturma
 
-*[Paket sürümü oluşturma](../reference/package-versioning.md)' da başlangıçta.*
+*[Paket sürümü oluşturma](../concepts/package-versioning.md)' da başlangıçta.*
 
 `project.json` Biçim kullanılırken, NuGet Ayrıca sayının büyük, küçük, yama ve yayın \*öncesi sonek bölümlerinin bir joker karakter gösterimini kullanmayı da destekler.
 

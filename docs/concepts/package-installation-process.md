@@ -1,51 +1,51 @@
 ---
-title: Bir paketi yüklendiğinde ne olur?
-description: Paket yükleme işlemiyle ilgili ayrıntılı bilgileri
+title: Paket yüklendiğinde ne olur?
+description: Paket yükleme işlemi hakkında ayrıntılı bilgi
 author: karann-msft
 ms.author: karann
 ms.date: 06/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5676239bedb7f8fbe9f74725864afd297405d5c1
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 69ef02e3c935287759b4012aadcfb1cb9811367c
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842328"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488441"
 ---
 # <a name="what-happens-when-a-nuget-package-is-installed"></a>Bir NuGet paketi yüklendiğinde ne olur?
 
-Kısaca, farklı NuGet araçları genellikle bir pakete bir başvuru proje dosyasında oluşturma veya `packages.config`, ardından etkili bir şekilde paket yükleyen bir paket geri yükleme gerçekleştirin. Özel durum `nuget install`, hangi yalnızca genişletir pakete bir `packages` klasör ve diğer dosyaları değiştirmez.
+Basitçe, farklı NuGet araçlarının genellikle proje dosyasındaki `packages.config`bir pakete başvuru oluşturup daha sonra paketi etkin bir şekilde yüklediği bir paket geri yüklemesi gerçekleştireceğini söylemiştik. Özel durum, `nuget install`paketini yalnızca bir `packages` klasöre genişleten ve başka herhangi bir dosyayı değiştirmediğinden olur.
 
-Genel süreç aşağıdaki gibidir:
+Genel işlem aşağıdaki gibidir:
 
-1. (Tüm araçlar dışında `nuget.exe`) sürümü ve paket tanımlayıcısı proje dosyasına kaydedin veya `packages.config`.
+1. (Tüm araçlar hariç `nuget.exe`), paket tanımlayıcısını ve sürümü proje dosyasına veya `packages.config`sürümüne kaydeder.
 
-   Aracı Yükleme aracı Visual Studio ya da ' % s'dotnet CLI ise, ilk paketi yüklemek çalışır. Paket uyumlu değilse, proje dosyasına eklenmez veya `packages.config`.
+   Yükleme Aracı Visual Studio veya DotNet CLı ise, araç ilk olarak paketi yüklemeye çalışır. Uyumsuz ise, paket proje dosyasına veya `packages.config`öğesine eklenmez.
 
-2. Paket Al:
-   - İçinde paket (tam tanımlayıcı ve sürüm numarası tarafından) önceden yüklenip yüklenmediğini denetlemek *genel paketleri* üzerinde açıklandığı gibi klasör [genel paketleri ve önbellek klasörlerini yönetme](../consume-packages/managing-the-global-packages-and-cache-folders.md).
+2. Paketi edinin:
+   - [Genel paketleri ve önbellek klasörlerini yönetme](../consume-packages/managing-the-global-packages-and-cache-folders.md)konusunda açıklandığı gibi paketin (tam olarak tanımlayıcı ve sürüm numarası ile) *genel paketler* klasöründe zaten yüklü olup olmadığını denetleyin.
 
-   - Paketin içinde değilse *genel paketleri* klasörü, onu listelenen kaynaklarından listelenen alma denemesi [yapılandırma dosyalarını](../consume-packages/Configuring-NuGet-Behavior.md). Çevrimiçi kaynaklar için ilk paketi HTTP önbellekten sürece alma denemesi `-NoCache` ile belirtilen `nuget.exe` komutları veya `--no-cache` ile belirtilen `dotnet restore`. (Visual Studio ve `dotnet add package` her zaman önbelleğe kullanın.) Bir paket önbellekten kullanılan "ÖNBELLEK" çıktısında görüntülenir. Önbellek sona erme süresini 30 dakika vardır.
+   - Paket *genel paketler* klasöründe değilse, bunu [yapılandırma dosyalarında](../consume-packages/Configuring-NuGet-Behavior.md)listelenen kaynaklardan almayı deneyin. `-NoCache` Çevrimiçi kaynaklar için, `nuget.exe` komutlarla veya `--no-cache` ile `dotnet restore`belirtimediği takdirde, paketi http önbelleğinden almayı deneyin. (Visual Studio ve `dotnet add package` her zaman önbelleği kullanır.) Bir paket önbellekten kullanılıyorsa, çıktıda "CACHE" görünür. Önbellekte 30 dakikalık bir sona erme saati vardır.
 
-   - Paket HTTP önbellekte değilse yapılandırmasında listelenen kaynaklardan indirme girişimi. Bir paket yüklediyseniz, "GET" ve "Tamam" çıkışında görüntülenir. NuGet http trafiğini normal ayrıntı kaydeder.
+   - Paket HTTP önbelleğinde değilse, yapılandırmayı yapılandırmada listelenen kaynaklardan indirmeyi deneyin. Bir paket indirildiyse, çıktıda "Al" ve "Tamam" görüntülenir. NuGet, HTTP trafiğini normal ayrıntı temelinde günlüğe kaydeder.
 
-   - Paket başarıyla tüm kaynaklardan gelen alınamıyor, yükleme bir hata ile bu noktada gibi başarısız [NU1103](../reference/errors-and-warnings/NU1103.md). Not Bu hatalardan `nuget.exe` komutları göster yalnızca son kaynak işaretli, ancak gelir paket herhangi bir kaynaktan kullanılabilir durumda.
+   - Paket hiçbir kaynaktan başarıyla alınamazsa, yükleme bu noktada [NU1103](../reference/errors-and-warnings/NU1103.md)gibi bir hata ile başarısız olur. Komutlardan gelen `nuget.exe` hataların yalnızca son kaynağı kontrol edin, ancak paketin herhangi bir kaynaktan kullanılamayacağını gösterir.
 
-   Paket alırken, kaynakları NuGet yapılandırma sırasını uygulanabilir:
+   Paket alınırken, NuGet yapılandırmasındaki kaynakların sırası uygulanabilir:
 
-   - NuGet HTTP kaynakları denetlemeden önce kaynakları yerel klasörü ve ağ paylaşımlara denetler.
+   - NuGet, HTTP kaynaklarını denetlemeden önce yerel klasör ve ağ paylaşımlarının kaynaklarını denetler.
 
-3. Paket ve diğer bilgiler bir kopyasını kaydedin *http önbellek* üzerinde açıklandığı gibi klasör [genel paketleri ve önbellek klasörlerini yönetme](../consume-packages/managing-the-global-packages-and-cache-folders.md).
+3. [Genel paketleri ve önbellek klasörlerini yönetme](../consume-packages/managing-the-global-packages-and-cache-folders.md)konusunda açıklandığı gibi, paketin ve diğer bilgilerin bir kopyasını *http-Cache* klasörüne kaydedin.
 
-4. İndirdiyseniz, paketi, kullanıcı başına yükleyin. *genel paketleri* klasör. NuGet, her paket tanımlayıcısı için bir alt klasör oluşturur ve ardından paketi yüklü her sürüm için alt klasörler oluşturur.
+4. İndirildiyse, paketi Kullanıcı başına *genel paketler* klasörüne yükler. NuGet her paket tanımlayıcısı için bir alt klasör oluşturur, sonra paketin yüklü her sürümü için alt klasörler oluşturur.
 
-5. NuGet Paket bağımlılıklarını gerekli olarak yükler. Bu işlem işleminde, paket sürümlerini açıklandığı güncelleştirebilir [bağımlılık çözümlemesi](../consume-packages/dependency-resolution.md).
+5. NuGet, paket bağımlılıklarını gerektiği şekilde yüklüyor. Bu işlem, [bağımlılık çözümlemesi](../concepts/dependency-resolution.md)bölümünde açıklandığı gibi işlemdeki paket sürümlerini güncelleştirebilir.
 
-6. Diğer proje dosyaları ve klasörleri güncelleştirin:
+6. Diğer proje dosyalarını ve klasörlerini güncelleştir:
 
-    - Projeler için PackageReference, kullanarak depolanan paket bağımlılık grafiği güncelleştirmek `obj/project.assets.json`. Paket içeriğini kendilerini herhangi bir proje klasörüne kopyalanmaz.
-    - Güncelleştirme `app.config` ve/veya `web.config` paketi kullanıyorsa [kaynak ve yapılandırma dosyası dönüşümleri](../create-packages/source-and-config-file-transformations.md).
+    - PackageReference kullanan projeler için, içinde `obj/project.assets.json`depolanan paket bağımlılığı grafiğini güncelleştirin. Paket içerikleri herhangi bir proje klasörüne kopyalanmaz.
+    - Güncelleştirme `app.config` ve/veya `web.config` paket [kaynak ve yapılandırma dosyası dönüştürmeleri](../create-packages/source-and-config-file-transformations.md)kullanıyorsa.
 
-7. (Yalnızca visual Studio) Paketin Benioku dosyası varsa, Visual Studio penceresinde görüntüler.
+7. (Yalnızca Visual Studio) Bir Visual Studio penceresinde, varsa paketin Benioku dosyasını görüntüleyin.
 
-NuGet paketleri ile üretken, kodlamanın keyfini çıkarın!
+NuGet paketleriyle üretken kodlarınızın keyfini çıkarın!

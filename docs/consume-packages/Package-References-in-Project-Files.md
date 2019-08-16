@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 05ece5f36ff7ae5920960c42cfde8b271dc3e712
-ms.sourcegitcommit: fc1b716afda999148eb06d62beedb350643eb346
+ms.openlocfilehash: 464bf52cabe64696270fc391b2c23de9c6ba24f7
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69020007"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488145"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Proje dosyalarında paket başvuruları (PackageReference)
 
@@ -20,7 +20,7 @@ PackageReference ile, MSBuild koşullarını hedef çerçeve, yapılandırma, pl
 
 ## <a name="project-type-support"></a>Proje türü desteği
 
-Varsayılan olarak, PackageReference, .NET Core projeleri, .NET Standard projeleri ve Windows 10 Build 15063 (Creators Update) ve üstünü hedefleyen UWP projeleri için, C++ UWP projelerinin dışında kullanılır. .NET Framework projeler, PackageReference destekler, ancak şu anda `packages.config`varsayılan olarak. Packagereference kullanmak için, [](../reference/migrate-packages-config-to-package-reference.md) bağımlılıkları `packages.config` proje dosyanıza geçirin, sonra Packages. config 'i kaldırın.
+Varsayılan olarak, PackageReference, .NET Core projeleri, .NET Standard projeleri ve Windows 10 Build 15063 (Creators Update) ve üstünü hedefleyen UWP projeleri için, C++ UWP projelerinin dışında kullanılır. .NET Framework projeler, PackageReference destekler, ancak şu anda `packages.config`varsayılan olarak. Packagereference kullanmak için, [](../consume-packages/migrate-packages-config-to-package-reference.md) bağımlılıkları `packages.config` proje dosyanıza geçirin, sonra Packages. config 'i kaldırın.
 
 Tam .NET Framework hedefleyen uygulamalar, PackageReference için yalnızca [sınırlı desteği](https://github.com/NuGet/Home/issues/5877) içerir. C++ve JavaScript proje türleri desteklenmez.
 
@@ -48,7 +48,7 @@ Bir paketin sürümünü belirtme kuralı, kullanırken `packages.config`olduğu
 </ItemGroup>
 ```
 
-Yukarıdaki örnekte 3.6.0, [paket sürümü oluşturma](../reference/package-versioning.md#version-ranges-and-wildcards)bölümünde açıklandığı gibi en düşük sürüm için tercihe sahip > = 3.6.0 olan herhangi bir sürüm anlamına gelir.
+Yukarıdaki örnekte 3.6.0, [paket sürümü oluşturma](../concepts/package-versioning.md#version-ranges-and-wildcards)bölümünde açıklandığı gibi en düşük sürüm için tercihe sahip > = 3.6.0 olan herhangi bir sürüm anlamına gelir.
 
 ## <a name="using-packagereference-for-a-project-with-no-packagereferences"></a>Packagereferde olmayan bir proje için PackageReference kullanma
 İleri Bir projede yüklü paketleriniz yoksa (proje dosyasında ve hiçbir paket. config dosyası yoksa), ancak projenin PackageReference stili olarak geri yüklenmesini istiyorsanız, bir proje özelliği RestoreProjectStyle öğesini projenizde PackageReference olarak ayarlayabilirsiniz dosyasýný.
@@ -63,7 +63,7 @@ Bu, PackageReference stilli (mevcut csproj veya SDK stili projeler) projelere ba
 
 ## <a name="floating-versions"></a>Kayan sürümler
 
-[Kayan sürümler](../consume-packages/dependency-resolution.md#floating-versions) ile `PackageReference`desteklenir:
+[Kayan sürümler](../concepts/dependency-resolution.md#floating-versions) ile `PackageReference`desteklenir:
 
 ```xml
 <ItemGroup>
@@ -130,6 +130,9 @@ Aşağıdaki örnekte, paketteki içerik dosyaları hariç her şey proje taraf�
 ```
 
 İle `build` birlikte`PrivateAssets`dahil edilmediğinden, hedefler ve props ana projeye akacağından emin olmanız gerekir. Örneğin, yukarıdaki başvurunun Appgünlükçü adlı bir NuGet paketi oluşturan bir projede kullanıldığını göz önünde bulundurun. Appgünlükçü, appgünlükçü kullanan projeler gibi, `Contoso.Utility.UsefulStuff`öğesinden hedefleri ve props 'ı kullanabilir.
+
+> [!NOTE]
+> `developmentDependency` , `true` Bir dosyada`.nuspec` olarak ayarlandığında, paketin diğer paketlere bağımlılık olarak eklenmesini önleyen bir paketi yalnızca geliştirme bağımlılığı olarak işaretler. PackageReference *(NuGet 4.8 +)* ile bu bayrak Ayrıca derleme zamanı varlıklarını derlemeden dışlayacak anlamına gelir. Daha fazla bilgi için bkz. [PackageReference Için Developmentdependency desteği](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference).
 
 ## <a name="adding-a-packagereference-condition"></a>PackageReference koşulu ekleme
 

@@ -5,12 +5,12 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/03/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9ef990c16cca62a1fbad25ff1582bfa543135fab
-ms.sourcegitcommit: e763d9549cee3b6254ec2d6382baccb44433d42c
+ms.openlocfilehash: 7039dd27f2dddebc3c84e5ad35d5efec59547792
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68860574"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488825"
 ---
 # <a name="manage-packages-using-the-nugetexe-cli"></a>NuGet. exe CLı kullanarak paketleri yönetme
 
@@ -19,7 +19,7 @@ CLı Aracı, projelerde ve çözümlerinde NuGet paketlerini kolayca güncelleş
 `nuget.exe` CLI .NET Framework projeniz ve SDK olmayan bir stil projem (örneğin, .NET Standard kitaplıklarını hedefleyen SDK olmayan bir stil Projesi) içindir. Öğesine `PackageReference`geçirilmiş SDK olmayan bir proje kullanıyorsanız bunun yerine `dotnet` CLI kullanın. CLI `nuget.exe` , paket başvuruları için bir [Packages. config](../reference/packages-config.md) dosyası gerektirir.
 
 > [!NOTE]
-> Çoğu senaryoda, packagereference için kullanılan `packages.config` [SDK olmayan projeler arasında geçiş](../reference/migrate-packages-config-to-package-reference.md) `dotnet` yapmanızı öneririz ve `nuget.exe` CLI yerine CLI kullanabilirsiniz. Geçiş Şu anda ve ASP.NET projeleri C++ için kullanılabilir değil.
+> Çoğu senaryoda, packagereference için kullanılan `packages.config` [SDK olmayan projeler arasında geçiş](../consume-packages/migrate-packages-config-to-package-reference.md) `dotnet` yapmanızı öneririz ve `nuget.exe` CLI yerine CLI kullanabilirsiniz. Geçiş Şu anda ve ASP.NET projeleri C++ için kullanılabilir değil.
 
 Bu makalede, en sık kullanılan `nuget.exe` CLI komutlarının birçoğuna ilişkin temel kullanım gösterilmektedir. Bu komutların çoğu için, komutta bir proje dosyası belirtilmediği takdirde CLı aracı geçerli dizinde bir proje dosyası arar. Komutların ve kullanabileceğiniz bağımsız değişkenlerin tamamı listesi için bkz. [NuGet. exe CLI başvurusu](../reference/nuget-exe-cli-reference.md).
 
@@ -111,3 +111,13 @@ nuget update
 ## <a name="restore-packages"></a>Paketleri geri yükle
 
 [!INCLUDE [restore-nuget-exe-cli](includes/restore-nuget-exe-cli.md)]
+
+## <a name="get-the-cli-version"></a>CLı sürümünü al
+
+Şu komutu kullanın:
+
+```cli
+nuget help
+```
+
+Yardım çıkışının ilk satırı sürümü gösterir. Yukarı kaydırmayı önlemek için bunun yerine `nuget help | more` kullanın.

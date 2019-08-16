@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: 726f983c2522fdb538dfce858fdf2371ec0ce188
-ms.sourcegitcommit: f9e39ff9ca19ba4a26e52b8a5e01e18eb0de5387
+ms.openlocfilehash: a7d07da30daf3f94db99476b88d9abaad1bb8a07
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68433335"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488860"
 ---
 # <a name="building-pre-release-packages"></a>Yayın öncesi paketleri oluşturma
 
@@ -20,7 +20,7 @@ Güncelleştirilmiş bir paketi yeni bir sürüm numarasıyla serbest bıraktı�
 
 Kararlı bir yayın, üretimde kullanılmak üzere yeterince güvenilir olarak kabul edilen bir sürümdür. En son kararlı sürüm aynı zamanda bir paket güncelleştirmesi olarak veya paket geri yükleme sırasında ( [paketleri yeniden yükleme ve güncelleştirme](../consume-packages/reinstalling-and-updating-packages.md)bölümünde açıklandığı gibi kısıtlamalara tabidir) yüklenir.
 
-NuGet 1,6 ve üzeri, yazılım sürümü yaşam döngüsünü desteklemek için yayın öncesi paketlerin dağıtımına izin verir; burada sürüm numarası,, veya `-alpha` `-rc`gibi bir anlamsal sürüm oluşturma soneki `-beta`içerir. Daha fazla bilgi için bkz. [paket sürümü oluşturma](../reference/package-versioning.md#pre-release-versions).
+NuGet 1,6 ve üzeri, yazılım sürümü yaşam döngüsünü desteklemek için yayın öncesi paketlerin dağıtımına izin verir; burada sürüm numarası,, veya `-alpha` `-rc`gibi bir anlamsal sürüm oluşturma soneki `-beta`içerir. Daha fazla bilgi için bkz. [paket sürümü oluşturma](../concepts/package-versioning.md#pre-release-versions).
 
 Aşağıdaki yollarla bu tür sürümleri belirtebilirsiniz:
 
@@ -38,7 +38,7 @@ Aşağıdaki yollarla bu tür sürümleri belirtebilirsiniz:
     <version>1.0.1-alpha</version>
     ```
 
-Kararlı bir sürümü bırakmaya hazırsanız, soneki kaldırmanız yeterlidir ve paketin herhangi bir yayın öncesi sürümüne göre öncelikli olması gerekir. Yeniden, bkz. [paket sürümü oluşturma](../reference/package-versioning.md#pre-release-versions).
+Kararlı bir sürümü bırakmaya hazırsanız, soneki kaldırmanız yeterlidir ve paketin herhangi bir yayın öncesi sürümüne göre öncelikli olması gerekir. Yeniden, bkz. [paket sürümü oluşturma](../concepts/package-versioning.md#pre-release-versions).
 
 ## <a name="installing-and-updating-pre-release-packages"></a>Yayın öncesi paketleri yükleme ve güncelleştirme
 

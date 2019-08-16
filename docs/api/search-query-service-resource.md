@@ -1,45 +1,45 @@
 ---
-title: Arama, NuGet API'si
-description: İstemciler, anahtar sözcüğe göre paketler için sorgu ve belirli bir paket alanlara sonuçları filtrelemek için arama hizmeti sağlar.
+title: Arama, NuGet API 'SI
+description: Arama hizmeti, istemcilerin paketleri anahtar sözcüğe göre sorgulamasını ve belirli paket alanlarındaki sonuçları filtrelemesine olanak tanır.
 author: joelverhagen
 ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: d462b289c39c2dd1418304dabcad47d0d4217f82
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: b898b389ee6c962831ce789a7c304c75e6bd8774
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426740"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488210"
 ---
 # <a name="search"></a>Ara
 
-Bir paket kaynağı V3 API'sini kullanarak kullanılabilir paketleri aramak mümkündür. Aramak için kullanılan kaynak `SearchQueryService` kaynak bulunan [hizmet dizini](service-index.md).
+V3 API kullanarak bir paket kaynağında kullanılabilir olan paketleri aramak mümkündür. Arama `SearchQueryService` için kullanılan kaynak, [hizmet dizininde](service-index.md)bulunan kaynaktır.
 
 ## <a name="versioning"></a>Sürüm Oluşturma
 
-Aşağıdaki `@type` değerleri kullanılır:
+Aşağıdaki `@type` değerler kullanılır:
 
-@type Değer                   | Notlar
+@typedeeri                   | Notlar
 ----------------------------- | -----
 SearchQueryService            | İlk yayın
-SearchQueryService/3.0.0-beta | Diğer adı `SearchQueryService`
-SearchQueryService/3.0.0-rc   | Diğer adı `SearchQueryService`
+SearchQueryService/3.0.0-Beta | Diğer adı`SearchQueryService`
+SearchQueryService/3.0.0-RC   | Diğer adı`SearchQueryService`
 
-## <a name="base-url"></a>Temel URL
+## <a name="base-url"></a>Taban URL 'SI
 
-Aşağıdaki API için temel URL değeri `@id` yukarıda sözü edilen kaynak biriyle ilişkili özelliği `@type` değerleri. Aşağıdaki belgede, yer tutucu temel URL `{@id}` kullanılır.
+Aşağıdaki API 'nin temel URL 'si, belirtilen kaynak `@id` `@type` değerlerinden biriyle ilişkili özelliğin değeridir. Aşağıdaki belgede, yer tutucu temel URL 'si `{@id}` kullanılacaktır.
 
 ## <a name="http-methods"></a>HTTP yöntemleri
 
-Kayıt kaynak desteği HTTP yöntemleri bulunan tüm URL'ler `GET` ve `HEAD`.
+Kayıt kaynağında bulunan tüm URL 'ler http yöntemlerini `GET` ve ' i `HEAD`destekler.
 
-## <a name="search-for-packages"></a>Paketleri Ara
+## <a name="search-for-packages"></a>Paketleri ara
 
-Arama API'si, sorgu için bir istemci için paketlerin belirli bir arama sorgusuyla eşleşen bir sayfa sağlar. Arama sorgusu (örneğin arama terimlerini simgeleştirme) yorumu sunucu uygulaması tarafından belirlenir, ancak genel beklenir arama sorgusu paket kimlikleri, başlıklarını, açıklamaları ve etiketleri eşleştirmek için kullanılır. Diğer paket meta veri alanlarını da olarak kabul edilebilir.
+Arama API 'SI, bir istemcinin belirtilen arama sorgusuyla eşleşen bir paket sayfasını sorgulamasını sağlar. Arama sorgusunun yorumu (örn. arama terimlerinin simgeleştirme) sunucu uygulamasına göre belirlenir, ancak genel beklentide arama sorgusunun, paket kimlikleri, başlıklar, açıklamalar ve Etiketler için kullanılması gerekir. Diğer paket meta verisi alanları da göz önünde bulundurulmayabilir.
 
-Listede bulunmayan bir paket, hiçbir zaman arama sonuçlarında görüntülenmesi gerekir.
+Listelenmemiş bir paket, arama sonuçlarında asla görünmemelidir.
 
     GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
 
@@ -47,67 +47,67 @@ Listede bulunmayan bir paket, hiçbir zaman arama sonuçlarında görüntülenme
 
 Ad        | İçindeki     | Tür    | Gerekli | Notlar
 ----------- | ------ | ------- | -------- | -----
-q           | URL    | dize  | Yok       | Filtre paketleri için kullanılan arama koşulları
-Atla        | URL    | tamsayı | Yok       | İçin sayfalandırma atlanacak sonuç sayısı
-sınav zamanı        | URL    | tamsayı | Yok       | Sayfalandırma için döndürülecek sonuç sayısı
-yayın öncesi  | URL    | Boole değeri | Yok       | `true` veya `false` dahil edilip edilmeyeceğini belirleme [yayın öncesi paketleri](../create-packages/prerelease-packages.md)
-semVerLevel | URL    | dize  | Yok       | Bir SemVer 1.0.0 sürüm dizesi 
+q           | URL    | dize  | eşleşen       | Paketleri filtrelemek için kullanılacak arama terimleri
+Atla        | URL    | tamsayı | eşleşen       | Sayfalama için atlanacak sonuç sayısı
+take        | URL    | tamsayı | eşleşen       | Sayfalama için döndürülecek sonuç sayısı
+sp1'in  | URL    | Boole değeri | eşleşen       | `true`veya `false` [yayın öncesi paketlerin](../create-packages/prerelease-packages.md) eklenip eklenmeyeceğini belirleme
+semVerLevel | URL    | dize  | eşleşen       | Bir SemVer 1.0.0 sürüm dizesi 
 
-Arama sorgusu `q` sunucu uygulama tarafından tanımlanan bir şekilde ayrıştırılır. nuget.org üzerindeki temel filtreleme destekleyen bir [çeşitli alanları](../consume-packages/finding-and-choosing-packages.md#search-syntax). Hayır ise `q` tüm paketleri skip ve take tarafından uygulanan sınırları içinde döndürülmelidir sağlanır. Bu "Gözatma türü" sekmesinde NuGet Visual Studio deneyimi sağlar.
+Arama sorgusu `q` , sunucu uygulamasıyla tanımlanan bir şekilde ayrıştırılır. nuget.org [, çeşitli alanlarda](../consume-packages/finding-and-choosing-packages.md#search-syntax)temel filtrelemeyi destekler. Hayır `q` sağlanmazsa, atla ve Al tarafından uygulanan sınırlar dahilinde tüm paketlerin döndürülmesi gerekir. Bu, NuGet Visual Studio deneyiminde "araştır" sekmesine izin vermez.
 
-`skip` 0 varsayılan parametre değeri.
+`skip` Parametresinin varsayılan değeri 0 ' dır.
 
-`take` Parametresi, sıfırdan büyük bir tamsayı olmalıdır. Sunucu uygulaması, maksimum değer yükleyebilir.
+`take` Parametre sıfırdan büyük bir tamsayı olmalıdır. Sunucu uygulamasında en büyük değer uygulanabilir.
 
-Varsa `prerelease` değil yayın öncesi paketleri dışlanmaz sağlanır.
+`prerelease` Sağlanmazsa, yayın öncesi paketler hariç tutulur.
 
-`semVerLevel` Sorgu parametresi için katılım için kullanılan [SemVer 2.0.0 paketleri](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29#identifying-semver-v200-packages).
-Bu sorgu parametresi dışlanırsa SemVer 1.0.0 uyumlu sürümler yalnızca paketlerle döndürülür (ile [standart NuGet sürüm](../reference/package-versioning.md) uyarılar, 4 tamsayı parçalı sürüm dizeleri gibi).
-Varsa `semVerLevel=2.0.0` SemVer 1.0.0 hem SemVer 2.0.0 uyumlu paketleri döndürülecek sağlanır. Bkz: [nuget.org SemVer 2.0.0 desteği](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29) daha fazla bilgi için.
+Sorgu `semVerLevel` parametresi, [semver 2.0.0 paketlerini](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29#identifying-semver-v200-packages)kabul etmek için kullanılır.
+Bu sorgu parametresi dışlanmazsa, yalnızca SemVer 1.0.0 uyumlu sürümleri olan paketler döndürülür (4 tamsayı parçalı sürüm dizeleri gibi [Standart NuGet sürüm oluşturma](../concepts/package-versioning.md) uyarıları ile).
+`semVerLevel=2.0.0` Sağlanmışsa, hem semver 1.0.0 hem de semver 2.0.0 uyumlu paketler döndürülür. Daha fazla bilgi için bkz. [NuGet.org Için Semver 2.0.0 desteği](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29) .
 
 ### <a name="response"></a>Yanıt
 
-En fazla içeren JSON belgesi yanıttır `take` arama sonuçları. Arama sonuçları paket kimliğine göre gruplandırılır.
+Yanıt, `take` arama sonuçlarının bulunduğu JSON belgesidir. Arama sonuçları paket KIMLIĞINE göre gruplandırılır.
 
-Kök JSON nesnesinin aşağıdaki özelliklere sahiptir:
+Kök JSON nesnesi aşağıdaki özelliklere sahiptir:
 
 Ad      | Tür             | Gerekli | Notlar
 --------- | ---------------- | -------- | -----
-totalHits | tamsayı          | evet      | Toplam sayısı atlayıp bir eşleşme `skip` ve `take`
-veri      | Nesne dizisi | evet      | İstek tarafından eşleştirilen arama sonuçları
+Toplam Isabet sayısı | tamsayı          | evet      | Toplam eşleşme sayısı, ile ilgili `skip` ve`take`
+veri      | nesne dizisi | evet      | İstekle eşleşen arama sonuçları
 
 ### <a name="search-result"></a>Arama sonucu
 
-Her öğe `data` dizidir paket sürümleri aynı paket kimliğini paylaşımı birtakım oluşan bir JSON nesnesi
-Nesne, aşağıdaki özelliklere sahiptir:
+`data` Dizideki her öğe, aynı paket kimliğini paylaşan bir paket sürümü grubundan oluşan bir JSON nesnesidir.
+Nesnesi aşağıdaki özelliklere sahiptir:
 
 Ad           | Tür                       | Gerekli | Notlar
 -------------- | -------------------------- | -------- | -----
-kimlik             | dize                     | evet      | Eşleşen bir paket kimliği
-sürüm        | dize                     | evet      | (Derleme meta verilerini içerebilir) paketin tam SemVer 2.0.0 sürümü dizesi
-açıklama    | dize                     | Yok       | 
-sürümler       | Nesne dizisi           | evet      | Eşleşen paket sürümlerini tüm `prerelease` parametresi
-Yazarları        | dize veya dize dizisi | Yok       | 
-IconUrl        | dize                     | Yok       | 
-LicenseUrl     | dize                     | Yok       | 
-Sahipleri         | dize veya dize dizisi | Yok       | 
-ProjectUrl     | dize                     | Yok       | 
-kayıt   | dize                     | Yok       | İlişkili için mutlak URL [kayıt dizini](registration-base-url-resource.md#registration-index)
-özet        | dize                     | Yok       | 
-etiketler           | dize veya dize dizisi | Yok       | 
-title          | dize                     | Yok       | 
-totalDownloads | tamsayı                    | Yok       | Bu değer yüklemeler toplamına göre çıkarılan `versions` dizi
-doğrulandı       | Boole değeri                    | Yok       | Paket olup olmadığını belirten bir JSON boolean [doğrulandı](../nuget-org/id-prefix-reservation.md)
+kimlik             | dize                     | evet      | Eşleşen paketin KIMLIĞI
+sürüm        | dize                     | evet      | Paketin tam SemVer 2.0.0 sürüm dizesi (derleme meta verileri içerebilir)
+açıklama    | dize                     | eşleşen       | 
+sürümler       | nesne dizisi           | evet      | `prerelease` Parametre ile eşleşen paketin tüm sürümleri
+düzenliyor        | dizelerin dizesi veya dizisi | eşleşen       | 
+Iurl        | dize                     | eşleşen       | 
+licenseUrl     | dize                     | eşleşen       | 
+lere         | dizelerin dizesi veya dizisi | eşleşen       | 
+projectUrl     | dize                     | eşleşen       | 
+kayıt   | dize                     | eşleşen       | İlişkili [kayıt dizininin](registration-base-url-resource.md#registration-index) mutlak URL 'si
+özet        | dize                     | eşleşen       | 
+etiketler           | dizelerin dizesi veya dizisi | eşleşen       | 
+title          | dize                     | eşleşen       | 
+totalDownloads | tamsayı                    | eşleşen       | Bu değer `versions` dizideki indirmelerin toplamına göre çıkarsanamıyor
+doğrulanamayan       | Boole değeri                    | eşleşen       | Paketin [doğrulanıp doğrulanmadığını](../nuget-org/id-prefix-reservation.md) gösteren bir JSON Boole değeri
 
-Nuget.org bir doğrulanmış ayrılmış bir kimliği öneki eşleşen bir paket Kimliğine sahip ve ayrılmış önek 's sahiplerinden biri tarafından sahip olunan bir pakettir. Daha fazla bilgi için [kimlik ön eki ayırma hakkında belgeler](../reference/id-prefix-reservation.md).
+Nuget.org üzerinde, doğrulanmış bir paket, ayrılmış bir KIMLIK önekiyle eşleşen ve ayrılmış önek sahiplerinin birine sahip olan bir paket KIMLIĞI olan bir pakettir. Daha fazla bilgi için bkz. [kimlik ön eki ayırma hakkındaki belgeler](../reference/id-prefix-reservation.md).
 
-Arama sonuç nesnesinde bulunan meta veriler en son Paket sürümü alınır. Her öğe `versions` aşağıdaki özelliklere sahip bir JSON nesnesi dizisidir:
+Arama sonucu nesnesinde bulunan meta veriler en son paket sürümünden alınmıştır. `versions` Dizideki her öğe, aşağıdaki özelliklere sahip bir JSON nesnesidir:
 
 Ad      | Tür    | Gerekli | Notlar
 --------- | ------- | -------- | -----
-@id       | dize  | evet      | İlişkili için mutlak URL [kayıt yaprak](registration-base-url-resource.md#registration-leaf)
-sürüm   | dize  | evet      | (Derleme meta verilerini içerebilir) paketin tam SemVer 2.0.0 sürümü dizesi
-İndirmeler | tamsayı | evet      | Bu belirli bir paket sürümü için indirme sayısı
+@id       | dize  | evet      | İlişkili [kayıt yaprağın](registration-base-url-resource.md#registration-leaf) mutlak URL 'si
+sürüm   | dize  | evet      | Paketin tam SemVer 2.0.0 sürüm dizesi (derleme meta verileri içerebilir)
+dosyaların | tamsayı | evet      | Bu belirli paket sürümü için karşıdan yüklemelerin sayısı
 
 ### <a name="sample-request"></a>Örnek istek
 

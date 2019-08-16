@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: e8949e9964ed19d342df53f08f59bb0f89e5feb0
-ms.sourcegitcommit: 5aa49478dc466c67db5c3edda7c6ce8dcd8ae033
+ms.openlocfilehash: 7ebe3c0f75b8de158879119bce4df26217849251
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68817484"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488962"
 ---
 Paket tanımlayıcısı ve sürüm numarası, pakette bulunan tam kodu benzersiz bir şekilde tanımladıklarından, projedeki en önemli iki değer vardır.
 
@@ -17,9 +17,9 @@ Paket tanımlayıcısı ve sürüm numarası, pakette bulunan tam kodu benzersiz
 **Paket sürümü için en iyi uygulamalar:**
 
 - Genel olarak, paketin sürümünü proje (veya bütünleştirilmiş kod) ile eşleşecek şekilde ayarlayın, ancak bu kesinlikle gerekli değildir. Bu, bir paketi tek bir derlemeyle sınırlandırdığınızda basit bir işlemdir. Genel olarak, NuGet 'in derleme sürümlerini değil, bağımlılıkları çözümlerken Paket sürümleriyle uğraşır olduğunu unutmayın.
-- Standart olmayan bir sürüm düzeni kullanırken, [paket sürümü oluşturma](../../reference/package-versioning.md)bölümünde açıklandığı gibi NuGet sürüm oluşturma kurallarını dikkate aldığınızdan emin olun. NuGet genellikle [semver 2 uyumludur](../../reference/package-versioning.md#semantic-versioning-200).
+- Standart olmayan bir sürüm düzeni kullanırken, [paket sürümü oluşturma](../../concepts/package-versioning.md)bölümünde açıklandığı gibi NuGet sürüm oluşturma kurallarını dikkate aldığınızdan emin olun. NuGet genellikle [semver 2 uyumludur](../../concepts/package-versioning.md#semantic-versioning-200).
 
-> Bağımlılık çözümleme hakkında daha fazla bilgi için bkz. [PackageReference Ile bağımlılık çözünürlüğü](../../consume-packages/dependency-resolution.md#dependency-resolution-with-packagereference). Sürüm oluşturmayı daha iyi anlamak için de yararlı olabilecek eski bilgiler için, bu blog gönderilerine bakın.
+> Bağımlılık çözümleme hakkında daha fazla bilgi için bkz. [PackageReference Ile bağımlılık çözünürlüğü](../../concepts/dependency-resolution.md#dependency-resolution-with-packagereference). Sürüm oluşturmayı daha iyi anlamak için de yararlı olabilecek eski bilgiler için, bu blog gönderilerine bakın.
 >
 > - [Bölüm 1: DLL Hell 'i alma](http://blog.davidebbo.com/2011/01/nuget-versioning-part-1-taking-on-dll.html)
 > - [Bölüm 2: Çekirdek algoritması](http://blog.davidebbo.com/2011/01/nuget-versioning-part-2-core-algorithm.html)

@@ -1,40 +1,40 @@
 ---
-title: NuGet Packages.config dosyasının dosya başvurusu
-description: Bazı proje türlerinde packages.config projede kullanılan NuGet paketleri listesini tutar.
+title: NuGet Packages. config dosyası başvurusu
+description: Bazı proje türlerinde, Packages. config projede kullanılan NuGet paketlerinin listesini tutar.
 author: karann-msft
 ms.author: karann
 ms.date: 05/21/2018
 ms.topic: reference
-ms.openlocfilehash: 18566671b611899b28fcc8542cf53935f5ee2dfd
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 2fd1640295ca35304358565808a89d752cfd8abf
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551776"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488639"
 ---
-# <a name="packagesconfig-reference"></a>Packages.config başvurusu
+# <a name="packagesconfig-reference"></a>Packages. config başvurusu
 
-`packages.config` Dosyası, proje tarafından başvurulan paketlerin listesini korumak için bazı proje türlerinde kullanılır. Bu proje bağımlılıklarınızı kolayca geri yüklemek NuGet sağlar, bu paketleri olmadan bir yapı sunucusu gibi farklı bir makineye taşınmasını proje.
+`packages.config` Dosya, proje tarafından başvurulan paketlerin listesini sürdürmek için bazı proje türlerinde kullanılır. Bu, NuGet 'in projenin bağımlılıklarını kolayca geri yüklemesine olanak tanır, çünkü proje bir yapı sunucusu gibi farklı bir makineye taşınır.
 
-Kullandıysanız, `packages.config` genellikle bir proje kök dizininde bulunur. İlk NuGet işlemi çalıştırılır, ancak ayrıca el ile herhangi bir komut çalıştırmadan önce aşağıdaki gibi oluşturulabilir otomatik olarak oluşturulur `nuget restore`.
+Kullanılıyorsa, `packages.config` genellikle proje kökünde bulunur. İlk NuGet işlemi çalıştırıldığında otomatik olarak oluşturulur, ancak gibi herhangi bir komut `nuget restore`çalıştırılmadan önce el ile de oluşturulabilirler.
 
-Projeleri [PackageReference](../consume-packages/Package-References-in-Project-Files.md) kullanmayın `packages.config`.
+[Packagereference](../consume-packages/Package-References-in-Project-Files.md) kullanan projeler kullanmaz `packages.config`.
 
 ## <a name="schema"></a>Şema
 
-Şema basittir: olan tek bir standart XML üst bilgi aşağıdaki `<packages>` birini veya daha fazlasını içeren düğüm `<package>` öğeleri, her başvuru. Her `<package>` öğesi aşağıdaki özniteliklere sahip olabilir:
+Şema basittir: standart XML üst bilgisinin ardından her başvuru için bir veya `<packages>` daha fazla `<package>` öğe içeren tek bir düğümdür. Her `<package>` öğe aşağıdaki özniteliklere sahip olabilir:
 
 | Öznitelik | Gerekli | Açıklama |
 | --- | --- | --- |
-| kimlik | Evet | Newtonsoft.json veya Microsoft.AspNet.Mvc gibi paket tanımlayıcısı. | 
-| sürüm | Evet | 3.1.1 veya 4.2.5.11-beta gibi yüklemek için paketi tam sürümü. Bir sürüm dizesi en az üç sayı olması gerekir; Dördüncü, yayın öncesi son olarak, isteğe bağlı. Aralıkları izin verilmez. | 
-| targetFramework | Hayır | [Hedef çerçeve adı (TFM)](target-frameworks.md) paketi yüklerken uygulanacak. Bir paketi yüklendiğinde bu projenin hedef başlangıçta ayarlanır. Sonuç olarak, farklı `<package>` öğeleri farklı Tfm'ler sahip olabilir. Örneğin, .NET 4.5.2'nin hedefleyen bir proje oluşturursanız, yüklü paketleri bu noktada net452 TFM kullanın. Varsa, daha sonra .NET 4.6 için projeyi yeniden hedefle ve daha fazla paket ekleme olanlar TFM net46 birini kullanır. Projenin hedef arasında bir uyuşmazlık ve `targetFramework` öznitelikleri uyarılar üretir, bu durumda, etkilenen paketleri yeniden yükleyebilirsiniz. | 
-| allowedVersions | Hayır | Bir paketi güncelleştirmesi sırasında uygulanan bu paket için izin verilen sürüm aralığı (bkz [Constraining yükseltme sürümlerinin](../consume-packages/reinstalling-and-updating-packages.md#constraining-upgrade-versions). Mevcut *değil* hangi paket yükleme sırasında yüklü etkileyebilir veya geri yükleme işlemi. Bkz: [Paket sürümü oluşturma](../reference/package-versioning.md#version-ranges-and-wildcards) söz dizimi. PackageManager UI ayrıca izin verilen aralığın dışında tüm sürümler devre dışı bırakır. | 
-| DevelopmentDependency | Hayır | Proje kendisini kullanan, bu ayar bir NuGet paketi oluşturur `true` için bir bağımlılık, paket kaybı paketi oluşturulduğunda eklenmesini engeller. Varsayılan, `false` değeridir. | 
+| kimlik | Evet | , Newtonsoft. JSON veya Microsoft. AspNet. Mvc gibi paketin tanımlayıcısı. | 
+| sürüm | Evet | Yüklenecek paketin tam sürümü (örneğin, 3.1.1 veya 4.2.5.11-Beta). Sürüm dizesinin en az üç numarası olmalıdır; Dördüncü, ön sürüm ön eki olduğu gibi isteğe bağlıdır. Aralıklara izin verilmez. | 
+| targetFramework | Hayır | Paket yüklenirken uygulanacak [hedef çerçeve bilinen adı (tfd)](target-frameworks.md) . Bu, başlangıçta bir paket yüklendiğinde projenin hedefine ayarlanır. Sonuç olarak, farklı `<package>` öğelerin farklı tfms 'leri olabilir. Örneğin, .NET 4.5.2 'i hedefleyen bir proje oluşturursanız, bu noktada yüklenen paketler, net452 ' nin TFı 'sini kullanır. Projeyi daha sonra .NET 4,6 ' e yeniden hedeflemeniz ve daha fazla paket eklerseniz, bunlar net46 tfd kullanır. Projenin hedefi ve `targetFramework` öznitelikleri arasında bir uyumsuzluk uyarı oluşturur ve bu durumda etkilenen paketleri yeniden yükleyebilirsiniz. | 
+| allowedVersions | Hayır | Bu paket için, paket güncelleştirmesi sırasında uygulanan bir izin verilen sürüm aralığı (bkz. [yükseltme sürümlerini kısıtlama](../consume-packages/reinstalling-and-updating-packages.md#constraining-upgrade-versions). Yükleme veya geri yükleme işlemi sırasında hangi paketin yükleneceğini etkilemez. Sözdizimi için [paket sürümü oluşturma](../concepts/package-versioning.md#version-ranges-and-wildcards) bölümüne bakın. PackageManager UI, izin verilen Aralık dışındaki tüm sürümleri de devre dışı bırakır. | 
+| developmentDependency | Hayır | Kullanan projenin kendisi bir NuGet paketi oluşturursa, bunu bir bağımlılık için olarak `true` ayarlamak, bu paketin, tüketen paket oluşturulduğunda eklenmesini engeller. Varsayılan, `false` değeridir. | 
 
 ## <a name="examples"></a>Örnekler
 
-Aşağıdaki `packages.config` için iki bağımlılıkları gösterir:
+Aşağıdaki `packages.config` iki bağımlılığı ifade eder:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -44,7 +44,7 @@ Aşağıdaki `packages.config` için iki bağımlılıkları gösterir:
 </packages>
 ```
 
-Aşağıdaki `packages.config` dokuz paketlere başvuruyor ancak `Microsoft.Net.Compilers` nedeniyle alıcı paket oluştururken dahil edilmez `developmentDependency` özniteliği. Newtonsoft.Json başvuru, aynı zamanda yalnızca 8.x ve 9.x sürümlere güncelleştirmeler kısıtlar.
+Aşağıdakiler `packages.config` dokuz pakete başvurur, ancak `Microsoft.Net.Compilers` `developmentDependency` öznitelik nedeniyle tüketen paket oluşturulurken dahil edilmez. Newtonsoft. JSON başvurusu, güncelleştirmeleri yalnızca 8. x ve 9. x sürümleriyle sınırlandırır.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

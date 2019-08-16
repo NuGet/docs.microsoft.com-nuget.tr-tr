@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/22/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0b3ecb535c07459bff517102b3cf6f4e6dc42195
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: ddd1d163e18ed4ce1e7cbf41ed152acc40c1c423
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317050"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488776"
 ---
 # <a name="package-consumption-workflow"></a>Paket tüketimi iş akışı
 
@@ -29,13 +29,13 @@ NuGet, yüklü her paketin kimliğini ve sürüm numarasını anımsar, proje do
 
 Paketler yüklenirken, NuGet genellikle paketin önbelleğinde zaten kullanılabilir olup olmadığını denetler. Bu önbelleği, [genel paketleri ve önbellek klasörlerini yönetme](../consume-packages/managing-the-global-packages-and-cache-folders.md)bölümünde açıklandığı gibi komut satırından el ile temizleyebilirsiniz.
 
-NuGet Ayrıca, paket tarafından desteklenen hedef çerçevelerin projenizle uyumlu olduğundan da emin olur. Paket uyumlu derlemeler içermiyorsa, NuGet bir hata görüntüler. Bkz. [uyumsuz paket hatalarını çözümleme](dependency-resolution.md#resolving-incompatible-package-errors).
+NuGet Ayrıca, paket tarafından desteklenen hedef çerçevelerin projenizle uyumlu olduğundan da emin olur. Paket uyumlu derlemeler içermiyorsa, NuGet bir hata görüntüler. Bkz. [uyumsuz paket hatalarını çözümleme](../concepts/dependency-resolution.md#resolving-incompatible-package-errors).
 
 Bir kaynak depoya proje kodu eklerken, genellikle NuGet paketleri dahil değildir. Daha sonra depoyu klonlayan veya başka bir şekilde projeyi edinenler, Visual Studio Team Services gibi sistemlerdeki derleme aracıları dahil, bir derlemeyi çalıştırmadan önce gerekli paketleri geri yüklemesi gerekir:
 
 ![Bir depoyu kopyalayarak ve bir restore komutu kullanarak NuGet paketlerini geri yükleme akışı](media/Overview-02-RestoreFlow.png)
 
-[Paket geri yükleme](../consume-packages/package-restore.md) , proje dosyasındaki bilgileri kullanır veya `packages.config` tüm bağımlılıkları yeniden yükler. [Bağımlılık çözümlemesi](../consume-packages/dependency-resolution.md)bölümünde açıklandığı gibi işlemde ilgili farklılıklar olduğunu unutmayın. Ayrıca, Yukarıdaki diyagramda Paket Yöneticisi konsolu için geri yükleme komutu gösterilmez çünkü konsolunuz zaten Visual Studio bağlamında, genellikle paketleri otomatik olarak geri yükler ve çözüm düzeyi komutunu şu şekilde sağlar mekte.
+[Paket geri yükleme](../consume-packages/package-restore.md) , proje dosyasındaki bilgileri kullanır veya `packages.config` tüm bağımlılıkları yeniden yükler. [Bağımlılık çözümlemesi](../concepts/dependency-resolution.md)bölümünde açıklandığı gibi işlemde ilgili farklılıklar olduğunu unutmayın. Ayrıca, Yukarıdaki diyagramda Paket Yöneticisi konsolu için geri yükleme komutu gösterilmez çünkü konsolunuz zaten Visual Studio bağlamında, genellikle paketleri otomatik olarak geri yükler ve çözüm düzeyi komutunu şu şekilde sağlar mekte.
 
 Bazen bir projede zaten bulunan paketleri yeniden yüklemek gerekir, bu da bağımlılıkları yeniden yükleyebilir. Bu, `nuget reinstall` komutu veya NuGet Paket Yöneticisi konsolunu kullanarak kolayca yapılır. Ayrıntılar için bkz. [paketleri yeniden yükleme ve güncelleştirme](../consume-packages/reinstalling-and-updating-packages.md).
 

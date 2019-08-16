@@ -1,61 +1,61 @@
 ---
-title: Paket Ayrıntıları URL şablonu, NuGet API'si
-description: Paket Ayrıntıları URL şablonu, bunların kullanıcı arabiriminde bir web bağlantısı için daha fazla paket ayrıntılarını görüntülemek istemcilerin
+title: Paket ayrıntıları URL şablonu, NuGet API 'SI
+description: Paket ayrıntıları URL 'SI şablonu, istemcilerin Kullanıcı arabiriminde daha fazla paket ayrıntılarına görüntülenmesini sağlar
 author: joelverhagen
 ms.author: jver
 ms.date: 3/1/2019
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: c01fd35c5d96c44279c9d0254f89d8b1b9fe59d8
-ms.sourcegitcommit: 2af17c8bb452a538977794bf559cdd78d58f2790
+ms.openlocfilehash: 6657536ea6c699a834f57494c66b2a7d741dfcb7
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58638089"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488175"
 ---
-# <a name="package-details-url-template"></a>Paket Ayrıntıları URL şablonu
+# <a name="package-details-url-template"></a>Paket ayrıntıları URL şablonu
 
-Web tarayıcısında daha fazla paket ayrıntılarını görmek için kullanıcı tarafından kullanılan bir URL oluşturmak bir istemci mümkündür. Paket kaynağı olmayan bir çözüm paketi hakkında ek bilgi ne NuGet istemci uygulaması gösterir, kapsam içinde gösterilecek istediğinde, bu yararlıdır.
+Bir istemcinin, Web tarayıcılarında daha fazla paket ayrıntılarını görmek için Kullanıcı tarafından kullanılabilecek bir URL oluşturması mümkündür. Bu, bir paket kaynağı, NuGet istemci uygulamasının gösterdiği işlem kapsamında sığmayan bir paket hakkında ek bilgiler göstermek istediğinde yararlıdır.
 
-Bu URL'yi oluşturmak için kullanılan kaynak `PackageDetailsUriTemplate` kaynak bulunan [hizmet dizini](service-index.md).
+Bu URL 'yi `PackageDetailsUriTemplate` oluşturmak için kullanılan kaynak, [hizmet dizininde](service-index.md)bulunan kaynaktır.
 
-## <a name="versioning"></a>Sürüm oluşturma
+## <a name="versioning"></a>Sürüm Oluşturma
 
-Aşağıdaki `@type` değerleri kullanılır:
+Aşağıdaki `@type` değerler kullanılır:
 
-@type Değer                     | Notlar
+@typedeeri                     | Notlar
 ------------------------------- | -----
 PackageDetailsUriTemplate/5.1.0 | İlk yayın
 
 ## <a name="url-template"></a>URL şablonu
 
-Aşağıdaki API URL'si değeri `@id` yukarıda sözü edilen kaynak biriyle ilişkili özelliği `@type` değerleri.
+Aşağıdaki API 'nin URL 'si, belirtilen kaynak `@id` `@type` değerlerinden biriyle ilişkili özelliğin değeridir.
 
 ## <a name="http-methods"></a>HTTP yöntemleri
 
-İstemci isteğinde Paket Ayrıntıları URL'sini kullanıcı adına yönelik değildir ancak web sayfası desteklemelidir `GET` bir web tarayıcısından kolayca açılması tıklanan URL izin vermek için yöntemi.
+İstemci, Kullanıcı adına paket ayrıntıları URL 'sine istek yapmaya yönelik değildir, ancak Web sayfası, tıklanan bir URL 'nin bir Web tarayıcısında kolayca `GET` açılmasını sağlamak için yöntemini desteklemelidir.
 
-## <a name="construct-the-url"></a>URL'sini oluşturun
+## <a name="construct-the-url"></a>URL 'YI oluşturun
 
-Verilen bir bilinen paket kimliği ve sürüm, istemci uygulama bir web arabirimine erişmek için kullanılan bir URL oluşturabilirsiniz. İstemci uygulama, bunları izin vererek kullanıcıya URL'sine bir web tarayıcısı açın ve paket hakkında daha fazla bilgi için bu oluşturulmuş URL (veya tıklatılabilir bir bağlantı) görüntülemelidir. Paket Ayrıntıları sayfasına içeriğini sunucu uygulaması tarafından belirlenir.
+Bilinen bir paket KIMLIĞI ve sürümü verildiğinde, istemci uygulama bir Web arabirimine erişmek için kullanılan bir URL oluşturabilir. İstemci uygulamasının bu oluşturulmuş URL 'yi (veya tıklatılabilir bağlantıyı) kullanıcıya URL 'ye bir Web tarayıcısı açmasına ve paket hakkında daha fazla bilgi edinmesine izin verecek şekilde görüntülemesi gerekir. Paket ayrıntıları sayfasının içeriği sunucu uygulamasına göre belirlenir.
 
-URL, mutlak bir URL olmalıdır ve (Protokolü) şeması HTTPS olmalıdır.
+URL 'nin mutlak bir URL olması ve düzenin (protokol) HTTPS olması gerekir.
 
-Değerini `@id` hizmetinde aşağıdaki yer tutucu belirteçler birini içeren bir URL dizesi dizinidir:
+Hizmet dizinindeki öğesinin `@id` değeri, aşağıdaki yer tutucu belirteçlerinden herhangi birini içeren bir URL dizesidir:
 
 ### <a name="url-placeholders"></a>URL yer tutucuları
 
 Ad        | Tür    | Gerekli | Notlar
 ----------- | ------- | -------- | -----
-`{id}`      | dize  | Yok       | Bilgi almak için paket kimliği
-`{version}` | dize  | Yok       | Bilgi almak için Paket sürümü
+`{id}`      | dize  | eşleşen       | Ayrıntıları almak için paket KIMLIĞI
+`{version}` | dize  | eşleşen       | Ayrıntıları alınacak paket sürümü
 
-Sunucu kabul etmelidir `{id}` ve `{version}` tüm büyük/küçük harf değerleri. Ayrıca, sunucu sürümü olup duyarlı olmamalıdır [normalleştirilmiş](https://docs.microsoft.com/en-us/nuget/reference/package-versioning#normalized-version-numbers). Diğer bir deyişle, sunucunun kabul etmelidir normale olmayan sürümleri de kabul.
+Sunucu, herhangi bir `{id}` büyük `{version}` harf ile değer kabul etmelidir. Buna ek olarak, sunucu, sürümünün normalleştirilme olup olmadığına duyarlı olmamalıdır [](https://docs.microsoft.com/en-us/nuget/concepts/package-versioning#normalized-version-numbers). Diğer bir deyişle, sunucu kabul edilmelidir, ayrıca Normalleştirilmemiş sürümleri kabul etmelidir.
 
-Örneğin, nuget.org Paket Ayrıntıları şablon şöyle görünür:
+Örneğin, NuGet. org 'ın paket ayrıntıları şablonu şöyle görünür:
 
     https://www.nuget.org/packages/{id}/{version}
 
-İstemci uygulama bir bağlantı için NuGet.Versioning 4.3.0 için Paket ayrıntılarını görüntülemek gerekiyorsa, aşağıdaki URL'yi oluşturur ve kullanıcıya sağlamak:
+İstemci uygulamasının NuGet. sürümlendirme 4.3.0 için paket ayrıntılarına bir bağlantı görüntülemesi gerekiyorsa, aşağıdaki URL 'YI oluşturur ve kullanıcıya sağlar:
 
     https://www.nuget.org/packages/NuGet.Versioning/4.3.0

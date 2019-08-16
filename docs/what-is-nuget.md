@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: overview
-ms.openlocfilehash: f16cc6f66bc12727a4ec8eb5da4ff44a9eeb1764
-ms.sourcegitcommit: ba8ad1bd13a4bba3df94374e34e20c425a05af2f
+ms.openlocfilehash: 435103b600f14b9bbf606c09f0c870115204d5c7
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68833337"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488491"
 ---
 # <a name="an-introduction-to-nuget"></a>NuGet 'e giriş
 
@@ -66,7 +66,7 @@ Aşağıdaki görüntüde, beş pakete bağımlı olan bir proje gösterilmekted
 
 Bazı paketlerin bağımlılık grafiğinde birden çok kez göründüğünü unutmayın. Örneğin, B paketinin üç farklı tüketicisi vardır ve her tüketici bu paket için farklı bir sürüm (gösterilmez) belirtebilir. Bu, özellikle yaygın olarak kullanılan paketler için yaygın bir oluşumdır. NuGet neyse ki, tüm tüketicilere, B paketinin hangi sürümünün tüm müşterileri karşılayıp karşılamadığını tespit etmek için tüm sabit çalışmalarınız. Ardından NuGet, bağımlılık grafiğinin ne kadar derin olduğuna bakılmaksızın diğer tüm paketler için de aynı şekilde yapılır.
 
-NuGet 'in bu hizmeti nasıl gerçekleştirdiği hakkında daha fazla bilgi için bkz. [bağımlılık çözünürlüğü](consume-packages/dependency-resolution.md).
+NuGet 'in bu hizmeti nasıl gerçekleştirdiği hakkında daha fazla bilgi için bkz. [bağımlılık çözünürlüğü](concepts/dependency-resolution.md).
 
 ## <a name="tracking-references-and-restoring-packages"></a>Başvuruları izleme ve paketleri geri yükleme
 
@@ -103,9 +103,9 @@ Bir seçiminiz olduğunda, PackageReference kullanmanızı öneririz. `packages.
 
 Bu işlemlerin verimli bir şekilde çalışmasını sağlamak için NuGet, bazı arka planda iyileştirmeler yapar. En önemlisi, NuGet bir paket önbelleğini ve bir genel paketler klasörünü, kısayol yükleme ve yeniden yükleme için yönetir. Önbellek zaten makinede yüklü olan bir paketin indirilmesini önler. Genel paketler klasörü, birden çok projenin aynı yüklü paketi paylaşmasına olanak tanır ve böylece NuGet 'in bilgisayardaki genel ayak izini azaltır. Önbellek ve genel paketler klasörü, bir yapı sunucusunda olduğu gibi daha fazla sayıda paketi sık geri yüklerken de çok yararlı olur. Bu mekanizmalar hakkında daha fazla bilgi için bkz. [genel paketleri ve önbellek klasörlerini yönetme](consume-packages/managing-the-global-packages-and-cache-folders.md).
 
-Tek bir projede, NuGet genel bağımlılık grafiğini yönetir, bu da aynı paketin farklı sürümlerine birden fazla başvuruyu çözmeyi içerir. Projenin aynı bağımlılıklara sahip bir veya daha fazla pakete bağımlılığı olması oldukça yaygındır. Nuget.org üzerindeki en faydalı yardımcı program paketlerinin bazıları diğer birçok paket tarafından kullanılabilir. Tüm bağımlılık grafiğinde, aynı paketin farklı sürümlerine yönelik olarak kolayca on farklı başvuruya sahip olabilirsiniz. Bu paketin birden çok sürümünün uygulamaya ait olmasını önlemek için, NuGet tüm tüketiciler tarafından hangi tek sürümün kullanılabileceğini sıralar. (Daha fazla bilgi için bkz. [bağımlılık çözünürlüğü](consume-packages/dependency-resolution.md).)
+Tek bir projede, NuGet genel bağımlılık grafiğini yönetir, bu da aynı paketin farklı sürümlerine birden fazla başvuruyu çözmeyi içerir. Projenin aynı bağımlılıklara sahip bir veya daha fazla pakete bağımlılığı olması oldukça yaygındır. Nuget.org üzerindeki en faydalı yardımcı program paketlerinin bazıları diğer birçok paket tarafından kullanılabilir. Tüm bağımlılık grafiğinde, aynı paketin farklı sürümlerine yönelik olarak kolayca on farklı başvuruya sahip olabilirsiniz. Bu paketin birden çok sürümünün uygulamaya ait olmasını önlemek için, NuGet tüm tüketiciler tarafından hangi tek sürümün kullanılabileceğini sıralar. (Daha fazla bilgi için bkz. [bağımlılık çözünürlüğü](concepts/dependency-resolution.md).)
 
-Bunun ötesinde, NuGet paketlerin nasıl yapılandırıldığı ( [Yerelleştirme](create-packages/creating-localized-packages.md) ve [hata ayıklama sembolleri](create-packages/symbol-packages.md)dahil) ve nasıl [başvurdukları](consume-packages/package-references-in-project-files.md) ( [Sürüm aralıkları](reference/package-versioning.md#version-ranges-and-wildcards) ve [yayın öncesi sürümler dahil) ile ilgili tüm belirtimleri korur ](create-packages/prerelease-packages.md).) NuGet Ayrıca, hizmetleriyle birlikte çalışmaya yönelik çeşitli API 'Ler sağlar ve Visual Studio uzantıları ve proje şablonları yazan geliştiriciler için destek sağlar.
+Bunun ötesinde, NuGet paketlerin nasıl yapılandırıldığı ( [Yerelleştirme](create-packages/creating-localized-packages.md) ve [hata ayıklama sembolleri](create-packages/symbol-packages.md)dahil) ve nasıl [başvurdukları](consume-packages/package-references-in-project-files.md) ( [Sürüm aralıkları](concepts/package-versioning.md#version-ranges-and-wildcards) ve [yayın öncesi sürümler dahil) ile ilgili tüm belirtimleri korur ](create-packages/prerelease-packages.md).) NuGet Ayrıca, hizmetleriyle birlikte çalışmaya yönelik çeşitli API 'Ler sağlar ve Visual Studio uzantıları ve proje şablonları yazan geliştiriciler için destek sağlar.
 
 Bu belgelerin içindekiler tablosuna göz atabilmeniz için bir dakikanızı ayırın ve bu özellikleri, NuGet 'in Beginnings 'e geri dönme sürüm notlarıyla birlikte görebilirsiniz.
 

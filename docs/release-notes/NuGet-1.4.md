@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: de76cf610e580a36014be9274b9c2c762b1015ac
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 5f1d3ed6a1b20fb07437f1718faafaac0a193773
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317171"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488705"
 ---
 # <a name="nuget-14-release-notes"></a>NuGet 1,4 sürüm notları
 
@@ -60,7 +60,7 @@ Daha fazla ayrıntı için, [çözüm Için paketleri yönetme](../consume-packa
 Varsayılan olarak, bir pakette `Update-Package` komutu çalıştırırken (veya iletişim kutusunu kullanarak paketi güncelleştirirken), akıştaki en son sürüme güncelleştirilir. Tüm paketlerin güncelleştirilmesiyle ilgili yeni destek sayesinde, bir paketi belirli bir sürüm aralığına kilitlemek istediğiniz durumlar olabilir. Örneğin, uygulamanızın yalnızca bir paketin 2. * sürümüyle çalışabileceklerini, ancak 3,0 ve üzeri olduğunu bilirsiniz. Paketin yanlışlıkla 3 ' e güncelleştirilmesini engellemek için, NuGet 1,4, paketlerin yükseltilecekse, yeni `packages.config` `allowedVersions` özniteliğini kullanarak dosyayı düzenleyerek sürümüne yükseltebilen sürüm aralığını kısıtlayan destek ekler.
 
 Örneğin, aşağıdaki örnek 2,0-3,0 (özel) sürüm `SomePackage` aralığını paketin nasıl kilitleneceği gösterilmektedir.
-Öznitelik, [Sürüm aralığı biçimini](../reference/package-versioning.md#version-ranges-and-wildcards)kullanarak değerleri kabul eder. `allowedVersions`
+Öznitelik, [Sürüm aralığı biçimini](../concepts/package-versioning.md#version-ranges-and-wildcards)kullanarak değerleri kabul eder. `allowedVersions`
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

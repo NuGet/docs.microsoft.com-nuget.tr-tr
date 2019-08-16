@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 67bc95135f746c4a4685773808756df399cbf01e
-ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
+ms.openlocfilehash: f931ed297a6a1e9e24ce5eb30a8158f59925bb39
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959696"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488678"
 ---
 # <a name="nuspec-reference"></a>. nuspec başvurusu
 
@@ -36,7 +36,7 @@ Bu konuda:
 
    Veya `dotnet.exe pack` kullanarak`msbuild pack target`bir paket oluşturuyorsanız, bunun yerine genellikle proje dosyasındaki `.nuspec` dosyada bulunan [tüm özellikleri dahil](../reference/msbuild-targets.md#pack-target) etmenizi öneririz. Ancak, bunun yerine [veya `.nuspec` `dotnet.exe` `msbuild pack target`kullanarak paketbir dosya kullanmayı ](../reference/msbuild-targets.md#packing-using-a-nuspec)seçebilirsiniz.
 
-- ' Den `packages.config` [packagereference](../consume-packages/package-references-in-project-files.md)'a geçirilen projeler için, `.nuspec` paketi oluşturmak için bir dosya gerekli değildir. Bunun yerine, [MSBuild-t:Pack](../reference/migrate-packages-config-to-package-reference.md#create-a-package-after-migration)kullanın.
+- ' Den `packages.config` [packagereference](../consume-packages/package-references-in-project-files.md)'a geçirilen projeler için, `.nuspec` paketi oluşturmak için bir dosya gerekli değildir. Bunun yerine, [MSBuild-t:Pack](../consume-packages/migrate-packages-config-to-package-reference.md#create-a-package-after-migration)kullanın.
 
 ## <a name="general-form-and-schema"></a>Genel form ve şema
 
@@ -74,7 +74,7 @@ Bu öğelerin bir `<metadata>` öğesi içinde görünmesi gerekir.
 #### <a name="id"></a>kimlik 
 Nuget.org genelinde benzersiz olması gereken büyük/küçük harf duyarsız paket tanımlayıcısı veya paketin bulunduğu Galeri. Kimlikler, URL için geçerli olmayan boşluk veya karakterler içeremez ve genellikle .NET ad alanı kurallarını izler. Bkz. rehberlik için [benzersiz bir paket tanımlayıcısı seçme](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number) .
 #### <a name="version"></a>sürüm
-*Ana. Minor. Patch* deseninin ardından paketin sürümü. Sürüm numaraları, [paket sürümü oluşturma](../reference/package-versioning.md#pre-release-versions)bölümünde açıklandığı gibi bir ön sürüm son eki içerebilir. 
+*Ana. Minor. Patch* deseninin ardından paketin sürümü. Sürüm numaraları, [paket sürümü oluşturma](../concepts/package-versioning.md#pre-release-versions)bölümünde açıklandığı gibi bir ön sürüm son eki içerebilir. 
 #### <a name="description"></a>açıklama
 UI görüntüleme paketinin uzun açıklaması. 
 #### <a name="authors"></a>düzenliyor
@@ -281,7 +281,7 @@ Belirteçler, [derleme dosyalarını](#including-assembly-files) ve [içerik dos
 | Öznitelik | Açıklama |
 | --- | --- |
 | `id` | Istenir "EntityFramework" ve "NUnit" gibi bağımlılığın paket KIMLIĞI, nuget.org paketinin adı bir paket sayfasında gösterilmektedir. |
-| `version` | Istenir Bağımlılık olarak kabul edilebilir sürüm aralığı. Tam sözdizimi için [paket sürümü oluşturma](../reference/package-versioning.md#version-ranges-and-wildcards) bölümüne bakın. Joker karakter (kayan) sürümleri desteklenmez. |
+| `version` | Istenir Bağımlılık olarak kabul edilebilir sürüm aralığı. Tam sözdizimi için [paket sürümü oluşturma](../concepts/package-versioning.md#version-ranges-and-wildcards) bölümüne bakın. Joker karakter (kayan) sürümleri desteklenmez. |
 | include | Son pakete dahil edilecek bağımlılığı belirten, etiketleri ekle/çıkar (aşağıya bakın) listesi. Varsayılan değer `all` şeklindedir. |
 | exclude | Son pakette hariç tutulacak bağımlılığı belirten, etiketleri dahil et/hariç tut (aşağıya bakın) listesi. Varsayılan değer `build,analyzers` , üzerine yazılabilir. Ancak `content/ ContentFiles` , üzerine yazılabilir olmayan son pakette da örtük olarak hariç tutulur. İle belirtilen Etiketler `exclude` , ile `include`belirtilen değerlere göre önceliğe sahip olacak şekilde belirlenir. Örneğin, `include="runtime, compile" exclude="compile"` ile `include="runtime"`aynıdır. |
 
