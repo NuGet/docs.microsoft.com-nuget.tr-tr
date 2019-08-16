@@ -1,6 +1,6 @@
 # [Bir bakışta belgeler](index.md)
 # [NuGet nedir?](what-is-nuget.md)
-# Kullanmaya başlayın
+# Başlarken
 ## [NuGet istemci araçlarını yükleme](install-nuget-client-tools.md)
 ## [Paket (dotnet CLI) yükleme ve kullanma](quickstart/install-and-use-a-package-using-the-dotnet-cli.md)
 ## [Paket (dotnet CLI) yükleme ve kullanma](quickstart/install-and-use-a-package-in-visual-studio.md)
@@ -27,7 +27,7 @@
 ### [Ortak NuGet yapılandırmaları](consume-packages/configuring-nuget-behavior.md)
 ## Projenizdeki başvuru paketleri
 ### [Proje dosyalarında paket başvuruları](consume-packages/package-references-in-project-files.md)
-### [Packages.config’i PackageReference’a geçirme](reference/migrate-packages-config-to-package-reference.md)
+### [Packages.config’i PackageReference’a geçirme](consume-packages/migrate-packages-config-to-package-reference.md)
 ### [packages.config](reference/packages-config.md)
 # Paketleri oluşturma
 ## [Genel bakış ve iş akışı](create-packages/overview-and-workflow.md)
@@ -45,9 +45,9 @@
 ### [Yerelleştirilmiş paket oluşturma](create-packages/creating-localized-packages.md)
 ## Belirli bir içeriğe yönelik kılavuzlar
 ### [UWP paketi oluşturma](guides/create-uwp-packages.md)
-### [Yerel paket oluşturma](create-packages/native-packages.md)
+### [Yerel paket oluşturma](guides/native-packages.md)
 ### [NuGet paketleri olarak UI denetimleri oluşturma](guides/create-UI-controls.md)
-### [NuGet paketleri olarak çözümleyici oluşturma](reference/analyzers-conventions.md)
+### [NuGet paketleri olarak çözümleyici oluşturma](guides/analyzers-conventions.md)
 ### [Visual Studio 2015 ile Xamarin’e yönelik paket oluşturma](guides/create-packages-for-xamarin.md)
 ### [COM derlemeleriyle paket oluşturma](create-packages/author-packages-with-COM-interop-assemblies.md)
 ## Paketleri imzalama
@@ -58,14 +58,14 @@
 ### [Paket yayımlama](nuget-org/publish-a-package.md)
 ### [API anahtarları](nuget-org/scoped-api-keys.md)
 ## Özel bir akışa yayımlama
-### [Genel bakış](hosting-packages/overview.md)
+### [Genel Bakış](hosting-packages/overview.md)
 ### [Azure yapıtları](/azure/devops/artifacts/nuget/publish?view=azure-devops)
 ### [NuGet.Server](hosting-packages/nuget-server.md)
 ### [Yerel akışlar](hosting-packages/local-feeds.md)
 # Kavramlar
 ## [Paket yükleme işlemi](concepts/package-installation-process.md)
-## [Paket sürümü oluşturma](reference/package-versioning.md)
-## [Bağımlılık çözümlemesi](consume-packages/dependency-resolution.md)
+## [Paket sürümü oluşturma](concepts/package-versioning.md)
+## [Bağımlılık çözümlemesi](concepts/dependency-resolution.md)
 # Başvuru
 ## [.nuspec](reference/nuspec.md)
 ## [nuget.config file](reference/nuget-config-file.md)
@@ -105,7 +105,7 @@
 ### [Uninstall-Package](reference/ps-reference/ps-ref-uninstall-package.md)
 ### [Update-Package](reference/ps-reference/ps-ref-update-package.md)
 ## NuGet Server API
-### [Genel bakış](api/overview.md)
+### [Genel Bakış](api/overview.md)
 ### Kaynaklar
 #### [Otomatik Tamamlama](api/search-autocomplete-service-resource.md)
 #### [Katalog](api/catalog-resource.md)
@@ -116,7 +116,7 @@
 #### [Sembol paketlerini gönderme](api/symbol-package-publish-resource.md)
 #### [Uygunsuz kullanım bildirme URL’si](api/report-abuse-resource.md)
 #### [Depo imzaları](api/repository-signatures-resource.md)
-#### [Ara](api/search-query-service-resource.md)
+#### [Search](api/search-query-service-resource.md)
 #### [Hizmet dizini](api/service-index.md)
 ### [Nasıl yapılır: API’yi kullanarak tüm paketler için sorgu oluşturma](guides/api/query-for-all-published-packages.md)
 ### [Hız sınırları](api/rate-limits.md)
@@ -342,6 +342,6 @@
 #### [NuGet 1.3](release-notes/NuGet-1.3.md)
 #### [NuGet 1.2](release-notes/NuGet-1.2.md)
 #### [NuGet 1.1](release-notes/NuGet-1.1.md)
-## [SSS](faqs/nuget-faq.md)
+## [SSS](resources/nuget-faq.md)
 ## [Proje biçimi](resources/check-project-format.md)
 # [NuGet.org](nuget-org/overview-nuget-org.md)
