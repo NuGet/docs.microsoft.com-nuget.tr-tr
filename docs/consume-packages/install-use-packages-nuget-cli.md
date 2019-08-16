@@ -5,109 +5,119 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/03/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9ef990c16cca62a1fbad25ff1582bfa543135fab
-ms.sourcegitcommit: e763d9549cee3b6254ec2d6382baccb44433d42c
+ms.openlocfilehash: 7039dd27f2dddebc3c84e5ad35d5efec59547792
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68860574"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488825"
 ---
-# <a name="manage-packages-using-the-nugetexe-cli"></a><span data-ttu-id="6d05e-103">NuGet. exe CLı kullanarak paketleri yönetme</span><span class="sxs-lookup"><span data-stu-id="6d05e-103">Manage packages using the nuget.exe CLI</span></span>
+# <a name="manage-packages-using-the-nugetexe-cli"></a><span data-ttu-id="d9990-103">NuGet. exe CLı kullanarak paketleri yönetme</span><span class="sxs-lookup"><span data-stu-id="d9990-103">Manage packages using the nuget.exe CLI</span></span>
 
-<span data-ttu-id="6d05e-104">CLı Aracı, projelerde ve çözümlerinde NuGet paketlerini kolayca güncelleştirmenize ve geri yüklemenize olanak tanır.</span><span class="sxs-lookup"><span data-stu-id="6d05e-104">The CLI tool allows you to easily update and restore NuGet packages in projects and solutions.</span></span> <span data-ttu-id="6d05e-105">Bu araç Windows üzerinde tüm NuGet yeteneklerini sağlar ve ayrıca Mono altında çalışırken Mac ve Linux özelliklerinin çoğunu sağlar.</span><span class="sxs-lookup"><span data-stu-id="6d05e-105">This tool provides all NuGet capabilities on Windows, and also provides most features on Mac and Linux when running under Mono.</span></span>
+<span data-ttu-id="d9990-104">CLı Aracı, projelerde ve çözümlerinde NuGet paketlerini kolayca güncelleştirmenize ve geri yüklemenize olanak tanır.</span><span class="sxs-lookup"><span data-stu-id="d9990-104">The CLI tool allows you to easily update and restore NuGet packages in projects and solutions.</span></span> <span data-ttu-id="d9990-105">Bu araç Windows üzerinde tüm NuGet yeteneklerini sağlar ve ayrıca Mono altında çalışırken Mac ve Linux özelliklerinin çoğunu sağlar.</span><span class="sxs-lookup"><span data-stu-id="d9990-105">This tool provides all NuGet capabilities on Windows, and also provides most features on Mac and Linux when running under Mono.</span></span>
 
-<span data-ttu-id="6d05e-106">`nuget.exe` CLI .NET Framework projeniz ve SDK olmayan bir stil projem (örneğin, .NET Standard kitaplıklarını hedefleyen SDK olmayan bir stil Projesi) içindir.</span><span class="sxs-lookup"><span data-stu-id="6d05e-106">The `nuget.exe` CLI is for your .NET Framework project and non-SDK-style projects (for example, a non-SDK style project that targets .NET Standard libraries).</span></span> <span data-ttu-id="6d05e-107">Öğesine `PackageReference`geçirilmiş SDK olmayan bir proje kullanıyorsanız bunun yerine `dotnet` CLI kullanın.</span><span class="sxs-lookup"><span data-stu-id="6d05e-107">If you are using a non-SDK-style project that has been migrated to `PackageReference`, use the `dotnet` CLI instead.</span></span> <span data-ttu-id="6d05e-108">CLI `nuget.exe` , paket başvuruları için bir [Packages. config](../reference/packages-config.md) dosyası gerektirir.</span><span class="sxs-lookup"><span data-stu-id="6d05e-108">The `nuget.exe` CLI requires a [packages.config](../reference/packages-config.md) file for package references.</span></span>
+<span data-ttu-id="d9990-106">`nuget.exe` CLI .NET Framework projeniz ve SDK olmayan bir stil projem (örneğin, .NET Standard kitaplıklarını hedefleyen SDK olmayan bir stil Projesi) içindir.</span><span class="sxs-lookup"><span data-stu-id="d9990-106">The `nuget.exe` CLI is for your .NET Framework project and non-SDK-style projects (for example, a non-SDK style project that targets .NET Standard libraries).</span></span> <span data-ttu-id="d9990-107">Öğesine `PackageReference`geçirilmiş SDK olmayan bir proje kullanıyorsanız bunun yerine `dotnet` CLI kullanın.</span><span class="sxs-lookup"><span data-stu-id="d9990-107">If you are using a non-SDK-style project that has been migrated to `PackageReference`, use the `dotnet` CLI instead.</span></span> <span data-ttu-id="d9990-108">CLI `nuget.exe` , paket başvuruları için bir [Packages. config](../reference/packages-config.md) dosyası gerektirir.</span><span class="sxs-lookup"><span data-stu-id="d9990-108">The `nuget.exe` CLI requires a [packages.config](../reference/packages-config.md) file for package references.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="6d05e-109">Çoğu senaryoda, packagereference için kullanılan `packages.config` [SDK olmayan projeler arasında geçiş](../reference/migrate-packages-config-to-package-reference.md) `dotnet` yapmanızı öneririz ve `nuget.exe` CLI yerine CLI kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="6d05e-109">In most scenarios, we recommend [migrating non-SDK-style projects](../reference/migrate-packages-config-to-package-reference.md) that use `packages.config` to PackageReference, and then you can use the `dotnet` CLI instead of the `nuget.exe` CLI.</span></span> <span data-ttu-id="6d05e-110">Geçiş Şu anda ve ASP.NET projeleri C++ için kullanılabilir değil.</span><span class="sxs-lookup"><span data-stu-id="6d05e-110">Migration is not currently available for C++ and ASP.NET projects.</span></span>
+> <span data-ttu-id="d9990-109">Çoğu senaryoda, packagereference için kullanılan `packages.config` [SDK olmayan projeler arasında geçiş](../consume-packages/migrate-packages-config-to-package-reference.md) `dotnet` yapmanızı öneririz ve `nuget.exe` CLI yerine CLI kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="d9990-109">In most scenarios, we recommend [migrating non-SDK-style projects](../consume-packages/migrate-packages-config-to-package-reference.md) that use `packages.config` to PackageReference, and then you can use the `dotnet` CLI instead of the `nuget.exe` CLI.</span></span> <span data-ttu-id="d9990-110">Geçiş Şu anda ve ASP.NET projeleri C++ için kullanılabilir değil.</span><span class="sxs-lookup"><span data-stu-id="d9990-110">Migration is not currently available for C++ and ASP.NET projects.</span></span>
 
-<span data-ttu-id="6d05e-111">Bu makalede, en sık kullanılan `nuget.exe` CLI komutlarının birçoğuna ilişkin temel kullanım gösterilmektedir.</span><span class="sxs-lookup"><span data-stu-id="6d05e-111">This article shows you basic usage for a few of the most common `nuget.exe` CLI commands.</span></span> <span data-ttu-id="6d05e-112">Bu komutların çoğu için, komutta bir proje dosyası belirtilmediği takdirde CLı aracı geçerli dizinde bir proje dosyası arar.</span><span class="sxs-lookup"><span data-stu-id="6d05e-112">For most of these commands, the CLI tool looks for a project file in the current directory, unless a project file is specified in the command.</span></span> <span data-ttu-id="6d05e-113">Komutların ve kullanabileceğiniz bağımsız değişkenlerin tamamı listesi için bkz. [NuGet. exe CLI başvurusu](../reference/nuget-exe-cli-reference.md).</span><span class="sxs-lookup"><span data-stu-id="6d05e-113">For a complete list of commands and the arguments you may use, see the [nuget.exe CLI reference](../reference/nuget-exe-cli-reference.md).</span></span>
+<span data-ttu-id="d9990-111">Bu makalede, en sık kullanılan `nuget.exe` CLI komutlarının birçoğuna ilişkin temel kullanım gösterilmektedir.</span><span class="sxs-lookup"><span data-stu-id="d9990-111">This article shows you basic usage for a few of the most common `nuget.exe` CLI commands.</span></span> <span data-ttu-id="d9990-112">Bu komutların çoğu için, komutta bir proje dosyası belirtilmediği takdirde CLı aracı geçerli dizinde bir proje dosyası arar.</span><span class="sxs-lookup"><span data-stu-id="d9990-112">For most of these commands, the CLI tool looks for a project file in the current directory, unless a project file is specified in the command.</span></span> <span data-ttu-id="d9990-113">Komutların ve kullanabileceğiniz bağımsız değişkenlerin tamamı listesi için bkz. [NuGet. exe CLI başvurusu](../reference/nuget-exe-cli-reference.md).</span><span class="sxs-lookup"><span data-stu-id="d9990-113">For a complete list of commands and the arguments you may use, see the [nuget.exe CLI reference](../reference/nuget-exe-cli-reference.md).</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="6d05e-114">Önkoşullar</span><span class="sxs-lookup"><span data-stu-id="6d05e-114">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="d9990-114">Önkoşullar</span><span class="sxs-lookup"><span data-stu-id="d9990-114">Prerequisites</span></span>
 
-- <span data-ttu-id="6d05e-115">[NuGet.org adresinden](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe)indirerek, bu `.exe` dosyayı uygun bir klasöre kaydederek ve bu klasörü PATH ortam değişkeninizden ekleyerek CLI'yıyükleme.`nuget.exe`</span><span class="sxs-lookup"><span data-stu-id="6d05e-115">Install the `nuget.exe` CLI by downloading it from [nuget.org](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe), saving that `.exe` file to a suitable folder, and adding that folder to your PATH environment variable.</span></span>
+- <span data-ttu-id="d9990-115">[NuGet.org adresinden](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe)indirerek, bu `.exe` dosyayı uygun bir klasöre kaydederek ve bu klasörü PATH ortam değişkeninizden ekleyerek CLI'yıyükleme.`nuget.exe`</span><span class="sxs-lookup"><span data-stu-id="d9990-115">Install the `nuget.exe` CLI by downloading it from [nuget.org](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe), saving that `.exe` file to a suitable folder, and adding that folder to your PATH environment variable.</span></span>
 
-## <a name="install-a-package"></a><span data-ttu-id="6d05e-116">Paket yükler</span><span class="sxs-lookup"><span data-stu-id="6d05e-116">Install a package</span></span>
+## <a name="install-a-package"></a><span data-ttu-id="d9990-116">Paket yükler</span><span class="sxs-lookup"><span data-stu-id="d9990-116">Install a package</span></span>
 
-<span data-ttu-id="6d05e-117">[Install](../reference/cli-reference/cli-ref-install.md) komutu, belirtilen paket kaynaklarını kullanarak bir paketi indirir ve geçerli klasörü varsayılan olarak bir projeye yükler.</span><span class="sxs-lookup"><span data-stu-id="6d05e-117">The [install](../reference/cli-reference/cli-ref-install.md) command downloads and installs a package into a project, defaulting to the current folder, using specified package sources.</span></span> <span data-ttu-id="6d05e-118">Yeni paketleri proje kök dizininizde *paketler* klasörüne yükler.</span><span class="sxs-lookup"><span data-stu-id="6d05e-118">Install new packages into the *packages* folder in your project root directory.</span></span>
+<span data-ttu-id="d9990-117">[Install](../reference/cli-reference/cli-ref-install.md) komutu, belirtilen paket kaynaklarını kullanarak bir paketi indirir ve geçerli klasörü varsayılan olarak bir projeye yükler.</span><span class="sxs-lookup"><span data-stu-id="d9990-117">The [install](../reference/cli-reference/cli-ref-install.md) command downloads and installs a package into a project, defaulting to the current folder, using specified package sources.</span></span> <span data-ttu-id="d9990-118">Yeni paketleri proje kök dizininizde *paketler* klasörüne yükler.</span><span class="sxs-lookup"><span data-stu-id="d9990-118">Install new packages into the *packages* folder in your project root directory.</span></span>
 
 > [!IMPORTANT]
-> <span data-ttu-id="6d05e-119">Komut bir proje dosyasını veya *Packages. config*; bu şekilde, yalnızca paketleri diske eklemesine, ancak projenin bağımlılıklarını `restore` değiştirmediğinden bu şekilde değişiklik yapmaz. `install`</span><span class="sxs-lookup"><span data-stu-id="6d05e-119">The `install`command does not modify a project file or *packages.config*; in this way it's similar to `restore` in that it only adds packages to disk but does not change a project's dependencies.</span></span> <span data-ttu-id="6d05e-120">Bir bağımlılık eklemek için, Visual Studio 'da Paket Yöneticisi Kullanıcı arabirimi veya konsolundan bir paket ekleyin veya *Packages. config dosyasını* değiştirip ya `install` `restore`da çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="6d05e-120">To add a dependency, either add a package through the Package Manager UI or Console in Visual Studio, or modify *packages.config* and then run either `install` or `restore`.</span></span>
+> <span data-ttu-id="d9990-119">Komut bir proje dosyasını veya *Packages. config*; bu şekilde, yalnızca paketleri diske eklemesine, ancak projenin bağımlılıklarını `restore` değiştirmediğinden bu şekilde değişiklik yapmaz. `install`</span><span class="sxs-lookup"><span data-stu-id="d9990-119">The `install`command does not modify a project file or *packages.config*; in this way it's similar to `restore` in that it only adds packages to disk but does not change a project's dependencies.</span></span> <span data-ttu-id="d9990-120">Bir bağımlılık eklemek için, Visual Studio 'da Paket Yöneticisi Kullanıcı arabirimi veya konsolundan bir paket ekleyin veya *Packages. config dosyasını* değiştirip ya `install` `restore`da çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="d9990-120">To add a dependency, either add a package through the Package Manager UI or Console in Visual Studio, or modify *packages.config* and then run either `install` or `restore`.</span></span>
 
-1. <span data-ttu-id="6d05e-121">Bir komut satırı açın ve proje dosyanızı içeren dizine geçiş yapın.</span><span class="sxs-lookup"><span data-stu-id="6d05e-121">Open a command line and switch to the directory that contains your project file.</span></span>
+1. <span data-ttu-id="d9990-121">Bir komut satırı açın ve proje dosyanızı içeren dizine geçiş yapın.</span><span class="sxs-lookup"><span data-stu-id="d9990-121">Open a command line and switch to the directory that contains your project file.</span></span>
 
-2. <span data-ttu-id="6d05e-122">*Packages* klasörüne bir NuGet paketi yüklemek için aşağıdaki komutu kullanın.</span><span class="sxs-lookup"><span data-stu-id="6d05e-122">Use the following command to install a NuGet package to the *packages* folder.</span></span>
+2. <span data-ttu-id="d9990-122">*Packages* klasörüne bir NuGet paketi yüklemek için aşağıdaki komutu kullanın.</span><span class="sxs-lookup"><span data-stu-id="d9990-122">Use the following command to install a NuGet package to the *packages* folder.</span></span>
 
     ```cli
     nuget install <packageID> -OutputDirectory packages
     ```
 
-    <span data-ttu-id="6d05e-123">`Newtonsoft.json` Paketi *paketler* klasörüne yüklemek için şu komutu kullanın:</span><span class="sxs-lookup"><span data-stu-id="6d05e-123">To install the `Newtonsoft.json` package to the *packages* folder, use the following command:</span></span>
+    <span data-ttu-id="d9990-123">`Newtonsoft.json` Paketi *paketler* klasörüne yüklemek için şu komutu kullanın:</span><span class="sxs-lookup"><span data-stu-id="d9990-123">To install the `Newtonsoft.json` package to the *packages* folder, use the following command:</span></span>
 
     ```cli
     nuget install Newtonsoft.Json -OutputDirectory packages
     ```
 
-<span data-ttu-id="6d05e-124">Alternatif olarak, `packages.config` *paketler* klasörüne var olan bir dosyayı kullanarak bir NuGet paketini yüklemek için aşağıdaki komutu kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="6d05e-124">Alternatively, you can use the following command to install a NuGet package using an existing `packages.config` file to the *packages* folder.</span></span> <span data-ttu-id="6d05e-125">Bu, paketi proje bağımlılıklarınızla eklemez, ancak yerel olarak yüklemez.</span><span class="sxs-lookup"><span data-stu-id="6d05e-125">This does not add the package to your project dependencies, but installs it locally.</span></span>
+<span data-ttu-id="d9990-124">Alternatif olarak, `packages.config` *paketler* klasörüne var olan bir dosyayı kullanarak bir NuGet paketini yüklemek için aşağıdaki komutu kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="d9990-124">Alternatively, you can use the following command to install a NuGet package using an existing `packages.config` file to the *packages* folder.</span></span> <span data-ttu-id="d9990-125">Bu, paketi proje bağımlılıklarınızla eklemez, ancak yerel olarak yüklemez.</span><span class="sxs-lookup"><span data-stu-id="d9990-125">This does not add the package to your project dependencies, but installs it locally.</span></span>
 
 ```cli
 nuget install packages.config -OutputDirectory packages
 ```
 
-## <a name="install-a-specific-version-of-a-package"></a><span data-ttu-id="6d05e-126">Bir paketin belirli bir sürümünü yükler</span><span class="sxs-lookup"><span data-stu-id="6d05e-126">Install a specific version of a package</span></span>
+## <a name="install-a-specific-version-of-a-package"></a><span data-ttu-id="d9990-126">Bir paketin belirli bir sürümünü yükler</span><span class="sxs-lookup"><span data-stu-id="d9990-126">Install a specific version of a package</span></span>
 
-<span data-ttu-id="6d05e-127">[Yükleme](../reference/cli-reference/cli-ref-install.md) komutunu kullandığınızda sürüm belirtilmemişse, NuGet paketin en son sürümünü yükler.</span><span class="sxs-lookup"><span data-stu-id="6d05e-127">If the version is not specified when you use the [install](../reference/cli-reference/cli-ref-install.md) command, NuGet installs the latest version of the package.</span></span> <span data-ttu-id="6d05e-128">Ayrıca, bir NuGet paketinin belirli bir sürümünü de yükleyebilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="6d05e-128">You can also install a specific version of a Nuget package:</span></span>
+<span data-ttu-id="d9990-127">[Yükleme](../reference/cli-reference/cli-ref-install.md) komutunu kullandığınızda sürüm belirtilmemişse, NuGet paketin en son sürümünü yükler.</span><span class="sxs-lookup"><span data-stu-id="d9990-127">If the version is not specified when you use the [install](../reference/cli-reference/cli-ref-install.md) command, NuGet installs the latest version of the package.</span></span> <span data-ttu-id="d9990-128">Ayrıca, bir NuGet paketinin belirli bir sürümünü de yükleyebilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="d9990-128">You can also install a specific version of a Nuget package:</span></span>
 
 ```cli
 nuget install <packageID | configFilePath> -Version <version>
 ```
 
-<span data-ttu-id="6d05e-129">Örneğin, `Newtonsoft.json` paketin sürüm 12.0.1 ' i eklemek için şu komutu kullanın:</span><span class="sxs-lookup"><span data-stu-id="6d05e-129">For example, to add version 12.0.1 of the `Newtonsoft.json` package, use this command:</span></span>
+<span data-ttu-id="d9990-129">Örneğin, `Newtonsoft.json` paketin sürüm 12.0.1 ' i eklemek için şu komutu kullanın:</span><span class="sxs-lookup"><span data-stu-id="d9990-129">For example, to add version 12.0.1 of the `Newtonsoft.json` package, use this command:</span></span>
 
 ```cli
 nuget install Newtonsoft.Json -Version 12.0.1
 ```
 
-<span data-ttu-id="6d05e-130">Sınırlamaları ve davranışı `install`hakkında daha fazla bilgi için bkz. [paket yüklemesi](#install-a-package).</span><span class="sxs-lookup"><span data-stu-id="6d05e-130">For more information on the limitations and behavior of `install`, see [Install a package](#install-a-package).</span></span>
+<span data-ttu-id="d9990-130">Sınırlamaları ve davranışı `install`hakkında daha fazla bilgi için bkz. [paket yüklemesi](#install-a-package).</span><span class="sxs-lookup"><span data-stu-id="d9990-130">For more information on the limitations and behavior of `install`, see [Install a package](#install-a-package).</span></span>
 
-## <a name="remove-a-package"></a><span data-ttu-id="6d05e-131">Bir paketi kaldırma</span><span class="sxs-lookup"><span data-stu-id="6d05e-131">Remove a package</span></span>
+## <a name="remove-a-package"></a><span data-ttu-id="d9990-131">Bir paketi kaldırma</span><span class="sxs-lookup"><span data-stu-id="d9990-131">Remove a package</span></span>
 
-<span data-ttu-id="6d05e-132">Bir veya daha fazla paketi silmek için, *paketler* klasöründen kaldırmak istediğiniz paketleri silin.</span><span class="sxs-lookup"><span data-stu-id="6d05e-132">To delete one or more packages, delete the packages you want to remove from the *packages* folder.</span></span>
+<span data-ttu-id="d9990-132">Bir veya daha fazla paketi silmek için, *paketler* klasöründen kaldırmak istediğiniz paketleri silin.</span><span class="sxs-lookup"><span data-stu-id="d9990-132">To delete one or more packages, delete the packages you want to remove from the *packages* folder.</span></span>
 
-<span data-ttu-id="6d05e-133">Paketleri yeniden yüklemek istiyorsanız `restore` veya `install` komutunu kullanın.</span><span class="sxs-lookup"><span data-stu-id="6d05e-133">If you want to reinstall packages, use the `restore` or `install` command.</span></span>
+<span data-ttu-id="d9990-133">Paketleri yeniden yüklemek istiyorsanız `restore` veya `install` komutunu kullanın.</span><span class="sxs-lookup"><span data-stu-id="d9990-133">If you want to reinstall packages, use the `restore` or `install` command.</span></span>
 
-## <a name="list-packages"></a><span data-ttu-id="6d05e-134">Paketleri Listele</span><span class="sxs-lookup"><span data-stu-id="6d05e-134">List packages</span></span>
+## <a name="list-packages"></a><span data-ttu-id="d9990-134">Paketleri Listele</span><span class="sxs-lookup"><span data-stu-id="d9990-134">List packages</span></span>
 
-<span data-ttu-id="6d05e-135">[Liste](../reference/cli-reference/cli-ref-list.md) komutunu kullanarak belirli bir kaynaktaki paketlerin listesini görüntüleyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="6d05e-135">You can display a list of packages from a given source using the [list](../reference/cli-reference/cli-ref-list.md) command.</span></span> <span data-ttu-id="6d05e-136">Aramayı kısıtlamak için seçeneğini kullanın. `-Source`</span><span class="sxs-lookup"><span data-stu-id="6d05e-136">Use the `-Source` option to restrict the search.</span></span>
+<span data-ttu-id="d9990-135">[Liste](../reference/cli-reference/cli-ref-list.md) komutunu kullanarak belirli bir kaynaktaki paketlerin listesini görüntüleyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="d9990-135">You can display a list of packages from a given source using the [list](../reference/cli-reference/cli-ref-list.md) command.</span></span> <span data-ttu-id="d9990-136">Aramayı kısıtlamak için seçeneğini kullanın. `-Source`</span><span class="sxs-lookup"><span data-stu-id="d9990-136">Use the `-Source` option to restrict the search.</span></span>
 
 ```cli
 nuget list -Source <source>
 ```
 
-<span data-ttu-id="6d05e-137">Örneğin, paketler klasöründeki paketleri listeleyin.</span><span class="sxs-lookup"><span data-stu-id="6d05e-137">For example, list packages in the *packages* folder.</span></span>
+<span data-ttu-id="d9990-137">Örneğin, paketler klasöründeki paketleri listeleyin.</span><span class="sxs-lookup"><span data-stu-id="d9990-137">For example, list packages in the *packages* folder.</span></span>
 
 ```cli
 nuget list -Source C:\Users\username\source\repos\MyProject\packages
 ```
 
-<span data-ttu-id="6d05e-138">Arama terimi kullanırsanız, arama paket, etiket ve paket açıklamalarının adlarını içerir.</span><span class="sxs-lookup"><span data-stu-id="6d05e-138">If you use a search term, the search includes names of packages, tags, and package descriptions.</span></span>
+<span data-ttu-id="d9990-138">Arama terimi kullanırsanız, arama paket, etiket ve paket açıklamalarının adlarını içerir.</span><span class="sxs-lookup"><span data-stu-id="d9990-138">If you use a search term, the search includes names of packages, tags, and package descriptions.</span></span>
 
 ```cli
 nuget list <search term>
 ```
 
-## <a name="update-an-individual-package"></a><span data-ttu-id="6d05e-139">Tek bir paketi güncelleştirme</span><span class="sxs-lookup"><span data-stu-id="6d05e-139">Update an individual package</span></span>
+## <a name="update-an-individual-package"></a><span data-ttu-id="d9990-139">Tek bir paketi güncelleştirme</span><span class="sxs-lookup"><span data-stu-id="d9990-139">Update an individual package</span></span>
 
-<span data-ttu-id="6d05e-140">Paket sürümünü belirtmediğiniz takdirde NuGet, `install` komutunu kullandığınızda paketin en son sürümünü yüklenir.</span><span class="sxs-lookup"><span data-stu-id="6d05e-140">NuGet installs the latest version of the package when you use the `install` command unless you specify the package version.</span></span>
+<span data-ttu-id="d9990-140">Paket sürümünü belirtmediğiniz takdirde NuGet, `install` komutunu kullandığınızda paketin en son sürümünü yüklenir.</span><span class="sxs-lookup"><span data-stu-id="d9990-140">NuGet installs the latest version of the package when you use the `install` command unless you specify the package version.</span></span>
 
-## <a name="update-all-packages"></a><span data-ttu-id="6d05e-141">Tüm paketleri Güncelleştir</span><span class="sxs-lookup"><span data-stu-id="6d05e-141">Update all packages</span></span>
+## <a name="update-all-packages"></a><span data-ttu-id="d9990-141">Tüm paketleri Güncelleştir</span><span class="sxs-lookup"><span data-stu-id="d9990-141">Update all packages</span></span>
 
-<span data-ttu-id="6d05e-142">Tüm paketleri güncelleştirmek için [Güncelleştir](../reference/cli-reference/cli-ref-update.md) komutunu kullanın.</span><span class="sxs-lookup"><span data-stu-id="6d05e-142">Use the [update](../reference/cli-reference/cli-ref-update.md) command to update all packages.</span></span> <span data-ttu-id="6d05e-143">Projedeki tüm paketleri (kullanarak `packages.config`) en son kullanılabilir sürümlerine güncelleştirir.</span><span class="sxs-lookup"><span data-stu-id="6d05e-143">Updates all packages in a project (using `packages.config`) to their latest available versions.</span></span> <span data-ttu-id="6d05e-144">`restore` Çalıştırılmadan`update`önce çalıştırılması önerilir.</span><span class="sxs-lookup"><span data-stu-id="6d05e-144">It is recommended to run `restore` before running `update`.</span></span>
+<span data-ttu-id="d9990-142">Tüm paketleri güncelleştirmek için [Güncelleştir](../reference/cli-reference/cli-ref-update.md) komutunu kullanın.</span><span class="sxs-lookup"><span data-stu-id="d9990-142">Use the [update](../reference/cli-reference/cli-ref-update.md) command to update all packages.</span></span> <span data-ttu-id="d9990-143">Projedeki tüm paketleri (kullanarak `packages.config`) en son kullanılabilir sürümlerine güncelleştirir.</span><span class="sxs-lookup"><span data-stu-id="d9990-143">Updates all packages in a project (using `packages.config`) to their latest available versions.</span></span> <span data-ttu-id="d9990-144">`restore` Çalıştırılmadan`update`önce çalıştırılması önerilir.</span><span class="sxs-lookup"><span data-stu-id="d9990-144">It is recommended to run `restore` before running `update`.</span></span>
 
 ```cli
 nuget update
 ```
 
-## <a name="restore-packages"></a><span data-ttu-id="6d05e-145">Paketleri geri yükle</span><span class="sxs-lookup"><span data-stu-id="6d05e-145">Restore packages</span></span>
+## <a name="restore-packages"></a><span data-ttu-id="d9990-145">Paketleri geri yükle</span><span class="sxs-lookup"><span data-stu-id="d9990-145">Restore packages</span></span>
 
 [!INCLUDE [restore-nuget-exe-cli](includes/restore-nuget-exe-cli.md)]
+
+## <a name="get-the-cli-version"></a><span data-ttu-id="d9990-146">CLı sürümünü al</span><span class="sxs-lookup"><span data-stu-id="d9990-146">Get the CLI version</span></span>
+
+<span data-ttu-id="d9990-147">Şu komutu kullanın:</span><span class="sxs-lookup"><span data-stu-id="d9990-147">Use this command:</span></span>
+
+```cli
+nuget help
+```
+
+<span data-ttu-id="d9990-148">Yardım çıkışının ilk satırı sürümü gösterir.</span><span class="sxs-lookup"><span data-stu-id="d9990-148">The first line in the help output shows the version.</span></span> <span data-ttu-id="d9990-149">Yukarı kaydırmayı önlemek için bunun yerine `nuget help | more` kullanın.</span><span class="sxs-lookup"><span data-stu-id="d9990-149">To avoid scrolling up, use `nuget help | more` instead.</span></span>
