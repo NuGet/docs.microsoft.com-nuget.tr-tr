@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 464bf52cabe64696270fc391b2c23de9c6ba24f7
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: ae80206117eed639140a0c7977043d8330bc37bb
+ms.sourcegitcommit: 80cf99f40759911324468be1ec815c96aebf376d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488145"
+ms.lasthandoff: 08/17/2019
+ms.locfileid: "69564558"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Proje dosyalarında paket başvuruları (PackageReference)
 
@@ -106,7 +106,7 @@ Bu etiketler için izin verilen değerler aşağıdaki gibidir: ile `all` , ve a
 | çalışma zamanı | `lib` Ve`runtimes` klasörünün içeriği ve bu derlemelerin derleme çıkış dizinine kopyalanıp kopyalanmayacağını denetler |
 | contentFiles | `contentfiles` Klasörün içeriği |
 | derleme | `.props`ve `.targets` klasörü`build` |
-| Buildmultihedefleme | `.props`ve `.targets`klasöründe,platformlar arasıhedeflemeiçin`buildMultitargeting` |
+| Buildmultihedefleme | *(4,0)* `.props` ve `.targets` klasöründe,platformlararasıhedeflemeiçin`buildMultitargeting` |
 | buildTransitive | *(5.0 +)* `.props` ve`.targets` klasörü, her bir tüketen projeye geçişli olarak akan varlıklar içindir. `buildTransitive` Bkz. [özellik](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior) sayfası. |
 | Çözümleyicileri | .NET Çözümleyicileri |
 | yerel | `native` Klasörün içeriği |
