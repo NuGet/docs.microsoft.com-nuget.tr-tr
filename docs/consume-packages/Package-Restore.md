@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: dfe5f2ef4f0ababd81b91073938752aab2bdc01e
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: 93a94a5468b48179d27b89825cebf2447657c8f2
+ms.sourcegitcommit: 7c9f157ba02d9be543de34ab06813ab1ec10192a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488803"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69999977"
 ---
 # <a name="restore-packages-using-package-restore"></a>Paket geri yükleme kullanarak paketleri geri yükleme
 
@@ -44,7 +44,7 @@ Paket geri yükleme, tüm paket bağımlılıklarını proje dosyanızdaki ( *. 
 
    Packagereference kullanan projeler için başarılı bir geri yüklemeden sonra, paket *genel paketler* klasöründe bulunmalı ve `obj/project.assets.json` dosya yeniden oluşturulur. Kullanan `packages.config`projeler için, paketin `packages` projenin klasöründe görünmesi gerekir. Projenin şimdi başarıyla oluşturulması gerekir. 
 
-2. Paket geri yükleme çalıştırıldıktan sonra eksik paketlerle veya paketle ilgili hatalardan (Visual Studio 'da Çözüm Gezgini hata simgeleri) hala karşılaşıyorsanız, [paketleri yeniden yüklemeniz ve güncelleştirmeniz](../consume-packages/reinstalling-and-updating-packages.md)gerekebilir.
+2. Paket geri yükleme çalıştırıldıktan sonra eksik paketlerle veya paketle ilgili hatalardan (örneğin, Visual Studio 'da Çözüm Gezgini hata simgeleri) karşılaşıyorsanız, [paket geri yükleme hatalarını giderme](package-restore-troubleshooting.md) bölümünde açıklanan yönergeleri izlemeniz gerekebilir veya Alternatif olarak, [paketleri yeniden yükleyin ve güncelleştirin](../consume-packages/reinstalling-and-updating-packages.md).
 
    Visual Studio 'da Paket Yöneticisi konsolu paketleri yeniden yüklemek için çeşitli esnek seçenekler sağlar. Bkz. [paket-güncelleştirme kullanma](reinstalling-and-updating-packages.md#using-update-package).
 

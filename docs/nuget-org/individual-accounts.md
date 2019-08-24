@@ -1,18 +1,18 @@
 ---
-title: Bireysel hesaplar
+title: Bireysel hesaplar-NuGet.org
 description: Paketleri yayımlamak için NuGet.org üzerindeki ayrı hesaplar gereklidir
 author: mikejo5000
 ms.author: mikejo
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: c88b88015bd6d5bae4789765126c0a3dec527e24
-ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
+ms.openlocfilehash: 63c6b5eb5ad635e436b4d53a5f833af35f72d76f
+ms.sourcegitcommit: 7c9f157ba02d9be543de34ab06813ab1ec10192a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68419868"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69999974"
 ---
-# <a name="individual-accounts"></a>Bireysel hesaplar
+# <a name="individual-accounts-on-nugetorg"></a>NuGet.org üzerinde ayrı hesaplar
 
 NuGet.org 'de paketleri yayımlamak ve yönetmek için tek bir hesap oluşturmanız gerekir.
 
@@ -38,7 +38,7 @@ Bir NuGet.org hesabı oluşturmak için bir kişisel Microsoft hesabı (MSA) vey
 
 1. *NuGet.org*'e yönlendirilirsiniz ve bir Kullanıcı adı kaydetmeniz istenir.
 
-1. Giriş kutusunda Kullanıcı adını belirtin. **Kullanıcı adının** büyük/küçük harfe duyarlı olduğunu ve daha sonra değiştirilemeyeceğini veya yeniden adlandırılamayacağını lütfen unutmayın.
+1. Giriş kutusunda Kullanıcı adını belirtin. Kullanıcı adının büyük/küçük harfe duyarlı olduğunu ve daha sonra değiştirilemeyeceğini veya yeniden adlandırılamayacağını lütfen unutmayın.
 
    ![NuGet.org üzerinde bir Kullanıcı adı belirtin](media/nuget-org-register.png) 
 
@@ -69,3 +69,7 @@ Hesabınızı daha iyi korumak için iki öğeli kimlik doğrulamayı etkinleşt
    ![2FA 'yı etkinleştir](media/nuget-org-enter-code-2fa.png)
 
 5. Iki öğeli kimlik doğrulamayı tamamlamaya yönelik ek yönergeleri izleyin.
+
+## <a name="delete-a-nugetorg-account"></a>Bir NuGet.org hesabını silme
+
+NuGet.org hesabını silme gibi hesapla ilgili ek görevlerle ilgili yardım için bkz. [NuGet.org Account Management](nuget-org-faq.md#nugetorg-account-management).
