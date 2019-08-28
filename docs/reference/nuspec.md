@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: f931ed297a6a1e9e24ce5eb30a8158f59925bb39
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: 29c52b6684dff252e9c45bf5365d83b6a3fe5201
+ms.sourcegitcommit: c65e7a889ddf64a8e2ff7bc59ec08edb308e16ca
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488678"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70060250"
 ---
 # <a name="nuspec-reference"></a>. nuspec başvurusu
 
@@ -76,7 +76,7 @@ Nuget.org genelinde benzersiz olması gereken büyük/küçük harf duyarsız pa
 #### <a name="version"></a>sürüm
 *Ana. Minor. Patch* deseninin ardından paketin sürümü. Sürüm numaraları, [paket sürümü oluşturma](../concepts/package-versioning.md#pre-release-versions)bölümünde açıklandığı gibi bir ön sürüm son eki içerebilir. 
 #### <a name="description"></a>açıklama
-UI görüntüleme paketinin uzun açıklaması. 
+UI görüntüleme paketinin açıklaması.
 #### <a name="authors"></a>düzenliyor
 Nuget.org üzerindeki profil adlarıyla eşleşen paket yazarları için virgülle ayrılmış bir liste. Bunlar, nuget.org üzerindeki NuGet galerisinde görüntülenir ve aynı yazarlara göre çapraz başvuru için kullanılır. 
 
@@ -152,6 +152,9 @@ Kullanıcı arabirimi görüntüsündeki paketin simgesi olarak kullanılacak sa
 *(2.8+)* Paket olup olmadığını belirten bir Boole değeri, bir geliştirme-yalnızca-paket bağımlılık diğer paketleri olarak eklenmesini engelleyen bağımlılık olarak işaretlenir. PackageReference (NuGet 4.8 +) ile bu bayrak Ayrıca derleme zamanı varlıklarını derlemeden dışlayacak anlamına gelir. [PackageReference için bkz. Developmentdependency desteği](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference)
 
 #### <a name="summary"></a>özet
+> [!Important]
+> `summary`kullanım dışı bırakılıyor. Bunun yerine `description` kullanın.
+
 UI görüntülemesi için paketin kısa bir açıklaması. Atlanırsa, kesilen bir sürümü `description` kullanılır.
 
 #### <a name="releasenotes"></a>relet 'ler
