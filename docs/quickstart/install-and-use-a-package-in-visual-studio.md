@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/24/2018
 ms.topic: quickstart
-ms.openlocfilehash: a2be42aeb322cfd0ab43c9cec6ad1b063cbc3089
-ms.sourcegitcommit: f291ff91561a6b58c2aec41c624d798e00ce41fa
+ms.openlocfilehash: d9937a2b087fd88c1e6fd9f07a513b5047bdcf2e
+ms.sourcegitcommit: ac9a00ccaf90e539a381e92b650074910b21eb0d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68462518"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70235087"
 ---
 # <a name="quickstart-install-and-use-a-package-in-visual-studio-windows-only"></a>Hızlı Başlangıç: Visual Studio 'da paket yükleyip kullanma (yalnızca Windows)
 
@@ -27,13 +27,13 @@ Yüklendikten sonra, koddaki `using <namespace>` \<pakete, ad alanının\> kulla
 
 2019 Community Edition 'ı [VisualStudio.com](https://www.visualstudio.com/) adresinden ücretsiz olarak yükleyebilir veya profesyonel ya da Enterprise sürümlerini kullanabilirsiniz.
 
-Mac için Visual Studio kullanıyorsanız, bkz. [projenize bir NuGet paketi ekleme](/visualstudio/mac/nuget-walkthrough).
+Mac için Visual Studio kullanıyorsanız, bkz. [Mac için Visual Studio bir paketi yükleyip kullanma](install-and-use-a-package-in-visual-studio-mac.md).
 
 ## <a name="create-a-project"></a>Proje oluşturma
 
 NuGet paketleri, paketin proje ile aynı hedef Framework 'ü desteklemesi kaydıyla herhangi bir .NET projesine yüklenebilir.
 
-Bu izlenecek yol için basit bir WPF uygulaması kullanın. Visual Studio 'da **dosya > yeni proje...** öğesini kullanarak bir proje oluşturun, arama kutusuna **.net** yazın ve ardından **WPF uygulamasını (.NET Framework)** seçin.           **İleri**'ye tıklayın. İstendiğinde **Framework** için varsayılan değerleri kabul edin.
+Bu izlenecek yol için basit bir WPF uygulaması kullanın. Visual Studio 'da **dosya > yeni proje...** öğesini kullanarak bir proje oluşturun, arama kutusuna **.net** yazın ve ardından **WPF uygulamasını (.NET Framework)** seçin. **İleri**'ye tıklayın. İstendiğinde **Framework** için varsayılan değerleri kabul edin.
 
 Visual Studio, Çözüm Gezgini ' de açılan projeyi oluşturur.
 
