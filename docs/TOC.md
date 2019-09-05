@@ -1,9 +1,10 @@
 # [Bir bakışta belgeler](index.md)
 # [NuGet nedir?](what-is-nuget.md)
-# Başlarken
+# Kullanmaya başlayın
 ## [NuGet istemci araçlarını yükleme](install-nuget-client-tools.md)
 ## [Paket (dotnet CLI) yükleme ve kullanma](quickstart/install-and-use-a-package-using-the-dotnet-cli.md)
 ## [Paket (dotnet CLI) yükleme ve kullanma](quickstart/install-and-use-a-package-in-visual-studio.md)
+## [Paket (Mac için Visual Studio) yükleme ve kullanma](quickstart/install-and-use-a-package-in-visual-studio-mac.md)
 ## [NET Standard paketi (dotnet CLI) oluşturma ve yayımlama](quickstart/create-and-publish-a-package-using-the-dotnet-cli.md)
 ## [NET Standard paketi (Visual Studio) oluşturma ve yayımlama](quickstart/create-and-publish-a-package-using-visual-studio.md)
 ## [NET Framework paketi (Visual Studio) oluşturma ve yayımlama](quickstart/create-and-publish-a-package-using-visual-studio-net-framework.md)
@@ -58,7 +59,7 @@
 ### [Paket yayımlama](nuget-org/publish-a-package.md)
 ### [API anahtarları](nuget-org/scoped-api-keys.md)
 ## Özel bir akışa yayımlama
-### [Genel Bakış](hosting-packages/overview.md)
+### [Genel bakış](hosting-packages/overview.md)
 ### [Azure yapıtları](/azure/devops/artifacts/nuget/publish?view=azure-devops)
 ### [NuGet.Server](hosting-packages/nuget-server.md)
 ### [Yerel akışlar](hosting-packages/local-feeds.md)
@@ -105,7 +106,7 @@
 ### [Uninstall-Package](reference/ps-reference/ps-ref-uninstall-package.md)
 ### [Update-Package](reference/ps-reference/ps-ref-update-package.md)
 ## NuGet Server API
-### [Genel Bakış](api/overview.md)
+### [Genel bakış](api/overview.md)
 ### Kaynaklar
 #### [Otomatik Tamamlama](api/search-autocomplete-service-resource.md)
 #### [Katalog](api/catalog-resource.md)
@@ -116,7 +117,7 @@
 #### [Sembol paketlerini gönderme](api/symbol-package-publish-resource.md)
 #### [Uygunsuz kullanım bildirme URL’si](api/report-abuse-resource.md)
 #### [Depo imzaları](api/repository-signatures-resource.md)
-#### [Search](api/search-query-service-resource.md)
+#### [Ara](api/search-query-service-resource.md)
 #### [Hizmet dizini](api/service-index.md)
 ### [Nasıl yapılır: API’yi kullanarak tüm paketler için sorgu oluşturma](guides/api/query-for-all-published-packages.md)
 ### [Hız sınırları](api/rate-limits.md)
@@ -229,6 +230,7 @@
 ### [NU5034](reference/errors-and-warnings/NU5034.md)
 ### [NU5035](reference/errors-and-warnings/NU5035.md)
 ### [NU5036](reference/errors-and-warnings/NU5036.md)
+### [NU5037](reference/errors-and-warnings/NU5037.md)
 ### [NU5100](reference/errors-and-warnings/NU5100.md)
 ### [NU5101](reference/errors-and-warnings/NU5101.md)
 ### [NU5102](reference/errors-and-warnings/NU5102.md)
