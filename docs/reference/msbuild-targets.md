@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: d8d1b2ef0185381d16c1bb73035588fe90bcfd14
-ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
+ms.openlocfilehash: a9331ad2ea0482737d84f4ea9a9babf95da8d66f
+ms.sourcegitcommit: d5cc3f01a92c2d69b794343c09aff07ba9e912e5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959686"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70385897"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet paketi ve geri yükleme MSBuild hedefleri olarak
 
@@ -60,9 +60,10 @@ Aşağıdaki tabloda, ilk `<PropertyGroup>` düğüm içindeki bir proje dosyas�
 | Requirelicensekabulünü | PackageRequireLicenseAcceptance | false | |
 | lisan | PackageLicenseExpression | empty | Karşılık gelen`<license type="expression">` |
 | lisan | PackageLicenseFile | empty | Öğesine `<license type="file">`karşılık gelir. Başvurulan lisans dosyasını açık bir şekilde paketetmeniz gerekebilir. |
-| LicenseUrl | PackageLicenseUrl | empty | `licenseUrl`kullanım dışı bırakılıyor, PackageLicenseExpression veya PackageLicenseFile özelliğini kullanın |
+| LicenseUrl | PackageLicenseUrl | empty | `PackageLicenseUrl`kullanım dışı, PackageLicenseExpression veya PackageLicenseFile özelliğini kullanın |
 | ProjectUrl | PackageProjectUrl | empty | |
-| IconUrl | PackageIconUrl | empty | |
+| Simge | Packageıcon | empty | Başvurulan simge görüntü dosyasını açıkça paketetmeniz gerekebilir.|
+| IconUrl | PackageIconUrl | empty | `PackageIconUrl`kullanım dışı, Packageıcon özelliğini kullanın |
 | Etiketler | PackageTags | empty | Etiketler noktalı virgülle ayrılır. |
 | Relet 'ler | PackageReleaseNotes | empty | |
 | Depo/URL | Depourl 'Si | empty | Kaynak kodu kopyalamak veya almak için kullanılan depo URL 'SI. Örneğinde *https://github.com/NuGet/NuGet.Client.git* |
@@ -117,7 +118,32 @@ Oluşturulan NuGet paketinden paket bağımlılıklarını bastırmak için, ola
 
 ### <a name="packageiconurl"></a>PackageIconUrl
 
-[NuGet sorunu 352](https://github.com/NuGet/Home/issues/352)değişikliğinin bir parçası olarak, `PackageIconUrl` sonunda olarak `PackageIconUri` değiştirilir ve sonuç paketinin köküne dahil edilecek bir simge dosyasının göreli yolu olabilir.
+> [!Important]
+> PackageIconUrl kullanım dışı. Bunun yerine [Packageıcon](#packing-an-icon-image-file) kullanın.
+
+### <a name="packing-an-icon-image-file"></a>Simge görüntüsü dosyası paketleme
+
+Bir simge resim dosyası paketleme sırasında, paketin köküne göre paket yolunu belirtmek için Packageıcon özelliğini kullanmanız gerekir. Ayrıca, dosyanın pakete eklendiğinden emin olmanız gerekir. Görüntü dosyası boyutu 1 MB ile sınırlıdır. Desteklenen dosya biçimleri JPEG ve PNG içerir. 64x64 görüntü çözünürlüğü önerilir.
+
+Örneğin:
+
+```xml
+<PropertyGroup>
+    ...
+    <PackageIcon>icon.png</PackageIcon>
+    ...
+</PropertyGroup>
+
+<ItemGroup>
+    ...
+    <None Include="images\icon.png" Pack="true" PackagePath="\"/>
+    ...
+</ItemGroup>
+```
+
+[Paket simgesi örneği](https://github.com/NuGet/Samples/tree/master/PackageIconExample).
+
+Nuspec eşdeğeri için, [simgenin nuspec başvurusuna](nuspec.md#icon)göz atın.
 
 ### <a name="output-assemblies"></a>Çıkış derlemeleri
 
@@ -221,6 +247,7 @@ Bir lisans dosyası paketleme sırasında, paketin köküne göre paket yolunu b
     <None Include="licenses\LICENSE.txt" Pack="true" PackagePath=""/>
 </ItemGroup>
 ```
+
 [Lisans dosyası örneği](https://github.com/NuGet/Samples/tree/master/PackageLicenseFileExample).
 
 ### <a name="istool"></a>IsTool
@@ -332,7 +359,7 @@ Bir nuspec dosyası paketiçin bir *. csproj* dosyası örneği:
 1. Paketleri İndir
 1. Varlıklar dosyası, hedefler ve props yazma
 
-Hedef yalnızca packagereference biçimini kullanan projeler için kullanılabilir. `restore` Bu, `packages.config` biçimi kullanan projeler için çalışmaz; bunun yerine [NuGet geri yüklemeyi](../reference/cli-reference/cli-ref-restore.md) kullanın.
+Hedef yalnızca packagereference biçimini kullanan projeler için kullanılabilir. `restore` Bu, `packages.config` biçimi kullanan projeler **için çalışmaz;** bunun yerine [NuGet geri yüklemeyi](../reference/cli-reference/cli-ref-restore.md) kullanın.
 
 ### <a name="restore-properties"></a>Özellikleri geri yükle
 

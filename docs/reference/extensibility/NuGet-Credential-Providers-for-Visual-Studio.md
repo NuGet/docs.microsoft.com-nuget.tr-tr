@@ -1,57 +1,57 @@
 ---
 title: Visual Studio için NuGet kimlik bilgileri sağlayıcısı
-description: NuGet kimlik bilgisi sağlayıcıları akışlarıyla IVsCredentialProvider arabirimi Visual Studio Uzantısı'nda uygulama tarafından kimlik doğrulaması.
+description: NuGet kimlik bilgisi sağlayıcıları bir Visual Studio uzantısında IVsCredentialProvider arabirimini uygulayarak akışlarla kimlik doğrular.
 author: karann-msft
 ms.author: karann
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: abe009fee5863c55a188f4d7c71ed0924dd067ff
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 4e781a2462871bceeb1c7f02220320daabdab98a
+ms.sourcegitcommit: a0807671386782021acb7588741390e6f07e94e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547960"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70384425"
 ---
-# <a name="authenticating-feeds-in-visual-studio-with-nuget-credential-providers"></a>Visual Studio Özet akışları NuGet kimlik bilgisi sağlayıcıları ile kimlik doğrulaması
+# <a name="authenticating-feeds-in-visual-studio-with-nuget-credential-providers"></a>NuGet kimlik bilgisi sağlayıcılarıyla Visual Studio 'da akışlara kimlik doğrulama
 
-NuGet Visual Studio Uzantısı 3.6 + etkinleştiren kimliği doğrulanmış akışları ile çalışmak NuGet kimlik bilgisi sağlayıcılarını destekler.
-Bir Visual Studio için NuGet kimlik bilgisi sağlayıcı yükledikten sonra NuGet Visual Studio uzantısı otomatik olarak almak ve gerekli olarak kimliği doğrulanmış akışları için kimlik bilgilerini yenileyin.
+NuGet Visual Studio Uzantısı 3.6 + kimlik bilgisi sağlayıcılarını destekler, bu da NuGet 'nin kimliği doğrulanmış akışlarla çalışmasını sağlar.
+Visual Studio için bir NuGet kimlik bilgisi sağlayıcısı yükledikten sonra, NuGet Visual Studio uzantısı gerektiğinde kimliği doğrulanmış akışlar için kimlik bilgilerini otomatik olarak elde eder ve yeniler.
 
-Örnek uygulama bulunabilir [VsCredentialProvider örnek](https://github.com/NuGet/Samples/tree/master/VsCredentialProvider).
+Örnek bir uygulama [VsCredentialProvider örneğinde](https://github.com/NuGet/Samples/tree/master/VsCredentialProvider)bulunabilir.
 
-4.8 + ile başlayarak, Visual Studio'da NuGet yeni platformlar arası kimlik doğrulaması eklentileri de destekler ancak performansı artırmak için önerilen yaklaşım değildir.
+Visual Studio 'da 4.8 + NuGet ile başlayarak yeni platformlar arası kimlik doğrulama eklentileri de desteklenir, ancak performans nedenleriyle bu önerilen yaklaşımlar değildir.
 
 > [!Note]
-> Visual Studio için NuGet kimlik bilgisi sağlayıcısı normal bir Visual Studio uzantısı yüklenmeli ve gerektirecek [Visual Studio 2017](http://aka.ms/vs/15/release/vs_enterprise.exe) veya üzeri.
+> Visual Studio için NuGet kimlik bilgileri sağlayıcıları, düzenli bir Visual Studio uzantısı olarak yüklenmelidir ve [Visual studio 2017](http://aka.ms/vs/15/release/vs_enterprise.exe) veya üstünü gerektirir.
 >
-> Visual Studio için NuGet kimlik bilgisi sağlayıcısı yalnızca Visual Studio (değil, dotnet restore veya nuget.exe) çalışır. Nuget.exe ile kimlik bilgisi sağlayıcıları için bkz: [nuget.exe kimlik bilgileri sağlayıcısı](nuget-exe-Credential-providers.md).
-> Kimlik bilgisi için bkz: dotnet ve msbuild sağlayıcıları [NuGet çapraz platform eklentileri](nuget-cross-platform-authentication-plugin.md)
+> Visual Studio için NuGet kimlik bilgileri sağlayıcıları yalnızca Visual Studio 'da çalışır (dotnet restore veya NuGet. exe ' de değildir). NuGet. exe olan kimlik bilgisi sağlayıcıları için bkz. [NuGet. exe kimlik bilgileri sağlayıcıları](nuget-exe-Credential-providers.md).
+> DotNet ve MSBuild 'teki kimlik bilgileri sağlayıcıları için bkz. [NuGet platformlar arası eklentileri](nuget-cross-platform-authentication-plugin.md)
 
-## <a name="available-nuget-credential-providers-for-visual-studio"></a>Visual Studio için NuGet kimlik bilgisi sağlayıcısı kullanılabilir
+## <a name="available-nuget-credential-providers-for-visual-studio"></a>Visual Studio için kullanılabilir NuGet kimlik bilgileri sağlayıcıları
 
-Visual Studio Team Services'ı desteklemek için Visual Studio NuGet uzantısı'na yerleşik bir kimlik bilgisi sağlayıcısı yok.
+Visual Studio Team Services desteklemek için Visual Studio NuGet uzantısında yerleşik olarak bulunan bir kimlik bilgisi sağlayıcısı vardır.
 
-Bir iç NuGet Visual Studio uzantısı kullanan `VsCredentialProviderImporter` hangi tarar için eklenti kimlik bilgileri sağlayıcısı. Bu eklenti kimlik bilgisi sağlayıcıları bulunabilirlik bir MEF dışarı aktarma türü `IVsCredentialProvider`.
+NuGet Visual Studio uzantısı, eklenti kimlik bilgisi `VsCredentialProviderImporter` sağlayıcılarını da tarayan bir dahili kullanır. Bu eklenti kimlik bilgisi sağlayıcılarının türü `IVsCredentialProvider`MEF dışarı aktarma olarak bulunabilir olması gerekir.
 
-Kullanılabilir Eklenti kimlik bilgisi sağlayıcıları içerir:
+Kullanılabilir eklenti kimlik bilgileri sağlayıcıları şunları içerir:
 
-- [Visual Studio 2017 için MyGet Kimlik Bilgileri Sağlayıcısı](http://docs.myget.org/docs/reference/credential-provider-for-visual-studio)
+- [Visual Studio için MyGet kimlik bilgileri sağlayıcısı](http://docs.myget.org/docs/reference/credential-provider-for-visual-studio)
 
-## <a name="creating-a-nuget-credential-provider-for-visual-studio"></a>Bir Visual Studio için NuGet kimlik bilgisi sağlayıcı oluşturma
+## <a name="creating-a-nuget-credential-provider-for-visual-studio"></a>Visual Studio için NuGet kimlik bilgileri sağlayıcısı oluşturma
 
-NuGet Visual Studio Uzantısı 3.6 + kimlik bilgilerini almak için kullanılan bir iç CredentialService uygular. CredentialService yerleşik ve eklenti kimlik sağlayıcılarının bir listesine sahiptir. Her bir sağlayıcı, kimlik bilgileri elde edilen kadar sırayla denenir.
+NuGet Visual Studio Uzantısı 3.6 + kimlik bilgilerini almak için kullanılan bir iç CredentialService uygular. CredentialService, yerleşik ve eklenti kimlik bilgisi sağlayıcılarının bir listesini içerir. Her sağlayıcı, kimlik bilgileri alınana kadar sırayla denenir.
 
-Kimlik bilgisi alımı sırasında kimlik bilgisi hizmet kimlik bilgisi sağlayıcılarını aşağıdaki sırayla kimlik bilgileri elde edilen sürede durdurma deneyecek:
+Kimlik bilgisi alma sırasında kimlik bilgisi hizmeti kimlik bilgisi sağlayıcılarını aşağıdaki sırayla dener, kimlik bilgileri elde edilir almaz durdurulur:
 
-1. Kimlik bilgileri NuGet yapılandırma dosyalarından getirilecek (yerleşik kullanarak `SettingsCredentialProvider`).
-1. Paket kaynağı Visual Studio Team Services üzerinde ise `VisualStudioAccountProvider` kullanılır.
-1. Tüm diğer eklenti Visual Studio kimlik bilgisi sağlayıcıları sırayla denenir.
-1. Çapraz platform kimlik bilgisi sağlayıcıları tüm NuGet sıralı olarak kullanmayı deneyin.
-1. Kimlik bilgisi henüz alındı kullanıcı standart temel kimlik doğrulaması iletişim kutusunu kullanarak kimlik bilgileri istenir.
+1. Kimlik bilgileri NuGet yapılandırma dosyalarından alınacaktır (yerleşik `SettingsCredentialProvider`kullanılarak).
+1. Paket kaynağı Visual Studio Team Services `VisualStudioAccountProvider` ise, kullanılacaktır.
+1. Diğer tüm eklenti Visual Studio kimlik bilgileri sağlayıcıları sırayla denenecek.
+1. Tüm NuGet platformlar arası kimlik bilgisi sağlayıcılarını sırayla kullanmayı deneyin.
+1. Henüz kimlik bilgileri alınmadıysa, kullanıcıdan standart temel kimlik doğrulama iletişim kutusu kullanılarak kimlik bilgileri istenir.
 
-### <a name="implementing-ivscredentialprovidergetcredentialsasync"></a>IVsCredentialProvider.GetCredentialsAsync uygulama
+### <a name="implementing-ivscredentialprovidergetcredentialsasync"></a>IVsCredentialProvider. GetCredentialsAsync uygulama
 
-Visual Studio için NuGet kimlik bilgisi sağlayıcı oluşturmak için bir ortak MEF Dışarı Aktar uygulama sunan Visual Studio uzantısı oluşturma `IVsCredentialProvider` yazın ve için aşağıda belirtilen kurallara uyar.
+Visual Studio için bir NuGet kimlik bilgisi sağlayıcısı oluşturmak için, `IVsCredentialProvider` türü uygulayan bir genel MEF dışa aktarma işlemini kullanıma sunan bir Visual Studio uzantısı oluşturun ve aşağıda özetlenen ilkelere uyar.
 
 ```cs
 public interface IVsCredentialProvider
@@ -66,24 +66,24 @@ public interface IVsCredentialProvider
 }
 ```
 
-Örnek uygulama bulunabilir [VsCredentialProvider örnek](https://github.com/NuGet/Samples/tree/master/VsCredentialProvider).
+Örnek bir uygulama [VsCredentialProvider örneğinde](https://github.com/NuGet/Samples/tree/master/VsCredentialProvider)bulunabilir.
 
-Her Visual Studio için NuGet kimlik bilgisi sağlayıcısı gerekir:
+Visual Studio için her NuGet kimlik bilgisi sağlayıcısı şunları vermelidir:
 
-1. Bu kimlik bilgileri hedeflenen URI için kimlik bilgilerini almayı başlatmadan önce sağlayıp sağlayamayacağını belirleyin. Hedef kaynağı için kimlik bilgileri sağlayıcısı sağlayamazsınız sonra döndürmelidir `null`.
-1. Sağlayıcı istekleri hedeflenen URI'sini ele alıyor, ancak kimlik bilgileri sağlayamazsınız, bir özel durum.
+1. Kimlik bilgilerinin alımı başlatmadan önce hedeflenen URI için kimlik bilgileri sağlayıp sağlayamayacağını belirleme. Sağlayıcı, hedeflenen kaynak için kimlik bilgilerini sağlaya, sonra döndürmelidir `null`.
+1. Sağlayıcı hedeflenen URI için istekleri işler, ancak kimlik bilgilerini sağlayamadığında, bir özel durum oluşturulmalıdır.
 
-Visual Studio için özel bir NuGet kimlik bilgisi sağlayıcı uygulamalıdır `IVsCredentialProvider` arabirimi kullanılabilir [NuGet.VisualStudio paket](https://www.nuget.org/packages/NuGet.VisualStudio/).
+Visual Studio için özel bir NuGet kimlik bilgisi sağlayıcısı, `IVsCredentialProvider` [NuGet. VisualStudio paketinde](https://www.nuget.org/packages/NuGet.VisualStudio/)kullanılabilir arabirimi uygulamalıdır.
 
 #### <a name="getcredentialasync"></a>GetCredentialAsync
 
 | Giriş parametresi |Açıklama|
 | ----------------|-----------|
-| URI URI'si | Kimlik bilgileri istendiğinde paket kaynak URI'si.|
-| IWebProxy proxy | Ağ üzerinde iletişim kurarken kullanması için web proxy. Yapılandırılmış hiçbir proxy kimlik doğrulaması yoksa null. |
-| bool isProxyRequest | Proxy kimlik doğrulama bilgilerini almak için bu isteği ise true. Uygulama proxy'si kimlik bilgilerini alma için geçerli değilse null döndürülmelidir. |
-| bool isRetry | Doğru kimlik bilgilerini bu URI için daha önce istendi, ancak sağlanan kimlik bilgileri yetki verilen erişim izin vermedi. |
-| Etkileşimli olmayan bool | TRUE ise, kimlik bilgisi sağlayıcı tüm kullanıcı komut istemleri gösterme ve bunun yerine varsayılan değerleri kullanın. |
-| CancellationToken cancellationToken | Kimlik bilgileri isteme işlemi, edildi belirlemek için bu iptal belirteci denetlenmelidir. |
+| URI URI 'si | Kimlik bilgilerinin istenmekte olduğu paket kaynak URI 'Si.|
+| IWebProxy ara sunucusu | Ağ üzerinde iletişim kurarken kullanılacak Web proxy 'si. Yapılandırılmış bir proxy kimlik doğrulaması yoksa null. |
+| bool ıproxyrequest | Bu istek proxy kimlik doğrulama kimlik bilgilerini almak ise true. Uygulama proxy kimlik bilgilerini almak için geçerli değilse, null döndürülmelidir. |
+| bool ısretry | Bu URI için önceden kimlik bilgileri isteniyorsa true, ancak sağlanan kimlik bilgileri yetkili erişime izin vermedi. |
+| bool etkileşimsiz | True ise, kimlik bilgisi sağlayıcısı tüm Kullanıcı istemlerini bastırmalıdır ve bunun yerine varsayılan değerleri kullanır. |
+| CancellationToken cancellationToken | Kimlik bilgilerini isteme işleminin iptal edilip edilmediğine yönelik bu iptal belirtecinin denetlenmesi gerekir. |
 
-**Dönüş değeri**: kimlik bilgileri nesnesi uygulayan [ `System.Net.ICredentials` arabirimi](/dotnet/api/system.net.icredentials?view=netstandard-2.0).
+**Dönüş değeri**: Arabirimi uygulayan bir kimlik bilgileri nesnesi. [ `System.Net.ICredentials` ](/dotnet/api/system.net.icredentials?view=netstandard-2.0)

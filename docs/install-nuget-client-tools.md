@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/20/2019
 ms.topic: quickstart
-ms.openlocfilehash: d7aa2e4bdb78dcc6747d9775cbdf0d6c41855b96
-ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
+ms.openlocfilehash: 417388872a74b29a469d6a5c17c079a0d1a35dc3
+ms.sourcegitcommit: a0807671386782021acb7588741390e6f07e94e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68419805"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70384469"
 ---
 # <a name="install-nuget-client-tools"></a>NuGet istemci araçlarını yükleme
 
@@ -22,7 +22,7 @@ NuGet ile bir paket tüketicisi veya Oluşturucu olarak çalışmak için, komut
 |:------------- |:-------------|:-----|
 | [dotnet.exe](#dotnetexe-cli) | .NET Core ve .NET Standard kitaplıkları için CLı aracı ve .NET Framework hedefleyen her bir [SDK stili proje](resources/check-project-format.md) . .NET Core SDK eklenmiştir ve tüm platformlarda çekirdek NuGet özellikleri sağlar. (Visual Studio 2017 ' den itibaren, DotNet CLı, .NET Core ile ilgili tüm iş yükleri ile otomatik olarak yüklenir.)| [.NET Core SDK](https://www.microsoft.com/net/download/) |
 | [nuget.exe](#nugetexe-cli) | .NET Framework kitaplıkları ve .NET Standard kitaplıklarını hedefleyen biri gibi [SDK olmayan](resources/check-project-format.md) herhangi bir proje için CLI aracı. Tüm NuGet yeteneklerini Windows üzerinde sağlar. Mono altında çalışırken Mac ve Linux özelliklerinin çoğunu sağlar. | [nuget.exe](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe) |
-| [Visual Studio](#visual-studio) | Windows 'da, Paket Yöneticisi Kullanıcı arabirimi ve Paket Yöneticisi konsolu aracılığıyla NuGet özellikleri sağlar; ile dahildir. NET ilgili iş yükleri. Mac 'te, Kullanıcı arabirimi aracılığıyla belirli özellikleri sağlar. Visual Studio Code, NuGet özellikleri uzantılar aracılığıyla sağlanır. | [Visual Studio 2017](https://www.visualstudio.com/downloads/) |
+| [Visual Studio](#visual-studio) | Windows 'da, Paket Yöneticisi Kullanıcı arabirimi ve Paket Yöneticisi konsolu aracılığıyla NuGet özellikleri sağlar; ile dahildir. NET ilgili iş yükleri. Mac 'te, Kullanıcı arabirimi aracılığıyla belirli özellikleri sağlar. Visual Studio Code, NuGet özellikleri uzantılar aracılığıyla sağlanır. | [Visual Studio](https://www.visualstudio.com/downloads/) |
 
 [MSBUILD CLI](reference/msbuild-targets.md) , temel olarak yapı sunucularında yararlı olan paketleri geri yükleme ve oluşturma özelliği de sağlar. MSBuild, NuGet ile çalışmak için genel amaçlı bir araç değildir.
 
@@ -73,7 +73,7 @@ Yüklemesinden
   - Paket Yöneticisi konsol komutları yalnızca Windows üzerinde Visual Studio 'da çalışır ve diğer PowerShell ortamları içinde çalışmaz.
   - Visual Studio 2010 ve önceki sürümlerde, "Visual Studio için NuGet Paket Yöneticisi" uzantısını yükler.
   - Visual Studio 2013 ve 2015 için NuGet uzantıları, adresinden [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html)de indirilebilir.
-  - Yaklaşan NuGet özelliklerini önizlemek istiyorsanız, Visual Studio 'nun kararlı sürümleriyle yan yana çalışan [Visual studio 2017 Preview](https://www.visualstudio.com/vs/preview/)sürümünü yükleyebilirsiniz. Sorunları bildirmek veya önizlemelerde fikir paylaşmak için [NuGet GitHub deposunda](https://github.com/Nuget/Home/issues)bir sorun açın.
+  - Yaklaşan NuGet özelliklerini önizlemek istiyorsanız, Visual Studio 'nun kararlı sürümleriyle yan yana çalışan bir [Visual Studio önizlemesi](https://www.visualstudio.com/vs/preview/)yüklersiniz. Sorunları bildirmek veya önizlemelerde fikir paylaşmak için [NuGet GitHub deposunda](https://github.com/Nuget/Home/issues)bir sorun açın.
 
 ## <a name="feature-availability"></a>Özellik kullanılabilirliği
 

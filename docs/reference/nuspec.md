@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 29c52b6684dff252e9c45bf5365d83b6a3fe5201
-ms.sourcegitcommit: c65e7a889ddf64a8e2ff7bc59ec08edb308e16ca
+ms.openlocfilehash: ea40f80a482a290b7399e5a6abc69e0c6fe32b77
+ms.sourcegitcommit: a0807671386782021acb7588741390e6f07e94e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70060250"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70384454"
 ---
 # <a name="nuspec-reference"></a>. nuspec başvurusu
 
@@ -90,7 +90,7 @@ Genellikle kullanıcı arabiriminde gösterildiği gibi, paketin ana sayfası i�
 
 #### <a name="licenseurl"></a>licenseUrl
 > [!Important]
-> licenseUrl kullanım dışı bırakılıyor. Bunun yerine lisans kullanın.
+> licenseUrl kullanım dışıdır. Bunun yerine lisans kullanın.
 
 Genellikle Unuget.org gibi gösterilen paket lisansının URL 'SI.
 
@@ -143,7 +143,36 @@ license-expression =  1*1(simple-expression / compound-expression / UNLICENSED)
 ```
 
 #### <a name="iconurl"></a>Iurl
+
+> [!Important]
+> Iurl kullanım dışı. Bunun yerine simgesini kullanın.
+
 Kullanıcı arabirimi görüntüsündeki paketin simgesi olarak kullanılacak saydam arka planlı bir 64x64 görüntüsünün URL 'SI. Bu öğenin, görüntüyü içeren bir Web sayfasının URL 'sini değil *doğrudan görüntü URL* 'sini içerdiğinden emin olun. Örneğin, GitHub 'dan bir görüntü kullanmak için, gibi <em>https://github.com/\<username\>/\<repository\>/raw/\<branch\>/\<logo.png\></em>ham dosya URL 'sini kullanın. 
+   
+#### <a name="icon"></a>Simgesi
+
+Paket içindeki bir görüntü dosyasının yoludur ve genellikle paket simgesi olarak nuget.org gibi gösterilir. Görüntü dosyası boyutu 1 MB ile sınırlıdır. Desteklenen dosya biçimleri JPEG ve PNG içerir. 64x64 için bir görüntü resoulution önerilir.
+
+Örneğin, NuGet. exe ' yi kullanarak bir paket oluştururken şunu nuspec ' e eklersiniz:
+
+```xml
+<package>
+  <metadata>
+    ...
+    <icon>images\icon.png</icon>
+    ...
+  </metadata>
+  <files>
+    ...
+    <file src="..\icon.png" target="images\" />
+    ...
+  </files>
+</package>
+```
+
+[Paket simgesi nuspec örneği.](https://github.com/NuGet/Samples/tree/master/PackageIconNuspecExample)
+
+MSBuild eşdeğeri için, [bir simge görüntüsü dosyası paketleme](msbuild-targets.md#packing-an-icon-image-file)konusuna göz atın.
 
 #### <a name="requirelicenseacceptance"></a>Requirelicensekabulünü
 İstemcinin paketi yüklemeden önce, tüketicinin paket lisansını kabul etmesini isteyip istemeyeceğini belirten bir Boole değeri.
@@ -424,7 +453,7 @@ Aşağıdaki örnekte, tüm hedef çerçeveler `System.Net` için bir başvuru v
 [Paket oluşturma](../create-packages/creating-a-package.md)bölümünde açıklanan kuralları izlerseniz, `.nuspec` dosyadaki dosyaların listesini açıkça belirtmeniz gerekmez. Komut `nuget pack` , gerekli dosyaları otomatik olarak seçer.
 
 > [!Important]
-> Bir paket projeye yüklendiğinde NuGet otomatik olarak paketin dll 'lerine derleme başvuruları ekler, `.resources.dll` çünkü bu, yerelleştirilmiş uydu derlemeleri oldukları varsayılacaktır. Bu nedenle, başka bir şekilde `.resources.dll` temel paket kodu içeren dosyalar için kullanmaktan kaçının.
+> Bir paket projeye yüklendiğinde NuGet otomatik olarak paketin dll 'lerine derleme başvuruları `.resources.dll` *ekler, çünkü bu, yerelleştirilmiş* uydu derlemeleri oldukları varsayılacaktır. Bu nedenle, başka bir şekilde `.resources.dll` temel paket kodu içeren dosyalar için kullanmaktan kaçının.
 
 Bu otomatik davranışı atlamak ve bir pakete hangi dosyaların ekleneceğini açıkça denetlemek `<files>` için, bir öğeyi bir `<package>` alt öğesi `<metadata>`(ve eşdüzey) olarak yerleştirin ve her bir dosyayı ayrı `<file>` bir öğeyle tanımlayarak. Örneğin:
 

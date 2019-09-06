@@ -5,23 +5,23 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/13/2018
 ms.topic: quickstart
-ms.openlocfilehash: 7bfe041c01114ac61e811497ecc31ebfdad45029
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: 40e240478918d327fbea0013bbf271ea2ee1fc47
+ms.sourcegitcommit: a0807671386782021acb7588741390e6f07e94e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488894"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70384491"
 ---
 # <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>Hızlı Başlangıç: Visual Studio (.NET Framework, Windows) kullanarak paket oluşturma ve yayımlama
 
 Bir .NET Framework sınıf kitaplığından bir NuGet paketi oluşturmak, Windows üzerinde Visual Studio 'da DLL oluşturmayı, sonra da paketi oluşturmak ve yayımlamak için NuGet. exe komut satırı aracını kullanmayı içerir.
 
 > [!Note]
-> Bu hızlı başlangıç yalnızca Windows için Visual Studio 2017 için geçerlidir. Mac için Visual Studio burada açıklanan özellikleri içermez. Bunun yerine [DotNet CLI araçlarını](create-and-publish-a-package-using-the-dotnet-cli.md) kullanın.
+> Bu hızlı başlangıç yalnızca Windows için Visual Studio 2017 ve sonraki sürümleri için geçerlidir. Mac için Visual Studio burada açıklanan özellikleri içermez. Bunun yerine [DotNet CLI araçlarını](create-and-publish-a-package-using-the-dotnet-cli.md) kullanın.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-1. Herhangi bir Visual Studio 2017 sürümünü [VisualStudio.com](https://www.visualstudio.com/) adresinden yükleyin. NET ilgili iş yükü. Visual Studio 2017, .NET iş yükü yüklendiğinde NuGet yeteneklerini otomatik olarak içerir.
+1. [VisualStudio.com](https://www.visualstudio.com/) ' den herhangi bir Visual Studio 2017 veya üzeri sürümü ile yükleyin. NET ilgili iş yükü. Visual Studio 2017, .NET iş yükü yüklendiğinde NuGet yeteneklerini otomatik olarak içerir.
 
 1. [NuGet.org adresinden](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe)indirerek, bu `.exe` dosyayı uygun bir klasöre kaydederek ve bu klasörü PATH ortam değişkeninizden ekleyerek CLI'yıyükleme.`nuget.exe`
 
@@ -121,7 +121,7 @@ Birlikte ve proje özellikleri ayarlanmış bir dll ile, bundan sonra projeden b
     - relet 'ler
     - etiketler
 
-1. Genel kullanım için oluşturulmuş paketler için Etiketler özelliğine özel dikkat edin, Etiketler başkalarının paketinizi NuGet.org gibi kaynaklar üzerinde bulmasına yardımcı olur ve ne yaptığını anlayın.
+1. Genel kullanım için oluşturulmuş paketler için Etiketler özelliğine özel dikkat edin, **Etiketler başkalarının** paketinizi NuGet.org gibi kaynaklar üzerinde bulmasına yardımcı olur ve ne yaptığını anlayın.
 
 1. Ayrıca, [. nuspec dosya başvurusu](../reference/nuspec.md)bölümünde açıklandığı gibi, şu anda bildirime başka öğeler de ekleyebilirsiniz.
 
