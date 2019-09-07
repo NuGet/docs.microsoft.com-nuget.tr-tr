@@ -12,12 +12,12 @@ keywords: NuGet sembol paketleri, NuGet paket hata ayıklaması, NuGet hata ayı
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 992b3ddd04a1bb34e7aca25dfaa6f7df5485907b
-ms.sourcegitcommit: 80cf99f40759911324468be1ec815c96aebf376d
+ms.openlocfilehash: 109df18bcfd3e6a3fbd3ef3da1707ffada585140
+ms.sourcegitcommit: f4bfdbf62302c95f1f39e81ccf998f8bbc6d56b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2019
-ms.locfileid: "69564538"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70749036"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Sembol paketleri (. snupkg) oluşturuluyor
 
@@ -29,7 +29,30 @@ gerekli [NuGet protokollerini](../api/nuget-protocols.md)uygulayan [NuGet. exe v
 
 ## <a name="creating-a-symbol-package"></a>Sembol paketi oluşturma
 
-DotNet. exe, NuGet. exe veya MSBuild kullanarak bir snupkg sembol paketi oluşturabilirsiniz. NuGet. exe kullanıyorsanız,. nupkg dosyasına ek olarak bir. snupkg dosyası oluşturmak için aşağıdaki komutları kullanabilirsiniz:
+DotNet. exe veya MSBuild kullanıyorsanız,. nupkg dosyasına ek olarak. `IncludeSymbols` snupkg dosyası oluşturmak için ve `SymbolPackageFormat` özelliklerini ayarlamanız gerekir.
+
+* Aşağıdaki özellikleri. csproj dosyanıza ekleyin:
+
+   ```xml
+   <PropertyGroup>
+      <IncludeSymbols>true</IncludeSymbols> 
+      <SymbolPackageFormat>snupkg</SymbolPackageFormat> 
+   </PropertyGroup>
+   ```
+
+* Veya komut satırında aşağıdaki özellikleri belirtin:
+
+     ```cli
+     dotnet pack MyPackage.csproj -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg
+     ```
+
+  veya
+
+  ```cli
+  msbuild MyPackage.csproj /t:pack /p:IncludeSymbols=true /p:SymbolPackageFormat=snupkg
+  ```
+
+NuGet. exe kullanıyorsanız,. nupkg dosyasına ek olarak bir. snupkg dosyası oluşturmak için aşağıdaki komutları kullanabilirsiniz:
 
 ```
 nuget pack MyPackage.nuspec -Symbols -SymbolPackageFormat snupkg
@@ -37,20 +60,7 @@ nuget pack MyPackage.nuspec -Symbols -SymbolPackageFormat snupkg
 nuget pack MyPackage.csproj -Symbols -SymbolPackageFormat snupkg
 ```
 
-DotNet. exe veya MSBuild kullanıyorsanız,. nupkg dosyasına ek olarak bir. snupkg dosyası oluşturmak için aşağıdaki adımları kullanın:
-
-1. Aşağıdaki özellikleri. csproj dosyanıza ekleyin:
-
-    ```xml
-    <PropertyGroup>
-      <IncludeSymbols>true</IncludeSymbols>
-      <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    </PropertyGroup>
-    ```
-
-1. Projenizi veya `dotnet pack MyPackage.csproj` `msbuild -t:pack MyPackage.csproj`ile paketleme.
-
-Özellik iki değerden birine sahip olabilir: `symbols.nupkg` (varsayılan) veya `snupkg`. [`SymbolPackageFormat`](/dotnet/core/tools/csproj#symbolpackageformat) [`SymbolPackageFormat`](/dotnet/core/tools/csproj#symbolpackageformat) Özelliği belirtilmemişse, eski bir sembol paketi oluşturulur.
+Özellik iki değerden birine sahip olabilir: `symbols.nupkg` (varsayılan) veya `snupkg`. [`SymbolPackageFormat`](/dotnet/core/tools/csproj#symbolpackageformat) Bu özellik belirtilmezse, eski bir sembol paketi oluşturulur.
 
 > [!Note]
 > Eski biçim `.symbols.nupkg` hala desteklenir, ancak yalnızca uyumluluk nedenleriyle desteklenir (bkz. [eski sembol paketleri](Symbol-Packages.md)). NuGet. org 'ın sembol sunucusu yalnızca yeni sembol paketi biçimini kabul eder- `.snupkg`.
@@ -118,8 +128,8 @@ Paket doğrulama ve dizin oluşturma genellikle 15 dakika boyunca sürer. Paket 
 
 4) Bir yazar, nupkg ve snupkg 'leri oluşturmak için özel bir nuspec kullanılmasına karar verirse, snupkg, aynı klasör hiyerarşisine ve 2 ' de ayrıntılı dosyalar içermelidir.
 5) ```authors```ve ```owners``` alan, snupkg 'dan nuspec 'ten çıkarılacak.
-6) <license> Öğesini kullanmayın. A. snupkg, karşılık gelen. nupkg ile aynı lisans kapsamında ele alınmıştır.
+6) ```<license>``` Öğesini kullanmayın. A. snupkg, karşılık gelen. nupkg ile aynı lisans kapsamında ele alınmıştır.
 
 ## <a name="see-also"></a>Ayrıca Bkz.
 
-[NuGet-Package-hata ayıklama-&-semboller-geliştirmeler](https://github.com/NuGet/Home/wiki/NuGet-Package-Debugging-&-Symbols-Improvements)
+[NuGet paketi hata ayıklama & semboller geliştirmeleri](https://github.com/NuGet/Home/wiki/NuGet-Package-Debugging-&-Symbols-Improvements)
