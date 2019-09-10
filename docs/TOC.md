@@ -1,6 +1,6 @@
 # [Bir bakışta belgeler](index.md)
 # [NuGet nedir?](what-is-nuget.md)
-# Kullanmaya başlayın
+# Başlarken
 ## [NuGet istemci araçlarını yükleme](install-nuget-client-tools.md)
 ## [Paket (dotnet CLI) yükleme ve kullanma](quickstart/install-and-use-a-package-using-the-dotnet-cli.md)
 ## [Paket (dotnet CLI) yükleme ve kullanma](quickstart/install-and-use-a-package-in-visual-studio.md)
@@ -59,7 +59,7 @@
 ### [Paket yayımlama](nuget-org/publish-a-package.md)
 ### [API anahtarları](nuget-org/scoped-api-keys.md)
 ## Özel bir akışa yayımlama
-### [Genel bakış](hosting-packages/overview.md)
+### [Genel Bakış](hosting-packages/overview.md)
 ### [Azure yapıtları](/azure/devops/artifacts/nuget/publish?view=azure-devops)
 ### [NuGet.Server](hosting-packages/nuget-server.md)
 ### [Yerel akışlar](hosting-packages/local-feeds.md)
@@ -106,7 +106,7 @@
 ### [Uninstall-Package](reference/ps-reference/ps-ref-uninstall-package.md)
 ### [Update-Package](reference/ps-reference/ps-ref-update-package.md)
 ## NuGet Server API
-### [Genel bakış](api/overview.md)
+### [Genel Bakış](api/overview.md)
 ### Kaynaklar
 #### [Otomatik Tamamlama](api/search-autocomplete-service-resource.md)
 #### [Katalog](api/catalog-resource.md)
@@ -117,7 +117,7 @@
 #### [Sembol paketlerini gönderme](api/symbol-package-publish-resource.md)
 #### [Uygunsuz kullanım bildirme URL’si](api/report-abuse-resource.md)
 #### [Depo imzaları](api/repository-signatures-resource.md)
-#### [Ara](api/search-query-service-resource.md)
+#### [Search](api/search-query-service-resource.md)
 #### [Hizmet dizini](api/service-index.md)
 ### [Nasıl yapılır: API’yi kullanarak tüm paketler için sorgu oluşturma](guides/api/query-for-all-published-packages.md)
 ### [Hız sınırları](api/rate-limits.md)
@@ -231,6 +231,9 @@
 ### [NU5035](reference/errors-and-warnings/NU5035.md)
 ### [NU5036](reference/errors-and-warnings/NU5036.md)
 ### [NU5037](reference/errors-and-warnings/NU5037.md)
+### [NU5046](reference/errors-and-warnings/NU5046.md)
+### [NU5047](reference/errors-and-warnings/NU5047.md)
+### [NU5048](reference/errors-and-warnings/NU5048.md)
 ### [NU5100](reference/errors-and-warnings/NU5100.md)
 ### [NU5101](reference/errors-and-warnings/NU5101.md)
 ### [NU5102](reference/errors-and-warnings/NU5102.md)
@@ -279,9 +282,10 @@
 ## Sürüm notları
 ### [Bilinen Sorunlar](release-notes/known-issues.md)
 ### NuGet 5.x
-#### [NuGet 5.2 RTM](release-notes/NuGet-5.2-RTM.md)
-#### [NuGet 5.1 RTM](release-notes/NuGet-5.1-RTM.md)
-#### [NuGet 5.0 RTM](release-notes/NuGet-5.0-RTM.md)
+#### [NuGet 5.3](release-notes/NuGet-5.3.md)
+#### [NuGet 5.2](release-notes/NuGet-5.2-RTM.md)
+#### [NuGet 5.1](release-notes/NuGet-5.1-RTM.md)
+#### [NuGet 5.0](release-notes/NuGet-5.0-RTM.md)
 ### NuGet 4.x
 #### [NuGet 4.9 RTM](release-notes/NuGet-4.9-RTM.md)
 #### [NuGet 4.8 RTM](release-notes/NuGet-4.8-RTM.md)
