@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: cab56cb87f46335f9fdebdbc1649fead16459877
-ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
+ms.openlocfilehash: 76829d45ea9821da3b7fdaa2f88d30dbb104fea1
+ms.sourcegitcommit: 5a741f025e816b684ffe44a81ef7d3fbd2800039
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959733"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70815354"
 ---
 # <a name="pack-command-nuget-cli"></a>Pack komutu (NuGet CLı)
 
@@ -35,6 +35,7 @@ Burada `<nuspecPath>` veya proje dosyasını sırasıyla belirtin.`<projectPath>
 | --- | --- |
 | BasePath | [. Nuspec](../nuspec.md) dosyasında tanımlanan dosyaların temel yolunu ayarlar. |
 | Yapı | Paketi oluşturmadan önce projenin oluşturulması gerektiğini belirtir. |
+| Olmayan | Komutun belirleyici bir paket oluşturup oluşturmamalıdır belirtin. Paket komutuna birden çok çağırma, tam olarak aynı bayt-bayt paketini oluşturacaktır. Paket komutunun çıktısı makinenin çevresel durumundan etkilenmez. Özellikle ZIP girişleri, 1980-01-01 olarak zaman damgalanır. Tam kesin bir şekilde ulaşmak için, derlemelerin ilgili derleyici seçeneği [belirleyici](/dotnet/csharp/language-reference/compiler-options/deterministic-compiler-option)ile oluşturulması gerekir. |
 | Amaz | Bir paket oluştururken dışlanacak bir veya daha fazla joker karakter deseni belirtir. Birden fazla model belirtmek için-exclude bayrağını tekrarlayın. Aşağıdaki örneğe bakın. |
 | Excludeemptydizinler | Paketi oluştururken boş dizinlerin eklenmesini engeller. |
 | ForceEnglishOutput | *(3,5 +)* NuGet. exe ' yi sabit, Ingilizce tabanlı bir kültür kullanarak çalışmaya zorlar. |

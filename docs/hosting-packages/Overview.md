@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 08/25/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 737b13be70de9aaa7dec7904d4c2a4ec494ef7b3
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 10651e2cc26f7df4115e4de5dac8c91c93af7374
+ms.sourcegitcommit: 5a741f025e816b684ffe44a81ef7d3fbd2800039
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317548"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70815295"
 ---
 # <a name="hosting-your-own-nuget-feeds"></a>Kendi NuGet akışlarınızı barındırma
 
@@ -23,19 +23,20 @@ NuGet, bu gibi tüm amaçlar için özel paket kaynaklarını aşağıdaki yolla
 - NuGet. Server: Paketler yerel bir HTTP sunucusu üzerinden kullanılabilir hale getirilir. Ayrıntılar için bkz. [NuGet. Server](../hosting-packages/nuget-server.md).
 - NuGet Galerisi: Paketler, [NuGet Galeri projesi](https://github.com/NuGet/NuGetGallery#build-and-run-the-gallery-in-arbitrary-number-easy-steps) (GitHub.com) kullanılarak bir Internet sunucusunda barındırılır. NuGet Galerisi, nuget.org benzer şekilde, tarayıcı içinden paket aramaya ve keşfetmeye izin veren kapsamlı bir Web Kullanıcı arabirimi gibi Kullanıcı yönetimi ve özellikler sağlar.
 
-Aşağıdakiler de dahil olmak üzere uzak özel akışları destekleyen diğer çeşitli NuGet barındırma ürünleri de mevcuttur:
+Ayrıca, uzak özel akışları destekleyen [Azure Artifacts](https://www.visualstudio.com/docs/package/nuget/publish) ve [GitHub paket kayıt defteri](https://help.github.com/articles/configuring-nuget-for-use-with-github-package-registry) gibi diğer çeşitli NuGet barındırma ürünleri de vardır. Bu tür ürünlerin listesi aşağıda verilmiştir:
 
-- [Azure Artifacts](https://www.visualstudio.com/docs/package/nuget/publish), Team Foundation Server 2017 ve sonraki sürümlerde de kullanılabilir.
-- [MyGet](http://myget.org)
-- Inedo 'dan [temin edin](http://inedo.com/proget)
-- [GitHub paket kayıt defteri](https://help.github.com/articles/configuring-nuget-for-use-with-github-package-registry)
-- Inedo 'dan bir topluluk projesi olan [NuGet sunucusu](http://nugetserver.net/)
-- Inedo 'ın NuGet sunucusuna benzer bir açık kaynaklı uygulama olan [NuGet sunucusu (açık kaynak)](http://nuget-server.net)
-- Docker 'da Kestrel üzerinde çalışan NuGet v2 sunucusunun açık kaynaklı bir uygulama olan [Liget](https://github.com/ai-traders/liget)
-- [Baget](https://github.com/loic-sharma/BaGet), NuGet v3 sunucusunun açık kaynaklı ASP.NET Core yerleşik bir uygulamasıdır
-- [](https://github.com/emgarten/sleet)Açık kaynaklı bir NuGet v3 statik akış Oluşturucu olan uyma
 - JFrog 'den [Artifactory](https://www.jfrog.com/artifactory/) .
+- [Azure Artifacts](https://www.visualstudio.com/docs/package/nuget/publish), Team Foundation Server 2017 ve sonraki sürümlerde de kullanılabilir.
+- [Baget](https://github.com/loic-sharma/BaGet), NuGet v3 sunucusunun açık kaynaklı ASP.NET Core yerleşik bir uygulamasıdır
+- Tam olarak yönetilen bir paket yönetimi SaaS olan [Cloudsmith](https://cloudsmith.io/l/nuget-feed/)
+- [GitHub paket kayıt defteri](https://help.github.com/articles/configuring-nuget-for-use-with-github-package-registry)
+- Docker 'da Kestrel üzerinde çalışan NuGet v2 sunucusunun açık kaynaklı bir uygulama olan [Liget](https://github.com/ai-traders/liget)
+- [MyGet](http://myget.org)
 - Sonatype 'dan [Nexus](http://www.sonatype.org/nexus/) .
+- Inedo 'ın NuGet sunucusuna benzer bir açık kaynaklı uygulama olan [NuGet sunucusu (açık kaynak)](http://nuget-server.net)
+- Inedo 'dan bir topluluk projesi olan [NuGet sunucusu](http://nugetserver.net/)
+- Inedo 'dan [temin edin](http://inedo.com/proget)
+- Açık kaynaklı bir NuGet v3 statik akış Oluşturucu olan [uyma](https://github.com/emgarten/sleet)
 - JetBrains 'den [TeamCity](https://www.jetbrains.com/teamcity/) .
 
 Paketlerin nasıl barındırıldığından bağımsız olarak, ' deki `NuGet.Config`kullanılabilir kaynaklar listesine ekleyerek bunlara erişebilirsiniz. Bu, [paket kaynakları](../consume-packages/install-use-packages-visual-studio.md#package-sources)' nda veya kullanılarak [`nuget sources`](../reference/cli-reference/cli-ref-sources.md)komut satırından açıklandığı şekilde Visual Studio 'da yapılabilir. Bir kaynağın yolu yerel bir klasör yol adı, ağ adı veya URL olabilir.

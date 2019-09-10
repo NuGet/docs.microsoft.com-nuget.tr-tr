@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: a9331ad2ea0482737d84f4ea9a9babf95da8d66f
-ms.sourcegitcommit: d5cc3f01a92c2d69b794343c09aff07ba9e912e5
+ms.openlocfilehash: 16b8ff532b87a3e3f96029e77dd166eb39294c0b
+ms.sourcegitcommit: 5a741f025e816b684ffe44a81ef7d3fbd2800039
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70385897"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70815352"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet paketi ve geri yükleme MSBuild hedefleri olarak
 
@@ -109,6 +109,7 @@ Aşağıdaki tabloda, ilk `<PropertyGroup>` düğüm içindeki bir proje dosyas�
 - Nusguus dosyası
 - Nusgubasepath
 - Nus, Properties
+- Olmayan
 
 ## <a name="pack-scenarios"></a>paket senaryoları
 
@@ -172,6 +173,18 @@ Ayrıca, proje başvurunuz için aşağıdaki meta verileri de ekleyebilirsiniz:
 <IncludeAssets>
 <ExcludeAssets>
 <PrivateAssets>
+```
+
+### <a name="deterministic"></a>Olmayan
+
+Kullanırken `MSBuild -t:pack -p:Deterministic=true`, paket hedefi için birden çok çağırma, tam olarak aynı paketi oluşturacaktır.
+Paket komutunun çıktısı makinenin çevresel durumundan etkilenmez. Özellikle ZIP girişleri, 1980-01-01 olarak zaman damgalanır. Tam kesin bir şekilde ulaşmak için, derlemelerin ilgili derleyici seçeneği [belirleyici](/dotnet/csharp/language-reference/compiler-options/deterministic-compiler-option)ile oluşturulması gerekir.
+Aşağıdaki gibi belirleyici özelliği belirtmeniz önerilir, bu nedenle hem derleyici hem de NuGet buna uyar.
+
+```xml
+<PropertyGroup>
+  <Deterministic>true</Deterministic>
+</PropertyGroup>
 ```
 
 ### <a name="including-content-in-a-package"></a>Bir paketteki içerik ekleme

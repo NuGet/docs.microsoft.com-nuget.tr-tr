@@ -1,87 +1,89 @@
 ---
-title: NuGet çapraz platform eklentileri
-description: NuGet.exe, dotnet.exe, msbuild.exe ve Visual Studio için NuGet çapraz platform eklentileri
+title: NuGet platformlar arası eklentiler
+description: NuGet. exe, DotNet. exe, MSBuild. exe ve Visual Studio için NuGet platformlar arası eklentileri
 author: nkolev92
 ms.author: nikolev
 ms.date: 07/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: fdefc5b6189051fd83b2de644080284c09dd85f4
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 74b80b1791dcb403c90bb3032c009717c11ffe57
+ms.sourcegitcommit: 5a741f025e816b684ffe44a81ef7d3fbd2800039
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548212"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70815310"
 ---
-# <a name="nuget-cross-platform-plugins"></a>NuGet çapraz platform eklentileri
+# <a name="nuget-cross-platform-plugins"></a>NuGet platformlar arası eklentiler
 
-Nuget'te 4.8 + çapraz platform eklentileri için destek eklendi.
-Bu ile katı bir işlemin kuralları kümesi için uygun olan yeni bir eklenti genişletilebilirlik modeli, oluşturarak elde.
-NuGet istemcileri ayrı bir işlemde başlatma bağımsız yürütülebilir (runnables) .NET Core dünyanın artırmasını.
-Doğru yazma eklentisi her yerde çalıştırın bir kez budur. NuGet istemci araçları ile çalışır.
-Eklentileri, .NET Framework'ün (NuGet.exe, MSBuild.exe ve Visual Studio) ya da .NET Core (dotnet.exe) olabilir.
-NuGet istemci ile eklenti arasındaki tutulan iletişim protokolü tanımlanır. Başlangıç anlaşması sırasında Protokolü sürüm 2 işlemleri anlaşır.
+NuGet 4.8 + platformlar arası eklentiler için destek eklendi.
+Bu, bir işlem kuralları kümesine uyması gereken yeni bir eklenti genişletilebilirlik modeli oluşturarak ile elde edildi.
+Eklentiler, NuGet Istemcilerinin ayrı bir işlemde başlatması için kendi içinde bulunan yürütülebilir dosya (.NET Core World ' te çalıştırılabilir).
+Bu bir kez doğru yazma, her yerde çalışan eklenti. Bu, tüm NuGet istemci araçlarıyla çalışır.
+Eklentiler .NET Framework (NuGet. exe, MSBuild. exe ve Visual Studio) ya da .NET Core (DotNet. exe) olabilir.
+NuGet Istemcisi ve eklentisi arasındaki sürümlü bir iletişim protokolü tanımlanmıştır. Başlangıç el sıkışması sırasında, 2 işlem protokol sürümü üzerinde anlaşacak.
 
-Tüm NuGet istemci araçları senaryolarınızı kapsaması için bir .NET Framework hem de .NET Core eklentisi gerekir.
-Aşağıdaki eklenti istemci/framework birleşimlerini açıklar.
+Tüm NuGet istemci araçları senaryolarını kapsayacak şekilde, bunlardan biri hem .NET Framework hem de .NET Core eklentisine gerek duyar.
+Aşağıda, eklentilerin istemci/çerçeve birleşimleri açıklanmıştır.
 
 | İstemci aracı  | Framework |
 | ------------ | --------- |
 | Visual Studio | .NET Framework |
-| DotNet.exe | .NET Core |
-| NuGet.exe | .NET Framework |
-| MSBuild.exe | .NET Framework |
-| NuGet.exe Mono üzerinde | .NET Framework |
+| DotNet. exe | .NET Core |
+| NuGet. exe | .NET Framework |
+| MSBuild. exe | .NET Framework |
+| Mono üzerinde NuGet. exe | .NET Framework |
 
-## <a name="how-does-it-work"></a>Nasıl çalışır
+## <a name="how-does-it-work"></a>Nasıl çalışır?
 
-Üst düzey iş akışı şu şekilde açıklanabilir:
+Üst düzey iş akışı aşağıdaki gibi açıklanabilir:
 
-1. NuGet, kullanılabilir eklentiler bulur.
-1. Uygun olduğunda NuGet öncelik sırasına ve başlar birer birer eklentileri üzerinden yineleme yapma.
-1. NuGet, istek servis edebilirsiniz ilk eklenti kullanır.
-1. Artık gerekli olmadığında eklentileri kapatılır.
+1. NuGet kullanılabilir eklentileri bulur.
+1. Uygun olduğunda NuGet, eklentileri öncelik sırasıyla yineleyebilir ve tek tek başlatır.
+1. NuGet, isteğe hizmet veren ilk eklentiyi kullanacaktır.
+1. Eklentiler artık gerekli olmadığında kapatılacak.
 
-## <a name="general-plugin-requirements"></a>Genel eklentisi gereksinimleri
+## <a name="general-plugin-requirements"></a>Genel eklenti gereksinimleri
 
 Geçerli protokol sürümü *2.0.0*.
-Bu sürümü'nün altında gereksinimleri aşağıdaki gibidir:
+Bu sürüm altında, gereksinimler aşağıdaki gibidir:
 
-- Windows ve Mono üzerinde çalışacak bir geçerli ve güvenilen Authenticode imzası derlemeleri vardır. Linux ve Mac henüz çalışan derlemeler için özel güven gereksinimi yoktur. [İlgili sorun](https://github.com/NuGet/Home/issues/6702)
-- NuGet istemci Araçları'nın geçerli güvenlik bağlamı altında durum bilgisi olmayan başlatma destekler. Örneğin, NuGet istemci araçlarını yükseltme veya daha sonra açıklanan eklenti Protokolü dışında ek başlatma gerçekleştirmez.
-- Açıkça belirtilmediği sürece olmayan etkileşimli olması.
-- Üzerinde anlaşılan eklentisini protokolü sürümüne bağlıdır.
-- Tüm istekler için makul bir süre içinde yanıt.
-- Tüm devam eden işlemi iptal isteklerini dikkate.
+- Windows ve mono üzerinde çalışacak geçerli, güvenilir bir Authenticode imza Derlemeleriyle aynı. Henüz Linux ve Mac üzerinde çalıştırılan derlemeler için özel bir güven gereksinimi yoktur. [İlgili sorun](https://github.com/NuGet/Home/issues/6702)
+- NuGet istemci araçlarının geçerli güvenlik bağlamı altında durum bilgisiz başlatma desteği. Örneğin, NuGet istemci araçları daha sonra açıklanan eklenti protokolünün dışında yükseltme veya ek başlatma gerçekleştirmeyecektir.
+- Açıkça belirtilmediği takdirde etkileşimli değil.
+- Anlaşmalı eklenti Protokolü sürümüne bağlı olarak.
+- Makul bir zaman dönemi içindeki tüm isteklere yanıt verir.
+- Devam eden tüm işlemler için iptal isteklerini dikkate alarak.
 
-Teknik belirtim aşağıdaki özellikleri daha ayrıntılı açıklanmıştır:
+Teknik belirtim aşağıdaki özelliklere göre daha ayrıntılı olarak açıklanmıştır:
 
-- [NuGet paketini indirme eklentisi](https://github.com/NuGet/Home/wiki/NuGet-Package-Download-Plugin)
-- [NuGet kimlik doğrulama eklentisini plat çapraz](https://github.com/NuGet/Home/wiki/NuGet-cross-plat-authentication-plugin)
+- [NuGet paketi Indirme eklentisi](https://github.com/NuGet/Home/wiki/NuGet-Package-Download-Plugin)
+- [NuGet çapraz Plat kimlik doğrulama eklentisi](https://github.com/NuGet/Home/wiki/NuGet-cross-plat-authentication-plugin)
 
-## <a name="client---plugin-interaction"></a>İstemci - eklentisi etkileşimi
+## <a name="client---plugin-interaction"></a>İstemci-eklentisi etkileşimi
 
-NuGet istemci araçları ve eklentileri ile JSON standart akış (stdin, stdout, stderr) iletişim kurar. Tüm verileri UTF-8 olarak kodlanmış olmalıdır.
-Eklenti bağımsız değişkeniyle başlatılır "-eklentisi". Kullanıcı doğrudan bu bağımsız değişken yürütülebilir bir eklenti başlatır durumunda, eklenti için bir protokol anlaşması beklemek yerine bilgilendirici bir ileti verebilirsiniz.
-Protokol anlaşması zaman aşımı, 5 saniyedir. Eklenti, mümkün olduğunca bir miktar eksikliği kurulum olarak tamamlanmalıdır.
-NuGet istemci araçları NuGet kaynağı için hizmet dizini geçirerek bir eklenti'nın desteklenen işlemler sorgular. Bir eklenti için desteklenen hizmet türlerinin varlığını denetlemek için hizmet dizini kullanabilir.
+NuGet istemci araçları ve eklentileri, JSON ile standart akışlar (stdin, stdout, stderr) üzerinden iletişim kurar. Tüm veriler UTF-8 kodlu olmalıdır.
+Eklentiler "-Plugin" bağımsız değişkeniyle başlatılır. Bir Kullanıcı bu bağımsız değişken olmadan bir eklenti yürütülebiliri doğrudan başlattığında, eklenti bir protokol el sıkışması için beklemek yerine bilgilendirici bir ileti verebilir.
+Protokol el sıkışma zaman aşımı 5 saniyedir. Eklenti, kurulumu olabildiğince kısa bir süre içinde tamamlamalıdır.
+NuGet istemci araçları, bir NuGet kaynağı için hizmet dizinini geçirerek bir eklentinin desteklenen işlemlerini sorgular. Bir eklenti desteklenen hizmet türlerinin varlığını denetlemek için hizmet dizinini kullanabilir.
 
-NuGet istemci araçları ile eklenti arasındaki iletişim çift yönlü ' dir. Her isteğin 5 saniyelik bir zaman aşımı vardır. İşlemleri daha uzun sürer istemiyorsanız ilgili işlem istek zaman aşımına uğramadan engellemek için bir ilerleme iletisi göndermesi gerekir. 1 dakika kaldıktan sonra bir eklenti boşta kabul edilip kapatılır.
+NuGet istemci araçları ve eklentisi arasındaki iletişim çift yönlüdür. Her istekte 5 saniyelik bir zaman aşımı vardır. İşlemlerin daha uzun sürme olması gerekiyorsa, isteğin zaman aşımına uğramasını engellemek için ilgili işlemin bir ilerleme iletisi göndermesi gerekir. 1 dakika sonra bir eklenti boşta kabul edilir ve kapatılır.
 
 ## <a name="plugin-installation-and-discovery"></a>Eklenti yükleme ve bulma
 
-Eklentileri tabanlı bir dizin yapısı bulunacaktır.
-CI/CD senaryoları ve ileri kullanıcılar bir ortam değişkeni davranışı geçersiz kılmak için kullanabilirsiniz.
+Eklentiler, kural tabanlı bir dizin yapısı aracılığıyla keşfedilir.
+CI/CD senaryoları ve Power Users, davranışı geçersiz kılmak için ortam değişkenlerini kullanabilir. Bu ve `NUGET_NETFX_PLUGIN_PATHS` `NUGET_NETCORE_PLUGIN_PATHS` yalnızca NuGet araçları 'nın ve sonraki sürümlerin 5.3 + sürümü ile kullanılabilir olduğunu unutmayın.
 
-- `NUGET_PLUGIN_PATHS` -ayrılmış öncelik o NuGet işlemi için kullanılacak eklentileri tanımlar. Bu ortam değişkenine ayarlanmışsa tabanlı bulma geçersiz kılar.
--  Kullanıcı konumu, NuGet giriş konumda `%UserProfile%/.nuget/plugins`. Bu konum, geçersiz kılınan olamaz. .NET Core ve .NET Framework eklenti için farklı bir kök dizini kullanılacak.
+- `NUGET_NETFX_PLUGIN_PATHS`-.NET Framework tabanlı araç (NuGet. exe/MSBuild. exe/Visual Studio) tarafından kullanılacak eklentileri tanımlar. `NUGET_PLUGIN_PATHS`Önceliklidir. (Yalnızca NuGet sürümü 5.3 +)
+- `NUGET_NETCORE_PLUGIN_PATHS`-.NET Core tabanlı araç (DotNet. exe) tarafından kullanılacak eklentileri tanımlar. `NUGET_PLUGIN_PATHS`Önceliklidir. (Yalnızca NuGet sürümü 5.3 +)
+- `NUGET_PLUGIN_PATHS`-Bu NuGet işlemi için kullanılacak eklentileri tanımlar, öncelik saklıdır. Bu ortam değişkeni ayarlandıysa, kural tabanlı bulmayı geçersiz kılar. Çerçeveye özgü değişkenlerden biri belirtilmişse yok sayılır.
+-  Kullanıcı konumu, içindeki `%UserProfile%/.nuget/plugins`NuGet giriş konumu. Bu konum geçersiz kılınamaz. .NET Core ve .NET Framework eklentileri için farklı bir kök dizin kullanılır.
 
-| Framework | Bulma kökü  |
+| Framework | Kök bulma konumu  |
 | ------- | ------------------------ |
 | .NET Core |  `%UserProfile%/.nuget/plugins/netcore` |
 | .NET Framework | `%UserProfile%/.nuget/plugins/netfx` |
 
-Her eklentinin kendi klasöründe yüklü olması gerekir.
-Eklentisi giriş noktası adı yüklü klasöründe .dll uzantılar için .NET Core ve .NET Framework için .exe uzantısına sahip olacaktır.
+Her eklenti kendi klasörüne yüklenmelidir.
+Eklenti giriş noktası, yüklü klasörün adı, .NET Core için. dll uzantıları ve .NET Framework için. exe uzantısı olur.
 
 ```
 .nuget
@@ -99,202 +101,202 @@ Eklentisi giriş noktası adı yüklü klasöründe .dll uzantılar için .NET C
 ```
 
 > [!Note]
-> Şu anda hiçbir kullanıcı hikayesi için eklenti yüklemesi. Gerekli dosyaları önceden belirlenmiş konuma hareket ettirmek kadar basittir.
+> Şu anda eklentilerin yüklenmesi için Kullanıcı hikayesi yok. Gerekli dosyaları önceden belirlenmiş konuma taşımak basittir.
 
 ## <a name="supported-operations"></a>Desteklenen işlemler
 
-İki işlem altında yeni eklenti Protokolü desteklenir.
+Yeni eklenti Protokolü altında iki işlem desteklenir.
 
 | İşlem adı | En düşük protokol sürümü | En düşük NuGet istemci sürümü |
 | -------------- | ----------------------- | --------------------- |
-| Paketini indirme | 1.0.0 | 4.3.0 |
+| Paketi indir | 1.0.0 | 4.3.0 |
 | [Kimlik Doğrulaması](NuGet-Cross-Platform-Authentication-Plugin.md) | 2.0.0 | 4.8.0 |
 
-## <a name="running-plugins-under-the-correct-runtime"></a>Eklentileri doğru çalışma zamanı altında çalışan
+## <a name="running-plugins-under-the-correct-runtime"></a>Doğru çalışma zamanı altında eklenti çalıştırma
 
-Bu belirli dotnet.exe çalışma zamanı altında yürütebilmek için eklentileri dotnet.exe senaryolarda NuGet için gerekir.
-Bu uyumlu dotnet.exe/plugin birlikte kullanılan emin olmak için eklenti sağlayıcısı ve tüketici üzerinde olur.
-Olası bir sorun meydana gelebilecek kullanıcı konumu eklenti ile olduğunda, örneğin, 2.0 çalışma zamanı altında bir dotnet.exe 2.1 çalışma zamanı için yazılan bir eklenti kullanmayı dener.
+DotNet. exe senaryolarında NuGet için, eklentiler DotNet. exe ' nin söz konusu çalışma zamanının altında yürütebilmelidir.
+Bu, uyumlu bir DotNet. exe/eklenti birleşiminin kullanıldığından emin olmak için eklenti sağlayıcıdır ve tüketicidir.
+Örnek olarak, Kullanıcı-konum eklentilerine yönelik olası bir sorun oluşabilir. 2,0 çalışma zamanı altındaki bir DotNet. exe, 2,1 çalışma zamanı için yazılmış bir eklenti kullanmaya çalışır.
 
-## <a name="capabilities-caching"></a>Önbelleğe alma özellikleri
+## <a name="capabilities-caching"></a>Özellikleri önbelleğe alma
 
-Güvenlik doğrulaması ve eklentileri örneğinin pahalı. İndirme işlemi, ancak ortalama NuGet kullanıcının yalnızca bir kimlik doğrulama eklentisini olasılığı kimlik doğrulama işlemi, daha sık gerçekleşir.
-NuGet deneyimini iyileştirmek üzere belirtilen istek için işlem talepleri önbelleğe alır. Bu önbellek eklentisi eklentisi yolu olan eklentisi anahtarı ile ve bu özellikleri önbellek için sona erme 30 gündür. 
+Eklentilerin güvenlik doğrulaması ve örnekleme maliyetlidir. İndirme işlemi kimlik doğrulama işleminden daha sık yapılır, ancak ortalama NuGet kullanıcısının yalnızca bir kimlik doğrulama eklentisine sahip olma olasılığı vardır.
+Bu deneyimi geliştirmek için, NuGet verilen istek için işlem taleplerini önbelleğe alacak. Bu önbellek, eklenti anahtarı eklenti yolu olacak şekilde eklenti başına ve bu özellik önbelleğinin süresi 30 gündür. 
 
-Önbellek bulunan `%LocalAppData%/NuGet/plugins-cache` ve ortam değişkeni ile geçersiz kılınmış `NUGET_PLUGINS_CACHE_PATH`. Bu temizlemek için [önbellek](../../consume-packages/managing-the-global-packages-and-cache-folders.md), bir yerel öğeler çalıştırabilirsiniz komutunu `plugins-cache` seçeneği.
-`all` Yereller seçeneği artık da silinir plugins önbellek. 
+Önbellek içinde `%LocalAppData%/NuGet/plugins-cache` bulunur ve ortam değişkeni `NUGET_PLUGINS_CACHE_PATH`ile geçersiz kılınmalıdır. Bu [önbelleği](../../consume-packages/managing-the-global-packages-and-cache-folders.md)temizlemek için, bir tane, `plugins-cache` seçeneğiyle Yereller komutunu çalıştırabilir.
+`all` Yereller seçeneği artık eklenti önbelleğini de silecektir. 
 
-## <a name="protocol-messages-index"></a>İletişim kuralı iletileri dizini
+## <a name="protocol-messages-index"></a>Protokol iletileri dizini
 
 Protokol sürümü *1.0.0* iletileri:
 
 1.  Close
-    * Yön istek: NuGet eklentisi ->
-    * İstek yükü yok içerir
-    * Yanıt bekleniyor.  Doğru yanıtı hemen çıkılmasına eklentisi için işlemidir.
+    * İstek yönü:  NuGet-> eklentisi
+    * İstek yük içermez
+    * Yanıt beklenmez.  Doğru yanıt, eklenti işleminin hemen çıkmak için gereken bir işlemdir.
 
 2.  Paketteki dosyaları Kopyala
-    * Yön istek: NuGet eklentisi ->
-    * İstek içerir:
-        * paket kimliği ve sürüm
-        * Paket kaynağı depo konumu
-        * Hedef dizin yolu
-        * numaralandırılabilir bir hedef dizin yolu kopyalanacak paket dosyaları
-    * Bir yanıt içerir:
+    * İstek yönü:  NuGet-> eklentisi
+    * Bu istek şunları içerir:
+        * paket KIMLIĞI ve sürümü
+        * paket kaynağı depo konumu
+        * hedef dizin yolu
+        * paketteki hedef dizin yoluna kopyalanacak numaralandırılabilir dosyalar
+    * Bir yanıt şunu içerir:
         * işlemin sonucunu gösteren bir yanıt kodu
-        * İşlem başarılı ise hedef dizinde kopyalanan dosyaların tam yollarının bir numaralandırılabilir
+        * işlem başarılı olduysa, hedef dizindeki kopyalanmış dosyalar için bir dizi tam yol
 
-3.  Paket dosyası (.nupkg) kopyalayın
-    * Yön istek: NuGet eklentisi ->
-    * İstek içerir:
-        * paket kimliği ve sürüm
-        * Paket kaynağı depo konumu
+3.  Paket dosyasını Kopyala (. nupkg)
+    * İstek yönü:  NuGet-> eklentisi
+    * Bu istek şunları içerir:
+        * paket KIMLIĞI ve sürümü
+        * paket kaynağı depo konumu
         * Hedef dosya yolu
-    * Bir yanıt içerir:
+    * Bir yanıt şunu içerir:
         * işlemin sonucunu gösteren bir yanıt kodu
 
-4.  Kimlik bilgilerini alma
-    * Yön istek: eklenti NuGet ->
-    * İstek içerir:
-        * Paket kaynağı depo konumu
-        * Geçerli kimlik bilgilerini kullanarak paket kaynak deposundan alınan HTTP durum kodu
-    * Bir yanıt içerir:
+4.  Kimlik bilgilerini al
+    * İstek yönü: eklenti > NuGet
+    * Bu istek şunları içerir:
+        * paket kaynağı depo konumu
+        * geçerli kimlik bilgileri kullanılarak paket kaynak deposundan alınan HTTP durum kodu
+    * Bir yanıt şunu içerir:
         * işlemin sonucunu gösteren bir yanıt kodu
-        * varsa bir kullanıcı adı
-        * varsa bir parola
+        * varsa, bir Kullanıcı adı
+        * bir parola varsa
 
-5.  Paketteki dosyaları Al
-    * Yön istek: NuGet eklentisi ->
-    * İstek içerir:
-        * paket kimliği ve sürüm
-        * Paket kaynağı depo konumu
-    * Bir yanıt içerir:
+5.  Paketteki dosyaları al
+    * İstek yönü:  NuGet-> eklentisi
+    * Bu istek şunları içerir:
+        * paket KIMLIĞI ve sürümü
+        * paket kaynağı depo konumu
+    * Bir yanıt şunu içerir:
         * işlemin sonucunu gösteren bir yanıt kodu
-        * İşlem başarılı olduysa, paketteki dosya yollarının bir numaralandırılabilir
+        * işlem başarılı olursa paketteki dosya yollarının numaralandırılabilir olması
 
-6.  İşlem talebi alır 
-    * Yön istek: NuGet eklentisi ->
-    * İstek içerir:
-        * Paket kaynağı için hizmet index.json
-        * Paket kaynağı depo konumu
-    * Bir yanıt içerir:
+6.  İşlem taleplerini al 
+    * İstek yönü:  NuGet-> eklentisi
+    * Bu istek şunları içerir:
+        * paket kaynağı için hizmet dizini. JSON
+        * paket kaynağı depo konumu
+    * Bir yanıt şunu içerir:
         * işlemin sonucunu gösteren bir yanıt kodu
-        * numaralandırılabilir, desteklenen işlemler (örn: paket yükleme) işlemi başarılı olursa.  Eklenti, bir eklenti paket kaynağı desteklemiyorsa boş bir desteklenen işlemler kümesi döndürmelidir.
+        * işlem başarılı olduysa, desteklenen işlem sayısı (ör.: paket indirme).  Bir eklenti paket kaynağını desteklemiyorsa, eklenti boş bir desteklenen işlemler kümesi döndürmelidir.
 
 > [!Note]
-> Bu ileti sürümünde güncelleştirildi *2.0.0*. Geriye dönük uyumluluğu korumak için istemcide var.
+> Bu ileti, *2.0.0*sürümünde güncelleştirilmiştir. Bu, geriye dönük uyumluluğu korumak için istemcsahiptir.
 
-7.  Paket karmasını alır
-    * Yön istek: NuGet eklentisi ->
-    * İstek içerir:
-        * paket kimliği ve sürüm
-        * Paket kaynağı depo konumu
+7.  Paket karmasını al
+    * İstek yönü:  NuGet-> eklentisi
+    * Bu istek şunları içerir:
+        * paket KIMLIĞI ve sürümü
+        * paket kaynağı depo konumu
         * karma algoritması
-    * Bir yanıt içerir:
+    * Bir yanıt şunu içerir:
         * işlemin sonucunu gösteren bir yanıt kodu
-        * İşlem başarılı olursa, istenen karma algoritması kullanarak bir paket dosya karması
+        * işlem başarılı olduysa, istenen karma algoritmasını kullanan bir paket dosyası karması
 
-8.  Paket sürümü alma
-    * Yön istek: NuGet eklentisi ->
-    * İstek içerir:
-        * paket kimliği
-        * Paket kaynağı depo konumu
-    * Bir yanıt içerir:
+8.  Paket sürümlerini al
+    * İstek yönü:  NuGet-> eklentisi
+    * Bu istek şunları içerir:
+        * paket KIMLIĞI
+        * paket kaynağı depo konumu
+    * Bir yanıt şunu içerir:
         * işlemin sonucunu gösteren bir yanıt kodu
-        * numaralandırılabilir işlemi başarılı olursa, paket sürümleri
+        * işlem başarılı olduysa paket sürümleri Numaralandırılabilir
 
-9.  Hizmet dizini alın
-    * Yön istek: eklenti NuGet ->
-    * İstek içerir:
-        * Paket kaynağı depo konumu
-    * Bir yanıt içerir:
+9.  Hizmet dizinini al
+    * İstek yönü: eklenti > NuGet
+    * Bu istek şunları içerir:
+        * paket kaynağı depo konumu
+    * Bir yanıt şunu içerir:
         * işlemin sonucunu gösteren bir yanıt kodu
-        * İşlem başarılı ise hizmet dizini
+        * işlem başarılı olduysa hizmet dizini
 
-10.  Anlaşması
-     * Yön istek: NuGet <> – eklentisi
-     * İstek içerir:
-         * Geçerli eklentisi protokolü sürümü
-         * desteklenen en düşük eklentisi protokol sürümü
-     * Bir yanıt içerir:
+10.  Masını
+     * İstek yönü:  NuGet < > eklentisi
+     * Bu istek şunları içerir:
+         * Geçerli eklenti Protokolü sürümü
+         * desteklenen en düşük eklenti Protokolü sürümü
+     * Bir yanıt şunu içerir:
          * işlemin sonucunu gösteren bir yanıt kodu
-         * İşlem başarılı olduysa anlaşılan protokol sürümü.  Bir hata eklenti sonlandırmada neden olur.
+         * işlem başarılı olduysa, anlaşmalı protokol sürümü.  Bir hata, eklentinin sonlandırılmasıyla sonuçlanır.
 
-11.  başlatma
-     * Yön istek: NuGet eklentisi ->
-     * İstek içerir:
+11.  Initialize
+     * İstek yönü:  NuGet-> eklentisi
+     * Bu istek şunları içerir:
          * NuGet istemci aracı sürümü
-         * NuGet istemci aracı geçerli dili.  Bu dikkate ForceEnglishOutput ayarı kullandıysanız alır.
-         * protokol varsayılan yerini varsayılan isteği zaman aşımı.
-     * Bir yanıt içerir:
-         * işlemin sonucunu gösteren bir yanıt kodu.  Bir hata eklenti sonlandırmada neden olur.
+         * NuGet istemci aracı etkin dili.  Bu, kullanılıyorsa ForceEnglishOutput ayarını dikkate alır.
+         * varsayılan protokol varsayılan istek zaman aşımı.
+     * Bir yanıt şunu içerir:
+         * işlemin sonucunu gösteren bir yanıt kodu.  Bir hata, eklentinin sonlandırılmasıyla sonuçlanır.
 
 12.  Günlük
-     * Yön istek: eklenti NuGet ->
-     * İstek içerir:
+     * İstek yönü: eklenti > NuGet
+     * Bu istek şunları içerir:
          * istek için günlük düzeyi
-         * günlüğe kaydedilecek iletinin
-     * Bir yanıt içerir:
+         * günlüğe kaydedilecek ileti
+     * Bir yanıt şunu içerir:
          * işlemin sonucunu gösteren bir yanıt kodu.
 
-13.  İzleyici NuGet işlem çıkışı
-     * Yön istek: NuGet eklentisi ->
-     * İstek içerir:
-         * NuGet işlem kimliği
-     * Bir yanıt içerir:
+13.  NuGet işlemini izle çıkış çıkışı
+     * İstek yönü:  NuGet-> eklentisi
+     * Bu istek şunları içerir:
+         * NuGet işlem KIMLIĞI
+     * Bir yanıt şunu içerir:
          * işlemin sonucunu gösteren bir yanıt kodu.
 
-14.  Paket Hazırlık
-     * Yön istek: NuGet eklentisi ->
-     * İstek içerir:
-         * paket kimliği ve sürüm
-         * Paket kaynağı depo konumu
-     * Bir yanıt içerir:
+14.  Önceden getirme paketi
+     * İstek yönü:  NuGet-> eklentisi
+     * Bu istek şunları içerir:
+         * paket KIMLIĞI ve sürümü
+         * paket kaynağı depo konumu
+     * Bir yanıt şunu içerir:
          * işlemin sonucunu gösteren bir yanıt kodu
 
 15.  Kimlik bilgilerini ayarla
-     * Yön istek: NuGet eklentisi ->
-     * İstek içerir:
-         * Paket kaynağı depo konumu
-         * Son bilinen paket kaynağı kullanıcı adı, mevcutsa
-         * Son bilinen paket kaynağı parolası, mevcutsa
-         * Son bilinen proxy kullanıcı adı, mevcutsa
-         * Son bilinen bir ara sunucu parolasını, mevcutsa
-     * Bir yanıt içerir:
+     * İstek yönü:  NuGet-> eklentisi
+     * Bu istek şunları içerir:
+         * paket kaynağı depo konumu
+         * kullanılabiliyorsa, bilinen son paket kaynağı Kullanıcı adı
+         * kullanılabiliyorsa, bilinen son paket kaynak parolası
+         * kullanılabiliyorsa, bilinen son Proxy Kullanıcı adı
+         * kullanılabiliyorsa, bilinen son proxy parolası
+     * Bir yanıt şunu içerir:
          * işlemin sonucunu gösteren bir yanıt kodu
 
-16.  Günlük düzeyini ayarlama
-     * Yön istek: NuGet eklentisi ->
-     * İstek içerir:
+16.  Günlük düzeyini ayarla
+     * İstek yönü:  NuGet-> eklentisi
+     * Bu istek şunları içerir:
          * Varsayılan günlük düzeyi
-     * Bir yanıt içerir:
+     * Bir yanıt şunu içerir:
          * işlemin sonucunu gösteren bir yanıt kodu
 
 Protokol sürümü *2.0.0* iletileri
 
-17. İşlem talebi alır
+17. Işlem taleplerini al
 
-* Yön istek: NuGet eklentisi ->
-    * İstek içerir:
-        * Paket kaynağı için hizmet index.json
-        * Paket kaynağı depo konumu
-    * Bir yanıt içerir:
+* İstek yönü:  NuGet-> eklentisi
+    * Bu istek şunları içerir:
+        * paket kaynağı için hizmet dizini. JSON
+        * paket kaynağı depo konumu
+    * Bir yanıt şunu içerir:
         * işlemin sonucunu gösteren bir yanıt kodu
-        * bir numaralandırma işlemi başarılı olursa, desteklenen işlemler.  Eklenti, bir eklenti paket kaynağı desteklemiyorsa boş bir desteklenen işlemler kümesi döndürmelidir.
+        * işlem başarılı olduysa, desteklenen işlem sayısı.  Bir eklenti paket kaynağını desteklemiyorsa, eklenti boş bir desteklenen işlemler kümesi döndürmelidir.
 
-    Hizmet dizini ve paket kaynağı null ise, eklenti ile kimlik doğrulaması yanıt verebilir.
+    Hizmet dizini ve paket kaynağı null ise, eklenti kimlik doğrulamasıyla yanıt verebilir.
 
-18. Kimlik doğrulama kimlik bilgilerini alma
+18. Kimlik doğrulama kimlik bilgilerini al
 
-* Yön istek: NuGet eklentisi ->
-* İstek içerir:
-    * URI
-    * isRetry
+* İstek yönü: NuGet-> eklentisi
+* Bu istek şunları içerir:
+    * Kullanılmamışsa
+    * ısretry
     * NonInteractive
     * CanShowDialog
-* Bir yanıt içerir
+* Bir yanıt şunu içerir
     * Kullanıcı adı
     * Parola
-    * İleti
-    * Kimlik doğrulama türlerinin listesi
+    * `Message`
+    * Kimlik doğrulama türleri listesi
     * MessageResponseCode

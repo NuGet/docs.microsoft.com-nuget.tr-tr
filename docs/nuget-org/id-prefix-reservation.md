@@ -1,17 +1,17 @@
 ---
 title: KIMLIK ön eki ayırma
 description: Paket KIMLIĞI ön eki ayırma özelliği açıklaması ve yazar Kılavuzu.
-author: diverdan92
-ms.author: diverdan92
-ms.date: 10/09/2017
+author: karann-msft
+ms.author: karann
+ms.date: 09/07/2019
 ms.topic: reference
-ms.reviewer: ananguar
-ms.openlocfilehash: 650f570ec65a665e3d452af732ea22337835d8d9
-ms.sourcegitcommit: cae759ad8518c049575a30ad3bf04fe5d06244fb
+ms.reviewer: karann
+ms.openlocfilehash: 630c2b193500ec0b9aa5a7fe4af3ea95ae52aeec
+ms.sourcegitcommit: 5a741f025e816b684ffe44a81ef7d3fbd2800039
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68616809"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70815285"
 ---
 # <a name="package-id-prefix-reservation"></a>Paket KIMLIĞI ön eki ayırması
 
@@ -88,6 +88,8 @@ KIMLIK ön eki ayırma için herhangi bir uygulamayı gözden geçirirken, [NuGe
 1. Paket KIMLIĞI öneki ile eşleşen paketlerin tanımlayıcı özellikleri açık ve tutarlı (özellikle paket yazarı)?
 
 1. Paketlerde bir lisans var ( [Lisans](../reference/nuspec.md#license) meta verileri öğesi kullanılıyor ve kullanımdan kaldırılmakta olan LICENSEURL 'si değil)?
+
+1. Paketlerde bir simge varsa (Iurl meta veri öğesi kullanılarak), aynı zamanda [Icon](../reference/nuspec.md#icon) meta veri öğesini de kullanıyor (Iurl 'yi kaldırma gereksinimi değildir)?
 
 ## <a name="third-party-feed-provider-scenarios"></a>Üçüncü taraf akış sağlayıcısı senaryoları
 
