@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/25/2017
 ms.topic: conceptual
-ms.openlocfilehash: 5309d94fafea9cdfc3699d443393be5d381dd145
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 89127203df0aa1eb24f36b8ec64c5bb4a4d59319
+ms.sourcegitcommit: 1eda83ab537c86cc27316e7bc67f95a358766e63
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317727"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71094074"
 ---
 # <a name="common-nuget-configurations"></a>Ortak NuGet yapılandırması
 
@@ -25,7 +25,7 @@ NuGet davranışı, proje, Kullanıcı ve bilgisayar genelindeki düzeylerde bul
 | Bilgisayar | Windows: `%ProgramFiles(x86)%\NuGet\Config`<br/>Mac/Linux: `$XDG_DATA_HOME`. Null veya boş ise ya `/usr/local/share` da `~/.local/share` kullanılacaksa (OS dağıtımına göre değişir) `$XDG_DATA_HOME`  | Ayarlar bilgisayardaki tüm işlemlere uygulanır, ancak herhangi bir kullanıcı veya proje düzeyi ayar tarafından geçersiz kılınır. |
 
 NuGet 'in önceki sürümleri için notlar:
-- NuGet 3,3 ve önceki sürümleri çözüm `.nuget` genelinde ayarlar için bir klasör kullandı. Bu dosya NuGet 3.4 + ' de kullanılmaz.
+- NuGet 3,3 ve önceki sürümleri çözüm `.nuget` genelinde ayarlar için bir klasör kullandı. Bu klasör NuGet 3.4 + ' de kullanılmaz.
 - NuGet 2,6 için 3. x, Windows üzerindeki bilgisayar\\düzeyi yapılandırma dosyası%ProgramData%\nuget\config [{IDE} [\\{Version} [\\{SKU}]]] \nuget.exe konumunda konumlandı; burada *{IDE}* *VisualStudio*olabilir, *{ Version}* , *14,0*gibi Visual Studio Sürümiydi ve *{SKU}* *Community*, *Pro*ya da *Enterprise*. Ayarları NuGet 4.0 + ' ya geçirmek için yapılandırma dosyasını% ProgramFiles (x86)% \ Nuget\configkonumuna kopyalamanız yeterlidir. Linux 'ta, bu önceki konum/etc/opt ve Mac üzerinde/Library/Application Support desteği idi.
 
 ## <a name="changing-config-settings"></a>Yapılandırma ayarlarını değiştirme

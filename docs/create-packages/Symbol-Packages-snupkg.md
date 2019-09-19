@@ -12,12 +12,12 @@ keywords: NuGet sembol paketleri, NuGet paket hata ayıklaması, NuGet hata ayı
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 109df18bcfd3e6a3fbd3ef3da1707ffada585140
-ms.sourcegitcommit: f4bfdbf62302c95f1f39e81ccf998f8bbc6d56b0
+ms.openlocfilehash: 5546881dbf7577eb289a28b35bc2c0e7dc5cac40
+ms.sourcegitcommit: 1eda83ab537c86cc27316e7bc67f95a358766e63
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70749036"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71094104"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Sembol paketleri (. snupkg) oluşturuluyor
 
@@ -92,25 +92,25 @@ NuGet, her iki paketi de nuget.org 'e yayımlar. önce yayımlanacak ve `MyPacka
 
 ## <a name="nugetorg-symbol-server"></a>NuGet.org symbol sunucusu
 
-NuGet.org kendi sembol sunucu deposunu destekler ve yalnızca yeni sembol paketi biçimini kabul eder- `.snupkg`. Paket tüketicileri Visual Studio 'daki sembol kaynaklarına ekleyerek `https://symbols.nuget.org/download/symbols` NuGet.org sembol sunucusunda yayınlanan sembolleri kullanarak Visual Studio hata ayıklayıcısında paket koduna adımlamayı sağlar. Bu işlemle ilgili ayrıntılar için bkz. [Visual Studio hata ayıklayıcısında simge (. pdb) ve kaynak dosyaları belirtme](https://docs.microsoft.com/en-us/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger?view=vs-2017) .
+NuGet.org kendi sembol sunucu deposunu destekler ve yalnızca yeni sembol paketi biçimini kabul eder- `.snupkg`. Paket tüketicileri Visual Studio 'daki sembol kaynaklarına ekleyerek `https://symbols.nuget.org/download/symbols` NuGet.org sembol sunucusunda yayınlanan sembolleri kullanarak Visual Studio hata ayıklayıcısında paket koduna adımlamayı sağlar. Bu işlemle ilgili ayrıntılar için bkz. [Visual Studio hata ayıklayıcısında simge (. pdb) ve kaynak dosyaları belirtme](/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger.md) .
 
-### <a name="nugetorg-symbol-package-constraints"></a>Nuget.org sembol paketi kısıtlamaları
+### <a name="nugetorg-symbol-package-constraints"></a>NuGet.org sembol paketi kısıtlamaları
 
-Nuget.org üzerinde desteklenen sembol paketleri aşağıdaki gibi olabilir
+NuGet.org, sembol paketleri için aşağıdaki kısıtlamalara sahiptir:
 
-- Bir sembol paketine yalnızca aşağıdaki dosya uzantılarının eklenmesine izin verilir. ```.pdb,.nuspec,.xml,.psmdcp,.rels,.p7s```
-- Şu anda yalnızca Managed [Taşınabilir pdb 'leri](https://github.com/dotnet/corefx/blob/master/src/System.Reflection.Metadata/specs/PortablePdb-Metadata.md) , NuGet sembol sunucusunda destekleniyor.
-- Pdb 'leri ve ilişkili nupkg dll 'lerinin Visual Studio sürüm 15,9 veya üzeri bir derleyici ile oluşturulması gerekir (bkz. [pdb şifre karması](https://github.com/dotnet/roslyn/issues/24429))
+- Sembol paketlerinde yalnızca şu dosya uzantılarına izin veriliyor: `.pdb`, `.nuspec`, `.xml` `.psmdcp`,, `.rels`,`.p7s`
+- NuGet. org 'ın sembol sunucusunda yalnızca yönetilen [Taşınabilir pdb 'leri](https://github.com/dotnet/corefx/blob/master/src/System.Reflection.Metadata/specs/PortablePdb-Metadata.md) desteklenir.
+- Pdb 'leri ve ilişkili. nupkg dll 'Lerinin Visual Studio sürüm 15,9 veya üzeri bir derleyici ile oluşturulması gerekir (bkz. [pdb şifre karması](https://github.com/dotnet/roslyn/issues/24429))
 
-. Snupkg 'ye başka herhangi bir dosya türü dahil olursa, nuget.org üzerinde Yayımla sembol paketi başarısız olur.
+NuGet.org 'e yayınlanan sembol paketleri, bu kısıtlamalar karşılanmazsa doğrulama başarısız olur. 
 
 ### <a name="symbol-package-validation-and-indexing"></a>Sembol paketi doğrulama ve dizin oluşturma
 
-[NuGet.org](https://www.nuget.org/) ' de yayınlanan sembol paketleri, virüs denetimleri gibi çeşitli Doğrulamalardan biridir.
+[NuGet.org](https://www.nuget.org/) ' de yayınlanan sembol paketleri kötü amaçlı yazılım tarama dahil olmak üzere çeşitli doğrulamalar sağlar. Bir paket doğrulama denetiminden başarısız olursa, paket ayrıntıları sayfasında bir hata mesajı görüntülenir. Ayrıca, paketin sahipleri, tanımlanan sorunları nasıl gidereceğiniz hakkında yönergeler içeren bir e-posta alır.
 
-Paket tüm doğrulama denetimlerini geçtiğinde, simgeler dizin oluşturma ve NuGet.org sembol sunucularından tüketim için kullanılabilir hale gelmesi biraz zaman alabilir. Paket bir doğrulama denetiminden geçemezse,. nupkg için paket ayrıntıları sayfası, ilişkili hatayı görüntüleyecek şekilde güncellenecek ve size bunu bildiren bir e-posta alacaksınız.
+Sembol paketi tüm doğrulamaları geçtiğinde, semboller NuGet. org 'ın sembol sunucuları tarafından dizine alınır. Dizin oluşturulduktan sonra sembol, NuGet.org sembol sunucularından tüketim için kullanılabilir olacaktır.
 
-Paket doğrulama ve dizin oluşturma genellikle 15 dakika boyunca sürer. Paket yayımlaması beklenenden uzun sürüyorsa, nuget.org 'in herhangi bir kesinti yaşamadığını denetlemek için [Status.NuGet.org](https://status.nuget.org/) adresini ziyaret edin. Tüm sistemler çalışır durumda ve paket bir saat içinde başarıyla yayımlanmamışsa, lütfen nuget.org ' e oturum açın ve paket ayrıntıları sayfasında desteğe başvurun bağlantısını kullanarak bizimle iletişime geçin.
+Paket doğrulama ve dizin oluşturma genellikle 15 dakika boyunca sürer. Paket yayımlaması beklenenden uzun sürüyorsa, NuGet.org 'in herhangi bir kesinti yaşamadığını denetlemek için [Status.NuGet.org](https://status.nuget.org/) adresini ziyaret edin. Tüm sistemler çalışır durumda ve paket bir saat içinde başarıyla yayımlanmamışsa, lütfen nuget.org ' e oturum açın ve paket ayrıntıları sayfasında desteğe başvurun bağlantısını kullanarak bizimle iletişime geçin.
 
 ## <a name="symbol-package-structure"></a>Sembol paketi yapısı
 
@@ -132,4 +132,6 @@ Paket doğrulama ve dizin oluşturma genellikle 15 dakika boyunca sürer. Paket 
 
 ## <a name="see-also"></a>Ayrıca Bkz.
 
-[NuGet paketi hata ayıklama & semboller geliştirmeleri](https://github.com/NuGet/Home/wiki/NuGet-Package-Debugging-&-Symbols-Improvements)
+.NET derlemelerinin kaynak kodu hata ayıklamasını etkinleştirmek için kaynak bağlantısı kullanmayı düşünün. Daha fazla bilgi için lütfen [kaynak bağlantı kılavuzuna](/dotnet/standard/library-guidance/sourcelink.md)bakın.
+
+Sembol paketleri hakkında daha fazla bilgi için lütfen [NuGet paketi hata ayıklama & sembol geliştirmeleri](https://github.com/NuGet/Home/wiki/NuGet-Package-Debugging-&-Symbols-Improvements) tasarım belirtimine bakın.
