@@ -1,6 +1,6 @@
 # [Bir bakışta belgeler](index.md)
 # [NuGet nedir?](what-is-nuget.md)
-# Başlarken
+# Kullanmaya başlayın
 ## [NuGet istemci araçlarını yükleme](install-nuget-client-tools.md)
 ## [Paket (dotnet CLI) yükleme ve kullanma](quickstart/install-and-use-a-package-using-the-dotnet-cli.md)
 ## [Paket (dotnet CLI) yükleme ve kullanma](quickstart/install-and-use-a-package-in-visual-studio.md)
@@ -59,7 +59,7 @@
 ### [Paket yayımlama](nuget-org/publish-a-package.md)
 ### [API anahtarları](nuget-org/scoped-api-keys.md)
 ## Özel bir akışa yayımlama
-### [Genel Bakış](hosting-packages/overview.md)
+### [Genel bakış](hosting-packages/overview.md)
 ### [Azure yapıtları](/azure/devops/artifacts/nuget/publish?view=azure-devops)
 ### [NuGet.Server](hosting-packages/nuget-server.md)
 ### [Yerel akışlar](hosting-packages/local-feeds.md)
@@ -106,7 +106,7 @@
 ### [Uninstall-Package](reference/ps-reference/ps-ref-uninstall-package.md)
 ### [Update-Package](reference/ps-reference/ps-ref-update-package.md)
 ## NuGet Server API
-### [Genel Bakış](api/overview.md)
+### [Genel bakış](api/overview.md)
 ### Kaynaklar
 #### [Otomatik Tamamlama](api/search-autocomplete-service-resource.md)
 #### [Katalog](api/catalog-resource.md)
@@ -117,7 +117,7 @@
 #### [Sembol paketlerini gönderme](api/symbol-package-publish-resource.md)
 #### [Uygunsuz kullanım bildirme URL’si](api/report-abuse-resource.md)
 #### [Depo imzaları](api/repository-signatures-resource.md)
-#### [Search](api/search-query-service-resource.md)
+#### [Ara](api/search-query-service-resource.md)
 #### [Hizmet dizini](api/service-index.md)
 ### [Nasıl yapılır: API’yi kullanarak tüm paketler için sorgu oluşturma](guides/api/query-for-all-published-packages.md)
 ### [Hız sınırları](api/rate-limits.md)
@@ -259,6 +259,7 @@
 ### [NU5123](reference/errors-and-warnings/NU5123.md)
 ### [NU5124](reference/errors-and-warnings/NU5124.md)
 ### [NU5125](reference/errors-and-warnings/NU5125.md)
+### [NU5128](reference/errors-and-warnings/NU5128.md)
 ### [NU5500](reference/errors-and-warnings/NU5500.md)
 ## Arşivlenen içerik
 ### [project.json yönetim biçimi](archive/project-json.md)
