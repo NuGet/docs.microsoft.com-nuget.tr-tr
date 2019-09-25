@@ -6,6 +6,7 @@
 # NuGet.org üzerinde paketleri yönetme
 ## [Paket yayımlama](publish-a-package.md)
 ## [Paketleme kimlik ön eki ayırma](id-prefix-reservation.md)
+## [Paketi kullanımdan kaldırma](deprecate-packages.md)
 # İlkeler
 ## [Veri İstekleri](policies/Data-requests.md)
 ## [İtiraz çözümleme](policies/dispute-resolution.md)
