@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 09/06/2019
 ms.topic: conceptual
-ms.openlocfilehash: f16bfe5481009f7924a61f03233d288d25ac618f
-ms.sourcegitcommit: f4bfdbf62302c95f1f39e81ccf998f8bbc6d56b0
+ms.openlocfilehash: 96d176beaa6b2f0c4f53488390e585b70c9ba846
+ms.sourcegitcommit: 188ade66b7ac807ba1667c77cfb9325bf89a8a4a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70774103"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71248168"
 ---
 # <a name="nuget-53-release-notes"></a>NuGet 5,3 sürüm notları
 
@@ -18,11 +18,11 @@ NuGet dağıtım araçlar:
 
 | NuGet sürümü | Visual Studio sürümünde kullanılabilir| .NET SDK 'ları 'nda kullanılabilir|
 |:---|:---|:---|
-| [**5.3.0-preview3**](https://nuget.org/downloads) | [Visual Studio 2019 sürüm 16,3 Preview 3](https://visualstudio.microsoft.com/vs/preview/) | [3.0.100-preview9](https://dotnet.microsoft.com/download/dotnet-core/3.0) <sup>1</sup> |
+| [**5.3.0**](https://nuget.org/downloads) | [Visual Studio 2019 sürüm 16,3](https://visualstudio.microsoft.com/downloads/) | [3.0.100](https://dotnet.microsoft.com/download/dotnet-core/3.0) <sup>1</sup> |
 
 <sup>1</sup> .NET Core iş yüküne sahip Visual Studio 2019 ile yüklendi
 
-## <a name="summary-whats-new-in-53-preview-3"></a>Özetleme 5,3 Preview 3 sürümündeki yenilikler
+## <a name="summary-whats-new-in-53"></a>Özetleme 5,3 sürümündeki yenilikler
 
 * Paket simgesi, harici bir URL [olması yerine pakete gömülebilir](../reference/msbuild-targets.md#packing-an-icon-image-file). - [#352](https://github.com/NuGet/Home/issues/352)
 
@@ -32,6 +32,10 @@ NuGet dağıtım araçlar:
 
 **Hata**
 
+* 3\.0.100-preview9 SDK ile oluşturulan NuGet paketleri 2,2 SDK kullanıcıları tarafından kullanılamaz... Saat dilimlerinize bağlı olarak [#8603](https://github.com/NuGet/Home/issues/8603)
+
+* QUOTE "yoldaki karakterler" yolda geçersiz karakterler "hata oluşmasına neden olur" `nuget restore` [#8168](https://github.com/NuGet/Home/issues/8168) hatası
+
 * VS: derlemeler tamamen NGen tarafından, kısmen Ngen-Ed değil [#8513](https://github.com/NuGet/Home/issues/8513)
 
 * Bellek kullanımını azaltma (etkinliklerden abonelik kaldırma)- [#8471](https://github.com/NuGet/Home/issues/8471)
@@ -40,7 +44,7 @@ NuGet dağıtım araçlar:
 
 * NU1403 geliştirmeleri-tüm paketleri doğrula, beklenen/fiili SHA değerlerini dahil et- [#8424](https://github.com/NuGet/Home/issues/8424)
 
-* NuGetPackageManager. Modelupdatepackagesasync- [#8401](https://github.com/NuGet/Home/issues/8401) içinde birden çok sabit listesi
+* [#8401](https://github.com/NuGet/Home/issues/8401) birden çok `NuGetPackageManager.PreviewUpdatePackagesAsync`sabit listesi  - 
 
 * PluginProcess 'de "Public-> Internal" değişikliğini " [#8390](https://github.com/NuGet/Home/issues/8390)
 
@@ -64,7 +68,7 @@ NuGet dağıtım araçlar:
 
 * VS yavaş [#8156](https://github.com/NuGet/Home/issues/8156) ayarları okuma
 
-* ' NuGet kaynakları ekleme ' içindeki gerileme "': ' karakteri, onaltılık değeri 0x3A, bir ada" Errors- [#7948](https://github.com/NuGet/Home/issues/7948) eklenemiyor
+* "': ' Karakteri, onaltılık değeri 0x3a," Errors-#7948 bir ada eklenemez. [](https://github.com/NuGet/Home/issues/7948) `Nuget sources add`
 
 * NuGet eklentisi kimlik bilgileri sağlayıcıları-işlem penceresini gizleyin- [#7511](https://github.com/NuGet/Home/issues/7511)
 
@@ -86,6 +90,4 @@ NuGet dağıtım araçlar:
 
 * NuGet. exe paketine-SolutionDirectory ve-PackageDirectory seçeneklerini ekleyin- [#7163](https://github.com/NuGet/Home/issues/7163)
 
-* NuGet paketini belirleyici olacak şekilde etkinleştirin- [#6229](https://github.com/NuGet/Home/issues/6229)
-
-**[Bu yayında düzeltilen tüm sorunların listesi-5,3 Preview 3](https://github.com/nuget/home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%225.3")**
+**[Bu yayında düzeltilen tüm sorunların listesi-5,3](https://github.com/nuget/home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%225.3")**

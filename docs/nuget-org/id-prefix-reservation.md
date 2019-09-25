@@ -6,16 +6,16 @@ ms.author: karann
 ms.date: 09/07/2019
 ms.topic: reference
 ms.reviewer: karann
-ms.openlocfilehash: 630c2b193500ec0b9aa5a7fe4af3ea95ae52aeec
-ms.sourcegitcommit: 5a741f025e816b684ffe44a81ef7d3fbd2800039
+ms.openlocfilehash: f6c4a18366b4df20fb210f718d3779e85c08d550
+ms.sourcegitcommit: 188ade66b7ac807ba1667c77cfb9325bf89a8a4a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70815285"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71248119"
 ---
 # <a name="package-id-prefix-reservation"></a>Paket KIMLIĞI ön eki ayırması
 
-Paket sahipleri, kimlik öneklerini ayırarak kimliklerini ayırabilir ve koruyabilir. Paket tüketicileri, kullandıkları paketin kendi tanımlama özelliklerinde yanıltıcı olmadığı durumlarda ek bilgilerle sağlanır. 
+Paket sahipleri, kimlik öneklerini ayırarak kimliklerini ayırabilir ve koruyabilir. Paket tüketicileri, kullandıkları paketler kendi tanımlama özelliklerinde yanıltıcı olmadığında ek bilgilerle sağlanır. 
 
 [NuGet.org](https://www.nuget.org/) ve Visual Studio 2017 sürüm 15,4 veya üzeri, Paket ayrılmış kimlik ön eki adlandırma düzeniyle eşleşen bir ayrılmış paket kimliği ön ekine sahip sahipler tarafından gönderilen paketler için görsel bir gösterge gösterir. Aşağıdaki başvuru, KIMLIK ön rezervasyonunun ne olduğunu ve bir kimliğin bir kimlik ön eki için nasıl uygulanacağını açıklar.
 
