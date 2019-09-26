@@ -12,12 +12,12 @@ keywords: NuGet sembol paketleri, NuGet paket hata ayıklaması, NuGet hata ayı
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 5546881dbf7577eb289a28b35bc2c0e7dc5cac40
-ms.sourcegitcommit: 1eda83ab537c86cc27316e7bc67f95a358766e63
+ms.openlocfilehash: 0197902e4dbc18893d68833fbcfe4263f185a594
+ms.sourcegitcommit: e4b0ff4460865db6dc7bc9f20e9f644d98493011
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71094104"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71307181"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Sembol paketleri (. snupkg) oluşturuluyor
 
@@ -92,7 +92,7 @@ NuGet, her iki paketi de nuget.org 'e yayımlar. önce yayımlanacak ve `MyPacka
 
 ## <a name="nugetorg-symbol-server"></a>NuGet.org symbol sunucusu
 
-NuGet.org kendi sembol sunucu deposunu destekler ve yalnızca yeni sembol paketi biçimini kabul eder- `.snupkg`. Paket tüketicileri Visual Studio 'daki sembol kaynaklarına ekleyerek `https://symbols.nuget.org/download/symbols` NuGet.org sembol sunucusunda yayınlanan sembolleri kullanarak Visual Studio hata ayıklayıcısında paket koduna adımlamayı sağlar. Bu işlemle ilgili ayrıntılar için bkz. [Visual Studio hata ayıklayıcısında simge (. pdb) ve kaynak dosyaları belirtme](/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger.md) .
+NuGet.org kendi sembol sunucu deposunu destekler ve yalnızca yeni sembol paketi biçimini kabul eder- `.snupkg`. Paket tüketicileri Visual Studio 'daki sembol kaynaklarına ekleyerek `https://symbols.nuget.org/download/symbols` NuGet.org sembol sunucusunda yayınlanan sembolleri kullanarak Visual Studio hata ayıklayıcısında paket koduna adımlamayı sağlar. Bu işlemle ilgili ayrıntılar için bkz. [Visual Studio hata ayıklayıcısında simge (. pdb) ve kaynak dosyaları belirtme](/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger) .
 
 ### <a name="nugetorg-symbol-package-constraints"></a>NuGet.org sembol paketi kısıtlamaları
 
@@ -132,6 +132,6 @@ Paket doğrulama ve dizin oluşturma genellikle 15 dakika boyunca sürer. Paket 
 
 ## <a name="see-also"></a>Ayrıca Bkz.
 
-.NET derlemelerinin kaynak kodu hata ayıklamasını etkinleştirmek için kaynak bağlantısı kullanmayı düşünün. Daha fazla bilgi için lütfen [kaynak bağlantı kılavuzuna](/dotnet/standard/library-guidance/sourcelink.md)bakın.
+.NET derlemelerinin kaynak kodu hata ayıklamasını etkinleştirmek için kaynak bağlantısı kullanmayı düşünün. Daha fazla bilgi için lütfen [kaynak bağlantı kılavuzuna](/dotnet/standard/library-guidance/sourcelink)bakın.
 
 Sembol paketleri hakkında daha fazla bilgi için lütfen [NuGet paketi hata ayıklama & sembol geliştirmeleri](https://github.com/NuGet/Home/wiki/NuGet-Package-Debugging-&-Symbols-Improvements) tasarım belirtimine bakın.

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/24/2018
 ms.topic: quickstart
-ms.openlocfilehash: d9937a2b087fd88c1e6fd9f07a513b5047bdcf2e
-ms.sourcegitcommit: ac9a00ccaf90e539a381e92b650074910b21eb0d
+ms.openlocfilehash: 92fc78a88733d0308dc26e10c5b0bafb86b78045
+ms.sourcegitcommit: e4b0ff4460865db6dc7bc9f20e9f644d98493011
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70235087"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71307222"
 ---
 # <a name="quickstart-install-and-use-a-package-in-visual-studio-windows-only"></a>Hızlı Başlangıç: Visual Studio 'da paket yükleyip kullanma (yalnızca Windows)
 
@@ -33,7 +33,7 @@ Mac için Visual Studio kullanıyorsanız, bkz. [Mac için Visual Studio bir pak
 
 NuGet paketleri, paketin proje ile aynı hedef Framework 'ü desteklemesi kaydıyla herhangi bir .NET projesine yüklenebilir.
 
-Bu izlenecek yol için basit bir WPF uygulaması kullanın. Visual Studio 'da **dosya > yeni proje...** öğesini kullanarak bir proje oluşturun, arama kutusuna **.net** yazın ve ardından **WPF uygulamasını (.NET Framework)** seçin. **İleri**'ye tıklayın. İstendiğinde **Framework** için varsayılan değerleri kabul edin.
+Bu izlenecek yol için basit bir WPF uygulaması kullanın. Visual Studio 'da **Dosya** > **Yeni proje**' yi kullanarak bir proje oluşturun, arama kutusuna **.net** yazın ve ardından **WPF uygulamasını (.NET Framework)** seçin. **İleri**'ye tıklayın. İstendiğinde **Framework** için varsayılan değerleri kabul edin.
 
 Visual Studio, Çözüm Gezgini ' de açılan projeyi oluşturur.
 
@@ -63,7 +63,7 @@ Paketi yüklemek için, NuGet Paket Yöneticisi 'Ni ya da Paket Yöneticisi kons
 
 ### <a name="package-manager-console"></a>Paket Yöneticisi Konsolu
 
-1. **NuGet paket yöneticisi > Paket Yöneticisi konsolu menü komutunu > araçlar** ' ı seçin.
+1. **Araçlar** > **NuGet Paket Yöneticisi** > **Paket Yöneticisi konsolu** menü komutunu seçin.
 
 1. Konsol açıldıktan sonra, **varsayılan proje** açılan listesinin paketi yüklemek istediğiniz projeyi gösterdiğini kontrol edin. Çözümde tek bir projeniz varsa, zaten seçilidir.
 
@@ -117,7 +117,7 @@ Projedeki Newtonsoft. JSON paketiyle, bir nesneyi insan tarafından okunabilen b
     using Newtonsoft.Json;
     ```
 
-1. F5 tuşuna basarak veya **hata ayıklamayı başlatmak > hata ayıkla**' yı seçerek uygulamayı derleyin ve çalıştırın:
+1. F5 tuşuna basarak **veya hata ayıklama** > **başlatma hata ayıklamayı**seçerek uygulamayı derleyin ve çalıştırın:
 
     ![WPF uygulamasının ilk çıkışı](media/QS_Use-06-AppStart.png)
 
