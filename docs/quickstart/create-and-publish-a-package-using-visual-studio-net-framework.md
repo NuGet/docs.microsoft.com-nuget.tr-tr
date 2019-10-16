@@ -5,25 +5,25 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/13/2018
 ms.topic: quickstart
-ms.openlocfilehash: 40e240478918d327fbea0013bbf271ea2ee1fc47
-ms.sourcegitcommit: a0807671386782021acb7588741390e6f07e94e1
+ms.openlocfilehash: e00aac83a710e2f745d5e4bb9aec741ee686e595
+ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70384491"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72380639"
 ---
-# <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>Hızlı Başlangıç: Visual Studio (.NET Framework, Windows) kullanarak paket oluşturma ve yayımlama
+# <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>Hızlı başlangıç: Visual Studio (.NET Framework, Windows) kullanarak paket oluşturma ve yayımlama
 
 Bir .NET Framework sınıf kitaplığından bir NuGet paketi oluşturmak, Windows üzerinde Visual Studio 'da DLL oluşturmayı, sonra da paketi oluşturmak ve yayımlamak için NuGet. exe komut satırı aracını kullanmayı içerir.
 
 > [!Note]
 > Bu hızlı başlangıç yalnızca Windows için Visual Studio 2017 ve sonraki sürümleri için geçerlidir. Mac için Visual Studio burada açıklanan özellikleri içermez. Bunun yerine [DotNet CLI araçlarını](create-and-publish-a-package-using-the-dotnet-cli.md) kullanın.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Prerequisites
 
 1. [VisualStudio.com](https://www.visualstudio.com/) ' den herhangi bir Visual Studio 2017 veya üzeri sürümü ile yükleyin. NET ilgili iş yükü. Visual Studio 2017, .NET iş yükü yüklendiğinde NuGet yeteneklerini otomatik olarak içerir.
 
-1. [NuGet.org adresinden](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe)indirerek, bu `.exe` dosyayı uygun bir klasöre kaydederek ve bu klasörü PATH ortam değişkeninizden ekleyerek CLI'yıyükleme.`nuget.exe`
+1. [NuGet.org](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe)adresinden indirerek `nuget.exe` CLI yükleme, `.exe` dosyasını uygun bir klasöre kaydetme ve bu klasörü PATH ortam değişkeninizden ekleme.
 
 1. Henüz bir [hesabınız yoksa NuGet.org üzerinde ücretsiz bir hesaba kaydolun](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) . Yeni hesap oluşturma onay e-postası gönderir. Bir paketi karşıya yükleyebilmek için önce hesabı onaylamanız gerekir.
 
@@ -59,7 +59,7 @@ namespace AppLogger
 
 ## <a name="configure-project-properties-for-the-package"></a>Paket için proje özelliklerini yapılandırma
 
-Bir NuGet paketi, paket tanımlayıcısı, sürüm `.nuspec` numarası, açıklama ve daha fazlası gibi ilgili meta verileri içeren bir bildirim (dosya) içerir. Bunlardan bazıları proje özelliklerinden doğrudan çizilebilirler ve bu, hem projede hem de bildirimde ayrı ayrı güncelleştirilmesini önler. Bu bölümde, uygulanabilir özelliklerin nerede ayarlanacağı açıklanır.
+Bir NuGet paketi, paket tanımlayıcısı, sürüm numarası, açıklama ve daha fazlası gibi ilgili meta verileri içeren bir bildirim (`.nuspec` dosyası) içerir. Bunlardan bazıları proje özelliklerinden doğrudan çizilebilirler ve bu, hem projede hem de bildirimde ayrı ayrı güncelleştirilmesini önler. Bu bölümde, uygulanabilir özelliklerin nerede ayarlanacağı açıklanır.
 
 1. **Proje > Özellikler** menü komutunu seçin, sonra **uygulama** sekmesini seçin.
 
@@ -74,38 +74,37 @@ Bir NuGet paketi, paket tanımlayıcısı, sürüm `.nuspec` numarası, açıkla
 
     ![Visual Studio 'da bir .NET Framework projesindeki derleme bilgileri](media/qs_create-vs-01b-project-properties.png)
 
-1. İsteğe bağlı: özellikleri doğrudan görmek ve düzenlemek için `Properties/AssemblyInfo.cs` dosyayı projede açın.
+1. İsteğe bağlı: özellikleri doğrudan görmek ve düzenlemek için, projede `Properties/AssemblyInfo.cs` dosyasını açın.
 
 1. Özellikler ayarlandığında, proje yapılandırmasını **serbest bırak** olarak ayarlayın ve güncelleştirilmiş dll 'yi oluşturmak için projeyi yeniden derleyin.
 
 ## <a name="generate-the-initial-manifest"></a>Başlangıç bildirimini oluşturma
 
-Birlikte ve proje özellikleri ayarlanmış bir dll ile, bundan sonra projeden bir başlangıç `nuget spec` `.nuspec` dosyası oluşturmak için komutunu kullanırsınız. Bu adım, proje dosyasından bilgi çizmek için ilgili değiştirme belirteçlerini içerir.
+Birlikte ve proje özellikleri ayarlanmış bir DLL ile, bundan sonra projeden bir ilk `.nuspec` dosyası oluşturmak için `nuget spec` komutunu kullanın. Bu adım, proje dosyasından bilgi çizmek için ilgili değiştirme belirteçlerini içerir.
 
-İlk bildirimi `nuget spec` oluşturmak için yalnızca bir kez çalıştırırsınız. Paketi güncelleştirirken, projenizdeki değerleri değiştirirsiniz ya da bildirimi doğrudan düzenleyebilirsiniz.
+İlk bildirimi oluşturmak için `nuget spec` ' i yalnızca bir kez çalıştırırsınız. Paketi güncelleştirirken, projenizdeki değerleri değiştirirsiniz ya da bildirimi doğrudan düzenleyebilirsiniz.
 
-1. Bir komut istemi açın ve dosyayı içeren `AppLogger.csproj` proje klasörüne gidin.
+1. Bir komut istemi açın ve `AppLogger.csproj` dosyası içeren proje klasörüne gidin.
 
-1. Şu komutu çalıştırın: `nuget spec AppLogger.csproj`. NuGet bir proje belirterek, bu durumda `AppLogger.nuspec`projenin adıyla eşleşen bir bildirim oluşturur. Ayrıca, bildirimde değiştirme belirteçleri de bulunur.
+1. Şu komutu çalıştırın: `nuget spec AppLogger.csproj`. NuGet bir proje belirterek, projenin adıyla eşleşen bir bildirim oluşturur, bu durumda `AppLogger.nuspec`. Ayrıca, bildirimde değiştirme belirteçleri de bulunur.
 
-1. İçeriğini `AppLogger.nuspec` incelemek için bir metin düzenleyicisinde açın ve aşağıdaki gibi görünmelidir:
+1. İçeriğini incelemek için bir metin düzenleyicisinde `AppLogger.nuspec` ' ı açın ve aşağıdaki gibi görünmelidir:
 
     ```xml
     <?xml version="1.0"?>
     <package >
       <metadata>
-        <id>$id$</id>
-        <version>$version$</version>
-        <title>$title$</title>
-        <authors>$author$</authors>
-        <owners>$author$</owners>
-        <licenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</licenseUrl>
+        <id>Package</id>
+        <version>1.0.0</version>
+        <authors>YourUsername</authors>
+        <owners>YourUsername</owners>
+        <license type="expression">MIT</license>
         <projectUrl>http://PROJECT_URL_HERE_OR_DELETE_THIS_LINE</projectUrl>
         <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>$description$</description>
+        <description>Package description</description>
         <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
-        <copyright>Copyright 2018</copyright>
+        <copyright>Copyright 2019</copyright>
         <tags>Tag1 Tag2</tags>
       </metadata>
     </package>
@@ -113,7 +112,7 @@ Birlikte ve proje özellikleri ayarlanmış bir dll ile, bundan sonra projeden b
 
 ## <a name="edit-the-manifest"></a>Bildirimi düzenleme
 
-1. `.nuspec` Dosyanızdaki varsayılan değerlerle bir paket oluşturmayı denerseniz NuGet bir hata oluşturur, bu nedenle devam etmeden önce aşağıdaki alanları düzenlemeniz gerekir. Bunların nasıl kullanıldığına ilişkin bir açıklama için bkz [. nuspec dosya başvurusu-isteğe bağlı meta veri öğeleri](../reference/nuspec.md#optional-metadata-elements) .
+1. @No__t-0 dosyanızda varsayılan değerlere sahip bir paket oluşturmayı denerseniz NuGet bir hata üretir, bu nedenle devam etmeden önce aşağıdaki alanları düzenlemeniz gerekir. Bunların nasıl kullanıldığına ilişkin bir açıklama için bkz [. nuspec dosya başvurusu-isteğe bağlı meta veri öğeleri](../reference/nuspec.md#optional-metadata-elements) .
 
     - licenseUrl
     - projectUrl
@@ -129,13 +128,13 @@ Birlikte ve proje özellikleri ayarlanmış bir dll ile, bundan sonra projeden b
 
 ## <a name="run-the-pack-command"></a>Pack komutunu çalıştırın
 
-1. `.nuspec` Dosyanızı içeren klasörde bir komut isteminden komutunu `nuget pack`çalıştırın.
+1. @No__t-0 dosyanızı içeren klasörde bir komut isteminden, `nuget pack` komutunu çalıştırın.
 
-1. NuGet, geçerli `.nupkg` klasörde bulacağınız *Identifier-Version. nupkg*biçiminde bir dosya oluşturur.
+1. NuGet, geçerli klasörde bulacağınız *Identifier-Version. nupkg*biçiminde bir `.nupkg` dosyası oluşturur.
 
 ## <a name="publish-the-package"></a>Paketi Yayımla
 
-Bir `.nupkg` dosyaya sahip olduktan sonra, NuGet.org ' den alınan bir API `nuget.exe` anahtarı ile kullanarak NuGet.org 'e yayımlayabilirsiniz. NuGet.org için 4.1.0 veya üzeri `nuget.exe` bir sürümü kullanmanız gerekir.
+@No__t-0 dosyasına sahip olduktan sonra, nuget.org ' dan alınan bir API anahtarı ile `nuget.exe` kullanarak bu dosyayı yayımlayın. Nuget.org için `nuget.exe` 4.1.0 veya üstünü kullanmanız gerekir.
 
 [!INCLUDE [publish-notes](includes/publish-notes.md)]
 
@@ -145,7 +144,7 @@ Bir `.nupkg` dosyaya sahip olduktan sonra, NuGet.org ' den alınan bir API `nuge
 
 ### <a name="publish-with-nuget-push"></a>NuGet Push ile yayımlama
 
-1. Bir komut satırı açın ve `.nupkg` dosyayı içeren klasöre geçin.
+1. Bir komut satırı açın ve `.nupkg` dosyasını içeren klasöre geçin.
 
 1. Aşağıdaki komutu çalıştırarak, paket adınızı belirtip anahtar değerini API anahtarınızla değiştirin:
 

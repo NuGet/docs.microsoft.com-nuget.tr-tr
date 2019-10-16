@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1b373f245e934f2447acec2f97472d69999ae679
-ms.sourcegitcommit: 7c9f157ba02d9be543de34ab06813ab1ec10192a
+ms.openlocfilehash: 24e35f4b2c047d5f337a1779e63846b11b0c1011
+ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69999956"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72380572"
 ---
 # <a name="nugetorg-frequently-asked-questions"></a>NuGet.org sık sorulan sorular
 
@@ -80,8 +80,8 @@ Bağımlılıklar genellikle statiktir ve hiçbir şekilde değişmez. Koddaki b
 
 *MTR 'yi yakalamak için:*
 
-- WinMTR 'yi şuradan indir[http://winmtr.net/download/](http://winmtr.net/)
-- Ana `api.nuget.org` bilgisayar adı olarak girin ve **Başlat**' a tıklayın.
+- [WinMTR](https://sourceforge.net/projects/winmtr/files/WinMTR-v092.zip/download)'yi indirin.
+- Ana bilgisayar adı olarak `api.nuget.org` girin ve **Başlat**' a tıklayın.
 - **Gönderilen** sütun > = 100 olana kadar bekleyin.
 
     ![MTR yakalama](media/mtr.png)
@@ -99,7 +99,7 @@ Bağımlılıklar genellikle statiktir ve hiçbir şekilde değişmez. Koddaki b
 - Visual Studio veya NuGet. exe. exe ' yi başlatın ve çalışmayan eylemleri gerçekleştirin. Bu eylemler tarafından oluşturulan trafiğin Fiddler 'da görünmesi gerekir.
 - Eylemler çalıştırıldığında, yakalanan oturumları depolamak için **tüm oturumları > kaydet > dosyayı** kullanın.
 
-Note: Fiddler aracılığıyla NuGet trafiğini yönlendirmek `HTTP_PROXY` için ortam değişkenini `http://127.0.0.1:8888` olarak ayarlamak gerekebilir.
+Note: Fiddler aracılığıyla NuGet trafiğini yönlendirmek için `HTTP_PROXY` ortam değişkenini `http://127.0.0.1:8888` olarak ayarlamanız gerekebilir.
 
 Bu başarısız olursa, [Bu StackOverflow gönderisini belirtilen ipuçlarına](http://stackoverflow.com/questions/21049908/using-fiddler-to-sniff-visual-studio-2013-requests-proxy-firewall)deneyin.
 
@@ -107,8 +107,8 @@ Bu başarısız olursa, [Bu StackOverflow gönderisini belirtilen ipuçlarına](
 
 ### <a name="how-to-recover-nugetorg-password-login"></a>NuGet.org parola oturumu açma nasıl kurtarılır?
 
-[NuGet.org parola oturum açmanın](https://blog.nuget.org/20180515/NuGet.org-will-only-support-MSA-AAD-starting-June.html) sonlandırılacağından ve NuGet.org 'de oturum açmanın tek yolu bir kişisel MICROSOFT HESABı (MSA) veya Azure ACTIVE DIRECTORY (AAD) hesabı ile birlikte olduğunu lütfen unutmayın. Bununla birlikte, ilişkili MSA/AAD hesaplarınıza erişemediyseniz, NuGet.org hesabınızı kurtarmak için parola oturum açma kullanmanız gerekebilir. Bu durumda aşağıdaki adımları izleyin.
-- **Malzeme** Parolayı kurtarmanız gereken hesapla ilişkili e-postaya erişiminizin olması gerekir.
+[NuGet.org parola oturum açmanın sonlandırılacağından](https://blog.nuget.org/20180515/NuGet.org-will-only-support-MSA-AAD-starting-June.html) ve NuGet.org 'de oturum açmanın tek yolu bir kişisel MICROSOFT HESABı (MSA) veya Azure ACTIVE DIRECTORY (AAD) hesabı ile birlikte olduğunu lütfen unutmayın. Bununla birlikte, ilişkili MSA/AAD hesaplarınıza erişemediyseniz, NuGet.org hesabınızı kurtarmak için parola oturum açma kullanmanız gerekebilir. Bu durumda aşağıdaki adımları izleyin.
+- **Gereksinim:** Parolayı kurtarmanız gereken hesapla ilişkili e-postaya erişiminizin olması gerekir.
 - [Parola unuttum sayfasına](https://www.nuget.org/account/ForgotPassword) gidin
 - Kurtarmak istediğiniz NuGet.org hesabı ile ilişkili **e-posta** adresini girin.
 - **Gönder** düğmesine tıklayın.
@@ -123,63 +123,63 @@ NuGet.org hesabınızla ilişkili Microsoft hesabı unuttuysanız, yardım almak
 1. Bu, yardım için açılır iletişim kutusunu gösterir. NuGet.org hesabınız için ilişkili Microsoft hesabı (ler) i anlamak için bu iletişim kutusundaki adımları izleyin.
 
 ### <a name="how-to-change-the-microsoft-account-i-use-for-nugetorg-login"></a>NuGet.org oturum açma için kullandığım Microsoft hesabı nasıl değiştirilir?
-NuGet.org Kullanıcı için Microsoft hesabı değiştirmek istiyorsanız aşağıdaki adımları izleyin. E-posta `account1@outlook.com` ile Microsoft hesabı Kullanıcı adı `MyNuGetAccount`ile NuGet.org hesabınızla ilişkilendirildiğini söyleyin. Oturum açma bilgilerini e-posta ile başka bir Microsoft hesabı değiştirmek istiyor musunuz?`account2@outlook.com`
-1. Lütfen **Microsoft hesabıyla oturum açın**tıkladıktan sonra [oturum açma sayfasında](https://www.nuget.org/users/account/LogOn) , **Şu anda ilişkili Microsoft hesabı** `account1@outlook.com` () kullanarak oturum açın.
+NuGet.org Kullanıcı için Microsoft hesabı değiştirmek istiyorsanız aşağıdaki adımları izleyin. Microsoft hesabı, e-posta `account1@outlook.com` `MyNuGetAccount` Kullanıcı adı ile NuGet.org hesabınızla ilişkili olduğunu varsayalım. Oturum açma adını e-posta @no__t başka bir Microsoft hesabı değiştirmek istiyor-0
+1. Lütfen **Microsoft hesabıyla oturum açın**' a tıkladıktan sonra [oturum açma sayfasında](https://www.nuget.org/users/account/LogOn) , **şu anda ilişkili Microsoft hesabı** (`account1@outlook.com`) kullanarak oturum açın.
 1. Oturum açtıktan sonra [Hesap ayarları](https://www.nuget.org/account) sayfanıza gidin.
 1. **Oturum açma hesabı**için bölümü genişletin. **Hesabı Değiştir** düğmesine tıklayın.
 1. Şimdi Microsoft oturum açma sayfasına yönlendirilirsiniz. Lütfen ilişkilendirmeyi değiştirmek istediğiniz hesapla oturum açın, örneğin `account2@outlook.com`. **Note**: farklı bir Microsoft hesabı oturum açabilmek için oturum açma akışında oturumu Kapat **ve farklı hesapla oturum aç** ' a tıklamanız gerekebilir.
 1. Aşağıdaki gibi bir hata görürseniz, daha fazla ayrıntı için Microsoft hesabı bkz. [başka bir NuGet.org hesabıyla bağlantılı](#microsoft-account-is-linked-with-another-nugetorg-account) .
-    >_' Account2 <account2@outlook.com>' ile Microsoft hesabı güncelleştirilemedi. Bu, zaten başka bir NuGet hesabına bağlanmışsa meydana gelebilir. Daha fazla bilgi için desteğe başvurun._
+    >_' Account2 <account2@outlook.com> ' ile Microsoft hesabı güncelleştirilemedi. Bu, zaten başka bir NuGet hesabına bağlanmışsa meydana gelebilir. Daha fazla bilgi için desteğe başvurun._
 
 1. İkinci hesabınız ile başarıyla oturum açtıktan sonra, NuGet.org hesap ayarları sayfanıza yönlendirilirsiniz ve artık oturum açma hesabı olarak ilişkili yeni Microsoft hesabı görmeniz gerekir. Bu hesabı iletmek için NuGet.org oturum açarken bu hesabı kullanmanız gerekir.
 
 ### <a name="microsoft-account-is-linked-with-another-nugetorg-account"></a>Microsoft hesabı başka bir NuGet.org hesabıyla bağlantılı.
 
 Microsoft oturum açma bilgilerinizi değiştirmeye çalıştıysanız ve aşağıdaki hatayı gördük:
-> _' Account2 <account2@outlook.com>' ile Microsoft hesabı güncelleştirilemedi. Bu, zaten başka bir NuGet hesabına bağlanmışsa meydana gelebilir. Daha fazla bilgi için desteğe başvurun._
+> _' Account2 <account2@outlook.com> ' ile Microsoft hesabı güncelleştirilemedi. Bu, zaten başka bir NuGet hesabına bağlanmışsa meydana gelebilir. Daha fazla bilgi için desteğe başvurun._
 
-NuGet.org kullanıcısı `account1@outlook.com` `MyNuGetAccount1` için Microsoft hesabı oturum açma bilgilerini, e-posta `account2@outlook.com`ile başka bir Microsoft hesabı değiştirmeye çalıştığınız için izin verir. Ve yukarıdaki hatayı görürsünüz.
+, Kullanıcı adı `MyNuGetAccount1` olan NuGet.org Kullanıcı için `account1@outlook.com` ' dan Microsoft hesabı oturum açma bilgilerini, e-posta `account2@outlook.com` olan başka bir Microsoft hesabı değiştirmeye çalışırken Ve yukarıdaki hatayı görürsünüz.
 
 **Yukarıdaki hata ne anlama geliyor?**
 
-Bu, değiştirmek istediğiniz Microsoft hesabı ilişkili başka bir NuGet.org hesabı olduğu anlamına gelir. Yukarıdaki örnekte, e-posta `<account2@outlook.com>` ile Microsoft hesabı, söyleyin, Kullanıcı adı ile başka bir NuGet.org hesabıyla ilişkilendirilir `MyNuGetAccount2`.
+Bu, değiştirmek istediğiniz Microsoft hesabı ilişkili başka bir NuGet.org hesabı olduğu anlamına gelir. Yukarıdaki örnekte, e-posta `<account2@outlook.com>` olan Microsoft hesabı başka bir NuGet.org hesabıyla ilişkili, ki Kullanıcı adı @no__ t-1.
 
 Farklı bir NuGet.org hesabına bağlı Microsoft hesabı ilişkili oturum açma bilgilerini değiştiremezsiniz.
 
 **Başka bir NuGet.org hesabım olduğunu unuttum, hangi NuGet.org hesabını olduğunu nasıl bulabilirim?**
 
-[Oturum açma sayfası](https://www.nuget.org/users/account/LogOn?returnUrl=%2F# "oturum açma sayfasındaki")ikinci Microsoft hesabı oturum açın. Bu, sizi şu anda ikinci Microsoft hesabı ilişkili olan NuGet.org hesabına kaydeder. Daha sonra yüklenen paketleri görüntüleyebilir ve hesap yönetimini bu hesapta gerçekleştirebilirsiniz.
+[Oturum açma sayfasındaki](https://www.nuget.org/users/account/LogOn?returnUrl=%2F# "oturum açma sayfası")ikinci Microsoft hesabı oturum açın. Bu, sizi şu anda ikinci Microsoft hesabı ilişkili olan NuGet.org hesabına kaydeder. Daha sonra yüklenen paketleri görüntüleyebilir ve hesap yönetimini bu hesapta gerçekleştirebilirsiniz.
 
 **Bu ikinci NuGet.org hesabı hakkında ilgilenmedim, ilk NuGet.org hesabı için oturum açma işlemini ikinci Microsoft hesabı değiştirmek istiyorum. Ne yapmalıyım?**
 
-İkinci NuGet.org hesabını ilgilenmek ve yine de ilişkili Microsoft hesabı e-postayla `account2@outlook.com`yeniden kullanmak istiyorsanız. 
+İkinci NuGet.org hesabını ilgilenmek ve yine de ilişkili Microsoft hesabı e-postayla `account2@outlook.com` ile yeniden kullanmak istiyorsanız. 
 
 NuGet.org hesabını silerek Microsoft hesabı ve NuGet.org hesabı arasındaki ilişkilendirmeyi serbest bırakabilirsiniz.
-1. İkinci NuGet.org hesabı `MyNuGetAccount2`için [Kullanıcı silme](#how-to-delete-my-nugetorg-account) adımlarını izleyin. 
+1. @No__t-1 ikinci NuGet.org hesabı için [Kullanıcı silme](#how-to-delete-my-nugetorg-account) adımlarını izleyin. 
 1. Bu hesap silindikten sonra [Microsoft hesabı oturum açma adımlarını değiştirmek](#how-to-change-the-microsoft-account-i-use-for-nugetorg-login)için adımları yeniden deneyebilirsiniz.
 
 **Bekleyin, bu ikinci hesap hakkında çok dikkat edin. Bu hesabı kaybetmek istemiyorum, ancak ilk hesapta ilişkili hesap oturumlarımı değiştir.**
 
-E-posta `account3@outlook.com`ile üçüncü bir Microsoft hesabı oluşturmanız/kullanmanız gerekir. 
-1. İlk olarak, `account2@outlook.com` NuGet.org üzerinde ikinci Microsoft hesabı oturum açmalısınız. İlişkili oturum açmaları değiştirmek ve üçüncü Microsoft hesabı bu NuGet.org hesabıyla ilişkilendirmek için yukarıdaki adımları izleyin.
-1. İşiniz bittiğinde, e-posta `account2@outlook.com` ile ikinci Microsoft hesabı ilk NuGet.org `MyNuGetAccount1`Hesabınızla ilişkilendirilebilen ücretsizdir. Microsoft oturum açmaları ikinci Microsoft hesabı değiştirmek için yukarıdaki adımları izleyin.
+Üçüncü bir Microsoft hesabı oluşturmanız/kullanmanız gerekir; e-posta `account3@outlook.com` olur. 
+1. İlk olarak, NuGet.org üzerinde Microsoft hesabı ikinci `account2@outlook.com` ile oturum açmalısınız. İlişkili oturum açmaları değiştirmek ve üçüncü Microsoft hesabı bu NuGet.org hesabıyla ilişkilendirmek için yukarıdaki adımları izleyin.
+1. İşiniz bittiğinde, e-posta `account2@outlook.com` olan ikinci Microsoft hesabı ilk NuGet.org Hesabınızla ilişkilendirilebilen `MyNuGetAccount1`. Microsoft oturum açmaları ikinci Microsoft hesabı değiştirmek için yukarıdaki adımları izleyin.
 
 ### <a name="signing-in-with-microsoft-account-shows-me-my-email-is-linked-to-another-microsoft-account"></a>Microsoft hesabı ile oturum açma, e-postamın başka bir Microsoft hesabı bağlı olduğunu gösteriyor
 
 Microsoft hesabı ile oturum açmaya çalıştıysanız, e-posta `account1@outlook.com` ile aşağıdaki gibi bir hata görürsünüz:
-> _'account1@outlook.com' E-postasına sahip hesap başka bir Microsoft hesabıyla bağlantılı._
+> _' @No__t-1 ' e-postasına sahip hesap başka bir Microsoft hesabıyla bağlantılı._
 >
 > _Bağlı Microsoft hesabı güncelleştirmek isterseniz, bunu hesap ayarları sayfasından yapabilirsiniz._
 
 **Yukarıdaki hata ne anlama geliyor?**
 
-NuGet.org üzerinde bir hesap oluşturulduğunda, bu hesapla ilişkili bir iletişim e-posta adresi vardır. Bu, genellikle ilişkili Microsoft hesabı için kullanılan e-posta adresiyle aynıdır. Ancak, iletişim için farklı bir e-posta adresi belirtmeyi seçebilirsiniz. Teknik olarak, farklı bir Microsoft hesabı sahip olabilirsiniz, bununla birlikte `account2@outlook.com` iletişim e-posta `account1@outlook.com`adresi olan NuGet.org hesabına bağlı olduğunu varsayalım.
+NuGet.org üzerinde bir hesap oluşturulduğunda, bu hesapla ilişkili bir iletişim e-posta adresi vardır. Bu, genellikle ilişkili Microsoft hesabı için kullanılan e-posta adresiyle aynıdır. Ancak, iletişim için farklı bir e-posta adresi belirtmeyi seçebilirsiniz. Bu nedenle Teknik olarak, farklı bir Microsoft hesabı sahip olabilirsiniz `account2@outlook.com` ile iletişim e-posta adresi `account1@outlook.com` olarak, NuGet.org hesabına bağlanmış.
 
-Bu nedenle yukarıdaki hata, iletişim e-posta adresi `account1@outlook.com` olan NuGet.org hesabı zaten var, ancak **olmayan** `account1@outlook.com`bir e-posta ile ilişkili başka bir Microsoft hesabı ile ilişkilendirilir.
+Bu nedenle yukarıdaki hata, iletişim e-posta adresine sahip NuGet.org hesabının zaten var olduğunu, ancak `account1@outlook.com` **olmayan** e-posta ile ilişkili başka bir Microsoft hesabı @no__t olduğunu gösterir.
 
 **Bu NuGet.org hesabına hangi Microsoft hesabı bağlandığını Nasıl yaparım? bulun mi?**
 
-E-posta adresi `account1@outlook.com`ile NuGet.org hesabına hangi Microsoft hesabı bağlandığını anlamak için [oturum açma Yardım](#which-microsoft-account-is-linked-to-my-nugetorg-account) akışını kullanmanız gerekir.
+@No__t-1 e-posta adresi ile NuGet.org hesabına hangi Microsoft hesabı bağlandığını anlamak için [oturum açma Yardım](#which-microsoft-account-is-linked-to-my-nugetorg-account) akışını kullanmanız gerekir.
 
 **Bu hesabı Microsoft hesabı geçersiz kılmak istiyorum**
 
@@ -188,11 +188,11 @@ Microsoft hesabı mevcut NuGet.org hesabıyla ilişkilendirmek için [Microsoft 
 ### <a name="unable-to-use-microsoft-login-how-do-i-recover-my-nugetorg-account"></a>Microsoft oturum açma kullanılamıyor, NuGet.org hesabımı nasıl kurtarırım?
 
 [Oturum açma yardımını](#which-microsoft-account-is-linked-to-my-nugetorg-account) kullanmaya çalıştıysanız ve NuGet.org hesabınızla ilişkili Microsoft hesabı erişiminiz yoksa, lütfen NuGet.org hesabınıza yeni bir Microsoft hesabı bağlamak için aşağıdaki adımları izleyin.
-1. **Gereksinim**: Mevcut bir NuGet.org hesabı ile ilişkilendirilmemiş bir Microsoft hesabı erişiminizin olması gerekir. Bir tane yoksa, bir tane [oluşturabilirsiniz](https://signup.live.com) .
+1. **Gereksinim**: herhangi bir mevcut NuGet.org hesabı ile ilişkilendirilmemiş bir Microsoft hesabı erişiminizin olması gerekir. Bir tane yoksa, bir tane [oluşturabilirsiniz](https://signup.live.com) .
 2. NuGet.org hesabınız için Kullanıcı adınızı ve parolanızı unuttuysanız, [parola oturum açma bilgilerinizi kurtarmak için adımları](#how-to-recover-nugetorg-password-login)izleyin.
 3. Kullanıcı adı/parola oturum açma bilgilerini kullanarak [NuGet.org 'de oturum açın](https://www.nuget.org/users/account/LogOnNuGetAccount) .
 4. Oturum açıldıktan sonra açılır iletişim kutusunun aşağıda gibi göründüğünü görürsünüz. Bu parola ayırma iletişim kutusudur.
-5. **NOTE**: Lütfen belirtilen Microsoft hesabı oturum açmak için yönergeyi yoksayın. Artık NuGet.org hesabınızı diğer Microsoft oturum açma bilgilerine bağlayabilirsiniz.
+5. **Note**: lütfen belirtilen Microsoft hesabı oturum açmak için yönergeyi yoksayın. Artık NuGet.org hesabınızı diğer Microsoft oturum açma bilgilerine bağlayabilirsiniz.
 6. Adım 1 ' de belirtildiği gibi düğme **Microsoft hesabıyla oturum açın** tıklayın ve erişiminizin olduğu Microsoft hesabı oturum açın.
 7. Hesabınız artık yeni Microsoft hesabı bağlanır, bu da NuGet.org ' de oturum açmak için kullanabilirsiniz.
 
@@ -203,14 +203,14 @@ Microsoft hesabı mevcut NuGet.org hesabıyla ilişkilendirmek için [Microsoft 
 Hesabınızı bir kuruluşa dönüştürmek istiyorsanız ve bu hesap zaten bir Microsoft hesabı oturum açmayla ilişkili ise, lütfen [NuGet org 'daki kuruluşların](organizations-on-nuget-org.md)belgelerinde verilen adımları izleyin.
 
 Ancak, NuGet.org hesabınız ilişkili/bir Microsoft hesabı ile bağlantılı değilse, bu hesabı bir kuruluşa dönüştürmek için aşağıdaki adımları izleyebilirsiniz.
-1. **Gereksinim**: Kuruluş hesabında yönetici olarak kullanılmak üzere NuGet.org üzerinde ilk kez oluşturulmuş tek bir hesabınız olması gerekir. Bir tane yoksa, lütfen [Yeni bir NuGet.org hesabı oluşturun](individual-accounts.md)
+1. **Gereksinim**: kuruluş hesabında yönetici olarak kullanılmak üzere NuGet.org üzerinde ilk kez oluşturulmuş tek bir hesabınız olması gerekir. Bir tane yoksa, lütfen [Yeni bir NuGet.org hesabı oluşturun](individual-accounts.md)
 2. Parola oturum açma izniniz yoksa, NuGet.org hesabınız için [parola oturum açma bilgilerinizi kurtarmak için adımları](#how-to-recover-nugetorg-password-login) izleyin.
 3. Kullanıcı adı/parola oturum açma bilgilerini kullanarak [NuGet.org 'de oturum açın](https://www.nuget.org/users/account/LogOnNuGetAccount) .
 4. Oturum açıldıktan sonra açılır iletişim kutusunun aşağıda gibi göründüğünü görürsünüz. Bu parola ayırma iletişim kutusudur. 
     > [!Important]
-    > Bu iletişim kutusunu yoksayın, **Microsoft ile oturum aç** düğmesine tıklamayın.
+    > Bu iletişim kutusunu yoksayın, **Microsoft Ile oturum aç** düğmesine **tıklamayın** .
 
-5. [https://www.nuget.org/account/transform](https://www.nuget.org/account/transform) kısmına gidin. Bu, bir Microsoft hesabı bağlanmadan NuGet.org hesabını bir org 'a dönüştürmenize olanak tanır.
+5. [@No__t-1](https://www.nuget.org/account/transform)' e gidin. Bu, bir Microsoft hesabı bağlanmadan NuGet.org hesabını bir org 'a dönüştürmenize olanak tanır.
 6. Kişisel NuGet.org hesabınız için yönetici kullanıcı adını ve adım 1 ' de oluşturduğunuz hesabı belirtin.
 7. Bu hesabın bir kuruluşa dönüştürülmesini tamamlamaya yönelik yönergeleri izleyin.
 
@@ -228,7 +228,7 @@ E-posta hesabı etki alanınız (@yourdomain.com) ile oturum açma akışınız 
 
 Hesabınız daha önce kişisel bir Microsoft hesabı olarak kaydedilmiş ve sorunsuz çalıştıyordu, ancak artık hesabınızın, Azure Active Directory (kimlik doğrulaması için kullandığımız kimlik hizmeti) bir "yönetilmeyen" Kiracı olarak kaydedilmiş gibi görünüyor. Microsoft hesapları). 
 
-Bu durum, bir veya kuruluşunuzun bir üyesi (e-posta adresi @yourdomain.com ile) AAD tümleşik hizmetlerinden biriyle kayıtlıysa veya bu tür bir "yönetilmeyen" Kiracı oluşturan [Azure Active Directory bir self servis kaydolma](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-self-service-signup)işlemi gerçekleştirmişse meydana gelebilir. kullanılan Microsoft hesabı etki alanı (@yourdomain.com örnekte). 
+Bu durum, bir veya kuruluşunuzun bir üyesi (@yourdomain.com e-posta adresi ile) AAD tümleşik hizmetlerinden biriyle kayıtlıysa veya bu tür bir "yönetilmeyen" Kiracı oluşturan [Azure Active Directory için self servis kaydolma](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-self-service-signup)işlemi gerçekleştirmişse meydana gelebilir. Microsoft hesabı etki alanı kullanıldı (@yourdomain.com). 
 
 **Hesabımı kurtarmak için ne yapabilirim?**
 
@@ -238,13 +238,13 @@ Microsoft hesabı (@yourdomain.com) ile NuGet.org 'de oturum açmak istiyorsanı
 
 **Her şeyi yapmak istemiyorum, hesabımı kurtarmanın diğer yolu nedir?**
 
-Yeni bir Microsoft hesabı [oluşturabilirsiniz](https://www.microsoft.com/en-us/account) (ile @yourdomain.comilişkili **olmayan** bir e-posta ile). [NuGet.org hesabınızı kurtarma](#unable-to-use-microsoft-login-how-do-i-recover-my-nugetorg-account) bölümünde verilen adımları izleyin.
+Yeni bir Microsoft hesabı [oluşturabilirsiniz](https://www.microsoft.com/en-us/account) (@yourdomain.com ile ilişkilendirilmemiş **bir e-** posta ile). [NuGet.org hesabınızı kurtarma](#unable-to-use-microsoft-login-how-do-i-recover-my-nugetorg-account) bölümünde verilen adımları izleyin.
 
 ### <a name="how-do-i-change-my-nugetorg-account-username"></a>NuGet.org hesabı kullanıcı adınızla Nasıl yaparım? değiştirilsin mi?
 
 Oluşturamazsınız. İlke ne kadar farklı olarak Kullanıcı adları değişikliğine izin vermedik. Kullanıcı adınızı değiştirme yöntemi, istenen kullanıcı adına sahip yeni bir hesap oluşturmaktır. Yeni bir hesap oluşturmadan önce mevcut hesabınızı silmenizi öneririz, aksi halde kayıtlı Microsoft hesabı yeniden kullanamazsınız.
 > [!Important]
-> Kullanıcının silinmesi, `username`' i **ayırmaya** devam eder. Aynı kullanıcı adını yeniden kullanamayacaksınız ve **Bu, casler değişikliğini içerir**. Örnek olarak, Kullanıcı adı `mycoolname` ile bir Kullanıcı oluşturduysanız ve `MyCoolName`bunu (büyük/küçük harf değişiklikler) olarak değiştirmek istiyorsanız, Kullanıcı silindikten sonra mümkün olmayacaktır.
+> Kullanıcının silinmesi `username` ' i **ayırmaya** devam eder. Aynı kullanıcı adını yeniden kullanamayacaksınız ve **Bu, casler değişikliğini içerir**. Örnek olarak, Kullanıcı adı `mycoolname` olan bir Kullanıcı oluşturduysanız ve bunu `MyCoolName` (büyük/küçük harf değişiklikler) olarak değiştirmek istiyorsanız, Kullanıcı silindikten sonra mümkün olmayacaktır.
 
 [NuGet.org hesabınızı silme](#how-to-delete-my-nugetorg-account) bölümünde verilen adımları izleyin ve doğru Kullanıcı adına sahip [Yeni bir hesap kaydedin](individual-accounts.md) .
 

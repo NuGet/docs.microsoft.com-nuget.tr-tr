@@ -6,21 +6,21 @@ ms.author: karann
 ms.date: 12/11/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: ea9f699b202d7f32648f0ccfeac3ceb1ca325b7e
-ms.sourcegitcommit: 0f5363353f9dc1c3d68e7718f51b7ff92bb35e21
+ms.openlocfilehash: caa1509fd996c54f7de17e86559ea62ef67f749f
+ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68342433"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72380489"
 ---
 # <a name="target-frameworks"></a>Hedef çerçeveler
 
 NuGet, bir paketin çerçeveye bağlı bileşenlerini özellikle tanımlamak ve yalıtmak için çeşitli yerlerde hedef çerçeve başvurularını kullanır:
 
 - [Proje dosyası](../create-packages/multiple-target-frameworks-project-file.md): SDK stilindeki projeler için *. csproj* , hedef Framework başvurularını içerir.
-- [. nuspec bildirimi](../reference/nuspec.md): Bir paket, projenin hedef çerçevesine bağlı olarak bir projeye dahil edilecek ayrı paketleri belirtebilir.
-- [. nupkg klasör adı](../create-packages/creating-a-package.md#from-a-convention-based-working-directory): Bir paket `lib` klasörünün içindeki klasörler, her biri dll 'leri ve söz konusu çerçeveye uygun olan diğer içerikleri içeren hedef Framework 'e göre adlandırılmış olabilir.
-- [Packages. config](../reference/packages-config.md): Bir `targetframework` bağımlılığın özniteliği, yüklenecek bir paketin türevini belirtir.
+- [. nuspec bildirimi](../reference/nuspec.md): bir paket, projenin hedef çerçevesine bağlı olarak bir projeye dahil edilecek ayrı paketleri belirtebilir.
+- [. nupkg klasör adı](../create-packages/creating-a-package.md#from-a-convention-based-working-directory): bir paketin `lib` klasörünün içindeki klasörler, her biri dll 'leri ve söz konusu çerçeveye uygun olan diğer içerikleri içeren hedef çerçeveye göre adlandırılabilir.
+- [Packages. config](../reference/packages-config.md): bir bağımlılığın `targetframework` özniteliği, yüklenecek bir paketin türevini belirtir.
 
 > [!Note]
 > Aşağıdaki tabloları hesaplayan NuGet istemci kaynak kodu aşağıdaki konumlarda bulunur:
@@ -31,9 +31,9 @@ NuGet, bir paketin çerçeveye bağlı bileşenlerini özellikle tanımlamak ve 
 
 Bir çerçeveye genellikle kısa bir hedef Framework bilinen adı veya tfd tarafından başvurulur. .NET Standard Bu, birden çok çerçeve için tek bir başvuruya izin vermek üzere *TXD* için de genelleştirilir.
 
-NuGet istemcileri aşağıdaki tablodaki çerçeveleri destekler. Eşdeğerleri köşeli ayraç [] içinde gösterilir. Gibi bazı araçların `dotnet`bazı dosyalardaki kurallı tfms 'lerin çeşitlemelerini kullanabileceğini unutmayın. Örneğin, `dotnet pack` yerine bir `.NETCoreApp2.0` `.nuspec` dosyasında kullanır.`netcoreapp2.0` Çeşitli NuGet istemci araçları bu çeşitlemeleri düzgün şekilde işler, ancak dosyaları doğrudan düzenlenirken her zaman kurallı TFMs 'Leri kullanmanız gerekir.
+NuGet istemcileri aşağıdaki tablodaki çerçeveleri destekler. Eşdeğerleri köşeli ayraç [] içinde gösterilir. @No__t-0 gibi bazı araçların bazı dosyalardaki kurallı TFMs 'lerin çeşitlemelerini kullanabileceğini unutmayın. Örneğin `dotnet pack`, `netcoreapp2.0` yerine `.nuspec` dosyasında `.NETCoreApp2.0` kullanır. Çeşitli NuGet istemci araçları bu çeşitlemeleri düzgün şekilde işler, ancak dosyaları doğrudan düzenlenirken her zaman kurallı TFMs 'Leri kullanmanız gerekir.
 
-| Ad | Grubunun | TFMs/TxMs |
+| Name | Grubunun | TFMs/TxMs |
 | ------------- | ------------ | --------- |
 |.NET Framework | NET | net11 |
 | | | net20 |
@@ -83,6 +83,7 @@ Evrensel Windows Platformu | UAP | UAP [UAP 10.0] |
 | | | netcoreapp 2.0 |
 | | | netcoreapp 2.1 |
 | | | netcoreapp 2.2 |
+| | | netcoreapp 3.0 |
 Tizen | tizen | tizen3 |
 | | | tizen4 |
 
@@ -127,16 +128,16 @@ Bir dizi çerçeve birbirleriyle ve birbirleriyle uyumludur, ancak eşdeğer de�
 
 [NuGet en yakın çerçeve aracı](https://aka.ms/s2m3th) , NuGet 'in, projenin çerçevesini temel alan bir pakette bulunan çok sayıda çerçeve varlıklarından bir çerçeve seçmek için hangi şekilde kullanacağını taklit eder.
 
-Takma ad `netstandard` serisi NuGet 3,3 ve önceki sürümlerde kullanılmalıdır; bilinen ad sözdizimi v 3.4 ve sonrasında kullanılmalıdır. `dotnet`
+@No__t-0 ad serisi NuGet 3,3 ve önceki sürümlerde kullanılmalıdır; `netstandard` bilinen ad sözdizimi v 3.4 ve sonrasında kullanılmalıdır.
 
 ## <a name="portable-class-libraries"></a>Taşınabilir sınıf kitaplıkları
 
 > [!Warning]
 > **PCLS önerilmez**. PCLs destekleniyor olsa da, paket yazarları bunun yerine Netstandard 'ı desteklemelidir. .NET Platform standardı, PCLs 'in bir gelişmidir ve *Taşınabilir-a + b + c* takma adları gibi bir statik kitaplığa bağlı olmayan tek bir bilinen ad kullanarak platformlar arasında ikili taşınabilirliği temsil eder.
 
-Birden çok alt hedef çerçevesine başvuran bir hedef çerçeve tanımlamak için, `portable` başvurulan çerçeveler listesine önek olarak kullanılan anahtar sözcüğü kullanılır. Doğrudan derlenmeyen ekstra çerçeveler de dahil olmak üzere yapay kullanmaktan kaçının ve bu çerçeveler içinde istenmeyen yan etkilere neden olabilir.
+Birden çok alt hedef çerçevesine başvuran bir hedef çerçeve tanımlamak için, başvurulan çerçeveler listesine önek olarak kullanılan `portable` anahtar sözcüğü kullanılır. Doğrudan derlenmeyen ekstra çerçeveler de dahil olmak üzere yapay kullanmaktan kaçının ve bu çerçeveler içinde istenmeyen yan etkilere neden olabilir.
 
-Üçüncü taraflar tarafından tanımlanan ek çerçeveler, bu şekilde erişilebilen diğer ortamlarla uyumluluk sağlar. Ayrıca, bu ilgili çerçevelerin kombinasyonlarıyla aynı `Profile#`şekilde başvuruda bulunmak için kullanılabilen bir Özet profil numarası vardır, ancak klasörlerin okunabilirliğini azalttığı için bu numaraları kullanmak önerilen bir uygulama değildir ve `.nuspec`.
+Üçüncü taraflar tarafından tanımlanan ek çerçeveler, bu şekilde erişilebilen diğer ortamlarla uyumluluk sağlar. Ayrıca, bu ilgili çerçeveler birleşimlerine `Profile#` olarak başvurmak için kullanılabilen özet profil numaraları vardır, ancak klasörlerin okunabilirliğini ve `.nuspec` ' i azalttığı için bu numaraları kullanmak önerilen bir uygulamadır.
 
 | Profilinizi # | Çerçeveler | Tam ad | .NET Standard |
  --- | --- | --- | ---
@@ -196,7 +197,7 @@ Birden çok alt hedef çerçevesine başvuran bir hedef çerçeve tanımlamak i�
  Profile78 | . NETFramework 4,5 | Taşınabilir-net45 + Win8 + WP8 | Netstandard 1.0
  | | Windows 8,0 |
  | | WindowsPhone 8,0 (SL) |
- Profile84 | WindowsPhone 8.1 | Taşınabilir-wp81 + wpa81 | Netstandard 1.0
+ Profile84 | WindowsPhone 8,1 | Taşınabilir-wp81 + wpa81 | Netstandard 1.0
  | | WindowsPhone 8,1 (UWP) |
  Profile88 | . NETFramework 4,0 | Taşınabilir-net40 + SL4 + Win8 + wp75
  | | Silverlight 4,0 |
@@ -283,7 +284,7 @@ Birden çok alt hedef çerçevesine başvuran bir hedef çerçeve tanımlamak i�
 
 Ayrıca, Xamarin 'i hedefleyen NuGet paketleri ek Xamarin tanımlı çerçeveler kullanabilir. Bkz. [Xamarin Için NuGet paketleri oluşturma](https://developer.xamarin.com/guides/cross-platform/advanced/nuget/).
 
-| Ad | Açıklama | .NET Standard |
+| Name | Açıklama | .NET Standard |
 | --- | --- | ---
 | monoandroid | Android işletim sistemi için mono desteği | Netstandard 1.4 |
 | MonoTouch | İOS için mono desteği | Netstandard 1.4 |

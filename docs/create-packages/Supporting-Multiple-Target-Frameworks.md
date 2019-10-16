@@ -5,30 +5,30 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 14483264030dd3bb32c7295886f2d37d52e735cc
-ms.sourcegitcommit: fc1b716afda999148eb06d62beedb350643eb346
+ms.openlocfilehash: 4413779361dad3a650da36b3c69bbb55b62804ee
+ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69020042"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72380727"
 ---
 # <a name="support-multiple-net-versions"></a>Çoklu .NET sürümlerini destekler
 
 Birçok kitaplık .NET Framework belirli bir sürümünü hedefleyin. Örneğin, kitaplıkınızın, UWP 'e özgü bir sürümüne ve .NET Framework 4,6 ' deki özelliklerden yararlanan başka bir sürüme sahip olabilirsiniz. NuGet buna uyum sağlamak için, aynı kitaplığın birden çok sürümünü tek bir pakette yerleştirmeyi destekler.
 
-Bu makalede, paketin veya derlemelerin nasıl oluşturulduğuna bakılmaksızın bir NuGet paketinin düzeni açıklanmaktadır (yani, düzen birden çok SDK olmayan *. csproj* dosyası ve özel bir *. nuspec* dosyası ya da tek bir çoklu-targetecd kullanma gibi). SDK stili *. csproj*). Bir SDK stili proje için, NuGet [paketi](../reference/msbuild-targets.md) , paketin nasıl oluşturulması gerektiğini bilir ve derlemeleri doğru lib klasörlerine yerleştirmeyi ve her hedef çerçeve (tfd) için bağımlılık grupları oluşturmayı otomatikleştirir. Ayrıntılı yönergeler için bkz. [proje dosyanızdaki çoklu .NET Framework sürümlerini destekleme](multiple-target-frameworks-project-file.md).
+Bu makalede, paketin veya derlemelerin nasıl oluşturulduğuna bakılmaksızın bir NuGet paketinin düzeni açıklanmaktadır (yani, düzen birden çok SDK olmayan *. csproj* dosyası ve özel bir *. nuspec* dosyası ya da tek bir çok hedefli SDK stili *. csproj*). Bir SDK stili proje için, NuGet [paketi](../reference/msbuild-targets.md) , paketin nasıl oluşturulması gerektiğini bilir ve derlemeleri doğru lib klasörlerine yerleştirmeyi ve her hedef çerçeve (tfd) için bağımlılık grupları oluşturmayı otomatikleştirir. Ayrıntılı yönergeler için bkz. [proje dosyanızdaki çoklu .NET Framework sürümlerini destekleme](multiple-target-frameworks-project-file.md).
 
 [Paket oluşturma](../create-packages/creating-a-package.md#from-a-convention-based-working-directory)bölümünde açıklanan kural tabanlı çalışma dizini yöntemi kullanılırken bu makalede açıklandığı gibi paketi el ile oluşturmanız gerekir. SDK stili bir proje için otomatik yöntem önerilir, ancak paketi bu makalede açıklandığı gibi el ile düzenlemek de tercih edebilirsiniz.
 
 ## <a name="framework-version-folder-structure"></a>Framework sürüm klasörü yapısı
 
-Bir kitaplığın yalnızca bir sürümünü içeren veya birden çok çerçeveyi hedefleyen bir paket oluştururken, her zaman aşağıdaki kurala sahip farklı büyük `lib` /küçük harf duyarlı çerçeve adları kullanarak alt klasörler yaparsınız:
+Bir kitaplığın yalnızca bir sürümünü içeren veya birden çok çerçeveyi hedefleyen bir paket oluştururken, aşağıdaki kurala sahip farklı büyük/küçük harf duyarlı çerçeve adlarını kullanarak her zaman alt klasörleri `lib` altında yaparsınız:
 
     lib\{framework name}[{version}]
 
 Desteklenen adların tüm listesi için bkz. [hedef çerçeveler başvurusu](../reference/target-frameworks.md#supported-frameworks).
 
-Bir çerçeveye özgü olmayan ve doğrudan kök `lib` klasöre yerleştirilebilecek bir kitaplığın sürümüne sahip olmanız gerekir. (Bu özellik yalnızca ile `packages.config`desteklenir). Bunu yapmak, kitaplığı herhangi bir hedef çerçeve ile uyumlu hale getirir ve büyük olasılıkla beklenmedik çalışma zamanı hatalarına neden olur. Derlemeleri kök klasöre ( `lib\abc.dll`gibi) veya alt klasörlere ( `lib\abc\abc.dll`gibi) eklemek kullanım dışı bırakılmıştır ve packagesreference biçimi kullanılırken yok sayılır.
+Bir çerçeveye özgü olmayan ve doğrudan kök `lib` klasörüne yerleştirilmiş bir kitaplık sürümüne sahip olmanız gerekir. (Bu özellik yalnızca `packages.config` ile desteklenir). Bunu yapmak, kitaplığı herhangi bir hedef çerçeve ile uyumlu hale getirir ve büyük olasılıkla beklenmedik çalışma zamanı hatalarına neden olur. Kök klasörde (örneğin, `lib\abc.dll`) veya alt klasörlerde (`lib\abc\abc.dll` gibi) derlemeler eklendiğinde kullanım dışı bırakılmıştır ve PackagesReference biçimi kullanılırken yok sayılır.
 
 Örneğin, aşağıdaki klasör yapısı çerçeveye özgü bir derlemenin dört sürümünü destekler:
 
@@ -42,7 +42,7 @@ Bir çerçeveye özgü olmayan ve doğrudan kök `lib` klasöre yerleştirilebil
         \netcore
             \MyAssembly.dll
 
-Paketi oluştururken tüm bu dosyaları kolayca dahil etmek için, ' ın `**` `<files>` `.nuspec`bölümünde özyinelemeli bir joker karakter kullanın:
+Paketi oluştururken tüm bu dosyaları kolayca dahil etmek için `.nuspec` ' nin `<files>` bölümünde özyinelemeli bir `**` joker karakteri kullanın:
 
 ```xml
 <files>
@@ -52,7 +52,7 @@ Paketi oluştururken tüm bu dosyaları kolayca dahil etmek için, ' ın `**` `<
 
 ### <a name="architecture-specific-folders"></a>Mimariye özgü klasörler
 
-Mimariye özgü derlemeleriniz, yani ARM, x86 ve x64 'u hedefleyen ayrı derlemeler varsa, bunları veya `runtimes` `{platform}-{architecture}\native`adlı `{platform}-{architecture}\lib\{framework}` alt klasörler içindeki adlı bir klasöre yerleştirmeniz gerekir. Örneğin, aşağıdaki klasör yapısı, Windows 10 ve `uap10.0` Framework 'ü hedefleyen hem yerel hem de yönetilen DLL 'leri kapsayabilmelidir:
+Mimariye özgü derlemeleriniz, yani ARM, x86 ve x64 'u hedefleyen ayrı derlemeler varsa, bunları `{platform}-{architecture}\lib\{framework}` veya `{platform}-{architecture}\native` adlı alt klasörler içinde `runtimes` adlı bir klasöre yerleştirmeniz gerekir. Örneğin, aşağıdaki klasör yapısı, Windows 10 ' u ve `uap10.0` çerçevesini hedefleyen hem yerel hem de yönetilen DLL 'Leri kapsayabilmelidir:
 
     \runtimes
         \win10-arm
@@ -65,11 +65,11 @@ Mimariye özgü derlemeleriniz, yani ARM, x86 ve x64 'u hedefleyen ayrı derleme
             \native
             \lib\uap10.0
 
-Bu derlemeler yalnızca çalışma zamanında kullanılabilir. bu nedenle, ilgili derleme zamanı derlemesini ve sonra da `AnyCPU` `/ref{tfm}` klasöründe derlemeye sahip olmak istiyorsanız. 
+Bu derlemeler yalnızca çalışma zamanında kullanılabilir. bu nedenle, ilgili derleme zamanı derlemesini sağlamak ve `/ref/{tfm}` klasöründe `AnyCPU` derlemesi sağlamak istiyorsanız. 
 
-Lütfen NuGet bu derleme veya çalışma zamanı varlıklarını her zaman bir klasörden seçer, bundan `/ref` sonra `/lib` bazı uyumlu varlıklar varsa derleme zamanı derlemelerini eklemek için yok sayılır. Benzer şekilde, öğesinden `/runtime` bir compatbile varlık varsa, çalışma zamanı için de `/lib` yok sayılır.
+Lütfen NuGet her zaman bu derleme veya çalışma zamanı varlıklarını tek bir klasörden seçer. bu nedenle `/ref` ' dan bazı uyumlu varlıklar varsa, derleme zamanı derlemelerini eklemek için `/lib` yok sayılır. Benzer şekilde, `/runtime` ' dan bazı uyumlu varlıklar varsa, çalışma zamanı için de `/lib` yok sayılır.
 
-`.nuspec` Bildirimde bu dosyalara başvurma örneği için bkz. [UWP paketleri oluşturma](../guides/create-uwp-packages.md) .
+@No__t-1 bildiriminde bu dosyalara başvurulmaya yönelik bir örnek için bkz. [UWP paketleri oluşturma](../guides/create-uwp-packages.md) .
 
 Ayrıca bkz. [NuGet Ile Windows Mağazası uygulama bileşeni paketleme](https://blogs.msdn.microsoft.com/mim/2013/09/02/packaging-a-windows-store-apps-component-with-nuget-part-2)
 
@@ -87,9 +87,9 @@ Bir eşleşme bulunmazsa, NuGet derlemeyi, varsa projenin hedef çerçevesine e�
         \net461
             \MyAssembly.dll
 
-Bu paketi, .NET Framework 4,6 ' i hedefleyen bir projeye yüklerken, en yüksek kullanılabilir sürüm 4,6 ' `net45` e eşit veya daha düşük olan en yüksek sürüm olan NuGet, derlemeyi klasöre yüklüyor.
+Bu paketi, .NET Framework 4,6 ' i hedefleyen bir projede yüklerken, en yüksek kullanılabilir sürüm 4,6 ' den küçük veya buna eşit olduğu için NuGet, derlemeyi `net45` klasörüne yüklenir.
 
-Proje .NET Framework 4.6.1 hedefliyorsa, diğer yandan NuGet, derlemeyi `net461` klasörüne yüklenir.
+Proje, diğer taraftan .NET Framework 4.6.1 hedefliyorsa, NuGet derlemeyi `net461` klasörüne yüklenir.
 
 Proje, .NET Framework 4,0 ve öncesini hedefliyorsa, NuGet uyumlu derlemeyi bulmayan uygun bir hata iletisi oluşturur.
 
@@ -104,9 +104,9 @@ NuGet, derlemeleri yalnızca paketteki tek bir kitaplık klasöründen kopyalar.
         \net45
             \MyAssembly.dll (v2.0)
 
-Paket, .NET Framework 4,5 ' i hedefleyen bir projeye yüklendiğinde, `MyAssembly.dll` (v 2.0) yüklü tek derleme olur. `MyAssembly.Core.dll`(v 1.0) `net45` klasöründe listelenmediğinden yüklenmedi. NuGet bu şekilde davranır çünkü `MyAssembly.Core.dll` sürüm `MyAssembly.dll`2,0 ' de birleştirilmiş olabilir.
+Paket, .NET Framework 4,5 ' i hedefleyen bir projeye yüklendiğinde, tek derleme yüklü olan `MyAssembly.dll` (v 2.0) olur. `MyAssembly.Core.dll` (v 1.0), `net45` klasöründe listelenmediğinden yüklenmedi. @No__t-0 `MyAssembly.dll` 2,0 sürümüyle birleştirilmiş olabileceğinden NuGet bu şekilde davranır.
 
-.NET Framework 4,5 için `MyAssembly.Core.dll` yüklemek istiyorsanız, `net45` klasöre bir kopya yerleştirin.
+.NET Framework 4,5 için `MyAssembly.Core.dll` ' ın yüklenmesini istiyorsanız, bir kopyayı `net45` klasörüne yerleştirin.
 
 ## <a name="grouping-assemblies-by-framework-profile"></a>Derlemeleri çerçeve profiline göre gruplandırma
 
@@ -116,8 +116,8 @@ NuGet Ayrıca, klasörün sonuna bir tire ve profil adı ekleyerek belirli bir �
 
 Desteklenen profiller şunlardır:
 
-- `client`: İstemci profili
-- `full`: Tam profil
+- `client`: Istemci profili
+- `full`: tam profil
 - `wp`: Windows Phone
 - `cf`: Compact Framework
 
@@ -125,13 +125,13 @@ Desteklenen profiller şunlardır:
 
 Bir proje dosyası paketleme sırasında, NuGet otomatik olarak projeden bağımlılıkları oluşturmaya çalışır. Bağımlılıkları bildirmek için bir *. nuspec* dosyası kullanma hakkında bu bölümdeki bilgiler genellikle yalnızca gelişmiş senaryolar için gereklidir.
 
-*(Sürüm 2.0 +)* Öğesi`<dependencies>` içindeki öğeleri kullanarak `<group>` hedef projenin hedef çerçevesine karşılık gelen *. nuspec* içinde paket bağımlılıklarını bildirebilirsiniz. Daha fazla bilgi için bkz. [Dependencies öğesi](../reference/nuspec.md#dependencies-element).
+*(Sürüm 2.0 +)* @No__t-3 öğesi içinde `<group>` öğelerini kullanarak hedef projenin hedef çerçevesine karşılık gelen *. nuspec* içinde paket bağımlılıklarını bildirebilirsiniz. Daha fazla bilgi için bkz. [Dependencies öğesi](../reference/nuspec.md#dependencies-element).
 
-Her grup adlı `targetFramework` bir özniteliğe sahiptir ve sıfır veya daha fazla `<dependency>` öğe içerir. Hedef Framework, projenin çerçeve profiliyle uyumlu olduğunda bu bağımlılıklar birlikte yüklenir. Tam çerçeve tanımlayıcıları için bkz. [hedef çerçeveler](../reference/target-frameworks.md) .
+Her grup `targetFramework` adlı bir özniteliğe sahiptir ve sıfır veya daha fazla `<dependency>` öğesi içerir. Hedef Framework, projenin çerçeve profiliyle uyumlu olduğunda bu bağımlılıklar birlikte yüklenir. Tam çerçeve tanımlayıcıları için bkz. [hedef çerçeveler](../reference/target-frameworks.md) .
 
 *LIB/* ve *ref/* klasörlerdeki dosyalar için hedef çerçeve bilinen adı (tfd) başına bir grup kullanmanızı öneririz.
 
-Aşağıdaki örnek, `<group>` öğesinin farklı çeşitlemelerini göstermektedir:
+Aşağıdaki örnek `<group>` öğesinin farklı çeşitlemelerini gösterir:
 
 ```xml
 <dependencies>
@@ -149,18 +149,18 @@ Aşağıdaki örnek, `<group>` öğesinin farklı çeşitlemelerini göstermekte
 
 ## <a name="determining-which-nuget-target-to-use"></a>Hangi NuGet hedefinin kullanılacağını belirleme
 
-Taşınabilir sınıf kitaplığını hedefleyen paketleme kitaplıkları, özellikle de yalnızca bir PCL alt kümesini hedeflerken, klasör adlarında ve `.nuspec` dosyanızda hangi NuGet hedefini kullanacağınızı tespit etmek için karmaşık olabilir. Aşağıdaki dış kaynaklar bu konuda size yardımcı olur:
+Taşınabilir sınıf kitaplığını hedefleyen paketleme kitaplıklarında, özellikle yalnızca bir PCL alt kümesini hedeflerken, klasör adlarında ve `.nuspec` dosyasında kullanmanız gereken NuGet hedefini tespit etmek karmaşık olabilir. Aşağıdaki dış kaynaklar bu konuda size yardımcı olur:
 
-- [.Net 'Teki Framework profilleri](http://blog.stephencleary.com/2012/05/framework-profiles-in-net.html) (stephencleary.com)
-- [Taşınabilir sınıf kitaplığı profilleri](http://embed.plnkr.co/03ck2dCtnJogBKHJ9EjY/preview) (plnkr.co): PCL profillerinin ve eşdeğer NuGet hedeflerinin numaralandırıldığı tablo
-- [Taşınabilir sınıf kitaplığı profilleri aracı](https://github.com/StephenCleary/PortableLibraryProfiles) (github.com): sisteminizde bulunan PCL profillerinin belirlenmesi için komut satırı aracı
+- [.Net 'Teki çerçeve profilleri](http://blog.stephencleary.com/2012/05/framework-profiles-in-net.html) (stephencleary.com)
+- [Taşınabilir sınıf kitaplığı profilleri](http://embed.plnkr.co/03ck2dCtnJogBKHJ9EjY/preview) (plnkr.co): PCL profillerini ve bunların eşdeğer NuGet hedeflerini numaralandırma tablosu
+- [Taşınabilir sınıf kitaplığı profilleri aracı](https://github.com/StephenCleary/PortableLibraryProfiles) (GitHub.com): SISTEMINIZDE bulunan PCL profillerinin belirlenmesi için komut satırı aracı
 
 ## <a name="content-files-and-powershell-scripts"></a>İçerik dosyaları ve PowerShell betikleri
 
 > [!Warning]
-> Kesilebilir içerik dosyaları ve betik yürütme yalnızca `packages.config` biçimlendirme ile kullanılabilir; diğer tüm formatlarda kullanım dışı bırakılmıştır ve yeni paketler için kullanılmamalıdır.
+> Kesilebilir içerik dosyaları ve betik yürütme yalnızca `packages.config` biçiminde kullanılabilir; Bunlar diğer tüm biçimleriyle kullanımdan kaldırılmıştır ve yeni paketler için kullanılmamalıdır.
 
-İle `packages.config`, içerik dosyaları ve PowerShell betikleri, `content` ve `tools` klasörlerinde aynı klasör kuralına göre hedef çerçeveye göre gruplanabilir. Örneğin:
+@No__t-0 ile içerik dosyaları ve PowerShell betikleri, `content` ve `tools` klasörlerinde aynı klasör kuralına göre hedef çerçeveye göre gruplanabilir. Örneğin:
 
     \content
         \net46
@@ -182,4 +182,4 @@ Taşınabilir sınıf kitaplığını hedefleyen paketleme kitaplıkları, özel
 Bir çerçeve klasörü boş bırakılırsa NuGet, derleme başvuruları veya içerik dosyaları eklemez ya da bu çerçeve için PowerShell betikleri çalıştırmaz.
 
 > [!Note]
-> , Çözüm düzeyinde yürütüldüğü ve projeye bağımlı olmadığından, doğrudan `tools` klasörün altına yerleştirilmesi gerekir. `init.ps1` Çerçeve klasörü altına yerleştirildiğinde yok sayılır.
+> @No__t-0 çözüm düzeyinde yürütüldüğü ve projeye bağımlı olmadığından, doğrudan `tools` klasörünün altına yerleştirilmesi gerekir. Çerçeve klasörü altına yerleştirildiğinde yok sayılır.

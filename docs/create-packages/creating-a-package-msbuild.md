@@ -5,22 +5,22 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: a965a3049f46af59efcfad2ecf19e0923fda413b
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: 9512899a4086d17d2584f16833aba33efb321eae
+ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488948"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72380700"
 ---
 # <a name="create-a-nuget-package-using-msbuild"></a>MSBuild kullanarak bir NuGet paketi oluşturma
 
 Kodunuzdan bir NuGet paketi oluşturduğunuzda, bu işlevselliği herhangi bir sayıda diğer geliştirici tarafından paylaşılabilen ve kullanılabilecek bir bileşene paketleyerek. Bu makalede, MSBuild kullanarak bir paketin nasıl oluşturulacağı açıklanır. MSBuild, NuGet içeren her Visual Studio iş yüküne önceden yüklenmiş olarak gelir. Ayrıca, [DotNet MSBuild](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-msbuild) Ile DotNet CLI aracılığıyla MSBuild 'i de kullanabilirsiniz
 
-NuGet, .NET Core ve .NET Standard [SDK stili biçimini](../resources/check-project-format.md)kullanan projeler ve diğer SDK stilindeki projeler için, proje dosyasındaki bilgileri doğrudan bir paket oluşturmak üzere kullanır.  Tarafından kullanılan `<PackageReference>`SDK olmayan bir proje için, NuGet Ayrıca bir paket oluşturmak için proje dosyasını kullanır.
+NuGet, .NET Core ve .NET Standard [SDK stili biçimini](../resources/check-project-format.md)kullanan projeler ve diğer SDK stilindeki projeler için, proje dosyasındaki bilgileri doğrudan bir paket oluşturmak üzere kullanır.  @No__t-0 kullanan SDK olmayan bir proje için, NuGet Ayrıca bir paket oluşturmak için proje dosyasını kullanır.
 
 SDK stili projelerde varsayılan olarak paket işlevselliği bulunur. SDK olmayan biçim PackageReference projeleri için, proje bağımlılıklarına NuGet. Build. Tasks. Pack paketini eklemeniz gerekir. MSBuild paketi hedefleri hakkında ayrıntılı bilgi için bkz. [NuGet paketi ve geri yükleme MSBuild hedefleri olarak](../reference/msbuild-targets.md).
 
-Bir paket `msbuild -t:pack`oluşturan komut, işlevine `dotnet pack`eşdeğerdir.
+@No__t-0 olan bir paket oluşturan komut, `dotnet pack` ' e denk işlev.
 
 > [!IMPORTANT]
 > Bu konu, [SDK stili](../resources/check-project-format.md) projelere, genellikle .NET Core ve .NET Standard projelerine ve PACKAGEREFERENCE kullanan SDK olmayan bir proje için geçerlidir.
@@ -29,11 +29,11 @@ Bir paket `msbuild -t:pack`oluşturan komut, işlevine `dotnet pack`eşdeğerdir
 
 Bir paket oluşturmak için aşağıdaki özellikler gereklidir.
 
-- `PackageId`, paketi barındıran Galeri genelinde benzersiz olması gereken paket tanımlayıcısı. Belirtilmemişse, varsayılan değer `AssemblyName`.
+- `PackageId`, paketi barındıran Galeri genelinde benzersiz olması gereken paket tanımlayıcısı. Belirtilmemişse, varsayılan değer `AssemblyName` ' dır.
 - `Version`, *birincil. ikincil. Patch [-suffix]* biçiminde belirli bir sürüm numarası; burada *-suffix* [yayın öncesi sürümlerini](prerelease-packages.md)tanımlar. Belirtilmemişse, varsayılan değer 1.0.0 ' dir.
 - Paket başlığı konakta görüntülenecek şekilde (nuget.org gibi)
-- `Authors`, yazar ve sahip bilgileri. Belirtilmemişse, varsayılan değer `AssemblyName`.
-- `Company`, şirketinizin adı. Belirtilmemişse, varsayılan değer `AssemblyName`.
+- `Authors`, yazar ve sahip bilgileri. Belirtilmemişse, varsayılan değer `AssemblyName` ' dır.
+- `Company`, şirketinizin adı. Belirtilmemişse, varsayılan değer `AssemblyName` ' dır.
 
 Visual Studio 'da bu değerleri proje özelliklerinde ayarlayabilirsiniz (Çözüm Gezgini ' de projeye sağ tıklayıp **Özellikler**' i seçin ve **paket** sekmesini seçin). Bu özellikleri doğrudan proje dosyaları ( *. csproj*) içinde de ayarlayabilirsiniz.
 
@@ -63,12 +63,12 @@ Aşağıdaki örnekte, bu özelliklerle birlikte basit ve tamamlanmış bir proj
 </Project>
 ```
 
-Ayrıca,, ve `Title` `PackageDescription` `PackageTags`gibi isteğe bağlı özellikleri, [MSBuild paketi hedefleri](../reference/msbuild-targets.md#pack-target)' nde açıklandığı gibi, [bağımlılık varlıklarını denetleme](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets)ve [NuGet meta verileri özelliklerini](/dotnet/core/tools/csproj#nuget-metadata-properties)de ayarlayabilirsiniz.
+Ayrıca, [MSBuild paketi hedefleri](../reference/msbuild-targets.md#pack-target)' nde açıklandığı gibi `Title`, `PackageDescription` ve `PackageTags` gibi isteğe bağlı özellikleri de ayarlayabilirsiniz, [bağımlılık varlıklarını](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets)ve [NuGet meta veri özelliklerini](/dotnet/core/tools/csproj#nuget-metadata-properties)kontrol edebilirsiniz.
 
 > [!NOTE]
 > Genel tüketim için derlenmiş paketler için, paket **etiketleri** özelliğine özel bir dikkat edin, Etiketler başkalarının paketinizi bulmasına ve ne yaptığını anlamalarına yardımcı olur.
 
-Bağımlılıkları bildirme ve sürüm numaralarını belirtme hakkında ayrıntılar için bkz. proje dosyaları ve [paket sürümü oluşturma](../concepts/package-versioning.md) [içindeki paket başvuruları](../consume-packages/package-references-in-project-files.md) . Ayrıca, `<IncludeAssets>` ve `<ExcludeAssets>` özniteliklerini kullanarak doğrudan pakette bulunan bağımlılıklardan gelen bir varlık için de mümkündür. Daha fazla bilgi için, [bağımlılık varlıklarını denetleyen](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets)seee.
+Bağımlılıkları bildirme ve sürüm numaralarını belirtme hakkında ayrıntılar için bkz. proje dosyaları ve [paket sürümü oluşturma](../concepts/package-versioning.md) [içindeki paket başvuruları](../consume-packages/package-references-in-project-files.md) . Ayrıca, `<IncludeAssets>` ve `<ExcludeAssets>` özniteliklerini kullanarak doğrudan pakette bulunan bağımlılıklardan yüzeylerden yüzey olabilir. Daha fazla bilgi için, [bağımlılık varlıklarını denetleyen](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets)seee.
 
 ## <a name="choose-a-unique-package-identifier-and-set-the-version-number"></a>Benzersiz bir paket tanımlayıcısı seçin ve sürüm numarasını ayarlayın
 
@@ -103,7 +103,7 @@ SDK olmayan bir proje ve PackageReference ile MSBuild kullanıyorsanız, projeni
 
 ## <a name="run-the-msbuild--tpack-command"></a>MSBuild-t:Pack komutunu çalıştırın
 
-Projeden bir NuGet paketi (bir `.nupkg` dosya) oluşturmak için `msbuild -t:pack` komutunu çalıştırın, bu da projeyi otomatik olarak oluşturur:
+Projeden bir NuGet paketi (`.nupkg` dosyası) oluşturmak için `msbuild -t:pack` komutunu çalıştırın, bu da projeyi otomatik olarak oluşturur:
 
 Visual Studio için geliştirici komut isteminde aşağıdaki komutu yazın:
 
@@ -112,7 +112,7 @@ Visual Studio için geliştirici komut isteminde aşağıdaki komutu yazın:
 msbuild -t:pack
 ```
 
-Çıktı, `.nupkg` dosyanın yolunu gösterir.
+Çıktı, `.nupkg` dosyasının yolunu gösterir.
 
 ```output
 Microsoft (R) Build Engine version 16.1.76+g14b0a930a7 for .NET Framework
@@ -143,13 +143,13 @@ Time Elapsed 00:00:01.21
 
 ### <a name="automatically-generate-package-on-build"></a>Derleme üzerinde otomatik olarak paket oluştur
 
-Projeyi derlediğinizde veya `msbuild -t:pack` geri yüklerken otomatik olarak çalıştırmak için aşağıdaki satırı proje `<PropertyGroup>`dosyanıza ekleyin:
+@No__t otomatik olarak çalıştırmak için-0 proje oluşturduğunuzda veya geri yüklediğinizde, proje dosyanıza aşağıdaki satırı `<PropertyGroup>` içinde ekleyin:
 
 ```xml
 <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 ```
 
-Bir çözümde çalıştırdığınızda `msbuild -t:pack` bu, çözümdeki ([<IsPackable>](/dotnet/core/tools/csproj#nuget-metadata-properties) özelliği olarak `true`ayarlanır) Çözümdeki tüm projeleri paketler.
+Bir çözümde `msbuild -t:pack` ' ı çalıştırdığınızda, bu, çözümdeki ([<IsPackable> özelliği) (-2](/dotnet/core/tools/csproj#nuget-metadata-properties) özelliği) `true` olarak ayarlanmış olan tüm projeleri paketler.
 
 > [!NOTE]
 > Paketi otomatik olarak oluşturduğunuzda, paketlenecek süre projenizin derleme süresini arttırır.
@@ -165,7 +165,7 @@ Yüklemeleri, Visual Studio 'da veya normal [paket yükleme adımlarını](../co
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-Bir `.nupkg` dosya olan bir paket oluşturduktan sonra, bir [paket yayımlama](../nuget-org/publish-a-package.md)konusunda açıklandığı gibi istediğiniz Galeri ile yayımlayabilirsiniz.
+Bir `.nupkg` dosyası olan bir paket oluşturduktan sonra, [paketi yayımlama](../nuget-org/publish-a-package.md)konusunda açıklandığı gibi istediğiniz Galeri ile yayımlayabilirsiniz.
 
 Ayrıca, aşağıdaki konularda açıklandığı gibi, paketinizin yeteneklerini genişletmek veya diğer senaryoları desteklemek isteyebilirsiniz:
 
@@ -181,4 +181,4 @@ Ayrıca, aşağıdaki konularda açıklandığı gibi, paketinizin yeteneklerini
 Son olarak, bilmeniz için ek paket türleri vardır:
 
 - [Yerel Paketler](../guides/native-packages.md)
-- [Sembol Paketleri](../create-packages/symbol-packages.md)
+- [Sembol Paketleri](../create-packages/symbol-packages-snupkg.md)
