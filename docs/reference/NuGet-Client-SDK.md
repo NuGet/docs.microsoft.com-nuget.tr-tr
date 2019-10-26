@@ -1,42 +1,40 @@
 ---
-title: NuGet istemci SDK'sı
-description: Geliştirilmekte olan ve henüz belgelenmiş API'si, ancak örnekler Dave Glick'ın blogunda kullanılabilir.
+title: NuGet Istemci SDK 'Sı
+description: API gelişiyor ve henüz belgelenmemiştir, ancak örnek, bave Glick 'in blogundan bulunabilir.
 author: karann-msft
 ms.author: karann
 ms.date: 01/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8f96bf289e8121fd25262fb95c2f36dfc89045c5
-ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
+ms.openlocfilehash: 873bde467a39653b818b49173d53bc983e99d1b9
+ms.sourcegitcommit: f9645fc5f49c18978e12a292a3f832e162e069d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58911042"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72924614"
 ---
-# <a name="nuget-client-sdk"></a>NuGet istemci SDK'sı
+# <a name="nuget-client-sdk"></a>NuGet Istemci SDK 'Sı
+
+*NuGet istemci SDK 'sı* , [NuGet. Commands](https://www.nuget.org/packages/NuGet.Commands), [NuGet. paketleme](https://www.nuget.org/packages/NuGet.Packaging)ve [NuGet. Protocol](https://www.nuget.org/packages/NuGet.Protocol)içinde ortalanan bir NuGet paketleri grubunu ifade eder. Bu paketler, önceki [NuGet. Core](https://www.nuget.org/packages/NuGet.Core/) kitaplığını değiştirir.
 
 > [!Note]
-> İle karıştırılmamalıdır [NuGet *Web* API](https://docs.microsoft.com/en-us/nuget/api/overview)
-
-*NuGet istemci SDK'sı* .NET kitaplıkları etrafında ortalanmış bir grup başvurduğu [NuGet.Commands](https://www.nuget.org/packages/NuGet.Commands), [Nuget.Packaging](https://www.nuget.org/packages/NuGet.Packaging), ve [NuGet.Protocol](https://www.nuget.org/packages/NuGet.Protocol). Bu paketler önceki değiştirin [NuGet.Core](https://www.nuget.org/packages/NuGet.Core/) kitaplığı.
-
-Size en kısa sürede belgelemeye kararlı bir yüzey alanı olması çalışıyoruz.
+>  NuGet sunucu protokolü hakkındaki belgeler için lütfen [NuGet sunucu API](~/api/overview.md)'sine bakın.
 
 ## <a name="source-code"></a>Kaynak kodu
 
-Kaynak kodu Github'da projede yayımlanan [NuGet/NuGet.Client](https://github.com/NuGet/NuGet.Client).
+Kaynak kodu, [NuGet/NuGet. Client](https://github.com/NuGet/NuGet.Client)projesinde GitHub 'da yayımlanır.
 
 ## <a name="third-party-documentation"></a>Üçüncü taraf belgeleri
 
-Örnekler ve belgeler için bazı API 2016 yayımlanan Dave Glick tarafından aşağıdaki blog dizisini bulabilirsiniz:
+Aşağıdaki blog serisindeki bazı API 'ler için örnekler ve belgeler için Glick, yayımlanan 2016:
 
-- [1. Bölüm NuGet v3 kitaplıkları keşfetme: Giriş ve kavramları](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-1)
-- [2. Bölüm NuGet v3 kitaplıkları keşfetme: Paketlerini arama](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-2)
-- [Bölüm 3 NuGet v3 kitaplıkları keşfetme: Paketleri yükleme](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-3)
+- [NuGet v3 kitaplıklarını keşfetme, 1. Bölüm: giriş ve kavramlar](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-1)
+- [NuGet v3 kitaplıklarını keşfetme, Bölüm 2: paketleri arama](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-2)
+- [NuGet v3 kitaplıklarını keşfetme, 3. Bölüm: paketleri yükleme](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-3)
 
 > [!Note]
-> Bu blog gönderileri, kısa süre sonra yazılmış **3.4.3** istemci SDK paketleri kullanıma sunulan NuGet sürümü.
-> Paketlerin daha yeni sürümlerini blog gönderilerini bilgileri ile uyumlu olmayabilir.
+> Bu blog gönderileri, NuGet istemci SDK paketlerinin **3.4.3** sürümü yayımlandıktan kısa bir süre sonra yazıldı.
+> Paketlerin daha yeni sürümleri, blog gönderilerinin bilgileriyle uyumsuz olabilir.
 
-Martin Björkström burada verilen NuGet paketlerini yüklemek için NuGet istemci SDK'sını kullanarak farklı bir yaklaşım tanıtan bir izleme blog gönderisi Dave Glick'ın blog serisine yaptınız:
+Marve Glick 'in blog serisine, NuGet paketlerini yüklemek için NuGet Istemci SDK 'sını kullanma konusunda farklı bir yaklaşım tanıtan bir izleme blog gönderisi Björkström.
 
-- [NuGet v3 kitaplıkları hakkında yeniden değerlendirme](https://martinbjorkstrom.com/posts/2018-09-19-revisiting-nuget-client-libraries)
+- [NuGet v3 kitaplıklarını yeniden ziyaret etme](https://martinbjorkstrom.com/posts/2018-09-19-revisiting-nuget-client-libraries)

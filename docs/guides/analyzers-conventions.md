@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: 0a8db9f6c55b7e79f9b338119e0b3ac6cb7a1e35
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: 4d337299f725b38981b0121069d5e6295b05e34e
+ms.sourcegitcommit: f9645fc5f49c18978e12a292a3f832e162e069d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69520596"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72924634"
 ---
 # <a name="analyzer-nuget-formats"></a>Çözümleyici NuGet biçimleri
 
@@ -30,29 +30,29 @@ ms.locfileid: "69520596"
 - tools\ınstall.exe
 - tools\uninstall.exe
 
-Gördüğünüz gibi, çözümleyici dll 'lerini paketteki bir `analyzers` klasöre yerleştirebilirsiniz.
+Gördüğünüz gibi, çözümleyici dll 'Lerini paketteki bir `analyzers` klasöre yerleştirebilirsiniz.
 
 Çözümleyici uygulamasının yerine eski FxCop kurallarını devre dışı bırakmak için bulunan props dosyaları `build` klasörüne yerleştirilir.
 
-Kullanılarak `packages.config` projeleri destekleyen betikleri yükleme ve kaldırma komutları içine `tools`yerleştirilir.
+`packages.config` kullanarak projeleri destekleyen betikleri yükleme ve kaldırma `tools`içine yerleştirilir.
 
-Ayrıca, bu paketin platforma özgü gereksinimleri olmadığından, `platform` klasörün atlandığına de göz önünde unutmayın.
+Ayrıca, bu pakette platforma özgü gereksinimlere sahip olmadığı için `platform` klasörünün atlandığına de göz önünde unutmayın.
 
 
 ## <a name="analyzers-path-format"></a>Çözümleyiciler yol biçimi
 
-`analyzers` Klasörün kullanımı, [hedef çerçeveler](../create-packages/supporting-multiple-target-frameworks.md)için kullanılan ile benzerdir, yoldaki tanımlayıcılar derleme zamanı yerine geliştirme ana bilgisayar bağımlılıklarını da anlatmaktadır. Genel biçim aşağıdaki gibidir:
+`analyzers` klasörünün kullanımı, [hedef çerçeveler](../create-packages/supporting-multiple-target-frameworks.md)için kullanılanlara benzerdir, yoldaki tanımlayıcılar, derleme zamanı yerine geliştirme ana bilgisayar bağımlılıklarını anlatmaktadır. Genel biçim aşağıdaki gibidir:
 
     $/analyzers/{framework_name}{version}/{supported_architecture}/{supported_language}/{analyzer_name}.dll
 
-- **framework_name**: Içerdiği dll 'lerin çalıştırılması gereken .NET Framework *isteğe bağlı* API yüzey alanı. `dotnet`Şu anda tek geçerli değerdir çünkü Roslyn, çözümleyiciler çalıştırabildiğinden tek ana bilgisayar. Hiçbir hedef belirtilmemişse, dll 'Lerin *Tüm* hedeflere uygulanacak kabul edilir.
-- **supported_language** `cs` : DLL 'nin uygulandığı dil (( `fs` C#) ve `vb` (Visual Basic) ve (F#). Dil, çözümleyici 'nin yalnızca bu dil kullanılarak bir proje için yüklenmesi gerektiğini gösterir. Hiçbir dil belirtilmemişse, DLL 'nin Çözümleyicileri destekleyen *Tüm* dillere uygulanacağını kabul edilir.
+- **framework_name** ve **Sürüm**: kapsanan dll 'lerin çalışması için gereken .NET Framework *isteğe bağlı* API yüzey alanı. `dotnet` Şu anda tek geçerli değerdir çünkü Roslyn, çözümleyiciler çalıştırabildiğinden tek ana bilgisayar. Hiçbir hedef belirtilmemişse, dll 'Lerin *Tüm* hedeflere uygulanacak kabul edilir.
+- **supported_language**: DLL 'nin uygulandığı dil, `cs` (C#) ve`vb`(Visual Basic) ve`fs`(F#). Dil, çözümleyici 'nin yalnızca bu dil kullanılarak bir proje için yüklenmesi gerektiğini gösterir. Hiçbir dil belirtilmemişse, DLL 'nin Çözümleyicileri destekleyen *Tüm* dillere uygulanacağını kabul edilir.
 - **analyzer_name**: çözümleyici 'Nin dll 'lerini belirtir. Dll 'Lerden daha fazla dosya gerekiyorsa, bunlar bir hedefler veya özellikler dosyalarına dahil olmalıdır.
 
 
 ## <a name="install-and-uninstall-scripts"></a>Betikleri yükleme ve kaldırma
 
-Kullanıcının projesi kullanıyorsa `packages.config`, çözümleyici 'yi yükleyen MSBuild betiği Play 'e gelmez, bu nedenle `tools` klasörü aşağıda açıklanan içerikle birlikte `uninstall.ps1` yerleştirmeniz `install.ps1` gerekir.
+Kullanıcının projesi `packages.config`kullanıyorsa, çözümleyici 'yi yükleyen MSBuild betiği Play 'e gelmez, bu nedenle `install.ps1` ve `uninstall.ps1` aşağıda açıklanan içeriğe sahip `tools` klasörüne yerleştirmeniz gerekir.
 
 **. ps1 dosya içeriğini install**
 

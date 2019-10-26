@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 09/06/2019
 ms.topic: conceptual
-ms.openlocfilehash: 683ee7d1bef30d0a7414ec1694a9735d79b2ab45
-ms.sourcegitcommit: c529f5944868a0692ca8550b716a73e05df0ccbf
+ms.openlocfilehash: 3418eb9b60123596eaa361a546e8ea1403396f14
+ms.sourcegitcommit: f9645fc5f49c18978e12a292a3f832e162e069d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687882"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72924591"
 ---
 # <a name="nuget-53-release-notes"></a>NuGet 5,3 sürüm notları
 
@@ -18,11 +18,11 @@ NuGet dağıtım araçlar:
 
 | NuGet sürümü | Visual Studio sürümünde kullanılabilir| .NET SDK 'ları 'nda kullanılabilir|
 |:---|:---|:---|
-| [**5.3.0**](https://nuget.org/downloads) | [Visual Studio 2019 sürüm 16,3](https://visualstudio.microsoft.com/downloads/) | [3.0.100](https://dotnet.microsoft.com/download/dotnet-core/3.0) <sup>1</sup> |
-
+| [**5.3.0**](https://nuget.org/downloads) | [Visual Studio 2019 sürüm 16,3](https://visualstudio.microsoft.com/downloads/) | [3.0.100](https://dotnet.microsoft.com/download/dotnet-core/3.0)<sup>1</sup> |
+| [**5.3.1**](https://nuget.org/downloads) | [Visual Studio 2019 sürüm 16.3.6](https://visualstudio.microsoft.com/downloads/) | [Gelecek sürüm: 3.0.101](https://dotnet.microsoft.com/download/dotnet-core/3.0) |
 <sup>1</sup> .NET Core iş yüküne sahip Visual Studio 2019 ile yüklendi
 
-## <a name="summary-whats-new-in-53"></a>Özetleme 5,3 sürümündeki yenilikler
+## <a name="summary-whats-new-in-53"></a>Özet: 5,3 sürümündeki yenilikler
 
 * Paket simgesi, harici bir URL [olması yerine pakete gömülebilir](../reference/msbuild-targets.md#packing-an-icon-image-file). - [#352](https://github.com/NuGet/Home/issues/352)
 
@@ -36,7 +36,7 @@ NuGet dağıtım araçlar:
 
 * 3\.0.100-preview9 SDK ile oluşturulan NuGet paketleri 2,2 SDK kullanıcıları tarafından kullanılamaz... Saat dilimlerinize bağlı olarak [#8603](https://github.com/NuGet/Home/issues/8603)
 
-* QUOTE "yoldaki karakterler" yolda geçersiz karakterler "hata oluşmasına neden olur" `nuget restore` [#8168](https://github.com/NuGet/Home/issues/8168) hatası
+* QUOTE "YOLDAKI karakterler" yolda geçersiz karakterler "hata oluşmasına neden olur" `nuget restore` [#8168](https://github.com/NuGet/Home/issues/8168)
 
 * VS: derlemeler tamamen NGen tarafından, kısmen Ngen-Ed değil [#8513](https://github.com/NuGet/Home/issues/8513)
 
@@ -46,7 +46,7 @@ NuGet dağıtım araçlar:
 
 * NU1403 geliştirmeleri-tüm paketleri doğrula, beklenen/fiili SHA değerlerini dahil et- [#8424](https://github.com/NuGet/Home/issues/8424)
 
-* [#8401](https://github.com/NuGet/Home/issues/8401) birden çok `NuGetPackageManager.PreviewUpdatePackagesAsync`sabit listesi  - 
+* `NuGetPackageManager.PreviewUpdatePackagesAsync` - birden çok sabit listesi [#8401](https://github.com/NuGet/Home/issues/8401)
 
 * PluginProcess 'de "Public-> Internal" değişikliğini " [#8390](https://github.com/NuGet/Home/issues/8390)
 
@@ -70,7 +70,7 @@ NuGet dağıtım araçlar:
 
 * VS yavaş [#8156](https://github.com/NuGet/Home/issues/8156) ayarları okuma
 
-* "': ' Karakteri, onaltılık değeri 0x3a," Errors-#7948 bir ada eklenemez. [](https://github.com/NuGet/Home/issues/7948) `Nuget sources add`
+* `Nuget sources add` gerileme "': ' karakteri, onaltılık değeri 0x3A, bir ada" Errors- [#7948](https://github.com/NuGet/Home/issues/7948) eklenemez
 
 * NuGet eklentisi kimlik bilgileri sağlayıcıları-işlem penceresini gizleyin- [#7511](https://github.com/NuGet/Home/issues/7511)
 
@@ -86,10 +86,16 @@ NuGet dağıtım araçlar:
 
 * . Proj dosyalarında geri yüklemeyi etkinleştir- [#8212](https://github.com/NuGet/Home/issues/8212)
 
-* Her `NUGET_NETFX_PLUGIN_PATHS` ikisinin `NUGET_NETCORE_PLUGIN_PATHS` de aynı anda yapılandırmasını tanıtın ve bu yapılandırmayı destekler [#8151](https://github.com/NuGet/Home/issues/8151)
+* `NUGET_NETFX_PLUGIN_PATHS` ve `NUGET_NETCORE_PLUGIN_PATHS` her ikisi de aynı anda yapılandırmasını desteklemek için [#8151](https://github.com/NuGet/Home/issues/8151)
 
 * Sürüm özniteliği aracılığıyla PackageDownload için birden çok sürümü etkinleştirme- [#8074](https://github.com/NuGet/Home/issues/8074)
 
 * NuGet. exe paketine-SolutionDirectory ve-PackageDirectory seçeneklerini ekleyin- [#7163](https://github.com/NuGet/Home/issues/7163)
 
 **[Bu yayında düzeltilen tüm sorunların listesi-5,3](https://github.com/nuget/home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%225.3")**
+
+## <a name="summary-whats-new-in-531"></a>Özet: 5.3.1 'deki yenilikler
+
+* Eklenti: bir görev iptal edildi-iptallerin eklenti örneğini etkilemesine izin verme- [#8648](https://github.com/NuGet/Home/issues/8648)
+
+* Geri yükleme görevi bir işlemde güvenle iki kez çalıştırılamaz (kimlik bilgileri sağlayıcıları kullanıldığında)- [#8688](https://github.com/NuGet/Home/issues/8688)
