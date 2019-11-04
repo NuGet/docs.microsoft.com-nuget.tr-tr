@@ -34,9 +34,9 @@ isteğe bağlı arama terimleri, görüntülenecek listeyi filtreleyecek. Arama 
 | ConfigFile | Uygulanacak NuGet yapılandırma dosyası. Belirtilmemişse, `%AppData%\NuGet\NuGet.Config` (Windows) veya `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) kullanılır.|
 | ForceEnglishOutput | *(3,5 +)* NuGet. exe ' yi sabit, Ingilizce tabanlı bir kültür kullanarak çalışmaya zorlar. |
 | Help | Komut için yardım bilgilerini görüntüler. |
-| Includedelistelenmiş | *(3.2 +)* Listelenmemiş paketleri görüntüle. |
+| IncludeDelisted | *(3.2 +)* Listelenmemiş paketleri görüntüle. |
 | NonInteractive | Kullanıcı girişi veya onayları için istemleri bastırır. |
-| Sp1'in | Listedeki yayın öncesi paketleri içerir. |
+| PreRelease | Listedeki yayın öncesi paketleri içerir. |
 | Source | Aranacak paket kaynaklarının bir listesini belirtir. |
 | Verbosity | Çıktıda görünen ayrıntı miktarını belirtir: *normal*, *sessiz*, *ayrıntılı*. |
 
