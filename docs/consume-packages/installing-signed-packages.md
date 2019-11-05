@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7b92d07d19a2e9073ecc38ed37b4ee2491080443
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 89b5fcbd76b85b77489ab36caa215c3a2fedf032
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317767"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610968"
 ---
 # <a name="manage-package-trust-boundaries"></a>Paket güven sınırlarını yönetme
 
@@ -24,7 +24,7 @@ ms.locfileid: "68317767"
 > [!Note]
 > Windows üzerinde NuGet 4.9.0 + ve Visual Studio sürüm 15,9 ve üstünü gerektirir
 
-NuGet `signatureValidationMode` istemcilerinin, `require` [komutunu`nuget config`](../reference/cli-reference/cli-ref-config.md) kullanarak [NuGet. config](../reference/nuget-config-file.md) dosyasında öğesini ayarlayarak paket imzalarını nasıl doğruladığını yapılandırabilirsiniz.
+NuGet istemcilerinin, [`nuget config`](../reference/cli-reference/cli-ref-config.md) komutunu kullanarak [NuGet. config](../reference/nuget-config-file.md) dosyasında `require` `signatureValidationMode` ayarlayarak paket imzalarını nasıl doğruladığını yapılandırabilirsiniz.
 
 ```cmd
 nuget.exe config -set signatureValidationMode=require
@@ -36,11 +36,11 @@ nuget.exe config -set signatureValidationMode=require
   </config>
 ```
 
-Bu mod, tüm paketlerin `nuget.config` dosyada güvenilen sertifikalar tarafından imzalandığını doğrular. Bu dosya, sertifikanın parmak izine göre hangi yazarların ve/veya depoların güvenilir olduğunu belirtmenizi sağlar.
+Bu mod, tüm paketlerin `nuget.config` dosyasında güvenilen sertifikalar tarafından imzalandığını doğrular. Bu dosya, sertifikanın parmak izine göre hangi yazarların ve/veya depoların güvenilir olduğunu belirtmenizi sağlar.
 
 ### <a name="trust-package-author"></a>Güven paketi yazarı
 
-Yazar imzasına göre paketlere güvenmek için, [`trusted-signers`](../reference/cli-reference/cli-ref-trusted-signers.md) NuGet. config dosyasındaki `author` özelliği ayarlamak için komutunu kullanın.
+Yazar imzasına göre paketlere güvenmek için, NuGet. config dosyasındaki `author` özelliğini ayarlamak üzere [`trusted-signers`](../reference/cli-reference/cli-ref-trusted-signers.md) komutunu kullanın.
 
 ```cmd
 nuget.exe  trusted-signers Add -Name MyCompanyCert -CertificateFingerprint CE40881FF5F0AD3E58965DA20A9F571EF1651A56933748E1BF1C99E537C4E039 -FingerprintAlgorithm SHA256
@@ -55,7 +55,7 @@ nuget.exe  trusted-signers Add -Name MyCompanyCert -CertificateFingerprint CE408
 ```
 
 >[!TIP]
->Sertifikanın parmak izi `SHA256` değerini almak için [Verify komutunu](../reference/cli-reference/cli-ref-verify.md) kullanın. `nuget.exe`
+>Sertifikanın parmak izini `SHA256` değerini almak için `nuget.exe` [Verify komutunu](../reference/cli-reference/cli-ref-verify.md) kullanın.
 
 
 ### <a name="trust-all-packages-from-a-repository"></a>Bir depodan tüm paketlere güvenin
@@ -95,7 +95,7 @@ Bazı durumlarda, yerel makinedeki güvenilir bir köke zincirsiz olmayan sertif
 
 ### <a name="sync-repository-certificates"></a>Depo sertifikalarını Eşitle
 
-Paket depoları, kendi [hizmet dizininde](../api/service-index.md)kullandıkları sertifikaları duyurmalıdır. Sonuç olarak, sertifikanın süresi dolduktan sonra depo bu sertifikaları güncelleştirir. Bu durumda, belirli ilkelere sahip istemciler, yeni eklenen sertifikayı dahil etmek için yapılandırmada bir güncelleştirme yapılmasını gerektirir. `nuget.exe` [Güvenilen imzalayanlar eşitleme komutunu](../reference/cli-reference/cli-ref-trusted-signers.md#nuget-trusted-signers-sync--name-)kullanarak bir depoyla ilişkili güvenilen İmzalayanları kolayca yükseltebilirsiniz.
+Paket depoları, kendi [hizmet dizininde](../api/service-index.md)kullandıkları sertifikaları duyurmalıdır. Sonuç olarak, sertifikanın süresi dolduktan sonra depo bu sertifikaları güncelleştirir. Bu durumda, belirli ilkelere sahip istemciler, yeni eklenen sertifikayı dahil etmek için yapılandırmada bir güncelleştirme yapılmasını gerektirir. Bir depoyla ilişkili güvenilen İmzalayanları, `nuget.exe` [güvenilir-imzalayanların Sync komutu] (..) kullanarak kolayca yükseltebilirsiniz. /Reference/cli-Reference/cli-ref-Trusted-signers.MD # NuGet-güvenilen-signers-Sync--ad-Name
 
 ### <a name="schema-reference"></a>Şema başvurusu
 

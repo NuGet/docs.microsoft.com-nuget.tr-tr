@@ -7,16 +7,16 @@ ms.date: 07/08/2019
 ms.topic: conceptual
 f1_keywords:
 - vs.nuget.packagemanager.console
-ms.openlocfilehash: 1fb12c6cb9f7702c05990f79a6d43b9dd739e8cc
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 42031f7b5fe4d3c1b4dbe5e1bfbf9197014e0e88
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68328425"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73611106"
 ---
 # <a name="install-and-manage-packages-with-the-package-manager-console-in-visual-studio-powershell"></a>Visual Studio 'da Paket Yöneticisi konsolu ile paket yükleyip yönetme (PowerShell)
 
-NuGet Paket Yöneticisi konsolu NuGet paketlerini bulmak, yüklemek, kaldırmak ve güncelleştirmek için [NuGet PowerShell komutlarını](../reference/powershell-reference.md) kullanmanıza olanak sağlar. Konsolunu kullanmak, Paket Yöneticisi Kullanıcı arabiriminin bir işlemi gerçekleştirmek için bir yol sağlamayan durumlarda gereklidir. Konsolunda CLI `nuget.exe` komutlarını kullanmak için, bkz. [konsolundaki NuGet. exe CLI kullanma](#use-the-nugetexe-cli-in-the-console).
+NuGet Paket Yöneticisi konsolu NuGet paketlerini bulmak, yüklemek, kaldırmak ve güncelleştirmek için [NuGet PowerShell komutlarını](../reference/powershell-reference.md) kullanmanıza olanak sağlar. Konsolunu kullanmak, Paket Yöneticisi Kullanıcı arabiriminin bir işlemi gerçekleştirmek için bir yol sağlamayan durumlarda gereklidir. Konsolunda `nuget.exe` CLı komutlarını kullanmak için, bkz. [konsolundaki NuGet. exe CLI kullanma](#use-the-nugetexe-cli-in-the-console).
 
 Konsol, Windows üzerinde Visual Studio 'da yerleşik olarak bulunur. Mac için Visual Studio veya Visual Studio Code dahil değildir.
 
@@ -54,13 +54,13 @@ Konsol, Windows üzerinde Visual Studio 'da yerleşik olarak bulunur. Mac için 
 
     ![Paket kaynağı ve proje için Paket Yöneticisi konsol denetimleri](media/PackageManagerConsoleControls1.png)
 
-1. Farklı bir paket kaynağı ve/veya proje seçildiğinde, Bu varsayılanlar sonraki komutlara göre değişir. Varsayılanları değiştirmeden bu ayarları fazla bir şekilde değiştirmek için, çoğu komut destek `-Source` ve `-ProjectName` seçenekleri.
+1. Farklı bir paket kaynağı ve/veya proje seçildiğinde, Bu varsayılanlar sonraki komutlara göre değişir. Varsayılanları değiştirmeden bu ayarları fazla devre dışı bırakmak için çoğu komut `-Source` ve `-ProjectName` seçeneklerini destekler.
 
 1. Paket kaynaklarını yönetmek için dişli simgesini seçin. Bu, [Paket Yöneticisi Kullanıcı arabirimi](install-use-packages-visual-studio.md#package-sources) sayfasında açıklandığı şekilde, **> araçlar > NuGet Paket Yöneticisi > paket kaynakları** iletişim kutusunun bir kısayoludur. Ayrıca, proje seçicisinin sağında bulunan denetim konsolun içeriğini de temizler:
 
     ![Paket Yöneticisi konsol ayarları ve Temizleme denetimleri](media/PackageManagerConsoleControls2.png)
 
-1. En sağdaki düğme uzun süre çalışan bir komutu keser. Örneğin, `Get-Package -ListAvailable -PageSize 500` çalıştırmak birkaç dakika sürebilen varsayılan kaynakta (örneğin, NuGet.org) ilk 500 paketi listeler.
+1. En sağdaki düğme uzun süre çalışan bir komutu keser. Örneğin `Get-Package -ListAvailable -PageSize 500` çalıştırmak, varsayılan kaynakta (örneğin, nuget.org) ilk 500 paketi listeler ve bu da çalışması birkaç dakika sürebilir.
 
     ![Paket Yöneticisi konsolu denetimi durdur](media/PackageManagerConsoleControls3.png)
 
@@ -99,7 +99,7 @@ Bkz. [Uninstall-Package](../reference/ps-reference/ps-ref-uninstall-package.md).
 Bir paketin kaldırılması aşağıdaki eylemleri gerçekleştirir:
 
 - Projedeki paketin başvurularını kaldırır (ve hangi yönetim biçiminin kullanımda olduğunu). Başvurular artık **Çözüm Gezgini**görünmüyor. ( **Bin** klasöründen kaldırıldığını görmek için projeyi yeniden oluşturmanız gerekebilir.)
-- Paket yüklendiğinde `app.config` veya ' de `web.config` yapılan tüm değişiklikleri tersine çevirir.
+- Paket yüklendiğinde `app.config` veya `web.config` yapılan tüm değişiklikleri tersine çevirir.
 - Kalan hiçbir paket bu bağımlılıkları kullanıyorsa, önceden yüklenmiş bağımlılıkları kaldırır.
 
 ## <a name="update-a-package"></a>Bir paketi güncelleştirme
@@ -143,7 +143,7 @@ Bkz. [bul-Package](../reference/ps-reference/ps-ref-find-package.md). Visual Stu
 
 Visual Studio 2017 ' den başlayarak, herhangi birini seçtiğinizde NuGet ve NuGet Paket Yöneticisi otomatik olarak yüklenir. NET ilgili iş yükleri; Visual Studio yükleyicisindeki **tek tek bileşenler > Code araçları > NuGet Paket Yöneticisi** seçeneğini tek tek denetleyerek de yükleyebilirsiniz.
 
-Ayrıca, Visual Studio 2015 ve önceki sürümlerde NuGet Paket Yöneticisi eksik ise **araçlar > Uzantılar ve güncelleştirmeler...** ' ı Işaretleyin ve NuGet Paket Yöneticisi uzantısını arayın. Visual Studio 'da uzantılar yükleyicisini kullandıysanız, doğrudan uzantıyı konumundan [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html)indirebilirsiniz.
+Ayrıca, Visual Studio 2015 ve önceki sürümlerde NuGet Paket Yöneticisi eksik ise **araçlar > Uzantılar ve güncelleştirmeler...** ' ı Işaretleyin ve NuGet Paket Yöneticisi uzantısını arayın. Visual Studio 'da uzantılar yükleyicisini kullandıysanız, uzantıyı doğrudan [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html)yükleyebilirsiniz.
 
 Paket Yöneticisi konsolu Mac için Visual Studio şu anda kullanılamıyor. Ancak eşdeğer komutlar [NUGET CLI](../reference/nuget-exe-CLI-reference.md)aracılığıyla kullanılabilir. Mac için Visual Studio NuGet paketlerini yönetmek için bir kullanıcı arabirimine sahiptir. Bkz. [projenizde bir NuGet paketi ekleme](/visualstudio/mac/nuget-walkthrough).
 
@@ -151,7 +151,7 @@ Paket Yöneticisi konsolu Visual Studio Code dahil değildir.
 
 ## <a name="extend-the-package-manager-console"></a>Paket Yöneticisi konsolunu genişletme
 
-Bazı paketler konsol için yeni komutlar yükler. Örneğin, `MvcScaffolding` aşağıda gösterildiği gibi `Scaffold` , ASP.NET MVC denetleyicileri ve görünümleri üreten komutlar oluşturur:
+Bazı paketler konsol için yeni komutlar yükler. Örneğin, `MvcScaffolding` aşağıda gösterilen `Scaffold` gibi komutları oluşturur ve bu, ASP.NET MVC denetleyicileri ve görünümleri oluşturur:
 
 ![MvcScaffold yükleme ve kullanma](media/PackageManagerConsoleInstall.png)
 
@@ -161,7 +161,7 @@ PowerShell profili, PowerShell kullandığınızda yaygın olarak kullanılan ko
 
     %UserProfile%\Documents\WindowsPowerShell\NuGet_profile.ps1
 
-Profili bulmak için konsola şunu yazın `$profile` :
+Profili bulmak için konsola `$profile` yazın:
 
 ```ps
 $profile
@@ -172,9 +172,9 @@ Daha fazla ayrıntı için [Windows PowerShell profillerine](https://technet.mic
 
 ## <a name="use-the-nugetexe-cli-in-the-console"></a>Konsolda NuGet. exe CLı 'yı kullanma
 
-CLI 'yı Paket Yöneticisi konsolunda kullanılabilir hale getirmek [ `nuget.exe` ](../reference/nuget-exe-cli-reference.md) için, konsolundan [NuGet. CommandLine](http://www.nuget.org/packages/NuGet.CommandLine/) paketini yüklemek için:
+[`nuget.exe` CLI](../reference/nuget-exe-cli-reference.md) 'Yı Paket Yöneticisi konsolunda kullanılabilir hale getirmek için, konsolundan [NuGet. CommandLine](https://www.nuget.org/packages/NuGet.CommandLine/) paketini yüklemek için:
 
 ```ps
-# Other versions are available, see http://www.nuget.org/packages/NuGet.CommandLine/
+# Other versions are available, see https://www.nuget.org/packages/NuGet.CommandLine/
 Install-Package NuGet.CommandLine -Version 4.4.1
 ```

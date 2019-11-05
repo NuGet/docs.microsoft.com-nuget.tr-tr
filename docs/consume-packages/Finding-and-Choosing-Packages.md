@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: cbe6fd964e88b054b9e2c5c8ead71d1f9090d63c
-ms.sourcegitcommit: 5aa49478dc466c67db5c3edda7c6ce8dcd8ae033
+ms.openlocfilehash: 9947a490e4373bb0b8b7fb0814828ff2a60615a8
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68817572"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73611079"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Projeniz için NuGet paketlerini bulma ve değerlendirme
 
-Herhangi bir .NET projesi başlatırken veya uygulamanız veya hizmetiniz için bir işlevsel ihtiyacı her belirlediğinizde, bu ihtiyacı karşılayan mevcut NuGet paketlerini kullanarak kendinize ait birçok zaman ve sorunu kaydedebilirsiniz. Bu paketler, [NuGet.org](http://www.nuget.org/packages/)üzerindeki genel koleksiyondan veya kuruluşunuz ya da başka bir üçüncü taraf tarafından sunulan özel bir kaynaktan gelebilir.
+Herhangi bir .NET projesi başlatırken veya uygulamanız veya hizmetiniz için bir işlevsel ihtiyacı her belirlediğinizde, bu ihtiyacı karşılayan mevcut NuGet paketlerini kullanarak kendinize ait birçok zaman ve sorunu kaydedebilirsiniz. Bu paketler, [NuGet.org](https://www.nuget.org/packages/)üzerindeki genel koleksiyondan veya kuruluşunuz ya da başka bir üçüncü taraf tarafından sunulan özel bir kaynaktan gelebilir.
 
 ## <a name="finding-packages"></a>Paketleri bulma
 
@@ -42,7 +42,7 @@ Neyse ki, desteklenen çerçeveleri iki farklı yöntemle de belirleyebilirsiniz
 
 1. NuGet Paket Yöneticisi konsolundaki [`Install-Package`](../reference/ps-reference/ps-ref-install-package.md) komutunu kullanarak bir projeye paket yüklemeyi deneyin. Paket uyumsuzsa, bu komutta paketin desteklenen çerçeveleri gösterilir.
 
-1. **Bilgi**altında **el ile indirme** bağlantısını kullanarak paketi NuGet.org sayfasındaki sayfasından indirin. Uzantısını `.nupkg` `lib` olarak `.zip`değiştirin ve klasörünün içeriğini incelemek için dosyayı açın. Her bir alt klasörün bir hedef çerçeve adıyla (tfd; bkz. [hedef çerçeveler](../reference/target-frameworks.md)) adlandırılmış olduğu her bir desteklenen çerçeve için alt klasörler görürsünüz. Ve yalnızca tek bir dll altında `lib` alt klasör yoksa, uyumluluğunu öğrenmek için bu paketi projenize yüklemeyi denemeniz gerekir.
+1. **Bilgi**altında **el ile indirme** bağlantısını kullanarak paketi NuGet.org sayfasındaki sayfasından indirin. `.nupkg` uzantısını `.zip`olarak değiştirin ve `lib` klasörünün içeriğini incelemek için dosyayı açın. Her bir alt klasörün bir hedef çerçeve adıyla (tfd; bkz. [hedef çerçeveler](../reference/target-frameworks.md)) adlandırılmış olduğu her bir desteklenen çerçeve için alt klasörler görürsünüz. `lib` altında bir alt klasör ve yalnızca tek bir DLL görürseniz, uyumluluğunu saptamak için paketi projenize yüklemeyi denemeniz gerekir.
 
 ## <a name="pre-release-packages"></a>Yayın öncesi paketler
 
@@ -58,19 +58,19 @@ Visual Studio 'da ve NuGet ve DotNet CLı araçları kullanılırken, NuGet vars
 
     ![Visual Studio 'da ön sürümü dahil et onay kutusu](media/Prerelease_02-CheckPrerelease.png)
 
-- **Paket Yöneticisi konsolu**: `Find-Package`, `-IncludePrerelease` ,,`Install-Package`Ve komutlarıyla`Update-Package` anahtarı kullanın. `Get-Package` `Sync-Package` [PowerShell başvurusuna](../reference/powershell-reference.md)bakın.
+- **Paket Yöneticisi konsolu**: `-IncludePrerelease` anahtarını `Find-Package`, `Get-Package`, `Install-Package`, `Sync-Package`ve `Update-Package` komutlarıyla kullanın. [PowerShell başvurusuna](../reference/powershell-reference.md)bakın.
 
-- **NuGet. exe CLI**: `install` `-prerelease` , ,`update`Vekomutlarıyla anahtarıkullanın`mirror` . `delete` [NUGET CLI başvurusuna](../reference/nuget-exe-cli-reference.md) bakın
+- **NuGet. exe CLI**: `install`, `update`, `delete`ve `mirror` komutlarıyla `-prerelease` anahtarını kullanın. [NUGET CLI başvurusuna](../reference/nuget-exe-cli-reference.md) bakın
 
-- **DotNet. exe CLI**: `-v` Bağımsız değişkenini kullanarak tam yayın öncesi sürümü belirtin. [DotNet paket başvurusu Ekle](/dotnet/core/tools/dotnet-add-package)' ye başvurun.
+- **DotNet. exe CLI**: `-v` bağımsız değişkenini kullanarak tam yayın öncesi sürümü belirtin. [DotNet paket başvurusu Ekle](/dotnet/core/tools/dotnet-add-package)' ye başvurun.
 
 <a name="native-cpp-packages"></a>
 
 ### <a name="native-c-packages"></a>Yerel C++ paketler
 
-NuGet, yerel C++ paketleri destekler ve bu, Visual Studio C++ 'da projelerde kullanılabilir. Bu, projeler için **NuGet Paketlerini Yönet** bağlam-menü komutunu sağlar, bir `native` hedef çerçeve sunar ve MSBuild tümleştirmesi sağlar.
+NuGet, yerel C++ paketleri destekler ve bu, Visual Studio C++ 'da projelerde kullanılabilir. Bu, projeler için **NuGet Paketlerini Yönet** bağlam-menü komutunu sağlar, bir `native` hedef çerçevesi sunar ve MSBuild tümleştirmesi sağlar.
 
-[NuGet.org](https://www.nuget.org/packages)üzerindeki yerel paketleri bulmak için kullanarak `tag:native`arama yapın. Bu tür paketler genellikle `.targets` ve `.props` dosyalarını sağlar ve paket bir projeye eklendiğinde otomatik olarak NuGet içeri aktarır.
+[NuGet.org](https://www.nuget.org/packages)üzerindeki yerel paketleri bulmak için `tag:native`kullanarak arama yapın. Bu tür paketler genellikle, paket projeye eklendiğinde NuGet 'in içeri aktardığı `.targets` ve `.props` dosyalarını sağlar.
 
 ## <a name="evaluating-packages"></a>Paketler değerlendiriliyor
 
@@ -92,7 +92,7 @@ Aynı zamanda, bir NuGet paketinin kullanılması, bunun sağlam ve güvenilir o
 
 - *Son yüklemeler*: Paket sayfasında **İstatistikler**altında, **tam istatistikleri görüntüle**' yi seçin. Tüm İstatistikler sayfasında, paketin sürüm numarasına göre son altı haftaya göre yüklemesi gösterilmektedir. Diğer geliştiricilerin etkin şekilde kullandığı bir paket, genellikle daha iyi bir seçenektir.
 
-- *Destek*: Yazar ' ın altındaki paketsayfasında, yazarın sağladığı destek seçeneklerini görmek için **Proje sitesi** ' ni (varsa) seçin. Adanmış bir siteye sahip bir proje genellikle daha iyi desteklenir.
+- *Destek*: Yazar **' ın altındaki**paket sayfasında, yazarın sağladığı destek seçeneklerini görmek için **Proje sitesi** ' ni (varsa) seçin. Adanmış bir siteye sahip bir proje genellikle daha iyi desteklenir.
 
 - *Geliştirici geçmişi*: **sahipler**altındaki paket sayfasında, yayımladıkları diğer paketleri görmek için bir sahip seçin. Birden çok pakete sahip olanlar, işlerini daha sonra desteklemeye devam edememe olasılığı yüksektir.
 
@@ -100,7 +100,7 @@ Aynı zamanda, bir NuGet paketinin kullanılması, bunun sağlam ve güvenilir o
 
 - *Sahipleri*arayın: yeni geliştiriciler, sizin için harika paketler oluşturmaya tamamen eşit bir şekilde kararlıdır ve bu kullanıcılara NuGet ekosistemine yeni bir şey getirmenin bir şansı vermek iyi olabilir. Bu göz önünde bulundurularak, liste sayfasında **bilgi** altında **kişi sahipleri** ' nı kullanarak doğrudan paket geliştiricilerine ulaşın. Olasılığınızı karşılamak için sizinle birlikte çalışmak iyi olacaktır!
 
-- *Ayrılmış paket kimliği önekleri*: için çok sayıda paket sahibi uygulandı ve [ayrılmış bir paket kimliği öneki](../nuget-org/id-prefix-reservation.md)verdi. [NuGet.org](https://www.nuget.org/)veya Visual Studio 'daki BIR paket kimliğinin yanındaki görsel onay işaretini gördüğünüzde, bu, paket sahibinin kimlik ön eki ayırma ölçütlerimizi karşıladığı anlamına [](../nuget-org/id-prefix-reservation.md#id-prefix-reservation-criteria) gelir. Bu, paket sahibinin kendilerini ve paketini tanımlamaya açık olduğu anlamına gelir.
+- *Ayrılmış paket kimliği önekleri*: için çok sayıda paket sahibi uygulandı ve [ayrılmış bir paket kimliği öneki](../nuget-org/id-prefix-reservation.md)verdi. [NuGet.org](https://www.nuget.org/)veya Visual Studio 'daki BIR paket kimliğinin yanındaki görsel onay işaretini gördüğünüzde, bu, paket sahibinin kimlik ön eki ayırma [ölçütlerimizi](../nuget-org/id-prefix-reservation.md#id-prefix-reservation-criteria) karşıladığı anlamına gelir. Bu, paket sahibinin kendilerini ve paketini tanımlamaya açık olduğu anlamına gelir.
 
 > [!Note]
 > Her zaman bir paketin lisans koşullarına sahip olun, bu, nuget.org üzerindeki bir paketin liste sayfasında **Lisans bilgileri** ' ni seçerek görebilirsiniz. Bir paket lisans koşulları belirtmezse, paket sayfasındaki **kişi sahipleri** bağlantısını kullanarak doğrudan paket sahibine başvurun. Microsoft, üçüncü taraf paket sağlayıcılarından sizin için herhangi bir fikri mülkiyet hakkı vermez ve üçüncü taraflar tarafından sunulan bilgilerden sorumlu değildir.
@@ -115,19 +115,19 @@ Bu sayfaya getirilen bir paketin lisans URL 'sine tıkladığınızda, paketin b
 
 Paketin içindeki lisans dosyasında yer alan bilgileri şu şekilde okuyabilirsiniz:
 1. NuGet paketini indirin ve içeriğini bir klasöre ayıklayın.
-1. Bu klasörün kökünde olacak dosyayıaçın.`.nuspec`
-1. Şöyle `<license type="file">license\license.txt</license>`bir etiketi olmalıdır. Bu, lisans dosyasının adlandırıldığını `license.txt` ve bu klasörün kökünde de olacak adlı `license` bir klasörün içinde olduğunu gösterir.
-1. Klasöre gidin ve `license.txt` dosyayı açın. `license`
+1. Bu klasörün kökündeki `.nuspec` dosyasını açın.
+1. `<license type="file">license\license.txt</license>`gibi bir etikete sahip olmalıdır. Bu, lisans dosyasının `license.txt` olarak adlandırıldığını ve bu klasörün kökünde de olan `license` adlı bir klasörün içinde olduğunu gösterir.
+1. `license` klasöre gidin ve `license.txt` dosyasını açın.
 
-İçinde `.nuspec`lisansı ayarlamaya yönelik MSBuild eşdeğeri için [Lisans ifadesi veya lisans dosyası paketleme](/nuget/reference/msbuild-targets#packing-a-license-expression-or-a-license-file)konusuna göz atın.
+`.nuspec`lisansı ayarlamaya yönelik MSBuild eşdeğeri için [Lisans ifadesi veya lisans dosyası paketleme](/nuget/reference/msbuild-targets#packing-a-license-expression-or-a-license-file)bölümüne göz atın.
 
 ## <a name="search-syntax"></a>Arama söz dizimi
 
 NuGet paket araması, NuGet CLı ve Visual Studio 'daki NuGet Paket Yöneticisi uzantısı içindeki nuget.org üzerinde aynı şekilde çalışmaktadır. Genel olarak, arama anahtar sözcüklere ve paket açıklamalarına uygulanır.
 
-- **Anahtar sözcükler**: Arama, belirtilen anahtar sözcüklerden herhangi birini içeren ilgili paketleri arar. Örnek: `modern UI`. Tüm sunulan anahtar kelimeleri içeren paketleri aramak için, gibi terimler `modern+UI`arasında "+" kullanın.
-- **Tümcecikler**: Tırnak işaretleri içine terimleri girmek, bu şartların tam büyük/küçük harf duyarsız eşleşmelerini arar. Örnek: `"modern UI" package`
-- **Filtreleme**: `packageid` `id` (Büyük`version`/küçük harf duyarsız) ,`tags`,,,,,,,,,,,,,,,,,,,,,,,, `title` `<property>:<term>` `<property>` `author` `description` ,`summary`ve .`owner` Şartlar gerektiğinde tırnak içinde bulunabilir ve aynı anda birden çok özellik arayabilirsiniz. Ayrıca, `id` özelliğindeki aramalar alt dize eşleşmelerinde `packageid` , tam eşleşme kullanır. Örnekler:
+- **Anahtar sözcükler**: arama, belirtilen anahtar sözcüklerden herhangi birini içeren ilgili paketleri arar. Örnek: `modern UI`. Tüm sunulan anahtar kelimeleri içeren paketleri aramak için, `modern+UI`gibi terimler arasında "+" kullanın.
+- **Tümcecikler**: tırnak işaretleri içine hüküm girilmesi, bu şartların tam büyük/küçük harf duyarsız eşleşmelerini arar. Örnek: `"modern UI" package`
+- **Filtreleme**: `<property>` (büyük/küçük harf duyarsız) `id`, `packageid`, `version`, `title`, `tags`, `author`, `description``<property>:<term>` söz dizimini kullanarak belirli bir özelliğe arama terimi uygulayabilirsiniz. , `summary`ve `owner`. Şartlar gerektiğinde tırnak içinde bulunabilir ve aynı anda birden çok özellik arayabilirsiniz. Ayrıca, `id` özelliğindeki aramalar alt dize eşleşmelerinde, `packageid` tam bir eşleşme kullanır. Örnekler:
 
     ```
     id:NuGet.Core                # Match any part of the id property

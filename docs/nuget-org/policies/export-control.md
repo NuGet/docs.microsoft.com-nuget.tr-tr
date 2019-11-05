@@ -1,31 +1,31 @@
 ---
-title: Denetim ilkesini Dışarı Aktar
-description: Dışarı aktarma denetim yasalarına yöneten ilkeleri
+title: Export Control Policy
+description: Policies governing export control laws
 author: karann-msft
 ms.author: karann
 ms.date: 06/27/2019
 ms.topic: conceptual
-ms.openlocfilehash: 97e7b253bed84fc6e9a97922c19756d138dd0381
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 4ea2d2f23a02088b54982b825a5be3c872e27c37
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67427496"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73611315"
 ---
-# <a name="export-control-policy"></a>Denetim ilkesini Dışarı Aktar
+# <a name="export-control-policy"></a>Export Control Policy
 
-İçerik için yüklemek veya NuGet.org erişim verme denetim yasalarına ABD de dahil olmak üzere ABD tabi olabilir. İdaresi yönetmelikleri (AYRILMIŞ) dışarı aktarın.  Kolaylık olması için bazı bilgiler aşağıda sağladık olsa da, NuGet.org ve ilgili tüm hizmetleri kullanımınız ile ilgili tüm yasalara uygun ve ABD de dahil olmak üzere, denetim yasalarına verme sağlamaktan sorumlu olduğunuz ve uyumlu ile bizim [kullanım koşullarını](https://www.nuget.org/policies/Terms).
+The content you upload to or access from NuGet.org may be subject to U.S. export control laws, including U.S. Export Administration Regulations (the EAR).  While we have provided some information below for your convenience, you are ultimately responsible for ensuring that your use of NuGet.org and any related services complies with all applicable laws and regulations, including U.S. export control laws, and complies with our [Terms of Use](https://www.nuget.org/policies/Terms).
 
-## <a name="publicly-available-encryption-source-code"></a>Genel kullanıma açık şifreleme kaynak kodu
+## <a name="publicly-available-encryption-source-code"></a>Publicly available encryption source code
 
-KULAK içinde açıklanan bildirim gereksinimlere tabi, şifreleme kaynak kodu 5D002 ECCN altında sınıflandırılmış artık kulak tabi değildir.  Lisans ücreti ödeme için hızlı bir sözleşme veya ticari üretim ya da satışını kaynak kodunu kullanarak geliştirilen herhangi bir ürün için lisanslı tabi olsa bile, bu tür kaynak kodu herkes tarafından kullanılabilir.
+Subject to the notification requirements described in the EAR, encryption source code classified under ECCN 5D002 is no longer subject to the EAR.  Such source code is publicly available even if it is subject to an express agreement for the payment of a licensing fee or royalty for commercial production or sale of any product developed using the source code.
 
-## <a name="notification-requirement"></a>Bildirim gereksinimleri
+## <a name="notification-requirement"></a>Notification requirement
 
-KULAK belirtildiği gibi (742.15(b) bölüm & 734.3(b)(3)), kişi veya sağlama veya şifreleme kaynak kodu Karşıya varlık ABD bildir gerekir Araştırma bürosu sektör ve güvenlik (BIS) ENC şifreleme isteği Düzenleyici 5D002 ECCN altında sınıflandırılmış genel kullanıma açık şifreleme kaynak kodunun Internet konum (örneğin, URL veya Internet adresi) e-posta aracılığıyla veya bunların her biri bir kopyasını sağlayın Genel kullanıma açık şifreleme kaynak kodu. Güncelleştirme veya şifreleme kaynak kodunu değiştirin, bunların her biri için ek kopya şifreleme kaynak kodu şifreleme işlevlerini güncelleştirilemez veya her zaman sağlamanız gerekir. Ayrıca, şifreleme kaynak kodu (örneğin, aracılığıyla NuGet.org) Internet üzerinde gönderilen, YAYIMLAMASINI üzerindedir ve ENC şifreleme isteği Düzenleyici Internet konumun her değiştirildiğinde, ancak bunları güncelleştirmeleri ve değişiklikleri bildirmek için gerekli değildir daha önce bildirilen konumda şifreleme kaynak koduna yapılan. Tüm durumlarda, bildirim göndermek veya kopyalayın crypt@bis.doc.gov ve enc@nsa.gov.
+As specified in the EAR (Part 742.15(b) & 734.3(b)(3)), the person or entity providing or uploading encryption source code must notify the U.S. Bureau of Industry and Security (BIS) and the ENC Encryption Request Coordinator via email of the Internet location (e.g., URL or Internet address) of the publicly available encryption source code classified under ECCN 5D002 or provide each of them a copy of the publicly available encryption source code. If you update or modify the encryption source code, you must also provide additional copies to each of them each time the cryptographic functionality of the encryption source code is updated or modified. In addition, if you posted the encryption source code on the Internet (e.g., via NuGet.org), you must notify BIS and the ENC Encryption Request Coordinator each time the Internet location is changed, but you are not required to notify them of updates or modifications made to the encryption source code at the previously notified location. In all instances, submit the notification or copy to crypt@bis.doc.gov and to enc@nsa.gov.
 
-## <a name="commerical-software"></a>Si yazılım
+## <a name="commerical-software"></a>Commerical Software
 
-Dışarı aktarma denetimi dairesi yukarıda açıklanan bildirim işlemiyle genel kullanıma açık kaynak kodu sürümünden *uygulanmaz* ekleme veya bu tür öğelerinden türetilen ticari yazılım.  Dışarı aktarmak için tüm ticari yazılım ekleme uygulanan yasalara uyumluluk sorumlusunuz ya da kaynak ya da nesne kodu NuGet.org barındırılan türetilmiş.
+Release of publicly available source code from export control jurisdiction through the notification process described above *does not apply* to commercial software incorporating or derived from such items.  You are solely responsible for compliance with Export Laws as applied to any commercial software incorporating or derived from source or object code hosted via NuGet.org.
 
-Dışarı aktarma ve coğrafi dışarı aktarma kısıtlamaları hakkında daha fazla bilgi için lütfen https://www.microsoft.com/en-us/exporting.
+For further information on export and geographic export restrictions, please visit [Microsoft Exporting](https://www.microsoft.com/exporting).

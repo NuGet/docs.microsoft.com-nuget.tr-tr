@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 09/07/2019
 ms.topic: reference
 ms.reviewer: karann
-ms.openlocfilehash: f6c4a18366b4df20fb210f718d3779e85c08d550
-ms.sourcegitcommit: 188ade66b7ac807ba1667c77cfb9325bf89a8a4a
+ms.openlocfilehash: da464cc44d8c874e13c0cdfab871f31e643b577f
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71248119"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610506"
 ---
 # <a name="package-id-prefix-reservation"></a>Paket KIMLIĞI ön eki ayırması
 
@@ -31,7 +31,7 @@ Bir paket KIMLIĞI öneki ayrıldıysa, [NuGet.org](https://www.nuget.org/) gale
 
 1. Ayrılmış KIMLIK önekiyle eşleşen bir KIMLIK ile [NuGet.org](https://www.nuget.org/) 'ye her paket gönderildiğinde, paket, kimlik önekini ayıran sahiplerden kaynaklanmadığı takdirde reddedilir.
 
-1. Ayrılmış KIMLIK önekiyle eşleşen ve KIMLIK ön ekini ayıran sahip 'lerden kaynaklanan herhangi bir paket, Visual Studio 2017 sürüm 15,4 veya sonraki sürümlerinde ve paketin ayrılmış bir KIMLIK ön eki altında olduğunu belirten [NuGet.org](https://www.nuget.org/) üzerinde bir görsel göstergeye sahip olur. Bu, hem yeni paket teslimleri hem de sahip (ler) de var olan paketler için geçerlidir. **Not:** Visual Studio 'daki gösterge yalnızca paket kaynağı olarak tek bir akış seçilirse görünür.
+1. Ayrılmış KIMLIK önekiyle eşleşen ve KIMLIK ön ekini ayıran sahip 'lerden kaynaklanan herhangi bir paket, Visual Studio 2017 sürüm 15,4 veya sonraki sürümlerinde ve paketin ayrılmış bir KIMLIK ön eki altında olduğunu belirten [NuGet.org](https://www.nuget.org/) üzerinde bir görsel göstergeye sahip olur. Bu, hem yeni paket teslimleri hem de sahip (ler) de var olan paketler için geçerlidir. **Note:** Visual Studio 'daki gösterge yalnızca paket kaynağı olarak tek bir akış seçilirse görünür.
 
 1. Ayrılmış KIMLIK önekiyle eşleşen, ancak ayrılmış önek sahibine ait *olmayan* , daha önce varolan tüm paketler değişmeden kalır (bunlar listelenmemiş olmayacaktır, ancak görsel gösterge de yoktur). Ayrıca, bu paketlerin sahipleri yine de pakete yeni sürümler gönderebilecektir.
 
@@ -47,7 +47,7 @@ Bu değişiklikler aşağıdaki koşullara dayanır ve birkaç ek kısıtlama uy
 
 Alt ön ek temsili ve ön ekleri ortak olarak işaretleyerek aşağıda açıklanan birkaç gelişmiş ön ek ayırma senaryosu vardır. Aşağıda, yapılabilecek gelişmiş ön ek ayırmaları verilmiştir. 
 
-- Önek ayırma sırasında, sahip önek alt kümelerinin (veya ön ek) diğer sahiplerin temsilciliğini alabilir. Örneğin, '[Microsoft](https://www.nuget.org/profiles/microsoft)', ' Microsoft ' a sahipse. ', ancak ' ASPNET ' ' Microsoft. Aspnet ' öğesini ayırmak istiyor.[](https://www.nuget.org/profiles/aspnet) \* ', ' Microsoft ', ' Microsoft. Aspnet ' yetkisini temsil edebilir.[](https://www.nuget.org/profiles/microsoft) \* ' öğesine gidin. [](https://www.nuget.org/profiles/aspnet) \*
+- Önek ayırma sırasında, sahip önek alt kümelerinin (veya ön ek) diğer sahiplerin temsilciliğini alabilir. Örneğin, '[Microsoft](https://www.nuget.org/profiles/microsoft)', ' Microsoft ' a sahipse.\*', ancak '[ASPNET](https://www.nuget.org/profiles/aspnet)' ' Microsoft. Aspnet ' öğesini ayırmak istiyor.\*', '[Microsoft](https://www.nuget.org/profiles/microsoft)', ' Microsoft. Aspnet ' yetkisini temsil edebilir. '\*', [ASPNET](https://www.nuget.org/profiles/aspnet) hesabına.
 
 - Önek ayırma sırasında, sahip ön eki bir genel hale getirme seçeneğini belirleyebilir. Bu, paketin ayrılmış bir önekden kaynaklandığını gösteren bir görsel göstergesi sağlar, ancak herhangi bir sahibe ait ön ek için gelecekte yapılan paket gönderilerini **engellemez.** Bu, çok sayıda katkıda bulunan açık kaynak projeleri için yararlıdır; üst veya temel katkıda bulunanlar ön eke sahip olabilir, ancak yine de tüm katkıda bulunanlar için açık olabilir. 
 
@@ -55,11 +55,11 @@ Alt ön ek temsili ve ön ekleri ortak olarak işaretleyerek aşağıda açıkla
 
 Bir paket ayrılmış bir önekden geldiğinde, [NuGet.org](https://www.nuget.org/) galerisinde ve visual Studio 2017 sürüm 15,4 veya üzeri sürümlerde aşağıdaki görsel göstergeleri görürsünüz:
 
-**NuGet.org**
-Gallery![NuGet.org Galerisi](media/nuget-gallery-reserved-prefix.png)
+**NuGet.org gallery**
+![nuget.org Galerisi](media/nuget-gallery-reserved-prefix.png)
 
-**Visual Studio**
-![Visual Studio](media/visual-studio-reserved-prefix.png)
+Visual **studio**
+![visual Studio](media/visual-studio-reserved-prefix.png)
 
 ## <a name="id-prefix-reservation-application-process"></a>KIMLIK ön eki ayırma uygulama işlemi
 
@@ -67,7 +67,7 @@ Gallery![NuGet.org Galerisi](media/nuget-gallery-reserved-prefix.png)
 
 2. İstediğiniz ön ek [ön ek ayırma senaryolarına](#advanced-prefix-reservation-scenarios) ek olarak, ayırmak istediğiniz önekleri saptayın.
 
-3. NuGet.org üzerinde sahip görünen [account@nuget.org](mailto:account@nuget.org) adı ve istediğiniz ayrılmış ön eklerin [](https://www.nuget.org/)yanı sıra e-posta gönderin. Birden çok Sahibe önek alt kümeleri temsilci seçtiyseniz, tüm sahip görünen adları ve önek alt kümelerine bahsetdiğinizden emin olun.
+3. [NuGet.org](https://www.nuget.org/)üzerinde sahip görünen adı ve istediğiniz ayrılmış ön eklerin yanı sıra [account@nuget.org](mailto:account@nuget.org) e-posta gönderin. Birden çok Sahibe önek alt kümeleri temsilci seçtiyseniz, tüm sahip görünen adları ve önek alt kümelerine bahsetdiğinizden emin olun.
 
 Uygulama gönderildikten sonra, kabul veya reddetme (reddetme hatasına neden olan ölçütlerle birlikte) hakkında bilgilendirilirsiniz. Sahip kimliğini onaylamak için ek tanımlama soruları sormamız gerekebilir.
 
@@ -93,10 +93,10 @@ KIMLIK ön eki ayırma için herhangi bir uygulamayı gözden geçirirken, [NuGe
 
 ## <a name="third-party-feed-provider-scenarios"></a>Üçüncü taraf akış sağlayıcısı senaryoları
 
-Üçüncü taraf bir akış sağlayıcısı, ön ek ayırmaları sağlamak üzere kendi hizmetini uygulamayla ilgileniyorsanız, NuGet v3 akış sağlayıcılarındaki arama hizmetini değiştirerek bunu yapabilirsiniz. Akış arama hizmeti 'nin eklenmesi, aşağıdaki v3 akışlarına yönelik örneklerle *doğrulanmış* özelliği eklemektir. NuGet istemcisi v2 akışındaki eklenen özelliği desteklemez.
+Üçüncü taraf bir akış sağlayıcısı, ön ek ayırmaları sağlamak üzere kendi hizmetini uygulamayla ilgileniyorsa, NuGet v3 akış sağlayıcılarındaki arama hizmetini değiştirerek bu işlemleri yapabilir. Akış arama hizmetindeki değişiklik, `verified` özelliğini eklemektir. NuGet istemcisi v2 akışındaki eklenen özelliği desteklemez.
 
 Daha fazla bilgi için, [API 'nin arama hizmeti hakkındaki belgelere](../api/search-query-service-resource.md)bakın.
 
 ## <a name="package-id-prefix-reservation-dispute-policy"></a>Paket KIMLIĞI önek ayırma Itiraz Ilkesi
-[NuGet.org](https://www.nuget.org) üzerinde bir sahibe, yukarıda listelenen ölçütlere karşılık gelen bir paket kimliği ön eki ayırması veya herhangi bir ticari marka ya da telif hakkı üzerinde kuruluşa ait, lütfen söz konusu kimliğe [support@nuget.org](mailto:support@nuget.org) sahip e-posta ile ön ek ve atanan önek ayırmasını görüntüleme nedeni.
+[NuGet.org](https://www.nuget.org) üzerinde bir sahibe, yukarıdaki listede yer alan BIR paket kimliği ön eki ayırması veya herhangi bir ticari marka ya da telif hakkı üzerinde kuruluşa aitsupport@nuget.org, lütfen söz konusu kimlik ÖNEKI, kimliğin sahibi olan e-posta [](mailto:support@nuget.org) ön ek ve atanan önek ayırmasını görüntüleme nedeni.
 

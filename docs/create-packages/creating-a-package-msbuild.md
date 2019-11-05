@@ -5,22 +5,22 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9512899a4086d17d2584f16833aba33efb321eae
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.openlocfilehash: b45c25a92c0134228fb507ab321cb00ce156527f
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72380700"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610543"
 ---
 # <a name="create-a-nuget-package-using-msbuild"></a>MSBuild kullanarak bir NuGet paketi oluşturma
 
-Kodunuzdan bir NuGet paketi oluşturduğunuzda, bu işlevselliği herhangi bir sayıda diğer geliştirici tarafından paylaşılabilen ve kullanılabilecek bir bileşene paketleyerek. Bu makalede, MSBuild kullanarak bir paketin nasıl oluşturulacağı açıklanır. MSBuild, NuGet içeren her Visual Studio iş yüküne önceden yüklenmiş olarak gelir. Ayrıca, [DotNet MSBuild](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-msbuild) Ile DotNet CLI aracılığıyla MSBuild 'i de kullanabilirsiniz
+Kodunuzdan bir NuGet paketi oluşturduğunuzda, bu işlevselliği herhangi bir sayıda diğer geliştirici tarafından paylaşılabilen ve kullanılabilecek bir bileşene paketleyerek. Bu makalede, MSBuild kullanarak bir paketin nasıl oluşturulacağı açıklanır. MSBuild, NuGet içeren her Visual Studio iş yüküne önceden yüklenmiş olarak gelir. Ayrıca DotNet [MSBuild](https://docs.microsoft.com/dotnet/core/tools/dotnet-msbuild)Ile DotNet CLI aracılığıyla MSBuild 'i de kullanabilirsiniz.
 
-NuGet, .NET Core ve .NET Standard [SDK stili biçimini](../resources/check-project-format.md)kullanan projeler ve diğer SDK stilindeki projeler için, proje dosyasındaki bilgileri doğrudan bir paket oluşturmak üzere kullanır.  @No__t-0 kullanan SDK olmayan bir proje için, NuGet Ayrıca bir paket oluşturmak için proje dosyasını kullanır.
+NuGet, .NET Core ve .NET Standard [SDK stili biçimini](../resources/check-project-format.md)kullanan projeler ve diğer SDK stilindeki projeler için, proje dosyasındaki bilgileri doğrudan bir paket oluşturmak üzere kullanır.  `<PackageReference>`kullanan SDK olmayan bir proje için, NuGet Ayrıca bir paket oluşturmak için proje dosyasını kullanır.
 
 SDK stili projelerde varsayılan olarak paket işlevselliği bulunur. SDK olmayan biçim PackageReference projeleri için, proje bağımlılıklarına NuGet. Build. Tasks. Pack paketini eklemeniz gerekir. MSBuild paketi hedefleri hakkında ayrıntılı bilgi için bkz. [NuGet paketi ve geri yükleme MSBuild hedefleri olarak](../reference/msbuild-targets.md).
 
-@No__t-0 olan bir paket oluşturan komut, `dotnet pack` ' e denk işlev.
+`msbuild -t:pack`bir paket oluşturan komut, `dotnet pack`işlevi eşdeğerdir.
 
 > [!IMPORTANT]
 > Bu konu, [SDK stili](../resources/check-project-format.md) projelere, genellikle .NET Core ve .NET Standard projelerine ve PACKAGEREFERENCE kullanan SDK olmayan bir proje için geçerlidir.
@@ -143,7 +143,7 @@ Time Elapsed 00:00:01.21
 
 ### <a name="automatically-generate-package-on-build"></a>Derleme üzerinde otomatik olarak paket oluştur
 
-@No__t otomatik olarak çalıştırmak için-0 proje oluşturduğunuzda veya geri yüklediğinizde, proje dosyanıza aşağıdaki satırı `<PropertyGroup>` içinde ekleyin:
+Projeyi oluştururken veya geri yüklerken `msbuild -t:pack` otomatik olarak çalıştırmak için, aşağıdaki satırı `<PropertyGroup>`içindeki proje dosyanıza ekleyin:
 
 ```xml
 <GeneratePackageOnBuild>true</GeneratePackageOnBuild>

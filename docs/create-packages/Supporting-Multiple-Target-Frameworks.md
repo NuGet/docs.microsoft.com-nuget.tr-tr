@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 4413779361dad3a650da36b3c69bbb55b62804ee
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.openlocfilehash: 69e12ce1c78f8d4d50cbad7a0237d767064193ab
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72380727"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610647"
 ---
 # <a name="support-multiple-net-versions"></a>Çoklu .NET sürümlerini destekler
 
@@ -69,7 +69,7 @@ Bu derlemeler yalnızca çalışma zamanında kullanılabilir. bu nedenle, ilgil
 
 Lütfen NuGet her zaman bu derleme veya çalışma zamanı varlıklarını tek bir klasörden seçer. bu nedenle `/ref` ' dan bazı uyumlu varlıklar varsa, derleme zamanı derlemelerini eklemek için `/lib` yok sayılır. Benzer şekilde, `/runtime` ' dan bazı uyumlu varlıklar varsa, çalışma zamanı için de `/lib` yok sayılır.
 
-@No__t-1 bildiriminde bu dosyalara başvurulmaya yönelik bir örnek için bkz. [UWP paketleri oluşturma](../guides/create-uwp-packages.md) .
+`.nuspec` bildiriminde bu dosyalara başvurma örneği için bkz. [UWP paketleri oluşturma](../guides/create-uwp-packages.md) .
 
 Ayrıca bkz. [NuGet Ile Windows Mağazası uygulama bileşeni paketleme](https://blogs.msdn.microsoft.com/mim/2013/09/02/packaging-a-windows-store-apps-component-with-nuget-part-2)
 
@@ -104,7 +104,7 @@ NuGet, derlemeleri yalnızca paketteki tek bir kitaplık klasöründen kopyalar.
         \net45
             \MyAssembly.dll (v2.0)
 
-Paket, .NET Framework 4,5 ' i hedefleyen bir projeye yüklendiğinde, tek derleme yüklü olan `MyAssembly.dll` (v 2.0) olur. `MyAssembly.Core.dll` (v 1.0), `net45` klasöründe listelenmediğinden yüklenmedi. @No__t-0 `MyAssembly.dll` 2,0 sürümüyle birleştirilmiş olabileceğinden NuGet bu şekilde davranır.
+Paket, .NET Framework 4,5 ' i hedefleyen bir projeye yüklendiğinde, tek derleme yüklü olan `MyAssembly.dll` (v 2.0) olur. `MyAssembly.Core.dll` (v 1.0), `net45` klasöründe listelenmediğinden yüklenmedi. `MyAssembly.Core.dll`, `MyAssembly.dll`sürüm 2,0 ' de birleştirilmiş olabileceğinden NuGet bu şekilde davranır.
 
 .NET Framework 4,5 için `MyAssembly.Core.dll` ' ın yüklenmesini istiyorsanız, bir kopyayı `net45` klasörüne yerleştirin.
 
@@ -125,7 +125,7 @@ Desteklenen profiller şunlardır:
 
 Bir proje dosyası paketleme sırasında, NuGet otomatik olarak projeden bağımlılıkları oluşturmaya çalışır. Bağımlılıkları bildirmek için bir *. nuspec* dosyası kullanma hakkında bu bölümdeki bilgiler genellikle yalnızca gelişmiş senaryolar için gereklidir.
 
-*(Sürüm 2.0 +)* @No__t-3 öğesi içinde `<group>` öğelerini kullanarak hedef projenin hedef çerçevesine karşılık gelen *. nuspec* içinde paket bağımlılıklarını bildirebilirsiniz. Daha fazla bilgi için bkz. [Dependencies öğesi](../reference/nuspec.md#dependencies-element).
+*(Sürüm 2.0 +)* `<dependencies>` öğesi içinde `<group>` öğeleri kullanarak, hedef projenin hedef çerçevesine karşılık gelen *. nuspec* içinde paket bağımlılıklarını bildirebilirsiniz. Daha fazla bilgi için bkz. [Dependencies öğesi](../reference/nuspec.md#dependencies-element).
 
 Her grup `targetFramework` adlı bir özniteliğe sahiptir ve sıfır veya daha fazla `<dependency>` öğesi içerir. Hedef Framework, projenin çerçeve profiliyle uyumlu olduğunda bu bağımlılıklar birlikte yüklenir. Tam çerçeve tanımlayıcıları için bkz. [hedef çerçeveler](../reference/target-frameworks.md) .
 
@@ -151,8 +151,8 @@ Aşağıdaki örnek `<group>` öğesinin farklı çeşitlemelerini gösterir:
 
 Taşınabilir sınıf kitaplığını hedefleyen paketleme kitaplıklarında, özellikle yalnızca bir PCL alt kümesini hedeflerken, klasör adlarında ve `.nuspec` dosyasında kullanmanız gereken NuGet hedefini tespit etmek karmaşık olabilir. Aşağıdaki dış kaynaklar bu konuda size yardımcı olur:
 
-- [.Net 'Teki çerçeve profilleri](http://blog.stephencleary.com/2012/05/framework-profiles-in-net.html) (stephencleary.com)
-- [Taşınabilir sınıf kitaplığı profilleri](http://embed.plnkr.co/03ck2dCtnJogBKHJ9EjY/preview) (plnkr.co): PCL profillerini ve bunların eşdeğer NuGet hedeflerini numaralandırma tablosu
+- [.Net 'Teki çerçeve profilleri](https://blog.stephencleary.com/2012/05/framework-profiles-in-net.html) (stephencleary.com)
+- [Taşınabilir sınıf kitaplığı profilleri](https://embed.plnkr.co/03ck2dCtnJogBKHJ9EjY/preview) (plnkr.co): PCL profillerini ve bunların eşdeğer NuGet hedeflerini numaralandırma tablosu
 - [Taşınabilir sınıf kitaplığı profilleri aracı](https://github.com/StephenCleary/PortableLibraryProfiles) (GitHub.com): SISTEMINIZDE bulunan PCL profillerinin belirlenmesi için komut satırı aracı
 
 ## <a name="content-files-and-powershell-scripts"></a>İçerik dosyaları ve PowerShell betikleri
@@ -160,7 +160,7 @@ Taşınabilir sınıf kitaplığını hedefleyen paketleme kitaplıklarında, ö
 > [!Warning]
 > Kesilebilir içerik dosyaları ve betik yürütme yalnızca `packages.config` biçiminde kullanılabilir; Bunlar diğer tüm biçimleriyle kullanımdan kaldırılmıştır ve yeni paketler için kullanılmamalıdır.
 
-@No__t-0 ile içerik dosyaları ve PowerShell betikleri, `content` ve `tools` klasörlerinde aynı klasör kuralına göre hedef çerçeveye göre gruplanabilir. Örneğin:
+`packages.config`, içerik dosyaları ve PowerShell betikleri, `content` ve `tools` klasörlerindeki aynı klasör kuralına göre hedef çerçeveye göre gruplanabilir. Örneğin:
 
     \content
         \net46
@@ -182,4 +182,4 @@ Taşınabilir sınıf kitaplığını hedefleyen paketleme kitaplıklarında, ö
 Bir çerçeve klasörü boş bırakılırsa NuGet, derleme başvuruları veya içerik dosyaları eklemez ya da bu çerçeve için PowerShell betikleri çalıştırmaz.
 
 > [!Note]
-> @No__t-0 çözüm düzeyinde yürütüldüğü ve projeye bağımlı olmadığından, doğrudan `tools` klasörünün altına yerleştirilmesi gerekir. Çerçeve klasörü altına yerleştirildiğinde yok sayılır.
+> `init.ps1` çözüm düzeyinde yürütüldüğü ve projeye bağımlı olmadığından, doğrudan `tools` klasörünün altına yerleştirilmesi gerekir. Çerçeve klasörü altına yerleştirildiğinde yok sayılır.

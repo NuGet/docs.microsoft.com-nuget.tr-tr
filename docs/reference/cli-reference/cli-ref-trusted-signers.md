@@ -6,16 +6,16 @@ ms.author: patbel
 ms.date: 11/12/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: 197f2eaeed1a4a11f0f3ed426534807a0136271e
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 94c4c6524c1870898893b80be914477af5a14e8b
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68328266"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610341"
 ---
 # <a name="trusted-signers-command-nuget-cli"></a>Güvenilen imzalayanlar komutu (NuGet CLı)
 
-**Uygulama hedefi:** paket tüketimi &bullet; **Desteklenen sürümler:** 4.9.1 +
+**Uygulama hedefi:** paket tüketimi **Desteklenen sürümler &bullet;:** 4.9.1 +
 
 Güvenilen İmzalayanları NuGet yapılandırmasına alır veya ayarlar. Ek kullanım için bkz. [ortak NuGet yapılandırması](../../consume-packages/configuring-nuget-behavior.md). NuGet. config şemasının nasıl görüneceğine ilişkin ayrıntılar için [NuGet yapılandırma dosyası başvurusuna](../nuget-config-file.md)bakın.
 
@@ -25,11 +25,11 @@ Güvenilen İmzalayanları NuGet yapılandırmasına alır veya ayarlar. Ek kull
 nuget trusted-signers <list|add|remove|sync> [options]
 ```
 
-hiçbiri `list|add|remove|sync` belirtilmemişse, komut varsayılan olarak `list`olur.
+`list|add|remove|sync` Hiçbiri belirtilmediyse, komut varsayılan olarak `list`olur.
 
 ## <a name="nuget-trusted-signers-list"></a>NuGet güvenilir-imzalayanlar listesi
 
-Yapılandırmadaki tüm güvenilen İmzalayanları listeler. Bu seçenek, her İmzalayanın sahip olduğu tüm sertifikaları (parmak izi ve parmak izi algoritması) içerir. Bir sertifika öncesinde `[U]`varsa, sertifika `allowUntrustedRoot` girişinin olarak `true`ayarlandığı anlamına gelir.
+Yapılandırmadaki tüm güvenilen İmzalayanları listeler. Bu seçenek, her İmzalayanın sahip olduğu tüm sertifikaları (parmak izi ve parmak izi algoritması) içerir. Bir sertifikanın önceki bir `[U]`varsa, bu sertifika girişinin `true`olarak `allowUntrustedRoot` ayarlandığı anlamına gelir.
 
 Bu komuttan bir örnek çıktı aşağıda verilmiştir:
 
@@ -63,16 +63,16 @@ Yapılandırmaya verilen adı taşıyan güvenilen bir imzalayan ekler. Bu seçe
 nuget trusted-signers add <package(s)> -Name <name> [options]
 ```
 
-Burada `<package(s)>` bir veya daha fazla `.nupkg` dosya bulunur.
+Burada `<package(s)>` bir veya daha fazla `.nupkg` dosya olur.
 
 | Seçenek | Açıklama |
 | --- | --- |
 | Yazar | Paket (ler) in yazar imzasında güvenilir olması gerektiğini belirtir. |
-| Havuz | Paket (lar) için depo imzasının veya onay imzasının güvenilir olması gerektiğini belirtir. |
+| Depo | Paket (lar) için depo imzasının veya onay imzasının güvenilir olması gerektiğini belirtir. |
 | AllowUntrustedRoot | Güvenilen İmzalayanın sertifikasının güvenilmeyen bir köke zincirine izin verilip verilmeyeceğini belirtir. |
 | lere | Bir deponun güvenini daha fazla kısıtlamak için güvenilen sahipler için noktalı virgülle ayrılmış liste. Yalnızca `-Repository` seçeneği kullanılırken geçerlidir. |
 
-Aynı anda `-Repository` ve aynı zamanda sağlama desteklenmez. `-Author`
+Hem `-Author` hem de `-Repository` aynı anda sağlanması desteklenmez.
 
 ## <a name="options-for-add-based-on-a-service-index"></a>Hizmet dizinine dayalı ekleme seçenekleri
 
@@ -80,11 +80,11 @@ Aynı anda `-Repository` ve aynı zamanda sağlama desteklenmez. `-Author`
 nuget trusted-signers add -Name <name> [options]
 ```
 
-_Not_: Bu seçenek yalnızca güvenilen depolar ekler. 
+_Note_: Bu seçenek yalnızca güvenilen depolar ekler. 
 
 | Seçenek | Açıklama |
 | --- | --- |
-| Serviceındex | Güvenilecek deponun v3 hizmeti dizinini belirtir. Bu depo, depo imzaları kaynağını desteklemelidir. Sağlanmazsa, komut aynı `-Name` olan bir paket kaynağını arar ve hizmet dizinini buradan alır. |
+| Serviceındex | Güvenilecek deponun v3 hizmeti dizinini belirtir. Bu depo, depo imzaları kaynağını desteklemelidir. Sağlanmazsa, komut aynı `-Name` bir paket kaynağına bakar ve hizmet dizinini buradan alırlar. |
 | AllowUntrustedRoot | Güvenilen İmzalayanın sertifikasının güvenilmeyen bir köke zincirine izin verilip verilmeyeceğini belirtir. |
 | lere | Bir deponun güvenini daha fazla kısıtlamak için güvenilen sahipler için noktalı virgülle ayrılmış liste. |
 
@@ -94,32 +94,32 @@ _Not_: Bu seçenek yalnızca güvenilen depolar ekler.
 nuget trusted-signers add -Name <name> [options]
 ```
 
-_Not_: Verilen ada sahip bir güvenilir imzalayan zaten varsa, sertifika öğesi bu İmzalayanın birlikte eklenir. Aksi halde, belirtilen sertifika bilgileri 'nden bir sertifika öğesiyle güvenilir bir yazar oluşturulacaktır.
+_Note_: verilen ada sahip bir güvenilir imzalayan zaten varsa, sertifika öğesi bu İmzalayanın birlikte eklenir. Aksi halde, belirtilen sertifika bilgileri 'nden bir sertifika öğesiyle güvenilir bir yazar oluşturulacaktır.
 
 | Seçenek | Açıklama |
 | --- | --- |
-| CertificateFingerprint | İmzalı paketlerin imzalı olması gereken bir sertifikanın sertifika parmak izlerini belirtir. Sertifika parmak izi, sertifikanın bir karmasıdır. Bu karmayı hesaplamak için kullanılan karma algoritma, `FingerprintAlgorithm` seçeneğinde belirtilmelidir. |
-| Parmak izi Talgorithd | Sertifika parmak izini hesaplamak için kullanılan karma algoritmasını belirtir. Varsayılan olarak `SHA256`. Desteklenen değerler şunlardır `SHA256`ve `SHA384``SHA512` |
+| CertificateFingerprint | İmzalı paketlerin imzalı olması gereken bir sertifikanın sertifika parmak izlerini belirtir. Sertifika parmak izi, sertifikanın bir karmasıdır. Bu karmayı hesaplamak için kullanılan karma algoritma `FingerprintAlgorithm` seçeneğinde belirtilmelidir. |
+| Parmak izi Talgorithd | Sertifika parmak izini hesaplamak için kullanılan karma algoritmasını belirtir. Varsayılan olarak `SHA256`olur. Desteklenen değerler `SHA256`, `SHA384` ve `SHA512` |
 | AllowUntrustedRoot | Güvenilen İmzalayanın sertifikasının güvenilmeyen bir köke zincirine izin verilip verilmeyeceğini belirtir. |
 
-## <a name="nuget-trusted-signers-remove--name-name"></a>NuGet güvenilir-imzalayanlar Remove-Name<name>
+## <a name="nuget-trusted-signers-remove--name-name"></a>NuGet güvenilir-imzalayanlar Remove-Name \<Name\>
 
 Verilen adla eşleşen tüm güvenilen İmzalayanları kaldırır.
 
-## <a name="nuget-trusted-signers-sync--name-name"></a>NuGet güvenilir-imzalayanlar eşitleme-adı<name>
+## <a name="nuget-trusted-signers-sync--name-name"></a>NuGet güvenilir-sonuçcılar eşitleme-adı \<adı\>
 
 Güvenilen İmzalayanın mevcut sertifika listesini güncelleştirmek için şu anda güvenilir bir depoda kullanılan sertifikaların en son listesini ister.
 
-_Not_: Bu hareket, geçerli sertifika listesini silecek ve bunları depodan güncel bir listeyle değiştirecek.
+_Note_: Bu hareket, geçerli sertifika listesini silecek ve bunları depodan güncel bir listeyle değiştirecek.
 
 ## <a name="options"></a>Seçenekler
 
 | Seçenek | Açıklama |
 | --- | --- |
-| ConfigFile | Uygulanacak NuGet yapılandırma dosyası. Belirtilmemişse, `%AppData%\NuGet\NuGet.Config` (Windows) veya `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) kullanılır.|
+| ConfigFile | Uygulanacak NuGet yapılandırma dosyası. Belirtilmezse, `%AppData%\NuGet\NuGet.Config` (Windows) veya `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) kullanılır.|
 | ForceEnglishOutput | NuGet. exe ' yi sabit, Ingilizce tabanlı bir kültür kullanarak çalışmaya zorlar. |
-| Help | Komut için yardım bilgilerini görüntüler. |
-| Verbosity | Çıktıda görünen ayrıntı miktarını belirtir: *normal*, *sessiz*, *ayrıntılı*. |
+| Yardım | Komut için yardım bilgilerini görüntüler. |
+| Ayrıntı Düzeyi | Çıktıda görünen ayrıntı miktarını belirtir: *normal*, *sessiz*, *ayrıntılı*. |
 
 ## <a name="examples"></a>Örnekler
 

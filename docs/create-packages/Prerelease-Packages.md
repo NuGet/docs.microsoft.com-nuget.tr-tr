@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: a7d07da30daf3f94db99476b88d9abaad1bb8a07
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: 1c19f962dc9e42154c0f4374432548e867e9538a
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488860"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610708"
 ---
 # <a name="building-pre-release-packages"></a>Yayın öncesi paketleri oluşturma
 
@@ -20,11 +20,11 @@ Güncelleştirilmiş bir paketi yeni bir sürüm numarasıyla serbest bıraktı�
 
 Kararlı bir yayın, üretimde kullanılmak üzere yeterince güvenilir olarak kabul edilen bir sürümdür. En son kararlı sürüm aynı zamanda bir paket güncelleştirmesi olarak veya paket geri yükleme sırasında ( [paketleri yeniden yükleme ve güncelleştirme](../consume-packages/reinstalling-and-updating-packages.md)bölümünde açıklandığı gibi kısıtlamalara tabidir) yüklenir.
 
-NuGet 1,6 ve üzeri, yazılım sürümü yaşam döngüsünü desteklemek için yayın öncesi paketlerin dağıtımına izin verir; burada sürüm numarası,, veya `-alpha` `-rc`gibi bir anlamsal sürüm oluşturma soneki `-beta`içerir. Daha fazla bilgi için bkz. [paket sürümü oluşturma](../concepts/package-versioning.md#pre-release-versions).
+NuGet 1,6 ve üzeri, yazılım sürümü yaşam döngüsünü desteklemek için yayın öncesi paketlerin dağıtımına izin verir; burada sürüm numarası, `-alpha`, `-beta`veya `-rc`gibi bir anlamsal sürüm oluşturma soneki içerir. Daha fazla bilgi için bkz. [paket sürümü oluşturma](../concepts/package-versioning.md#pre-release-versions).
 
 Aşağıdaki yollarla bu tür sürümleri belirtebilirsiniz:
 
-- **Projeniz kullanıyorsa [`PackageReference`](../consume-packages/package-references-in-project-files.md)** : `.csproj` dosyanın [öğesineanlamsürümüsonekinidahilet:`PackageVersion`](/dotnet/core/tools/csproj.md#packageversion)
+- **Projeniz [`PackageReference`](../consume-packages/package-references-in-project-files.md)kullanıyorsa,** `.csproj` dosyanın [`PackageVersion`](/dotnet/core/tools/csproj.md#packageversion) öğesine anlamsal sürüm sonekini dahil edin:
 
     ```xml
     <PropertyGroup>
@@ -32,7 +32,7 @@ Aşağıdaki yollarla bu tür sürümleri belirtebilirsiniz:
     </PropertyGroup>
     ```
 
-- **Projenizde bir [`packages.config`](../reference/packages-config.md) dosya varsa**: [`.nuspec`](../reference/nuspec.md) dosyanın [`version`](../reference/nuspec.md#version) öğesine anlam sürümü sonekini ekleyin:
+- **Projenizde bir [`packages.config`](../reference/packages-config.md) dosyası varsa**: [`.nuspec`](../reference/nuspec.md) dosyasının [`version`](../reference/nuspec.md#version) öğesine anlamsal sürüm sonekini ekleyin:
 
     ```xml
     <version>1.0.1-alpha</version>
@@ -50,30 +50,30 @@ Varsayılan olarak, NuGet, paketlerle çalışırken yayın öncesi sürümleri 
 
     Bu kutuyu ayarlama veya Temizleme, Paket Yöneticisi Kullanıcı arabirimini ve yükleyebileceğiniz sürümlerin listesini yeniler.
 
-- **Paket Yöneticisi konsolu**: `Find-Package`, `-IncludePrerelease` ,,`Install-Package`Ve komutlarıyla`Update-Package` anahtarı kullanın. `Get-Package` `Sync-Package` [PowerShell başvurusuna](../reference/powershell-reference.md)bakın.
+- **Paket Yöneticisi konsolu**: `-IncludePrerelease` anahtarını `Find-Package`, `Get-Package`, `Install-Package`, `Sync-Package`ve `Update-Package` komutlarıyla kullanın. [PowerShell başvurusuna](../reference/powershell-reference.md)bakın.
 
-- **NUGET CLI**: `install` `-prerelease` , ,`update`Vekomutlarıyla anahtarıkullanın`mirror` . `delete` [NUGET CLI başvurusuna](../reference/nuget-exe-cli-reference.md) bakın
+- **NUGET CLI**: `install`, `update`, `delete`ve `mirror` komutlarıyla `-prerelease` anahtarını kullanın. [NUGET CLI başvurusuna](../reference/nuget-exe-cli-reference.md) bakın
 
 ## <a name="semantic-versioning"></a>Anlamsal sürüm oluşturma
 
-[Anlamsal sürüm oluşturma veya SemVer kuralı](http://semver.org/spec/v1.0.0.html) , temel alınan kodun anlamını iletmek için sürüm numaralarında dizelerin nasıl kullanılacağını açıklar.
+[Anlamsal sürüm oluşturma veya SemVer kuralı](https://semver.org/spec/v1.0.0.html) , temel alınan kodun anlamını iletmek için sürüm numaralarında dizelerin nasıl kullanılacağını açıklar.
 
-Bu kurala göre, her sürüm üç bölümden `Major.Minor.Patch`oluşur ve aşağıdaki anlamı vardır:
+Bu durumda, her sürüm üç bölümden oluşur ve aşağıdaki anlamı `Major.Minor.Patch`:
 
-- `Major`: Yeni değişiklikler
-- `Minor`: Yeni özellikler, ancak geriye dönük olarak uyumlu
-- `Patch`: Yalnızca geriye dönük uyumlu hata düzeltmeleri
+- `Major`: değişiklikler kesiliyor
+- `Minor`: yeni özellikler, ancak geriye dönük olarak uyumlu
+- `Patch`: yalnızca geriye dönük uyumlu hata düzeltmeleri
 
 Yayın öncesi sürümler daha sonra düzeltme numarasından sonra bir tire ve dize eklenerek gösterilir. Teknik açıdan, kısa çizgiden sonra *herhangi bir* dizeyi kullanabilirsiniz ve NuGet paketi yayın öncesi olarak kabul eder. Daha sonra NuGet, geçerli kullanıcı arabirimindeki tam sürüm numarasını görüntüleyerek tüketicilere göre anlamı yorumlamak için tüketicileri bırakır.
 
 Bu göz önünde bulundurularak, aşağıdaki gibi tanınan adlandırma kurallarını izlemek genellikle yararlı olur:
 
-- `-alpha`: Genellikle süren iş ve deneme için kullanılan Alpha yayını.
-- `-beta`: Beta sürümü, genellikle bir sonraki planlanmış yayın için özellik tamamlanmıştır, ancak bilinen hatalar içerebilir.
-- `-rc`: Yayın Adayı, genellikle önemli hatalar oluşmadığı takdirde son derece nihai (kararlı) bir sürümdür.
+- `-alpha`: genellikle süren iş ve deneme için kullanılan Alpha sürümü
+- `-beta`: beta sürümü, genellikle bir sonraki planlı yayın için bir özelliktir, ancak bilinen hatalar içerebilir.
+- `-rc`: yayın adayı, genellikle önemli hatalar oluşmadığı takdirde son derece nihai (kararlı) bir sürümdür.
 
 > [!Note]
-> NuGet 4.3.0 +, ' de `1.0.1-build.23`olduğu gibi nokta gösterimi ile yayın öncesi numaralarını destekleyen [anlamsal sürüm oluşturma v 2.0.0](http://semver.org/spec/v2.0.0.html)'yi destekler. Nokta gösterimi 4.3.0 öncesi NuGet sürümleriyle desteklenmez. NuGet 'in önceki sürümlerinde, gibi `1.0.1-build23` bir form kullanabilirsiniz, ancak bu her zaman yayın öncesi sürüm olarak kabul edilir.
+> NuGet 4.3.0 +, `1.0.1-build.23`gibi nokta gösterimi ile yayın öncesi numaraları destekleyen [anlamsal sürüm oluşturma v 2.0.0](https://semver.org/spec/v2.0.0.html)'yi destekler. Nokta gösterimi 4.3.0 öncesi NuGet sürümleriyle desteklenmez. NuGet 'in önceki sürümlerinde `1.0.1-build23` gibi bir form kullanabilirsiniz, ancak bu her zaman yayın öncesi sürüm olarak kabul edilir.
 
 Ancak kullandığınız son ekler, NuGet 'e ters alfabetik sırada öncelik verecektir:
 

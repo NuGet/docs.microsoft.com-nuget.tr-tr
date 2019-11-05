@@ -1,68 +1,68 @@
 ---
-title: nuget.exe sürümlerini bulmak için tools.json
-description: Uç nokta için
+title: NuGet. exe sürümlerini bulmak için Tools. JSON
+description: İçin uç nokta
 author: jver
 ms.author: jver
 ms.date: 08/16/2018
 ms.topic: conceptual
 ms.reviewer: kraigb
-ms.openlocfilehash: 003139abac7808dbdaef4aa66119e09772db2b4f
-ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
+ms.openlocfilehash: a186db9727bdfd1b55bf73a1f29283352555dede
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56852539"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73611028"
 ---
-# <a name="toolsjson-for-discovering-nugetexe-versions"></a>nuget.exe sürümlerini bulmak için tools.json
+# <a name="toolsjson-for-discovering-nugetexe-versions"></a>NuGet. exe sürümlerini bulmak için Tools. JSON
 
-Bugün, kodlanabilir bir biçimde makinenizde nuget.exe en son sürümünü almak için birkaç yolu vardır. Örneğin, size indirme ayıklayın ve [ `NuGet.CommandLine` ](https://www.nuget.org/packages/NuGet.CommandLine/) nuget.org paketinden. Ya da nuget.exe sahip olduğunuz gerekir çünkü bu bazı karmaşıklığa sahiptir (için `nuget.exe install`) veya temel unzip aracını kullanarak .nupkg sıkıştırmasını açın ve ikili iç bulun.
+Bugün, makinenizde bulunan NuGet. exe ' nin en son sürümünü komut dosyası biçiminde bir biçimde almanın birkaç yolu vardır. Örneğin, nuget.org adresinden [`NuGet.CommandLine`](https://www.nuget.org/packages/NuGet.CommandLine/) paketini indirebilir ve ayıklayabilirsiniz. Bu, zaten NuGet. exe ' ye sahip olmanızı gerektirdiğinden (`nuget.exe install`için) veya temel bir unzip aracı kullanarak. nupkg 'yi açmak ve içinde ikilileri bulmak için bazı karmaşıklığa sahiptir.
 
-Nuget.exe zaten varsa, ayrıca kullanabileceğiniz `nuget.exe update -self`, ancak bu aynı zamanda bir kopyasının nuget.exe sahip gerektirir. Bu yaklaşım ayrıca en son sürüme güncelleştirir. Belirli bir sürümü kullanımına izin vermez.
+Zaten NuGet. exe ' ye sahipseniz `nuget.exe update -self`de kullanabilirsiniz, ancak bunun için aynı NuGet. exe kopyasının olması gerekir. Bu yaklaşım, sizi en son sürüme de güncelleştirir. Belirli bir sürümün kullanılmasına izin vermez.
 
-`tools.json` Uç noktası kullanılabilir hem önyükleme sorunu çözmek ve indirdiğiniz nuget.exe sürümünün denetiminin kendilerinde olmasına. Bu CI/CD ortamlarda veya özel komut dosyaları bulmak ve nuget.exe yayımlanan herhangi bir sürümünü indirmek için kullanılabilir.
+`tools.json` uç noktası her ikisi de önyükleme sorununu çözüyor ve indireceğiniz NuGet. exe sürümünün denetimini vermek için kullanılabilir. Bu, bir NuGet. exe ' nin yayınlanan sürümünü bulup indirmek için CI/CD ortamlarında veya özel betikte kullanılabilir.
 
-`tools.json` Uç noktası getirilen kimliği doğrulanmamış bir HTTP isteği kullanarak (örneğin `Invoke-WebRequest` PowerShell'de veya `wget`). JSON seri durumdan çıkarıcının kullanarak ayrıştırılabilir ve HTTP isteklerini izleyen nuget.exe indirme URL'leri kullanarak da getirilebilir kimliği doğrulanmamış.
+`tools.json` uç noktası, kimliği doğrulanmamış bir HTTP isteği (örn. `Invoke-WebRequest` PowerShell veya `wget`) kullanılarak getirilebilir. JSON seri hale getirici kullanılarak ayrıştırılabilir ve sonraki NuGet. exe indirme URL 'Leri, kimliği doğrulanmamış HTTP istekleri kullanılarak da getirilebilir.
 
-Uç nokta kullanarak getirilebilir `GET` yöntemi:
+Uç nokta `GET` yöntemi kullanılarak getirilebilir:
 
     GET https://dist.nuget.org/tools.json
 
-[JSON şeması](http://json-schema.org/) için uç nokta şuradan ulaşabilirsiniz:
+Uç nokta için [JSON şemasına](https://json-schema.org/) buradan ulaşılabilir:
 
     GET https://dist.nuget.org/tools.schema.json
 
-## <a name="response"></a>Yanıt
+## <a name="response"></a>Yanıtıyla
 
-Tüm kullanılabilir sürümlerini nuget.exe içeren bir JSON belgesi yanıttır.
+Yanıt, NuGet. exe ' nin tüm kullanılabilir sürümlerini içeren bir JSON belgesidir.
 
-Kök JSON nesnesinin aşağıdaki özellik vardır:
+Kök JSON nesnesi aşağıdaki özelliğe sahiptir:
 
-Ad      | Tür             | Gerekli
+Name      | Tür             | Gerekli
 --------- | ---------------- | --------
-nuget.exe | Nesne dizisi | evet
+nuget.exe | nesne dizisi | Yes
 
-Her bir nesnenin `nuget.exe` dizi aşağıdaki özelliklere sahiptir:
+`nuget.exe` dizisindeki her bir nesne aşağıdaki özelliklere sahiptir:
 
-Ad     | Tür   | Gerekli | Notlar
+Name     | Tür   | Gerekli | Notlar
 -------- | ------ | -------- | -----
-sürüm  | dize | evet      | Bir SemVer 2.0.0 dize
-url      | dize | evet      | Nuget.exe bu sürümü karşıdan yüklemek için bir mutlak URL
-Aşama    | dize | evet      | Bir sabit dize
-Karşıya yüklendi | dize | evet      | Ne zaman sürümü kullanıma sunuldu, yaklaşık bir ISO 8601 zaman
+sürüm  | dize | Yes      | Bir SemVer 2.0.0 dizesi
+'deki      | dize | Yes      | NuGet. exe ' nin bu sürümünü indirmek için mutlak URL
+Aşama    | dize | Yes      | Bir sabit listesi dizesi
+açma | dize | Yes      | Sürümün kullanılabilir hale getirilme yaklaşık ISO 8601 zaman damgası
 
-Dizideki öğe azalan sırada, SemVer 2.0.0 sırada sıralanacaktır. Bu garanti en yüksek sürüm numarasını ilgileniyor bir istemci yükünü azaltmak için tasarlanmıştır. Ancak bu liste kronolojik sırada sıralanır değil anlamına gelmez. Örneğin, daha düşük bir sürümle daha yüksek bir ana sürüm belirtilenden sonraki bir tarihte bakım yapılır, bu hizmet verilen sürüm listenin en üstünde görünmez. Tarafından yayımlanan en son sürümü istiyorsanız *zaman damgası*, yalnızca dizi tarafından sıralama `uploaded` dize. Bunun çalışmasının nedeni `uploaded` zaman damgası olan [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) lexicographical sıralama (yani basit dize sıralama) kullanarak tarih sırasına göre sıralanabilir biçimi.
+Dizideki öğeler azalan, SemVer 2.0.0 sırasına göre sıralanır. Bu garanti, en yüksek sürüm numarasıyla ilgilenen bir istemcinin yükünü azaltmaya yöneliktir. Ancak bu, listenin kronolojik sırada sıralanmadığını ifade etmez. Örneğin, daha yüksek bir ana sürümden daha sonraki bir tarihte daha düşük bir ana sürüm servise alınmış ise, bu hizmet verilen sürüm listenin en üstünde görünmez. En son sürümün *zaman damgasıyla*serbest bırakılacağını istiyorsanız diziyi `uploaded` dize ile sıralayın. Bu, `uploaded` zaman damgası [ıso 8601](https://www.iso.org/iso-8601-date-and-time-format.html) biçiminde olduğundan, bir lexicografik sıralaması kullanılarak kronolojik olarak sıralanabilen (yani basit bir dize sıralaması) bu işe yarar.
 
-`stage` Özelliği nasıl denetlenen Aracı'nın bu sürümü olduğunu gösterir. 
+`stage` özelliği, aracın bu sürümünün ne olduğunu gösterir. 
 
 Aşama              | Açıklama
 ------------------ | ------
-EarlyAccessPreview | Henüz üzerinde görünür [indirme web sayfasına](https://www.nuget.org/downloads) ve iş ortakları tarafından doğrulanması gerekir
-Yayımlanan           | İndirme sitesinde kullanılabilir ancak değil ancak geniş yayılım tüketimi için önerilen
-ReleasedAndBlessed | İndirme sitesinde kullanılabilir ve tüketimi için önerilir
+EarlyAccessPreview | Henüz [indirme web sayfasında](https://www.nuget.org/downloads) görünmez ve iş ortakları tarafından doğrulanması gerekir
+Yayınlandı           | İndirme sitesinde kullanılabilir ancak geniş yayılmış tüketim için henüz önerilmez
+ReleasedAndBlessed | İndirme sitesinde kullanılabilir ve tüketim için önerilir
 
-Önerilen sürüm en son sahip olmak için bir basit yaklaşım ise ilk sürümü olan listesinde yapılacak `stage` değerini `ReleasedAndBlessed`. Sürümler SemVer 2.0.0 düzende sıralanır için bu çalışır.
+En son önerilen sürüme sahip olmanın tek bir yaklaşımı, listenin `ReleasedAndBlessed``stage` değerine sahip ilk sürümü kullanmaktır. Sürümler SemVer 2.0.0 Order içinde sıralandığından bu işe yarar.
 
-`NuGet.CommandLine` Nuget.org üzerinde paket genellikle yalnızca güncelleştirilen ile `ReleasedAndBlessed` sürümleri.
+Nuget.org üzerindeki `NuGet.CommandLine` paketi genellikle yalnızca `ReleasedAndBlessed` sürümleriyle güncelleştirilir.
 
 ### <a name="sample-request"></a>Örnek istek
 
