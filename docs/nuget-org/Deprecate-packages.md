@@ -6,12 +6,12 @@ ms.author: anangaur
 ms.date: 09/23/2019
 ms.topic: conceptual
 ms.reviewer: karann-msft
-ms.openlocfilehash: 120b463fda856fe9dd407b6eba32d60e0918f763
-ms.sourcegitcommit: 188ade66b7ac807ba1667c77cfb9325bf89a8a4a
+ms.openlocfilehash: 70666ddf9cd7bdc448d29d4235e57bc91e2c003e
+ms.sourcegitcommit: 60414a17af65237652c1de9926475a74856b91cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71248899"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74096879"
 ---
 # <a name="deprecating-packages"></a>Paketleri kullanımdan kaldırma
 
@@ -45,14 +45,14 @@ Bir paket kullanımdan kaldırıldıktan sonra, tüketicileri aşağıdaki yolla
 ### <a name="visual-studio"></a>Visual Studio 
 *Visual Studio 2019 sürüm 16,3 ' den başlayarak kullanılabilir*
 
-Visual Studio, `Installed` kullanım dışı bırakılan paketin kullanımıyla ilgili olarak uyarır. Bu, pakete ve kullanımdan kaldırılmasıyla ilgili bilgileri (kullanım dışı olma nedeni ve varsa bunun yerine kullanılacak alternatif paket) size yol açacaktır.
+Visual Studio, `Installed` sekmesindeki kullanım dışı bırakılan paketin kullanımı hakkında uyarır. Paket ve kullanımdan kaldırma bilgileri (kullanım dışı olma nedeni ve varsa bunun yerine kullanılacak alternatif paket) için bir uyarı gösterir.
 
    ![Paket Yöneticisi 'nin Visual Studio yüklü sekmesindeki kullanım dışı paketler](media/deprecation-vs.png)
 
 ### <a name="dotnetexe"></a>DotNet. exe
 *.NET SDK 3,0 ile başlayarak kullanılabilir*
 
-DotNet. exe ' yi kullanırsanız, kullanım dışı bırakılan paketlerin listesini `dotnet list package --deprecated` kullanımdan kaldırma bilgileriyle birlikte çalıştırmak için çözüm veya proje klasörü üzerinde komutunu çalıştırabilirsiniz:
+DotNet. exe ' yi kullanırsanız, kullanım dışı bırakılan paketlerin listesini kullanımdan kaldırma bilgileriyle birlikte almak için çözüm veya proje klasörü üzerinde `dotnet list package --deprecated` komutu çalıştırabilirsiniz:
 
 ```
 > dotnet list package --deprecated

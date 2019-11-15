@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: e98e8d1258377818b3852762d317750a6b3e59ad
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: eb8d59e253f85fbbb8546a5f71856df842ce94d6
+ms.sourcegitcommit: 60414a17af65237652c1de9926475a74856b91cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73611044"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74096896"
 ---
 # <a name="package-metadata"></a>Paket meta verileri
 
@@ -70,7 +70,7 @@ Bir sunucu uygulamasının kayıt Leafs 'i ayrı kayıt sayfası belgelerinde de
 
 Kayıt dizininde tüm paket sürümlerinin (yaprakları) depolanması, paket meta verilerini getirmek için gereken HTTP isteklerinin sayısına kaydedilir, ancak daha büyük bir belge indirilmeli ve daha fazla istemci belleği ayrılmalıdır. Öte yandan, sunucu uygulamasının kaydı ayrı bir sayfa belgelerinde bırakırsa, istemcinin ihtiyaç duyması gereken bilgileri almak için daha fazla HTTP isteği gerçekleştirmesi gerekir.
 
-Nuget.org 'in kullandığı buluşsal yöntem şu şekildedir: bir paketin 128 veya daha fazla sürümü varsa, yaprakları 64 boyutundaki sayfalara bölün. 128 'den az sürüm varsa, satır içi tümü kayıt dizininde kalır.
+Nuget.org 'in kullandığı buluşsal yöntem şu şekildedir: bir paketin 128 veya daha fazla sürümü varsa, yaprakları 64 boyutundaki sayfalara bölün. 128 'den az sürüm varsa, satır içi tümü kayıt dizininde kalır. Bunun anlamı, 65 ile 127 arasındaki paketlerin dizinde iki sayfa olacağını, ancak her iki sayfanın de satır içine alınır olduğunu unutmayın.
 
     GET {@id}/{LOWER_ID}/index.json
 
@@ -136,7 +136,7 @@ Kayıt yaprak nesnesindeki `catalogEntry` özelliği aşağıdaki özelliklere s
 Name                     | Tür                       | Gerekli | Notlar
 ------------------------ | -------------------------- | -------- | -----
 @id                      | dize                     | Yes      | Bu nesneyi oluşturmak için kullanılan belgenin URL 'SI
-Düzenliyor                  | dizelerin dizesi veya dizisi | eşleşen       | 
+düzenliyor                  | dizelerin dizesi veya dizisi | eşleşen       | 
 dependencyGroups         | nesne dizisi           | eşleşen       | Hedef çerçeveye göre gruplanmış paketin bağımlılıkları
 kullanımdan kaldırma              | nesne                     | eşleşen       | Paketle ilişkili kullanımdan kaldırma
 açıklama              | dize                     | eşleşen       | 
@@ -145,7 +145,7 @@ kimlik                       | dize                     | Yes      | Paketin KIM
 licenseUrl               | dize                     | eşleşen       |
 licenseExpression        | dize                     | eşleşen       | 
 listelenen                   | Boole değeri                    | eşleşen       | Yoksa listelenen olarak kabul edilmelidir
-MinClientVersion         | dize                     | eşleşen       | 
+minClientVersion         | dize                     | eşleşen       | 
 projectUrl               | dize                     | eşleşen       | 
 yayımladığı                | dize                     | eşleşen       | Paketin yayımlandığı zamana ait ISO 8601 zaman damgasını içeren bir dize
 Requirelicensekabulünü | Boole değeri                    | eşleşen       | 
@@ -159,6 +159,9 @@ Package `version` özelliği, normalleştirmenin ardından tam sürüm dizesidir
 `dependencyGroups` özelliği, hedef çerçeveye göre gruplanan, paketin bağımlılıklarını temsil eden bir nesne dizisidir. Paketin bağımlılığı yoksa, `dependencyGroups` özelliği eksik, boş bir dizi veya tüm grupların `dependencies` özelliği boş veya eksik.
 
 `licenseExpression` özelliğinin değeri [NuGet lisans ifadesi söz dizimi](https://docs.microsoft.com/nuget/reference/nuspec#license)ile uyumludur.
+
+> [!Note]
+> Nuget.org üzerinde `published` değeri, paket listelenmemiş olduğunda yıl 1900 olarak ayarlanır.
 
 #### <a name="package-dependency-group"></a>Paket bağımlılığı grubu
 
@@ -183,7 +186,7 @@ kimlik           | dize | Yes      | Paket bağımlılığının KIMLIĞI
 aralık        | nesne | eşleşen       | Bağımlılığın izin verilen [Sürüm aralığı](../concepts/package-versioning.md#version-ranges-and-wildcards)
 kayıt | dize | eşleşen       | Bu bağımlılık için kayıt dizininin URL 'SI
 
-`range` özelliği dışlanmazsa veya boş bir dize ise, istemci varsayılan olarak sürüm aralığı `(, )`olmalıdır. Yani, bağımlılığın herhangi bir sürümüne izin verilir.
+`range` özelliği dışlanmazsa veya boş bir dize ise, istemci varsayılan olarak sürüm aralığı `(, )`olmalıdır. Yani, bağımlılığın herhangi bir sürümüne izin verilir. `range` özelliğinde `*` değerine izin verilmez.
 
 #### <a name="package-deprecation"></a>Paketin kullanımdan kaldırılması
 
@@ -193,7 +196,7 @@ Name             | Tür             | Gerekli | Notlar
 ---------------- | ---------------- | -------- | -----
 olası          | Dizeler dizisi | Yes      | Paketin kullanım dışı olma nedenleri
 iletisi          | dize           | eşleşen       | Bu kullanımdan kaldırma ile ilgili ek ayrıntılar
-alternatePackage | nesne           | eşleşen       | Bunun yerine kullanılması gereken paket bağımlılığı
+alternatePackage | nesne           | eşleşen       | Bunun yerine kullanılması gereken alternatif paket
 
 `reasons` özelliği en az bir dize içermeli ve yalnızca aşağıdaki tablodan dizeler içermelidir:
 
@@ -204,6 +207,16 @@ Kritikhatalar | Pakette kullanım için uygun olmayan hatalar vardır
 Diğer        | Bu listede olmayan bir nedenden dolayı paket kullanım dışı bırakıldı
 
 `reasons` özelliği bilinen kümeden olmayan dizeler içeriyorsa, bunlar göz ardı edilmelidir. Dizeler büyük/küçük harfe duyarlıdır, bu nedenle `legacy` `Legacy`aynı şekilde değerlendirilmelidir. Dizide herhangi bir sıralama kısıtlaması yoktur, bu nedenle dizeler herhangi bir rastgele sıraya göre düzenlenebilirler. Ayrıca, özelliği bilinen kümeden olmayan dizeler içeriyorsa, yalnızca "diğer" dizesini içermiş gibi kabul edilmelidir.
+
+#### <a name="alternate-package"></a>Alternatif paket
+
+Alternatif paket nesnesi aşağıdaki özelliklere sahiptir:
+
+Name         | Tür   | Gerekli | Notlar
+------------ | ------ | -------- | -----
+kimlik           | dize | Yes      | Alternatif paketin KIMLIĞI
+aralık        | nesne | eşleşen       | İzin verilen [Sürüm aralığı](../concepts/package-versioning.md#version-ranges-and-wildcards)veya varsa `*`
+kayıt | dize | eşleşen       | Bu alternatif paket için kayıt dizininin URL 'SI
 
 ### <a name="sample-request"></a>Örnek istek
 
@@ -217,7 +230,10 @@ Bu durumda, kayıt dizininde kayıt sayfası satır içine alınır ve bu nedenl
 
 ## <a name="registration-page"></a>Kayıt sayfası
 
-Kayıt sayfası, kayıt yaprakları içerir. Kayıt sayfasını getirecek URL, yukarıda bahsedilen [kayıt sayfası nesnesindeki](#registration-page-object) `@id` özelliği tarafından belirlenir.
+Kayıt sayfası, kayıt yaprakları içerir. Kayıt sayfasını getirecek URL, yukarıda bahsedilen [kayıt sayfası nesnesindeki](#registration-page-object) `@id` özelliği tarafından belirlenir. URL tahmin edilebilir değildir ve Dizin belgesi aracılığıyla her zaman keşfedilmelidir.
+
+> [!Warning]
+> Nuget.org 'de, kayıt sayfası belgesi tesadüfen URL 'SI sayfanın alt ve üst sınırını içerir. Ancak, Dizin belgesinde geçerli bir bağlantı olduğu sürece sunucu uygulamalarının URL şeklini değiştiremeyeceğinden, bu varsayım hiçbir zaman istemci tarafından yapılmamalıdır.
 
 Kayıt dizininde `items` dizisi sağlanmazsa, `@id` değerine ait HTTP GET isteği, kökü olarak bir nesnesi olan bir JSON belgesi döndürür. Nesnesi aşağıdaki özelliklere sahiptir:
 
@@ -244,7 +260,10 @@ Kayıt yaprak nesnelerinin şekli [Yukarıdaki](#registration-leaf-object-in-a-p
 
 Kayıt yaprağı, belirli bir paket KIMLIĞI ve sürümü hakkında bilgi içerir. Belirli bir sürümle ilgili meta veriler bu belgede kullanılamıyor olabilir. Paket meta verileri [kayıt dizininden](#registration-index) veya kayıt [sayfasından](#registration-page) (kayıt dizini kullanılarak bulunan) alınmalıdır.
 
-Kayıt yaprak getiren URL, kayıt dizini veya kayıt sayfasındaki bir kayıt yaprak nesnesinin `@id` özelliğinden elde edilir.
+Kayıt yaprak getiren URL, kayıt dizini veya kayıt sayfasındaki bir kayıt yaprak nesnesinin `@id` özelliğinden elde edilir. Sayfa belgesinde olduğu gibi. URL tahmin edilebilir değil ve kayıt sayfası nesnesi aracılığıyla her zaman keşfedilmelidir.
+
+> [!Warning]
+> Nuget.org 'de, kayıt yaprak belge tesadüfen için URL paket sürümünü içerir. Ancak, ana belgenin geçerli bir bağlantısı olduğu sürece, sunucu uygulamalarının URL şeklini değiştiremeyeceğinden, bu varsayım hiçbir zaman istemci tarafından yapılmamalıdır. 
 
 Kayıt yaprağı, aşağıdaki özelliklere sahip bir kök nesnesine sahip bir JSON belgesidir:
 

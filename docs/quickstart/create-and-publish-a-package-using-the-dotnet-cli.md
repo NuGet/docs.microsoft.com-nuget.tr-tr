@@ -5,20 +5,20 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: c0e6de2c3b9978538d504f4af6e744ece43b4a4d
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: 8727f67608593e6ae8b96daa81b7423782dfc219
+ms.sourcegitcommit: 60414a17af65237652c1de9926475a74856b91cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488942"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74096938"
 ---
-# <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>Hızlı Başlangıç: Paket oluşturma ve yayımlama (DotNet CLı)
+# <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>Hızlı başlangıç: paket oluşturma ve yayımlama (DotNet CLı)
 
-.NET sınıf kitaplığından bir NuGet paketi oluşturmak ve `dotnet` komut satırı arabirimini (CLI) kullanarak NuGet.org 'de yayımlamak basit bir işlemdir.
+.NET sınıf kitaplığından bir NuGet paketi oluşturmak ve `dotnet` komut satırı arabirimi (CLı) kullanarak nuget.org 'de yayımlamak basit bir işlemdir.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Prerequisites
 
-1. `dotnet` CLI içeren [.NET Core SDK](https://www.microsoft.com/net/download/)' yi yükler. Visual Studio 2017 ' den başlayarak DotNet CLı, .NET Core ile ilgili iş yükleriyle otomatik olarak yüklenir.
+1. `dotnet` CLı 'yi içeren [.NET Core SDK](https://www.microsoft.com/net/download/)'yi yükler. Visual Studio 2017 ' den başlayarak DotNet CLı, .NET Core ile ilgili iş yükleriyle otomatik olarak yüklenir.
 
 1. Henüz bir [hesabınız yoksa NuGet.org üzerinde ücretsiz bir hesaba kaydolun](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) . Yeni hesap oluşturma onay e-postası gönderir. Bir paketi karşıya yükleyebilmek için önce hesabı onaylamanız gerekir.
 
@@ -26,21 +26,19 @@ ms.locfileid: "69488942"
 
 Paketlemek istediğiniz kod için mevcut bir .NET sınıf kitaplığı projesi kullanabilir veya basit bir tane aşağıdaki gibi oluşturabilirsiniz:
 
-1. Adlı `AppLogger`bir klasör oluşturun.
+1. `AppLogger`adlı bir klasör oluşturun.
 
-1. Bir komut istemi açın ve `AppLogger` klasöre geçiş yapın.
+1. Bir komut istemi açın ve `AppLogger` klasöre geçin.
 
-1. Proje `dotnet new classlib`için geçerli klasörün adını kullanan türü.
+1. Proje için geçerli klasörün adını kullanan `dotnet new classlib`yazın.
 
    Bu, yeni projeyi oluşturur.
 
-1. Uygulamanın `dotnet run` düzgün şekilde oluşturulduğunu test etmek için kullanın.
-
 ## <a name="add-package-metadata-to-the-project-file"></a>Proje dosyasına paket meta verileri ekleyin
 
-Her NuGet paketinin, paketin içeriğini ve bağımlılıklarını açıklayan bir bildirime ihtiyacı vardır. Son bir pakette bildirim, proje dosyasına dahil ettiğiniz `.nuspec` NuGet meta verileri özelliklerinden oluşturulan bir dosyadır.
+Her NuGet paketinin, paketin içeriğini ve bağımlılıklarını açıklayan bir bildirime ihtiyacı vardır. Son bir pakette bildirim, proje dosyasına dahil ettiğiniz NuGet meta verileri özelliklerinden oluşturulan bir `.nuspec` dosyasıdır.
 
-1. Proje dosyanızı (`.csproj`) açın ve mevcut `<PropertyGroup>` etiketin içine aşağıdaki en az özellikleri ekleyerek değerleri uygun şekilde değiştirerek:
+1. Proje dosyanızı (`.csproj`) açın ve mevcut `<PropertyGroup>` etiketinin içine aşağıdaki en az özellikleri ekleyerek değerleri uygun şekilde değiştirerek:
 
     ```xml
     <PackageId>AppLogger</PackageId>
@@ -59,14 +57,14 @@ Her NuGet paketinin, paketin içeriğini ve bağımlılıklarını açıklayan b
 
 ## <a name="run-the-pack-command"></a>Pack komutunu çalıştırın
 
-Projeden bir NuGet paketi (bir `.nupkg` dosya) oluşturmak için `dotnet pack` komutunu çalıştırın, bu da projeyi otomatik olarak oluşturur:
+Projeden bir NuGet paketi (`.nupkg` dosyası) oluşturmak için `dotnet pack` komutunu çalıştırın, bu da projeyi otomatik olarak oluşturur:
 
 ```cli
 # Uses the project file in the current folder by default
 dotnet pack
 ```
 
-Çıktı, `.nupkg` dosyanın yolunu gösterir:
+Çıktı `.nupkg` dosyanın yolunu gösterir:
 
 ```output
 Microsoft (R) Build Engine version 15.5.180.51428 for .NET Core
@@ -79,7 +77,7 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 
 ### <a name="automatically-generate-package-on-build"></a>Derleme üzerinde otomatik olarak paket oluştur
 
-`<PropertyGroup>`Çalıştırdığınızda `dotnet pack` otomatikolarakçalıştırmakiçin,aşağıdakisatırıiçindeki`dotnet build`proje dosyanıza ekleyin:
+`dotnet build`çalıştırdığınızda `dotnet pack` otomatik olarak çalıştırmak için, aşağıdaki satırı `<PropertyGroup>`içindeki proje dosyanıza ekleyin:
 
 ```xml
 <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -87,7 +85,7 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 
 ## <a name="publish-the-package"></a>Paketi Yayımla
 
-Bir `.nupkg` dosyaya sahip olduktan sonra, NuGet.org. NuGet.org ' den alınan bir `dotnet nuget push` API anahtarı ile birlikte komutunu kullanarak bu dosyayı yayımlayın.
+Bir `.nupkg` dosyasına sahip olduktan sonra, nuget.org komutunu `dotnet nuget push` kullanarak, nuget.org ' den alınan bir API anahtarı ile birlikte bu dosyayı yayımlayın.
 
 [!INCLUDE [publish-notes](includes/publish-notes.md)]
 
