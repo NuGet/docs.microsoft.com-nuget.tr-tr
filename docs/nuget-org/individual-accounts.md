@@ -5,12 +5,12 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 63c6b5eb5ad635e436b4d53a5f833af35f72d76f
-ms.sourcegitcommit: 7c9f157ba02d9be543de34ab06813ab1ec10192a
+ms.openlocfilehash: 7951b3db0cdcaee0a1eb955a5bf6fedce24c79c9
+ms.sourcegitcommit: fc0f8c950829ee5c96e3f3f32184bc727714cfdb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69999974"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74253948"
 ---
 # <a name="individual-accounts-on-nugetorg"></a>NuGet.org üzerinde ayrı hesaplar
 
@@ -18,7 +18,7 @@ NuGet.org 'de paketleri yayımlamak ve yönetmek için tek bir hesap oluşturman
 
 ## <a name="individual-accounts-vs-organization-accounts"></a>Bireysel hesaplar ve kuruluş hesapları
 
-Bireysel (Kullanıcı) hesabınız NuGet.org üzerinde kimliğiniz ve herhangi bir sayıda kuruluşun üyesi olabilir. Bir paket, tek bir hesaba ait olabilir gibi bir kuruluş hesabına ait olabilir. Paket tüketicileri, tek bir hesap veya kuruluş hesabı arasında herhangi bir farklılık görmez: her ikisi de `owners`paket olarak görünürler.
+Bireysel (Kullanıcı) hesabınız NuGet.org üzerinde kimliğiniz ve herhangi bir sayıda kuruluşun üyesi olabilir. Bir paket, tek bir hesaba ait olabilir gibi bir kuruluş hesabına ait olabilir. Paket tüketicileri, tek bir hesap veya kuruluş hesabı arasında herhangi bir farklılık görmez: her ikisi de paket `owners`olarak görünürler.
 
 Bir kuruluş hesabının üyeleri olarak bir veya daha fazla bireysel hesabı vardır. Bu Üyeler, sahiplik için tek bir kimlik sağlarken bir paket kümesini yönetebilir.
 
@@ -38,7 +38,7 @@ Bir NuGet.org hesabı oluşturmak için bir kişisel Microsoft hesabı (MSA) vey
 
 1. *NuGet.org*'e yönlendirilirsiniz ve bir Kullanıcı adı kaydetmeniz istenir.
 
-1. Giriş kutusunda Kullanıcı adını belirtin. Kullanıcı adının büyük/küçük harfe duyarlı olduğunu ve daha sonra değiştirilemeyeceğini veya yeniden adlandırılamayacağını lütfen unutmayın.
+1. Giriş kutusunda Kullanıcı adını belirtin. Kullanıcı adının büyük/küçük harfe **duyarlı olduğunu ve** daha sonra değiştirilemeyeceğini veya yeniden adlandırılamayacağını lütfen unutmayın.
 
    ![NuGet.org üzerinde bir Kullanıcı adı belirtin](media/nuget-org-register.png) 
 
@@ -48,7 +48,7 @@ Artık bir NuGet.org hesabınız var. Hesap yönetimi 'ni [Hesap ayarları](http
 
 ## <a name="enable-two-factor-authentication-2fa"></a>İki öğeli kimlik doğrulamayı etkinleştirme (2FA)
 
-Hesabınızı daha iyi korumak için iki öğeli kimlik doğrulamayı etkinleştirin (önerilir).
+İki öğeli kimlik doğrulama veya 2FA, Web siteleri veya uygulamalar üzerinde oturum açarken kullanılan ek bir güvenlik katmanıdır. 2FA sayesinde, Microsoft hesabınızla (MSA) oturum açmanız ve yalnızca bildiğiniz veya erişiminiz olan başka bir kimlik doğrulama biçimi sağlamanız gerekir. Hesabınızı daha iyi korumak için iki öğeli kimlik doğrulamayı etkinleştirin (önerilir).
 
 1. Hesabınızda oturum açarken profilinizi açın ve **oturum açma hesabı**altında **Etkinleştir** ' i seçin.
 
@@ -69,6 +69,9 @@ Hesabınızı daha iyi korumak için iki öğeli kimlik doğrulamayı etkinleşt
    ![2FA 'yı etkinleştir](media/nuget-org-enter-code-2fa.png)
 
 5. Iki öğeli kimlik doğrulamayı tamamlamaya yönelik ek yönergeleri izleyin.
+
+> [!Tip]
+> NuGet.org hesabınız için 2FA 'yı etkinleştirmek, NuGet.org 'de oturum açmak için kullandığınız Microsoft hesabı bağlantılı olabilecek diğer hesaplar veya hizmetler için kimlik doğrulama ayarlarını etkilemez.
 
 ## <a name="delete-a-nugetorg-account"></a>Bir NuGet.org hesabını silme
 

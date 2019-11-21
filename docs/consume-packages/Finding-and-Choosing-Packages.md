@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 9947a490e4373bb0b8b7fb0814828ff2a60615a8
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: 0691660f20f9b5a1ff0dad110ee87c6e29c0a56e
+ms.sourcegitcommit: fc0f8c950829ee5c96e3f3f32184bc727714cfdb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73611079"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74253943"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Projeniz için NuGet paketlerini bulma ve değerlendirme
 
@@ -82,9 +82,12 @@ Aynı zamanda, bir NuGet paketinin kullanılması, bunun sağlam ve güvenilir o
 
     ![Bir paketin listeleme sayfasına istatistik yükleme](media/Finding-03-Downloads.png)
 
-- *GitHub kullanımı*: Paket sayfasında, **GitHub kullanım** bölümü, bu pakete bağımlı olan en üst GitHub depolarını listeler. Birçok popüler GitHub depolarının bağımlı olduğu bir paket genellikle daha iyi bir seçenektir.
+- *GitHub kullanımı*: Paket sayfasında, **GitHub kullanım** bölümü, bu pakete bağımlı olan ve GitHub üzerinde yüksek sayıda yıldızlı olan genel GitHub depolarını listeler. GitHub deposunun yıldız sayısı genellikle bu deponun GitHub kullanıcılarıyla ne kadar popüler olduğunu gösterir (daha fazla yıldız genellikle daha popüler anlamına gelir). GitHub 'ın yıldızı ve depo derecelendirme sistemi hakkında daha fazla bilgi için lütfen [GitHub 'ın başlangıç sayfasını](https://help.github.com/en/github/getting-started-with-github/saving-repositories-with-stars#about-stars) ziyaret edin.
 
     ![GitHub kullanımı](media/GitHub-Usage.png)
+
+    > [!Note]
+    > Bir paketin GitHub kullanım bölümü otomatik olarak, belirli bir depoların insan tarafından incelenmesi gerekmeden ve yalnızca pakete bağlı olan ve GitHub ile popüler GitHub depolarını göstermek için bilgilendirici amaçlar için oluşturulur. kullanıcılarına.
 
 - *Sürüm geçmişi*: Paket sayfasında, en son güncelleştirme tarihi için **bilgi** ' yi arayın ve **sürüm geçmişini**inceleyin. İyi tutulan bir pakette, son güncelleştirmeler ve zengin bir sürüm geçmişi bulunur. İhmal edilen paketlerin birkaç güncelleştirmesi vardır ve genellikle bir süre güncelleştirilmemiş demektir.
 
@@ -127,7 +130,7 @@ NuGet paket araması, NuGet CLı ve Visual Studio 'daki NuGet Paket Yöneticisi 
 
 - **Anahtar sözcükler**: arama, belirtilen anahtar sözcüklerden herhangi birini içeren ilgili paketleri arar. Örnek: `modern UI`. Tüm sunulan anahtar kelimeleri içeren paketleri aramak için, `modern+UI`gibi terimler arasında "+" kullanın.
 - **Tümcecikler**: tırnak işaretleri içine hüküm girilmesi, bu şartların tam büyük/küçük harf duyarsız eşleşmelerini arar. Örnek: `"modern UI" package`
-- **Filtreleme**: `<property>` (büyük/küçük harf duyarsız) `id`, `packageid`, `version`, `title`, `tags`, `author`, `description``<property>:<term>` söz dizimini kullanarak belirli bir özelliğe arama terimi uygulayabilirsiniz. , `summary`ve `owner`. Şartlar gerektiğinde tırnak içinde bulunabilir ve aynı anda birden çok özellik arayabilirsiniz. Ayrıca, `id` özelliğindeki aramalar alt dize eşleşmelerinde, `packageid` tam bir eşleşme kullanır. Örnekler:
+- **Filtreleme**: `<property>` (büyük/küçük harf duyarsız) `id`, `packageid`, `version`, `title`, `tags`, `author`, `description`, `summary`ve `owner`olabilecek `<property>:<term>` söz dizimini kullanarak belirli bir özelliğe arama terimi uygulayabilirsiniz. Şartlar gerektiğinde tırnak içinde bulunabilir ve aynı anda birden çok özellik arayabilirsiniz. Ayrıca, `id` özelliğindeki aramalar alt dize eşleşmelerinde, `packageid` tam bir eşleşme kullanır. Örnekler:
 
     ```
     id:NuGet.Core                # Match any part of the id property

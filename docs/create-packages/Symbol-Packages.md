@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 09/12/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: f7503dd413a976997580aa03da26df0c462ff0e1
-ms.sourcegitcommit: 80cf99f40759911324468be1ec815c96aebf376d
+ms.openlocfilehash: 97a533171d698792d66a78550dacfe8eaf29a440
+ms.sourcegitcommit: fc0f8c950829ee5c96e3f3f32184bc727714cfdb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2019
-ms.locfileid: "69564557"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74253908"
 ---
 # <a name="creating-symbol-packages-legacy"></a>Sembol paketleri oluşturma (eski)
 
@@ -21,16 +21,16 @@ ms.locfileid: "69564557"
 
 NuGet, nuget.org veya diğer kaynaklar için paket oluşturmaya ek olarak ilişkili sembol paketleri oluşturmayı ve bunları SymbolSource deposuna yayımlamayı da destekler.
 
-Paket tüketicileri, Visual `https://nuget.smbsrc.net` Studio 'da, Visual Studio hata ayıklayıcısında paket koduna adımla izin veren sembol kaynaklarına eklenebilir. Bu işlemle ilgili ayrıntılar için bkz. [Visual Studio hata ayıklayıcısında simge (. pdb) ve kaynak dosyaları belirtme](/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger) .
+Böylece, paket tüketicileri Visual Studio 'daki sembol kaynaklarına `https://nuget.smbsrc.net` ekleyebilir ve bu, Visual Studio hata ayıklayıcısında paket koduna adımlamayı sağlar. Bu işlemle ilgili ayrıntılar için bkz. [Visual Studio hata ayıklayıcısında simge (. pdb) ve kaynak dosyaları belirtme](/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger) .
 
 ## <a name="creating-a-symbol-package"></a>Sembol paketi oluşturma
 
 Bir sembol paketi oluşturmak için aşağıdaki kuralları izleyin:
 
-- Birincil paketi (kodunuzla birlikte) `{identifier}.nupkg` adlandırın ve dosyalar hariç `.pdb` tüm dosyalarınızı ekleyin.
-- Sembol paketini `{identifier}.symbols.nupkg` adlandırın ve derleme dll 'sini, `.pdb` dosyalarınızı, xmlDoc dosyalarını, kaynak dosyalarınızı (izleyen bölümlere bakın) ekleyin.
+- Birincil paketi (kodunuzla birlikte) adlandırın `{identifier}.nupkg` ve `.pdb` dosyaları hariç tüm dosyalarınızı ekleyin.
+- Sembol paketini `{identifier}.symbols.nupkg` adlandırın ve derleme DLL, `.pdb` Files, XMLDOC Files, kaynak dosyaları (izleyen bölümlere bakın) dahil edin.
 
-`-Symbols` Bir`.nuspec` dosya ya da proje dosyasından, seçeneğiyle her iki paket de oluşturabilirsiniz:
+`-Symbols` seçeneğiyle her iki paketi de oluşturabilirsiniz: bir `.nuspec` dosyası ya da bir proje dosyası:
 
 ```cli
 nuget pack MyPackage.nuspec -Symbols
@@ -38,11 +38,11 @@ nuget pack MyPackage.nuspec -Symbols
 nuget pack MyProject.csproj -Symbols
 ```
 
-Mac OS X mono 4.4.2 gerektirdiğini ve Linux sistemlerinde çalışmadığına not edin. `pack` Mac 'te Ayrıca, `.nuspec` dosyadaki Windows yol adlarını UNIX stili yollara dönüştürmeniz gerekir.
+`pack` Mac OS X için mono 4.4.2 gerektirdiğini ve Linux sistemlerinde çalışmayacağını unutmayın. Mac 'te Ayrıca, `.nuspec` dosyasındaki Windows yol adları adlarını UNIX stili yollara dönüştürmeniz gerekir.
 
 ## <a name="symbol-package-structure"></a>Sembol paketi yapısı
 
-Bir sembol paketi birden çok hedef çerçeveyi bir kitaplık paketiyle aynı şekilde hedefleyebilir, bu nedenle `lib` klasörün yapısı yalnızca dll ile birlikte dosyalar dahil olmak üzere `.pdb` birincil paket ile tam olarak aynı olmalıdır.
+Bir sembol paketi birden çok hedef çerçeveyi bir kitaplık paketiyle aynı şekilde hedefleyebilir, bu nedenle `lib` klasörünün yapısı, yalnızca DLL ile birlikte `.pdb` dosyaları dahil olmak üzere birincil paket ile tam olarak aynı olmalıdır.
 
 Örneğin, .NET 4,0 ve Silverlight 4 ' ü hedefleyen bir sembol paketinin bu düzeni olacaktır:
 
@@ -54,7 +54,7 @@ Bir sembol paketi birden çok hedef çerçeveyi bir kitaplık paketiyle aynı ş
             \MyAssembly.dll
             \MyAssembly.pdb
 
-Kaynak dosyalar daha sonra adlı `src`ayrı bir özel klasöre yerleştirilir ve bu, kaynak deponuzun göreli yapısına uymalıdır. Bunun nedeni, pdb 'leri 'ın eşleşen DLL 'yi derlemek için kullanılan kaynak dosyalara mutlak yollar içermesi ve yayımlama işlemi sırasında bulunması gerekir. Temel yol (ortak yol öneki) eklenebilir. Örneğin, bu dosyalardan oluşturulmuş bir kitaplığı düşünün:
+Kaynak dosyalar daha sonra, kaynak deponuzun göreli yapısını izlemesi gereken `src`adlı ayrı bir özel klasöre yerleştirilir. Bunun nedeni, pdb 'leri 'ın eşleşen DLL 'yi derlemek için kullanılan kaynak dosyalara mutlak yollar içermesi ve yayımlama işlemi sırasında bulunması gerekir. Temel yol (ortak yol öneki) eklenebilir. Örneğin, bu dosyalardan oluşturulmuş bir kitaplığı düşünün:
 
     C:\Projects
         \MyProject
@@ -70,7 +70,7 @@ Kaynak dosyalar daha sonra adlı `src`ayrı bir özel klasöre yerleştirilir ve
                 \MySilverlightExtensions.cs
                 \MyAssembly.csproj (producing \lib\sl4\MyAssembly.dll)
 
-`lib` Klasörden ayrı olarak, bir sembol paketinin bu düzeni içermesi gerekir:
+`lib` klasörden ayrı olarak, bir sembol paketinin bu düzeni içermesi gerekir:
 
     \src
         \Common
@@ -85,7 +85,7 @@ Kaynak dosyalar daha sonra adlı `src`ayrı bir özel klasöre yerleştirilir ve
 
 ## <a name="referring-to-files-in-the-nuspec"></a>Nuspec içindeki dosyalara başvurma
 
-Bir sembol paketi, önceki bölümde açıklandığı gibi bir klasör yapısından veya bildirimin `files` bölümünde içeriğini belirterek, kurallara göre derlenebilir. Örneğin, önceki bölümde gösterilen paketi oluşturmak için, `.nuspec` dosyasında aşağıdakileri kullanın:
+Bir sembol paketi, önceki bölümde açıklandığı gibi bir klasör yapısından veya bildirimin `files` bölümündeki içeriğini belirterek, kurallara göre derlenebilir. Örneğin, önceki bölümde gösterilen paketi oluşturmak için `.nuspec` dosyasında aşağıdakileri kullanın:
 
 ```xml
 <files>
@@ -108,7 +108,7 @@ Bir sembol paketi, önceki bölümde açıklandığı gibi bir klasör yapısın
     nuget SetApiKey Your-API-Key
     ```
 
-2. Birincil paketinizi NuGet.org 'e yayımladıktan sonra, sembol paketini aşağıdaki gibi gönderin. Bu, dosya adında adı nedeniyle `.symbols` otomatik olarak symbolsource.org ' i kullanacaktır.
+2. Birincil paketinizi nuget.org 'e yayımladıktan sonra, sembol paketini aşağıdaki gibi gönderin. Bu, dosya adında `.symbols` nedeniyle otomatik olarak symbolsource.org hedefi olarak kullanacaktır:
 
     ```cli
     nuget push MyPackage.symbols.nupkg
@@ -129,8 +129,8 @@ Bir sembol paketi, önceki bölümde açıklandığı gibi bir klasör yapısın
    > [!Note]
    > NuGet. exe 4.5.0 veya üzeri ile, semboller paketleri otomatik olarak symbolsource.org 'e gönderilmez. Önceki adımlarda açıklandığı gibi semboller paketlerini ayrı olarak göndermeniz gerekir.
    
-Bu durumda, NuGet birincil paketi NuGet.org `MyPackage.symbols.nupkg`' ye yayımladıktan sonra https://nuget.smbsrc.net/ , varsa NuGet (symbolsource.org için gönderim URL 'si) olarak yayımlanır.
+Bu durumda, NuGet birincil paketi nuget.org ' ye yayımladıktan sonra, varsa NuGet, varsa https://nuget.smbsrc.net/ (symbolsource.org için gönderim URL 'SI) `MyPackage.symbols.nupkg`yayımlar.
 
-## <a name="see-also"></a>Ayrıca Bkz.
+## <a name="see-also"></a>Ayrıca bkz.
 
-[Yeni SymbolSource altyapısına geçme](https://tripleemcoder.com/2015/10/04/moving-to-the-new-symbolsource-engine/) (symbolsource.org)
+[Yeni SymbolSource Engine 'e geçme](https://tripleemcoder.com/2015/10/04/moving-to-the-new-symbolsource-engine/) (symbolsource.org)

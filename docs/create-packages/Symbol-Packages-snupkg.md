@@ -12,12 +12,12 @@ keywords: NuGet sembol paketleri, NuGet paket hata ayıklaması, NuGet hata ayı
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 0197902e4dbc18893d68833fbcfe4263f185a594
-ms.sourcegitcommit: e4b0ff4460865db6dc7bc9f20e9f644d98493011
+ms.openlocfilehash: 03ab4e1f3501055abedf430395de095d773bc9da
+ms.sourcegitcommit: fc0f8c950829ee5c96e3f3f32184bc727714cfdb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71307181"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74253920"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Sembol paketleri (. snupkg) oluşturuluyor
 
@@ -29,7 +29,7 @@ gerekli [NuGet protokollerini](../api/nuget-protocols.md)uygulayan [NuGet. exe v
 
 ## <a name="creating-a-symbol-package"></a>Sembol paketi oluşturma
 
-DotNet. exe veya MSBuild kullanıyorsanız,. nupkg dosyasına ek olarak. `IncludeSymbols` snupkg dosyası oluşturmak için ve `SymbolPackageFormat` özelliklerini ayarlamanız gerekir.
+DotNet. exe veya MSBuild kullanıyorsanız,. nupkg dosyasına ek olarak bir. snupkg dosyası oluşturmak için `IncludeSymbols` ve `SymbolPackageFormat` özelliklerini ayarlamanız gerekir.
 
 * Aşağıdaki özellikleri. csproj dosyanıza ekleyin:
 
@@ -60,10 +60,10 @@ nuget pack MyPackage.nuspec -Symbols -SymbolPackageFormat snupkg
 nuget pack MyPackage.csproj -Symbols -SymbolPackageFormat snupkg
 ```
 
-Özellik iki değerden birine sahip olabilir: `symbols.nupkg` (varsayılan) veya `snupkg`. [`SymbolPackageFormat`](/dotnet/core/tools/csproj#symbolpackageformat) Bu özellik belirtilmezse, eski bir sembol paketi oluşturulur.
+[`SymbolPackageFormat`](/dotnet/core/tools/csproj#symbolpackageformat) özelliği iki değerden birine sahip olabilir: `symbols.nupkg` (varsayılan) veya `snupkg`. Bu özellik belirtilmezse, eski bir sembol paketi oluşturulur.
 
 > [!Note]
-> Eski biçim `.symbols.nupkg` hala desteklenir, ancak yalnızca uyumluluk nedenleriyle desteklenir (bkz. [eski sembol paketleri](Symbol-Packages.md)). NuGet. org 'ın sembol sunucusu yalnızca yeni sembol paketi biçimini kabul eder- `.snupkg`.
+> Eski biçim `.symbols.nupkg` hala destekleniyor ancak yalnızca uyumluluk nedenleriyle desteklenir (bkz. [eski sembol paketleri](Symbol-Packages.md)). NuGet. org 'ın sembol sunucusu yalnızca `.snupkg`yeni sembol paketi biçimini kabul eder.
 
 ## <a name="publishing-a-symbol-package"></a>Sembol paketi yayımlama
 
@@ -85,20 +85,20 @@ nuget pack MyPackage.csproj -Symbols -SymbolPackageFormat snupkg
     nuget push MyPackage.nupkg
     ```
 
-NuGet, her iki paketi de nuget.org 'e yayımlar. önce yayımlanacak ve `MyPackage.snupkg`ardından. `MyPackage.nupkg`
+NuGet, her iki paketi de nuget.org 'e yayımlar. `MyPackage.nupkg` önce yayımlanacak, ardından `MyPackage.snupkg`.
 
 > [!Note]
-> Sembol paketi yayınlanmamışsa, NuGet.org kaynağını olarak `https://api.nuget.org/v3/index.json`yapılandırdığınızdan emin olun. Sembol paketi yayımlaması yalnızca [NuGet v3 API 'si](../api/overview.md#versioning)tarafından desteklenir.
+> Sembol paketi yayınlanmamışsa, NuGet.org kaynağını `https://api.nuget.org/v3/index.json`olarak yapılandırdığınızdan emin olun. Sembol paketi yayımlaması yalnızca [NuGet v3 API 'si](../api/overview.md#versioning)tarafından desteklenir.
 
 ## <a name="nugetorg-symbol-server"></a>NuGet.org symbol sunucusu
 
-NuGet.org kendi sembol sunucu deposunu destekler ve yalnızca yeni sembol paketi biçimini kabul eder- `.snupkg`. Paket tüketicileri Visual Studio 'daki sembol kaynaklarına ekleyerek `https://symbols.nuget.org/download/symbols` NuGet.org sembol sunucusunda yayınlanan sembolleri kullanarak Visual Studio hata ayıklayıcısında paket koduna adımlamayı sağlar. Bu işlemle ilgili ayrıntılar için bkz. [Visual Studio hata ayıklayıcısında simge (. pdb) ve kaynak dosyaları belirtme](/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger) .
+NuGet.org kendi sembolleri sunucu deposunu destekler ve yalnızca yeni sembol paketi biçimini kabul eder `.snupkg`. Paket tüketicileri, Visual Studio hata ayıklayıcısında paket koduna Adımlama sağlayan Visual Studio 'daki sembol kaynaklarına `https://symbols.nuget.org/download/symbols` ekleyerek nuget.org sembol sunucusunda yayınlanan sembolleri kullanabilir. Bu işlemle ilgili ayrıntılar için bkz. [Visual Studio hata ayıklayıcısında simge (. pdb) ve kaynak dosyaları belirtme](/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger) .
 
 ### <a name="nugetorg-symbol-package-constraints"></a>NuGet.org sembol paketi kısıtlamaları
 
 NuGet.org, sembol paketleri için aşağıdaki kısıtlamalara sahiptir:
 
-- Sembol paketlerinde yalnızca şu dosya uzantılarına izin veriliyor: `.pdb`, `.nuspec`, `.xml` `.psmdcp`,, `.rels`,`.p7s`
+- Sembol paketlerinde yalnızca şu dosya uzantılarına izin veriliyor: `.pdb`, `.nuspec`, `.xml`, `.psmdcp`, `.rels`, `.p7s`
 - NuGet. org 'ın sembol sunucusunda yalnızca yönetilen [Taşınabilir pdb 'leri](https://github.com/dotnet/corefx/blob/master/src/System.Reflection.Metadata/specs/PortablePdb-Metadata.md) desteklenir.
 - Pdb 'leri ve ilişkili. nupkg dll 'Lerinin Visual Studio sürüm 15,9 veya üzeri bir derleyici ile oluşturulması gerekir (bkz. [pdb şifre karması](https://github.com/dotnet/roslyn/issues/24429))
 
@@ -127,10 +127,10 @@ Paket doğrulama ve dizin oluşturma genellikle 15 dakika boyunca sürer. Paket 
    ```
 
 4) Bir yazar, nupkg ve snupkg 'leri oluşturmak için özel bir nuspec kullanılmasına karar verirse, snupkg, aynı klasör hiyerarşisine ve 2 ' de ayrıntılı dosyalar içermelidir.
-5) ```authors```ve ```owners``` alan, snupkg 'dan nuspec 'ten çıkarılacak.
-6) ```<license>``` Öğesini kullanmayın. A. snupkg, karşılık gelen. nupkg ile aynı lisans kapsamında ele alınmıştır.
+5) ```authors``` ve ```owners``` alanı, snupkg 'dan nuspec 'ten çıkarılacak.
+6) ```<license>``` öğesini kullanmayın. A. snupkg, karşılık gelen. nupkg ile aynı lisans kapsamında ele alınmıştır.
 
-## <a name="see-also"></a>Ayrıca Bkz.
+## <a name="see-also"></a>Ayrıca bkz.
 
 .NET derlemelerinin kaynak kodu hata ayıklamasını etkinleştirmek için kaynak bağlantısı kullanmayı düşünün. Daha fazla bilgi için lütfen [kaynak bağlantı kılavuzuna](/dotnet/standard/library-guidance/sourcelink)bakın.
 
