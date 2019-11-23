@@ -58,8 +58,8 @@ Bir paket ayrılmış bir önekden geldiğinde, [NuGet.org](https://www.nuget.or
 **NuGet.org gallery**
 ![nuget.org Galerisi](media/nuget-gallery-reserved-prefix.png)
 
-Visual **studio**
-![visual Studio](media/visual-studio-reserved-prefix.png)
+**Visual Studio**
+![Visual Studio](media/visual-studio-reserved-prefix.png)
 
 ## <a name="id-prefix-reservation-application-process"></a>KIMLIK ön eki ayırma uygulama işlemi
 
@@ -98,5 +98,5 @@ KIMLIK ön eki ayırma için herhangi bir uygulamayı gözden geçirirken, [NuGe
 Daha fazla bilgi için, [API 'nin arama hizmeti hakkındaki belgelere](../api/search-query-service-resource.md)bakın.
 
 ## <a name="package-id-prefix-reservation-dispute-policy"></a>Paket KIMLIĞI önek ayırma Itiraz Ilkesi
-[NuGet.org](https://www.nuget.org) üzerinde bir sahibe, yukarıdaki listede yer alan BIR paket kimliği ön eki ayırması veya herhangi bir ticari marka ya da telif hakkı üzerinde kuruluşa aitsupport@nuget.org, lütfen söz konusu kimlik ÖNEKI, kimliğin sahibi olan e-posta [](mailto:support@nuget.org) ön ek ve atanan önek ayırmasını görüntüleme nedeni.
+[NuGet.org](https://www.nuget.org) üzerinde bir sahibe, yukarıdaki listede yer alan BIR paket kimliği ön eki ayırması veya herhangi bir ticari marka ya da telif hakkı üzerinde kuruluşa ait atanmış olduğunu düşünüyorsanız, lütfen söz konusu kimlik ön EKINE, kimlik önekinin sahibine ve atanan önek ayırmasını görüntüleme nedenine sahip [support@nuget.org](mailto:support@nuget.org) e-posta gönderin.
 
