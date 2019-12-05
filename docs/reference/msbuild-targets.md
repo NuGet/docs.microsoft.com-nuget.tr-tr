@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 1c2af0b42e88623fa7a1216c17aa269e9b0a58cf
-ms.sourcegitcommit: 60414a17af65237652c1de9926475a74856b91cc
+ms.openlocfilehash: ed3545454a811c311190a191c566d9e9192f3fcc
+ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74096904"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74825061"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet paketi ve geri yükleme MSBuild hedefleri olarak
 
@@ -18,7 +18,7 @@ ms.locfileid: "74096904"
 
 [Packagereference](../consume-packages/package-references-in-project-files.md) biçimi sayesinde, NuGet 4.0 + tüm bildirim meta verilerini ayrı bir `.nuspec` dosyası kullanmak yerine doğrudan proje dosyası içinde depolayabilirler.
 
-MSBuild 15.1 + ile NuGet, aşağıda açıklandığı gibi `pack` ve `restore` hedeflerine sahip birinci sınıf MSBuild vatandaşlık. Bu hedefler, diğer herhangi bir MSBuild görevi veya hedefi ile yaptığınız gibi NuGet ile çalışmanıza olanak sağlar. MSBuild kullanarak bir NuGet paketi oluşturma yönergeleri için bkz. [MSBuild kullanarak NuGet paketi oluşturma](../create-packages/creating-a-package-msbuild.md). (NuGet 3. x ve öncesi için, bunun yerine NuGet CLı aracılığıyla [paketle](../reference/cli-reference/cli-ref-pack.md) ve [geri yükleme](../reference/cli-reference/cli-ref-restore.md) komutlarını kullanırsınız.)
+MSBuild 15.1 + ile NuGet, aşağıda açıklandığı gibi `pack` ve `restore` hedefleri ile birinci sınıf MSBuild vatandaşlık. Bu hedefler, diğer herhangi bir MSBuild görevi veya hedefi ile yaptığınız gibi NuGet ile çalışmanıza olanak sağlar. MSBuild kullanarak bir NuGet paketi oluşturma yönergeleri için bkz. [MSBuild kullanarak NuGet paketi oluşturma](../create-packages/creating-a-package-msbuild.md). (NuGet 3. x ve öncesi için, bunun yerine NuGet CLı aracılığıyla [paketle](../reference/cli-reference/cli-ref-pack.md) ve [geri yükleme](../reference/cli-reference/cli-ref-restore.md) komutlarını kullanırsınız.)
 
 ## <a name="target-build-order"></a>Hedef derleme sırası
 
@@ -40,36 +40,36 @@ Benzer şekilde, MSBuild görevinde bir MSBuild görevi yazabilir, kendi hedefin
 
 ## <a name="pack-target"></a>paket hedefi
 
-.NET Standard projeler için, `msbuild -t:pack` ' ı kullanarak, bir NuGet paketi oluştururken kullanılacak proje dosyasından girişler çizer.
+PackageReference biçimini kullanan .NET Standard projeleri için `msbuild -t:pack` kullanarak, bir NuGet paketi oluştururken kullanılacak proje dosyasından girişler çizer.
 
-Aşağıdaki tabloda, ilk `<PropertyGroup>` düğümü içindeki bir proje dosyasına eklenebilen MSBuild özellikleri açıklanmaktadır. Bu düzenlemeleri Visual Studio 2017 ve sonraki sürümlerde kolayca yaparak, projeye sağ tıklayıp bağlam menüsünde **{Project_Name} Düzenle** ' yi seçerek yapabilirsiniz. Kolaylık sağlaması için tablo, [`.nuspec` dosyasındaki](../reference/nuspec.md)denk özelliğe göre düzenlenir.
+Aşağıdaki tabloda, ilk `<PropertyGroup>` düğümü içindeki bir proje dosyasına eklenebilen MSBuild özellikleri açıklanmaktadır. Bu düzenlemeleri Visual Studio 2017 ve sonraki sürümlerde kolayca yaparak, projeye sağ tıklayıp bağlam menüsünde **{Project_Name} Düzenle** ' yi seçerek yapabilirsiniz. Kolaylık sağlaması için tablo, bir [`.nuspec` dosyasındaki](../reference/nuspec.md)denk özelliğe göre düzenlenir.
 
 `.nuspec` `Owners` ve `Summary` özelliklerinin MSBuild ile desteklenmediğini unutmayın.
 
 | Öznitelik/NuSpec değeri | MSBuild özelliği | Varsayılan | Notlar |
 |--------|--------|--------|--------|
-| Numarasını | PackageID | AssemblyName | MSBuild 'ten $ (AssemblyName) |
-| Version | PackageVersion | Version | Bu semver uyumludur, örneğin "1.0.0", "1.0.0-Beta" veya "1.0.0-Beta-00345" |
-| VersionPrefix | PackageVersionPrefix | empty | PackageVersion ayarı PackageVersionPrefix üzerine yazıyor |
-| VersionSuffix | PackageVersionSuffix | empty | MSBuild 'ten $ (VersionSuffix). PackageVersion ayarı PackageVersionSuffix üzerine yazıyor |
+| Id | PackageId | AssemblyName | MSBuild 'ten $ (AssemblyName) |
+| Sürüm | PackageVersion | Sürüm | Bu semver uyumludur, örneğin "1.0.0", "1.0.0-Beta" veya "1.0.0-Beta-00345" |
+| VersionPrefix | PackageVersionPrefix | boş | PackageVersion ayarı PackageVersionPrefix üzerine yazıyor |
+| VersionSuffix | PackageVersionSuffix | boş | MSBuild 'ten $ (VersionSuffix). PackageVersion ayarı PackageVersionSuffix üzerine yazıyor |
 | Yazarlar | Yazarlar | Geçerli kullanıcının Kullanıcı adı | |
-| lere | Yok | NuSpec içinde yok | |
+| Sahipler | YOK | NuSpec içinde yok | |
 | Başlık | Başlık | PackageID| |
 | Açıklama | Açıklama | "Paket açıklaması" | |
-| Yaptırımlar | Yaptırımlar | empty | |
-| Requirelicensekabulünü | Packagerequirelicensekabulünü | false | |
-| lisan | PackageLicenseExpression | empty | `<license type="expression">` karşılık gelir |
-| lisan | PackageLicenseFile | empty | `<license type="file">`karşılık gelir. Başvurulan lisans dosyasını açık bir şekilde paketetmeniz gerekir. |
-| licenseUrl | PackageLicenseUrl 'Si | empty | `PackageLicenseUrl` kullanım dışıdır, PackageLicenseExpression veya PackageLicenseFile özelliğini kullanın |
-| projectUrl | PackageProjectUrl | empty | |
-| Simge | Packageıcon | empty | Başvurulan simge görüntü dosyasını açıkça paketetmeniz gerekir.|
-| Iurl | PackageIconUrl 'Si | empty | En iyi alt düzey deneyim için, `PackageIcon`ek olarak `PackageIconUrl` belirtilmelidir. Daha uzun vadeli `PackageIconUrl` kullanım dışı bırakılır. |
-| Etiketler | PackageTags | empty | Etiketler noktalı virgülle ayrılır. |
-| relet 'ler | PackageReleaseNotes | empty | |
-| Depo/URL | Depourl 'Si | empty | Kaynak kodu kopyalamak veya almak için kullanılan depo URL 'SI. Örnek: *https://github.com/NuGet/NuGet.Client.git* |
-| Depo/tür | Repositorytype parametrelerinin sağlanması | empty | Depo türü. Örnekler: *Git*, *TFS*. |
-| Depo/dal | Depodalı | empty | İsteğe bağlı depo dalı bilgileri. Bu özelliğin dahil olması için aynı zamanda bir *Depo-URL* belirtilmelidir. Örnek: *Master* (NuGet 4.7.0 +) |
-| Depo/kayıt | Kayıt yapma | empty | Paketin hangi kaynağa göre oluşturulduğunu göstermek için isteğe bağlı depo kaydı veya değişiklik kümesi. Bu özelliğin dahil olması için aynı zamanda bir *Depo-URL* belirtilmelidir. Örnek: *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0 +) |
+| Telif hakkı | Telif hakkı | boş | |
+| Requirelicensekabulünü | PackageRequireLicenseAcceptance | {1&gt;false&lt;1} | |
+| lisans | PackageLicenseExpression | boş | `<license type="expression">` karşılık gelir |
+| lisans | PackageLicenseFile | boş | `<license type="file">`karşılık gelir. Başvurulan lisans dosyasını açık bir şekilde paketetmeniz gerekir. |
+| LicenseUrl | PackageLicenseUrl | boş | `PackageLicenseUrl` kullanım dışı, PackageLicenseExpression veya PackageLicenseFile özelliğini kullanın |
+| ProjectUrl | PackageProjectUrl | boş | |
+| Simge | Packageıcon | boş | Başvurulan simge görüntü dosyasını açıkça paketetmeniz gerekir.|
+| IconUrl | PackageIconUrl | boş | En iyi alt düzey deneyim için, `PackageIcon`ek olarak `PackageIconUrl` belirtilmelidir. Daha uzun vadeli `PackageIconUrl` kullanım dışı bırakılır. |
+| Etiketler | PackageTags | boş | Etiketler noktalı virgülle ayrılır. |
+| Relet 'ler | PackageReleaseNotes | boş | |
+| Depo/URL | Depourl 'Si | boş | Kaynak kodu kopyalamak veya almak için kullanılan depo URL 'SI. Örnek: *https://github.com/NuGet/NuGet.Client.git* |
+| Depo/tür | Repositorytype parametrelerinin sağlanması | boş | Depo türü. Örnekler: *Git*, *TFS*. |
+| Depo/dal | Depodalı | boş | İsteğe bağlı depo dalı bilgileri. Bu özelliğin dahil olması için aynı zamanda bir *Depo-URL* belirtilmelidir. Örnek: *Master* (NuGet 4.7.0 +) |
+| Depo/kayıt | Kayıt yapma | boş | Paketin hangi kaynağa göre oluşturulduğunu göstermek için isteğe bağlı depo kaydı veya değişiklik kümesi. Bu özelliğin dahil olması için aynı zamanda bir *Depo-URL* belirtilmelidir. Örnek: *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0 +) |
 | PackageType | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
 | Özet | Desteklenmez | | |
 
@@ -78,32 +78,32 @@ Aşağıdaki tabloda, ilk `<PropertyGroup>` düğümü içindeki bir proje dosya
 - Ispackable
 - Suppressbağımlıcıeswhenpaketleme
 - PackageVersion
-- PackageID
+- PackageId
 - Yazarlar
 - Açıklama
-- Yaptırımlar
-- Packagerequirelicensekabulünü
-- developmentDependency
+- Telif hakkı
+- PackageRequireLicenseAcceptance
+- DevelopmentDependency
 - PackageLicenseExpression
 - PackageLicenseFile
-- PackageLicenseUrl 'Si
+- PackageLicenseUrl
 - PackageProjectUrl
-- PackageIconUrl 'Si
+- PackageIconUrl
 - PackageReleaseNotes
 - PackageTags
 - PackageOutputPath
 - Includesymbols
-- Includesource
-- packageTypes
+- IncludeSource
+- PackageTypes
 - IsTool
 - Depourl 'Si
 - Repositorytype parametrelerinin sağlanması
 - Depodalı
 - Kayıt yapma
 - NoPackageAnalysis
-- MinClientVersion
+- minClientVersion
 - IncludeBuildOutput
-- Includecontentınpack
+- IncludeContentInPack
 - BuildOutputTargetFolder
 - ContentTargetFolders
 - Nusguus dosyası
@@ -114,9 +114,9 @@ Aşağıdaki tabloda, ilk `<PropertyGroup>` düğümü içindeki bir proje dosya
 
 ### <a name="suppress-dependencies"></a>Bağımlılıkları gösterme
 
-Oluşturulan NuGet paketinden paket bağımlılıklarını bastırmak için `SuppressDependenciesWhenPacking` ' ı `true` olarak ayarlayın. Bu, oluşturulan nupkg dosyasından tüm bağımlılıkların atlanmasını sağlar.
+Oluşturulan NuGet paketinden paket bağımlılıklarını bastırmak için `SuppressDependenciesWhenPacking`, oluşturulan nupkg dosyasından tüm bağımlılıkların atlanmasını sağlayacak `true` olarak ayarlayın.
 
-### <a name="packageiconurl"></a>PackageIconUrl 'Si
+### <a name="packageiconurl"></a>PackageIconUrl
 
 `PackageIconUrl`, yeni [`PackageIcon`](#packageicon) özelliğinin yararına kullanım dışı olacaktır.
 
@@ -153,7 +153,7 @@ Nuspec eşdeğeri için, [simgenin nuspec başvurusuna](nuspec.md#icon)göz atı
 
 ### <a name="output-assemblies"></a>Çıkış derlemeleri
 
-`nuget pack`, `.exe`, `.dll`, `.xml`, `.winmd`, `.json` ve `.pri` uzantılarına sahip çıktı dosyalarını kopyalar. Kopyalanan çıkış dosyaları, `BuiltOutputProjectGroup` hedeften MSBuild 'in sağladığı öğesine bağlıdır.
+`nuget pack`, `.exe`, `.dll`, `.xml`, `.winmd`, `.json`ve `.pri`uzantılı çıktı dosyalarını kopyalar. Kopyalanan çıkış dosyaları, `BuiltOutputProjectGroup` hedeften MSBuild 'in sağladığı öğesine bağlıdır.
 
 Çıktı derlemelerinin nerede olduğunu denetlemek için, proje dosyanızda veya komut satırında kullanabileceğiniz iki MSBuild özelliği vardır:
 
@@ -182,7 +182,7 @@ Ayrıca, proje başvurunuz için aşağıdaki meta verileri de ekleyebilirsiniz:
 
 ### <a name="including-content-in-a-package"></a>Bir paketteki içerik ekleme
 
-İçerik eklemek için var olan `<Content>` öğesine ek meta veriler ekleyin. Varsayılan olarak, aşağıdaki gibi girdilerle geçersiz kılmadığınız müddetçe "Içerik" türünde her şey pakete dahil edilir:
+İçerik eklemek için varolan `<Content>` öğesine ek meta veriler ekleyin. Varsayılan olarak, aşağıdaki gibi girdilerle geçersiz kılmadığınız müddetçe "Içerik" türünde her şey pakete dahil edilir:
 
  ```xml
 <Content Include="..\win7-x64\libuv.txt">
@@ -199,9 +199,9 @@ Varsayılan olarak, her şey bir paket içindeki `content` ve `contentFiles\any\
 </Content>
 ```
 
-Tüm içeriğinizi yalnızca belirli bir kök klasöre (`content` ve `contentFiles` yerine) kopyalamak istiyorsanız, "Content; contentFiles" varsayılan olan ancak başka bir klasör adı olarak ayarlanabilir olan `ContentTargetFolders` MSBuild özelliğini kullanabilirsiniz. Yalnızca `ContentTargetFolders` ' de "contentFiles" öğesinin belirtildiğine, `buildAction`göre `contentFiles\any\<target_framework>` veya `contentFiles\<language>\<target_framework>` altına dosya yerleştirdiğine unutmayın.
+Tüm içeriğinizi yalnızca belirli bir kök klasöre (`content` ve `contentFiles` her ikisi de) kopyalamak istiyorsanız, "Content; contentFiles" varsayılan olarak ayarlanan ancak diğer herhangi bir klasör adına ayarlanabilir MSBuild `ContentTargetFolders`özelliğini kullanabilirsiniz. Yalnızca `ContentTargetFolders` ' de "contentFiles" öğesinin belirtildiğine, `buildAction`göre `contentFiles\any\<target_framework>` veya `contentFiles\<language>\<target_framework>` altına dosya yerleştirdiğine unutmayın.
 
-`PackagePath`, noktalı virgülle ayrılmış bir hedef yolları kümesi olabilir. Boş bir paket yolu belirtilmesi, dosyayı paketin köküne ekler. Örneğin, aşağıdaki `libuv.txt` `content\myfiles`, `content\samples` ve paket köküne ekler:
+`PackagePath`, noktalı virgülle ayrılmış bir hedef yolları kümesi olabilir. Boş bir paket yolu belirtilmesi, dosyayı paketin köküne ekler. Örneğin, aşağıdaki `content\myfiles`, `content\samples`ve paket köküne `libuv.txt` ekler:
 
 ```xml
 <Content Include="..\win7-x64\libuv.txt">
@@ -210,12 +210,12 @@ Tüm içeriğinizi yalnızca belirli bir kök klasöre (`content` ve `contentFil
 </Content>
 ```
 
-Ayrıca, `true`varsayılan olarak `$(IncludeContentInPack)`bir MSBuild özelliği de vardır. Bu, herhangi bir projede `false` olarak ayarlandıysa, söz konusu projeden içerik NuGet paketine dahil edilmez.
+Ayrıca, `true`varsayılan olarak `$(IncludeContentInPack)`bir MSBuild özelliği de vardır. Bu, herhangi bir projede `false` olarak ayarlandıysa, bu projeden içerik NuGet paketine dahil edilmez.
 
-Yukarıdaki öğelerin hiçbirinde ayarlayabileceğiniz diğer paketine özgü meta veriler ```<PackageCopyToOutput>``` ve ```<PackageFlatten>``` ' i içerir. Bu, çıktı nuspec içindeki ```contentFiles``` girişinde ```CopyToOutput``` ve ```Flatten``` değerlerini ayarlar.
+Yukarıdaki öğelerin herhangi birinde ayarlayabileceğiniz diğer paketine özgü meta veriler, ```CopyToOutput``` ve ```Flatten``` değerlerini, çıkış nuspec içindeki ```contentFiles``` girişi üzerinde ayarlayan ```<PackageCopyToOutput>``` ve ```<PackageFlatten>``` içerir.
 
 > [!Note]
-> Içerik öğelerinden ayrı olarak, `<Pack>` ve `<PackagePath>` meta verileri de derleme, EmbeddedResource, ApplicationDefinition, Page, Resource, SplashScreen, DesignData, DesignDataWithDesignTimeCreateableTypes oluşturma eylemi olan dosyalarda ayarlanabilir. CodeAnalysisDictionary, AndroidAsset, AndroidResource, paketleme Leresource veya None.
+> Içerik öğelerinden ayrı olarak, `<Pack>` ve `<PackagePath>` meta verileri de derleme, EmbeddedResource, ApplicationDefinition, Page, Resource, SplashScreen, DesignData, DesignDataWithDesignTimeCreateableTypes, CodeAnalysisDictionary, AndroidAsset, AndroidResource, Paketleresource veya None derleme eylemine sahip dosyalar üzerinde de ayarlanabilir.
 >
 > Glob desenleri kullanılırken dosya adını paket yolunuza eklemek için paket yolu, klasör ayırıcı karakteriyle bitmelidir; Aksi takdirde, paket yolu dosya adı dahil tam yol olarak değerlendirilir.
 
@@ -223,11 +223,11 @@ Yukarıdaki öğelerin hiçbirinde ayarlayabileceğiniz diğer paketine özgü m
 
 `MSBuild -t:pack -p:IncludeSymbols=true`kullanırken, karşılık gelen `.pdb` dosyaları diğer çıkış dosyalarıyla birlikte kopyalanır (`.dll`, `.exe`, `.winmd`, `.xml`, `.json`, `.pri`). `IncludeSymbols=true` ayarlamanın düzenli bir paket *ve* bir semboller paketi oluşturduğunu unutmayın.
 
-### <a name="includesource"></a>Includesource
+### <a name="includesource"></a>IncludeSource
 
-Bu `IncludeSymbols` ile aynıdır, ancak kaynak dosyalarını ve `.pdb` dosyalarla birlikte kopyalar. `Compile` türündeki tüm dosyalar, elde edilen paketteki göreli yol klasörü yapısını koruyarak `src\<ProjectName>\` üzerine kopyalanır. Aynı zamanda, `TreatAsPackageReference` ' in `false` ' ye ayarlandığı `ProjectReference` ' ın kaynak dosyaları için de aynı olur.
+Bu, `IncludeSymbols`ile aynıdır, ancak `.pdb` dosyalarla birlikte kaynak dosyalarını kopyalar. `Compile` türündeki tüm dosyalar, elde edilen paketteki göreli yol klasörü yapısını koruyarak `src\<ProjectName>\` üzerine kopyalanır. Aynı zamanda, `false``TreatAsPackageReference` ayarlanmış tüm `ProjectReference` kaynak dosyaları için de aynı olur.
 
-Derleme türünde bir dosya proje klasörünün dışındaysa, `src\<ProjectName>\` ' a eklenir.
+Derleme türünde bir dosya proje klasörünün dışındaysa, bu, `src\<ProjectName>\`sonuna eklenmiştir.
 
 ### <a name="packing-a-license-expression-or-a-license-file"></a>Lisans ifadesi veya lisans dosyası paketleme
 
@@ -258,11 +258,11 @@ Bir lisans dosyası paketleme sırasında, paketin köküne göre paket yolunu b
 
 ### <a name="istool"></a>IsTool
 
-`MSBuild -t:pack -p:IsTool=true`kullanırken, [Çıkış derlemeleri](#output-assemblies) senaryosunda belirtilen tüm çıkış dosyaları `lib` klasörü yerine `tools` klasörüne kopyalanır. Bu, `.csproj` dosyasında `PackageType` ayarlanarak belirtilen `DotNetCliTool` ' dan farklı olduğunu unutmayın.
+`MSBuild -t:pack -p:IsTool=true`kullanırken, [Çıkış derlemeleri](#output-assemblies) senaryosunda belirtilen tüm çıkış dosyaları `lib` klasörü yerine `tools` klasörüne kopyalanır. Bu, `.csproj` dosyasında `PackageType` ayarlanarak belirtilen `DotNetCliTool` farklı olduğunu unutmayın.
 
 ### <a name="packing-using-a-nuspec"></a>. Nuspec kullanarak paketleme
 
-Bunun yerine, genellikle proje dosyasındaki `.nuspec` dosyasında bulunan [tüm özellikleri eklemeniz](../reference/msbuild-targets.md#pack-target) önerilir, ancak projenizi paketetmek için bir `.nuspec` dosyası kullanmayı tercih edebilirsiniz. `PackageReference`kullanan SDK olmayan bir proje için, paket görevinin yürütülebilmesi için `NuGet.Build.Tasks.Pack.targets` içeri aktarmanız gerekir. Bir nuspec dosyası paketetmeden önce projeyi geri yüklemeniz gerekir. (SDK stili bir proje varsayılan olarak paket hedeflerini içerir.)
+Bunun yerine, genellikle proje dosyasındaki `.nuspec` dosyasında bulunan [tüm özellikleri eklemeniz](../reference/msbuild-targets.md#pack-target) önerilse de, projenizi paketetmek için bir `.nuspec` dosyası kullanmayı tercih edebilirsiniz. `PackageReference`kullanan SDK olmayan bir proje için, paket görevinin yürütülebilmesi için `NuGet.Build.Tasks.Pack.targets` içeri aktarmanız gerekir. Bir nuspec dosyası paketetmeden önce projeyi geri yüklemeniz gerekir. (SDK stili bir proje varsayılan olarak paket hedeflerini içerir.)
 
 Proje dosyasının hedef çerçevesi ilgisizdir ve bir nuspec paketleme sırasında kullanılmaz. Aşağıdaki üç MSBuild özelliği, `.nuspec`kullanarak paketleme ile ilgilidir:
 
@@ -272,7 +272,7 @@ Proje dosyasının hedef çerçevesi ilgisizdir ve bir nuspec paketleme sırası
 
 Projenizi paketmek için `dotnet.exe` kullanıyorsanız, aşağıdaki gibi bir komut kullanın:
 
-```cli
+```dotnetcli
 dotnet pack <path to .csproj file> -p:NuspecFile=<path to nuspec file> -p:NuspecProperties=<> -p:NuspecBasePath=<Base path> 
 ```
 
@@ -303,8 +303,8 @@ Bir nuspec dosyası paketiçin bir *. csproj* dosyası örneği:
 
 `pack` hedefi, iç, hedef çerçeveye özgü derlemede çalışan iki uzantı noktası sağlar. Uzantı noktaları, hedef çerçeveye özgü içerik ve derlemelerin bir pakete dahil edilmesi için destek:
 
-- `TargetsForTfmSpecificBuildOutput` hedefi: `lib` klasörünün içindeki dosyalar veya `BuildOutputTargetFolder` kullanılarak belirtilen bir klasör için kullanın.
-- `TargetsForTfmSpecificContentInPackage` hedefi: `BuildOutputTargetFolder` dışındaki dosyalar için kullanın.
+- `TargetsForTfmSpecificBuildOutput` target: `lib` klasörü veya `BuildOutputTargetFolder`kullanılarak belirtilen bir klasör içindeki dosyalar için kullanın.
+- `TargetsForTfmSpecificContentInPackage` hedefi: `BuildOutputTargetFolder`dışındaki dosyalar için kullanın.
 
 #### <a name="targetsfortfmspecificbuildoutput"></a>TargetsForTfmSpecificBuildOutput
 
@@ -329,9 +329,9 @@ Bir nuspec dosyası paketiçin bir *. csproj* dosyası örneği:
 </Target>
 ```
 
-#### <a name="targetsfortfmspecificcontentinpackage"></a>Targetsfortfmspecificcontenınpackage
+#### <a name="targetsfortfmspecificcontentinpackage"></a>TargetsForTfmSpecificContentInPackage
 
-Özel bir hedef yazın ve `$(TargetsForTfmSpecificContentInPackage)` özelliğinin değeri olarak belirtin. Pakete dahil edilecek herhangi bir dosya için, hedef bu dosyaları ItemGroup `TfmSpecificPackageFile` ' a yazıp, aşağıdaki isteğe bağlı meta verileri ayarlamanız gerekir:
+Özel bir hedef yazın ve `$(TargetsForTfmSpecificContentInPackage)` özelliğinin değeri olarak belirtin. Pakete dahil edilecek tüm dosyalar için, hedef bu dosyaları ItemGroup 'a yazmalıdır `TfmSpecificPackageFile` ve aşağıdaki isteğe bağlı meta verileri ayarlar:
 
 - `PackagePath`: dosyanın pakette çıkış olması gereken yol. Aynı paket yoluna birden fazla dosya eklenirse NuGet bir uyarı verir.
 - `BuildAction`: dosyaya atanacak derleme eylemi, yalnızca paket yolu `contentFiles` klasörsde olduğunda gereklidir. Varsayılan "none" olarak belirlenmiştir.
@@ -378,19 +378,19 @@ Ek geri yükleme ayarları proje dosyasındaki MSBuild özelliklerinden gelebili
 | RestoreDisableParallel | İndirmeleri tek seferde bir ile sınırlayın. |
 | RestoreConfigFile | Uygulanacak `Nuget.Config` dosyasının yolu. |
 | RestoreNoCache | Doğru ise, önbelleğe alınmış paketlerin kullanılmasını önler. Bkz. [genel paketleri ve önbellek klasörlerini yönetme](../consume-packages/managing-the-global-packages-and-cache-folders.md). |
-| Restoreıgnorefailedsources | Doğru ise, başarısız veya eksik paket kaynaklarını yoksayar. |
+| RestoreIgnoreFailedSources | Doğru ise, başarısız veya eksik paket kaynaklarını yoksayar. |
 | RestoreFallbackFolders | Geri dönüş klasörleri, Kullanıcı paketleri klasörüyle aynı şekilde kullanılır. |
 | Restoreaddıtionalprojectsources | Geri yükleme sırasında kullanılacak ek kaynaklar. |
 | Restoreaddıtionalprojectfallbackfolders | Geri yükleme sırasında kullanılacak ek geri dönüş klasörleri. |
 | RestoreAdditionalProjectFallbackFoldersExcludes | `RestoreAdditionalProjectFallbackFolders` belirtilen geri dönüş klasörlerini dışlar |
 | RestoreTaskAssemblyFile | `NuGet.Build.Tasks.dll`yolu. |
-| Restoregraphprojectınput | Geri yüklenecek projelerin, mutlak yollar içermesi gereken, noktalı virgülle ayrılmış listesi. |
-| Restoreuseskipnontenttargets  | Projeler MSBuild aracılığıyla toplandığında, bunların `SkipNonexistentTargets` iyileştirmesi kullanılarak toplanıp toplanmayacağını belirler. Ayarlanmazsa, varsayılan olarak `true` olur. Projenin hedefleri içeri aktarılmadığı zaman, sonuç hızlı bir davranıştır. |
+| RestoreGraphProjectInput | Geri yüklenecek projelerin, mutlak yollar içermesi gereken, noktalı virgülle ayrılmış listesi. |
+| Restoreuseskipnontenttargets  | Projeler MSBuild aracılığıyla toplandığında, `SkipNonexistentTargets` iyileştirmesi kullanılarak toplanıp toplanmayacağını belirler. Ayarlanmazsa, varsayılan olarak `true`olur. Projenin hedefleri içeri aktarılmadığı zaman, sonuç hızlı bir davranıştır. |
 | Msbuildprojeclarsionspath | Çıkış klasörü, `BaseIntermediateOutputPath` ve `obj` klasörü ayarlanıyor. |
 | Restorezorlamalı | PackageReference tabanlı projelerde, son geri yükleme başarılı olsa bile tüm bağımlılıkların çözülmesini zorlar. Bu bayrağın belirtilmesi `project.assets.json` dosyasını silmeye benzerdir. Bu, http-cache ' i atlar. |
 | RestorePackagesWithLockFile | Bir kilit dosyasının kullanımıyla ilgili olarak. |
 | RestoreLockedMode | Geri yüklemeyi kilitli modda çalıştırın. Bu, geri yüklemenin bağımlılıkları yeniden değerlendirmeyeceği anlamına gelir. |
-| NuGetLockFilePath | Kilit dosyası için özel bir konum. Varsayılan konum projenin yanında bulunur ve `packages.lock.json` olarak adlandırılır. |
+| NuGetLockFilePath | Kilit dosyası için özel bir konum. Varsayılan konum, projenin yanında `packages.lock.json`olarak adlandırılır. |
 | Restoreforcedeğerlendir | Bağımlılıkları yeniden hesaplamak ve herhangi bir uyarı olmadan kilit dosyasını güncelleştirmek için geri yüklemeyi zorlar. | 
 
 #### <a name="examples"></a>Örnekler
@@ -434,13 +434,13 @@ msbuild -t:restore,build
 msbuild -t:build -restore
 ```
 
-Aynı mantık `build` ' a benzer diğer hedefler için de geçerlidir.
+Aynı mantık `build`benzer diğer hedefler için de geçerlidir.
 
 ### <a name="packagetargetfallback"></a>PackageTargetFallback
 
-`PackageTargetFallback` öğesi, paketler geri yüklenirken kullanılacak bir dizi uyumlu hedef belirtmenize olanak tanır. DotNet [TXD](../reference/target-frameworks.md) kullanan paketlere, DotNet TXD bildirmeyin uyumlu paketlerle çalışmak üzere tasarlanmıştır. Diğer bir deyişle, projeniz DotNet TXD 'yi kullanıyorsa, DotNet olmayan platformların DotNet ile uyumlu olmasını sağlamak üzere projenize `<PackageTargetFallback>` ' ı eklemediğiniz sürece, bağımlı olduğu tüm paketlerin DotNet TXD olması gerekir.
+`PackageTargetFallback` öğesi, paketler geri yüklenirken kullanılacak bir dizi uyumlu hedef belirtmenize olanak tanır. DotNet [TXD](../reference/target-frameworks.md) kullanan paketlere, DotNet TXD bildirmeyin uyumlu paketlerle çalışmak üzere tasarlanmıştır. Diğer bir deyişle, projeniz DotNet TXD kullanıyorsa, DotNet olmayan platformların DotNet ile uyumlu olmasını sağlamak için `<PackageTargetFallback>` projenize eklemediğiniz sürece tüm paketlerin DotNet TXD olması gerekir.
 
-Örneğin, proje `netstandard1.6` TXI kullanıyorsa ve bağımlı bir paket yalnızca `lib/net45/a.dll` ve `lib/portable-net45+win81/a.dll` içeriyorsa, projenin derlenmesi başarısız olur. İçine getirmek istediğiniz değer ikinci DLL ise, `portable-net45+win81` DLL 'inin uyumlu olduğunu söylemek için `PackageTargetFallback` ' ı aşağıdaki şekilde ekleyebilirsiniz:
+Örneğin, proje TXD `netstandard1.6` kullanıyorsa ve bağımlı bir paket yalnızca `lib/net45/a.dll` ve `lib/portable-net45+win81/a.dll`içeriyorsa, proje derlenmeyecektir. İçine getirmek istediğiniz değer ikinci DLL ise, `portable-net45+win81` DLL 'nin uyumlu olduğunu söylemek için `PackageTargetFallback` aşağıdaki gibi ekleyebilirsiniz:
 
 ```xml
 <PackageTargetFallback Condition="'$(TargetFramework)'=='netstandard1.6'">

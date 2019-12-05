@@ -12,18 +12,18 @@ keywords: NuGet sembol paketleri, NuGet paket hata ayıklaması, NuGet hata ayı
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 03ab4e1f3501055abedf430395de095d773bc9da
-ms.sourcegitcommit: fc0f8c950829ee5c96e3f3f32184bc727714cfdb
+ms.openlocfilehash: 8528261f90e75e2dfac8cb746b396d227c3741f4
+ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74253920"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74825184"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Sembol paketleri (. snupkg) oluşturuluyor
 
 Sembol paketleri, NuGet paketlerinizin hata ayıklama deneyimini iyileştirmenize olanak tanır.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Prerequisites
 
 gerekli [NuGet protokollerini](../api/nuget-protocols.md)uygulayan [NuGet. exe v 4.9.0 veya üzeri](https://www.nuget.org/downloads) ya da [DotNet. exe v 2.2.0 veya üzeri](https://www.microsoft.com/net/download/dotnet-core/2.2).
 
@@ -42,7 +42,7 @@ DotNet. exe veya MSBuild kullanıyorsanız,. nupkg dosyasına ek olarak bir. snu
 
 * Veya komut satırında aşağıdaki özellikleri belirtin:
 
-     ```cli
+     ```dotnetcli
      dotnet pack MyPackage.csproj -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg
      ```
 
@@ -54,7 +54,7 @@ DotNet. exe veya MSBuild kullanıyorsanız,. nupkg dosyasına ek olarak bir. snu
 
 NuGet. exe kullanıyorsanız,. nupkg dosyasına ek olarak bir. snupkg dosyası oluşturmak için aşağıdaki komutları kullanabilirsiniz:
 
-```
+```cli
 nuget pack MyPackage.nuspec -Symbols -SymbolPackageFormat snupkg
 
 nuget pack MyPackage.csproj -Symbols -SymbolPackageFormat snupkg

@@ -1,16 +1,16 @@
 ---
-ms.openlocfilehash: bb39e1056ea97ecf1ac70d7fd8e79e65dc04655c
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 1df35c96124584bddbe58b8dd6587e3fff256ef9
+ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842133"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74825296"
 ---
-1. Değiştirmek için içeren klasör `.nupkg` dosya.
+1. `.nupkg` dosyasını içeren klasöre geçin.
 
-1. Paketinizin adını (benzersiz paket kimliği) belirtme ve API anahtarınızı anahtar değerini değiştirerek aşağıdaki komutu çalıştırın:
+1. Aşağıdaki komutu çalıştırarak paket adınızı (benzersiz paket KIMLIĞI) belirtip anahtar değerini API anahtarınızla değiştirin:
 
-    ```cli
+    ```dotnetcli
     dotnet nuget push AppLogger.1.0.0.nupkg -k qz2jga8pl3dvn2akksyquwcs9ygggg4exypy3bhxy6w6x6 -s https://api.nuget.org/v3/index.json
     ```
 
@@ -23,4 +23,4 @@ ms.locfileid: "67842133"
     info : Your package was pushed.
     ```
 
-Bkz: [dotnet nuget anında iletme](/dotnet/core/tools/dotnet-nuget-push).
+Bkz. [DotNet NuGet Push](/dotnet/core/tools/dotnet-nuget-push).

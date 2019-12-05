@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: 8727f67608593e6ae8b96daa81b7423782dfc219
-ms.sourcegitcommit: 60414a17af65237652c1de9926475a74856b91cc
+ms.openlocfilehash: 55f9c760ae05f060b748e6fbb82d8e9bd77c4e37
+ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74096938"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74825301"
 ---
 # <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>Hızlı başlangıç: paket oluşturma ve yayımlama (DotNet CLı)
 
@@ -57,9 +57,9 @@ Her NuGet paketinin, paketin içeriğini ve bağımlılıklarını açıklayan b
 
 ## <a name="run-the-pack-command"></a>Pack komutunu çalıştırın
 
-Projeden bir NuGet paketi (`.nupkg` dosyası) oluşturmak için `dotnet pack` komutunu çalıştırın, bu da projeyi otomatik olarak oluşturur:
+Projeden bir NuGet paketi (`.nupkg` dosyası) oluşturmak için, Ayrıca projeyi otomatik olarak oluşturan `dotnet pack` komutunu çalıştırın:
 
-```cli
+```dotnetcli
 # Uses the project file in the current folder by default
 dotnet pack
 ```

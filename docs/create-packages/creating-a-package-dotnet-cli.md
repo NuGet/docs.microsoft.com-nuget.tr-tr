@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: ec37057d40ddc9ed1826b0628aaa573c342b92b6
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.openlocfilehash: 535d5a16a559cde065ee0277471edfbaf1aea084
+ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72380747"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74825275"
 ---
 # <a name="create-a-nuget-package-using-the-dotnet-cli"></a>DotNet CLı kullanarak bir NuGet paketi oluşturma
 
@@ -23,7 +23,7 @@ NuGet, .NET Core ve .NET Standard [SDK stili biçimini](../resources/check-proje
 > [!IMPORTANT]
 > Bu konu, genellikle .NET Core ve .NET Standard projeleri [SDK stilindeki](../resources/check-project-format.md) projeler için geçerlidir.
 
-## <a name="set-properties"></a>Özellikleri ayarla
+## <a name="set-properties"></a>Özellikleri ayarlama
 
 Bir paket oluşturmak için aşağıdaki özellikler gereklidir.
 
@@ -76,7 +76,7 @@ Bağımlılıkları bildirme ve sürüm numaralarını belirtme hakkında ayrın
 
 Projeden bir NuGet paketi (`.nupkg` dosyası) oluşturmak için, Ayrıca projeyi otomatik olarak oluşturan `dotnet pack` komutunu çalıştırın:
 
-```cli
+```dotnetcli
 # Uses the project file in the current folder by default
 dotnet pack
 ```
