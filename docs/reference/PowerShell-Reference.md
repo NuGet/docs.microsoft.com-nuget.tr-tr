@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/02/2017
 ms.topic: reference
-ms.openlocfilehash: 142af9c4f7d25c3b0d986524313851cceb1e4c60
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 2a82b1977265a8f8a15247759bc3de80a5efe228
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68328383"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75385349"
 ---
 # <a name="powershell-reference"></a>PowerShell başvurusu
 
@@ -31,7 +31,7 @@ Paket Yöneticisi konsolu, Windows üzerinde Visual Studio 'da aşağıda listel
 
 | İkincil komutlar | Açıklama | NuGet sürümü |
 | --- | --- | --- |
-| [Add-BindingRedirect](ps-reference/ps-ref-add-bindingredirect.md) | Bir projenin çıkış yolundaki tüm derlemeleri inceler ve ' a `app.config` veya `web.config` gerektiğinde bağlama yeniden yönlendirmeleri ekler. | Tümü |
+| [Add-BindingRedirect](ps-reference/ps-ref-add-bindingredirect.md) | Bir projenin çıkış yolundaki tüm derlemeleri inceler ve `app.config` veya gerektiğinde `web.config` bağlama yeniden yönlendirmeleri ekler. | Tümü |
 | [Get-Project](ps-reference/ps-ref-get-project.md) | Varsayılan veya belirtilen proje hakkındaki bilgileri görüntüler. | 3.0+ |
 | [Open-PackagePage](ps-reference/ps-ref-open-packagepage.md) | Belirtilen paket için proje, lisans veya uygunsuz kullanım URL 'SI ile varsayılan tarayıcıyı başlatır. | 3\.0 + ' da kullanım dışı |
 | [Register-Tabgenişleme](ps-reference/ps-ref-register-tabexpansion.md) | Bir komutun parametreleri için bir sekme genişletmesi kaydeder, bu da yaygın olarak kullanılan parametre değerleri için özelleştirilmiş expanlar oluşturmanıza olanak sağlar. | Tümü |
@@ -44,7 +44,7 @@ Konsolun içindeki bu komutlardan herhangi biri hakkında ayrıntılı yardım i
 Get-Help <command> -full
 ```
 
-Tüm Paket Yöneticisi konsol komutları aşağıdaki [ortak PowerShell parametrelerini](http://go.microsoft.com/fwlink/?LinkID=113216)destekler:
+Tüm Paket Yöneticisi konsol komutları aşağıdaki [ortak PowerShell parametrelerini](https://go.microsoft.com/fwlink/?LinkID=113216)destekler:
 
 - Hata ayıklama
 - ErrorAction
@@ -56,4 +56,4 @@ Tüm Paket Yöneticisi konsol komutları aşağıdaki [ortak PowerShell parametr
 - WarningAction
 - WarningVariable
 
-Ayrıntılar için PowerShell belgelerindeki [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216) adresine bakın.
+Ayrıntılar için PowerShell belgelerindeki [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216) bakın.

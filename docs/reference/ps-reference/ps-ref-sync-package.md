@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: a48a09a27b6db9b774e59b9a10652067179e2c27
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 12a3d5f32056539a75da9e17b15d67e72a8a42c2
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68328197"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75384909"
 ---
 # <a name="sync-package-package-manager-console-in-visual-studio"></a>Sync-Package (Visual Studio'da Paket Yöneticisi Konsolu)
 
@@ -34,17 +34,17 @@ Sync-Package [-Id] <string> [-IgnoreDependencies] [-ProjectName <string>] [[-Ver
 | Ignoredependencies | Yalnızca bu paketi yükler ve bağımlılıklarını değil. |
 | ProjectName | Paketi eşitlenecek proje, varsayılan proje varsayılan olarak varsayılan projem. |
 | Sürüm | Eşitlenecek paketin sürümü, şu anda yüklü olan sürüme dönülüyor. |
-| Source | Aranacak paket kaynağının URL veya klasör yolu. Yerel klasör yolları mutlak veya geçerli klasöre göreli olabilir. Atlanırsa, `Sync-Package` Şu anda seçili olan paket kaynağını arar. |
+| Kaynak | Aranacak paket kaynağının URL veya klasör yolu. Yerel klasör yolları mutlak veya geçerli klasöre göreli olabilir. Atlanırsa, `Sync-Package` Şu anda seçili olan paket kaynağını arar. |
 | Includeönsürümü | Eşitlenmiş yayın öncesi paketleri içerir. |
 | FileConflictAction | Proje tarafından başvurulan var olan dosyaların üzerine yazılması veya yoksayılması istendiğinde gerçekleştirilecek eylem. Olası değerler *üzerine yazılır, Yoksay, None, overwriteall*ve *(3,0 +)* *IgnoreAll*. |
-| DependencyVersion | Kullanılacak bağımlılık paketlerinin sürümü, bu, aşağıdakilerden biri olabilir:<br/><ul><li>*En düşük* (varsayılan): en düşük sürüm</li><li>*HighestPatch*: en düşük ana, en düşük ikincil, en yüksek düzeltme eki olan sürüm</li><li>*HighestMinor*: en düşük ana, en yüksek ikincil, en yüksek düzeltme eki olan sürüm</li><li>*En yüksek* (parametresi olmayan Update-Package için varsayılan): en yüksek sürüm</li></ul>Varsayılan değeri, [`dependencyVersion`](../nuget-config-file.md#config-section) `Nuget.Config` dosyadaki ayarını kullanarak ayarlayabilirsiniz. |
+| DependencyVersion | Kullanılacak bağımlılık paketlerinin sürümü, bu, aşağıdakilerden biri olabilir:<br/><ul><li>*En düşük* (varsayılan): en düşük sürüm</li><li>*HighestPatch*: en düşük ana, en düşük ikincil, en yüksek düzeltme eki olan sürüm</li><li>*HighestMinor*: en düşük ana, en yüksek ikincil, en yüksek düzeltme eki olan sürüm</li><li>*En yüksek* (parametresi olmayan Update-Package için varsayılan): en yüksek sürüm</li></ul>`Nuget.Config` dosyasındaki [`dependencyVersion`](../nuget-config-file.md#config-section) ayarını kullanarak varsayılan değeri ayarlayabilirsiniz. |
 | WhatIf | Komutu, eşitlemeyi gerçekten gerçekleştirmeden çalışırken ne olacağını gösterir. |
 
 Bu parametrelerin hiçbiri, işlem hattı girişi veya joker karakterler kabul etmez.
 
 ## <a name="common-parameters"></a>Ortak Parametreler
 
-`Sync-Package`Aşağıdaki [ortak PowerShell parametrelerini](http://go.microsoft.com/fwlink/?LinkID=113216)destekler: Hata Ayıkla, hata eylemi, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, verbose, WarningAction ve WarningVariable.
+`Sync-Package`, şu [ortak PowerShell parametrelerini](https://go.microsoft.com/fwlink/?LinkID=113216)destekler: Hata Ayıkla, hata eylemi, ErrorVariable, OutBuffer, OutVariable, Pipelinevariable, verbose, WarningAction ve WarningVariable.
 
 ## <a name="examples"></a>Örnekler
 

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: ed3545454a811c311190a191c566d9e9192f3fcc
-ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
+ms.openlocfilehash: 2c2b5b21569e2644154670d502146f1e0f9c4c81
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74825061"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75385020"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet paketi ve geri yükleme MSBuild hedefleri olarak
 
@@ -101,7 +101,7 @@ Aşağıdaki tabloda, ilk `<PropertyGroup>` düğümü içindeki bir proje dosya
 - Depodalı
 - Kayıt yapma
 - NoPackageAnalysis
-- minClientVersion
+- MinClientVersion
 - IncludeBuildOutput
 - IncludeContentInPack
 - BuildOutputTargetFolder
@@ -120,7 +120,7 @@ Oluşturulan NuGet paketinden paket bağımlılıklarını bastırmak için `Sup
 
 `PackageIconUrl`, yeni [`PackageIcon`](#packageicon) özelliğinin yararına kullanım dışı olacaktır.
 
-NuGet 5,3 & Visual Studio 2019 sürüm 16,3 ' den başlayarak, paket meta verileri yalnızca `PackageIconUrl`belirtiyorsa, `pack` [NU5048](errors-and-warnings/nu5048) uyarı verecek.
+NuGet 5,3 & Visual Studio 2019 sürüm 16,3 ' den başlayarak, paket meta verileri yalnızca `PackageIconUrl`belirtiyorsa, `pack` [NU5048](./errors-and-warnings/nu5048.md) uyarı verecek.
 
 ### <a name="packageicon"></a>Packageıcon
 

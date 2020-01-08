@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 431e5f292f069ad5eb0c9f7f511d6b06810c8760
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 1c39fea2131b8f4b8a91314347a19366d5a582c2
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68328209"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75385199"
 ---
 # <a name="get-package-package-manager-console-in-visual-studio"></a>Get-Package (Visual Studio'da Paket Yöneticisi Konsolu)
 
@@ -32,13 +32,13 @@ Parametresiz, `Get-Package` varsayılan projede yüklü paketlerin listesini gö
 
 | Parametre | Açıklama |
 | --- | --- |
-| Source | Paketin URL veya klasör yolu. Yerel klasör yolları mutlak veya geçerli klasöre göreli olabilir. Atlanırsa, `Get-Package` Şu anda seçili olan paket kaynağını arar. -ListAvailable ile kullanıldığında varsayılan olarak nuget.org olur. |
+| Kaynak | Paketin URL veya klasör yolu. Yerel klasör yolları mutlak veya geçerli klasöre göreli olabilir. Atlanırsa, `Get-Package` Şu anda seçili olan paket kaynağını arar. -ListAvailable ile kullanıldığında varsayılan olarak nuget.org olur. |
 | ListAvailable | Bir paket kaynağından kullanılabilir olan paketleri listeler, varsayılan olarak nuget.org. -PageSize ve/veya-First belirtilmemişse, varsayılan 50 paket gösterir. |
 | Güncelleştirmeler | Paket kaynağından kullanılabilir bir güncelleştirme olan paketleri listeler. |
 | ProjectName | Yüklü paketlerin alınacağı proje. Atlanırsa, tüm çözüm için yüklü projeleri döndürür. |
 | Filtrele | Paket KIMLIĞINE, açıklamaya ve etiketlere uygulayarak paket listesini daraltmak için kullanılan bir filtre dizesi. |
-| adı | Listenin başından döndürülecek paket sayısı. Belirtilmemişse, varsayılan olarak 50 ' dir. |
-| Atla | Görüntülenmiş listedeki ilk &lt;int&gt; paketleri atlar.  |
+| Birinci | Listenin başından döndürülecek paket sayısı. Belirtilmemişse, varsayılan olarak 50 ' dir. |
+| Atla | Görünen listeden ilk &lt;int&gt; paketlerini atlar.  |
 | AllVersions | Her bir paketin yalnızca en son sürümü yerine tüm kullanılabilir sürümlerini görüntüler. |
 | Includeönsürümü | Sonuçlarda yayın öncesi paketleri içerir. |
 | PageSize | *(3.0 +)* -ListAvailable (zorunlu) ile kullanıldığında, devam etmek için bir istem vermeden önce listeye eklenecek paket sayısı. |
@@ -47,7 +47,7 @@ Bu parametrelerin hiçbiri, işlem hattı girişi veya joker karakterler kabul e
 
 ## <a name="common-parameters"></a>Ortak Parametreler
 
-`Get-Package`Aşağıdaki [ortak PowerShell parametrelerini](http://go.microsoft.com/fwlink/?LinkID=113216)destekler: Hata Ayıkla, hata eylemi, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, verbose, WarningAction ve WarningVariable.
+`Get-Package`, şu [ortak PowerShell parametrelerini](https://go.microsoft.com/fwlink/?LinkID=113216)destekler: Hata Ayıkla, hata eylemi, ErrorVariable, OutBuffer, OutVariable, Pipelinevariable, verbose, WarningAction ve WarningVariable.
 
 ## <a name="examples"></a>Örnekler
 

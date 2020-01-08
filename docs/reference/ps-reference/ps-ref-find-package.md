@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 6/1/2017
 ms.topic: reference
-ms.openlocfilehash: 4bb6d090b97dd55fc1be0625855aab27a0d181c4
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 4118b5a38f80a2300b3945738315d56bda096f9a
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68328221"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75384639"
 ---
 # <a name="find-package-package-manager-console-in-visual-studio"></a>Find-Package (Visual Studio'da Paket Yöneticisi Konsolu)
 
@@ -29,20 +29,20 @@ Find-Package [-Id] <keywords> -Source <string> [-AllVersions] [-First [<int>]]
 
 | Parametre | Açıklama |
 | --- | --- |
-| Kimlik &lt;anahtar sözcükleri&gt; | Istenir Paket kaynağı aranırken kullanılacak anahtar sözcükler. Yalnızca paket KIMLIĞI anahtar sözcüklerle eşleşen paketleri döndürmek için-ExactMatch kullanın. Hiçbir anahtar sözcük verilmezse, `Find-Package` indirmelere göre ilk 20 paketin bir listesini ya da önce tarafından belirtilen sayıyı döndürür. Kimliğin isteğe bağlı olduğunu ve bir op olmadığını unutmayın. |
-| Source | Aranacak paket kaynağının URL veya klasör yolu. Yerel klasör yolları mutlak veya geçerli klasöre göreli olabilir. Atlanırsa, `Find-Package` Şu anda seçili olan paket kaynağını arar. |
+| Kimlik &lt;anahtar sözcükleri&gt; | Istenir Paket kaynağı aranırken kullanılacak anahtar sözcükler. Yalnızca paket KIMLIĞI anahtar sözcüklerle eşleşen paketleri döndürmek için-ExactMatch kullanın. Hiçbir anahtar sözcük verilmezse, `Find-Package` indirmeleri veya Ilk olarak belirtilen sayıyı, en çok kullanılan 20 paketin bir listesini döndürür. Kimliğin isteğe bağlı olduğunu ve bir op olmadığını unutmayın. |
+| Kaynak | Aranacak paket kaynağının URL veya klasör yolu. Yerel klasör yolları mutlak veya geçerli klasöre göreli olabilir. Atlanırsa, `Find-Package` Şu anda seçili olan paket kaynağını arar. |
 | AllVersions | Her bir paketin yalnızca en son sürümü yerine tüm kullanılabilir sürümlerini görüntüler. |
-| adı | Listenin başından döndürülecek paket sayısı; Varsayılan değer 20 ' dir. |
-| Atla | Görüntülenmiş listedeki ilk &lt;int&gt; paketleri atlar.  |
+| Birinci | Listenin başından döndürülecek paket sayısı; Varsayılan değer 20 ' dir. |
+| Atla | Görünen listeden ilk &lt;int&gt; paketlerini atlar.  |
 | Includeönsürümü | Sonuçlarda yayın öncesi paketleri içerir. |
-| ExactMatch | Anahtar sözcükleri &lt;&gt; , büyük/küçük harfe duyarlı bir paket kimliği olarak kullanmak için belirtilmiştir. |
-| StartWith | Paket kimliği &lt;anahtar sözcüklerle&gt;başlayan paketleri döndürür. |
+| ExactMatch | Büyük/küçük harfe duyarlı paket KIMLIĞI olarak&gt; &lt;anahtar sözcüklerini kullanmak için belirtilir. |
+| StartWith | Paket KIMLIĞI &lt;anahtar sözcüklerle başlayan paketleri döndürür&gt;. |
 
 Bu parametrelerin hiçbiri, işlem hattı girişi veya joker karakterler kabul etmez.
 
 ## <a name="common-parameters"></a>Ortak Parametreler
 
-`Find-Package`Aşağıdaki [ortak PowerShell parametrelerini](http://go.microsoft.com/fwlink/?LinkID=113216)destekler: Hata Ayıkla, hata eylemi, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, verbose, WarningAction ve WarningVariable.
+`Find-Package`, şu [ortak PowerShell parametrelerini](https://go.microsoft.com/fwlink/?LinkID=113216)destekler: Hata Ayıkla, hata eylemi, ErrorVariable, OutBuffer, OutVariable, Pipelinevariable, verbose, WarningAction ve WarningVariable.
 
 ## <a name="examples"></a>Örnekler
 
