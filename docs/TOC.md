@@ -49,7 +49,7 @@
 ### [Yerel paket oluşturma](guides/native-packages.md)
 ### [NuGet paketleri olarak UI denetimleri oluşturma](guides/create-UI-controls.md)
 ### [NuGet paketleri olarak çözümleyici oluşturma](guides/analyzers-conventions.md)
-### [Visual Studio 2015 ile Xamarin’e yönelik paket oluşturma](guides/create-packages-for-xamarin.md)
+### [Visual Studio 2017 veya 2019 ile Xamarin’e yönelik paket oluşturma](guides/create-packages-for-xamarin.md)
 ### [COM derlemeleriyle paket oluşturma](create-packages/author-packages-with-COM-interop-assemblies.md)
 ## Paketleri imzalama
 ### [Paketleri imzalama](create-packages/sign-a-package.md)
