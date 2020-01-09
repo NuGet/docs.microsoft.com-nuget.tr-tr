@@ -1,77 +1,77 @@
 ---
-title: NuGet 1.8 sürüm notları
-description: NuGet bilinen sorunları, hata düzeltmeleri yapıldı, eklenen özellikler ve dcr 1.8 için sürüm notları.
+title: NuGet 1,8 sürüm notları
+description: Bilinen sorunlar, hata düzeltmeleri, eklenen özellikler ve CCR 'ler dahil olmak üzere NuGet 1,8 sürüm notları.
 author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: ff6d12606b1bed479e63eebccd978ff9cd4a7faf
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 973a2d010cb75eeeb383be94baf2fb17a999dd7c
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546627"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383467"
 ---
-# <a name="nuget-18-release-notes"></a>NuGet 1.8 sürüm notları
+# <a name="nuget-18-release-notes"></a>NuGet 1,8 sürüm notları
 
-[1.7 NuGet sürüm notları](../release-notes/nuget-1.7.md) | [2.0 NuGet sürüm notları](../release-notes/nuget-2.0.md)
+[Nuget 1,7 sürüm notları](../release-notes/nuget-1.7.md) | [NuGet 2,0 sürüm notları](../release-notes/nuget-2.0.md)
 
-NuGet 1.8 23 Mayıs 2012 tarihinde yayınlanmıştır.
+NuGet 1,8, 23 Mayıs 2012 ' de yayımlanmıştır.
 
 ## <a name="known-installation-issue"></a>Bilinen yükleme sorunu
-VS 2010 SP1 çalıştırıyorsanız, yüklü eski bir sürümü varsa, NuGet yükseltmeye çalışırken bir yükleme hata ile karşılaşabilirsiniz.
+VS 2010 SP1 çalıştırıyorsanız, daha eski bir sürümü yüklüyse NuGet 'i yükseltmeye çalışırken yükleme hatası ile karşılaşabilirsiniz.
 
-Geçici çözüm, yalnızca NuGet kaldırıp VS uzantısı Galeriden yükleyin sağlamaktır.  Bkz: [ http://support.microsoft.com/kb/2581019 ](http://support.microsoft.com/kb/2581019) daha fazla bilgi edinmek veya [VS düzeltme doğrudan gidin](http://bit.ly/vsixcertfix).
+Geçici çözüm, NuGet 'i kaldırmak ve ardından VS uzantısı galerisinden yüklemek olacaktır.  Daha fazla bilgi için bkz. <https://support.microsoft.com/kb/2581019> veya [doğrudan vs düzeltmesine git](http://bit.ly/vsixcertfix).
 
-Not: Visual Studio (Kaldır düğmesi devre dışıdır) uzantıyı kaldırmak izin vermiyor olasılıkla "Yönetici olarak çalıştır" kullanarak Visual Studio'yu yeniden başlatmanız gerekir
+Note: Visual Studio uzantıyı kaldırmanızı izin vermediğinden (kaldırma düğmesi devre dışıdır), büyük olasılıkla "yönetici olarak çalıştır" seçeneğini kullanarak Visual Studio 'Yu yeniden başlatmanız gerekir.
 
-## <a name="nuget-18-incompatible-with-windows-xp-hotfix-published"></a>NuGet 1.8 uyumsuz Windows XP ile yayımlanan düzeltme
+## <a name="nuget-18-incompatible-with-windows-xp-hotfix-published"></a>NuGet 1,8, Windows XP ile uyumsuz, düzeltme yayımlandı
 
-Kısa bir süre içinde NuGet 1.8 yayımlandıktan sonra bir şifreleme değişiklik 1.8 kullanıcılar Windows XP kesildi öğrendiniz.
+NuGet 1,8 yayımlandıktan sonra, Windows XP 'de kullanıcılar tarafından 1,8 ' de bir şifreleme değişikliği olduğunu öğrendik.
 
-Bu sorunu gideren bir düzeltme beri yayımladık.  Visual Studio uzantı Galerisi aracılığıyla NuGet güncelleştirerek bu düzeltmeyi alırsınız.
+Bu yana, bu sorunu gideren bir düzeltme yayımladık.  NuGet 'i Visual Studio Uzantı Galerisi aracılığıyla güncelleştirerek bu düzeltmeyi alırsınız.
 
 ## <a name="features"></a>Özellikler
 
-### <a name="satellite-packages-for-localized-resources"></a>Uydu paketleri için yerelleştirilmiş kaynaklar
-NuGet 1.8 artık ayrı paketler için .NET Framework'ün uydu derleme özellikleri benzer yerelleştirilmiş kaynaklar oluşturma özelliği destekler.  Uydu paket herhangi bir NuGet paketi eklenmesi birkaç kuralları ile aynı şekilde oluşturulur:
+### <a name="satellite-packages-for-localized-resources"></a>Yerelleştirilmiş kaynaklar için uydu paketleri
+NuGet 1,8 artık yerelleştirilmiş kaynaklar için .NET Framework uydu derleme özelliklerine benzer şekilde ayrı paketler oluşturma özelliğini desteklemektedir.  Uydu paketi, bazı diğer NuGet paketiyle aynı şekilde oluşturulur ve birkaç kural eklenir:
 
-* Standart biriyle eşleşen bir sonek uydu paket Kimliğini ve dosya adı içermelidir [dizeleri .NET Framework tarafından kullanılan kültür](http://msdn.microsoft.com/goglobal/bb896001.aspx).
-* İçinde `.nuspec` dosya, uydu paket tanımlamanız gerekir dil öğesi Kimliğinde kullanılan aynı kültür dizesiyle
-* Uydu paket bağımlılık olarak tanımlamalıdır kendi `.nuspec` yalnızca dil soneki eksi aynı Kimliğe sahip paketi, çekirdek paket dosyasına.  Çekirdek paketini depo başarılı yükleme için kullanılabilir olması gerekir.
+* Uydu paket KIMLIĞI ve dosya adı, [.NET Framework tarafından kullanılan standart kültür dizelerinden](https://docs.microsoft.com/openspecs/windows_protocols/ms-lcid/a9eac961-e77d-41a6-90a5-ce1a8b0cdb9c)biriyle eşleşen bir sonek içermelidir.
+* `.nuspec` dosyasında uydu paketi, KIMLIK içinde kullanılan aynı kültür dizesinin bulunduğu bir dil öğesi tanımlamalıdır
+* Uydu paketinin `.nuspec` dosyasında çekirdek paketine bir bağımlılık tanımlanması gerekir. Bu, yalnızca aynı KIMLIĞE sahip olan paket, dil sonekini temel almalıdır.  Yüklemenin başarılı olması için çekirdek paketin depoda kullanılabilir olması gerekir.
 
-Yerelleştirilmiş kaynakları bir paketi yüklemek için bir geliştirici açıkça depodan yerelleştirilmiş paketi seçer. Şu anda NuGet galerisinde uydu paketleri için özel olarak değerlendirilmesi herhangi bir türden vermez.
+Yerelleştirilmiş kaynaklarla bir paket yüklemek için, bir geliştirici doğrudan depodan yerelleştirilmiş paketi seçer. Mevcut olduğunda NuGet Galerisi, uydu paketlerine herhangi bir tür özel işleme vermez.
 
-![Paket Yöneticisi iletişim yerelleştirilmiş pacakges ile](./media/dlg-w-loc-packs.png)
+![Yerelleştirilmiş pacakges ile Paket Yöneticisi iletişim kutusu](./media/dlg-w-loc-packs.png)
 
-Uydu paketi, çekirdek paket bağımlılık listelediği için uydu ve çekirdek paketler NuGet paketleri klasöre çekilir ve yüklü.
+Uydu paketi çekirdek paketine bir bağımlılık listelediğinden, hem uydu hem de çekirdek paketleri NuGet paketleri klasörüne çekilir ve yüklenir.
 
-![Yerelleştirilmiş paketler ile paketler klasörü](./media/fldr-loc-packs.png)
+![Yerelleştirilmiş paketleri olan paketler klasörü](./media/fldr-loc-packs.png)
 
-Ayrıca, uydu paket yükleme, çalışırken NuGet kültür dizesi adlandırma kuralı da tanır ve böylece .NET Framework tarafından çekilmesi ardından yerelleştirilmiş kaynak derlemesi çekirdek paket içindeki doğru alt klasörü içine kopyalar.
+Ayrıca, uydu paketini yüklerken NuGet ayrıca kültür dize adlandırma kuralını tanır ve yerelleştirilmiş kaynak derlemesini, .NET Framework tarafından çekilecek şekilde çekirdek paket içindeki doğru alt klasöre kopyalar.
 
-![Çekirdek paket klasörüne kopyalanan kaynağı klasörü](./media/fldr-copied-loc.png)
+![Kopyalanmış kaynak klasörü ile çekirdek paket klasörü](./media/fldr-copied-loc.png)
 
-Uydu paketlerle Not mevcut bir hatayı olan NuGet için yerelleştirilmiş kaynaklar kopyalamaz `bin` Web sitesi projeleri için klasör.  Bu sorun, NuGet sonraki sürümde düzeltilecektir.
+Uydu paketleriyle birlikte var olan bir hata, NuGet 'in yerelleştirilmiş kaynakları Web sitesi projelerine yönelik `bin` klasöre kopyalamalarıdır.  Bu sorun, NuGet 'in bir sonraki sürümünde düzeltilecektir.
 
-Uydu paketleri oluşturup kullanacağınızı nasıl yazılacağını gösteren tam bir örnek için bkz: [ https://github.com/NuGet/SatellitePackageSample ](https://github.com/NuGet/SatellitePackageSample).
+Uydu paketlerinin nasıl oluşturulduğunu ve kullanılacağını gösteren bir örnek için, bkz. [https://github.com/NuGet/SatellitePackageSample](https://github.com/NuGet/SatellitePackageSample).
 
 ### <a name="package-restore-consent"></a>Paket geri yükleme onayı
-NuGet 1.8 sürümünde, biz paket geri yükleme, kullanıcı gizliliğini korumak için önemli bir kısıtlama desteklemek için öğrenmeniz açıklanmıştır. Bu kısıtlama, projeler ve açıkça geri yükleme paketini onay için paket geri yükleme kullanan çözümler oluşturan geliştiriciler yapılandırılmış paket kaynaklarından paketleri indirmek için çevrimiçi olma gerektirir.
+NuGet 1,8 ' de, Kullanıcı gizliliğini korumak için paket geri yüklemesi üzerinde önemli bir kısıtlamayı desteklemeye yönelik ön hazırlıkları başlattık 'u geliştirdik. Bu kısıtlama, paket geri yükleme kullanan geliştiricilerin proje ve çözümlerin yapılandırılmış paket kaynaklarından paketleri indirmek üzere paket geri yükleme 'nin çevrimiçi duruma açık olarak izin vermesini gerektirir.
 
-Bu onay sağlamak için 2 yolu vardır. İlk, aşağıda gösterildiği gibi Paket Yöneticisi'ni yapılandırma iletişim kutusunda bulunabilir.  Bu yöntem öncelikle Geliştirici makineleri için tasarlanmıştır.
+Bu onayı sağlamanın 2 yolu vardır. Birincisi, aşağıda gösterildiği gibi Paket Yöneticisi yapılandırma iletişim kutusunda bulunabilir.  Bu yöntem öncelikle geliştirici makinelerine yöneliktir.
 
-![Paket Yöneticisi'ni yapılandırma iletişim kutusu](./media/pr-consent-configdlg.png)
+![Paket Yöneticisi yapılandırma iletişim kutusu](./media/pr-consent-configdlg.png)
 
-İkinci yöntem, değeri "true" değişken "EnableNuGetPackageRestore" ortam ayarlamaktır.  Bu yöntem, CI veya yapı sunucuları gibi katılımsız makineler içindir.
+İkinci yöntem, "Enablenugetpackageresesant" ortam değişkenini "true" değerine ayarlamaya yönelik olur.  Bu yöntem, CI veya yapı sunucuları gibi katılımsız makinelere yöneliktir.
 
-Şimdi, yukarıda belirtildiği gibi biz yalnızca bu özellik için öğrenmeniz NuGet 1.8 ile düzenlenir.  Pratikte, bu tüm özelliği etkinleştirmek için mantığı ekledik ancak bunu şu anda bu sürümde uygulandığını anlamına gelir. Etkinleştirilir, ancak sonraki NuGet, böylece biz başlattığınızda, bu nedenle etkilenmiş değil ve ortamınızı uygun şekilde yapılandırabilirsiniz, bunun farkında olabildiğince çabuk yapmak istedik şekilde sürümünü zorunlu onay kısıtlaması.
+Artık yukarıda belirtildiği gibi, NuGet 1,8 ' de bu özellik için yalnızca ön hazırlıkları başlattık ' u ekledik.  Bu şekilde, bu özellik, özelliği etkinleştirmek için tüm mantığı ekledik, bu sürümde şu anda zorlanmadığını gösterir. Ancak, NuGet 'in bir sonraki sürümünde, ortamınızı uygun şekilde yapılandırabilmek için mümkün olan en kısa sürede haberdar etmeniz ve bu nedenle onay kısıtlamasını zorlayabilmemiz için etkilenmemesi gerekir.
 
-Daha fazla ayrıntı için lütfen bkz [team blog gönderisi](http://blog.nuget.org/20120518/package-restore-and-consent.html) bu özelliği.
+Daha fazla ayrıntı için lütfen bu özelliğin [Takım blog gönderisine](http://blog.nuget.org/20120518/package-restore-and-consent.html) bakın.
 
-### <a name="nugetexe-performance-improvements"></a>nuget.exe performans geliştirmeleri
-Paketler paralel olarak indirip yükleme komutunu değiştirerek, NuGet 1.8 önemli ölçüde performans geliştirmeleri nuget.exe – ve uzantı paket geri getirir.  Yüksek düzey testi performans 6 paketleri projeye yüklemek için yaklaşık %35 NuGet 1.8 tarafından artırır gösterir.  25 paketlerin sayısını artırmayı yaklaşık 60 oranında bir performans kazancı gösterir.
+### <a name="nugetexe-performance-improvements"></a>NuGet. exe performans Iyileştirmeleri
+NuGet 1,8, paketleri paralel olarak indirip yüklemek için Install komutunu değiştirerek NuGet. exe ' ye ve uzantı paketi geri yüklemesine çarpıcı performans iyileştirmeleri getirir.  Yüksek düzeyde test, bir projeye 6 paket yükleme performansının NuGet 1,8 ' de yaklaşık %35 oranında artmasını gösterir.  Paket sayısını 25 ' e yükseltmek yaklaşık %60 ' lik bir performans artışı gösterir.
 
 ## <a name="bug-fixes"></a>Hata Düzeltmeleri
-Özellikle Windows 8 Express tümleştirme paket geri yükleme onayı ile bağlantılı olarak 1.8 NuGet Paket Yöneticisi konsolu ve paket geri yükleme iş akışı, Otomasyona oldukça hata düzeltmeleri içerir.
-Tam bir listesi için iş öğeleri NuGet 1.8 sürümünde, lütfen görünümü sabit [bu sürüm için NuGet sorun İzleyicisi](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=NuGet%201.8&assignedTo=All&component=All&sortField=Votes&sortDirection=Descending&page=0).
+NuGet 1,8, özellikle paket geri yükleme onayı ve Windows 8 Express tümleştirmesi ile ilişkili olduğu için Paket Yöneticisi konsolu ve paket geri yükleme iş akışı üzerinde vurgu içeren birkaç hata düzeltmesi içerir.
+NuGet 1,8 ' de düzeltilen iş öğelerinin tam listesi için lütfen [Bu sürüm Için NuGet sorun İzleyicisi](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=NuGet%201.8&assignedTo=All&component=All&sortField=Votes&sortDirection=Descending&page=0)' ni görüntüleyin.
