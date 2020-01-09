@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: 4e781a2462871bceeb1c7f02220320daabdab98a
-ms.sourcegitcommit: a0807671386782021acb7588741390e6f07e94e1
+ms.openlocfilehash: 906d07eb22599eb423b00300954ff2601dd33369
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70384425"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383557"
 ---
 # <a name="authenticating-feeds-in-visual-studio-with-nuget-credential-providers"></a>NuGet kimlik bilgisi sağlayıcılarıyla Visual Studio 'da akışlara kimlik doğrulama
 
@@ -22,7 +22,7 @@ Visual Studio için bir NuGet kimlik bilgisi sağlayıcısı yükledikten sonra,
 Visual Studio 'da 4.8 + NuGet ile başlayarak yeni platformlar arası kimlik doğrulama eklentileri de desteklenir, ancak performans nedenleriyle bu önerilen yaklaşımlar değildir.
 
 > [!Note]
-> Visual Studio için NuGet kimlik bilgileri sağlayıcıları, düzenli bir Visual Studio uzantısı olarak yüklenmelidir ve [Visual studio 2017](http://aka.ms/vs/15/release/vs_enterprise.exe) veya üstünü gerektirir.
+> Visual Studio için NuGet kimlik bilgileri sağlayıcıları, düzenli bir Visual Studio uzantısı olarak yüklenmelidir ve [Visual studio 2017](https://aka.ms/vs/15/release/vs_enterprise.exe) veya üstünü gerektirir.
 >
 > Visual Studio için NuGet kimlik bilgileri sağlayıcıları yalnızca Visual Studio 'da çalışır (dotnet restore veya NuGet. exe ' de değildir). NuGet. exe olan kimlik bilgisi sağlayıcıları için bkz. [NuGet. exe kimlik bilgileri sağlayıcıları](nuget-exe-Credential-providers.md).
 > DotNet ve MSBuild 'teki kimlik bilgileri sağlayıcıları için bkz. [NuGet platformlar arası eklentileri](nuget-cross-platform-authentication-plugin.md)
@@ -31,7 +31,7 @@ Visual Studio 'da 4.8 + NuGet ile başlayarak yeni platformlar arası kimlik do�
 
 Visual Studio Team Services desteklemek için Visual Studio NuGet uzantısında yerleşik olarak bulunan bir kimlik bilgisi sağlayıcısı vardır.
 
-NuGet Visual Studio uzantısı, eklenti kimlik bilgisi `VsCredentialProviderImporter` sağlayıcılarını da tarayan bir dahili kullanır. Bu eklenti kimlik bilgisi sağlayıcılarının türü `IVsCredentialProvider`MEF dışarı aktarma olarak bulunabilir olması gerekir.
+NuGet Visual Studio uzantısı dahili bir `VsCredentialProviderImporter` kullanır ve bu da eklenti kimlik bilgisi sağlayıcılarını tarar. Bu eklenti kimlik bilgisi sağlayıcılarının `IVsCredentialProvider`türü MEF dışarı aktarma olarak bulunabilir olması gerekir.
 
 Kullanılabilir eklenti kimlik bilgileri sağlayıcıları şunları içerir:
 
@@ -43,15 +43,15 @@ NuGet Visual Studio Uzantısı 3.6 + kimlik bilgilerini almak için kullanılan 
 
 Kimlik bilgisi alma sırasında kimlik bilgisi hizmeti kimlik bilgisi sağlayıcılarını aşağıdaki sırayla dener, kimlik bilgileri elde edilir almaz durdurulur:
 
-1. Kimlik bilgileri NuGet yapılandırma dosyalarından alınacaktır (yerleşik `SettingsCredentialProvider`kullanılarak).
-1. Paket kaynağı Visual Studio Team Services `VisualStudioAccountProvider` ise, kullanılacaktır.
+1. Kimlik bilgileri, NuGet yapılandırma dosyalarından getirilir (yerleşik `SettingsCredentialProvider`kullanılarak).
+1. Paket kaynağı Visual Studio Team Services ise, `VisualStudioAccountProvider` kullanılır.
 1. Diğer tüm eklenti Visual Studio kimlik bilgileri sağlayıcıları sırayla denenecek.
 1. Tüm NuGet platformlar arası kimlik bilgisi sağlayıcılarını sırayla kullanmayı deneyin.
 1. Henüz kimlik bilgileri alınmadıysa, kullanıcıdan standart temel kimlik doğrulama iletişim kutusu kullanılarak kimlik bilgileri istenir.
 
 ### <a name="implementing-ivscredentialprovidergetcredentialsasync"></a>IVsCredentialProvider. GetCredentialsAsync uygulama
 
-Visual Studio için bir NuGet kimlik bilgisi sağlayıcısı oluşturmak için, `IVsCredentialProvider` türü uygulayan bir genel MEF dışa aktarma işlemini kullanıma sunan bir Visual Studio uzantısı oluşturun ve aşağıda özetlenen ilkelere uyar.
+Visual Studio için bir NuGet kimlik bilgisi sağlayıcısı oluşturmak için, `IVsCredentialProvider` türünü uygulayan bir genel MEF dışa aktarma Işlemi sunan bir Visual Studio uzantısı oluşturun ve aşağıda özetlenen ilkelere uyar.
 
 ```cs
 public interface IVsCredentialProvider
@@ -70,10 +70,10 @@ public interface IVsCredentialProvider
 
 Visual Studio için her NuGet kimlik bilgisi sağlayıcısı şunları vermelidir:
 
-1. Kimlik bilgilerinin alımı başlatmadan önce hedeflenen URI için kimlik bilgileri sağlayıp sağlayamayacağını belirleme. Sağlayıcı, hedeflenen kaynak için kimlik bilgilerini sağlaya, sonra döndürmelidir `null`.
+1. Kimlik bilgilerinin alımı başlatmadan önce hedeflenen URI için kimlik bilgileri sağlayıp sağlayamayacağını belirleme. Sağlayıcı, hedeflenen kaynak için kimlik bilgilerini sağlaya, `null`döndürmelidir.
 1. Sağlayıcı hedeflenen URI için istekleri işler, ancak kimlik bilgilerini sağlayamadığında, bir özel durum oluşturulmalıdır.
 
-Visual Studio için özel bir NuGet kimlik bilgisi sağlayıcısı, `IVsCredentialProvider` [NuGet. VisualStudio paketinde](https://www.nuget.org/packages/NuGet.VisualStudio/)kullanılabilir arabirimi uygulamalıdır.
+Visual Studio için özel bir NuGet kimlik bilgisi sağlayıcısı, [NuGet. VisualStudio paketinde](https://www.nuget.org/packages/NuGet.VisualStudio/)bulunan `IVsCredentialProvider` arabirimini gerçekleştirmelidir.
 
 #### <a name="getcredentialasync"></a>GetCredentialAsync
 
@@ -86,4 +86,4 @@ Visual Studio için özel bir NuGet kimlik bilgisi sağlayıcısı, `IVsCredenti
 | bool etkileşimsiz | True ise, kimlik bilgisi sağlayıcısı tüm Kullanıcı istemlerini bastırmalıdır ve bunun yerine varsayılan değerleri kullanır. |
 | CancellationToken cancellationToken | Kimlik bilgilerini isteme işleminin iptal edilip edilmediğine yönelik bu iptal belirtecinin denetlenmesi gerekir. |
 
-**Dönüş değeri**: Arabirimi uygulayan bir kimlik bilgileri nesnesi. [ `System.Net.ICredentials` ](/dotnet/api/system.net.icredentials?view=netstandard-2.0)
+**Dönüş değeri**: [`System.Net.ICredentials` arabirimini](/dotnet/api/system.net.icredentials?view=netstandard-2.0)uygulayan bir kimlik bilgileri nesnesi.

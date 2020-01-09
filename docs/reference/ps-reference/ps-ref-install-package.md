@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/01/2017
 ms.topic: reference
-ms.openlocfilehash: 1899662049735189ab4dcb728df5d56afdc5f7c5
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: a65ba63ed070f40e82c43d12e5fad12d86f28112
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68328206"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75384447"
 ---
 # <a name="install-package-package-manager-console-in-visual-studio"></a>Install-Package (Visual Studio'da Paket Yöneticisi Konsolu)
 
@@ -26,7 +26,7 @@ Install-Package [-Id] <string> [-IgnoreDependencies] [-ProjectName <string>] [[-
     [-WhatIf] [<CommonParameters>]
 ```
 
-NuGet 2.8 + ' de `Install-Package` , projenizdeki mevcut bir paketin indirgenmesini sağlayabilir. Örneğin, Microsoft. AspNet. MVC 5.1.0-RC1 yüklüyse, aşağıdaki komut bunu 5.0.0 'e indirgeyebilecek:
+NuGet 2.8 + ' de `Install-Package`, projenizdeki mevcut bir paketin indirgenmesini sağlayabilir. Örneğin, Microsoft. AspNet. MVC 5.1.0-RC1 yüklüyse, aşağıdaki komut bunu 5.0.0 'e indirgeyebilecek:
 
 ```ps
 Install-Package Microsoft.AspNet.MVC -Version 5.0.0.
@@ -36,21 +36,21 @@ Install-Package Microsoft.AspNet.MVC -Version 5.0.0.
 
 | Parametre | Açıklama |
 | --- | --- |
-| Id | Istenir Yüklenecek paketin tanımlayıcısı. (*3.0 +* ) Tanımlayıcı, bir `packages.config` dosyanın `.nupkg` veya dosyanın bir yolu veya URL 'si olabilir. -ID anahtarı isteğe bağlıdır. |
+| Id | Istenir Yüklenecek paketin tanımlayıcısı. (*3.0 +* ) Tanımlayıcı, bir `packages.config` dosyasının veya bir `.nupkg` dosyasının bir yolu veya URL 'SI olabilir. -ID anahtarı isteğe bağlıdır. |
 | Ignoredependencies | Yalnızca bu paketi yükler ve bağımlılıklarını değil. |
 | ProjectName | Paketin yükleneceği proje, varsayılan projenin varsayılan bir proje olur. |
-| Source | Aranacak paket kaynağının URL veya klasör yolu. Yerel klasör yolları mutlak veya geçerli klasöre göreli olabilir. Atlanırsa, `Install-Package` Şu anda seçili olan paket kaynağını arar. |
+| Kaynak | Aranacak paket kaynağının URL veya klasör yolu. Yerel klasör yolları mutlak veya geçerli klasöre göreli olabilir. Atlanırsa, `Install-Package` Şu anda seçili olan paket kaynağını arar. |
 | Sürüm | Yüklenecek paketin sürümü, en son sürümü varsayılan olarak sağlar. |
 | Includeönsürümü | Yüklemenin yayın öncesi paketlerini dikkate alır. Atlanırsa, yalnızca kararlı paketler değerlendirilir. |
 | FileConflictAction | Proje tarafından başvurulan var olan dosyaların üzerine yazılması veya yoksayılması istendiğinde gerçekleştirilecek eylem. Olası değerler *üzerine yazılır, Yoksay, None, overwriteall*ve *(3,0 +)* *IgnoreAll*. |
-| DependencyVersion | Kullanılacak bağımlılık paketlerinin sürümü, bu, aşağıdakilerden biri olabilir:<br/><ul><li>*En düşük* (varsayılan): en düşük sürüm</li><li>*HighestPatch*: en düşük ana, en düşük ikincil, en yüksek düzeltme eki olan sürüm</li><li>*HighestMinor*: en düşük ana, en yüksek ikincil, en yüksek düzeltme eki olan sürüm</li><li>*En yüksek* (parametresi olmayan Update-Package için varsayılan): en yüksek sürüm</li></ul>Varsayılan değeri, [`dependencyVersion`](../nuget-config-file.md#config-section) `Nuget.Config` dosyadaki ayarını kullanarak ayarlayabilirsiniz. |
+| DependencyVersion | Kullanılacak bağımlılık paketlerinin sürümü, bu, aşağıdakilerden biri olabilir:<br/><ul><li>*En düşük* (varsayılan): en düşük sürüm</li><li>*HighestPatch*: en düşük ana, en düşük ikincil, en yüksek düzeltme eki olan sürüm</li><li>*HighestMinor*: en düşük ana, en yüksek ikincil, en yüksek düzeltme eki olan sürüm</li><li>*En yüksek* (parametresi olmayan Update-Package için varsayılan): en yüksek sürüm</li></ul>`Nuget.Config` dosyasındaki [`dependencyVersion`](../nuget-config-file.md#config-section) ayarını kullanarak varsayılan değeri ayarlayabilirsiniz. |
 | WhatIf | Yüklemeyi yapmadan komutu çalıştırırken ne olacağını gösterir. |
 
 Bu parametrelerin hiçbiri, işlem hattı girişi veya joker karakterler kabul etmez.
 
 ## <a name="common-parameters"></a>Ortak Parametreler
 
-`Install-Package`Aşağıdaki [ortak PowerShell parametrelerini](http://go.microsoft.com/fwlink/?LinkID=113216)destekler: Hata Ayıkla, hata eylemi, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, verbose, WarningAction ve WarningVariable.
+`Install-Package`, şu [ortak PowerShell parametrelerini](https://go.microsoft.com/fwlink/?LinkID=113216)destekler: Hata Ayıkla, hata eylemi, ErrorVariable, OutBuffer, OutVariable, Pipelinevariable, verbose, WarningAction ve WarningVariable.
 
 ## <a name="examples"></a>Örnekler
 

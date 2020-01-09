@@ -5,21 +5,22 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 76829d45ea9821da3b7fdaa2f88d30dbb104fea1
-ms.sourcegitcommit: 5a741f025e816b684ffe44a81ef7d3fbd2800039
+ms.openlocfilehash: 00e2ee760698afd8591909570d76e4bfe475a682
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70815354"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75384001"
 ---
 # <a name="pack-command-nuget-cli"></a>Pack komutu (NuGet CLı)
 
-**Uygulama hedefi:** paket oluşturma &bullet; **Desteklenen sürümler:** 2.7+
+**Uygulama hedefi:** paket oluşturma &bullet; **Desteklenen sürümler:** 2.7 +
 
-Belirtilen [. nuspec](../nuspec.md) veya proje dosyasını temel alan bir NuGet paketi oluşturur. Komut (bkz. [DotNet komutları](../dotnet-Commands.md)) ve `msbuild -t:pack` (bkz. [MSBuild hedefleri](../msbuild-targets.md)), alternatifler olarak kullanılabilir. `dotnet pack`
+Belirtilen [. nuspec](../nuspec.md) veya proje dosyasını temel alan bir NuGet paketi oluşturur. `dotnet pack` komutu (bkz. [DotNet komutları](../dotnet-Commands.md)) ve `msbuild -t:pack` (bkz. [MSBuild hedefleri](../msbuild-targets.md)), alternatifler olarak kullanılabilir.
 
 > [!Important]
-> Mono bölümünde proje dosyasından bir paket oluşturmak desteklenmez. NuGet. exe Windows yol adları 'in kendisini dönüştürmediğinden, `.nuspec` dosyadaki yerel olmayan yolları UNIX stili yollarla da ayarlamanız gerekir.
+> [Packagereference](../../consume-packages/package-references-in-project-files.md) tabanlı projeler için [`dotnet pack`](../dotnet-Commands.md) veya [`msbuild -t:pack`](../msbuild-targets.md) kullanın.
+> Mono bölümünde proje dosyasından bir paket oluşturmak desteklenmez. NuGet. exe Windows yol adları 'in kendisini dönüştürmediğinden, `.nuspec` dosyasındaki yerel olmayan yolları UNIX stili yollarla da ayarlamanız gerekir.
 
 ## <a name="usage"></a>Kullanım
 
@@ -27,33 +28,32 @@ Belirtilen [. nuspec](../nuspec.md) veya proje dosyasını temel alan bir NuGet 
 nuget pack <nuspecPath | projectPath> [options] [-Properties ...]
 ```
 
-Burada `<nuspecPath>` veya proje dosyasını sırasıyla belirtin.`<projectPath>` `.nuspec`
+Burada `<nuspecPath>` ve `<projectPath>` sırasıyla `.nuspec` ya da proje dosyasını belirtir.
 
 ## <a name="options"></a>Seçenekler
 
 | Seçenek | Açıklama |
 | --- | --- |
 | BasePath | [. Nuspec](../nuspec.md) dosyasında tanımlanan dosyaların temel yolunu ayarlar. |
-| Yapı | Paketi oluşturmadan önce projenin oluşturulması gerektiğini belirtir. |
-| Olmayan | Komutun belirleyici bir paket oluşturup oluşturmamalıdır belirtin. Paket komutuna birden çok çağırma, tam olarak aynı bayt-bayt paketini oluşturacaktır. Paket komutunun çıktısı makinenin çevresel durumundan etkilenmez. Özellikle ZIP girişleri, 1980-01-01 olarak zaman damgalanır. Tam kesin bir şekilde ulaşmak için, derlemelerin ilgili derleyici seçeneği [belirleyici](/dotnet/csharp/language-reference/compiler-options/deterministic-compiler-option)ile oluşturulması gerekir. |
-| Amaz | Bir paket oluştururken dışlanacak bir veya daha fazla joker karakter deseni belirtir. Birden fazla model belirtmek için-exclude bayrağını tekrarlayın. Aşağıdaki örneğe bakın. |
+| {1&gt;Yapı (Build)&lt;1} | Paketi oluşturmadan önce projenin oluşturulması gerektiğini belirtir. |
+| Dışla | Bir paket oluştururken dışlanacak bir veya daha fazla joker karakter deseni belirtir. Birden fazla model belirtmek için-exclude bayrağını tekrarlayın. Aşağıdaki örneğe bakın. |
 | Excludeemptydizinler | Paketi oluştururken boş dizinlerin eklenmesini engeller. |
 | ForceEnglishOutput | *(3,5 +)* NuGet. exe ' yi sabit, Ingilizce tabanlı bir kültür kullanarak çalışmaya zorlar. |
 | ConfigFile | Paket komutu için yapılandırma dosyasını belirtin. |
-| Help | Komut için yardım bilgilerini görüntüler. |
-| IncludeReferencedProjects | Oluşturulan paketin, bağımlılık olarak veya paketin parçası olarak başvurulan projeleri içermesi gerektiğini gösterir. Başvurulan bir proje, projeyle aynı ada `.nuspec` sahip karşılık gelen bir dosya içeriyorsa, bu başvurulan proje bir bağımlılık olarak eklenir. Aksi takdirde, başvurulan proje, paketin parçası olarak eklenir. |
-| MinClientVersion | Oluşturulan paket için *Minclientversion* özniteliğini ayarlayın. Bu değer, `.nuspec` dosyadaki var olan *minclientversion* özniteliğinin (varsa) değerini geçersiz kılar. |
-| MSBuildPath | *(4.0 +)* Komutuyla birlikte kullanılacak MSBuild 'in yolunu belirtir `-MSBuildVersion`. |
+| Yardım | Komut için yardım bilgilerini görüntüler. |
+| IncludeReferencedProjects | Oluşturulan paketin, bağımlılık olarak veya paketin parçası olarak başvurulan projeleri içermesi gerektiğini gösterir. Başvurulan bir projede, projeyle aynı ada sahip karşılık gelen bir `.nuspec` dosyası varsa, bu başvuruda bulunulan proje bir bağımlılık olarak eklenir. Aksi takdirde, başvurulan proje, paketin parçası olarak eklenir. |
+| MinClientVersion | Oluşturulan paket için *Minclientversion* özniteliğini ayarlayın. Bu değer, `.nuspec` dosyasındaki mevcut *Minclientversion* özniteliğinin (varsa) değerini geçersiz kılar. |
+| MSBuildPath | *(4.0 +)* Komutuyla kullanılacak MSBuild 'in yolunu belirtir ve `-MSBuildVersion`göre önceliklidir. |
 | MSBuildVersion | *(3.2 +)* Bu komutla kullanılacak MSBuild sürümünü belirtir. Desteklenen değerler şunlardır 4, 12, 14, 15,1, 15,3, 15,4, 15,5, 15,6, 15,7, 15,8, 15,9. Varsayılan olarak, yolunuzda MSBuild çekilir, aksi takdirde en yüksek MSBuild 'in yüklü sürümü varsayılan olarak ayarlanır. |
-| NoDefaultExcludes | , `.svn` Ve`.gitignore`gibi bir noktayla başlayan NuGet paket dosyalarının ve dosyalarının ve klasörlerinin varsayılan dışlamasını engeller. |
+| NoDefaultExcludes | , `.svn` ve `.gitignore`gibi bir noktayla başlayan NuGet paket dosyalarının ve dosya ve klasörlerinin varsayılan dışlamasını engeller. |
 | NoPackageAnalysis | Paketi derlemeden sonra paketin paket analizini çalıştırmamalıdır. |
 | OutputDirectory | Oluşturulan Paketin depolandığı klasörü belirtir. Hiçbir klasör belirtilmemişse, geçerli klasör kullanılır. |
-| Özellikler | Diğer seçeneklerden sonra komut satırında son olarak görünmelidir. Proje dosyasındaki değerleri geçersiz kılan özelliklerin bir listesini belirtir; Özellik adları için bkz. [Ortak MSBuild proje özellikleri](/visualstudio/msbuild/common-msbuild-project-properties) . Burada bulunan Properties bağımsız değişkeni, noktalı virgülle ayrılmış bir belirteç = değer çiftleri listesi ve `$token$` `.nuspec` dosyadaki her oluşumun verilen değer ile değiştirilmesidir. Değerler, tırnak işaretleri içinde dizeler olabilir. "Yapılandırma" özelliği için varsayılan "hata ayıkla" dır. Bir sürüm yapılandırmasına geçiş yapmak için kullanın `-Properties Configuration=Release`. |
-| Önekini | *(3.4.4 +)* Genellikle derleme veya diğer yayın öncesi tanımlayıcıları eklemek için kullanılan, dahili olarak oluşturulan sürüm numarasına bir sonek ekler. Örneğin, kullanmak `-suffix nightly` gibi `1.2.3-nightly`sürüm numarasına sahip bir paket oluşturur. Farklı NuGet ve NuGet Paket Yöneticisi sürümleriyle uyarı, hata ve potansiyel uyumsuzluktan kaçınmak için son ekler bir harfle başlamalıdır. |
-| Simgeleri | Paketin kaynakları ve sembolleri içerdiğini belirtir. Bir `.nuspec` dosya ile kullanıldığında, bu, normal bir NuGet paket dosyası ve ilgili semboller paketini oluşturur. Varsayılan olarak, eski bir [sembol paketi](../../create-packages/Symbol-Packages.md)oluşturur. Sembol paketleri için önerilen yeni biçim. snupkg 'dir. Bkz. [sembol paketleri oluşturma (. snupkg)](../../create-packages/Symbol-Packages-snupkg.md). |
+| Özellikler | Diğer seçeneklerden sonra komut satırında son olarak görünmelidir. Proje dosyasındaki değerleri geçersiz kılan özelliklerin bir listesini belirtir; Özellik adları için bkz. [Ortak MSBuild proje özellikleri](/visualstudio/msbuild/common-msbuild-project-properties) . Burada bulunan Properties bağımsız değişkeni, noktalı virgülle ayrılmış bir belirteç = değer çiftleri listesi, `.nuspec` dosyasında her `$token$` oluşumının verilen değer ile değiştirilmesidir. Değerler, tırnak işaretleri içinde dizeler olabilir. "Yapılandırma" özelliği için varsayılan "hata ayıkla" dır. Bir sürüm yapılandırmasına geçiş yapmak için `-Properties Configuration=Release`kullanın. |
+| Önekini | *(3.4.4 +)* Genellikle derleme veya diğer yayın öncesi tanımlayıcıları eklemek için kullanılan, dahili olarak oluşturulan sürüm numarasına bir sonek ekler. Örneğin, `-suffix nightly` kullanmak `1.2.3-nightly`gibi sürüm numarasına sahip bir paket oluşturur. Farklı NuGet ve NuGet Paket Yöneticisi sürümleriyle uyarı, hata ve potansiyel uyumsuzluktan kaçınmak için son ekler bir harfle başlamalıdır. |
+| Simgeler | Paketin kaynakları ve sembolleri içerdiğini belirtir. Bir `.nuspec` dosyası ile kullanıldığında, bu, normal bir NuGet paket dosyası ve ilgili semboller paketini oluşturur. Varsayılan olarak, eski bir [sembol paketi](../../create-packages/Symbol-Packages.md)oluşturur. Sembol paketleri için önerilen yeni biçim. snupkg 'dir. Bkz. [sembol paketleri oluşturma (. snupkg)](../../create-packages/Symbol-Packages-snupkg.md). |
 | Aracı | Projenin çıkış dosyalarının `tool` klasöre yerleştirilmesi gerektiğini belirtir. |
-| Verbosity | Çıktıda görünen ayrıntı miktarını belirtir: *normal*, *sessiz*, *ayrıntılı*. |
-| Sürüm | `.nuspec` Dosyadaki sürüm numarasını geçersiz kılar. |
+| Ayrıntı Düzeyi | Çıktıda görünen ayrıntı miktarını belirtir: *normal*, *sessiz*, *ayrıntılı*. |
+| Sürüm | `.nuspec` dosyasından sürüm numarasını geçersiz kılar. |
 
 Ayrıca bkz. [ortam değişkenleri](cli-ref-environment-variables.md)
 
@@ -61,9 +61,9 @@ Ayrıca bkz. [ortam değişkenleri](cli-ref-environment-variables.md)
 
 Bazı NuGet paketleri geliştirme bağımlılıkları olarak faydalıdır, bu da kendi kitaplığınızı yazmanıza yardımcı olur, ancak gerçek paket bağımlılıkları olarak gerekli değildir.
 
-`developmentDependency` `packages.config` Komutu,`package` özniteliği olarak`true`ayarlanmış olan içindeki girişleri yoksayar. `pack` Bu girişler oluşturulan pakette bir bağımlılık olarak dahil edilmez.
+`pack` komutu, `developmentDependency` özniteliği `true`olarak ayarlanmış `packages.config` `package` girdilerini yok sayar. Bu girişler oluşturulan pakette bir bağımlılık olarak dahil edilmez.
 
-Örneğin, kaynak projede aşağıdaki `packages.config` dosyayı göz önünde bulundurun:
+Örneğin, kaynak projede aşağıdaki `packages.config` dosyasını göz önünde bulundurun:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -74,7 +74,7 @@ Bazı NuGet paketleri geliştirme bağımlılıkları olarak faydalıdır, bu da
 </packages>
 ```
 
-Bu `nuget pack` proje için tarafından oluşturulan paketin `jQuery` bağımlılığı `microsoft-web-helpers` olur, ancak uygulanmaz `netfx-Guard`.
+Bu proje için, `nuget pack` tarafından oluşturulan paketin `jQuery` ve `microsoft-web-helpers` bir bağımlılığı olur ancak `netfx-Guard`değil.
 
 ## <a name="examples"></a>Örnekler
 

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/13/2019
 ms.topic: reference
-ms.openlocfilehash: 0b052bd03625172f1b941c365cbedf7629809d6f
-ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
+ms.openlocfilehash: d6cad228eb052563fe57ea635bff0ea548cedc1f
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74825195"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383570"
 ---
 # <a name="nugetconfig-reference"></a>NuGet. config başvurusu
 
@@ -56,7 +56,7 @@ Bir paket yüklendiğinde NuGet 'in otomatik bağlama yeniden yönlendirmelerini
 
 | Anahtar | Değer |
 | --- | --- |
-| Atla | Otomatik bağlama yeniden yönlendirmelerinin atlanıp atlanmayacağını belirten bir Boole değeri. Varsayılan değer false. |
+| Atla | Otomatik bağlama yeniden yönlendirmelerinin atlanıp atlanmayacağını belirten bir Boole değeri. Varsayılan olarak yanlıştır. |
 
 **Örnek**:
 
@@ -305,7 +305,7 @@ Varsayılan paket yönetim biçimini Package *. config* ya da packagereference o
 
 Örneğin, Windows üzerinde `HOME` ortam değişkeni `c:\users\username`olarak ayarlanırsa, yapılandırma dosyasındaki `%HOME%\NuGetRepository` değeri `c:\users\username\NuGetRepository`olarak çözümlenmektedir.
 
-Benzer şekilde, Mac/Linux üzerinde `HOME` `/home/myStuff`olarak ayarlanırsa, yapılandırma dosyasındaki `%HOME%/NuGetRepository` `/home/myStuff/NuGetRepository`olarak çözümlenmektedir.
+Benzer şekilde, Mac/Linux üzerinde `HOME` `/home/myStuff`olarak ayarlanırsa, yapılandırma dosyasındaki `$HOME/NuGetRepository` `/home/myStuff/NuGetRepository`olarak çözümlenmektedir.
 
 Bir ortam değişkeni bulunmazsa, NuGet yapılandırma dosyasından sabit değeri kullanır.
 

@@ -1,55 +1,55 @@
 ---
-title: NuGet 1.7 Sürüm Notları
-description: NuGet bilinen sorunları, hata düzeltmeleri yapıldı, eklenen özellikler ve dcr 1.7 için sürüm notları.
+title: NuGet 1,7 sürüm notları
+description: Bilinen sorunlar, hata düzeltmeleri, eklenen özellikler ve CCR 'ler dahil olmak üzere NuGet 1,7 sürüm notları.
 author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 07cd541ef215d2a1bacc45995a22dadb6dfeac6d
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: a98da76038582202396c8da96f8eae166e6096f6
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551473"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383325"
 ---
-# <a name="nuget-17-release-notes"></a>NuGet 1.7 Sürüm Notları
+# <a name="nuget-17-release-notes"></a>NuGet 1,7 sürüm notları
 
-[1.6 NuGet sürüm notları](../release-notes/nuget-1.6.md) | [1.8 NuGet sürüm notları](../release-notes/nuget-1.8.md)
+[Nuget 1,6 sürüm notları](../release-notes/nuget-1.6.md) | [NuGet 1,8 sürüm notları](../release-notes/nuget-1.8.md)
 
-NuGet 1.7 4 Nisan 2012 tarihinde yayınlanmıştır.
+NuGet 1,7, 4 Nisan 2012 ' de yayımlanmıştır.
 
 ## <a name="known-installation-issue"></a>Bilinen yükleme sorunu
-VS 2010 SP1 çalıştırıyorsanız, yüklü eski bir sürümü varsa, NuGet yükseltmeye çalışırken bir yükleme hata ile karşılaşabilirsiniz.
+VS 2010 SP1 çalıştırıyorsanız, daha eski bir sürümü yüklüyse NuGet 'i yükseltmeye çalışırken yükleme hatası ile karşılaşabilirsiniz.
 
-Geçici çözüm, yalnızca NuGet kaldırıp VS uzantısı Galeriden yükleyin sağlamaktır.  Bkz: [ http://support.microsoft.com/kb/2581019 ](http://support.microsoft.com/kb/2581019) daha fazla bilgi için.
+Geçici çözüm, NuGet 'i kaldırmak ve ardından VS uzantısı galerisinden yüklemek olacaktır.  Daha fazla bilgi edinmek için bkz. <https://support.microsoft.com/kb/2581019>.
 
-Not: Visual Studio (Kaldır düğmesi devre dışıdır) uzantıyı kaldırmak izin vermiyor olasılıkla "Yönetici olarak çalıştır" kullanarak Visual Studio'yu yeniden başlatmanız gerekir
+Note: Visual Studio uzantıyı kaldırmanızı izin vermediğinden (kaldırma düğmesi devre dışıdır), büyük olasılıkla "yönetici olarak çalıştır" seçeneğini kullanarak Visual Studio 'Yu yeniden başlatmanız gerekir.
 
 ## <a name="features"></a>Özellikler
 
-### <a name="support-opening-readmetxt-file-after-installation"></a>Yükleme sonrasında Readme.txt dosyasını açma desteği
-Paketiniz varsa 1.7, yeni bir `readme.txt` dosyası NuGet paket kökünde otomatik olarak açılır bu dosya, paket yükleme tamamlandıktan sonra.
+### <a name="support-opening-readmetxt-file-after-installation"></a>Yüklemeden sonra Readme. txt dosyasını açmayı destekle
+1,7 ' de yeni, paketiniz paketin kökünde bir `readme.txt` dosyası içeriyorsa, bu dosya paketinizi yükleme bittikten sonra otomatik olarak bu dosyayı açar.
 
-### <a name="show-prerelease-packages-in-the-manage-nuget-packages-dialog"></a>Manage NuGet paketleri iletişim kutusunda yayın öncesi paketleri Göster
-NuGet paketlerini Yönet iletişim kutusunda yayın öncesi paketleri göstermek için seçeneği sağlayan bir açılan artık içerir.
+### <a name="show-prerelease-packages-in-the-manage-nuget-packages-dialog"></a>NuGet Paketlerini Yönet iletişim kutusunda yayın öncesi paketleri göster
+NuGet Paketlerini Yönet iletişim kutusu artık, ön sürüm paketlerini gösterme seçeneği sağlayan bir açılan menü içerir.
 
-![Yayın öncesi paketleri gösteriliyor](./media/prerelease-dropdown.png)
+![Ön sürüm paketleri gösteriliyor](./media/prerelease-dropdown.png)
 
-### <a name="show-package-restore-button-when-package-files-are-missing"></a>Paket dosyaları eksik olduğunda, paket geri düğmesini göster
-Paket Yöneticisi konsolu veya iletişim Yöneticisi NuGet paketleri, NuGet geçerli çözüm paket geri yükleme modu etkin olmadığını denetler ve herhangi bir paket dosyaları eksik olması durumunda `packages` klasör. Bu iki koşul karşılanıyorsa, NuGet size bildirir ve uygun bir Ekranı Kapla düğmesini gösterir. Bu düğmeye tıklandığında, tüm eksik paketleri geri yüklemek için NuGet tetikler.
+### <a name="show-package-restore-button-when-package-files-are-missing"></a>Paket dosyaları eksik olduğunda paket geri yükleme düğmesini göster
+Paket Yöneticisi konsolunu veya yönetici NuGet paketleri iletişim kutusunu açtığınızda, NuGet geçerli çözümün paket geri yükleme modunu etkinleştirmiştir ve `packages` klasöründe herhangi bir paket dosyası eksikse, bu çözüm denetlenir. Bu iki koşul karşılanıyorsa, NuGet size bildirimde bulunur ve uygun bir geri yükleme düğmesi gösterir. Bu düğmeye tıkladığınızda, tüm eksik paketleri geri yüklemek için NuGet tetiklenecek.
 
-![İletişim kutusundaki paket Geri Yükle düğmesi](./media/packagerestore-dialog.png)
+![İletişim kutusunda paket geri yükleme düğmesi](./media/packagerestore-dialog.png)
 
-![Konsolunda paket Geri Yükle düğmesi](./media/packagerestore-console.png)
+![Konsolda paket geri yükleme düğmesi](./media/packagerestore-console.png)
 
-### <a name="add-solution-level-packagesconfig-file"></a>Çözüm düzeyinde packages.config dosyası ekleme
-NuGet önceki sürümlerinde, her proje içeren bir `packages.config` dosyasını o proje içinde NuGet paketleri yüklü izler. Ancak, çözüm düzeyinde paketlerini izlemek için çözüm düzeyinde benzer dosya vardı. Sonuç olarak, çözüm düzeyinde paketlerini geri yüklemek için hiçbir yolu yoktu.
-Bu özellik artık NuGet 1.7 içinde uygulanır. Çözüm düzeyinde `packages.config` dosya altına yerleştirilir `.nuget` klasörü altında çözüm kök ve yalnızca çözüm düzeyinde paketleri depolar.
+### <a name="add-solution-level-packagesconfig-file"></a>Çözüm düzeyi paketleri. config dosyası Ekle
+NuGet 'in önceki sürümlerinde, her proje bu projede hangi NuGet paketlerinin yüklü olduğunu izleyen bir `packages.config` dosyasına sahiptir. Ancak çözüm düzeyinde çözüm düzeyinde paketleri izlemek için benzer bir dosya yoktu. Sonuç olarak, çözüm düzeyi paketleri geri yüklemenin bir yolu yoktu.
+Bu özellik artık NuGet 1,7 ' de uygulanır. Çözüm düzeyi `packages.config` dosyası, çözüm kökü altında `.nuget` klasörünün altına yerleştirilir ve yalnızca çözüm düzeyi paketleri depolar.
 
-### <a name="remove-new-package-command"></a>New-Package komutunu Kaldır
-Düşük kullanım nedeniyle, New-Package komutu kaldırıldı. Geliştiriciler, nuget.exe veya kullanışlı NuGet paket Gezgini, paket oluşturmak üzere kullanmak için önerilir.
+### <a name="remove-new-package-command"></a>New-Package komutunu kaldır
+Düşük kullanım nedeniyle, New-Package komutu kaldırılmıştır. Geliştiricilerin, paket oluşturmak için NuGet. exe veya kullanışlı NuGet paket Gezginini kullanması önerilir.
 
 ## <a name="bug-fixes"></a>Hata Düzeltmeleri
-NuGet 1.7 paket geri yükleme iş akışı ve ağ/kaynak denetimi senaryoları birçok hataları düzeltmiştir.
+NuGet 1,7, paket geri yükleme iş akışı ve ağ/kaynak denetimi senaryolarında birçok hatayı düzeltti.
 
-Tam bir listesi için iş öğeleri NuGet 1.7 Lütfen görünümü sabit [bu sürüm için NuGet sorun İzleyicisi](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=NuGet%201.7&assignedTo=All&component=All&sortField=Votes&sortDirection=Descending&page=0).
+NuGet 1,7 ' de düzeltilen iş öğelerinin tam listesi için lütfen [Bu sürüm Için NuGet sorun İzleyicisi](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=NuGet%201.7&assignedTo=All&component=All&sortField=Votes&sortDirection=Descending&page=0)' ni görüntüleyin.

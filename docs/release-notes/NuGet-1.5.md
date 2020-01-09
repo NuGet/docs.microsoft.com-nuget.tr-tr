@@ -1,37 +1,37 @@
 ---
 title: NuGet 1,5 sürüm notları
-description: NuGet bilinen sorunları, hata düzeltmeleri yapıldı, eklenen özellikler ve dcr 1.5 için sürüm notları.
+description: Bilinen sorunlar, hata düzeltmeleri, eklenen özellikler ve CCR 'ler dahil olmak üzere NuGet 1,5 sürüm notları.
 author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: c2b549f65e675e5fde9ae1dfea3f44f7d691a86b
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 940a19cdc485d611d03b52ee3102bc95a78a36bb
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548731"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383355"
 ---
 # <a name="nuget-15-release-notes"></a>NuGet 1,5 sürüm notları
 
-[1.4 NuGet sürüm notları](../release-notes/nuget-1.4.md) | [1.6 NuGet sürüm notları](../release-notes/nuget-1.6.md)
+[Nuget 1,4 sürüm notları](../release-notes/nuget-1.4.md) | [NuGet 1,6 sürüm notları](../release-notes/nuget-1.6.md)
 
-NuGet 1.5 30 Ağustos 2011'de yayınlanmıştır.
+NuGet 1,5, 30 Ağustos 2011 tarihinde yayınlanmıştır.
 
 ## <a name="features"></a>Özellikler
 
-### <a name="project-templates-with-preinstalled-nuget-packages"></a>Önceden yüklenmiş NuGet paketleri ile proje şablonları
-Yeni bir ASP.NET MVC 3 proje şablonu oluştururken, projeye dahil jQuery betik kitaplıkları gerçekten var NuGet paketlerini yükleyerek yerleştirilir.
+### <a name="project-templates-with-preinstalled-nuget-packages"></a>Önceden yüklenmiş NuGet paketlerine sahip proje şablonları
+Yeni bir ASP.NET MVC 3 proje şablonu oluştururken, projeye dahil edilen jQuery betik kitaplıkları, NuGet paketleri yüklenerek buraya yerleştirilir.
 
-ASP.NET MVC 3 proje şablonu proje şablonu çağrıldığında yükleneceğini NuGet paketleri kümesi içerir. Bir proje şablonu ile NuGet paketlerini içerecek şekilde bu özelliği artık NuGet özelliğidir, _herhangi_ proje şablonu artık yararlanabilir.
+ASP.NET MVC 3 proje şablonu, proje şablonu çağrıldığında yüklenen bir NuGet paketleri kümesi içerir. Bir proje şablonu ile NuGet paketleri dahil etme özelliği artık _herhangi_ bir proje şablonunun avantajlarından yararlanabilme özelliği olan bir NuGet özelliğidir.
 
-Bu özellik hakkında daha fazla ayrıntı için bu okuma [özelliğinin geliştirici tarafından blog gönderisi](http://blogs.msdn.com/b/marcinon/archive/2011/07/08/project-templates-and-preinstalled-nuget-packages.aspx).
+Bu özellik hakkında daha fazla bilgi için bu [blog gönderisini özelliğin geliştiricisi ile](https://blogs.msdn.com/b/marcinon/archive/2011/07/08/project-templates-and-preinstalled-nuget-packages.aspx)okuyun.
 
-### <a name="explicit-assembly-references"></a>Açık derleme başvuruları
+### <a name="explicit-assembly-references"></a>Açık bütünleştirilmiş kod başvuruları
 
-Yeni eklenen `<references />` içinde hangi derlemelerin açıkça belirtmek için kullanılan öğe paket başvurulması gerekir.
+Paket içindeki hangi derlemelerin başvurulduğunu açıkça belirtmek için kullanılan yeni bir `<references />` öğesi eklendi.
 
-Örneğin şunu ekleyin:
+Örneğin, aşağıdakileri eklerseniz:
 
 ```xml
 <references>
@@ -40,18 +40,18 @@ Yeni eklenen `<references />` içinde hangi derlemelerin açıkça belirtmek iç
 </references>
 ```
 
-Ardından yalnızca `xunit.dll` ve `xunit.extensions.dll` uygun başvurulacağını [framework/PROFILE alt](../reference/nuspec.md#explicit-assembly-references) , `lib` klasör klasöründe diğer derlemeler olsa bile.
+Daha sonra, klasörde başka derlemeler olsa bile `lib` klasörünün uygun [Framework/profile alt](../reference/nuspec.md#explicit-assembly-references) klasöründen yalnızca `xunit.dll` ve `xunit.extensions.dll` başvurulur.
 
-Bu öğe atlanır sonra her derleme başvurusu olan genel davranış uygulanır `lib` klasör.
+Bu öğe atlanmışsa, her bir derleme için `lib` klasöründeki her derlemeye başvurmak üzere normal davranış uygulanır.
 
 __Bu özellik ne için kullanılır?__
 
-Bu özellik yalnızca tasarım zamanı derlemelerini destekler. Örneğin, kod sözleşmeleri kullanırken, sözleşme derlemeleri böylece Visual Studio bunları bulabilirsiniz ancak sözleşme derlemeler proje tarafından gerçekten başvurulmaması gereken ve içine kopyalanmaması gereken büyütmek çalışma zamanı derlemeleri yanında olmasına gerek `bin` klasör.
+Bu özellik yalnızca tasarım zamanı derlemelerini destekler. Örneğin, kod sözleşmeleri kullanılırken, Visual Studio 'Nun bunları bulabilmesi için, anlaşma derlemelerinin, iyileştirdikleri çalışma zamanı derlemelerinin yanında olması gerekir, ancak sözleşme derlemelerinin proje tarafından gerçekten başvurulması ve `bin` klasörüne kopyalanmaması gerekir.
 
-Benzer şekilde, özellik için gereken çalışma zamanı derlemeleri yanında bulunan, ancak proje başvurularından'hariç tutulan araçları derlemelerini XUnit gibi birim test çerçeveler için kullanılabilir.
+Benzer şekilde, özelliği, araç derlemelerinin çalışma zamanı derlemelerinin yanında konumlandırılabilir, ancak proje başvurularından hariç tutulması gereken XUnit gibi birim testi çerçeveleri için de kullanılabilir.
 
-### <a name="added-ability-to-exclude-files-in-the-nuspec"></a>.nuspec dosyaları dışarıda bırak özelliği eklendi
-`<file>` Öğesi içinde bir `.nuspec` dosyası, belirli bir dosyayı veya bir joker karakter kullanarak dosyaları eklemek için kullanılabilir. Joker karakter kullanırken, belirli bir alt kümesini eklenen dosyalar hariç tutmak için hiçbir yolu yoktur. Örneğin, belirli bir dışında bir klasördeki tüm metin dosyalarını istediğinizi varsayalım.
+### <a name="added-ability-to-exclude-files-in-the-nuspec"></a>. Nuspec içindeki dosyaları dışarıda bırakma özelliği eklendi
+Bir `.nuspec` dosyasındaki `<file>` öğesi, bir joker karakter kullanarak belirli bir dosyayı veya dosya kümesini eklemek için kullanılabilir. Joker karakter kullanırken, eklenen dosyaların belirli bir alt kümesini dışlayamazsınız. Örneğin, belirli bir klasörde yer alan tüm metin dosyalarını istediğiniz gibi düşünün.
 
 ```xml
 <files>
@@ -59,7 +59,7 @@ Benzer şekilde, özellik için gereken çalışma zamanı derlemeleri yanında 
 </files>
 ```
 
-Birden çok dosyayı belirtmek için noktalı virgül kullanın.
+Birden çok dosya belirtmek için noktalı virgül kullanın.
 
 ```xml
 <files>
@@ -67,7 +67,7 @@ Birden çok dosyayı belirtmek için noktalı virgül kullanın.
 </files>
 ```
 
-Veya tüm yedekleme dosyaları gibi dosyaları hariç tutmak için bir joker kullanın
+Ya da tüm yedekleme dosyaları gibi bir dosya kümesini dışlamak için bir joker karakter kullanın
 
 ```xml
 <files>
@@ -75,50 +75,50 @@ Veya tüm yedekleme dosyaları gibi dosyaları hariç tutmak için bir joker kul
 </files>
 ```
 
-### <a name="removing-packages-using-the-dialog-prompts-to-remove-dependencies"></a>İletişim kutusunu kullanarak paketlerini kaldırma bağımlılıkları kaldırmak isteyip istemediğinizi sorar
-Bir paket bağımlılığı olan bir paketin bağımlılıkları paketin birlikte kaldırılmasını sağlayan NuGet ister kaldırırken.
+### <a name="removing-packages-using-the-dialog-prompts-to-remove-dependencies"></a>İletişim kutusu kullanarak paketleri kaldırma bağımlılıklarını kaldırma istemleri
+Bağımlılıklar içeren bir paket kaldırılırken, NuGet istemleri, paket ile birlikte paketin bağımlılıklarının kaldırılmasına izin verir.
 
-![Bağımlı paket kaldırılıyor](./media/remove-dependent-packages.png)
+![Bağımlı paketler kaldırılıyor](./media/remove-dependent-packages.png)
 
 
-### <a name="get-package-command-improvement"></a>`Get-Package` komut geliştirme
-`Get-Package` Komutu artık bir `-ProjectName` parametresi. Bu nedenle komutu
+### <a name="get-package-command-improvement"></a>`Get-Package` komut geliştirmesi
+`Get-Package` komutu artık `-ProjectName` parametresini destekliyor. Bu nedenle komut
 
     Get-Package –ProjectName A
 
-A. projesinde yüklü tüm paketleri listeler
+, A projesinde yüklü olan tüm paketleri listeler.
 
-### <a name="support-for-proxies-that-require-authentication"></a>Kimlik doğrulaması gerektiren bir proxy için destek
-NuGet kimlik doğrulaması gerektiren bir proxy kullanırken, NuGet artık proxy kimlik bilgileri istenir. Kimlik bilgilerini girme uzak depoya bağlanmak NuGet sağlar.
+### <a name="support-for-proxies-that-require-authentication"></a>Kimlik doğrulaması gerektiren proxy 'Ler için destek
+Kimlik doğrulaması gerektiren bir proxy 'nin arkasında NuGet kullanılırken, NuGet artık proxy kimlik bilgilerini ister. Kimlik bilgilerinin girilmesi, NuGet 'in uzak depoya bağlanmasına izin verir.
 
-### <a name="support-for-repositories-that-require-authentication"></a>Kimlik doğrulaması gerektiren depoları için destek
-NuGet artık destekliyor bağlanma [özel depo](../hosting-packages/local-feeds.md) temel veya NTLM kimlik doğrulaması gerektirir.
+### <a name="support-for-repositories-that-require-authentication"></a>Kimlik doğrulaması gerektiren depolar için destek
+NuGet artık temel veya NTLM kimlik doğrulaması gerektiren [özel depolara](../hosting-packages/local-feeds.md) bağlanmayı desteklemektedir.
 
-Özet kimlik doğrulaması için destek, gelecek sürümlerin birinde eklenecektir.
+Özet kimlik doğrulaması desteği gelecek bir sürüme eklenecektir.
 
-### <a name="performance-improvements-to-the-nugetorg-repository"></a>Nuget.org depoya performans geliştirmeleri
-Nuget.org Galerisine paket listeleme ve daha hızlı arama yapmak için birkaç performans geliştirmeleri yaptık.
+### <a name="performance-improvements-to-the-nugetorg-repository"></a>Nuget.org deposunda performans iyileştirmeleri
+Paket listesini ve aramayı daha hızlı hale getirmek için nuget.org galerisinde çeşitli performans geliştirmeleri yaptık.
 
-### <a name="solution-dialog-project-filtering"></a>Çözüm, proje iletişim filtreleme
-Çözüm düzeyinde iletişim kutusunda, hangi projelerin yüklemek isterken, yalnızca seçilen paket ile uyumlu olan projeler göstereceğiz.
+### <a name="solution-dialog-project-filtering"></a>Çözüm iletişim kutusu proje filtreleme
+Çözüm düzeyi iletişim kutusunda, hangi projelerin yükleneceğini sorduktan sonra yalnızca seçili paketle uyumlu olan projeleri gösteririz.
 
 ### <a name="package-release-notes"></a>Paket sürüm notları
-NuGet paketlerini artık sürüm notları için destek içerir. Yayın yalnızca show yukarı görüntülerken notları _güncelleştirmeleri_ bir paket için bu nedenle, değil mantıklı ilk sürümünüzü eklemek.
+NuGet paketleri artık sürüm notları desteğini içerir. Sürüm notları yalnızca bir paket için _güncelleştirmeler_ görüntülenirken görünür, bu nedenle bunları ilk sürüme eklemek mantıklı değildir.
 
-![Güncelleştirmeler sekmesini içinde sürüm notları](./media/manage-nuget-packages-release-notes.png)
+![Güncelleştirmeler sekmesi içinde sürüm notları](./media/manage-nuget-packages-release-notes.png)
 
-Bir paket için sürüm notları eklemek için yeni kullanın `<releaseNotes />` soubor NuSpec meta veri öğesi.
+Bir pakete sürüm notları eklemek için NuSpec dosyanızdaki yeni `<releaseNotes />` meta veri öğesini kullanın.
 
-### <a name="nuspec-ltfiles-gt-improvement"></a>.nuspec & ltfiles /&gt; geliştirme
-`.nuspec` Dosya artık sağlayan boş `<files />` herhangi bir dosya paketinde içermeyecek şekilde nuget.exe belirten öğe.
+### <a name="nuspec-ltfiles-gt-improvement"></a>. nuspec & ltfiles/&gt; iyileştirmesi
+`.nuspec` dosyası artık, NuGet. exe ' nin pakete herhangi bir dosya içermediği anlamına gelen boş `<files />` öğesine izin veriyor.
 
 ## <a name="bug-fixes"></a>Hata Düzeltmeleri
-NuGet 1.5, iş öğelerini sabit 107 toplam vardı. Bu 103 hataları olarak işaretlenmiş.
+NuGet 1,5, Toplam 107 iş öğesine sahipti. 103 tanesi hata olarak işaretlendi.
 
-Tam bir listesi için iş öğeleri NuGet 1.5 Lütfen görünümü sabit [bu sürüm için NuGet sorun İzleyicisi](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=All&type=All&priority=All&release=NuGet%201.5&assignedTo=All&component=All&sortField=Summary&sortDirection=Descending&page=0).
+NuGet 1,5 ' de düzeltilen iş öğelerinin tam listesi için lütfen [Bu sürüm Için NuGet sorun İzleyicisi](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=All&type=All&priority=All&release=NuGet%201.5&assignedTo=All&component=All&sortField=Summary&sortDirection=Descending&page=0)' ni görüntüleyin.
 
-## <a name="bug-fixes-worth-noting"></a>Önemli hata düzeltmeleri:
+## <a name="bug-fixes-worth-noting"></a>Hata düzeltmeleri dikkat edilecek değer:
 
-* [Sorunu 1273](http://nuget.codeplex.com/workitem/1273): yapılan `packages.config` paketleri alfabetik sıralama ve fazladan boşlukları kaldırmanın kolay daha fazla sürüm denetimi.
-* [Sorun 844](http://nuget.codeplex.com/workitem/844): sürüm numaraları artık normalleştirilmiş böylece `Install-Package 1.0` bir paket sürümü ile çalışır `1.0.0`.
-* [Sorun 1060](http://nuget.codeplex.com/workitem/1060): nuget.exe kullanarak bir paket oluştururken `-Version` bayrağı geçersiz kılmaları `<version />` öğesi.
+* [Sorun 1273](http://nuget.codeplex.com/workitem/1273): paketleri alfabetik olarak sıralayarak ve fazladan boşluk kaldırarak daha fazla sürüm denetimi `packages.config` yapıldı.
+* [Sorun 844](http://nuget.codeplex.com/workitem/844): sürüm numaraları, `Install-Package 1.0` sürüm `1.0.0`bir pakette çalışacak şekilde normalleştirilmektedir.
+* [Sorun 1060](http://nuget.codeplex.com/workitem/1060): NuGet. exe kullanarak bir paket oluştururken `-Version` bayrağı `<version />` öğesini geçersiz kılar.

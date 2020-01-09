@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: b104eb39ddeacd9ca1ea45937cf98ad57531112a
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 8f2b33a7290301bd16db3b1979ae496eee602f55
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317137"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383664"
 ---
 # <a name="known-issues-with-nuget"></a>NuGet ile ilgili bilinen sorunlar
 
@@ -21,29 +21,29 @@ Bunlar, sürekli olarak bildirilen NuGet ile ilgili en yaygın sorunlardır. NuG
 
 ## <a name="authentication-issues-with-nuget-feeds-in-vsts-with-nugetexe-v343"></a>NuGet. exe v 3.4.3 ile VSTS 'de NuGet akışlarıyla ilgili kimlik doğrulama sorunları
 
-**Gidermek**
+**Sorun:**
 
 Kimlik bilgilerini depolamak için aşağıdaki komutu kullandığımızda, kişisel erişim belirtecini iki kez şifreliyoruz.
 
 $PAT = "kişisel erişim belirteciniz" $Feed = "URL 'Niz" .\nuget.exe Sources add-name test-source $Feed-kullanıcıadı $UserName-Password $PAT
 
-**Sorunu**
+**Geçici çözüm:**
 
 Parolaları [-storepasswordincleartext](../reference/cli-reference/cli-ref-sources.md) seçeneğini kullanarak şifresiz metin olarak depolayın.
 
 ## <a name="error-installing-packages-with-nuget-34-341"></a>NuGet 3,4 ile paket yükleme hatası, 3.4.1
 
-**Gidermek**
+**Sorun:**
 
 NuGet 3,4 ve 3.4.1 ' de, NuGet eklentisini kullanırken kullanılabilir olarak hiçbir kaynak bildirilmemiştir ve yapılandırma penceresinde yeni kaynaklar ekleyememiştir. Sonuç aşağıdaki görüntüyle benzerdir:
 
 ![Kaynak içermeyen NuGet yapılandırması](./media/knownIssue-34-NoSources.PNG)
 
-(Windows) veya`~/.nuget/` (Mac/Linux) klasörünüzdeki dosyayanlışlıklaboşaltılır.`NuGet.Config` `%AppData%\NuGet\` Bu hatayı onarmak için: Visual Studio 'yu kapatın (varsa Windows üzerinde), `NuGet.Config` dosyayı silin ve işlemi yeniden deneyin. NuGet yeni `NuGet.Config` bir oluşturmuş ve devam edebilmelisiniz.
+`%AppData%\NuGet\` (Windows) veya `~/.nuget/` (Mac/Linux) klasörünüzdeki `NuGet.Config` dosyası yanlışlıkla boşaltılır. Bu hatayı onarmak için: Visual Studio 'Yu kapatın (varsa Windows üzerinde) `NuGet.Config` dosyasını silip işlemi yeniden deneyin. NuGet yeni bir `NuGet.Config` üretti ve devam edebilmelisiniz.
 
 ## <a name="error-installing-packages-with-nuget-27"></a>NuGet 2,7 ile paket yükleme hatası
 
-**Gidermek**
+**Sorun:**
 
 NuGet 2,7 veya üzeri sürümlerde, derleme başvurularını içeren herhangi bir paketi yüklemeye çalıştığınızda **"giriş dizesi doğru biçimde değildi."** hata iletisini alabilirsiniz:
 
@@ -61,21 +61,21 @@ install-package log4net
         FullyQualifiedErrorId : NuGetCmdletUnhandledException,NuGet.PowerShell.Commands.InstallPackageCommand
 ```
 
-Bunun nedeni, sisteminizde kaydı yapılan `VSLangProj.dll` com bileşeninin tür kitaplığından oluşur. Bu durum, örneğin Visual Studio 'nun iki sürümünün yan yana yüklenip daha sonra eski sürümü kaldırabilmeniz gibi olabilir. Bunun yapılması, yukarıdaki COM kitaplığının yanlışlıkla kaydını silmiş olabilir.
+Bunun nedeni, sisteminizde kaydı yapılan `VSLangProj.dll` COM bileşeninin tür kitaplığından oluşur. Bu durum, örneğin Visual Studio 'nun iki sürümünün yan yana yüklenip daha sonra eski sürümü kaldırabilmeniz gibi olabilir. Bunun yapılması, yukarıdaki COM kitaplığının yanlışlıkla kaydını silmiş olabilir.
 
 **Çözüm:** :
 
-Tür kitaplığını yeniden kaydetmek için bu komutu yükseltilmiş bir komut **isteminden** çalıştırın`VSLangProj.dll`
+`VSLangProj.dll` için tür kitaplığını yeniden kaydetmek üzere yükseltilmiş bir komut **isteminden** bu komutu çalıştırın
 
     regsvr32 "C:\Program Files (x86)\Common Files\microsoft shared\MSEnv\VsLangproj.olb"
 
 Komut başarısız olursa, dosyanın bu konumda bulunup bulunmadığını denetleyin.
 
-Bu hata hakkında daha fazla bilgi için, bu [iş öğesi](https://nuget.codeplex.com/workitem/3609 "iş öğesi 3609")' a bakın.
+Bu hata hakkında daha fazla bilgi için bu [iş öğesine](https://nuget.codeplex.com/workitem/3609 "İş öğesi 3609")bakın.
 
 ## <a name="build-failure-after-package-update-in-vs-2012"></a>VS 2012 ' deki paket güncelleştirmesinden sonra derleme hatası
 
-Sorun: VS 2012 RTM kullanıyorsunuz. NuGet paketleri güncelleştirilirken şu iletiyi alırsınız: "Bir veya daha fazla paketin kaldırılması tamamlanamadı." Visual Studio 'Yu yeniden başlatmanız istenir. VS yeniden başlatıldıktan sonra, tuhaf derleme hataları alırsınız.
+Sorun: VS 2012 RTM kullanıyorsunuz. NuGet paketleri güncelleştirilirken şu iletiyi alırsınız: "bir veya daha fazla paketin kaldırılması tamamlanamadı." Visual Studio 'Yu yeniden başlatmanız istenir. VS yeniden başlatıldıktan sonra, tuhaf derleme hataları alırsınız.
 
 Nedeni, eski paketlerdeki belirli dosyaların bir arka plan MSBuild işlemi tarafından kilitlenip kilitlenmemesine neden olur. VS yeniden başlatmasından sonra bile, arka plan MSBuild işlemi hala eski paketlerdeki dosyaları kullanır ve bu da derleme hatalarının görüntülenmesine neden olur.
 
@@ -87,10 +87,10 @@ VS 2010 SP1 çalıştırıyorsanız, daha eski bir sürümü yüklüyse NuGet 'i
 
 ![Visual Studio Uzantı Yükleyicisi](./media/Visual-Studio-Extension-Installer.png)
 
-Günlükleri görüntülerken, bir `SignatureMismatchException`öğesinin bahsettiğini görebilirsiniz.
+Günlükleri görüntülerken, bir `SignatureMismatchException`bahsetmeyi görebilirsiniz.
 
 Bunun oluşmasını önlemek için, yükleyebileceğiniz bir [Visual Studio 2010 SP1 düzeltmesi](http://bit.ly/vsixcertfix) vardır.
-Alternatif olarak, geçici çözüm NuGet 'i (Visual Studio 'Yu yönetici olarak çalıştırırken) kaldırmak ve sonra VS uzantısı galerisinden yüklemek olacaktır.  Daha [http://support.microsoft.com/kb/2581019](http://support.microsoft.com/kb/2581019) fazla bilgi için bkz.
+Alternatif olarak, geçici çözüm NuGet 'i (Visual Studio 'Yu yönetici olarak çalıştırırken) kaldırmak ve sonra VS uzantısı galerisinden yüklemek olacaktır. Daha fazla bilgi edinmek için bkz. <https://support.microsoft.com/kb/2581019>.
 
 ## <a name="package-manager-console-throws-an-exception-when-the-reflector-visual-studio-add-in-is-also-installed"></a>Bir yansıtıcı Visual Studio eklentisi de yüklendiğinde Paket Yöneticisi konsolu bir özel durum oluşturur.
 
@@ -134,7 +134,7 @@ veya
 
 Bir çözüm çalıştırma konusunda eklentinin yazarı ile iletişim kurduk.
 
-<p class="info">Update: En son Yansıtıcıyı, 6,5, artık konsolda bu özel duruma neden olduğunu doğrulıyoruz.</p>
+<p class="info">Güncelleştirme: en son Yansıtıcıyı, 6,5, artık konsolda bu özel duruma neden olduğunu doğrulıyoruz.</p>
 
 ## <a name="opening-package-manager-console-fails-with-objectsecurity-exception"></a>Paket Yöneticisi konsolu açılamadı ObjectSecurity özel durumuyla başarısız oluyor
 
@@ -159,7 +159,7 @@ NuGet 'i Visual Studio Uzantı Yöneticisi aracılığıyla kaldırmaya çalış
 
 ## <a name="the-package-manager-console-crashes-when-i-open-it-in-windows-xp-whats-wrong"></a>Paket Yöneticisi konsolu, Windows XP 'de açtığımda kilitleniyor. Ne oldu?
 
-NuGet, PowerShell 2,0 çalışma zamanı gerektirir. Windows XP 'de varsayılan olarak PowerShell 2,0 yoktur. PowerShell 2,0 çalışma zamanını konumundan [http://support.microsoft.com/kb/968929](http://support.microsoft.com/kb/968929)indirebilirsiniz. Yükledikten sonra, Visual Studio 'Yu yeniden başlatın ve Paket Yöneticisi konsolu 'Nu açmanız gerekir.
+NuGet, PowerShell 2,0 çalışma zamanı gerektirir. Windows XP 'de varsayılan olarak PowerShell 2,0 yoktur. PowerShell 2,0 çalışma zamanını <https://support.microsoft.com/kb/968929>adresinden indirebilirsiniz. Yükledikten sonra, Visual Studio 'Yu yeniden başlatın ve Paket Yöneticisi konsolu 'Nu açmanız gerekir.
 
 ## <a name="visual-studio-2010-sp1-beta-crashes-on-exit-if-the-package-manager-console-is-open"></a>Paket Yöneticisi konsolu açıksa, çıkışta Visual Studio 2010 SP1 Beta kilitleniyor.
 
@@ -167,7 +167,7 @@ Visual Studio 2010 SP1 Beta sürümünü yüklediyseniz, Paket Yöneticisi konso
 
 ## <a name="the-element-metadata--has-invalid-child-element-exception-occurs"></a>' Metadata ' öğesi... Geçersiz alt öğe özel durumu oluşuyor
 
-NuGet 'in yayın öncesi sürümü ile oluşturulmuş paketler yüklediyseniz, "schemas.microsoft.com/packaging/2010/07/nuspec.xsd ' ad alanındaki ' Metadata ' öğesinin RTM çalıştırırken geçersiz alt öğesi olduğunu belirten bir hata iletisiyle karşılaşabilirsiniz. Bu projeyle NuGet sürümü. NuGet 'in RTM sürümünü kullanarak her paketi kaldırmanız ve yeniden yüklemeniz gerekir.
+NuGet 'in yayın öncesi sürümü ile oluşturulmuş paketler yüklediyseniz, bu projeyle birlikte NuGet 'in RTM sürümünü çalıştırırken ' schemas.microsoft.com/packaging/2010/07/nuspec.xsd ' ad alanındaki ' Metadata ' öğesinin geçersiz bir alt öğesi olduğunu belirten bir hata iletisiyle karşılaşabilirsiniz. NuGet 'in RTM sürümünü kullanarak her paketi kaldırmanız ve yeniden yüklemeniz gerekir.
 
 ## <a name="attempting-to-install-or-uninstall-results-in-the-error-cannot-create-a-file-when-that-file-already-exists"></a>"Bu dosya zaten mevcut olduğunda bir dosya oluşturulamıyor" hatası nedeniyle sonuçlar yüklenmeye veya kaldırılmaya çalışılıyor.
 
@@ -196,7 +196,7 @@ Paket Yöneticisi konsolu ile Floentnhazırda bekleme 'i yüklerse ve sonra proj
 Varsayılan olarak, Floentnhazırda beklet Nhazırda beklet 3.0.0.2001 gerektirir. Ancak, Design NuGet tarafından projenize Nhazırda bekleme 3.0.0.4000 yüklenir ve uygun bağlama yeniden yönlendirmeleri çalışacak şekilde ekleyin. Kod Analizi açık değilse, projeniz yalnızca daha iyi derlenir. Derleyicinin aksine, Kod Analizi Aracı, 3.0.0.2001 yerine 3.0.0.4000 kullanmak için bağlama yeniden yönlendirmelerini doğru şekilde takip etmez. Bu sorunu geçici olarak çözmek için Nhazırda beklet 3.0.0.2001 veya kod analizi aracına, aşağıdakilerden birini yaparak derleyici ile aynı şekilde davranmasını söyleyin:
 
 1. *%ProgramFiles%\Microsoft Visual Studio 10.0 \ Team Tools\Static Analysis Tools\FxCop* adresine gidin
-1. FxCopCmd. exe. config dosyasını açın ve `AssemblyReferenceResolveMode` ' `StrongName` `StrongNameIgnoringVersion`den ' a değiştirin.
+1. FxCopCmd. exe. config dosyasını açın ve `StrongName` `StrongNameIgnoringVersion``AssemblyReferenceResolveMode` değiştirin.
 1. Değişikliği kaydedin ve projenizi yeniden derleyin.
 
 ## <a name="write-error-command-doesnt-work-inside-installps1uninstallps1initps1"></a>Write-Error komutu Install. ps1/Uninstall. ps1/init. ps1 içinde çalışmıyor
@@ -207,7 +207,7 @@ Bu bilinen bir sorundur. Write-Error çağırmak yerine throw çağrılmasını 
 
 ## <a name="installing-nuget-with-restricted-access-on-windows-2003-can-crash-visual-studio"></a>Windows 2003 ' de kısıtlı erişimle NuGet yükleme, Visual Studio 'Yu kilitleyebilir
 
-Visual Studio Uzantı Yöneticisi 'Ni kullanarak NuGet yüklenmeye çalışırken ve yönetici olarak &#8220;çalıştırılmadığından, farklı&#8221; Çalıştır iletişim kutusu, bu programı kısıtlanmış erişimle &#8220;&#8221; Çalıştır tarafından işaretlenen onay kutusuyla birlikte görüntülenir varsayılanını.
+Visual Studio Uzantı Yöneticisi 'Ni kullanarak NuGet yüklemeye çalışırken ve yönetici olarak &#8220;çalıştırılmadığından, farklı&#8221; Çalıştır iletişim kutusu, bu programı kısıtlı erişimle &#8220;&#8221; Çalıştır varsayılan olarak işaretlenen onay kutusuyla birlikte görüntülenir.
 
 ![Kısıtlanmış olarak çalıştır Iletişim kutusu](./media/RunAsRestricted.png)
 
@@ -221,8 +221,8 @@ Windows Phone araçları, Visual Studio Uzantı Yöneticisi için desteğe sahip
 
 ## <a name="changing-the-capitalization-of-nuget-package-ids-breaks-package-restore"></a>NuGet paket kimlikleri 'nin büyük/küçük harf durumunu değiştirme paket geri yükleme
 
-[Bu GitHub sorunuyla](https://github.com/Particular/NServiceBus/issues/1271#issuecomment-20865932)ilgili olarak açıklandığı gibi, NuGet paketlerinin büyük/küçük harf durumunu değiştirmek NuGet desteği tarafından yapılabilir, ancak mevcut, farklı *, Küresel paketler* klasörü. Paketinizin, derleme zamanı paketi geri yükleme için oluşabilecek kesme hakkındaki mevcut kullanıcılarıyla iletişim kurmak için kullanabileceğiniz bir yönteme sahipseniz yalnızca bir örnek olarak değişiklik yapmanızı öneririz.
+[Bu GitHub sorununun](https://github.com/Particular/NServiceBus/issues/1271#issuecomment-20865932)uzunluğu konusunda anlatıldığı gibi, NuGet paketlerinin büyük/küçük harf durumunu değiştirmek NuGet desteği tarafından yapılabilir, ancak *genel paketler* klasöründe mevcut, farklı ve uyumlu paketlere sahip kullanıcılar için paket geri yükleme sırasında karmaşıklıklar oluşmasına neden olur. Paketinizin, derleme zamanı paketi geri yükleme için oluşabilecek kesme hakkındaki mevcut kullanıcılarıyla iletişim kurmak için kullanabileceğiniz bir yönteme sahipseniz yalnızca bir örnek olarak değişiklik yapmanızı öneririz.
 
 ## <a name="reporting-issues"></a>Raporlama konuları
 
-NuGet sorunlarını raporlamak için, adresini [https://github.com/nuget/home/issues](https://github.com/nuget/home/issues)ziyaret edin.
+NuGet sorunlarını raporlamak için [https://github.com/nuget/home/issues](https://github.com/nuget/home/issues)ziyaret edin.

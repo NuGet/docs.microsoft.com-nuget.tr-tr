@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: b00e8b1f7a6fda9c1a0c079069fa8ee08a45b419
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 0e2119953e6d07cd3571f156fa0b2665de49f963
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68328287"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383975"
 ---
 # <a name="setapikey-command-nuget-cli"></a>setapikey komutu (NuGet CLı)
 
 **Uygulama hedefi:** paket tüketimi, yayımlama &bullet; **Desteklenen sürümler:** tümü
 
-Belirli bir sunucu URL 'si için bir API anahtarını, `NuGet.Config` sonraki komutlara girilmesi gerekmemesi için öğesine kaydeder.
+Belirli bir sunucu URL 'SI için bir API anahtarını, sonraki komutlara girilmesi gerekmiyorsa, `NuGet.Config` ' a kaydeder.
 
 ## <a name="usage"></a>Kullanım
 
@@ -24,17 +24,20 @@ Belirli bir sunucu URL 'si için bir API anahtarını, `NuGet.Config` sonraki ko
 nuget setapikey <key> -Source <url> [options]
 ```
 
-Burada `<source>` sunucuyu tanımlar ve `<key>` kaydedilecek anahtar veya paroladır. `<source>` Atlanırsa, NuGet.org varsayılır.
+`<source>` sunucuyu tanımladığı ve `<key>`, kaydedilecek anahtar veya paroladır. `<source>` atlanırsa, nuget.org varsayılır.
+
+> [!NOTE]
+> API anahtarı özel akışta kimlik doğrulaması için kullanılmaz. Kaynak ile kimlik doğrulaması için kimlik bilgilerini yönetmek üzere [`nuget sources` komutuna](../cli-reference/cli-ref-sources.md) bakın.
 
 ## <a name="options"></a>Seçenekler
 
 | Seçenek | Açıklama |
 | --- | --- |
-| ConfigFile | Uygulanacak NuGet yapılandırma dosyası. Belirtilmemişse, `%AppData%\NuGet\NuGet.Config` (Windows) veya `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) kullanılır.|
+| ConfigFile | Uygulanacak NuGet yapılandırma dosyası. Belirtilmezse, `%AppData%\NuGet\NuGet.Config` (Windows) veya `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) kullanılır.|
 | ForceEnglishOutput | *(3,5 +)* NuGet. exe ' yi sabit, Ingilizce tabanlı bir kültür kullanarak çalışmaya zorlar. |
-| Help | Komut için yardım bilgilerini görüntüler. |
+| Yardım | Komut için yardım bilgilerini görüntüler. |
 | NonInteractive | Kullanıcı girişi veya onayları için istemleri bastırır. |
-| Verbosity | Çıktıda görünen ayrıntı miktarını belirtir: *normal*, *sessiz*, *ayrıntılı*. |
+| Ayrıntı Düzeyi | Çıktıda görünen ayrıntı miktarını belirtir: *normal*, *sessiz*, *ayrıntılı*. |
 
 Ayrıca bkz. [ortam değişkenleri](cli-ref-environment-variables.md)
 
