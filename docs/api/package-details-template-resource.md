@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 3/1/2019
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: 3102cb9a20f354e92a0da8bba6457dc2ad0f0f2d
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: 1b84c6e88a56216e5747d5bc602219af6695c305
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73610952"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76812941"
 ---
 # <a name="package-details-url-template"></a>Paket ayrıntıları URL şablonu
 
@@ -50,7 +50,7 @@ Name        | Tür    | Gerekli | Notlar
 `{id}`      | dize  | eşleşen       | Ayrıntıları almak için paket KIMLIĞI
 `{version}` | dize  | eşleşen       | Ayrıntıları alınacak paket sürümü
 
-Sunucu, herhangi bir büyük küçük harf ile `{id}` ve `{version}` değerlerini kabul etmelidir. Buna ek olarak, sunucu, sürümünün [normalleştirilme](https://docs.microsoft.com/nuget/concepts/package-versioning#normalized-version-numbers)olup olmadığına duyarlı olmamalıdır. Diğer bir deyişle, sunucu kabul edilmelidir, ayrıca Normalleştirilmemiş sürümleri kabul etmelidir.
+Sunucu, herhangi bir büyük küçük harf ile `{id}` ve `{version}` değerlerini kabul etmelidir. Buna ek olarak, sunucu, sürümünün [normalleştirilme](../concepts/package-versioning.md#normalized-version-numbers)olup olmadığına duyarlı olmamalıdır. Diğer bir deyişle, sunucu kabul edilmelidir, ayrıca Normalleştirilmemiş sürümleri kabul etmelidir.
 
 Örneğin, NuGet. org 'ın paket ayrıntıları şablonu şöyle görünür:
 

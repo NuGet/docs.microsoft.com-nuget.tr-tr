@@ -1,92 +1,92 @@
 ---
-title: NuGet 4.8 RTM Release Notes
-description: Release notes for NuGet 4.8.1 including known issues, bug fixes, added features, and DCRs.
+title: NuGet 4,8 RTM sürüm notları
+description: Bilinen sorunlar, hata düzeltmeleri, eklenen özellikler ve CCR 'ler dahil olmak üzere NuGet 4.8.1 için sürüm notları.
 author: karann-msft
 ms.author: karann
 ms.date: 5/14/2018
 ms.topic: conceptual
-ms.openlocfilehash: 6e352fef9fc36646f6feedbc390f847119cb00bf
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: e6f6d9f703dd4761236d166f3772618c100aca09
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73611363"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813773"
 ---
-# <a name="nuget-48-release-notes"></a>NuGet 4.8 Release Notes
+# <a name="nuget-48-release-notes"></a>NuGet 4,8 sürüm notları
 
-[Visual Studio 2017 15.8 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) comes with NuGet 4.8 functionality.
-
-
-Command line versions of the same functionality are also available:
-* NuGet.exe 4.8 - [nuget.org/downloads](https://nuget.org/downloads)
-* DotNet.exe - [.NET Core SDK 2.1.400](https://www.microsoft.com/net/download/visual-studio-sdks)
+[Visual Studio 2017 15,8 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) , NuGet 4,8 işlevselliğiyle birlikte gelir.
 
 
-## <a name="summary-whats-new-in-480"></a>Summary: What's New in 4.8.0
-* NuGet.exe now supports longfilenames on Windows 10 - [#6937](https://github.com/NuGet/Home/issues/6937)
-* Authentication plugins now work across MsBuild, DotNet.exe, NuGet.exe and Visual Studio, including cross platform. The first generation of authentication plugins were not supported in MsBuild, DotNet.exe. Note: VS 2017 15.9 Preview builds have a VSTS authentication plugin included. [#6486](https://github.com/NuGet/Home/issues/6486)
-* MsBuild's SDK Resolver now builds as part of NuGet and installs with NuGet tools for VS. This will avoid versions getting out sync. [#6799](https://github.com/NuGet/Home/issues/6799)
-* PackageReference now supports DevelopmentDependency metadata - [#4125](https://github.com/NuGet/Home/issues/4125)
+Aynı işlevselliğin komut satırı sürümleri de kullanılabilir:
+* NuGet. exe 4,8- [NuGet.org/downloads](https://nuget.org/downloads)
+* DotNet. exe- [.NET Core SDK 2.1.400](https://www.microsoft.com/net/download/visual-studio-sdks)
 
-## <a name="summary-whats-new-in-482"></a>Summary: What's New in 4.8.2
 
-* Security Fix: Permissions on files created inside ~/.nuget are too open [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
+## <a name="summary-whats-new-in-480"></a>Özet: 4.8.0 'deki yenilikler
+* NuGet. exe artık Windows 10 ' da LongDosya adlarını destekliyor- [#6937](https://github.com/NuGet/Home/issues/6937)
+* Kimlik doğrulama eklentileri artık MsBuild, DotNet. exe, NuGet. exe ve platformlar arası dahil olmak üzere Visual Studio arasında çalışır. İlk nesil kimlik doğrulama eklentileri MsBuild, DotNet. exe ' de desteklenmez. Note: VS 2017 15,9 Önizleme derlemeleri bir VSTS kimlik doğrulama eklentisi içerir. [#6486](https://github.com/NuGet/Home/issues/6486)
+* MsBuild 'in SDK 'Sı çözümleyici, artık NuGet 'in bir parçası olarak ve VS için NuGet araçları ile yüklenmektedir. Bu, sürümlerin eşitlemeyi önlemenize engel olur. [#6799](https://github.com/NuGet/Home/issues/6799)
+* PackageReference artık DevelopmentDependency meta verilerini destekliyor- [#4125](https://github.com/NuGet/Home/issues/4125)
+
+## <a name="summary-whats-new-in-482"></a>Özet: 4.8.2 'deki yenilikler
+
+* Güvenlik onarımı: ~/. NuGet içinde oluşturulan dosyalardaki Izinler çok açık [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
 
 ## <a name="known-issues"></a>Bilinen sorunlar
-### <a name="installing-signed-packages-on-a-ci-machine-or-in-an-offline-environment-takes-longer-than-usual"></a>Installing signed packages on a CI machine or in an offline environment takes longer than usual
+### <a name="installing-signed-packages-on-a-ci-machine-or-in-an-offline-environment-takes-longer-than-usual"></a>İmzalı paketleri bir CI makinesine veya çevrimdışı bir ortama yüklemek normalden daha uzun sürer
 
 #### <a name="issue"></a>Sorun
-If the machine has restricted internet access (such as a build machine in a CI/CD scenario), installing/restoring a signed nuget package will result a warning ([NU3028](https://docs.microsoft.com/nuget/reference/errors-and-warnings/nu3028)) since the revocation servers are not reachable. Bu beklenen bir durumdur. However, in some cases, this may have unintended concequences such as the package install/restore taking longer than usual.
+Makinede internet erişimi kısıtlamalı (bir CI/CD senaryosunda derleme makinesi gibi), imzalı bir NuGet paketinin yüklenmesi/geri yüklenmesi, iptal sunucuları ulaşılamaz olduğundan bir uyarı ([NU3028](../reference/errors-and-warnings/nu3028.md)) sonucunu vermez. Bu beklenen bir durumdur. Ancak, bazı durumlarda bu, paket yükleme/geri yükleme normalden daha uzun sürüyor gibi istenmeyen bir gizleme olabilir.
 
 #### <a name="workaround"></a>Geçici Çözüm
-Update to Visual Studio 15.8.4 and NuGet.exe 4.8.1 where we introduced an environment variable to switch the revocation check mode.
-Setting the `NUGET_CERT_REVOCATION_MODE` environment variable to `offline` will force NuGet to check the revocation status of the certificate only against the cached certificate revocation list, and NuGet will not attempt to reach revocation servers. When the revocation check mode is set to `offline`, the warning will be downgraded to an info.
+Visual Studio 15.8.4 ve NuGet. exe ' ye güncelleştirin; burada, iptal denetimi modunu değiştirmek için bir ortam değişkeni sunuyoruz.
+`NUGET_CERT_REVOCATION_MODE` ortam değişkeninin `offline` olarak ayarlanması, NuGet 'in sertifikanın iptal durumunu yalnızca önbelleğe alınmış sertifika iptal listesine karşı denetlemesini zorlayacaktır ve NuGet, iptal sunucularına ulaşmaya çalışmaz. İptal denetimi modu `offline`olarak ayarlandığında, uyarı bir bilgiyle indirgenir.
 
 > [!Warning]
-> It is not recommended to switch the revocation check mode to offline under normal cirumstances. Doing so will cause NuGet to skip online revocation check and perform only an offline revocation check against the cached certificate revocation list which may be out of date. This means packages where the signing certificate may have been revoked, will continue to be installed/restored, which otherwise would have failed revocation check and would not have been installed.
+> Normal engelleri altında, iptal denetimi modunun çevrimdışına geçmeniz önerilmez. Bunun yapılması, NuGet 'in çevrimiçi iptal denetimini atlamasına ve yalnızca önbelleğe alınmış sertifika iptal listesine karşı yalnızca çevrimdışı bir iptal denetimi gerçekleştirmesine neden olur. Bu, imzalama sertifikasının iptal edilmiş olabileceği, aksi takdirde iptal denetimi olmayan ve yüklenmemiş olan paketleri yükleme/geri yükleme olmaya devam edecektir.
 
-### <a name="the-migrate-packagesconfig-to-packagereference-option-is-not-available-in-the-right-click-context-menu"></a>The `Migrate packages.config to PackageReference...` option is not available in the right-click context menu
+### <a name="the-migrate-packagesconfig-to-packagereference-option-is-not-available-in-the-right-click-context-menu"></a>`Migrate packages.config to PackageReference...` seçeneği sağ tıklama bağlam menüsünde kullanılamaz
 
 #### <a name="issue"></a>Sorun
 
-When a project is first opened, NuGet may not have initialized until a NuGet operation is performed. This causes the migration option to not show up in the right-click context menu on `packages.config` or `References`.
+Bir proje ilk açıldığında NuGet bir NuGet işlemi gerçekleştirilene kadar başlatılmamış olabilir. Bu, geçiş seçeneğinin `packages.config` veya `References`sağ tıklama kısayol menüsünde gösterilmamasını sağlar.
 
 #### <a name="workaround"></a>Geçici Çözüm
 
-Perform any one of the following NuGet actions:
-* Open the Package Manager UI - Right-click on `References` and select `Manage NuGet Packages...`
-* Open the Package Manager Console - From `Tools > NuGet Package Manager`, select `Package Manager Console`
-* Run NuGet restore - Right-click on the solution node in the Solution Explorer and select `Restore NuGet Packages`
-* Build the project which also triggers NuGet restore
+Aşağıdaki NuGet eylemlerinden birini gerçekleştirin:
+* Paket Yöneticisi Kullanıcı arabirimini açın-`References` ' a sağ tıklayıp `Manage NuGet Packages...` ' ı seçin.
+* Paket Yöneticisi konsolunu açın-`Tools > NuGet Package Manager`' den `Package Manager Console` ' ı seçin.
+* NuGet geri yükleme Çalıştır-Çözüm Gezgini çözüm düğümüne sağ tıklayın ve `Restore NuGet Packages` ' ı seçin.
+* Ayrıca NuGet geri yüklemeyi tetikleyen projeyi oluştur
 
-You should now be able to see the migration option. Note that this option is not supported and will not show up for ASP.NET and C++ project types.
-Note: This has been fixed in VS 2017 15.9 Preview 3
+Şimdi geçiş seçeneğini görebilmeniz gerekir. Bu seçeneğin desteklenmediğini ve ASP.NET ve C++ proje türleri için gösterilmediğini unutmayın.
+Note: Bu, VS 2017 15,9 Preview 3 ' te düzeltildi
 
 ## <a name="issues-fixed-in-this-release"></a>Bu sürümde giderilen sorunlar
 
 ### <a name="bugs"></a>Hatalar
-#### <a name="signing"></a>Signing
-* Signing: Installing signed package in offline environment [#7008](https://github.com/NuGet/Home/issues/7008) -- Fixed in 4.8.1
-* Signing:  incorrect URL check - [#7174](https://github.com/NuGet/Home/issues/7174)
-* Signing:  check package integrity in RepositorySignatureVerifier when package is repository countersigned - [#6926](https://github.com/NuGet/Home/issues/6926)
-* "Package Integrity check failed." should have package ID in message (and error code) - [#6944](https://github.com/NuGet/Home/issues/6944)
-* Repository signed package verification allows packages signed by different certificate - [#6884](https://github.com/NuGet/Home/issues/6884)
-* NuGet - Signing - Timestamp URL can not be https:// ? - [#6871](https://github.com/NuGet/Home/issues/6871)
-* Don't NullRef in NuSpec packing scenario, also improve options - [#6866](https://github.com/NuGet/Home/issues/6866)
-* Memory is invalid while updating signer info when adding timestamp to countersignature - [#6840](https://github.com/NuGet/Home/issues/6840)
-* Signing:  remove CTL exceptions - [#6794](https://github.com/NuGet/Home/issues/6794)
-* Signing:  contentUrl MUST be HTTPS - [#6777](https://github.com/NuGet/Home/issues/6777)
-* Signing:  SignedPackageVerifierSettings.VSClientDefaultPolicy is unused - [#6601](https://github.com/NuGet/Home/issues/6601)
+#### <a name="signing"></a>Açmada
+* İmzalama: imzalı paketi, çevrimdışı ortamda yükleme [#7008](https://github.com/NuGet/Home/issues/7008) --4.8.1 içinde düzeltildi
+* İmzalama: Hatalı URL denetimi- [#7174](https://github.com/NuGet/Home/issues/7174)
+* İmzalama: paket depo onayını imzalayan- [#6926](https://github.com/NuGet/Home/issues/6926) olduğunda, havuz doğrulama içindeki paket bütünlüğünü denetleyin
+* "Paket bütünlük denetimi başarısız oldu." ileti içinde paket KIMLIĞI (ve hata kodu) olmalıdır- [#6944](https://github.com/NuGet/Home/issues/6944)
+* Depo imzalı paket doğrulaması, farklı sertifika tarafından imzalanmış paketlere izin verir- [#6884](https://github.com/NuGet/Home/issues/6884)
+* NuGet-Signing-timestamp URL 'SI https://olamaz. - [#6871](https://github.com/NuGet/Home/issues/6871)
+* NuSpec paketleme senaryosunda NullRef yapmayın, Ayrıca seçenekleri de geliştirebilirsiniz- [#6866](https://github.com/NuGet/Home/issues/6866)
+* Onay imzasına zaman damgası eklenirken imza bilgileri güncelleştirilirken bellek geçersiz- [#6840](https://github.com/NuGet/Home/issues/6840)
+* İmzalama: CTL özel durumlarını kaldırma- [#6794](https://github.com/NuGet/Home/issues/6794)
+* İmzalama: contentUrl, HTTPS- [#6777](https://github.com/NuGet/Home/issues/6777) olmalıdır
+* İmzalama: SignedPackageVerifierSettings. VSClientDefaultPolicy kullanılmıyor- [#6601](https://github.com/NuGet/Home/issues/6601)
 
 
-#### <a name="pack"></a>Pack
-* restore and build should not be needed when using dotnet.exe to pack nuspec - [#6866](https://github.com/NuGet/Home/issues/6866)
-* Allow empty replacement tokens in NuspecProperties  - [#6722](https://github.com/NuGet/Home/issues/6722)
-* PackTask throws NullReferenceException when NuspecProperties is specified - [#4649](https://github.com/NuGet/Home/issues/4649)
+#### <a name="pack"></a>Paket
+* nuspec- [#6866](https://github.com/NuGet/Home/issues/6866) Pack için DotNet. exe dosyası kullanılırken restore ve Build gerekmez
+* Nusguproperties 'de boş değiştirme belirteçlerine izin ver- [#6722](https://github.com/NuGet/Home/issues/6722)
+* Nusbir Properties belirtildiğinde Pacatask, NullReferenceException öğesini oluşturur- [#4649](https://github.com/NuGet/Home/issues/4649)
 
 #### <a name="accessibility"></a>Erişilebilirlik
-* [Accessibility] String ‘Prerelease’ under package button is covered by its package description in PM UI - [#4504](https://github.com/NuGet/Home/issues/4504)
-* [Accessibility] Package source drop down and settings button truncated when selecting ‘Microsoft Visual Studio Offline Packages’ in PM UI - [#4502](https://github.com/NuGet/Home/issues/4502)
+* Larınızdaki Paket düğmesi altında ' ön sürüm ' dizesinin, PM Kullanıcı arabirimi- [#4504](https://github.com/NuGet/Home/issues/4504) içindeki paket açıklaması kapsamında
+* Larınızdaki PM Kullanıcı arabiriminde ' Microsoft Visual Studio çevrimdışı paketler ' seçilirken paket kaynak açılan ve Ayarlar düğmesi kesildi- [#4502](https://github.com/NuGet/Home/issues/4502)
 
 #### <a name="powershell-management-console-pmc"></a>PowerShell Yönetim Konsolu (PMC)
 * `Update-Package`, PackageReference sürüm aralığını yok sayıyor- [#6775](https://github.com/NuGet/Home/issues/6775)

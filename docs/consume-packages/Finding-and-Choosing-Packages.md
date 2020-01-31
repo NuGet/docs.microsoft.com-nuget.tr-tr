@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0691660f20f9b5a1ff0dad110ee87c6e29c0a56e
-ms.sourcegitcommit: fc0f8c950829ee5c96e3f3f32184bc727714cfdb
+ms.openlocfilehash: 9f427005251bc2bf7a8a79285e39b4bd49062dbf
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74253943"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813357"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Projeniz için NuGet paketlerini bulma ve değerlendirme
 
@@ -122,25 +122,25 @@ Paketin içindeki lisans dosyasında yer alan bilgileri şu şekilde okuyabilirs
 1. `<license type="file">license\license.txt</license>`gibi bir etikete sahip olmalıdır. Bu, lisans dosyasının `license.txt` olarak adlandırıldığını ve bu klasörün kökünde de olan `license` adlı bir klasörün içinde olduğunu gösterir.
 1. `license` klasöre gidin ve `license.txt` dosyasını açın.
 
-`.nuspec`lisansı ayarlamaya yönelik MSBuild eşdeğeri için [Lisans ifadesi veya lisans dosyası paketleme](/nuget/reference/msbuild-targets#packing-a-license-expression-or-a-license-file)bölümüne göz atın.
+`.nuspec`lisansı ayarlamaya yönelik MSBuild eşdeğeri için [Lisans ifadesi veya lisans dosyası paketleme](../reference/msbuild-targets.md#packing-a-license-expression-or-a-license-file)bölümüne göz atın.
 
 ## <a name="search-syntax"></a>Arama söz dizimi
 
 NuGet paket araması, NuGet CLı ve Visual Studio 'daki NuGet Paket Yöneticisi uzantısı içindeki nuget.org üzerinde aynı şekilde çalışmaktadır. Genel olarak, arama anahtar sözcüklere ve paket açıklamalarına uygulanır.
 
-- **Anahtar sözcükler**: arama, belirtilen anahtar sözcüklerden herhangi birini içeren ilgili paketleri arar. Örnek: `modern UI`. Tüm sunulan anahtar kelimeleri içeren paketleri aramak için, `modern+UI`gibi terimler arasında "+" kullanın.
-- **Tümcecikler**: tırnak işaretleri içine hüküm girilmesi, bu şartların tam büyük/küçük harf duyarsız eşleşmelerini arar. Örnek: `"modern UI" package`
-- **Filtreleme**: `<property>` (büyük/küçük harf duyarsız) `id`, `packageid`, `version`, `title`, `tags`, `author`, `description`, `summary`ve `owner`olabilecek `<property>:<term>` söz dizimini kullanarak belirli bir özelliğe arama terimi uygulayabilirsiniz. Şartlar gerektiğinde tırnak içinde bulunabilir ve aynı anda birden çok özellik arayabilirsiniz. Ayrıca, `id` özelliğindeki aramalar alt dize eşleşmelerinde, `packageid` tam bir eşleşme kullanır. Örnekler:
+- **Filtreleme**: `<property>` (büyük/küçük harf duyarsız) `id`, `packageid`, `version`, `title`, `tags`, `author`, `description`, `summary`ve `owner`olabilecek `<property>:<term>` söz dizimini kullanarak belirli bir özelliğe arama terimi uygulayabilirsiniz. Aynı anda birden çok özellik arayabilirsiniz. `id` özelliğindeki aramalar alt dize eşleşmelerinde, `packageid` ve `owner` tam büyük/küçük harf duyarsız eşleşme kullanır. Örnekler:
 
-    ```
-    id:NuGet.Core                # Match any part of the id property
-    Id:"Nuget.Core"
-    ID:jQuery
-    title:jquery                 # Searches title as shown on the package listing
-    PackageId:jquery             # Match the package id exactly
-    id:jquery id:ui              # Search for multiple terms in the id
-    id:jquery tags:validation    # Search multiple properties
-    id:"jquery.ui"               # Phrase search
-    invalid:jquery ui            # Unsupported properties are ignored, so this
-                                 # is the same as searching on jquery ui
-    ```
+```
+PackageId:jquery             # Match the package ID in an exact, case-insensitive manner
+
+owner:microsoft              # Match the owner in an exact, case-insensitive manner
+
+id:NuGet.Core                # Match any part of the ID property
+Id:"Nuget.Core"
+ID:jQuery
+id:jquery id:ui              # Search for multiple terms in the ID
+id:jquery tags:validation    # Search multiple properties
+
+invalid:jquery ui            # Unsupported properties are ignored, so this
+                             # is the same as searching on ui
+```

@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: eb8d59e253f85fbbb8546a5f71856df842ce94d6
-ms.sourcegitcommit: 60414a17af65237652c1de9926475a74856b91cc
+ms.openlocfilehash: c62e5b7b53d30a1b362e87dbbea26355a36b1274
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74096896"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813279"
 ---
 # <a name="package-metadata"></a>Paket meta verileri
 
@@ -76,20 +76,20 @@ Nuget.org 'in kullandığı buluşsal yöntem şu şekildedir: bir paketin 128 v
 
 ### <a name="request-parameters"></a>İstek parametreleri
 
-Name     | İçindeki     | Tür    | Gerekli | Notlar
+Name     | ortamında:     | Tür    | Gerekli | Notlar
 -------- | ------ | ------- | -------- | -----
-LOWER_ID | URL    | dize  | Yes      | Paket KIMLIĞI, küçük harf
+LOWER_ID | {1&gt;URL&lt;1}    | dize  | evet      | Paket KIMLIĞI, küçük harf
 
 `LOWER_ID` değeri, tarafından uygulanan kurallar kullanılarak istenen paket KIMLIĞI alt. NET ' in [`System.String.ToLowerInvariant()`](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) yöntemi.
 
-### <a name="response"></a>Yanıtıyla
+### <a name="response"></a>Yanıt
 
 Yanıt, aşağıdaki özelliklere sahip bir kök nesnesi olan bir JSON belgesidir:
 
 Name  | Tür             | Gerekli | Notlar
 ----- | ---------------- | -------- | -----
-count | tamsayı          | Yes      | Dizindeki kayıt sayfası sayısı
-öğeler | nesne dizisi | Yes      | Kayıt sayfaları dizisi
+{1&gt;count&lt;1} | tamsayı          | evet      | Dizindeki kayıt sayfası sayısı
+items | Nesne dizisi | evet      | Kayıt sayfaları dizisi
 
 Dizin nesnesinin `items` dizisindeki her öğe, bir kayıt sayfasını temsil eden bir JSON nesnesidir.
 
@@ -99,12 +99,12 @@ Kayıt dizininde bulunan kayıt sayfası nesnesi aşağıdaki özelliklere sahip
 
 Name   | Tür             | Gerekli | Notlar
 ------ | ---------------- | -------- | -----
-@id    | dize           | Yes      | Kayıt sayfasının URL 'SI
-count  | tamsayı          | Yes      | Kayıt sayısı sayfada kalır
-öğeler  | nesne dizisi | eşleşen       | Kayıt dizisi ve onların ilişkilendirme meta verileri
-düşürül  | dize           | Yes      | Sayfada en düşük SemVer 2.0.0 sürümü (dahil)
+@id    | dize           | evet      | Kayıt sayfasının URL 'SI
+{1&gt;count&lt;1}  | tamsayı          | evet      | Kayıt sayısı sayfada kalır
+items  | Nesne dizisi | eşleşen       | Kayıt dizisi ve onların ilişkilendirme meta verileri
+düşürül  | dize           | evet      | Sayfada en düşük SemVer 2.0.0 sürümü (dahil)
 üst | dize           | eşleşen       | Kayıt dizininin URL 'SI
-üst  | dize           | Yes      | Sayfada en yüksek SemVer 2.0.0 sürümü (dahil)
+üst  | dize           | evet      | Sayfada en yüksek SemVer 2.0.0 sürümü (dahil)
 
 Sayfa nesnesinin `lower` ve `upper` sınırları, belirli bir sayfa sürümü için meta veriler gerektiğinde faydalıdır.
 Bu sınırlar, gereken tek kayıt sayfasını getirmek için kullanılabilir. Sürüm dizeleri [NuGet 'in sürüm kurallarına](../concepts/package-versioning.md)uyar. Sürüm dizeleri normalleştirilir ve derleme meta verilerini içermez. NuGet ekosistemindeki tüm sürümlerde olduğu gibi, sürüm dizelerinin karşılaştırması, [Semver 2.0.0 'in sürüm önceliği kuralları](https://semver.org/spec/v2.0.0.html#spec-item-11)kullanılarak uygulanır.
@@ -123,9 +123,9 @@ Kayıt sayfasında bulunan kayıt yaprak nesnesi aşağıdaki özelliklere sahip
 
 Name           | Tür   | Gerekli | Notlar
 -------------- | ------ | -------- | -----
-@id            | dize | Yes      | Kayıt yaprağın URL 'SI
-catalogEntry   | nesne | Yes      | Paket meta verilerini içeren katalog girdisi
-packageContent | dize | Yes      | Paket içeriğinin URL 'SI (. nupkg)
+@id            | dize | evet      | Kayıt yaprağın URL 'SI
+catalogEntry   | nesnesi | evet      | Paket meta verilerini içeren katalog girdisi
+packageContent | dize | evet      | Paket içeriğinin URL 'SI (. nupkg)
 
 Her kayıt yaprak nesnesi, tek bir paket sürümüyle ilişkili verileri temsil eder.
 
@@ -135,30 +135,30 @@ Kayıt yaprak nesnesindeki `catalogEntry` özelliği aşağıdaki özelliklere s
 
 Name                     | Tür                       | Gerekli | Notlar
 ------------------------ | -------------------------- | -------- | -----
-@id                      | dize                     | Yes      | Bu nesneyi oluşturmak için kullanılan belgenin URL 'SI
+@id                      | dize                     | evet      | Bu nesneyi oluşturmak için kullanılan belgenin URL 'SI
 düzenliyor                  | dizelerin dizesi veya dizisi | eşleşen       | 
-dependencyGroups         | nesne dizisi           | eşleşen       | Hedef çerçeveye göre gruplanmış paketin bağımlılıkları
-kullanımdan kaldırma              | nesne                     | eşleşen       | Paketle ilişkili kullanımdan kaldırma
+dependencyGroups         | Nesne dizisi           | eşleşen       | Hedef çerçeveye göre gruplanmış paketin bağımlılıkları
+kullanımdan kaldırma              | nesnesi                     | eşleşen       | Paketle ilişkili kullanımdan kaldırma
 açıklama              | dize                     | eşleşen       | 
 Iurl                  | dize                     | eşleşen       | 
-kimlik                       | dize                     | Yes      | Paketin KIMLIĞI
+{1&gt;kimlik&lt;1}                       | dize                     | evet      | Paketin KIMLIĞI
 licenseUrl               | dize                     | eşleşen       |
 licenseExpression        | dize                     | eşleşen       | 
 listelenen                   | Boole değeri                    | eşleşen       | Yoksa listelenen olarak kabul edilmelidir
-minClientVersion         | dize                     | eşleşen       | 
+MinClientVersion         | dize                     | eşleşen       | 
 projectUrl               | dize                     | eşleşen       | 
 yayımladığı                | dize                     | eşleşen       | Paketin yayımlandığı zamana ait ISO 8601 zaman damgasını içeren bir dize
 Requirelicensekabulünü | Boole değeri                    | eşleşen       | 
 özet                  | dize                     | eşleşen       | 
 etiketler                     | dize veya dize dizisi  | eşleşen       | 
-Başlığın                    | dize                     | eşleşen       | 
-sürüm                  | dize                     | Yes      | Normalleştirme sonrasında tam sürüm dizesi
+başlık                    | dize                     | eşleşen       | 
+sürümü                  | dize                     | evet      | Normalleştirme sonrasında tam sürüm dizesi
 
 Package `version` özelliği, normalleştirmenin ardından tam sürüm dizesidir. Bu, SemVer 2.0.0 derleme verilerinin buraya dahil edileceğini gösterir.
 
 `dependencyGroups` özelliği, hedef çerçeveye göre gruplanan, paketin bağımlılıklarını temsil eden bir nesne dizisidir. Paketin bağımlılığı yoksa, `dependencyGroups` özelliği eksik, boş bir dizi veya tüm grupların `dependencies` özelliği boş veya eksik.
 
-`licenseExpression` özelliğinin değeri [NuGet lisans ifadesi söz dizimi](https://docs.microsoft.com/nuget/reference/nuspec#license)ile uyumludur.
+`licenseExpression` özelliğinin değeri [NuGet lisans ifadesi söz dizimi](../reference/nuspec.md#license)ile uyumludur.
 
 > [!Note]
 > Nuget.org üzerinde `published` değeri, paket listelenmemiş olduğunda yıl 1900 olarak ayarlanır.
@@ -170,7 +170,7 @@ Her bağımlılık grubu nesnesi aşağıdaki özelliklere sahiptir:
 Name            | Tür             | Gerekli | Notlar
 --------------- | ---------------- | -------- | -----
 targetFramework | dize           | eşleşen       | Bu bağımlılıkların geçerli olduğu hedef çerçeve
-bağımlılıklar    | nesne dizisi | eşleşen       |
+bağımlılıklar    | Nesne dizisi | eşleşen       |
 
 `targetFramework` dize, NuGet 'in .NET kitaplığı [NuGet. çerçeveleri](https://www.nuget.org/packages/NuGet.Frameworks/)tarafından uygulanan biçimi kullanır. `targetFramework` belirtilmemişse, bağımlılık grubu tüm hedef çerçeveler için geçerlidir.
 
@@ -182,8 +182,8 @@ Her paket bağımlılığı aşağıdaki özelliklere sahiptir:
 
 Name         | Tür   | Gerekli | Notlar
 ------------ | ------ | -------- | -----
-kimlik           | dize | Yes      | Paket bağımlılığının KIMLIĞI
-aralık        | nesne | eşleşen       | Bağımlılığın izin verilen [Sürüm aralığı](../concepts/package-versioning.md#version-ranges-and-wildcards)
+{1&gt;kimlik&lt;1}           | dize | evet      | Paket bağımlılığının KIMLIĞI
+aralık        | nesnesi | eşleşen       | Bağımlılığın izin verilen [Sürüm aralığı](../concepts/package-versioning.md#version-ranges-and-wildcards)
 kayıt | dize | eşleşen       | Bu bağımlılık için kayıt dizininin URL 'SI
 
 `range` özelliği dışlanmazsa veya boş bir dize ise, istemci varsayılan olarak sürüm aralığı `(, )`olmalıdır. Yani, bağımlılığın herhangi bir sürümüne izin verilir. `range` özelliğinde `*` değerine izin verilmez.
@@ -194,9 +194,9 @@ Her bir paket kullanımdan kaldırılması aşağıdaki özelliklere sahiptir:
 
 Name             | Tür             | Gerekli | Notlar
 ---------------- | ---------------- | -------- | -----
-olası          | Dizeler dizisi | Yes      | Paketin kullanım dışı olma nedenleri
+olası          | dizeler dizisi | evet      | Paketin kullanım dışı olma nedenleri
 iletisi          | dize           | eşleşen       | Bu kullanımdan kaldırma ile ilgili ek ayrıntılar
-alternatePackage | nesne           | eşleşen       | Bunun yerine kullanılması gereken alternatif paket
+alternatePackage | nesnesi           | eşleşen       | Bunun yerine kullanılması gereken alternatif paket
 
 `reasons` özelliği en az bir dize içermeli ve yalnızca aşağıdaki tablodan dizeler içermelidir:
 
@@ -214,8 +214,8 @@ Alternatif paket nesnesi aşağıdaki özelliklere sahiptir:
 
 Name         | Tür   | Gerekli | Notlar
 ------------ | ------ | -------- | -----
-kimlik           | dize | Yes      | Alternatif paketin KIMLIĞI
-aralık        | nesne | eşleşen       | İzin verilen [Sürüm aralığı](../concepts/package-versioning.md#version-ranges-and-wildcards)veya varsa `*`
+{1&gt;kimlik&lt;1}           | dize | evet      | Alternatif paketin KIMLIĞI
+aralık        | nesnesi | eşleşen       | İzin verilen [Sürüm aralığı](../concepts/package-versioning.md#version-ranges-and-wildcards)veya varsa `*`
 kayıt | dize | eşleşen       | Bu alternatif paket için kayıt dizininin URL 'SI
 
 ### <a name="sample-request"></a>Örnek istek
@@ -239,12 +239,12 @@ Kayıt dizininde `items` dizisi sağlanmazsa, `@id` değerine ait HTTP GET iste�
 
 Name   | Tür             | Gerekli | Notlar
 ------ | ---------------- | -------- | -----
-@id    | dize           | Yes      | Kayıt sayfasının URL 'SI
-count  | tamsayı          | Yes      | Kayıt sayısı sayfada kalır
-öğeler  | nesne dizisi | Yes      | Kayıt dizisi ve onların ilişkilendirme meta verileri
-düşürül  | dize           | Yes      | Sayfada en düşük SemVer 2.0.0 sürümü (dahil)
-üst | dize           | Yes      | Kayıt dizininin URL 'SI
-üst  | dize           | Yes      | Sayfada en yüksek SemVer 2.0.0 sürümü (dahil)
+@id    | dize           | evet      | Kayıt sayfasının URL 'SI
+{1&gt;count&lt;1}  | tamsayı          | evet      | Kayıt sayısı sayfada kalır
+items  | Nesne dizisi | evet      | Kayıt dizisi ve onların ilişkilendirme meta verileri
+düşürül  | dize           | evet      | Sayfada en düşük SemVer 2.0.0 sürümü (dahil)
+üst | dize           | evet      | Kayıt dizininin URL 'SI
+üst  | dize           | evet      | Sayfada en yüksek SemVer 2.0.0 sürümü (dahil)
 
 Kayıt yaprak nesnelerinin şekli [Yukarıdaki](#registration-leaf-object-in-a-page)kayıt diziniyle aynıdır.
 
@@ -269,7 +269,7 @@ Kayıt yaprağı, aşağıdaki özelliklere sahip bir kök nesnesine sahip bir J
 
 Name           | Tür    | Gerekli | Notlar
 -------------- | ------- | -------- | -----
-@id            | dize  | Yes      | Kayıt yaprağın URL 'SI
+@id            | dize  | evet      | Kayıt yaprağın URL 'SI
 catalogEntry   | dize  | eşleşen       | Bu yaprağı üreten Katalog girişinin URL 'SI
 listelenen         | Boole değeri | eşleşen       | Yoksa listelenen olarak kabul edilmelidir
 packageContent | dize  | eşleşen       | Paket içeriğinin URL 'SI (. nupkg)

@@ -1,83 +1,83 @@
 ---
-title: NuGet 4.7 RTM Release Notes
-description: Release notes for NuGet 4.7.0 including known issues, bug fixes, added features, and DCRs.
+title: NuGet 4,7 RTM sürüm notları
+description: Bilinen sorunlar, hata düzeltmeleri, eklenen özellikler ve CCR 'ler dahil olmak üzere NuGet 4.7.0 için sürüm notları.
 author: karann-msft
 ms.author: karann
 ms.date: 5/14/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0c3c0380fe6efb3c58124ca5ba8bc1306a433340
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: 2290025d42dcd5704b6b019c17346201fe6a990d
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73611347"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813799"
 ---
-# <a name="nuget-47-release-notes"></a>NuGet 4.7 Release Notes
+# <a name="nuget-47-release-notes"></a>NuGet 4,7 sürüm notları
 
-[Visual Studio 2017 15.7 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) comes with [NuGet 4.7.0](https://dist.nuget.org/win-x86-commandline/v4.7.0/nuget.exe).
+[Visual Studio 2017 15,7 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) , [NuGet 4.7.0](https://dist.nuget.org/win-x86-commandline/v4.7.0/nuget.exe)ile birlikte gelir.
 
-## <a name="summary-whats-new-in-470"></a>Summary: What's New in 4.7.0
+## <a name="summary-whats-new-in-470"></a>Özet: 4.7.0 'deki yenilikler
 
-* We have augmented package signing to enable [Repository Signed packages](https://github.com/NuGet/Home/wiki/Repository-Signatures)
+* [Depodaki imzalı paketleri](https://github.com/NuGet/Home/wiki/Repository-Signatures) etkinleştirmek için genişlettik paket imzalama
 
-* With Visual Studio Version 15.7, we have introduced the capability to [migrate existing projects that use the packages.config format to use PackageReference](https://docs.microsoft.com/nuget/consume-packages/migrate-packages-config-to-package-reference) instead.
+* Visual Studio sürüm 15,7 ile, [Packages. config biçimini kullanan mevcut projeleri, bunun yerine PackageReference kullanmak için geçirme](../consume-packages/migrate-packages-config-to-package-reference.md) özelliğini sunuyoruz.
 
-## <a name="summary-whats-new-in-472"></a>Summary: What's New in 4.7.2
+## <a name="summary-whats-new-in-472"></a>Özet: 4.7.2 'deki yenilikler
 
-* Security Fix: Permissions on files created inside ~/.nuget are too open [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
+* Güvenlik onarımı: ~/. NuGet içinde oluşturulan dosyalardaki Izinler çok açık [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
 
-## <a name="summary-whats-new-in-473"></a>Summary: What's New in 4.7.3
+## <a name="summary-whats-new-in-473"></a>Özet: 4.7.3 'deki yenilikler
 
-* Security Fix: Files inside of NUPKGs can have a relative path above the NUPKG directory [#7906](https://github.com/NuGet/Home/issues/7906)
+* Güvenlik onarımı: NUPKGs içindeki dosyaların, NUPKG dizininin üzerinde göreli bir yolu olabilir [#7906](https://github.com/NuGet/Home/issues/7906)
 
 ## <a name="known-issues"></a>Bilinen sorunlar
 
-### <a name="the-migrate-packagesconfig-to-packagereference-option-is-not-available-in-the-right-click-context-menu"></a>The `Migrate packages.config to PackageReference...` option is not available in the right-click context menu
+### <a name="the-migrate-packagesconfig-to-packagereference-option-is-not-available-in-the-right-click-context-menu"></a>`Migrate packages.config to PackageReference...` seçeneği sağ tıklama bağlam menüsünde kullanılamaz
 
 #### <a name="issue"></a>Sorun
 
-When a project is first opened, NuGet may not have initialized until a NuGet operation is performed. This causes the migration option to not show up in the right-click context menu on `packages.config` or `References`.
+Bir proje ilk açıldığında NuGet bir NuGet işlemi gerçekleştirilene kadar başlatılmamış olabilir. Bu, geçiş seçeneğinin `packages.config` veya `References`sağ tıklama kısayol menüsünde gösterilmamasını sağlar.
 
 #### <a name="workaround"></a>Geçici Çözüm
 
-Perform any one of the following NuGet actions:
-* Open the Package Manager UI - Right-click on `References` and select `Manage NuGet Packages...`
-* Open the Package Manager Console - From `Tools > NuGet Package Manager`, select `Package Manager Console`
-* Run NuGet restore - Right-click on the solution node in the Solution Explorer and select `Restore NuGet Packages`
-* Build the project which also triggers NuGet restore
+Aşağıdaki NuGet eylemlerinden birini gerçekleştirin:
+* Paket Yöneticisi Kullanıcı arabirimini açın-`References` ' a sağ tıklayıp `Manage NuGet Packages...` ' ı seçin.
+* Paket Yöneticisi konsolunu açın-`Tools > NuGet Package Manager`' den `Package Manager Console` ' ı seçin.
+* NuGet geri yükleme Çalıştır-Çözüm Gezgini çözüm düğümüne sağ tıklayın ve `Restore NuGet Packages` ' ı seçin.
+* Ayrıca NuGet geri yüklemeyi tetikleyen projeyi oluştur
 
-You should now be able to see the migration option. Note that this option is not supported and will not show up for ASP.NET and C++ project types.
+Şimdi geçiş seçeneğini görebilmeniz gerekir. Bu seçeneğin desteklenmediğini ve ASP.NET ve C++ proje türleri için gösterilmediğini unutmayın.
 
-### <a name="issues-with-net-standard-20-with-net-framework--nuget"></a>Issues with .NET Standard 2.0 with .NET Framework & NuGet
+### <a name="issues-with-net-standard-20-with-net-framework--nuget"></a>.NET Framework & NuGet ile .NET Standard 2,0 ile ilgili sorunlar
 
-.NET Standard & its tooling was designed such that projects targeting .NET Framework 4.6.1 can consume NuGet packages & projects targeting .NET Standard 2.0 or earlier. [This document](https://github.com/dotnet/standard/issues/481) summarizes the issues around that scenario, the plan for addressing them, and workarounds you can deploy with today's state of the tooling.
+.NET Standard & aracı .NET Framework, .NET Standard 2,0 veya önceki sürümleri hedefleyen projeler & NuGet paketlerini tüketebileceği şekilde tasarlanmıştır. [Bu belgede, bu](https://github.com/dotnet/standard/issues/481) senaryonun etrafındaki sorunlar, bunları ele almak için plan ve BT 'nin araç durumuyla birlikte dağıtabileceğiniz geçici çözümler özetlenmektedir.
 
-## <a name="top-issues-fixed-in-this-release"></a>Top issues fixed in this release
+## <a name="top-issues-fixed-in-this-release"></a>Bu yayında düzeltilen en önemli sorunlar
 
 ### <a name="bugs"></a>Hatalar
 
-* NuGet runs into a deadlock in .Net Core project system (new regression). - [#6733](https://github.com/NuGet/Home/issues/6733)
-* Pack: PackagePath is constructed incorrectly if TfmSpecificPackageFile is used with globbing paths - [#6726](https://github.com/NuGet/Home/issues/6726)
-* Pack: web api project cannot create package unless ispackable is explicitly set. - [#6156](https://github.com/NuGet/Home/issues/6156)
-* VS UI and PMC take 30min to see new package (nuget.exe sees it right away) - [#6657](https://github.com/NuGet/Home/issues/6657)
-* Signing:  SignatureUtility.GetCertificateChain(...) does not check all chain statuses - [#6565](https://github.com/NuGet/Home/issues/6565)
-* Signing:  improve DER GeneralizedTime handling - [#6564](https://github.com/NuGet/Home/issues/6564)
-* Signing: VS does not show a NU3002 error when installing a tampered package - [#6337](https://github.com/NuGet/Home/issues/6337)
-* lockFile.GetLibrary is case sensitive - [#6500](https://github.com/NuGet/Home/issues/6500)
-* Install/update restore code and Restore code paths are not consistent - [#3471](https://github.com/NuGet/Home/issues/3471)
-* Solution PackageManager Version ComboBox can select separator via keyboard - [#2606](https://github.com/NuGet/Home/issues/2606)
-* Unable to load the service index for source `https://www.myget.org/F/<id>` ---> System.Net.Http.HttpRequestException: Response status code does not indicate success: 403 (Forbidden) - [#2530](https://github.com/NuGet/Home/issues/2530)
+* NuGet .Net Core proje sisteminde bir kilitlenme halinde çalışır (yeni regresyon). - [#6733](https://github.com/NuGet/Home/issues/6733)
+* Pack: TfmSpecificPackageFile, glob Paths ile kullanılırsa, PackagePath yanlış oluşturulur- [#6726](https://github.com/NuGet/Home/issues/6726)
+* Paket: ıpackable açık olarak ayarlanmadığı takdirde Web API projesi paket oluşturamaz. - [#6156](https://github.com/NuGet/Home/issues/6156)
+* VS UI ve PMC, yeni paketi görmek için 30 dakika sürer (NuGet. exe bunu hemen görür) [#6657](https://github.com/NuGet/Home/issues/6657)
+* İmzalama: SignatureUtility. Getcertificatezincirine (...) tüm zincir durumlarını denetlemez- [#6565](https://github.com/NuGet/Home/issues/6565)
+* İmzalama: DER GeneralizedTime işlemeyi geliştirme- [#6564](https://github.com/NuGet/Home/issues/6564)
+* İmzalama: VS paketi yüklenirken bir NU3002 hatası göstermez- [#6337](https://github.com/NuGet/Home/issues/6337)
+* lockFile. GetLibrary büyük/küçük harfe duyarlıdır- [#6500](https://github.com/NuGet/Home/issues/6500)
+* Yükleme/güncelleştirme geri yükleme kodu ve geri yükleme kodu yolları tutarlı değil [#3471](https://github.com/NuGet/Home/issues/3471)
+* Çözüm PackageManager sürümü açılan kutusu, klavye ile ayırıcı seçebilir [#2606](https://github.com/NuGet/Home/issues/2606)
+* Kaynak `https://www.myget.org/F/<id>`---> System .net. http. HttpRequestException: yanıt durum kodu için hizmet dizini, başarıyı göstermiyor: 403 (yasak)- [#2530](https://github.com/NuGet/Home/issues/2530)
 
-### <a name="dcrs"></a>DCRs
+### <a name="dcrs"></a>DCR
 
-* Emit X-NuGet-Session-Id header to correlate across requests [feature proposal] - [#5330](https://github.com/NuGet/Home/issues/5330)
-* Expose a way to wait on running restore operation running in Visual Studio via IVs apis. - [#6029](https://github.com/NuGet/Home/issues/6029)
-* NuGet.exe -NoServiceEndpoint will avoid appending service url suffix - [#6586](https://github.com/NuGet/Home/issues/6586)
-* add commit hash to informational version - [#6492](https://github.com/NuGet/Home/issues/6492)
-* Signing:  enable removal of repository signature/countersignature - [#6646](https://github.com/NuGet/Home/issues/6646)
-* Signing:  API for stripping repository signature/countersignature - [#6589](https://github.com/NuGet/Home/issues/6589)
-* Log source information in VS - [#6527](https://github.com/NuGet/Home/issues/6527)
-* Filter /tools on only TFM and RID, so the settings XML can be put in /tools folder - [#6197](https://github.com/NuGet/Home/issues/6197)
-* Warn when Pack command excludes a file that starts with .  - [#3308](https://github.com/NuGet/Home/issues/3308)
+* İstekler arasında ilişkilendirmek için X-NuGet-Session-ID üst bilgisini yay [özellik teklifi]- [#5330](https://github.com/NuGet/Home/issues/5330)
+* Visual Studio 'da IVS API 'leri aracılığıyla çalışan geri yükleme işlemini beklemek için bir yol sunun. - [#6029](https://github.com/NuGet/Home/issues/6029)
+* NuGet. exe-NoServiceEndpoint, hizmet URL sonekini eklemeyi önler- [#6586](https://github.com/NuGet/Home/issues/6586)
+* bilgilendirici sürüme COMMIT Hash ekleme- [#6492](https://github.com/NuGet/Home/issues/6492)
+* İmzalama: depo imzasını/onay imzasını kaldırmayı etkinleştir- [#6646](https://github.com/NuGet/Home/issues/6646)
+* İmzalama: performans deposu imzası/onay imzası için API- [#6589](https://github.com/NuGet/Home/issues/6589)
+* VS [#6527](https://github.com/NuGet/Home/issues/6527) 'de günlük kaynağı bilgileri
+* /Tools 'u yalnızca tfd ve RID üzerinde filtreleyin. bu nedenle, ayarlar XML 'i/Tools klasörüne koyabilirsiniz- [#6197](https://github.com/NuGet/Home/issues/6197)
+* Paket komutu ile başlayan bir dosyayı dışladığı zaman uyar.  - [#3308](https://github.com/NuGet/Home/issues/3308)
 
-[List of all issues fixed in this release](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.7")
+[Bu yayında düzeltilen tüm sorunların listesi](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.7")

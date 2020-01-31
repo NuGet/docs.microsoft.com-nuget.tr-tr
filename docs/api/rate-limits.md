@@ -1,6 +1,6 @@
 ---
-title: Oran sınırları, NuGet API'si
-description: NuGet API'leri kötüye kullanımı önlemek üzere oran sınırları zorunlu.
+title: Oran limitleri, NuGet API 'SI
+description: NuGet API 'Leri, kötüye kullanımı engellemek için uygulanan Hız sınırlarına sahip olur.
 author: cmanu
 ms.author: cmanu
 ms.date: 03/20/2018
@@ -9,16 +9,16 @@ ms.reviewer:
 - skofman
 - anangaur
 - kraigb
-ms.openlocfilehash: 70b478ae17cd10b17f9d6ecb0f5776c1effcea58
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 9e60c0236bd4e6f1374b50a236447faf80dddb38
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548683"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813201"
 ---
-# <a name="rate-limits"></a>Oran sınırları
+# <a name="rate-limits"></a>Oran limitleri
 
-NuGet.org API kötüye kullanımı önlemek için hız sınırlaması zorlar. Hız sınırı aşan istekleri şu hatayı döndürür: 
+NuGet.org API 'SI, kötüye kullanımı engellemek için hız sınırlaması uygular. Hız sınırını aşan istekler aşağıdaki hatayı döndürür: 
 
   ~~~
     {
@@ -27,7 +27,7 @@ NuGet.org API kötüye kullanımı önlemek için hız sınırlaması zorlar. H�
     }
   ~~~
 
-Oran sınırları kullanarak azaltmayı istek ek olarak, bazı API'leri ayrıca kota uygular. Kotayı aştığınız isteği şu hatayı döndürür:
+Hız sınırlarını kullanarak istek azaltmasına ek olarak, bazı API 'Ler kota de uygular. Kotayı aşan istekler aşağıdaki hatayı döndürür:
 
   ~~~
     {
@@ -36,24 +36,23 @@ Oran sınırları kullanarak azaltmayı istek ek olarak, bazı API'leri ayrıca 
     }
   ~~~
 
-Aşağıdaki tablolarda NuGet.org API için oran sınırları listelenmektedir.
+Aşağıdaki tablolarda NuGet.org API 'sinin hız sınırları listelenmektedir.
 
 ## <a name="package-search"></a>Paket arama
 
 > [!Note]
-> NuGet.org kullanmanızı öneririz [V3 API'ler](https://docs.microsoft.com/nuget/api/search-query-service-resource) sınırlamak şu anda yüksek performanslı ve olmadığından arayın. V1 ve V2 için arama API'leri, followins sınırlar geçerlidir:
+> Şu anda sınırlı olmadığından NuGet. org 'ın [v3 arama API 'lerini](search-query-service-resource.md) kullanmanızı öneririz. V1 ve v2 Search API 'Leri için aşağıdaki sınırlar geçerlidir:
 
-
-| API | Sınır türü | Sınır değeri | API kullanım durumu |
+| API | Sınır türü | Sınır değeri | API usecase |
 |:---|:---|:---|:---|
-**AL** `/api/v1/Packages` | IP | 1000 / dakika | NuGet paketi meta verilerini v1 OData aracılığıyla sorgu `Packages` koleksiyonu |
-**AL** `/api/v1/Search()` | IP | 3000 / dakika | V1 arama uç noktası aracılığıyla NuGet paketleri Ara | 
-**AL** `/api/v2/Packages` | IP | 20000 / dakika | NuGet paketi meta verilerini aracılığıyla v2 OData sorgu `Packages` koleksiyonu | 
-**AL** `/api/v2/Packages/$count` | IP | 100 / dakika | NuGet paket sayısı aracılığıyla v2 OData sorgu `Packages` koleksiyonu | 
+`/api/v1/Packages` **Al** | IP | 1000/dakika | NuGet paketi meta verilerini v1 OData `Packages` koleksiyonu aracılığıyla sorgula |
+`/api/v1/Search()` **Al** | IP | 3000/dakika | V1 arama uç noktası aracılığıyla NuGet paketlerini arayın | 
+`/api/v2/Packages` **Al** | IP | 20000/dakika | NuGet paketi meta verilerini v2 OData `Packages` koleksiyonu aracılığıyla sorgula | 
+`/api/v2/Packages/$count` **Al** | IP | 100/dakika | V2 OData `Packages` koleksiyonu aracılığıyla NuGet paket sayısını sorgula | 
 
-## <a name="package-push-and-unlist"></a>Paket gönderme ve listeden Kaldır
+## <a name="package-push-and-unlist"></a>Paket gönderme ve listeden kaldırma
 
-| API | Sınır türü | Sınır değeri | API kullanım durumu | 
+| API | Sınır türü | Sınır değeri | API usecase | 
 |:---|:---|:---|:--- |
-**PUT** `/api/v2/package` | API anahtarı | 250 / saat | V2 anında iletme uç noktası aracılığıyla yeni bir NuGet paketi (sürüm) karşıya yükleyin 
-**DELETE** `/api/v2/package/{id}/{version}` | API anahtarı | 250 / saat | V2 uç noktası aracılığıyla bir NuGet paketi (sürüm) listeden Kaldır 
+`/api/v2/package` **koy** | API anahtarı | 350/saat | V2 Push uç noktası aracılığıyla yeni bir NuGet paketini (sürüm) karşıya yükle 
+`/api/v2/package/{id}/{version}` **Sil** | API anahtarı | 250/saat | V2 uç noktası aracılığıyla bir NuGet paketinin (sürüm) listesini kaldırma 

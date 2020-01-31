@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: d2294ef0acb9053e74543204ae6f68b9fbc6fb0a
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: c6f50e6eb21826afebcdcd4045c7ab8b6e6489e3
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73611061"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813331"
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>NuGet paket bağımlılıklarını çözümler
 
@@ -24,7 +24,7 @@ Birden çok paketin aynı bağımlılığı varsa, aynı paket KIMLIĞI birden �
 
 , PackageReference biçimini kullanarak projelere paket yüklerken, NuGet ilgili dosyadaki düz bir paket grafiğine başvurular ekler ve çakışmaları önceden çözer. Bu işlem *geçişli geri yükleme*olarak adlandırılır. Paketleri yeniden yükleme veya geri yükleme işlemi daha sonra grafikte listelenen paketlerin indirilerek daha hızlı ve öngörülebilir yapılar elde edilir. Ayrıca, 2,8 gibi joker karakter (kayan) sürümlerden de yararlanabilirsiniz.\*, istemci makinelerinde ve yapı sunucularındaki `nuget update` pahalı ve hataya açık çağrılardan kaçının.
 
-NuGet geri yükleme işlemi bir derlemeden önce çalıştırıldığında, öncelikle bellekte bulunan bağımlılıkları çözer, ardından sonuç grafiğini `project.assets.json`adlı dosyaya yazar. Ayrıca, [dosya kilitleme işlevi etkinse](https://docs.microsoft.com/nuget/consume-packages/package-references-in-project-files#locking-dependencies), çözümlenmiş bağımlılıkları `packages.lock.json`adlı bir kilit dosyasına yazar.
+NuGet geri yükleme işlemi bir derlemeden önce çalıştırıldığında, öncelikle bellekte bulunan bağımlılıkları çözer, ardından sonuç grafiğini `project.assets.json`adlı dosyaya yazar. Ayrıca, [dosya kilitleme işlevi etkinse](../consume-packages/package-references-in-project-files.md#locking-dependencies), çözümlenmiş bağımlılıkları `packages.lock.json`adlı bir kilit dosyasına yazar.
 Varlıklar dosyası `MSBuildProjectExtensionsPath`konumunda bulunur ve varsayılan olarak projenin ' obj ' klasörüdür. MSBuild sonra bu dosyayı okur ve olası başvuruların bulunabileceği bir klasör kümesine çevirir ve sonra bunları bellekte proje ağacına ekler.
 
 `project.assets.json` dosyası geçicidir ve kaynak denetimine eklenmemelidir. Varsayılan olarak hem `.gitignore` hem de `.tfignore`listelenir. Bkz. [paketler ve kaynak denetimi](../consume-packages/packages-and-source-control.md).
@@ -100,7 +100,7 @@ Bu durumlarda, en [yakın WINS](#nearest-wins) kuralının uygulanması için ü
 
 `packages.config`, projenin bağımlılıkları düz bir liste olarak `packages.config` yazılır. Bu paketlerin tüm bağımlılıkları aynı listeye de yazılır. Paketler yüklendiğinde, NuGet `.csproj` dosyasını, `app.config`, `web.config`ve diğer tek dosyaları da değiştirebilir.
 
-`packages.config`, NuGet her bir paketin yüklenmesi sırasında bağımlılık çakışmalarını çözmeye çalışır. Diğer bir deyişle, A paketi yüklenip B paketine bağlı ise ve B paketi zaten başka bir şeyin bağımlılığı olarak `packages.config` ' de listeleniyorsa, NuGet, istenen paket B 'nin sürümlerini karşılaştırır ve tüm sürümü karşılayan bir sürüm bulmaya çalışır kısıtlamaları. Özellikle NuGet, bağımlılıkları karşılayan düşük *ana. Minor* sürümünü seçer.
+`packages.config`, NuGet her bir paketin yüklenmesi sırasında bağımlılık çakışmalarını çözmeye çalışır. Diğer bir deyişle, A paketi yüklenip B paketine bağlı ise ve B paketi zaten başka bir şeyin bağımlılığı olarak `packages.config` ' de listeleniyorsa, NuGet, istenen paket B 'nin sürümlerini karşılaştırır ve tüm sürüm kısıtlamalarını karşılayan bir sürüm bulmaya çalışır. Özellikle NuGet, bağımlılıkları karşılayan düşük *ana. Minor* sürümünü seçer.
 
 Varsayılan olarak, NuGet 2,8 en düşük düzeltme eki sürümünü arar (bkz. [nuget 2,8 sürüm notları](../release-notes/nuget-2.8.md#patch-resolution-for-dependencies)). Bu ayarı, `Nuget.Config` `DependencyVersion` özniteliği ve komut satırındaki `-DependencyVersion` anahtarı aracılığıyla denetleyebilirsiniz.  
 
@@ -156,4 +156,3 @@ Uyumsuzlukları çözümlemek için aşağıdakilerden birini yapın:
 
 - Projenizi kullanmak istediğiniz paketler tarafından desteklenen bir çerçeveye yeniden hedefleyin.
 - Paketlerin yazarına başvurun ve seçtiğiniz çerçeve için destek eklemek üzere bunlarla birlikte çalışın. [NuGet.org](https://www.nuget.org/) üzerindeki her paket listeleme sayfasında bu amaçla bir **iletişim sahipleri** bağlantısı bulunur.
-

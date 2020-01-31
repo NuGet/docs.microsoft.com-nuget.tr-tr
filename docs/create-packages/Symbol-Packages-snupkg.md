@@ -12,12 +12,12 @@ keywords: NuGet sembol paketleri, NuGet paket hata ayıklaması, NuGet hata ayı
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: de37cbf1f63da3de07774281eceef99c51abdaa5
-ms.sourcegitcommit: 96aab8a1ad35eca0c029679d0158d9cc93d66009
+ms.openlocfilehash: 0109aea95ec255b3e0abcdff4cf51b4bfeafbb8c
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75676386"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813487"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Sembol paketleri (. snupkg) oluşturuluyor
 
@@ -127,7 +127,7 @@ Paket doğrulama ve dizin oluşturma genellikle 15 dakika boyunca sürer. Paket 
    ```
 
 4) Bir yazar, nupkg ve snupkg 'leri oluşturmak için özel bir nuspec kullanılmasına karar verirse, snupkg, aynı klasör hiyerarşisine ve 2 ' de ayrıntılı dosyalar içermelidir.
-5) ```authors``` ve ```owners``` alanı, snupkg 'dan nuspec 'ten çıkarılacak.
+5) Aşağıdaki alanlar, snupkg 'dan nuspec: ```authors```, ```owners```, ```requireLicenseAcceptance```, ```license type```, ```licenseUrl```ve ```icon```dışarıda bırakılır.
 6) ```<license>``` öğesini kullanmayın. A. snupkg, karşılık gelen. nupkg ile aynı lisans kapsamında ele alınmıştır.
 
 ## <a name="see-also"></a>Ayrıca bkz.

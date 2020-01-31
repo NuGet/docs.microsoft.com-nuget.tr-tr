@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/16/2019
 ms.topic: quickstart
-ms.openlocfilehash: ef1bda19c5ca3c6b5a4bd9b9d4e3ef41d7dadb53
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: fe551dfa7f2322e6677c9c0b972c79c9df2e7695
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73610632"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813565"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Hızlı başlangıç: Visual Studio (.NET Standard, yalnızca Windows) kullanarak bir NuGet paketi oluşturma ve yayımlama
 
@@ -30,7 +30,7 @@ Windows üzerinde Visual Studio 'da bir .NET Standard sınıf kitaplığından b
    > [!Important]
    > SDK olmayan bir proje ile çalışıyorsanız, bunun yerine paketi oluşturmak ve yayımlamak için [.NET Framework paketi oluşturma ve yayımlama (Visual Studio)](create-and-publish-a-package-using-visual-studio-net-framework.md) konusundaki yordamları izleyin. Bu makalede `dotnet` CLı önerilir. `nuget.exe` CLı kullanarak herhangi bir NuGet paketini yayımlayabilseniz de, bu makaledeki adımların bazıları SDK stilindeki projelere ve DotNet CLı 'ye özgüdür. NuGet. exe CLı, [SDK olmayan-stil projeleri](../resources/check-project-format.md) için kullanılır (genellikle .NET Framework).
 
-1. Henüz bir [hesabınız yoksa NuGet.org üzerinde ücretsiz bir hesaba kaydolun](https://docs.microsoft.com/nuget/nuget-org/individual-accounts#add-a-new-individual-account) . Yeni hesap oluşturma onay e-postası gönderir. Bir paketi karşıya yükleyebilmek için önce hesabı onaylamanız gerekir.
+1. Henüz bir [hesabınız yoksa NuGet.org üzerinde ücretsiz bir hesaba kaydolun](../nuget-org/individual-accounts.md#add-a-new-individual-account) . Yeni hesap oluşturma onay e-postası gönderir. Bir paketi karşıya yükleyebilmek için önce hesabı onaylamanız gerekir.
 
 ## <a name="create-a-class-library-project"></a>Sınıf kitaplığı projesi oluşturma
 
@@ -103,7 +103,7 @@ namespace AppLogger
 
 Visual Studio 'Yu, projeyi oluşturduğunuzda NuGet paketini otomatik olarak oluşturacak şekilde yapılandırabilirsiniz.
 
-1. Çözüm Gezgini, projeye sağ tıklayın ve **Özellikler**' i seçin.
+1. Çözüm Gezgini'nde projeye sağ tıklayıp seçin **özellikleri**.
 
 2. **Paket** sekmesinde **derlemede NuGet paketi oluştur**' u seçin.
 

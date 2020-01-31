@@ -1,27 +1,27 @@
 ---
-title: NuGet 5.3 Release Notes
-description: Release notes for NuGet 5.3 including new features, bug fixes, and DCRs.
+title: NuGet 5,3 sürüm notları
+description: Yeni özellikler, hata düzeltmeleri ve DTU 'lar dahil olmak üzere NuGet 5,3 sürüm notları.
 author: karann-msft
 ms.author: karann
 ms.date: 09/06/2019
 ms.topic: conceptual
-ms.openlocfilehash: e77219d355f73f3bf01f68283ffb2759813af563
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: ca71c5b9ef546f3ea92e55763d5059466ac3a930
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73611319"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813760"
 ---
-# <a name="nuget-53-release-notes"></a>NuGet 5.3 Release Notes
+# <a name="nuget-53-release-notes"></a>NuGet 5,3 sürüm notları
 
 NuGet dağıtım araçlar:
 
 | NuGet sürümü | Visual Studio sürümünde kullanılabilir| .NET SDK 'ları 'nda kullanılabilir|
 |:---|:---|:---|
-| [**5.3.0**](https://nuget.org/downloads) | [Visual Studio 2019 version 16.3](https://visualstudio.microsoft.com/downloads/) | [3.0.100](https://dotnet.microsoft.com/download/dotnet-core/3.0)<sup>1</sup> |
+| [**5.3.0**](https://nuget.org/downloads) | [Visual Studio 2019 sürüm 16,3](https://visualstudio.microsoft.com/downloads/) | [3.0.100](https://dotnet.microsoft.com/download/dotnet-core/3.0)<sup>1</sup> |
 | [**5.3.1**](https://nuget.org/downloads) | [Visual Studio 2019 sürüm 16.3.6](https://visualstudio.microsoft.com/downloads/) | [Gelecek sürüm: 3.0.101](https://dotnet.microsoft.com/download/dotnet-core/3.0) |
 
-<sup>1</sup>Installed with Visual Studio 2019 with .NET Core workload
+<sup>1</sup> .NET Core iş yüküne sahip Visual Studio 2019 ile yüklendi
 
 ## <a name="summary-whats-new-in-53"></a>Özet: 5,3 sürümündeki yenilikler
 
@@ -29,11 +29,11 @@ NuGet dağıtım araçlar:
 
 * SHA izleme ve paketler için zorlama ile geliştirilmiş güvenlik. config- [#7281](https://github.com/NuGet/Home/issues/7281)
 
-* Eski/eski NuGet paketlerinin kullanımdan kaldırılması için [#2867](https://github.com/NuGet/Home/issues/2867) | [blog gönderisi](https://devblogs.microsoft.com/nuget/deprecating-packages-on-nuget-org/) | [docs](https://docs.microsoft.com/nuget/nuget-org/deprecate-packages)
+* Eski/eski NuGet paketlerinin kullanımdan kaldırılması için [#2867](https://github.com/NuGet/Home/issues/2867) | [blog gönderisi](https://devblogs.microsoft.com/nuget/deprecating-packages-on-nuget-org/) | [docs](../nuget-org/deprecate-packages.md)
 
 ### <a name="issues-fixed-in-this-release"></a>Bu sürümde giderilen sorunlar
 
-**Bugs**
+**Hata**
 
 * 3\.0.100-preview9 SDK ile oluşturulan NuGet paketleri 2,2 SDK kullanıcıları tarafından kullanılamaz... Saat dilimlerinize bağlı olarak [#8603](https://github.com/NuGet/Home/issues/8603)
 
