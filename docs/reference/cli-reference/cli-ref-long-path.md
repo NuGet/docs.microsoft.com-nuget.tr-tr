@@ -5,16 +5,16 @@ author: zhili1208
 ms.author: lzhi
 ms.date: 07/12/2018
 ms.topic: reference
-ms.openlocfilehash: 42b5b7d863d22d7aad99a65700ca11bcc2861db1
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 9b5a97d963eab7fbbde4aefae1c9b1a8bfcdeb11
+ms.sourcegitcommit: 415c70d7014545c1f65271a2debf8c3c1c5eb688
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68328308"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77036961"
 ---
 # <a name="long-path-support-nuget-cli"></a>Uzun yol desteği (NuGet CLı)
 
-**Uygulama hedefi:** desteklenen &bullet; tüm **sürümler:** 4.8 +
+**Uygulama hedefi:** tüm &bullet; **Desteklenen sürümler:** 4.8 +
 
 NuGet. exe 4,8 ve üzeri, dosya ve dizinlerin paket, geri yükleme, yükleme ve dosya yollarına ihtiyacı olan çoğu senaryo gibi senaryolar için uzun yollarını destekler.
 
@@ -28,7 +28,7 @@ NuGet. exe 4,8 ve üzeri, dosya ve dizinlerin paket, geri yükleme, yükleme ve 
 
 Bir grup ilkesi ayarlayarak bu sistemlerde uzun yol desteğini etkinleştirmeniz gerekir.
 
-Olanları
+Adımlar:
 1. **Grup İlkesi düzenleyiciyi** Başlat-arama çubuğunda "Grup ilkesini Düzenle" yazın veya Çalıştır komutundan (Windows-R) "gpedit. msc" komutunu çalıştırın.
 2. **Yerel Grup İlkesi Düzenleyicisi**, "yerel bilgisayar Ilkesi/bilgisayar yapılandırması/Yönetim Şablonları/tüm ayarlar/Win32 uzun yollarını etkinleştir" i etkinleştirin.
 
@@ -39,6 +39,6 @@ Olanları
 > Uzun yolları desteklemek için diğer NuGet araçlarının etkinleştirilmesi
 >
 > -   DotNet CLı, işletim sistemi veya sürümden bağımsız olarak uzun yolları destekler.
-> -   Visual Studio veya MSBuild-t:restore uzun yolları henüz desteklemiyor.
-> -   Geri yükleme ve diğer komutları yürütmek için NuGet kitaplıklarını kullanan yazılımlar, aynı zamanda Windows bildiriminde longPathAware ayarlar ve App. config [aracılığıyla UseLegacyPathHandling ' i yanlış olarak yapılandırırsanız, NuGet. exe ' nin üzerinde çalıştığı sistemlerde uzun yolları destekleyecektir. Daha fazla bilgi görüntüleyin](https://blogs.msdn.microsoft.com/jeremykuhne/2016/07/30/net-4-6-2-and-long-paths-on-windows-10/)
+> -   Visual Studio veya `msbuild -t:restore` uzun yolları henüz desteklemiyor.
+> -   Geri yükleme ve diğer komutları yürütmek için NuGet kitaplıklarını kullanan yazılımlar, aynı zamanda Windows bildiriminde `longPathAware` ayarlamış ve App. config aracılığıyla `false` `UseLegacyPathHandling` yapılandıradıklarında, NuGet. exe ' nin üzerinde çalıştığı sistemlerde uzun yolları destekleyecektir. [daha fazla bilgi Için bkz. daha fazla bilgi](https://blogs.msdn.microsoft.com/jeremykuhne/2016/07/30/net-4-6-2-and-long-paths-on-windows-10/)
 

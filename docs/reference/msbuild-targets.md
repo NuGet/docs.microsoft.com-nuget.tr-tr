@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 2c2b5b21569e2644154670d502146f1e0f9c4c81
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: 922fc0b25664dede59e33c6cd012dfeedcad0397
+ms.sourcegitcommit: 415c70d7014545c1f65271a2debf8c3c1c5eb688
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75385020"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77036935"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet paketi ve geri yükleme MSBuild hedefleri olarak
 
@@ -48,30 +48,30 @@ Aşağıdaki tabloda, ilk `<PropertyGroup>` düğümü içindeki bir proje dosya
 
 | Öznitelik/NuSpec değeri | MSBuild özelliği | Varsayılan | Notlar |
 |--------|--------|--------|--------|
-| Id | PackageId | AssemblyName | MSBuild 'ten $ (AssemblyName) |
+| Kimlik | PackageId | AssemblyName | MSBuild 'ten $ (AssemblyName) |
 | Sürüm | PackageVersion | Sürüm | Bu semver uyumludur, örneğin "1.0.0", "1.0.0-Beta" veya "1.0.0-Beta-00345" |
-| VersionPrefix | PackageVersionPrefix | boş | PackageVersion ayarı PackageVersionPrefix üzerine yazıyor |
-| VersionSuffix | PackageVersionSuffix | boş | MSBuild 'ten $ (VersionSuffix). PackageVersion ayarı PackageVersionSuffix üzerine yazıyor |
+| VersionPrefix | PackageVersionPrefix | empty | PackageVersion ayarı PackageVersionPrefix üzerine yazıyor |
+| VersionSuffix | PackageVersionSuffix | empty | MSBuild 'ten $ (VersionSuffix). PackageVersion ayarı PackageVersionSuffix üzerine yazıyor |
 | Yazarlar | Yazarlar | Geçerli kullanıcının Kullanıcı adı | |
-| Sahipler | YOK | NuSpec içinde yok | |
+| Sahipler | Yok | NuSpec içinde yok | |
 | Başlık | Başlık | PackageID| |
 | Açıklama | Açıklama | "Paket açıklaması" | |
-| Telif hakkı | Telif hakkı | boş | |
-| Requirelicensekabulünü | PackageRequireLicenseAcceptance | {1&gt;false&lt;1} | |
-| lisans | PackageLicenseExpression | boş | `<license type="expression">` karşılık gelir |
-| lisans | PackageLicenseFile | boş | `<license type="file">`karşılık gelir. Başvurulan lisans dosyasını açık bir şekilde paketetmeniz gerekir. |
-| LicenseUrl | PackageLicenseUrl | boş | `PackageLicenseUrl` kullanım dışı, PackageLicenseExpression veya PackageLicenseFile özelliğini kullanın |
-| ProjectUrl | PackageProjectUrl | boş | |
-| Simge | Packageıcon | boş | Başvurulan simge görüntü dosyasını açıkça paketetmeniz gerekir.|
-| IconUrl | PackageIconUrl | boş | En iyi alt düzey deneyim için, `PackageIcon`ek olarak `PackageIconUrl` belirtilmelidir. Daha uzun vadeli `PackageIconUrl` kullanım dışı bırakılır. |
-| Etiketler | PackageTags | boş | Etiketler noktalı virgülle ayrılır. |
-| Relet 'ler | PackageReleaseNotes | boş | |
-| Depo/URL | Depourl 'Si | boş | Kaynak kodu kopyalamak veya almak için kullanılan depo URL 'SI. Örnek: *https://github.com/NuGet/NuGet.Client.git* |
-| Depo/tür | Repositorytype parametrelerinin sağlanması | boş | Depo türü. Örnekler: *Git*, *TFS*. |
-| Depo/dal | Depodalı | boş | İsteğe bağlı depo dalı bilgileri. Bu özelliğin dahil olması için aynı zamanda bir *Depo-URL* belirtilmelidir. Örnek: *Master* (NuGet 4.7.0 +) |
-| Depo/kayıt | Kayıt yapma | boş | Paketin hangi kaynağa göre oluşturulduğunu göstermek için isteğe bağlı depo kaydı veya değişiklik kümesi. Bu özelliğin dahil olması için aynı zamanda bir *Depo-URL* belirtilmelidir. Örnek: *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0 +) |
+| Yaptırımlar | Yaptırımlar | empty | |
+| Requirelicensekabulünü | PackageRequireLicenseAcceptance | false | |
+| lisan | PackageLicenseExpression | empty | `<license type="expression">` karşılık gelir |
+| lisan | PackageLicenseFile | empty | `<license type="file">`karşılık gelir. Başvurulan lisans dosyasını açık bir şekilde paketetmeniz gerekir. |
+| LicenseUrl | PackageLicenseUrl | empty | `PackageLicenseUrl` kullanım dışı, PackageLicenseExpression veya PackageLicenseFile özelliğini kullanın |
+| ProjectUrl | PackageProjectUrl | empty | |
+| Simge | Packageıcon | empty | Başvurulan simge görüntü dosyasını açıkça paketetmeniz gerekir.|
+| IconUrl | PackageIconUrl | empty | En iyi alt düzey deneyim için, `PackageIcon`ek olarak `PackageIconUrl` belirtilmelidir. Daha uzun vadeli `PackageIconUrl` kullanım dışı bırakılır. |
+| Etiketler | PackageTags | empty | Etiketler noktalı virgülle ayrılır. |
+| Relet 'ler | PackageReleaseNotes | empty | |
+| Depo/URL | Depourl 'Si | empty | Kaynak kodu kopyalamak veya almak için kullanılan depo URL 'SI. Örnek: *https://github.com/NuGet/NuGet.Client.git* |
+| Depo/tür | Repositorytype parametrelerinin sağlanması | empty | Depo türü. Örnekler: *Git*, *TFS*. |
+| Depo/dal | Depodalı | empty | İsteğe bağlı depo dalı bilgileri. Bu özelliğin dahil olması için aynı zamanda bir *Depo-URL* belirtilmelidir. Örnek: *Master* (NuGet 4.7.0 +) |
+| Depo/kayıt | Kayıt yapma | empty | Paketin hangi kaynağa göre oluşturulduğunu göstermek için isteğe bağlı depo kaydı veya değişiklik kümesi. Bu özelliğin dahil olması için aynı zamanda bir *Depo-URL* belirtilmelidir. Örnek: *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0 +) |
 | PackageType | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
-| Özet | Desteklenmez | | |
+| Özet | Desteklenmiyor | | |
 
 ### <a name="pack-target-inputs"></a>Paket hedef girişleri
 
@@ -81,7 +81,7 @@ Aşağıdaki tabloda, ilk `<PropertyGroup>` düğümü içindeki bir proje dosya
 - PackageId
 - Yazarlar
 - Açıklama
-- Telif hakkı
+- Yaptırımlar
 - PackageRequireLicenseAcceptance
 - DevelopmentDependency
 - PackageLicenseExpression
@@ -129,9 +129,9 @@ NuGet 5,3 & Visual Studio 2019 sürüm 16,3 ' den başlayarak, paket meta verile
 
 #### <a name="packing-an-icon-image-file"></a>Simge görüntüsü dosyası paketleme
 
-Bir simge resim dosyası paketleme sırasında, paketin köküne göre paket yolunu belirtmek için `PackageIcon` özelliğini kullanmanız gerekir. Ayrıca, dosyanın pakete eklendiğinden emin olmanız gerekir. Görüntü dosyası boyutu 1 MB ile sınırlıdır. Desteklenen dosya biçimleri JPEG ve PNG içerir. 64x64 görüntü çözünürlüğü önerilir.
+Bir simge resim dosyası paketleme sırasında, paketin köküne göre paket yolunu belirtmek için `PackageIcon` özelliğini kullanmanız gerekir. Ayrıca, dosyanın pakete eklendiğinden emin olmanız gerekir. Görüntü dosyası boyutu 1 MB ile sınırlıdır. Desteklenen dosya biçimleri JPEG ve PNG içerir. 128x128 görüntü çözümlemesi yapmanızı öneririz.
 
-Örneğin:
+Örnek:
 
 ```xml
 <PropertyGroup>
@@ -242,7 +242,7 @@ Bir lisans ifadesi kullanılırken PackageLicenseExpression özelliğinin kullan
 
 [NuGet.org tarafından kabul edilen lisans ifadeleri ve lisanslar hakkında daha fazla bilgi edinin](nuspec.md#license).
 
-Bir lisans dosyası paketleme sırasında, paketin köküne göre paket yolunu belirtmek için PackageLicenseFile özelliğini kullanmanız gerekir. Ayrıca, dosyanın pakete eklendiğinden emin olmanız gerekir. Örneğin:
+Bir lisans dosyası paketleme sırasında, paketin köküne göre paket yolunu belirtmek için PackageLicenseFile özelliğini kullanmanız gerekir. Ayrıca, dosyanın pakete eklendiğinden emin olmanız gerekir. Örnek:
 
 ```xml
 <PropertyGroup>

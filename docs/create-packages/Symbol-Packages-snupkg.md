@@ -12,24 +12,24 @@ keywords: NuGet sembol paketleri, NuGet paket hata ayıklaması, NuGet hata ayı
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 0109aea95ec255b3e0abcdff4cf51b4bfeafbb8c
-ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
+ms.openlocfilehash: 839c38ec165372bab9b93dec25e5c8e8e9439bfa
+ms.sourcegitcommit: 415c70d7014545c1f65271a2debf8c3c1c5eb688
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76813487"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77036896"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Sembol paketleri (. snupkg) oluşturuluyor
 
-Sembol paketleri, NuGet paketlerinizin hata ayıklama deneyimini iyileştirmenize olanak tanır.
+İyi bir hata ayıklama deneyimi, derlenmiş ve kaynak kodu, yerel değişkenlerin adları, yığın izlemeleri ve daha fazlası arasındaki ilişki gibi kritik bilgiler sağlayan hata ayıklama sembollerinin varlığını kullanır. Sembol paketlerini (. snupkg), bu sembolleri dağıtmak ve NuGet paketlerinizin hata ayıklama deneyimini geliştirmek için kullanabilirsiniz.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Önkoşullar
 
-gerekli [NuGet protokollerini](../api/nuget-protocols.md)uygulayan [NuGet. exe v 4.9.0 veya üzeri](https://www.nuget.org/downloads) ya da [DotNet. exe v 2.2.0 veya üzeri](https://www.microsoft.com/net/download/dotnet-core/2.2).
+gerekli [NuGet protokollerini](../api/nuget-protocols.md)uygulayan [NuGet. exe v 4.9.0 veya üzeri](https://www.nuget.org/downloads) ya da [DotNet CLI v 2.2.0 veya üzeri](https://www.microsoft.com/net/download/dotnet-core/2.2).
 
 ## <a name="creating-a-symbol-package"></a>Sembol paketi oluşturma
 
-DotNet. exe veya MSBuild kullanıyorsanız,. nupkg dosyasına ek olarak bir. snupkg dosyası oluşturmak için `IncludeSymbols` ve `SymbolPackageFormat` özelliklerini ayarlamanız gerekir.
+DotNet CLı veya MSBuild kullanıyorsanız,. nupkg dosyasına ek olarak, `IncludeSymbols` ve `SymbolPackageFormat` özelliklerini bir. snupkg dosyası oluşturacak şekilde ayarlamanız gerekir.
 
 * Aşağıdaki özellikleri. csproj dosyanıza ekleyin:
 
@@ -46,7 +46,7 @@ DotNet. exe veya MSBuild kullanıyorsanız,. nupkg dosyasına ek olarak bir. snu
      dotnet pack MyPackage.csproj -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg
      ```
 
-  veya
+  or
 
   ```cli
   msbuild MyPackage.csproj /t:pack /p:IncludeSymbols=true /p:SymbolPackageFormat=snupkg
@@ -108,17 +108,17 @@ NuGet.org 'e yayınlanan sembol paketleri, bu kısıtlamalar karşılanmazsa do�
 
 [NuGet.org](https://www.nuget.org/) ' de yayınlanan sembol paketleri kötü amaçlı yazılım tarama dahil olmak üzere çeşitli doğrulamalar sağlar. Bir paket doğrulama denetiminden başarısız olursa, paket ayrıntıları sayfasında bir hata mesajı görüntülenir. Ayrıca, paketin sahipleri, tanımlanan sorunları nasıl gidereceğiniz hakkında yönergeler içeren bir e-posta alır.
 
-Sembol paketi tüm doğrulamaları geçtiğinde, semboller NuGet. org 'ın sembol sunucuları tarafından dizine alınır. Dizin oluşturulduktan sonra sembol, NuGet.org sembol sunucularından tüketim için kullanılabilir olacaktır.
+Sembol paketi tüm doğrulamaları geçtiğinde, semboller NuGet. org 'ın sembol sunucuları tarafından dizine alınır ve tüketim için kullanılabilir olacaktır.
 
-Paket doğrulama ve dizin oluşturma genellikle 15 dakika boyunca sürer. Paket yayımlaması beklenenden uzun sürüyorsa, NuGet.org 'in herhangi bir kesinti yaşamadığını denetlemek için [Status.NuGet.org](https://status.nuget.org/) adresini ziyaret edin. Tüm sistemler çalışır durumda ve paket bir saat içinde başarıyla yayımlanmamışsa, lütfen nuget.org ' e oturum açın ve paket ayrıntıları sayfasında desteğe başvurun bağlantısını kullanarak bizimle iletişime geçin.
+Paket doğrulama ve dizin oluşturma genellikle 15 dakika boyunca sürer. Paket yayımlaması beklenenden uzun sürerse, NuGet.org 'in herhangi bir kesinti yaşamadığını denetlemek için [Status.NuGet.org](https://status.nuget.org/) adresini ziyaret edin. Tüm sistemler çalışır durumda ve paket bir saat içinde başarıyla yayımlanmamışsa, lütfen nuget.org ' e oturum açın ve paket ayrıntıları sayfasında desteğe başvurun bağlantısını kullanarak bizimle iletişime geçin.
 
 ## <a name="symbol-package-structure"></a>Sembol paketi yapısı
 
-. Nupkg dosyası bugün olduğu gibi tamamen aynıdır, ancak. snupkg dosyası aşağıdaki özelliklere sahip olacaktır:
+Sembol paketi (. snupkg) aşağıdaki özelliklere sahiptir:
 
-1) . Snupkg, karşılık gelen. nupkg ile aynı kimliğe ve sürüme sahip olacaktır.
-2) . Snupkg, DLL 'Ler veya EXE dosyaları için, dll/EXEs yerine, karşılık gelen pdb 'leri aynı klasör hiyerarşisine dahil edilecek şekilde tam klasör yapısına sahip olur. PDB 'den farklı uzantılara sahip dosyalar ve klasörler, snupkg 'dan bırakılır.
-3) . Snupkg içindeki. nuspec dosyası, aşağıda gösterildiği gibi yeni bir PackageType de belirtir. Bu, tek bir PackageType belirtilmelidir.
+1) . Snupkg, karşılık gelen NuGet paketiyle (. nupkg) aynı kimliğe ve sürüme sahiptir.
+2) . Snupkg, dll 'Ler veya EXE dosyaları için karşılık gelen. nupkg ile aynı klasör yapısına sahiptir; bu, bunlara karşılık gelen pdb 'leri, aynı klasör hiyerarşisine dahil edilir. PDB 'den farklı uzantılara sahip dosyalar ve klasörler, snupkg 'dan bırakılır.
+3) Sembol paketinin. nuspec dosyasında `SymbolsPackage` paket türü vardır:
 
    ```xml
    <packageTypes>
