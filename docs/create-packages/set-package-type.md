@@ -1,30 +1,32 @@
 ---
-title: Bir NuGet paketi türü
-description: Bir paketin kullanım amacını belirtmek için paket türleri açıklanmaktadır.
+title: NuGet paket türü ayarla
+description: Bir paketin amaçlanan kullanımını göstermek için paket türlerini açıklar.
 author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8a3ba6af19125b75af17cab8c093e89485e20324
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 22e8ac2e9e2086a1280c5b0c3be8a032b7998b36
+ms.sourcegitcommit: 415c70d7014545c1f65271a2debf8c3c1c5eb688
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67843535"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77036922"
 ---
-# <a name="set-a-nuget-package-type"></a>Bir NuGet paketi türü
+# <a name="set-a-nuget-package-type"></a>NuGet paket türü ayarla
 
-NuGet ile 3.5 +, paketleri ile belirli bir işaretlenebilir *paket türü* kullanım amacı belirtmek için. NuGet, önceki sürümleriyle oluşturulan tüm paketleri de dahil olmak üzere, bir tür ile işaretlenmemiş paketleri varsayılan `Dependency` türü.
+NuGet 3.5 + ile, paketleri amaçlanan kullanımını göstermek için belirli bir *paket türüyle* işaretlenebilir. Daha önceki NuGet sürümleriyle oluşturulan tüm paketler de dahil olmak üzere bir türle işaretlenmemiş paketler, varsayılan olarak `Dependency` türüdür.
 
-- `Dependency` türü paketler, kitaplıkları ve uygulamaları için derleme veya çalışma zamanı varlıklar eklemek ve (uyumlu olduklarından varsayılarak) herhangi bir proje türü yüklenebilir.
+- `Dependency` tür paketleri kitaplıklara ve uygulamalara derleme veya çalışma zamanı varlıkları ekler ve herhangi bir proje türüne (uyumlu oldukları varsayılarak) yüklenebilir.
 
-- `DotnetCliTool` tür paketlerin uzantıları [dotnet CLI](/dotnet/articles/core/tools/index) ve komut satırından çağrılır. Bu paketler, yalnızca .NET Core projelerinde yüklenebilir ve geri yükleme işlemleri üzerinde hiçbir etkisi yoktur. Bu proje başına uzantılar hakkında daha fazla ayrıntı kullanılabilir [.NET Core genişletilebilirlik](/dotnet/articles/core/tools/extensibility#per-project-based-extensibility) belgeleri.
+- `DotnetTool` tür paketleri [DotNet CLI](/dotnet/articles/core/tools/index) için uzantılardır ve komut satırından çağırılır. Bu tür paketler yalnızca .NET Core projelerine yüklenebilir ve geri yükleme işlemlerini etkilemez. Bu proje başına uzantılar hakkında daha fazla ayrıntı [.NET Core genişletilebilirlik](/dotnet/articles/core/tools/extensibility#per-project-based-extensibility) belgelerinde bulunabilir.
 
-- Özel tür paketleri paket kimliği olarak aynı biçimi kurallara uyan bir rastgele tür tanımlayıcısı kullanın. Dışında herhangi türdeki `Dependency` ve `DotnetCliTool`, ancak Visual Studio'da NuGet Paket Yöneticisi tarafından tanınmıyor.
+- `Template` tür paketleri, bir uygulama, hizmet, araç veya sınıf kitaplığı gibi dosyalar ya da projeler oluşturmak için kullanılabilecek [özel şablonlar](/dotnet/core/tools/custom-templates) sağlar.
 
-Paket türlerinin ayarlanır `.nuspec` dosya. Geriye dönük için en iyi uyumluluk *değil* açıkça ayarlanmış `Dependency` yazın ve bunun yerine NuGet varsayılarak türü yok, bu tür üzerinde yararlanmayı belirtilir.
+- Özel tür paketleri paket kimlikleriyle aynı biçim kurallarına uyan rastgele bir tür tanımlayıcısı kullanır. Ancak `Dependency` ve `DotnetTool`dışındaki herhangi bir tür, Visual Studio 'daki NuGet Paket Yöneticisi tarafından tanınmaz.
 
-- `.nuspec`: Paket türü içinde göstermek bir `packageTypes\packageType` düğümünde `<metadata>` öğesi:
+Paket türleri `.nuspec` dosyasında ayarlanır. `Dependency` türü açıkça *ayarlanmamak* ve bunun yerine, hiçbir tür belirtilmediğinde bu türü kabul eden NuGet 'i kullanmak için geriye dönük uyumluluk için idealdir.
+
+- `.nuspec`: `<metadata>` öğesi altındaki bir `packageTypes\packageType` düğümü içindeki paket türünü gösterir:
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -32,7 +34,7 @@ Paket türlerinin ayarlanır `.nuspec` dosya. Geriye dönük için en iyi uyumlu
         <metadata>
         <!-- ... -->
         <packageTypes>
-            <packageType name="DotnetCliTool" />
+            <packageType name="DotnetTool" />
         </packageTypes>
         </metadata>
     </package>
