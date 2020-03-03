@@ -10,25 +10,25 @@ f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager.general
 - vs.toolsoptionspages.nuget_package_manager.package_sources
 - vs.nuget.packagemanager.ui
-ms.openlocfilehash: 7e4ea59b9954e787e7ab060adc964f3097a8240b
-ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
+ms.openlocfilehash: 3adceac8c725d9ea1610aea090753c9c1d8bc818
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68419977"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231013"
 ---
 # <a name="install-and-manage-packages-in-visual-studio-using-the-nuget-package-manager"></a>NuGet Paket Yöneticisi 'Ni kullanarak Visual Studio 'da paket yükleyip yönetme
 
 Windows üzerinde Visual Studio 'daki NuGet Paket Yöneticisi Kullanıcı arabirimi, projelerde ve çözümlerde NuGet paketlerini kolayca yüklemenize, kaldırmanıza ve güncelleştirmenize olanak tanır. Mac için Visual Studio deneyim için, bkz. [projenizde bir NuGet paketi ekleme](/visualstudio/mac/nuget-walkthrough?toc=/nuget/toc.json). Paket Yöneticisi Kullanıcı arabirimi Visual Studio Code dahil değildir.
 
 > [!NOTE]
-> Visual Studio 2015 ' de NuGet Paket Yöneticisi eksik ise **araçlar > Uzantılar ve güncelleştirmeler...** ' ı Işaretleyin ve *NuGet Paket Yöneticisi* uzantısını arayın. Visual Studio 'da uzantılar yükleyicisini kullandıysanız, doğrudan uzantıyı konumundan [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html)indirin.
+> Visual Studio 2015 ' de NuGet Paket Yöneticisi eksik ise **araçlar > Uzantılar ve güncelleştirmeler...** ' ı Işaretleyin ve *NuGet Paket Yöneticisi* uzantısını arayın. Visual Studio 'da uzantılar yükleyicisini kullandıysanız, uzantıyı doğrudan [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html)' den indirin.
 >
 > Visual Studio 2017 ' den başlayarak NuGet ve NuGet Paket Yöneticisi ile birlikte otomatik olarak yüklenir. NET ilgili iş yükleri. Visual Studio yükleyicisindeki **tek tek bileşenler > kod araçları > NuGet Paket Yöneticisi** seçeneğini seçerek tek tek yükleme yapın.
 
 ## <a name="find-and-install-a-package"></a>Paket bulma ve yüklemeyi
 
-1. **Çözüm Gezgini**, **başvuruya** veya bir projeye sağ tıklayın ve **NuGet Paketlerini Yönet..** . seçeneğini belirleyin.
+1. **Çözüm Gezgini**, **başvuruya** veya bir projeye sağ tıklayın ve **NuGet Paketlerini Yönet..**. seçeneğini belirleyin.
 
     ![NuGet Paketlerini Yönet menü seçeneği](media/ManagePackagesUICommand.png)
 
@@ -36,17 +36,20 @@ Windows üzerinde Visual Studio 'daki NuGet Paket Yöneticisi Kullanıcı arabir
 
     ![NuGet Paketlerini Yönet Iletişim kutusu tarama sekmesi](media/Search.png)
 
-1. Açılan listeden istediğiniz sürümü seçin ve ardından Kaldır ' ı seçin **.** Visual Studio, paketi ve bağımlılıklarını projeye kurar. Lisans koşullarını kabul etmeniz istenebilir. Yükleme tamamlandığında, eklenen paketler **yüklü** sekmesinde görüntülenir. Paketler Ayrıca, Çözüm Gezgini **Başvurular** düğümünde listelenir. Bu, bunlara deyimlerle `using` projede başvurabileceğiniz anlamına gelen.
+1. Açılan listeden istediğiniz **sürümü seçin ve**ardından Kaldır ' ı seçin. Visual Studio, paketi ve bağımlılıklarını projeye kurar. Lisans koşullarını kabul etmeniz istenebilir. Yükleme tamamlandığında, eklenen paketler **yüklü** sekmesinde görünür. paketler ayrıca, Çözüm Gezgini **Başvurular** düğümünde listelenir ve bu, bunlara `using` deyimleriyle projede başvurabileceğiniz anlamına gelen.
 
     ![Çözüm Gezgini başvurular](media/References.png)
 
 > [!Tip]
 > Aramaya yayın öncesi sürümleri eklemek ve sürüm açılır penceresinde ön sürüm sürümlerini kullanabilmek için, **ön sürümü dahil et** seçeneğini belirleyin.
 
+> [!Note]
+> NuGet, bir projenin paketleri kullanabileceği iki biçimi vardır: [`PackageReference`](package-references-in-project-files.md) ve [`packages.config`](../reference/packages-config.md). [Varsayılan, Visual Studio 'nun seçenekler penceresinde ayarlanabilir](Package-Restore.md#choose-default-package-management-format).
+
 ## <a name="uninstall-a-package"></a>Bir paketi kaldırma
 
 1. **Çözüm Gezgini**, **başvuruya** veya istenen projeye sağ tıklayın ve **NuGet Paketlerini Yönet...** seçeneğini belirleyin.
-1. **Yüklü** sekmesini seçin.
+1. **Yüklü öğeler** sekmesini seçin.
 1. Kaldırılacak paketi seçin (gerekirse listeyi filtrelemek için arama ' yı kullanarak) ve **Kaldır**' ı seçin.
 
     ![Paket kaldırılıyor](media/UninstallPackage.png)
@@ -61,9 +64,9 @@ Windows üzerinde Visual Studio 'daki NuGet Paket Yöneticisi Kullanıcı arabir
 
     ![Paket güncelleştiriliyor](media/UpdatePackages.png)
 
-1. <a name="implicit_reference"></a>Bazı paketlerde **Güncelleştir** düğmesi devre dışıdır ve "bir SDK tarafından örtük olarak başvurulduğunu" (veya "Oto başvurulan") bildiren bir ileti görüntülenir. Bu ileti, paketin daha büyük bir Framework veya SDK 'nın parçası olduğunu ve bağımsız olarak güncelleştirilmemiş olduğunu gösterir. (Bu tür paketler dahili olarak ile `<IsImplicitlyDefined>True</IsImplicitlyDefined>`işaretlenir.) Örneğin, `Microsoft.NETCore.App` .NET Core SDK bir parçasıdır ve paket sürümü, uygulama tarafından kullanılan çalışma zamanı çerçevesinin sürümü ile aynı değildir. ASP.NET Core ve .NET Core çalışma zamanının yeni sürümlerini almak için [.NET Core yüklemenizi güncelleştirmeniz](https://aka.ms/dotnet-download) gerekir. [.NET Core Metapackages ve sürüm oluşturma hakkında daha fazla bilgi için bu belgeye bakın](/dotnet/core/packages). Bu, aşağıdaki yaygın olarak kullanılan paketler için geçerlidir:
-    * Microsoft. AspNetCore. All
-    * Microsoft. AspNetCore. app
+1. <a name="implicit_reference"></a>Bazı paketlerde **Güncelleştir** düğmesi devre dışıdır ve "bir SDK tarafından örtük olarak başvurulduğunu" (veya "Oto başvurulan") bildiren bir ileti görüntülenir. Bu ileti, paketin daha büyük bir Framework veya SDK 'nın parçası olduğunu ve bağımsız olarak güncelleştirilmemiş olduğunu gösterir. (Bu tür paketler dahili olarak `<IsImplicitlyDefined>True</IsImplicitlyDefined>`olarak işaretlenir.) Örneğin, `Microsoft.NETCore.App` .NET Core SDK bir parçasıdır ve paket sürümü, uygulama tarafından kullanılan çalışma zamanı çerçevesinin sürümü ile aynı değildir. ASP.NET Core ve .NET Core çalışma zamanının yeni sürümlerini almak için [.NET Core yüklemenizi güncelleştirmeniz](https://aka.ms/dotnet-download) gerekir. [.NET Core Metapackages ve sürüm oluşturma hakkında daha fazla bilgi için bu belgeye bakın](/dotnet/core/packages). Bu, aşağıdaki yaygın olarak kullanılan paketler için geçerlidir:
+    * Microsoft.AspNetCore.All
+    * Microsoft.AspNetCore.App
     * Microsoft. NETCore. app
     * NETStandard. Library
 
@@ -76,7 +79,7 @@ Windows üzerinde Visual Studio 'daki NuGet Paket Yöneticisi Kullanıcı arabir
 
 Bir çözüm için paketlerin yönetilmesi, birden çok projeyle aynı anda çalışması için uygun bir yoldur.
 
-1. **NuGet paket yöneticisi > araçlar > çözüm Için NuGet Paketlerini Yönet..** . menü komutunu seçin veya çözüme sağ tıklayıp **NuGet Paketlerini Yönet..** . öğesini seçin:
+1. **NuGet paket yöneticisi > araçlar > çözüm Için NuGet Paketlerini Yönet..** . menü komutunu seçin veya çözüme sağ tıklayıp **NuGet Paketlerini Yönet..**. öğesini seçin:
 
     ![Çözüm için NuGet Paketlerini Yönet](media/ManagePackagesSolutionUICommand.png)
 
@@ -114,14 +117,14 @@ Paket kaynaklarını yönetmek için:
 
     ![Paket kaynakları seçenekleri](media/options.png)
 
-1. Kaynak eklemek için adı seçin **+** , adı düzenleyin, **kaynak** denetimine URL veya yol girin ve **Güncelleştir**' i seçin. Kaynak artık seçici açılan penceresinde görünür.
+1. Kaynak eklemek için **+** seçin, adı düzenleyin, **kaynak** denetimine URL veya yol girin ve **Güncelleştir**' i seçin. Kaynak artık seçici açılan penceresinde görünür.
 1. Bir paket kaynağını değiştirmek için, seçin, **ad** ve **kaynak** kutularında düzenlemeler yapın ve **Güncelleştir**' i seçin.
 1. Bir paket kaynağını devre dışı bırakmak için listedeki adının solundaki kutuyu temizleyin.
 1. Bir paket kaynağını kaldırmak için, seçin ve sonra **X** düğmesini seçin.
 1. Yukarı ve aşağı ok düğmelerinin kullanılması, paket kaynaklarının öncelik sırasını değiştirmez. Visual Studio, isteklere yanıt vermek için ilk kaynak olan paketin kullanıldığı paket kaynaklarının sırasını yoksayar. Daha fazla bilgi için bkz. [paket geri yükleme](../consume-packages/package-restore.md).
 
 > [!Tip]
-> Bir paket kaynağı silindikten sonra yeniden görünürse, bilgisayar düzeyinde veya Kullanıcı düzeyi `NuGet.Config` dosyalarda listelenmiş olabilir. Bu dosyaların konumu için [ortak NuGet yapılandırmalarına](../consume-packages/configuring-nuget-behavior.md) bakın, ardından dosyaları el ile düzenleyerek veya [NuGet kaynakları komutunu](../reference/nuget-exe-CLI-reference.md)kullanarak kaynağı kaldırın.
+> Bir paket kaynağı silindikten sonra yeniden görünürse, bilgisayar düzeyinde veya kullanıcı düzeyindeki `NuGet.Config` dosyalarında listelenmiş olabilir. Bu dosyaların konumu için [ortak NuGet yapılandırmalarına](../consume-packages/configuring-nuget-behavior.md) bakın, ardından dosyaları el ile düzenleyerek veya [NuGet kaynakları komutunu](../reference/nuget-exe-CLI-reference.md)kullanarak kaynağı kaldırın.
 
 ## <a name="package-manager-options-control"></a>Paket Yöneticisi seçenekler denetimi
 
@@ -147,7 +150,7 @@ Seçildiğinde, bir kalıcı pencere, paket yüklenmeden önce seçilen bir pake
 **Bağımlılık davranışı** , NuGet 'in hangi bağımlı paket sürümlerinin yükleneceğini nasıl karar verdiği hakkında bir yapılandırma sağlar:
 
 - *Bağımlılıkları yoksay* , genellikle yüklenen paketi kesen tüm bağımlılıkları yüklemeyi atlar.
-- *En düşük* [Varsayılan] bağımlılığı, birincil seçili paketin gereksinimlerini karşılayan en az sürüm numarasıyla birlikte kurar.
+- *En düşük* [varsayılan] bağımlılığı, seçilen birincil paketin gereksinimlerini karşılayan en az sürüm numarasıyla birlikte kurar.
 - *En yüksek düzeltme eki* , aynı büyük ve küçük sürüm numaralarına sahip sürümü, ancak en yüksek düzeltme eki numarasını yüklüyor. Örneğin, 1.2.2 sürümü belirtilmişse 1,2 ile başlayan en yüksek sürüm yüklenir
 - *En yüksek ikincil* sürüm, aynı ana sürüm numarası, ancak en yüksek küçük sayı ve düzeltme eki numarası ile birlikte yüklenir. Sürüm 1.2.2 belirtilmişse, 1 ile başlayan en yüksek sürüm yüklenir
 - *En yüksek* paketin kullanılabilir en yüksek sürümünü yükleme.

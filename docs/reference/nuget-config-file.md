@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/13/2019
 ms.topic: reference
-ms.openlocfilehash: d6cad228eb052563fe57ea635bff0ea548cedc1f
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: cd321084c46709e3d1d22872c37485edacd33afa
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75383570"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78230532"
 ---
 # <a name="nugetconfig-reference"></a>NuGet. config başvurusu
 
@@ -36,7 +36,8 @@ NuGet davranışı, [yaygın NuGet yapılandırmalarında](../consume-packages/c
 | Depoyolu (yalnızca`packages.config`) | Varsayılan `$(Solutiondir)/packages` klasörü yerine NuGet paketlerinin yükleneceği konum. Göreli bir yol, projeye özgü `nuget.config` dosyalarında kullanılabilir. Bu ayar, öncelik veren NUGET_PACKAGES ortam değişkeni tarafından geçersiz kılınır. |
 | defaultPushSource | Bir işlem için başka bir paket kaynağı bulunmazsa varsayılan olarak kullanılması gereken paket kaynağının URL 'sini veya yolunu tanımlar. |
 | http_proxy http_proxy. User http_proxy. Password no_proxy | Paket kaynaklarına bağlanırken kullanılacak proxy ayarları; `http_proxy` `http://<username>:<password>@<domain>`biçiminde olmalıdır. Parolalar şifrelenir ve el ile eklenemez. `no_proxy`, değer, proxy sunucusunu atlayan etki alanlarının virgülle ayrılmış listesidir. Ayrıca, bu değerler için http_proxy ve no_proxy ortam değişkenlerini kullanabilirsiniz. Daha fazla bilgi için bkz. [NuGet proxy ayarları](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (skolima.blogspot.com). |
-| signatureValidationMode | Paket yüklemesi için paket imzalarını doğrulamak ve geri yüklemek için kullanılan doğrulama modunu belirtir. Değerler `accept`, `require`. `accept` değerini varsayılan olarak alır.
+| signatureValidationMode | Paket yüklemesi için paket imzalarını doğrulamak ve geri yüklemek için kullanılan doğrulama modunu belirtir. Değerler `accept`, `require`. 
+          `accept` değerini varsayılan olarak alır.
 
 **Örnek**:
 
@@ -56,7 +57,7 @@ Bir paket yüklendiğinde NuGet 'in otomatik bağlama yeniden yönlendirmelerini
 
 | Anahtar | Değer |
 | --- | --- |
-| Atla | Otomatik bağlama yeniden yönlendirmelerinin atlanıp atlanmayacağını belirten bir Boole değeri. Varsayılan olarak yanlıştır. |
+| Atla | Otomatik bağlama yeniden yönlendirmelerinin atlanıp atlanmayacağını belirten bir Boole değeri. Varsayılan değer false. |
 
 **Örnek**:
 
@@ -126,14 +127,17 @@ Bilinen tüm paket kaynaklarını listeler. Geri yükleme işlemleri sırasında
 </packageSources>
 ```
 
+> [!Tip]
+> Belirli bir düğüm için `<clear />` mevcut olduğunda, NuGet bu düğüm için önceden tanımlanmış yapılandırma değerlerini yoksayar. [Ayarların nasıl uygulandığı hakkında daha fazla bilgi edinin](../consume-packages/configuring-nuget-behavior.md#how-settings-are-applied).
+
 ### <a name="packagesourcecredentials"></a>packageSourceCredentials
 
 Genellikle `-username` ve `-password` anahtarlarıyla belirtilen `nuget sources`olan kaynaklar için Kullanıcı adlarını ve parolaları depolar. `-storepasswordincleartext` seçeneği de kullanılmamışsa parolalar varsayılan olarak şifrelenir.
 
 | Anahtar | Değer |
 | --- | --- |
-| userName | Kaynağın düz metin olarak Kullanıcı adı. |
-| parola | Kaynak için şifrelenmiş parola. |
+| kullanıcı adı | Kaynağın düz metin olarak Kullanıcı adı. |
+| password | Kaynak için şifrelenmiş parola. |
 | cleartextpassword | Kaynak için şifrelenmemiş parola. |
 
 **Örnek:**
@@ -287,7 +291,7 @@ Varsayılan paket yönetim biçimini Package *. config* ya da packagereference o
 
 | Anahtar | Değer |
 | --- | --- |
-| {1&gt;biçim&lt;1} | Varsayılan paket yönetimi biçimini gösteren bir Boole değeri. `1`, format, PackageReference olur. `0`, biçim *Packages. config*olur. |
+| biçim | Varsayılan paket yönetimi biçimini gösteren bir Boole değeri. `1`, format, PackageReference olur. `0`, biçim *Packages. config*olur. |
 | devre dışı | İlk paket yüklemesi sırasında varsayılan bir paket biçimi seçme isteminin gösterilip gösterilmeyeceğini belirten bir Boole değeri. `False`, istemi gizler. |
 
 **Örnek**:
@@ -305,13 +309,13 @@ Varsayılan paket yönetim biçimini Package *. config* ya da packagereference o
 
 Örneğin, Windows üzerinde `HOME` ortam değişkeni `c:\users\username`olarak ayarlanırsa, yapılandırma dosyasındaki `%HOME%\NuGetRepository` değeri `c:\users\username\NuGetRepository`olarak çözümlenmektedir.
 
-Benzer şekilde, Mac/Linux üzerinde `HOME` `/home/myStuff`olarak ayarlanırsa, yapılandırma dosyasındaki `$HOME/NuGetRepository` `/home/myStuff/NuGetRepository`olarak çözümlenmektedir.
+Windows stili ortam değişkenlerini (başladığı ve bitişi%) kullanmanız gerektiğini unutmayın Mac/Linux üzerinde bile. Yapılandırma dosyasında `$HOME/NuGetRepository` olması çözümlenmeyecektir. Mac/Linux üzerinde `%HOME%\NuGetRepository` değeri `/home/myStuff/NuGetRepository`çözümlenir.
 
 Bir ortam değişkeni bulunmazsa, NuGet yapılandırma dosyasından sabit değeri kullanır.
 
 ## <a name="example-config-file"></a>Örnek yapılandırma dosyası
 
-Aşağıda, bir dizi ayarı gösteren örnek bir `nuget.config` dosyası verilmiştir:
+Aşağıda, isteğe bağlı olanlar dahil olmak üzere bir dizi ayarı gösteren örnek bir `nuget.config` dosyası verilmiştir:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

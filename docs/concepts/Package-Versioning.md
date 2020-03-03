@@ -6,23 +6,23 @@ ms.author: karann
 ms.date: 03/23/2018
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: e0014a812ea591ef40c961e13864652d75ebdf6c
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: 912c0d015e2f499bc7386483bc6c35ecd765d3d4
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73610987"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78230869"
 ---
 # <a name="package-versioning"></a>Paket sürümü oluşturma
 
-Belirli bir paket her zaman kendi paket tanımlayıcısını ve tam sürüm numarasını kullanmaya başvurulur. Örneğin, nuget.org üzerindeki [Entity Framework](https://www.nuget.org/packages/EntityFramework/) , sürüm *4.1.10311* ' den sürüm *6.1.3* (en son kararlı sürüm) ve *6.2.0-Beta1 gibi çeşitli yayın öncesi sürümler arasında değişen birkaç düzine özel pakete sahiptir* .
+Belirli bir paket her zaman kendi paket tanımlayıcısını ve tam sürüm numarasını kullanmaya başvurulur. Örneğin, nuget.org üzerindeki [Entity Framework](https://www.nuget.org/packages/EntityFramework/) , sürüm *4.1.10311* ' den sürüm *6.1.3* (en son kararlı sürüm) ve *6.2.0-Beta1*gibi çeşitli yayın öncesi sürümler arasında değişen birkaç düzine özel pakete sahiptir.
 
 Bir paket oluştururken, isteğe bağlı bir yayın öncesi metin sonekine sahip belirli bir sürüm numarası atarsınız. Paketleri kullanırken, diğer yandan, tam sürüm numarasını veya bir dizi kabul edilebilir sürümü belirtebilirsiniz.
 
 Bu konuda:
 
 - Yayın öncesi son eklerini içeren [Sürüm temelleri](#version-basics) .
-- [Sürüm aralıkları ve joker karakterler](#version-ranges-and-wildcards)
+- [Sürüm aralıkları](#version-ranges)
 - [Normalleştirilmiş sürüm numaraları](#normalized-version-numbers)
 
 ## <a name="version-basics"></a>Sürüm temelleri
@@ -80,7 +80,7 @@ SemVer v 2.0.0 'in belirli semantiklerinden bazıları eski istemcilerde destekl
 Nuget.org için bir paket, aşağıdaki deyimlerden herhangi biri doğruysa bir SemVer v 2.0.0 paketi olarak tanımlanır:
 
 - Paketin kendi sürümü, yukarıda tanımlanan semver v 2.0.0 uyumludur ancak SemVer v 1.0.0 uyumlu değildir.
-- Paketin bağımlılık sürümü aralıklarının herhangi birinin, yukarıda tanımlanan semver v 2.0.0 uyumlu ancak SemVer v 1.0.0 uyumlu olmayan en düşük veya en yüksek sürümü vardır; Örneğin, *[1.0.0-Alpha. 1,)* .
+- Paketin bağımlılık sürümü aralıklarının herhangi birinin, yukarıda tanımlanan semver v 2.0.0 uyumlu ancak SemVer v 1.0.0 uyumlu olmayan en düşük veya en yüksek sürümü vardır; Örneğin, *[1.0.0-Alpha. 1,)*.
 
 Nuget.org 'e özel bir SemVer v 2.0.0 paketi yüklerseniz, paket eski istemcilere görünmez ve yalnızca aşağıdaki NuGet istemcilerinin kullanımına açık olur:
 
@@ -98,23 +98,23 @@ Nuget.org 'e özel bir SemVer v 2.0.0 paketi yüklerseniz, paket eski istemciler
 <!-- For compatibility with previous dependency-versions page -->
 <a name="version-ranges"></a>
 
-## <a name="version-ranges-and-wildcards"></a>Sürüm aralıkları ve joker karakterler
+## <a name="version-ranges"></a>Sürüm aralıkları
 
 NuGet, paket bağımlılıklarına başvururken, sürüm aralıklarını belirtmek için Aralık gösterimini kullanmayı destekler, şöyle özetlenir:
 
 | İmle | Uygulanan kural | Açıklama |
 |----------|--------------|-------------|
 | 1.0 | x ≥ 1,0 | En düşük sürüm, dahil |
-| (1,0,) | x > 1,0 | En düşük sürüm, özel |
-| [1,0] | x = = 1,0 | Tam sürüm eşleşmesi |
-| (, 1,0] | x ≤ 1,0 | En yüksek sürüm, dahil |
-| (, 1,0) | x < 1,0 | En yüksek sürüm, özel |
-| [1.0, 2.0] | 1,0 ≤ x ≤ 2,0 | Tam Aralık, dahil |
-| (1.0, 2.0) | 1,0 < x < 2,0 | Tam Aralık, özel |
-| [1.0, 2.0) | 1,0 ≤ x < 2,0 | Karma kapsamlı en düşük ve en yüksek sürüm |
-| (1,0)    | geçersiz | geçersiz |
+| (1.0,) | x > 1,0 | En düşük sürüm, özel |
+| [1.0] | x = = 1,0 | Tam sürüm eşleşmesi |
+| (,1.0] | x ≤ 1,0 | En yüksek sürüm, dahil |
+| (,1.0) | x < 1,0 | En yüksek sürüm, özel |
+| [1.0,2.0] | 1,0 ≤ x ≤ 2,0 | Tam Aralık, dahil |
+| (1.0,2.0) | 1,0 < x < 2,0 | Tam Aralık, özel |
+| [1.0,2.0) | 1,0 ≤ x < 2,0 | Karma kapsamlı en düşük ve en yüksek sürüm |
+| (1.0)    | geçersiz | geçersiz |
 
-Bu, PackageReference biçimini kullanırken, büyük/küçük, düzeltme eki uygulama ve bu sayının yayın öncesi sonek bölümleri için \*bir joker karakter gösterimi kullanmayı da destekler. Joker karakterler `packages.config` biçimiyle desteklenmez.
+Bu, PackageReference biçimini kullanırken, büyük, küçük, düzeltme eki uygulama ve sayının yayın öncesi sonek bölümleri için \*kayan bir gösterim kullanımını da destekler. Kayan sürümler `packages.config` biçimiyle desteklenmez.
 
 > [!Note]
 > PackageReference içindeki sürüm aralıkları yayın öncesi sürümleri içerir. Tasarım yaparak, kayan sürümler, kabul edilmediği takdirde ön sürüm sürümlerini çözmez. İlgili özellik isteğinin durumu için bkz. [sorun 6434](https://github.com/NuGet/Home/issues/6434#issuecomment-358782297).

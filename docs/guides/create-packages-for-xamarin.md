@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/05/2019
 ms.topic: tutorial
-ms.openlocfilehash: fce3c9a92dfee325f9e914bf3d6444601fb38b6c
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: 0cb653bad9e853d908039b3f7a94e1dd7eefdde5
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75385700"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78230908"
 ---
 # <a name="create-packages-for-xamarin-with-visual-studio-2017-or-2019"></a>Visual Studio 2017 veya 2019 ile Xamarin için paketler oluşturma
 
@@ -25,7 +25,7 @@ Bu kılavuzda, iOS, Android ve Windows 'da mobil projelerde kullanılabilecek pl
 1. [Bileşeni paketleme](#package-the-component)
 1. [İlgili konular](#related-topics)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Önkoşullar
 
 1. Evrensel Windows Platformu (UWP) ve Xamarin ile Visual Studio 2017 veya 2019. Community Edition 'ı [VisualStudio.com](https://www.visualstudio.com/)'ten ücretsiz yükleyin; Profesyonel ve kurumsal sürümlerini de kullanabilirsiniz. UWP ve Xamarin araçlarını dahil etmek için özel bir yüklemeyi seçin ve uygun seçenekleri kontrol edin.
 1. NuGet CLı. NuGet. exe ' nin en son sürümünü [NuGet.org/downloads](https://nuget.org/downloads)adresinden indirin ve seçtiğiniz bir konuma kaydederek yükleyin. Daha sonra bu konumu yol ortam değişkeninizin zaten olmaması durumunda ekleyin.
@@ -52,7 +52,7 @@ Elde edilen çözüm, platforma özgü çeşitli projelerle birlikte iki paylaş
 
 - `ILoggingLibrary.shared.cs` dosyasında bulunan `ILoggingLibrary` projesi, bileşenin genel arabirimini (API yüzey alanı) tanımlar. Bu, kitaplığınızın arabirimini tanımladığınız yerdir.
 - Diğer paylaşılan proje, çalışma zamanında soyut arabirimin platforma özgü bir uygulamasını bulacak `CrossLoggingLibrary.shared.cs` kod içerir. Genellikle bu dosyayı değiştirmeniz gerekmez.
-- `LoggingLibrary.android.cs`gibi platforma özgü projeler, kendi ilgili `LoggingLibraryImplementation.cs` (VS 2017) veya `LoggingLibrary.<PLATFORM>.cs` (VS 2019) dosyalarındaki arabirimin yerel bir uygulamasını içerir. Bu, kitaplığınızın kodunu oluşturduğunuz yerdir.
+- `LoggingLibrary.android.cs`gibi platforma özgü projeler, her biri arabirimin ilgili `LoggingLibraryImplementation.cs` (VS 2017) veya `LoggingLibrary.<PLATFORM>.cs` (VS 2019) dosyalarında yerel bir uygulamasını içerir. Bu, kitaplığınızın kodunu oluşturduğunuz yerdir.
 
 Varsayılan olarak, `ILoggingLibrary` projesinin ILoggingLibrary.shared.cs dosyası bir arabirim tanımı içerir, ancak hiçbir yöntem yoktur. Bu izlenecek yolun amaçları doğrultusunda, aşağıdaki gibi bir `Log` yöntemi ekleyin:
 

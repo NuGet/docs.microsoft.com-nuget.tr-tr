@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: overview
-ms.openlocfilehash: a08ac24ce6b1d64496c9fc1b20604850e9711dd6
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.openlocfilehash: c326cf184ff20fb798a5770f0a4cf9bf42bed3f5
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72380668"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78230700"
 ---
 # <a name="an-introduction-to-nuget"></a>NuGet 'e giriş
 
@@ -43,7 +43,7 @@ Doğası ne olursa olsun, ana bilgisayar paket *oluşturucular* ve paket *tüket
 
 NuGet, barındırma desteğinin yanı sıra hem oluşturucular hem de tüketiciler tarafından kullanılan çeşitli araçlar da sağlar. Bkz. belirli araçları edinme için [NuGet istemci araçları 'Nı yükleme](install-nuget-client-tools.md) .
 
-| Aracı | Platformlar | İlgili senaryolar | Açıklama |
+| Araç | Platformlar | İlgili senaryolar | Açıklama |
 | --- | --- | --- | --- |
 | [dotnet CLI](consume-packages/install-use-packages-dotnet-cli.md) | Tümü | Oluşturma, tüketim | .NET Core ve .NET Standard kitaplıkları için CLı aracı ve .NET Framework hedefi olan SDK stili projeler için (bkz. [SDK özniteliği](/dotnet/core/tools/csproj#additions)). , Doğrudan .NET Core araç zinciri içinde belirli NuGet CLı özellikleri sağlar. `nuget.exe` CLı ile birlikte DotNet CLı, Visual Studio projeleriyle etkileşime girmiyor. |
 | [nuget.exe CLI](consume-packages/install-use-packages-nuget-cli.md) | Tümü | Oluşturma, tüketim | .NET Standard kitaplıklarını hedefleyen .NET Framework kitaplıkları ve SDK olmayan projeler için CLı aracı. Özellikle paket oluşturucuları, bazı ve yalnızca tüketicilere uygulanan ve her ikisine de uygulanan bazı komutlarla, tüm NuGet yeteneklerini sağlar. Örneğin, paket oluşturucular çeşitli derlemelerden ve ilgili dosyalardan bir paket oluşturmak için `nuget pack` komutunu kullanır, paket tüketicileri bir proje klasörüne paketler eklemek için `nuget install` kullanır ve herkes NuGet yapılandırma değişkenlerini ayarlamak için `nuget config` kullanır. Platformdan bağımsız bir araç olan NuGet CLı, Visual Studio projeleriyle etkileşime girmiyor. |
@@ -105,9 +105,15 @@ Bu işlemlerin verimli bir şekilde çalışmasını sağlamak için NuGet, baz�
 
 Tek bir projede, NuGet genel bağımlılık grafiğini yönetir, bu da aynı paketin farklı sürümlerine birden fazla başvuruyu çözmeyi içerir. Projenin aynı bağımlılıklara sahip bir veya daha fazla pakete bağımlılığı olması oldukça yaygındır. Nuget.org üzerindeki en faydalı yardımcı program paketlerinin bazıları diğer birçok paket tarafından kullanılabilir. Tüm bağımlılık grafiğinde, aynı paketin farklı sürümlerine yönelik olarak kolayca on farklı başvuruya sahip olabilirsiniz. Bu paketin birden çok sürümünün uygulamaya ait olmasını önlemek için, NuGet tüm tüketiciler tarafından hangi tek sürümün kullanılabileceğini sıralar. (Daha fazla bilgi için bkz. [bağımlılık çözünürlüğü](concepts/dependency-resolution.md).)
 
-Bunun ötesinde, NuGet paketlerin nasıl yapılandırıldığı ( [Yerelleştirme](create-packages/creating-localized-packages.md) ve [hata ayıklama sembolleri](create-packages/symbol-packages-snupkg.md)dahil) ve nasıl [başvurulduğu](consume-packages/package-references-in-project-files.md) ( [Sürüm aralıkları](concepts/package-versioning.md#version-ranges-and-wildcards) ve [yayın öncesi sürümler](create-packages/prerelease-packages.md)dahil) ile ilgili tüm belirtimleri korur. NuGet Ayrıca, hizmetleriyle birlikte çalışmaya yönelik çeşitli API 'Ler sağlar ve Visual Studio uzantıları ve proje şablonları yazan geliştiriciler için destek sağlar.
+Bunun ötesinde, NuGet paketlerin nasıl yapılandırıldığı ( [Yerelleştirme](create-packages/creating-localized-packages.md) ve [hata ayıklama sembolleri](create-packages/symbol-packages-snupkg.md)dahil) ve nasıl [başvurulduğu](consume-packages/package-references-in-project-files.md) ( [Sürüm aralıkları](concepts/package-versioning.md#version-ranges) ve [yayın öncesi sürümler](create-packages/prerelease-packages.md)dahil) ile ilgili tüm belirtimleri korur. NuGet Ayrıca, hizmetleriyle birlikte çalışmaya yönelik çeşitli API 'Ler sağlar ve Visual Studio uzantıları ve proje şablonları yazan geliştiriciler için destek sağlar.
 
 Bu belgelerin içindekiler tablosuna göz atabilmeniz için bir dakikanızı ayırın ve bu özellikleri, NuGet 'in Beginnings 'e geri dönme sürüm notlarıyla birlikte görebilirsiniz.
+
+## <a name="related-video"></a>İlgili video
+
+> [!Video https://channel9.msdn.com/Series/NuGet-101/What-is-NuGet-1-of-5/player]
+
+[Channel 9](https://channel9.msdn.com/Series/NuGet-101) ve [YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_)'da daha fazla NuGet videoları bulun.
 
 ## <a name="comments-contributions-and-issues"></a>Yorumlar, katılımlar ve sorunlar
 

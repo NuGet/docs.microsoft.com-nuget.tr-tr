@@ -5,21 +5,21 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/24/2018
 ms.topic: quickstart
-ms.openlocfilehash: 92fc78a88733d0308dc26e10c5b0bafb86b78045
-ms.sourcegitcommit: e4b0ff4460865db6dc7bc9f20e9f644d98493011
+ms.openlocfilehash: 96e138561390984d9def495ba5e091c43023cc92
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71307222"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231337"
 ---
-# <a name="quickstart-install-and-use-a-package-in-visual-studio-windows-only"></a>Hızlı Başlangıç: Visual Studio 'da paket yükleyip kullanma (yalnızca Windows)
+# <a name="quickstart-install-and-use-a-package-in-visual-studio-windows-only"></a>Hızlı başlangıç: Visual Studio 'da paket yükleyip kullanma (yalnızca Windows)
 
 NuGet paketleri, diğer geliştiricilerin projelerinizde kullanabileceğiniz bir yeniden kullanılabilir kod içerir. Arka plan için bkz. [NuGet nedir?](../What-is-NuGet.md) . Paketler, NuGet Paket Yöneticisi veya paket Yöneticisi konsolu kullanılarak Visual Studio projesine yüklenir. Bu makalede, popüler [Newtonsoft. JSON](https://www.nuget.org/packages/Newtonsoft.Json/) paketini ve bir WINDOWS PRESENTATION FOUNDATION (WPF) projesini kullanan işlem gösterilmektedir. Aynı işlem, diğer tüm .NET veya .NET Core projeleri için de geçerlidir.
 
-Yüklendikten sonra, koddaki `using <namespace>` \<pakete, ad alanının\> kullandığınız pakete özgü olduğunu bakın. Başvuru yapıldıktan sonra, paketini API 'SI aracılığıyla çağırabilirsiniz.
+Yüklendikten sonra, `using <namespace>` \<ad alanı\> kullandığınız pakete özgü olan koddaki pakete bakın. Başvuru yapıldıktan sonra, paketini API 'SI aracılığıyla çağırabilirsiniz.
 
 > [!Tip]
-> **NuGet.org Ile Başlat**: *NuGet.org* gözatma, .NET geliştiricilerinin kendi uygulamalarında yeniden kullanabilecekleri bileşenleri genellikle bulmasıdır. Bu makalede gösterildiği gibi, *NuGet.org* doğrudan arayabilir veya Visual Studio içinde paketleri bulabilir ve yükleyebilirsiniz. Genel bilgi için bkz. [NuGet paketlerini bulma ve değerlendirme](../consume-packages/finding-and-choosing-packages.md).
+> **NuGet.org Ile başlayın**: gözatma *NuGet.org* , .NET geliştiricilerinin kendi uygulamalarında yeniden kullanabilecekleri bileşenleri genellikle nasıl buldukları. Bu makalede gösterildiği gibi, *NuGet.org* doğrudan arayabilir veya Visual Studio içinde paketleri bulabilir ve yükleyebilirsiniz. Genel bilgi için bkz. [NuGet paketlerini bulma ve değerlendirme](../consume-packages/finding-and-choosing-packages.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -33,13 +33,13 @@ Mac için Visual Studio kullanıyorsanız, bkz. [Mac için Visual Studio bir pak
 
 NuGet paketleri, paketin proje ile aynı hedef Framework 'ü desteklemesi kaydıyla herhangi bir .NET projesine yüklenebilir.
 
-Bu izlenecek yol için basit bir WPF uygulaması kullanın. Visual Studio 'da **Dosya** > **Yeni proje**' yi kullanarak bir proje oluşturun, arama kutusuna **.net** yazın ve ardından **WPF uygulamasını (.NET Framework)** seçin. **İleri**'ye tıklayın. İstendiğinde **Framework** için varsayılan değerleri kabul edin.
+Bu izlenecek yol için basit bir WPF uygulaması kullanın. Visual Studio 'da > **Dosya** **Yeni proje**' yi kullanarak bir proje oluşturun, arama kutusuna **.net** yazın ve ardından **WPF uygulamasını (.NET Framework)** seçin. **İleri**’ye tıklayın. İstendiğinde **Framework** için varsayılan değerleri kabul edin.
 
 Visual Studio, Çözüm Gezgini ' de açılan projeyi oluşturur.
 
 ## <a name="add-the-newtonsoftjson-nuget-package"></a>Newtonsoft. JSON NuGet paketini ekleyin
 
-Paketi yüklemek için, NuGet Paket Yöneticisi 'Ni ya da Paket Yöneticisi konsolunu kullanabilirsiniz. Bir paket yüklediğinizde, NuGet, proje dosyanıza ya da bir `packages.config` dosyaya (proje biçimine bağlı olarak) bağımlılığı kaydeder. Daha fazla bilgi için bkz. [paket tüketimine genel bakış ve iş akışı](../consume-packages/Overview-and-Workflow.md).
+Paketi yüklemek için, NuGet Paket Yöneticisi 'Ni ya da Paket Yöneticisi konsolunu kullanabilirsiniz. Bir paket yüklediğinizde NuGet, proje dosyanıza veya bir `packages.config` dosyasına bağımlılığı kaydeder (proje biçimine bağlı olarak). Daha fazla bilgi için bkz. [paket tüketimine genel bakış ve iş akışı](../consume-packages/Overview-and-Workflow.md).
 
 ### <a name="nuget-package-manager"></a>NuGet Paket Yöneticisi
 
@@ -63,21 +63,21 @@ Paketi yüklemek için, NuGet Paket Yöneticisi 'Ni ya da Paket Yöneticisi kons
 
 ### <a name="package-manager-console"></a>Paket Yöneticisi Konsolu
 
-1. **Araçlar** > **NuGet Paket Yöneticisi** > **Paket Yöneticisi konsolu** menü komutunu seçin.
+1. **NuGet paket yöneticisi** > **Paket Yöneticisi konsolu** menü komutunu > **Araçlar** ' ı seçin.
 
 1. Konsol açıldıktan sonra, **varsayılan proje** açılan listesinin paketi yüklemek istediğiniz projeyi gösterdiğini kontrol edin. Çözümde tek bir projeniz varsa, zaten seçilidir.
 
     ![Newtonsoft. JSON paketi bulunuyor](media/QS_Use-08-Console1.png)
 
-1. Komutu `Install-Package Newtonsoft.Json` girin (bkz. [Install-Package](../reference/ps-reference/ps-ref-install-package.md)). Konsol penceresinde komutun çıktısı gösterilir. Hatalar genellikle paketin projenin hedef çerçevesiyle uyumlu olmadığını gösterir.
+1. Komut `Install-Package Newtonsoft.Json` girin (bkz. [Install-Package](../reference/ps-reference/ps-ref-install-package.md)). Konsol penceresinde komutun çıktısı gösterilir. Hatalar genellikle paketin projenin hedef çerçevesiyle uyumlu olmadığını gösterir.
 
    Paket Yöneticisi Konsolu hakkında daha fazla bilgi edinmek istiyorsanız bkz. [Paket Yöneticisi konsolu kullanılarak paketleri yükleyip yönetme](../consume-packages/install-use-packages-powershell.md).
 
 ## <a name="use-the-newtonsoftjson-api-in-the-app"></a>Uygulamada Newtonsoft. JSON API 'sini kullanma
 
-Projedeki Newtonsoft. JSON paketiyle, bir nesneyi insan tarafından okunabilen bir dizeye dönüştürmek `JsonConvert.SerializeObject` için yöntemini çağırabilirsiniz.
+Projedeki Newtonsoft. JSON paketiyle, bir nesneyi insan tarafından okunabilen bir dizeye dönüştürmek için `JsonConvert.SerializeObject` yöntemini çağırabilirsiniz.
 
-1. Öğesini `MainWindow.xaml` açın ve var olan `Grid` öğeyi şu şekilde değiştirin:
+1. `MainWindow.xaml` açın ve var olan `Grid` öğesini aşağıdaki kodla değiştirin:
 
     ```xaml
     <Grid Background="White">
@@ -88,7 +88,7 @@ Projedeki Newtonsoft. JSON paketiyle, bir nesneyi insan tarafından okunabilen b
     </Grid>
     ```
 
-1. Dosyasını açın ( `MainWindow.xaml` düğüm altında Çözüm Gezgini bulunur) ve aşağıdaki kodu `MainWindow` sınıfına ekleyin: `MainWindow.xaml.cs`
+1. `MainWindow.xaml.cs` dosyasını açın (`MainWindow.xaml` düğümü altında Çözüm Gezgini bulunur) ve aşağıdaki kodu `MainWindow` sınıfına ekleyin:
 
     ```cs
     public class Account
@@ -111,19 +111,25 @@ Projedeki Newtonsoft. JSON paketiyle, bir nesneyi insan tarafından okunabilen b
     }
     ```
 
-1. Newtonsoft. JSON paketini projeye ekleseniz de, kod dosyasının en üstünde bir `JsonConvert` `using` deyime ihtiyacınız olduğu için kırmızı dalgalı çizgiler altında görünür:
+1. Newtonsoft. JSON paketini projeye ekleseniz de, kod dosyasının en üstünde bir `using` bildirimine ihtiyacınız olduğundan `JsonConvert` altında Red dalgalı çizgiler görünür:
 
     ```cs
     using Newtonsoft.Json;
     ```
 
-1. F5 tuşuna basarak **veya hata ayıklama** > **başlatma hata ayıklamayı**seçerek uygulamayı derleyin ve çalıştırın:
+1. F5 tuşuna basarak veya hata **ayıklamayı başlatmak** > **Hata Ayıkla** ' yı seçerek uygulamayı derleyin ve çalıştırın:
 
     ![WPF uygulamasının ilk çıkışı](media/QS_Use-06-AppStart.png)
 
 1. Bir JSON metniyle değiştirilmiş olan TextBlock içeriğini görmek için düğmeyi seçin:
 
     ![Düğmeyi seçtikten sonra WPF uygulamasının çıkışı](media/QS_Use-07-AppEnd.png)
+
+## <a name="related-video"></a>İlgili video
+
+> [!Video https://channel9.msdn.com/Series/NuGet-101/Install-and-Use-a-NuGet-Package-with-Visual-Studio-2-of-5/player]
+
+[Channel 9](https://channel9.msdn.com/Series/NuGet-101) ve [YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_)'da daha fazla NuGet videoları bulun.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

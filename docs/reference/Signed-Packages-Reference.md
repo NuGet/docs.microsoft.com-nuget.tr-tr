@@ -6,12 +6,12 @@ ms.author: rmpablos
 ms.date: 05/18/2018
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: e02b2a241008b1b7096f20b351173fd3df7ed172
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 7384e8b30cb2ec5fe53ea0fe485858bc1f7b3c43
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317510"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231259"
 ---
 # <a name="signed-packages"></a>İmzalanmış paketler
 
@@ -26,15 +26,15 @@ NuGet paketleri, değiştirilen içeriğe karşı koruma sağlayan dijital bir i
 Yazar imzalı bir paket oluşturma hakkında ayrıntılı bilgi için bkz. [Imzalama paketleri](../create-packages/Sign-a-package.md) ve [NuGet Sign komutu](../reference/cli-reference/cli-ref-sign.md).
 
 > [!Important]
-> Paket imzalama Şu anda yalnızca Windows üzerinde NuGet. exe kullanıldığında desteklenir. İmzalanmış paketlerin doğrulanması Şu anda yalnızca NuGet. exe veya Windows üzerinde Visual Studio kullanırken desteklenir.
+> Paket imzalama Şu anda yalnızca Windows üzerinde NuGet. exe kullanıldığında desteklenir. [İmzalanmış paketlerin doğrulanması Şu anda yalnızca NuGet. exe](../reference/cli-reference/cli-ref-verify.md) veya Windows üzerinde Visual Studio kullanırken desteklenir.
 
 ## <a name="certificate-requirements"></a>Sertifika gereksinimleri
 
-Paket imzalama, `id-kp-codeSigning` amaç [[RFC 5280 Section 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)] için geçerli olan özel bir sertifika türü olan bir kod imzalama sertifikası gerektirir. Ayrıca, sertifikanın RSA ortak anahtar uzunluğu 2048 bit veya üzeri olmalıdır.
+Paket imzalama, `id-kp-codeSigning` amacı [[RFC 5280 Section 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)] için geçerli olan özel bir sertifika türü olan bir kod imzalama sertifikası gerektirir. Ayrıca, sertifikanın RSA ortak anahtar uzunluğu 2048 bit veya üzeri olmalıdır.
 
 ## <a name="timestamp-requirements"></a>Zaman damgası gereksinimleri
 
-İmzalı paketler, imza geçerliliğini paket imza sertifikasının geçerlilik süresinden daha fazla güvence altına almak için bir RFC 3161 zaman damgası içermelidir. Zaman damgasını imzalamak için kullanılan sertifika, `id-kp-timeStamping` amaç [[RFC 5280 Section 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)] için geçerli olmalıdır. Ayrıca, sertifikanın RSA ortak anahtar uzunluğu 2048 bit veya üzeri olmalıdır.
+İmzalı paketler, imza geçerliliğini paket imza sertifikasının geçerlilik süresinden daha fazla güvence altına almak için bir RFC 3161 zaman damgası içermelidir. Zaman damgasını imzalamak için kullanılan sertifika, `id-kp-timeStamping` amacı [[RFC 5280 Section 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)] için geçerli olmalıdır. Ayrıca, sertifikanın RSA ortak anahtar uzunluğu 2048 bit veya üzeri olmalıdır.
 
 Ek teknik ayrıntılar, [paket imzası teknik özellikleri](https://github.com/NuGet/Home/wiki/Package-Signatures-Technical-Details) 'nde (GitHub) bulunabilir.
 
@@ -54,7 +54,7 @@ nuget.org, imzalı bir paketi kabul etmek için ek gereksinimlere sahiptir:
   - İmza zamanında iptal edilmemelidir. (Bu, Gönderim zamanında bu şekilde bilmeyebilir, bu nedenle nuget.org düzenli olarak iptal durumunu denetler).
   
   
-## <a name="related-articles"></a>İlgili makaleler
+## <a name="related-articles"></a>İlgili makaleler:
 
 - [NuGet paketleri imzalanıyor](../create-packages/Sign-a-Package.md)
 - [Paket güven sınırlarını yönetme](../consume-packages/installing-signed-packages.md)

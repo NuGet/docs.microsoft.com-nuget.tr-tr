@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: c6f50e6eb21826afebcdcd4045c7ab8b6e6489e3
-ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
+ms.openlocfilehash: 4b95251e4b055523a9533b4125589b2650be932d
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76813331"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231090"
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>NuGet paket bağımlılıklarını çözümler
 
@@ -22,7 +22,7 @@ Birden çok paketin aynı bağımlılığı varsa, aynı paket KIMLIĞI birden �
 
 ## <a name="dependency-resolution-with-packagereference"></a>PackageReference ile bağımlılık çözümlemesi
 
-, PackageReference biçimini kullanarak projelere paket yüklerken, NuGet ilgili dosyadaki düz bir paket grafiğine başvurular ekler ve çakışmaları önceden çözer. Bu işlem *geçişli geri yükleme*olarak adlandırılır. Paketleri yeniden yükleme veya geri yükleme işlemi daha sonra grafikte listelenen paketlerin indirilerek daha hızlı ve öngörülebilir yapılar elde edilir. Ayrıca, 2,8 gibi joker karakter (kayan) sürümlerden de yararlanabilirsiniz.\*, istemci makinelerinde ve yapı sunucularındaki `nuget update` pahalı ve hataya açık çağrılardan kaçının.
+, PackageReference biçimini kullanarak projelere paket yüklerken, NuGet ilgili dosyadaki düz bir paket grafiğine başvurular ekler ve çakışmaları önceden çözer. Bu işlem *geçişli geri yükleme*olarak adlandırılır. Paketleri yeniden yükleme veya geri yükleme işlemi daha sonra grafikte listelenen paketlerin indirilerek daha hızlı ve öngörülebilir yapılar elde edilir. Ayrıca, 2,8 gibi yüzen sürümlerden de yararlanabilirsiniz.\*, bir paketin en son sürümünü kullanmak üzere projeyi değiştirmeyi önlemek için.
 
 NuGet geri yükleme işlemi bir derlemeden önce çalıştırıldığında, öncelikle bellekte bulunan bağımlılıkları çözer, ardından sonuç grafiğini `project.assets.json`adlı dosyaya yazar. Ayrıca, [dosya kilitleme işlevi etkinse](../consume-packages/package-references-in-project-files.md#locking-dependencies), çözümlenmiş bağımlılıkları `packages.lock.json`adlı bir kilit dosyasına yazar.
 Varlıklar dosyası `MSBuildProjectExtensionsPath`konumunda bulunur ve varsayılan olarak projenin ' obj ' klasörüdür. MSBuild sonra bu dosyayı okur ve olası başvuruların bulunabileceği bir klasör kümesine çevirir ve sonra bunları bellekte proje ağacına ekler.
@@ -53,16 +53,16 @@ Bir uygulama, akışta bulunmayan 1,2 gibi tam bir sürüm numarası belirttiği
 
 <a name="floating-versions"></a>
 
-#### <a name="floating-wildcard-versions"></a>Kayan (joker karakter) sürümleri
+#### <a name="floating-versions"></a>Kayan sürümler
 
-\* joker karakteri, 6,0 ile olduğu gibi, bir kayan veya joker karakter bağımlılığı sürümü ile belirtilir.\*. Bu sürüm belirtimi "en son 6.0. x sürümünü kullan" ifadesini belirtir. 4.\* "en son 4. x sürümünü kullanın" anlamına gelir. Joker karakter kullanmak, bir bağımlılık paketinin, tüketim uygulamada (veya pakette) değişiklik yapmaya gerek kalmadan gelişmeye devam etmesine olanak tanır.
+\* karakteriyle bir kayan bağımlılık sürümü belirtildi. Örneğin, `6.0.*`. Bu sürüm belirtimi "en son 6.0. x sürümünü kullan" ifadesini belirtir. `4.*` "en son 4. x sürümünü kullanın" anlamına gelir. Kayan bir sürümün kullanılması proje dosyasındaki değişiklikleri azaltır ve en son bir bağımlılık sürümüyle güncel tutmaya çalışır.
 
-Bir joker karakter kullanırken NuGet, sürüm düzeniyle eşleşen bir paketin en yüksek sürümünü (örneğin, 6,0) çözümler.\*, 6,0 ile başlayan bir paketin en yüksek sürümünü alır:
+Bir kayan sürüm kullanırken NuGet, sürüm düzeniyle eşleşen bir paketin en yüksek sürümünü çözümler. Örneğin `6.0.*` 6,0 ile başlayan bir paketin en yüksek sürümünü alır:
 
 ![6,0. * kayan sürümü istendiğinde sürüm 6.0.1 seçiliyor](media/projectJson-dependency-4.png)
 
 > [!Note]
-> Joker karakterler ve yayın öncesi sürümlerin davranışı hakkında daha fazla bilgi için bkz. [paket sürümü oluşturma](package-versioning.md#version-ranges-and-wildcards).
+> Kayan sürümlerin ve yayın öncesi sürümlerinin davranışı hakkında bilgi için bkz. [paket sürümü oluşturma](package-versioning.md#version-ranges).
 
 
 <a name="nearest-wins"></a>

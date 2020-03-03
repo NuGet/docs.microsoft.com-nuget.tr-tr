@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: 906d07eb22599eb423b00300954ff2601dd33369
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: 13b6f5abe93a17c809564265990f86f6780aa67e
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75383557"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78230817"
 ---
 # <a name="authenticating-feeds-in-visual-studio-with-nuget-credential-providers"></a>NuGet kimlik bilgisi sağlayıcılarıyla Visual Studio 'da akışlara kimlik doğrulama
 
@@ -19,6 +19,8 @@ Visual Studio için bir NuGet kimlik bilgisi sağlayıcısı yükledikten sonra,
 
 Örnek bir uygulama [VsCredentialProvider örneğinde](https://github.com/NuGet/Samples/tree/master/VsCredentialProvider)bulunabilir.
 
+NuGet, Visual Studio 'da eklenti kimlik bilgisi sağlayıcılarını da tarayan dahili bir `VsCredentialProviderImporter` kullanır. Bu eklenti kimlik bilgisi sağlayıcılarının `IVsCredentialProvider`türü MEF dışarı aktarma olarak bulunabilir olması gerekir.
+
 Visual Studio 'da 4.8 + NuGet ile başlayarak yeni platformlar arası kimlik doğrulama eklentileri de desteklenir, ancak performans nedenleriyle bu önerilen yaklaşımlar değildir.
 
 > [!Note]
@@ -26,16 +28,6 @@ Visual Studio 'da 4.8 + NuGet ile başlayarak yeni platformlar arası kimlik do�
 >
 > Visual Studio için NuGet kimlik bilgileri sağlayıcıları yalnızca Visual Studio 'da çalışır (dotnet restore veya NuGet. exe ' de değildir). NuGet. exe olan kimlik bilgisi sağlayıcıları için bkz. [NuGet. exe kimlik bilgileri sağlayıcıları](nuget-exe-Credential-providers.md).
 > DotNet ve MSBuild 'teki kimlik bilgileri sağlayıcıları için bkz. [NuGet platformlar arası eklentileri](nuget-cross-platform-authentication-plugin.md)
-
-## <a name="available-nuget-credential-providers-for-visual-studio"></a>Visual Studio için kullanılabilir NuGet kimlik bilgileri sağlayıcıları
-
-Visual Studio Team Services desteklemek için Visual Studio NuGet uzantısında yerleşik olarak bulunan bir kimlik bilgisi sağlayıcısı vardır.
-
-NuGet Visual Studio uzantısı dahili bir `VsCredentialProviderImporter` kullanır ve bu da eklenti kimlik bilgisi sağlayıcılarını tarar. Bu eklenti kimlik bilgisi sağlayıcılarının `IVsCredentialProvider`türü MEF dışarı aktarma olarak bulunabilir olması gerekir.
-
-Kullanılabilir eklenti kimlik bilgileri sağlayıcıları şunları içerir:
-
-- [Visual Studio için MyGet kimlik bilgileri sağlayıcısı](http://docs.myget.org/docs/reference/credential-provider-for-visual-studio)
 
 ## <a name="creating-a-nuget-credential-provider-for-visual-studio"></a>Visual Studio için NuGet kimlik bilgileri sağlayıcısı oluşturma
 

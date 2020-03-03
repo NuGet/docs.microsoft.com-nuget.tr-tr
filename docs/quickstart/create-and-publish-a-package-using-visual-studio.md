@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/16/2019
 ms.topic: quickstart
-ms.openlocfilehash: fe551dfa7f2322e6677c9c0b972c79c9df2e7695
-ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
+ms.openlocfilehash: 32dcc1d233154463e2950b1ce46554b1cb89956e
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76813565"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231298"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Hızlı başlangıç: Visual Studio (.NET Standard, yalnızca Windows) kullanarak bir NuGet paketi oluşturma ve yayımlama
 
@@ -19,7 +19,7 @@ Windows üzerinde Visual Studio 'da bir .NET Standard sınıf kitaplığından b
 > [!Note]
 > Mac için Visual Studio kullanıyorsanız, bir NuGet paketi oluşturma konusunda [Bu bilgilere](/xamarin/cross-platform/app-fundamentals/nuget-multiplatform-libraries/existing-library) bakın veya [DotNet CLI araçlarını](create-and-publish-a-package-using-the-dotnet-cli.md)kullanın.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Önkoşullar
 
 1. .NET Core ile ilgili iş yüküyle [VisualStudio.com](https://www.visualstudio.com/) adresinden herhangi bir Visual Studio 2019 sürümünü yükleyin.
 
@@ -103,7 +103,7 @@ namespace AppLogger
 
 Visual Studio 'Yu, projeyi oluşturduğunuzda NuGet paketini otomatik olarak oluşturacak şekilde yapılandırabilirsiniz.
 
-1. Çözüm Gezgini'nde projeye sağ tıklayıp seçin **özellikleri**.
+1. Çözüm Gezgini, projeye sağ tıklayın ve **Özellikler**' i seçin.
 
 2. **Paket** sekmesinde **derlemede NuGet paketi oluştur**' u seçin.
 
@@ -132,7 +132,7 @@ Bir `.nupkg` dosyasına sahip olduktan sonra, `nuget.exe` CLı veya `dotnet.exe`
 
 CLı aracınız için **.NET Core CLI** (DotNet CLI) veya **NuGet** (NuGet. exe CLI) sekmesini seçin.
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+# <a name="net-core-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
 Bu adım `nuget.exe`kullanmanın önerilen alternatifidir.
 
@@ -140,7 +140,7 @@ Paketi yayımlayabilmeniz için önce bir komut satırı açmanız gerekir.
 
 [!INCLUDE [publish-dotnet](includes/publish-dotnet.md)]
 
-# <a name="nugettabnuget"></a>[NuGet](#tab/nuget)
+# <a name="nuget"></a>[NuGet](#tab/nuget)
 
 Bu adım `dotnet.exe`kullanmanın bir alternatifidir.
 
@@ -192,6 +192,12 @@ Bu, paket kökünde `readme.txt` adlı bir dosya içerir. Visual Studio, paketi 
 
 > [!Note]
 > Yalnızca proje kökündeki Readme. txt ' i eklemek, sonuçta elde edilen pakete eklenmeyecektir.
+
+## <a name="related-video"></a>İlgili video
+
+> [!Video https://channel9.msdn.com/Series/NuGet-101/Create-and-Publish-a-NuGet-Package-with-Visual-Studio-4-of-5/player]
+
+[Channel 9](https://channel9.msdn.com/Series/NuGet-101) ve [YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_)'da daha fazla NuGet videoları bulun.
 
 ## <a name="related-topics"></a>İlgili konular
 
