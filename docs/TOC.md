@@ -24,6 +24,7 @@
 ### [Paketleri yeniden yükleme ve güncelleştirme](consume-packages/reinstalling-and-updating-packages.md)
 ### [Genel paketleri ve önbellek klasörlerini yönetme](consume-packages/managing-the-global-packages-and-cache-folders.md)
 ### [Paket güven sınırlarını yönetme](consume-packages/installing-signed-packages.md)
+### [Kimliği doğrulanmış akışlarla çalışma](consume-packages/consuming-packages-authenticated-feeds.md)
 ### [Kaynak denetim sistemleriyle çalışma](consume-packages/packages-and-source-control.md)
 ### [Ortak NuGet yapılandırmaları](consume-packages/configuring-nuget-behavior.md)
 ## Projenizdeki başvuru paketleri
@@ -45,7 +46,8 @@
 ### [Paket türünü ayarlama](create-packages/set-package-type.md)
 ### [Yerelleştirilmiş paket oluşturma](create-packages/creating-localized-packages.md)
 ## Belirli bir içeriğe yönelik kılavuzlar
-### [UWP paketi oluşturma](guides/create-uwp-packages.md)
+### [UWP paketi oluşturma (C++)](guides/create-uwp-packages.md)
+### [UWP paketi oluşturma (C#)](guides/create-uwp-packages-CS.md)
 ### [Yerel paket oluşturma](guides/native-packages.md)
 ### [NuGet paketleri olarak UI denetimleri oluşturma](guides/create-UI-controls.md)
 ### [NuGet paketleri olarak çözümleyici oluşturma](guides/analyzers-conventions.md)
@@ -123,7 +125,7 @@
 ### [Hız sınırları](api/rate-limits.md)
 ### [nuget.org protokolleri](api/nuget-protocols.md)
 ### [tools.json](api/tools-json.md)
-## [NuGet istemci SDK’sı](reference/nuget-client-sdk.md)
+## [NuGet İstemci SDK’sı](reference/nuget-client-sdk.md)
 ## [Hatalar ve Uyarılar](reference/Errors-and-Warnings.md)
 ### [NU1000](reference/errors-and-warnings/NU1000.md)
 ### [NU1001](reference/errors-and-warnings/NU1001.md)
