@@ -7,11 +7,11 @@ ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
 ms.openlocfilehash: 19e7934e2f249056c532369fa5e8ee6e35cc8086
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78230609"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79429103"
 ---
 # <a name="nuspec-reference"></a>. nuspec başvurusu
 
@@ -73,7 +73,7 @@ Bu öğelerin bir `<metadata>` öğesi içinde görünmesi gerekir.
 
 #### <a name="id"></a>id 
 Nuget.org genelinde benzersiz olması gereken büyük/küçük harf duyarsız paket tanımlayıcısı veya paketin bulunduğu Galeri. Kimlikler, URL için geçerli olmayan boşluk veya karakterler içeremez ve genellikle .NET ad alanı kurallarını izler. Bkz. rehberlik için [benzersiz bir paket tanımlayıcısı seçme](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number) .
-#### <a name="version"></a>version
+#### <a name="version"></a>sürüm
 *Ana. Minor. Patch* deseninin ardından paketin sürümü. Sürüm numaraları, [paket sürümü oluşturma](../concepts/package-versioning.md#pre-release-versions)bölümünde açıklandığı gibi bir ön sürüm son eki içerebilir. 
 #### <a name="description"></a>açıklama
 UI görüntüleme paketinin açıklaması.
@@ -95,18 +95,18 @@ Genellikle kullanıcı arabiriminde gösterildiği gibi, paketin ana sayfası i�
 Genellikle Unuget.org gibi gösterilen paket lisansının URL 'SI.
 
 #### <a name="license"></a>lisan
-Bir SPDX lisans ifadesi veya paket içindeki bir lisans dosyasının yolu, genellikle Usıs nuget.org gibidir. Paketi MıT veya BSD-2 yan tümcesi gibi ortak bir lisans altında lisansladıysanız, ilişkili [Spdx lisans tanımlayıcısını](https://spdx.org/licenses/)kullanın. Örnek:
+Bir SPDX lisans ifadesi veya paket içindeki bir lisans dosyasının yolu, genellikle Usıs nuget.org gibidir. Paketi MıT veya BSD-2 yan tümcesi gibi ortak bir lisans altında lisansladıysanız, ilişkili [Spdx lisans tanımlayıcısını](https://spdx.org/licenses/)kullanın. Örneğin:
 
 `<license type="expression">MIT</license>`
 
 > [!Note]
 > NuGet.org yalnızca açık kaynak girişimi veya ücretsiz yazılım temeli tarafından onaylanan lisans ifadelerini kabul eder.
 
-Paketinizin birden çok ortak lisans kapsamında lisansı varsa, [Spdx Expression sözdizimi 2,0 sürümünü](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60)kullanarak bileşik bir lisans belirtebilirsiniz. Örnek:
+Paketinizin birden çok ortak lisans kapsamında lisansı varsa, [Spdx Expression sözdizimi 2,0 sürümünü](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60)kullanarak bileşik bir lisans belirtebilirsiniz. Örneğin:
 
 `<license type="expression">BSD-2-Clause OR MIT</license>`
 
-Lisans ifadeleri tarafından desteklenmeyen özel bir lisans kullanıyorsanız, lisansın metniyle bir `.txt` veya `.md` dosyası paketleyebilir. Örnek:
+Lisans ifadeleri tarafından desteklenmeyen özel bir lisans kullanıyorsanız, lisansın metniyle bir `.txt` veya `.md` dosyası paketleyebilir. Örneğin:
 
 ```xml
 <package>
@@ -205,9 +205,9 @@ Paketi tanımlayan ve arama ve filtreleme aracılığıyla paketlerin bulunabili
 *(3.3 +)* Yalnızca iç NuGet kullanımı için.
 
 #### <a name="repository"></a>depo
-Dört isteğe bağlı öznitelikten oluşan depo meta verileri: `type` ve `url` *(4.0 +)* ve `branch` ve `commit` *(4.6 +)*. Bu öznitelikler, `.nupkg` kendisini oluşturan depoya eşlemenize olanak tanır. Bu, tek bir dal adı olarak ayrıntılı bir şekilde alınır ve/veya paketi oluşturan SHA-1 karmasını kaydedebilir. Bu, doğrudan bir sürüm denetim yazılımıyla çağrılabilen, genel olarak kullanılabilir bir URL olmalıdır. Bu, bilgisayar için amaçlanmış olduğu için bir HTML sayfası olmamalıdır. Proje sayfasına bağlantı için, bunun yerine `projectUrl` alanını kullanın.
+Dört isteğe bağlı öznitelikten oluşan depo meta verileri: `type` ve `url` *(4.0 +)* ve `branch` ve `commit` *(4.6 +)* . Bu öznitelikler, `.nupkg` kendisini oluşturan depoya eşlemenize olanak tanır. Bu, tek bir dal adı olarak ayrıntılı bir şekilde alınır ve/veya paketi oluşturan SHA-1 karmasını kaydedebilir. Bu, doğrudan bir sürüm denetim yazılımıyla çağrılabilen, genel olarak kullanılabilir bir URL olmalıdır. Bu, bilgisayar için amaçlanmış olduğu için bir HTML sayfası olmamalıdır. Proje sayfasına bağlantı için, bunun yerine `projectUrl` alanını kullanın.
 
-Örnek:
+Örneğin:
 ```xml
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
@@ -461,7 +461,7 @@ Aşağıdaki örnek, tüm hedef çerçeveler için `System.Net` bir başvuru ve 
 > [!Important]
 > Bir paket bir projeye yüklendiğinde, NuGet otomatik olarak paketin dll 'Lerine derleme başvuruları ekler *`.resources.dll`, çünkü* yerelleştirilmiş uydu derlemeleri oldukları varsayılacaktır. Bu nedenle, başka bir şekilde temel paket kodu içeren dosyalar için `.resources.dll` kullanmaktan kaçının.
 
-Bu otomatik davranışı atlamak ve bir pakete hangi dosyaların ekleneceğini açıkça denetlemek için, her bir dosyayı ayrı bir `<file>` öğesiyle tanımlayarak bir `<files>` öğesini `<package>` alt öğesi (ve `<metadata>`eşdüzey) olarak yerleştirin. Örnek:
+Bu otomatik davranışı atlamak ve bir pakete hangi dosyaların ekleneceğini açıkça denetlemek için, her bir dosyayı ayrı bir `<file>` öğesiyle tanımlayarak bir `<files>` öğesini `<package>` alt öğesi (ve `<metadata>`eşdüzey) olarak yerleştirin. Örneğin:
 
 ```xml
 <files>
@@ -702,7 +702,7 @@ Paket projesi, aşağıdaki kalıbı kullanarak içerik yapısını almalıdır:
 - `TxM` NuGet tarafından desteklenen geçerli bir hedef çerçeve adıdır (bkz. [hedef çerçeveler](../reference/target-frameworks.md)).
 - Bu söz dizimi sonuna herhangi bir klasör yapısı eklenebilir.
 
-Örnek:
+Örneğin:
 
     Language- and framework-agnostic:
         /contentFiles/any/any/config.xml

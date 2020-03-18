@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 08/13/2019
 ms.topic: reference
 ms.openlocfilehash: cd321084c46709e3d1d22872c37485edacd33afa
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78230532"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79429131"
 ---
 # <a name="nugetconfig-reference"></a>NuGet. config başvurusu
 
@@ -36,8 +36,7 @@ NuGet davranışı, [yaygın NuGet yapılandırmalarında](../consume-packages/c
 | Depoyolu (yalnızca`packages.config`) | Varsayılan `$(Solutiondir)/packages` klasörü yerine NuGet paketlerinin yükleneceği konum. Göreli bir yol, projeye özgü `nuget.config` dosyalarında kullanılabilir. Bu ayar, öncelik veren NUGET_PACKAGES ortam değişkeni tarafından geçersiz kılınır. |
 | defaultPushSource | Bir işlem için başka bir paket kaynağı bulunmazsa varsayılan olarak kullanılması gereken paket kaynağının URL 'sini veya yolunu tanımlar. |
 | http_proxy http_proxy. User http_proxy. Password no_proxy | Paket kaynaklarına bağlanırken kullanılacak proxy ayarları; `http_proxy` `http://<username>:<password>@<domain>`biçiminde olmalıdır. Parolalar şifrelenir ve el ile eklenemez. `no_proxy`, değer, proxy sunucusunu atlayan etki alanlarının virgülle ayrılmış listesidir. Ayrıca, bu değerler için http_proxy ve no_proxy ortam değişkenlerini kullanabilirsiniz. Daha fazla bilgi için bkz. [NuGet proxy ayarları](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (skolima.blogspot.com). |
-| signatureValidationMode | Paket yüklemesi için paket imzalarını doğrulamak ve geri yüklemek için kullanılan doğrulama modunu belirtir. Değerler `accept`, `require`. 
-          `accept` değerini varsayılan olarak alır.
+| signatureValidationMode | Paket yüklemesi için paket imzalarını doğrulamak ve geri yüklemek için kullanılan doğrulama modunu belirtir. Değerler `accept`, `require`. `accept` değerini varsayılan olarak alır.
 
 **Örnek**:
 
@@ -137,7 +136,7 @@ Genellikle `-username` ve `-password` anahtarlarıyla belirtilen `nuget sources`
 | Anahtar | Değer |
 | --- | --- |
 | kullanıcı adı | Kaynağın düz metin olarak Kullanıcı adı. |
-| password | Kaynak için şifrelenmiş parola. |
+| parola | Kaynak için şifrelenmiş parola. |
 | cleartextpassword | Kaynak için şifrelenmemiş parola. |
 
 **Örnek:**

@@ -6,11 +6,11 @@ ms.author: nikolev
 ms.date: 07/01/2018
 ms.topic: conceptual
 ms.openlocfilehash: 00410214500c7f5256be243dd6fca0907ba9b0c4
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72380496"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79429110"
 ---
 # <a name="nuget-cross-platform-plugins"></a>NuGet platformlar arası eklentiler
 
@@ -24,9 +24,9 @@ NuGet Istemcisi ve eklentisi arasındaki sürümlü bir iletişim protokolü tan
 Tüm NuGet istemci araçları senaryolarını kapsayacak şekilde, bunlardan biri hem .NET Framework hem de .NET Core eklentisine gerek duyar.
 Aşağıda, eklentilerin istemci/çerçeve birleşimleri açıklanmıştır.
 
-| İstemci aracı  | Framework |
+| İstemci aracı  | Çerçeve |
 | ------------ | --------- |
-| Visual Studio | .NET Framework |
+| {1&gt;Visual Studio&lt;1} | .NET Framework |
 | DotNet. exe | .NET Core |
 | NuGet. exe | .NET Framework |
 | MSBuild. exe | .NET Framework |
@@ -70,14 +70,14 @@ NuGet istemci araçları ve eklentisi arasındaki iletişim çift yönlüdür. H
 ## <a name="plugin-installation-and-discovery"></a>Eklenti yükleme ve bulma
 
 Eklentiler, kural tabanlı bir dizin yapısı aracılığıyla keşfedilir.
-CI/CD senaryoları ve Power Users, davranışı geçersiz kılmak için ortam değişkenlerini kullanabilir. Ortam değişkenlerini kullanırken yalnızca mutlak yollara izin verilir. @No__t-0 ve `NUGET_NETCORE_PLUGIN_PATHS` ' in yalnızca NuGet araçları 'nın ve sonraki sürümlerin 5.3 + sürümü ile kullanılabildiğini unutmayın.
+CI/CD senaryoları ve Power Users, davranışı geçersiz kılmak için ortam değişkenlerini kullanabilir. Ortam değişkenlerini kullanırken yalnızca mutlak yollara izin verilir. `NUGET_NETFX_PLUGIN_PATHS` ve `NUGET_NETCORE_PLUGIN_PATHS` yalnızca NuGet araçları 'nın ve sonraki sürümlerin 5.3 + sürümü ile kullanılabildiğini unutmayın.
 
-- `NUGET_NETFX_PLUGIN_PATHS`-.NET Framework tabanlı araç (NuGet. exe/MSBuild. exe/Visual Studio) tarafından kullanılacak eklentileri tanımlar. @No__t-0 ' a kadar önceliklidir. (Yalnızca NuGet sürümü 5.3 +)
-- `NUGET_NETCORE_PLUGIN_PATHS`-.NET Core tabanlı araç (DotNet. exe) tarafından kullanılacak eklentileri tanımlar. @No__t-0 ' a kadar önceliklidir. (Yalnızca NuGet sürümü 5.3 +)
+- `NUGET_NETFX_PLUGIN_PATHS`-.NET Framework tabanlı araç (NuGet. exe/MSBuild. exe/Visual Studio) tarafından kullanılacak eklentileri tanımlar. `NUGET_PLUGIN_PATHS`önceliklidir. (Yalnızca NuGet sürümü 5.3 +)
+- `NUGET_NETCORE_PLUGIN_PATHS`-.NET Core tabanlı araç (DotNet. exe) tarafından kullanılacak eklentileri tanımlar. `NUGET_PLUGIN_PATHS`önceliklidir. (Yalnızca NuGet sürümü 5.3 +)
 - `NUGET_PLUGIN_PATHS`-bu NuGet işlemi için kullanılacak eklentileri tanımlar, öncelik korunur. Bu ortam değişkeni ayarlandıysa, kural tabanlı bulmayı geçersiz kılar. Çerçeveye özgü değişkenlerden biri belirtilmişse yok sayılır.
--  @No__t-0 ' daki NuGet giriş konumu Kullanıcı konumu. Bu konum geçersiz kılınamaz. .NET Core ve .NET Framework eklentileri için farklı bir kök dizin kullanılır.
+-  Kullanıcı konumu, `%UserProfile%/.nuget/plugins`NuGet giriş konumu. Bu konum geçersiz kılınamaz. .NET Core ve .NET Framework eklentileri için farklı bir kök dizin kullanılır.
 
-| Framework | Kök bulma konumu  |
+| Çerçeve | Kök bulma konumu  |
 | ------- | ------------------------ |
 | .NET Core |  `%UserProfile%/.nuget/plugins/netcore` |
 | .NET Framework | `%UserProfile%/.nuget/plugins/netfx` |
@@ -110,7 +110,7 @@ Yeni eklenti Protokolü altında iki işlem desteklenir.
 | İşlem adı | En düşük protokol sürümü | En düşük NuGet istemci sürümü |
 | -------------- | ----------------------- | --------------------- |
 | Paketi indir | 1.0.0 | 4.3.0 |
-| [Kimlik Doğrulaması](NuGet-Cross-Platform-Authentication-Plugin.md) | 2.0.0 | 4.8.0 |
+| [Kimlik doğrulaması](NuGet-Cross-Platform-Authentication-Plugin.md) | 2.0.0 | 4.8.0 |
 
 ## <a name="running-plugins-under-the-correct-runtime"></a>Doğru çalışma zamanı altında eklenti çalıştırma
 
@@ -123,14 +123,14 @@ Bu, uyumlu bir DotNet. exe/eklenti birleşiminin kullanıldığından emin olmak
 Eklentilerin güvenlik doğrulaması ve örnekleme maliyetlidir. İndirme işlemi kimlik doğrulama işleminden daha sık yapılır, ancak ortalama NuGet kullanıcısının yalnızca bir kimlik doğrulama eklentisine sahip olma olasılığı vardır.
 Bu deneyimi geliştirmek için, NuGet verilen istek için işlem taleplerini önbelleğe alacak. Bu önbellek, eklenti anahtarı eklenti yolu olacak şekilde eklenti başına ve bu özellik önbelleğinin süresi 30 gündür. 
 
-Önbellek `%LocalAppData%/NuGet/plugins-cache` ' da bulunur ve `NUGET_PLUGINS_CACHE_PATH` ortam değişkeniyle geçersiz kılınmalıdır. Bu [önbelleği](../../consume-packages/managing-the-global-packages-and-cache-folders.md)temizlemek için, birisi `plugins-cache` seçeneğiyle Yereller komutunu çalıştırabilir.
-@No__t-0 Yereller seçeneği artık eklenti önbelleğini de silecek. 
+Önbellek `%LocalAppData%/NuGet/plugins-cache` bulunur ve ortam değişkeni `NUGET_PLUGINS_CACHE_PATH`ile geçersiz kılınmalıdır. Bu [önbelleği](../../consume-packages/managing-the-global-packages-and-cache-folders.md)temizlemek için, birisi `plugins-cache` seçeneğiyle Yereller komutunu çalıştırabilir.
+`all` Yereller seçeneği, artık eklenti önbelleğini de silecektir. 
 
 ## <a name="protocol-messages-index"></a>Protokol iletileri dizini
 
 Protokol sürümü *1.0.0* iletileri:
 
-1.  Close
+1.  Kapat
     * İstek yönü: NuGet-> eklentisi
     * İstek yük içermez
     * Yanıt beklenmez.  Doğru yanıt, eklenti işleminin hemen çıkmak için gereken bir işlemdir.
@@ -254,7 +254,7 @@ Protokol sürümü *1.0.0* iletileri:
      * Bir yanıt şunu içerir:
          * işlemin sonucunu gösteren bir yanıt kodu
 
-15.  Kimlik bilgilerini ayarla
+15.  Kimlik bilgilerini ayarlama
      * İstek yönü: NuGet-> eklentisi
      * Bu istek şunları içerir:
          * paket kaynağı depo konumu
@@ -290,13 +290,13 @@ Protokol sürümü *2.0.0* iletileri
 
 * İstek yönü: NuGet-> eklentisi
 * Bu istek şunları içerir:
-    * Kullanılmamışsa
-    * ısretry
-    * Etkileşimsiz
+    * Uri
+    * Isretry
+    * NonInteractive
     * CanShowDialog
 * Bir yanıt şunu içerir
     * Kullanıcı adı
-    * istemcisiyle yönetilen bir cihaz için)
+    * Parola
     * İleti
     * Kimlik doğrulama türleri listesi
     * MessageResponseCode

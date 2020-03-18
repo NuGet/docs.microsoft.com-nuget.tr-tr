@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 06/20/2019
 ms.topic: quickstart
 ms.openlocfilehash: 2769f0ef0373b26eedb4bac6242fee0e814310c5
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78230545"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428823"
 ---
 # <a name="install-nuget-client-tools"></a>NuGet istemci araçlarını yükleme
 
@@ -30,9 +30,9 @@ NuGet ile bir paket tüketicisi veya Oluşturucu olarak çalışmak için, komut
 
 Paket Yöneticisi konsol komutları yalnızca Windows üzerinde Visual Studio 'da çalışır ve diğer PowerShell ortamları içinde çalışmaz.
 
-## <a name="visual-studio"></a>Visual Studio
+## <a name="visual-studio"></a>{1&gt;Visual Studio&lt;1}
 ### <a name="install-on-visual-studio-2017-and-newer"></a>Visual Studio 2017 ve daha yeni bir sürüme yüklensin
-Visual Studio 2017 ' den başlayarak, yükleyici, .NET kullanan herhangi bir iş yüküne sahip NuGet Paket Yöneticisi 'Ni içerir. Ayrı olarak yüklemek veya paket yöneticisinin yüklendiğini doğrulamak için, Visual Studio yükleyicisi 'ni çalıştırın ve **tek tek bileşenler altında, NuGet paket yöneticisi > kod araçları >**.
+Visual Studio 2017 ' den başlayarak, yükleyici, .NET kullanan herhangi bir iş yüküne sahip NuGet Paket Yöneticisi 'Ni içerir. Ayrı olarak yüklemek veya paket yöneticisinin yüklendiğini doğrulamak için, Visual Studio yükleyicisi 'ni çalıştırın ve **tek tek bileşenler altında, NuGet paket yöneticisi > kod araçları >** .
 
 ### <a name="install-on-visual-studio-2015-and-older"></a>Visual Studio 2015 ve üzeri sürümlerde yüklensin
 Visual Studio 2013 ve 2015 için NuGet uzantıları [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html)indirilebilir.

@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 08/05/2019
 ms.topic: conceptual
 ms.openlocfilehash: c1f1957c58839ac763238938b476eb0882c56a59
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78231220"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428746"
 ---
 # <a name="restore-packages-using-package-restore"></a>Paket geri yükleme kullanarak paketleri geri yükleme
 
@@ -29,7 +29,7 @@ Bir paket zaten yüklü değilse, NuGet ilk olarak onu [önbellekten](../consume
 
 ## <a name="restore-packages"></a>Paketleri geri yükle
 
-Paket geri yükleme, tüm paket bağımlılıklarını proje dosyanızdaki (*. csproj*) veya *Packages. config* dosyanızdaki paket başvurularıyla eşleşen doğru duruma yüklemeye çalışır. (Visual Studio 'da, başvurular **Bağımlılıklar \ NuGet** veya **başvurular** düğümü altında Çözüm Gezgini görüntülenir.)
+Paket geri yükleme, tüm paket bağımlılıklarını proje dosyanızdaki ( *. csproj*) veya *Packages. config* dosyanızdaki paket başvurularıyla eşleşen doğru duruma yüklemeye çalışır. (Visual Studio 'da, başvurular **Bağımlılıklar \ NuGet** veya **başvurular** düğümü altında Çözüm Gezgini görüntülenir.)
 
 1. Proje dosyanızdaki paket başvuruları doğruysa paketleri geri yüklemek için tercih ettiğiniz aracı kullanın.
 
@@ -40,7 +40,7 @@ Paket geri yükleme, tüm paket bağımlılıklarını proje dosyanızdaki (*. c
    - [Azure Pipelines](#restore-using-azure-pipelines)
    - [Azure DevOps Server](#restore-using-azure-devops-server)
 
-   Paket proje dosyanıza (*. csproj*) veya *paketleriniz. config* dosyanız yanlış ise (paket geri yüklemesinin ardından istenen durumla eşleşmez), bunun yerine paketleri yüklemeniz ya da güncelleştirmeniz gerekir.
+   Paket proje dosyanıza ( *. csproj*) veya *paketleriniz. config* dosyanız yanlış ise (paket geri yüklemesinin ardından istenen durumla eşleşmez), bunun yerine paketleri yüklemeniz ya da güncelleştirmeniz gerekir.
 
    PackageReference kullanan projeler için, başarılı bir geri yüklemeden sonra, paket *genel paketler* klasöründe bulunmalı ve `obj/project.assets.json` dosyası yeniden oluşturulur. `packages.config`kullanan projeler için, paketin projenin `packages` klasöründe görünmesi gerekir. Projenin şimdi başarıyla oluşturulması gerekir. 
 
@@ -180,13 +180,13 @@ TFS 2013 veya sonraki bir ekip derleme şablonu kullanıyorsanız, derleme sıra
 
 NuGet, paketleri herhangi bir yöntemle geri yüklediğinde, `packages.config` veya proje dosyasında belirttiğiniz tüm kısıtlamalara sahiptir:
 
-- `packages.config`, bağımlılığın `allowedVersion` özelliğinde bir sürüm aralığı belirtebilirsiniz. Daha fazla bilgi için bkz. [yükseltme sürümlerini kısıtlama](../consume-packages/reinstalling-and-updating-packages.md#constraining-upgrade-versions) . Örnek:
+- `packages.config`, bağımlılığın `allowedVersion` özelliğinde bir sürüm aralığı belirtebilirsiniz. Daha fazla bilgi için bkz. [yükseltme sürümlerini kısıtlama](../consume-packages/reinstalling-and-updating-packages.md#constraining-upgrade-versions) . Örneğin:
 
     ```xml
     <package id="Newtonsoft.json" version="6.0.4" allowedVersions="[6,7)" />
     ```
 
-- Bir proje dosyasında, bir bağımlılığın doğrudan aralığını belirtmek için PackageReference kullanabilirsiniz. Örnek:
+- Bir proje dosyasında, bir bağımlılığın doğrudan aralığını belirtmek için PackageReference kullanabilirsiniz. Örneğin:
 
     ```xml
     <PackageReference Include="Newtonsoft.json" Version="[6, 7)" />

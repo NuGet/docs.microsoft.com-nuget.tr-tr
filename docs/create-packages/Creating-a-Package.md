@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
 ms.openlocfilehash: b3e6f0efc9e2e12de186ffd4ce29d496d07d5fc4
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78230960"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428949"
 ---
 # <a name="create-a-package-using-the-nugetexe-cli"></a>NuGet. exe CLı kullanarak paket oluşturma
 
@@ -183,7 +183,7 @@ Klasör kuralları aşağıdaki gibidir:
 | lib/{tfm} | Verilen hedef çerçeve bilinen adı için derleme (`.dll`), belge (`.xml`) ve sembol (`.pdb`) dosyaları (TFı) | Derlemeler derleme ve çalışma zamanı için başvurular olarak eklenir; `.xml` ve `.pdb` proje klasörlerine kopyalanmış. Bkz. çerçeve hedefine özgü alt klasörler oluşturmak için [birden çok hedef çerçeve destekleme](supporting-multiple-target-frameworks.md) . |
 | ref/{tfd} | Verilen hedef çerçeve bilinen adı için bütünleştirilmiş kod (`.dll`) ve sembol (`.pdb`) dosyaları (TFı) | Derlemeler yalnızca derleme süresi için başvuru olarak eklenir; Bu nedenle proje bin klasörüne hiçbir şey kopyalanmayacak. |
 | zamanları | Mimariye özgü derleme (`.dll`), simge (`.pdb`) ve yerel kaynak (`.pri`) dosyaları | Derlemeler yalnızca çalışma zamanı için başvuru olarak eklenir; diğer dosyalar proje klasörlerine kopyalanır. Karşılık gelen derleme zamanı derlemesini sağlamak için `/ref/{tfm}` klasörü altında her zaman karşılık gelen (tfd) `AnyCPU` belirli bir derleme olmalıdır. Bkz. [birden çok hedef çerçeveyi destekleme](supporting-multiple-target-frameworks.md). |
-| content | Rastgele dosyalar | İçerikler proje köküne kopyalanır. **İçerik** klasörünü, son olarak paketi tüketen hedef uygulamanın kökü olarak düşünün. Paketin uygulamanın */Images* klasörüne görüntü eklemesi için, paketin *içerik/görüntüler* klasörüne yerleştirin. |
+| içerik | Rastgele dosyalar | İçerikler proje köküne kopyalanır. **İçerik** klasörünü, son olarak paketi tüketen hedef uygulamanın kökü olarak düşünün. Paketin uygulamanın */Images* klasörüne görüntü eklemesi için, paketin *içerik/görüntüler* klasörüne yerleştirin. |
 | derleme | *(3. x +)* MSBuild `.targets` ve `.props` dosyaları | Projeye otomatik olarak ekleniyor. |
 | Buildmultihedefleme | *(4.0 +)* Platformlar arası hedefleme için MSBuild `.targets` ve `.props` dosyaları | Projeye otomatik olarak ekleniyor. |
 | buildTransitive | *(5.0 +)* MSBuild `.targets` ve herhangi bir tüketen projeye geçişli olarak akan `.props` dosyaları. Bkz. [özellik](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior) sayfası. | Projeye otomatik olarak ekleniyor. |

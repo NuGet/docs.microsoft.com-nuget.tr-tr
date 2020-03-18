@@ -11,11 +11,11 @@ f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager.package_sources
 - vs.nuget.packagemanager.ui
 ms.openlocfilehash: 3adceac8c725d9ea1610aea090753c9c1d8bc818
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78231013"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428697"
 ---
 # <a name="install-and-manage-packages-in-visual-studio-using-the-nuget-package-manager"></a>NuGet Paket Yöneticisi 'Ni kullanarak Visual Studio 'da paket yükleyip yönetme
 
@@ -28,7 +28,7 @@ Windows üzerinde Visual Studio 'daki NuGet Paket Yöneticisi Kullanıcı arabir
 
 ## <a name="find-and-install-a-package"></a>Paket bulma ve yüklemeyi
 
-1. **Çözüm Gezgini**, **başvuruya** veya bir projeye sağ tıklayın ve **NuGet Paketlerini Yönet..**. seçeneğini belirleyin.
+1. **Çözüm Gezgini**, **başvuruya** veya bir projeye sağ tıklayın ve **NuGet Paketlerini Yönet..** . seçeneğini belirleyin.
 
     ![NuGet Paketlerini Yönet menü seçeneği](media/ManagePackagesUICommand.png)
 
@@ -79,7 +79,7 @@ Windows üzerinde Visual Studio 'daki NuGet Paket Yöneticisi Kullanıcı arabir
 
 Bir çözüm için paketlerin yönetilmesi, birden çok projeyle aynı anda çalışması için uygun bir yoldur.
 
-1. **NuGet paket yöneticisi > araçlar > çözüm Için NuGet Paketlerini Yönet..** . menü komutunu seçin veya çözüme sağ tıklayıp **NuGet Paketlerini Yönet..**. öğesini seçin:
+1. **NuGet paket yöneticisi > araçlar > çözüm Için NuGet Paketlerini Yönet..** . menü komutunu seçin veya çözüme sağ tıklayıp **NuGet Paketlerini Yönet..** . öğesini seçin:
 
     ![Çözüm için NuGet Paketlerini Yönet](media/ManagePackagesSolutionUICommand.png)
 

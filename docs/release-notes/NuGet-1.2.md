@@ -1,49 +1,49 @@
 ---
-title: NuGet 1.2 sürüm notları
-description: NuGet 1.2 bilinen sorunları, hata düzeltmeleri yapıldı, eklenen özellikler ve dcr için sürüm notları.
+title: NuGet 1,2 sürüm notları
+description: Bilinen sorunlar, hata düzeltmeleri, eklenen özellikler ve CCR 'ler dahil olmak üzere NuGet 1,2 sürüm notları.
 author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
 ms.openlocfilehash: 5d10d6bf27614980a144c30c3af6f9892a109061
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426183"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79429089"
 ---
-# <a name="nuget-12-release-notes"></a>NuGet 1.2 sürüm notları
+# <a name="nuget-12-release-notes"></a>NuGet 1,2 sürüm notları
 
-[NuGet 1.0 ve 1.1 sürüm notları](../release-notes/nuget-1.1.md) | [1.3 NuGet sürüm notları](../release-notes/nuget-1.3.md)
+[Nuget 1,0 ve 1,1 sürüm notları](../release-notes/nuget-1.1.md) | [NuGet 1,3 sürüm notları](../release-notes/nuget-1.3.md)
 
-NuGet 1.2, 30 Mart 2011'de yayınlanmıştır.
+NuGet 1,2, 30 Mart 2011 ' de yayımlanmıştır.
 
 ## <a name="new-features"></a>Yeni Özellikler
 
-### <a name="framework-profile-support"></a>Framework profili desteği
+### <a name="framework-profile-support"></a>Çerçeve profili desteği
 
-Sahip NuGet en başından itibaren desteklenen kitaplıkları hedef farklı çerçeveler. Ancak, Windows Phone profili gibi belirli profiller hedef derlemeler paketler artık içerebilir. Belirli bir profili bir framework'ün hedef profil kısaltması tarafından izlenen bir kısa çizgi ekleyin. Örneğin, Windows Phone (Windows Phone 7 olarak da bilinir) üzerinde çalışan SilverLight hedeflemek için aşağıdaki ekran görüntüsünde gösterildiği gibi sl3 wp klasöründe bir derleme koyabilirsiniz.
+Başlangıçtan itibaren, desteklenen NuGet kütüphaneleri farklı çerçeveleri hedeflemelidir. Ancak artık paketler, Windows Phone profili gibi belirli profilleri hedefleyen derlemeler içerebilir. Bir çerçevenin belirli bir profilini hedeflemek için, ardından profil kısaltması gelen bir tire ekleyin. Örneğin, bir Windows Phone (diğer adıyla Windows Phone 7) çalışan SilverLight 'ı hedeflemek için, aşağıdaki ekran görüntüsünde gösterildiği gibi bir derlemeyi SL3-WP klasörüne yerleştirebilirsiniz.
 
-![Framework profil klasör düzeni](./media/framework-profile-support.png)
+![Çerçeve profili klasör düzeni](./media/framework-profile-support.png)
 
-Neden biz yalnızca "wp7" bilinen adı olarak kullanılacak seçmediyseniz isteyebilir. Kısmen biz kapasitesinden Windows Phone 7 daha yeni bir Silverlight sürümü gelecekte çalışabilir, olduğunuz hedefleyen bu durumda hangi framework profil hakkında daha fazla belirli olması gerekebilir.
+Bilinen ad olarak "wp7" kullanmayı görmediğimiz bir sorun. Bir parçası olarak, Windows Phone 7 ' nin ileride Silverlight 'ın daha yeni bir sürümünü çalıştırabileceğini benimsemeyi bekleme. Bu durumda, hangi çerçeve profilinin hangi çerçevede daha özel olması gerektiği konusunda daha fazla olması gerekebilir.
 
-### <a name="automatically-add-binding-redirects"></a>Otomatik bağlama yeniden yönlendirmeleri ekleyin
+### <a name="automatically-add-binding-redirects"></a>Otomatik bağlama yeniden yönlendirmeleri Ekle
 
-Bir paket tanımlayıcı adlandırılmış derlemeler ile yüklerken, NuGet şimdi burada bağlama yönlendirmeleri, projeyi derleyin ve bunları otomatik olarak eklemek yapılandırma dosyası eklenecek proje ihtiyaç duyması algılayabilir. Bölüm 3 David Ebbo'nın blog gönderisi serisinin NuGet başlıklı sürüm üzerinde "[bağlama yeniden yönlendirmelerini aracılığıyla Birleştirici](http://blog.davidebbo.com/2011/01/nuget-versioning-part-3-unification-via.html)" Bu özelliğin amacı, daha ayrıntılı ele alınmaktadır.
+Güçlü adlandırılmış derlemelere sahip bir paket yüklerken, NuGet artık projenin derlenmesi ve otomatik olarak eklemesi için yapılandırma dosyasına bağlama yeniden yönlendirmeleri eklemesi gereken durumları algılayabilir. NuGet sürüm oluşturma sırasında "[bağlama yeniden yönlendirmeleri aracılığıyla birleştirme](http://blog.davidebbo.com/2011/01/nuget-versioning-part-3-unification-via.html)" başlıklı David Ebbo 'nın blog gönderisi serisinin 3. bölümü, bu özelliğin amacını daha ayrıntılı olarak ele almaktadır.
 
 <a name="framework-assembly-refs"></a>
 
-### <a name="specifying-framework-assembly-references-gac"></a>Framework'te derleme başvuruları (GAC) belirtme
+### <a name="specifying-framework-assembly-references-gac"></a>Çerçeve derleme başvurularını belirtme (GAC)
 
-Bazı durumlarda, bir paket, .NET Framework derleme bağlı olabilir. NET olarak söylemek gerekirse, her zaman paketinizin tüketici framework derlemesine başvuru gerekli değildir. Ancak bazı durumlarda, geliştiriciye paketiniz kullanmak için bu bütünleştirilmiş kodundaki türler karşı kod gerektiğinde gibi önemli değildir. Yeni `frameworkAssemblies` öğesi, meta veri öğesi alt öğesi bir kümesini belirlemenizi sağlar `frameworkAssembly` Framework derlemenin GAC'deki işaret eden öğeler. Framework'te derleme indirimlere unutmayın.
-Bu derlemeleri gibi bunlar her makinede .NET Framework'ün bir parçası olarak olduğu varsayılır paketinize dahil edilmez. Aşağıdaki tabloda öznitelikleri listeler `frameworkAssembly` öğesi.
+Bazı durumlarda, bir paket .NET Framework bir derlemeye bağlı olabilir. Kesinlikle konuşuyor, paketinizin tüketicisinin Framework derlemesine başvurması her zaman gerekli değildir. Ancak bazı durumlarda, örneğin, geliştiricinin paketinizi kullanabilmesi için bu derlemedeki türlere karşı kod kullanması gerektiğinde önemlidir. Meta veri öğesinin bir alt öğesi olan New `frameworkAssemblies` öğesi, GAC içindeki bir Framework derlemesini işaret eden bir dizi `frameworkAssembly` öğesi belirtmenize olanak tanır. Çerçeve derlemesinde vurgu notuna göz önünde edin.
+Bu derlemeler, .NET Framework bir parçası olarak her makinede olduğu varsayılarsa paketinize dahil edilmez. Aşağıdaki tabloda `frameworkAssembly` öğesinin öznitelikleri listelenmektedir.
 
 
 |Öznitelik |Açıklama|
 |----------------|-----------|
-|**AssemblyName**|*Gerekli*. Gibi derlemenin adı `System.Net`.|
-|**targetFramework**|*İsteğe bağlı*. Framework ve profili adı (veya diğer) belirtmeye izin verir "net40" veya "sl4" gibi bu framework derlemesine geçerli. Açıklanan aynı biçimi kullanır [birden çok hedef çerçeveyi destekleme](../create-packages/supporting-multiple-target-frameworks.md).|
+|**assemblyName**|*Gerekli*. `System.Net`gibi bütünleştirilmiş kodun adı.|
+|**targetFramework**|*İsteğe bağlı*. Bu çerçeve derlemesinin "net40" veya "SL4" gibi uyguladığı bir çerçeve ve profil adı (veya diğer ad) belirtilmesine izin verir. [Birden çok hedef çerçeveyi destekleme](../create-packages/supporting-multiple-target-frameworks.md)bölümünde açıklanan biçimi kullanır.|
 
 ```xml
   <frameworkAssemblies>
@@ -52,19 +52,19 @@ Bu derlemeleri gibi bunlar her makinede .NET Framework'ün bir parçası olarak 
   </frameworkAssemblies>
 ```
 
-### <a name="nugetexe-now-is-able-to-store-api-key-credentials"></a>nuget.exe, API anahtarı kimlik bilgilerini saklamak amacıyla kuramıyor
+### <a name="nugetexe-now-is-able-to-store-api-key-credentials"></a>NuGet. exe artık API anahtarı kimlik bilgilerini depolayabiliyor
 
-Nuget.exe komut satırı aracını kullanarak, API anahtarınızı depolamak için artık SetApiKey komutunu kullanabilirsiniz. Bu şekilde, paket her itme yapışınızda bunu belirtmeniz gerekmez. API anahtarınızı nuget.exe ile kaydetme hakkında daha fazla ayrıntı için [bir paket yayımlama hakkında belgeleri okuyun](../nuget-org/publish-a-package.md).
+NuGet. exe komut satırı aracını kullanırken, API anahtarınızı depolamak için artık SetApiKey komutunu kullanabilirsiniz. Bu şekilde, paketini her gönderişinizde belirtmeniz gerekmez. API anahtarınızı NuGet. exe ile kaydetme hakkında daha fazla bilgi için, [bir paket yayımlama belgelerini okuyun](../nuget-org/publish-a-package.md).
 
 ### <a name="package-explorer"></a>Paket Gezgini
-Paket Gezgini NuGet 1.2 desteklemek için güncelleştirildi. Daha fazla bilgi için kullanıma [paket Gezgini sürüm notları](http://nuget.codeplex.com/wikipage?title=New%20features%20in%20NuGet%20Package%20Explorer%201.0).
+Paket Gezgini, NuGet 1,2 ' i destekleyecek şekilde güncelleştirilmiştir. Daha fazla bilgi için, [Paket Gezgini sürüm notlarına](http://nuget.codeplex.com/wikipage?title=New%20features%20in%20NuGet%20Package%20Explorer%201.0)göz atın.
 
-## <a name="other-featuresfixes"></a>Diğer özellikler/düzeltmeleri
+## <a name="other-featuresfixes"></a>Diğer özellikler/düzeltmeler
 
-Önceki listede olan en dikkat çeken birçok özelliklerini uyguladık ve hataları düzelttik. Boyutunda uygulanan/düzelttik [59 iş öğelerini](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=All&type=All&priority=All&release=NuGet%201.2&assignedTo=All&component=All&sortField=Votes&sortDirection=Descending&page=0) bu sürümde.
+Önceki liste, uyguladığımız birçok özelliğin ve düzelttiğimiz hataların en belirgin bulgıydı. Tümü içinde, bu sürümde [59 iş öğesi](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=All&type=All&priority=All&release=NuGet%201.2&assignedTo=All&component=All&sortField=Votes&sortDirection=Descending&page=0) uyguladık/düzeltildi.
 
 ## <a name="known-issues"></a>Bilinen Sorunlar
 
-* **1.2 paketini uyumsuzluk**: Komut satırı aracının en son sürüm ile oluşturulan paketler, nuget.exe (> 1.2) NuGet VS eklentisini (örneğin, 1.1), önceki sürümlerle çalışmaz. Uyumsuz şeması hakkında bir şeyler belirten bir hata iletisi karşılaşırsanız, bu hatayla çalışıyor. Lütfen NuGet en son sürüme güncelleştirin.
-* **NuGet.Server uyumsuzluk**: NuGet.Server Proje akışa bir iç NuGet düzenliyoruz. Bu projeyi NuGet.Server en son sürümüyle güncelleştirmek gerekir.
-* **İmza türde bir eşleşmeme hatası**: Bir imza uyuşmazlığı hakkında bir ileti ile yükseltme sırasında bir hatayla çalıştırırsanız, NuGet önce kaldırın ve ardından yüklemeniz gerekir. Listede bu bizim [bilinen sorunlar sayfasında](../release-notes/known-issues.md) daha fazla ayrıntı sağlar. Sorunun yalnızca Visual Studio 2010 SP1 çalıştıran etkiler ve NuGet yüklü 1.0 yanlış imzalı bir sürümüne sahip. Bu sorun pek çok etkilenme şekilde bu sürümü yalnızca kısa bir süre için CodePlex Web sitesinden sunulmuştur.
+* **1,2 paket uyumsuzluğu**: komut satırı aracının en son sürümüyle oluşturulan paketler NuGet. exe (> 1,2), NuGet vs eklentisinin (1,1 gibi) eski sürümleriyle çalışmaz. Uyumsuz şemayla ilgili bir şeyi belirten bir hata mesajınızı çalıştırırsanız, bu hatayla çalışıyorsunuz demektir. Lütfen NuGet 'i en son sürüme güncelleştirin.
+* **NuGet. Server uyumsuzluğu**: NuGet. Server projesini kullanarak dahili bir NuGet akışı barındırıyorsanız, bu projeyi NuGet. Server ' ın en son sürümüyle güncelleştirmeniz gerekir.
+* **Imza uyumsuzluğu hatası**: bir imza uyumsuzluğu hakkında bir iletiyle birlikte yükseltme sırasında hata halinde çalıştırırsanız, önce NuGet 'i kaldırmanız ve ardından yüklemeniz gerekir. Bu, daha fazla ayrıntı sağlayan [Bilinen Sorunlar sayfamızda](../release-notes/known-issues.md) listelenmiştir. Sorun yalnızca çalışan Visual Studio 2010 SP1 'i etkiler ve hatalı imzalı bir NuGet 1,0 sürümü yüklü. Bu sürüm kısa bir süre boyunca yalnızca CodePlex Web sitesinden kullanıma sunulmuştur. bu sorunun çok fazla kişiyi etkilememesi gerekir.

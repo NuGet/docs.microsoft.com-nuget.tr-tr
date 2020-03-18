@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
 ms.openlocfilehash: 940582d5173f5a53dcd04cf1258fc02a2439af4e
-ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74825290"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428718"
 ---
 # <a name="nuget-25-release-notes"></a>NuGet 2,5 sürüm notları
 
@@ -49,7 +49,7 @@ NuGet 2,5 ' e yönelik önemli katkılarına yönelik olarak aşağıdaki dış 
 
 Son sürümden önce onaylanan ve düzeltilen NuGet 2,5 Beta/RC ile hataları bulmak için aşağıdaki bireyler de bizim için de teşekkür ederiz:
 
-1. [](https://www.codeplex.com/site/users/view/CodeChief) ,[@CodeChief](https://twitter.com/codechief))
+1. [Tony Wall](https://www.codeplex.com/site/users/view/CodeChief) ,[@CodeChief](https://twitter.com/codechief))
     - [#3200](https://nuget.codeplex.com/workitem/3200) -MSTest, son NuGet 2,4 ve 2,5 Derlemeleriyle kesildi
 
 ## <a name="notable-features-in-the-release"></a>Yayındaki önemli özellikler

@@ -7,11 +7,11 @@ ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
 ms.openlocfilehash: 852dca8c70b09d941e844b1f7cd03b38e2192481
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78230895"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428732"
 ---
 # <a name="package-metadata"></a>Paket meta verileri
 
@@ -78,7 +78,7 @@ Nuget.org 'in kullandığı buluşsal yöntem şu şekildedir: bir paketin 128 v
 
 Adı     | İçindeki     | Tür    | Gerekli | Notlar
 -------- | ------ | ------- | -------- | -----
-LOWER_ID | URL'si    | string  | evet      | Paket KIMLIĞI, küçük harf
+LOWER_ID | {1&gt;URL&lt;1}    | string  | evet      | Paket KIMLIĞI, küçük harf
 
 `LOWER_ID` değeri, tarafından uygulanan kurallar kullanılarak istenen paket KIMLIĞI alt. NET ' in [`System.String.ToLowerInvariant()`](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) yöntemi.
 
@@ -88,7 +88,7 @@ Yanıt, aşağıdaki özelliklere sahip bir kök nesnesi olan bir JSON belgesidi
 
 Adı  | Tür             | Gerekli | Notlar
 ----- | ---------------- | -------- | -----
-count | integer          | evet      | Dizindeki kayıt sayfası sayısı
+{1&gt;count&lt;1} | integer          | evet      | Dizindeki kayıt sayfası sayısı
 items | nesne dizisi | evet      | Kayıt sayfaları dizisi
 
 Dizin nesnesinin `items` dizisindeki her öğe, bir kayıt sayfasını temsil eden bir JSON nesnesidir.
@@ -100,9 +100,9 @@ Kayıt dizininde bulunan kayıt sayfası nesnesi aşağıdaki özelliklere sahip
 Adı   | Tür             | Gerekli | Notlar
 ------ | ---------------- | -------- | -----
 @id    | string           | evet      | Kayıt sayfasının URL 'SI
-count  | integer          | evet      | Kayıt sayısı sayfada kalır
+{1&gt;count&lt;1}  | integer          | evet      | Kayıt sayısı sayfada kalır
 items  | nesne dizisi | hayır       | Kayıt dizisi ve onların ilişkilendirme meta verileri
-Düşürül  | string           | evet      | Sayfada en düşük SemVer 2.0.0 sürümü (dahil)
+düşürül  | string           | evet      | Sayfada en düşük SemVer 2.0.0 sürümü (dahil)
 üst | string           | hayır       | Kayıt dizininin URL 'SI
 üst  | string           | evet      | Sayfada en yüksek SemVer 2.0.0 sürümü (dahil)
 
@@ -152,7 +152,7 @@ Requirelicensekabulünü | boole                    | hayır       |
 özet                  | string                     | hayır       | 
 etiketler                     | dize veya dize dizisi  | hayır       | 
 title                    | string                     | hayır       | 
-version                  | string                     | evet      | Normalleştirme sonrasında tam sürüm dizesi
+sürüm                  | string                     | evet      | Normalleştirme sonrasında tam sürüm dizesi
 
 Package `version` özelliği, normalleştirmenin ardından tam sürüm dizesidir. Bu, SemVer 2.0.0 derleme verilerinin buraya dahil edileceğini gösterir.
 
@@ -239,9 +239,9 @@ Kayıt dizininde `items` dizisi sağlanmazsa, `@id` değerine ait HTTP GET iste�
 Adı   | Tür             | Gerekli | Notlar
 ------ | ---------------- | -------- | -----
 @id    | string           | evet      | Kayıt sayfasının URL 'SI
-count  | integer          | evet      | Kayıt sayısı sayfada kalır
+{1&gt;count&lt;1}  | integer          | evet      | Kayıt sayısı sayfada kalır
 items  | nesne dizisi | evet      | Kayıt dizisi ve onların ilişkilendirme meta verileri
-Düşürül  | string           | evet      | Sayfada en düşük SemVer 2.0.0 sürümü (dahil)
+düşürül  | string           | evet      | Sayfada en düşük SemVer 2.0.0 sürümü (dahil)
 üst | string           | evet      | Kayıt dizininin URL 'SI
 üst  | string           | evet      | Sayfada en yüksek SemVer 2.0.0 sürümü (dahil)
 
