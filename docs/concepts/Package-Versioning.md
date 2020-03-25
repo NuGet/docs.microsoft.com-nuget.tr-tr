@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 03/23/2018
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 912c0d015e2f499bc7386483bc6c35ecd765d3d4
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.openlocfilehash: c79976c2f4ded2fba3796fb847d3c90807d7b86c
+ms.sourcegitcommit: 1a63a84da2719c8141823ac89a20bf507fd22b00
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2020
-ms.locfileid: "79428837"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80147454"
 ---
 # <a name="package-versioning"></a>Paket sürümü oluşturma
 
@@ -221,6 +221,10 @@ Yükleme, yeniden yükleme veya geri yükleme işlemleri sırasında bir depodan
 
         1.0.0.0 is treated as 1.0.0
         1.0.01.0 is treated as 1.0.1
+        
+- SemVer 2.0.0 derleme meta verileri kaldırıldı
+
+        1.0.7+r3456 is treated as 1.0.7
 
 `pack` ve `restore` işlemleri mümkün olduğunda sürümleri normalleştirin. Zaten oluşturulan paketler için, bu normalleştirme, paketlerdeki sürüm numaralarını etkilemez; Bağımlılıklar çözümlenirken yalnızca NuGet 'in sürümleri nasıl eşleştiğini etkiler.
 
