@@ -6,7 +6,7 @@
       tocHref: /nuget/
       topicHref: /nuget
       items:
-        - name: Başlarken
+        - name: Kullanmaya başlayın
           tocHref: /nuget/quickstart/
           topicHref: /nuget/quickstart/install-and-use-a-package-using-the-dotnet-cli
         - name: Paketleri kullanma
@@ -33,7 +33,7 @@
         - name: Visual Studio genişletilebilirliği
           tocHref: /nuget/visual-studio-extensibility/
           topicHref: /nuget/visual-studio-extensibility/nuget-api-in-visual-studio
-        - name: Yayımlama
+        - name: Yayımla
           tocHref: /nuget/hosting-packages/
           topicHref: /nuget/hosting-packages/overview
         - name: İlkeler
