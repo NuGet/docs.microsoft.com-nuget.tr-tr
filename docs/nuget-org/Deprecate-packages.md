@@ -1,58 +1,58 @@
 ---
-title: Nuget.org 'de paketleri kullanımdan kaldırma
-description: Paketleri kullanımdan kaldırma işlemi ve istemcilerin bu bilgileri nasıl gösterdiği hakkında ayrıntılı açıklama
+title: nuget.org'da ambalajları küçümseme
+description: Paketleri küçümseme işlemi ve istemcilerin bu bilgileri nasıl gösterdiği hakkında ayrıntılı açıklama
 author: anangaur
 ms.author: anangaur
 ms.date: 09/23/2019
 ms.topic: conceptual
 ms.reviewer: karann-msft
 ms.openlocfilehash: 70666ddf9cd7bdc448d29d4235e57bc91e2c003e
-ms.sourcegitcommit: 60414a17af65237652c1de9926475a74856b91cc
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "74096879"
 ---
-# <a name="deprecating-packages"></a>Paketleri kullanımdan kaldırma
+# <a name="deprecating-packages"></a>Amortisman paketleri
 
-Artık paket bulundurmuyorsa veya paketinizin tüketicilerini başka bir pakete geçiş yapmak istiyorsanız bir paketi kullanımdan kaldırabilirsiniz. 
+Bir paketi artık muhafaza etmezseniz veya paketinizin tüketicilerini başka bir pakete geçmeye teşvik etmek istiyorsanız, paketi amortismana dahil edebilirsiniz. 
 
-Paket kullanımdan kaldırma, paketinizin aşağıda açıklandığı gibi **listelenenden** farklıdır:
-* Bir paketin **listesinin kaldırılması** , arama sonuçlarında gizlendiğinden bulma işlemini engeller. 
-* **Bir paketin** kullanım dışı bırakılması, paketinizin mevcut tüketicilerinin projelerine yüklenip yüklenmediğini veya bu kullanıcılara kullanılmaları halinde bulmasını sağlar. Ayrıca, kullanım dışı bırakma nedenini ve sizin tarafınızdan belirtilen alternatif önerilen paketi (paket yayımcısı) öğrenmelerini sağlar. Bir paketin kullanımdan kaldırılması paketin listesini kaldırma. 
+Paket amortismanı, aşağıda açıklandığı gibi paketinizin **listeyi bırakmadan** farklıdır:
+* Bir paketin **listelenmesi,** arama sonuçlarında gizli olduğundan bulunmasını engeller. 
+* Bir paketin **amortismana sokulmaması,** paketinmevcut tüketicilerinin paketi yüklü veya projelerinde kullanıp kullanmadıklarını öğrenmelerini sağlar. Ayrıca, amortisman nedenini ve sizin (paket yayımcısı) tarafından belirtildiği gibi alternatif bir önerilen paket ilerler. Bir paketi küçümsemek paketin listesini geri almaz. 
 
-Bir yayımcı olarak, hem listeyi kaldırmayı hem de paketleri kullanımdan kaldırmayı tercih edebilirsiniz.
+Yayımcı olarak, paketleri hem listedışı bırakmayı hem de amortismanı seçebilirsiniz.
 
-## <a name="deprecation-workflow"></a>Kullanımdan kaldırma iş akışı
-1. Bir paketin kullanımdan kaldırılması için **paketleri Yönet** ' e gidin ve **kullanımdan**Kaldır ' ı seçin:
+## <a name="deprecation-workflow"></a>Amortisman iş akışı
+1. Bir paketi amortismana katmayı yönetmek için **paketleri Yönet'e** gidin ve **Amortisman'ı**seçin:
 
-    ![Kullanımdan Kaldır ' a git paket seçeneği](media/deprecation-select-option.png)
+    ![Paket seçeneğini amortismana gitme](media/deprecation-select-option.png)
 
-2. Kullanımdan kalkmak istediğiniz sürümü seçin. Tüm sürümü kullanımdan kaldırmayı istiyorsanız **tüm sürümleri Seç** seçeneğini belirleyin.
+2. Amortismana uymak istediğiniz sürümü seçin. Tüm sürümü amortismana kayırmak istiyorsanız, **tüm sürümleri seç** seçeneğini belirleyin.
 
-    ![Kullanımdan kalkmak için paket sürümlerini seçin](media/deprecation-select-version.png)
+    ![Amortismana uymak için paket sürümlerini seçin](media/deprecation-select-version.png)
 
-3. Kullanımdan kaldırma için bir neden seçin. Paket artık korunmuyorsa, **eski** seçeneğini belirleyin. Belirli bir sürüm kritik bir hata kullanıyorsa, **kritik hataları olan** seçeneğini belirleyin. Başka bir nedenle **diğer**' i seçin. Her zaman farklı bir önerilen paket (ve sürüm) ve Sahibe özel bir ileti belirtebilirsiniz. 
+3. Amortisman için bir neden seçin. Paket artık korunmazsa, **Eski** seçeneğini seçin. Belirli sürümde kritik bir hata varsa, **kritik hataları seçeneği ni** seçin. Başka bir nedenle **Diğer'i**seçin. Her zaman alternatif bir önerilen paket (ve sürüm) ve sahiplerine özel bir ileti belirtebilirsiniz. 
 
-    ![Nedenler diğer paket önerisi ve özel ileti seçin](media/deprecation-save.png)
+    ![Alternatif paket önerisi ve özel ileti nedenleri seçin](media/deprecation-save.png)
 
 > [!Note]
-> Özel ileti yalnızca nuget.org 'de gösterilir ancak istemcilerden gösterilmez. Şu anda, `dotnet.exe` ve NuGet Paket Yöneticisi gibi istemciler özel iletiyi göstermez.
+> Özel ileti yalnızca nuget.org gösterilir, ancak istemcilerden gösterilmez. Şu anda, `dotnet.exe` nuget paket yöneticisi gibi istemciler özel iletiyi göstermez.
 
-## <a name="client-experience-for-deprecated-packages"></a>Kullanım dışı bırakılan paketler için istemci deneyimi
-Bir paket kullanımdan kaldırıldıktan sonra, tüketicileri aşağıdaki yollarla (kullanılan istemciye bağlı olarak) bilgilendirilir.
+## <a name="client-experience-for-deprecated-packages"></a>Amortismana uyan paketler için müşteri deneyimi
+Bir paket amortismana uğradıktan sonra, tüketicilere bu konuda aşağıdaki yollarla bilgi verilir (kullanılan müşteriye bağlı olarak).
 
 ### <a name="visual-studio"></a>Visual Studio 
-*Visual Studio 2019 sürüm 16,3 ' den başlayarak kullanılabilir*
+*Visual Studio 2019 sürümü16.3'ten itibaren kullanılabilir*
 
-Visual Studio, `Installed` sekmesindeki kullanım dışı bırakılan paketin kullanımı hakkında uyarır. Paket ve kullanımdan kaldırma bilgileri (kullanım dışı olma nedeni ve varsa bunun yerine kullanılacak alternatif paket) için bir uyarı gösterir.
+Visual `Installed` Studio, sekmede amortismana lı bir paketin kullanımı konusunda uyarır. Paket ve amortisman bilgileri için bir uyarı gösterir (amortismana neden ve varsa kullanılacak alternatif paket dahil).
 
-   ![Paket Yöneticisi 'nin Visual Studio yüklü sekmesindeki kullanım dışı paketler](media/deprecation-vs.png)
+   ![Visual Studio'da amortismana küçümşen paketler paket yöneticisisekmesine yüklenmiş](media/deprecation-vs.png)
 
-### <a name="dotnetexe"></a>DotNet. exe
-*.NET SDK 3,0 ile başlayarak kullanılabilir*
+### <a name="dotnetexe"></a>dotnet.exe
+*.NET SDK 3.0 ile başlayan fiyatlarla*
 
-DotNet. exe ' yi kullanırsanız, kullanım dışı bırakılan paketlerin listesini kullanımdan kaldırma bilgileriyle birlikte almak için çözüm veya proje klasörü üzerinde `dotnet list package --deprecated` komutu çalıştırabilirsiniz:
+dotnet.exe kullanıyorsanız, amortisman bilgileriyle `dotnet list package --deprecated` birlikte amortismana alınan paketlerin listesini almak için çözüm veya proje klasöründeki komutu çalıştırabilirsiniz:
 
 ```
 > dotnet list package --deprecated

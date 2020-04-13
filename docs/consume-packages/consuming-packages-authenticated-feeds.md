@@ -1,105 +1,105 @@
 ---
-title: Kimliği doğrulanmış akışlardan paketleri kullanma
-description: Tüm NuGet istemci senaryolarında kimliği doğrulanmış akışlardan paketleri kullanma
+title: Kimlik doğrulama akışlarından paketleri tüketme
+description: Tüm NuGet istemci senaryolarında kimlik doğrulama akışlarından paketleri tüketme
 author: nkolev92
 ms.author: nikolev
 ms.date: 02/28/2020
 ms.topic: conceptual
 ms.openlocfilehash: bb624ec6987dd5c6ee38d5bb7e01200487dd4bed
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "78231793"
 ---
-# <a name="consuming-packages-from-authenticated-feeds"></a>Kimliği doğrulanmış akışlardan paketleri kullanma
+# <a name="consuming-packages-from-authenticated-feeds"></a>Kimlik doğrulama akışlarından paketleri tüketme
 
-Nuget.org [genel akışına](https://api.nuget.org/v3/index.json)ek olarak, NuGet istemcilerinin dosya akışlarıyla ve özel http akışlarıyla etkileşim kurma olanağı vardır.
+[nuget.org genel beslemeye](https://api.nuget.org/v3/index.json)ek olarak, NuGet istemcileri dosya akışları ve özel http akışları ile etkileşim yeteneğine sahiptir.
 
 
-Özel http akışlarıyla kimlik doğrulaması yapmak için 2 yaklaşımlar şunlardır:
+Özel http beslemeleri ile doğrulamak için, 2 yaklaşımlar şunlardır:
 
-* [NuGet. config dosyasına](../reference/nuget-config-file.md#packagesourcecredentials) kimlik bilgileri ekleme
-* Kullanılan istemciye bağlı olarak birçok genişletilebilirlik modelinden birini kullanarak kimlik doğrulaması yapın.
+* [NuGet.config'e](../reference/nuget-config-file.md#packagesourcecredentials) kimlik bilgileri ekleme
+* Kullanılan istemciye bağlı olarak birçok genişletilebilirlik modellerinden birini kullanarak kimlik doğrulaması yapın.
 
 ## <a name="nuget-clients-authentication-extensibility"></a>NuGet istemcilerinin kimlik doğrulama genişletilebilirliği
 
-Çeşitli NuGet istemcileri için, özel akış sağlayıcısı kimlik doğrulamasından sorumludur.
-Tüm NuGet istemcilerinin bunu desteklemeye yönelik genişletilebilirlik yöntemleri vardır. Bunlar, kimlik bilgilerini almak için NuGet ile iletişim kurabilen bir Visual Studio uzantısıdır veya bir eklentidir.
+Çeşitli NuGet istemcileri için, özel özet akışı sağlayıcısının kendisi kimlik doğrulamadan sorumludur.
+Tüm NuGet istemcilerinin bunu desteklemek için genişletilebilirlik yöntemleri vardır. Bunlar, kimlik bilgilerini almak için NuGet ile iletişim kurabilen bir Visual Studio uzantısı veya eklentidir.
 
 ### <a name="visual-studio"></a>Visual Studio
 
-NuGet, Visual Studio 'da akış sağlayıcılarının müşterilerine uygulayabilen ve sunabilmeniz için bir arabirim sunar. Daha fazla ayrıntı için lütfen [Visual Studio kimlik bilgisi sağlayıcısı oluşturma](../reference/extensibility/NuGet-Credential-Providers-for-Visual-Studio.md)hakkındaki belgelere bakın.
+Visual Studio'da NuGet, besleme sağlayıcılarının müşterilerine uygulayabileceği ve sağlayabileceği bir arabirimi ortaya çıkarır. Daha fazla bilgi için lütfen [Visual Studio kimlik bilgileri sağlayıcısının nasıl oluşturulabildiğini](../reference/extensibility/NuGet-Credential-Providers-for-Visual-Studio.md)gösteren belgelere bakın.
 
 #### <a name="available-nuget-credential-providers-for-visual-studio"></a>Visual Studio için kullanılabilir NuGet kimlik bilgileri sağlayıcıları
 
-Azure DevOps 'u desteklemek için Visual Studio 'da yerleşik olarak bulunan bir kimlik bilgisi sağlayıcısı vardır.
+Azure DevOps'leri desteklemek için Visual Studio'da yerleşik bir kimlik bilgisi sağlayıcısı vardır.
 
 
-Kullanılabilir eklenti kimlik bilgileri sağlayıcıları şunları içerir:
+Kullanılabilir eklenti kimlik bilgileri sağlayıcıları şunlardır:
 
-* [Visual Studio için MyGet kimlik bilgileri sağlayıcısı](http://docs.myget.org/docs/reference/credential-provider-for-visual-studio)
+* [Visual Studio için MyGet Kimlik Sağlayıcısı](http://docs.myget.org/docs/reference/credential-provider-for-visual-studio)
 
 ### <a name="nugetexe"></a>nuget.exe
 
-`nuget.exe` bir akış ile kimlik doğrulaması yapmak için kimlik bilgileri gerektiğinde, bunları aşağıdaki şekilde arar:
+Bir `nuget.exe` özet akışıyla kimlik bilgilerinin doğrulanması gerektiğinde, bunları aşağıdaki şekilde arar:
 
-1. `NuGet.config` dosyalarında kimlik bilgilerini arayın.
-1. V2 eklenti kimlik bilgisi sağlayıcılarını kullanma
-1. V1 eklenti kimlik bilgisi sağlayıcılarını kullanma
-1. Ardından NuGet, kullanıcıdan komut satırında kimlik bilgilerini ister.
+1. Dosyalardaki kimlik `NuGet.config` bilgilerine bakın.
+1. V2 eklenti kimlik bilgileri sağlayıcılarını kullanma
+1. V1 eklenti kimlik bilgileri sağlayıcılarını kullanma
+1. NuGet daha sonra komut satırında kimlik bilgileri için kullanıcı ister.
 
-#### <a name="nugetexe-and-v2-credential-providers"></a>NuGet. exe ve v2 kimlik bilgileri sağlayıcıları
+#### <a name="nugetexe-and-v2-credential-providers"></a>nuget.exe ve V2 kimlik bilgileri sağlayıcıları
 
-`4.8` NuGet sürümünde yeni bir kimlik doğrulama eklentisi mekanizması tanımlanmış ve bundan sonra v2 kimlik bilgileri sağlayıcıları olarak anılacaktır.
-Bu sağlayıcıların yüklenmesi ve bulunması için bkz. [NuGet platformlar arası eklentileri](../reference/extensibility/NuGet-Cross-Platform-Plugins.md#plugin-installation-and-discovery).
+Sürümde `4.8` NuGet yeni bir kimlik doğrulama eklentisi mekanizması tanımlı, bundan sonra V2 kimlik bilgileri sağlayıcıları olarak anılacaktır.
+Bu sağlayıcıların kurulumu ve keşfi için [NuGet çapraz platform eklentilerine](../reference/extensibility/NuGet-Cross-Platform-Plugins.md#plugin-installation-and-discovery)bakın.
 
-#### <a name="nugetexe-and-v1-credential-providers"></a>NuGet. exe ve v1 kimlik bilgileri sağlayıcıları
+#### <a name="nugetexe-and-v1-credential-providers"></a>nuget.exe ve V1 kimlik bilgileri sağlayıcıları
 
-`3.3` NuGet sürümünde, kimlik doğrulama eklentileri 'nin ilk sürümü tanıtılmıştır.
-Bu sağlayıcıların yüklenmesi ve bulunması için [NuGet. exe kimlik bilgileri sağlayıcılarına](../reference/extensibility/nuget-exe-Credential-Providers.md#nugetexe-credential-provider-discovery) başvurur
+Sürümde `3.3` NuGet kimlik doğrulama eklentilerinin ilk sürümünü tanıttı.
+Bu sağlayıcıların kurulumu ve keşfi için [nuget.exe kimlik bilgileri sağlayıcılarına](../reference/extensibility/nuget-exe-Credential-Providers.md#nugetexe-credential-provider-discovery) başvurun
 
-#### <a name="available-credential-providers-for-nugetexe"></a>NuGet. exe için kullanılabilir kimlik bilgileri sağlayıcıları
+#### <a name="available-credential-providers-for-nugetexe"></a>nuget.exe için kullanılabilir kimlik bilgileri sağlayıcıları
 
-* [Azure DevOps v2 kimlik bilgileri sağlayıcıları](/azure/devops/artifacts/nuget/nuget-exe?view=azure-devops#add-a-feed-to-nuget-482-or-later) veya [Azure Artifacts kimlik bilgisi sağlayıcısı](https://github.com/microsoft/artifacts-credprovider)
+* [Azure DevOps V2 Kimlik Bilgileri Sağlayıcıları](/azure/devops/artifacts/nuget/nuget-exe?view=azure-devops#add-a-feed-to-nuget-482-or-later) veya [Azure Yapıları Kimlik Bilgileri Sağlayıcısı](https://github.com/microsoft/artifacts-credprovider)
 
-Visual Studio 2017 sürüm 15,9 ve sonraki sürümlerde, Azure DevOps kimlik bilgisi sağlayıcısı Visual Studio 'da paketlenmiştir.
-`nuget.exe`, bu belirli Visual Studio araç takımından MSBuild kullanıyorsa, eklenti otomatik olarak keşfedilir.
+Visual Studio 2017 sürüm 15.9 ve sonraki sürümlerle Azure DevOps kimlik bilgileri sağlayıcısı Visual Studio'da birlikte sunulur.
+Belirli `nuget.exe` bir Visual Studio araç setinden MSBuild kullanıyorsa, eklenti otomatik olarak keşfedilir.
 
-### <a name="dotnetexe"></a>DotNet. exe
+### <a name="dotnetexe"></a>dotnet.exe
 
-`dotnet.exe` bir akış ile kimlik doğrulaması yapmak için kimlik bilgileri gerektiğinde, bunları aşağıdaki şekilde arar:
+Bir `dotnet.exe` özet akışıyla kimlik bilgilerinin doğrulanması gerektiğinde, bunları aşağıdaki şekilde arar:
 
-1. `NuGet.config` dosyalarında kimlik bilgilerini arayın.
-1. V2 eklenti kimlik bilgisi sağlayıcılarını kullanma
+1. Dosyalardaki kimlik `NuGet.config` bilgilerine bakın.
+1. V2 eklenti kimlik bilgileri sağlayıcılarını kullanma
 
-Varsayılan olarak `dotnet.exe` etkileşimli değildir, bu nedenle, bir aracı kimlik doğrulama için engellemek üzere bir `--interactive` bayrağını geçirmeniz gerekebilir.
+Varsayılan `dotnet.exe` olarak etkileşimli değildir, bu nedenle `--interactive` aracı kimlik doğrulaması için engellemek için bir bayrak geçirmeniz gerekebilir.
 
-#### <a name="dotnetexe-and-v2-credential-providers"></a>DotNet. exe ve v2 kimlik bilgileri sağlayıcıları
+#### <a name="dotnetexe-and-v2-credential-providers"></a>dotnet.exe ve V2 kimlik bilgileri sağlayıcıları
 
-SDK 'nın sürüm `2.2.100`, NuGet tüm istemcilerde çalışacak bir kimlik doğrulama eklentisi mekanizması tanımladı.
-Bu sağlayıcıların yüklenmesi ve bulunması için bkz. [NuGet platformlar arası eklentileri](../reference/extensibility/NuGet-Cross-Platform-Plugins.md#plugin-installation-and-discovery).
+SDK `2.2.100` sürümünde, NuGet tüm istemcilerde çalışan bir kimlik doğrulama eklentisi mekanizması tanımlamıştır.
+Bu sağlayıcıların kurulumu ve keşfi için [NuGet çapraz platform eklentilerine](../reference/extensibility/NuGet-Cross-Platform-Plugins.md#plugin-installation-and-discovery)bakın.
 
-#### <a name="available-credential-providers-for-dotnetexe"></a>DotNet. exe için kullanılabilir kimlik bilgileri sağlayıcıları
+#### <a name="available-credential-providers-for-dotnetexe"></a>dotnet.exe için kullanılabilir kimlik bilgileri sağlayıcıları
 
-* [Azure Artifacts kimlik bilgisi sağlayıcısı](https://github.com/microsoft/artifacts-credprovider)
+* [Azure Yapıları Kimlik Bilgileri Sağlayıcısı](https://github.com/microsoft/artifacts-credprovider)
 
-### <a name="msbuildexe"></a>MSBuild. exe
+### <a name="msbuildexe"></a>Msbuild.exe
 
-`MSBuild.exe` bir akış ile kimlik doğrulaması yapmak için kimlik bilgileri gerektiğinde, bunları aşağıdaki şekilde arar:
+Bir `MSBuild.exe` özet akışıyla kimlik bilgilerinin doğrulanması gerektiğinde, bunları aşağıdaki şekilde arar:
 
-1. `NuGet.config` dosyalarında kimlik bilgilerini ara
-1. V2 eklenti kimlik bilgisi sağlayıcılarını kullanma
+1. Dosyalarda `NuGet.config` kimlik bilgilerini arama
+1. V2 eklenti kimlik bilgileri sağlayıcılarını kullanma
 
-Varsayılan olarak `MSBuild.exe` etkileşimli değildir, bu nedenle, kimlik doğrulamasını engellemek için `/p:NuGetInteractive=true` özelliğini ayarlamanız gerekebilir.
+Varsayılan `MSBuild.exe` olarak etkileşimli değildir, bu nedenle `/p:NuGetInteractive=true` aracı kimlik doğrulaması için engellemek için özelliği ayarlamanız gerekebilir.
 
-#### <a name="msbuildexe-and-v2-credential-providers"></a>MSBuild. exe ve v2 kimlik bilgileri sağlayıcıları
+#### <a name="msbuildexe-and-v2-credential-providers"></a>MSBuild.exe ve V2 kimlik bilgileri sağlayıcıları
 
-Visual Studio 2019 güncelleştirme 9 ' da, NuGet tüm istemcilerde çalışacak bir kimlik doğrulama eklentisi mekanizması tanımladı.
-Bu sağlayıcıların yüklenmesi ve bulunması için bkz. [NuGet platformlar arası eklentileri](../reference/extensibility/NuGet-Cross-Platform-Plugins.md#plugin-installation-and-discovery).
+Visual Studio 2019 Update 9'da NuGet, tüm istemcilerde çalışan bir kimlik doğrulama eklentisi mekanizması tanımladı.
+Bu sağlayıcıların kurulumu ve keşfi için [NuGet çapraz platform eklentilerine](../reference/extensibility/NuGet-Cross-Platform-Plugins.md#plugin-installation-and-discovery)bakın.
 
-#### <a name="available-credential-providers-for-msbuildexe"></a>MSBuild. exe için kullanılabilir kimlik bilgileri sağlayıcıları
+#### <a name="available-credential-providers-for-msbuildexe"></a>MSBuild.exe için kullanılabilir kimlik bilgileri sağlayıcıları
 
-* [Azure Artifacts kimlik bilgisi sağlayıcısı](https://github.com/microsoft/artifacts-credprovider)
+* [Azure Yapıları Kimlik Bilgileri Sağlayıcısı](https://github.com/microsoft/artifacts-credprovider)
 
-Visual Studio 2017 güncelleştirme 9 ve üzeri sürümlerde, Azure DevOps kimlik bilgisi sağlayıcısı Visual Studio 'da paketlenmiştir. Ek adım gerekmez.
+Visual Studio 2017 Update 9 ve sonraki bilgileriyle Azure DevOps kimlik bilgileri sağlayıcısı Visual Studio'da birlikte sunulur. Ek adım gerekmez.

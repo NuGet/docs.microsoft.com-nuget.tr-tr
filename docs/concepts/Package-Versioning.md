@@ -1,40 +1,40 @@
 ---
-title: NuGet paket sürümü başvurusu
-description: Bir NuGet paketinin bağımlı olduğu diğer paketler için sürüm numaralarını ve aralıklarını belirtmeyle ilgili tam ayrıntılar ve bağımlılıkların yüklenme şekli.
+title: NuGet Paketi Sürüm Başvurusu
+description: NuGet paketinin bağlı olduğu diğer paketler için sürüm numaralarını ve aralıklarını belirtme ve bağımlılıkların nasıl yüklendiği yle ilgili tam ayrıntılar.
 author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: reference
 ms.reviewer: anangaur
 ms.openlocfilehash: c79976c2f4ded2fba3796fb847d3c90807d7b86c
-ms.sourcegitcommit: 1a63a84da2719c8141823ac89a20bf507fd22b00
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "80147454"
 ---
 # <a name="package-versioning"></a>Paket sürümü oluşturma
 
-Belirli bir paket her zaman kendi paket tanımlayıcısını ve tam sürüm numarasını kullanmaya başvurulur. Örneğin, nuget.org üzerindeki [Entity Framework](https://www.nuget.org/packages/EntityFramework/) , sürüm *4.1.10311* ' den sürüm *6.1.3* (en son kararlı sürüm) ve *6.2.0-Beta1*gibi çeşitli yayın öncesi sürümler arasında değişen birkaç düzine özel pakete sahiptir.
+Belirli bir paket her zaman paket tanımlayıcısı ve tam sürüm numarası kullanılarak adlandırılır. Örneğin, nuget.org'daki [Entity Framework](https://www.nuget.org/packages/EntityFramework/) sürüm *4.1.10311'den* sürüm *6.1.3* 'e (en son kararlı sürüm) ve *6.2.0-beta1*gibi çeşitli ön sürüm sürümlerine kadar birkaç düzine özel paket mevcuttur.
 
-Bir paket oluştururken, isteğe bağlı bir yayın öncesi metin sonekine sahip belirli bir sürüm numarası atarsınız. Paketleri kullanırken, diğer yandan, tam sürüm numarasını veya bir dizi kabul edilebilir sürümü belirtebilirsiniz.
+Bir paket oluştururken, isteğe bağlı bir ön sürüm metin soneki yle belirli bir sürüm numarası atarsınız. Diğer taraftan, paketleri tüketirken, tam sürüm numarasını veya kabul edilebilir sürümler aralığını belirtebilirsiniz.
 
 Bu konuda:
 
-- Yayın öncesi son eklerini içeren [Sürüm temelleri](#version-basics) .
+- Ön sürüm sonekleri de dahil olmak üzere [sürüm temelleri.](#version-basics)
 - [Sürüm aralıkları](#version-ranges)
 - [Normalleştirilmiş sürüm numaraları](#normalized-version-numbers)
 
 ## <a name="version-basics"></a>Sürüm temelleri
 
-Belirli bir sürüm numarası, *ana. ikincil. Patch [-suffix]* biçiminde olduğundan, bileşenler aşağıdaki anlamlara sahiptir:
+Belirli bir sürüm numarası *Major.Minor.Patch[-Soneki]* şeklindedir ve bileşenlerin aşağıdaki anlamları vardır:
 
-- *Birincil*: son değişiklikler
-- *İkincil*: yeni özellikler, ancak geriye dönük olarak uyumlu
-- *Düzeltme Eki*: yalnızca geriye dönük uyumlu hata düzeltmeleri
-- *-Soneki* (isteğe bağlı): ön sürüm sürümünü belirten bir dize ( [anlamsal sürüm oluşturma veya semver 1,0 kuralını](https://semver.org/spec/v1.0.0.html)izleyerek).
+- *Ana :* Son dakika değişiklikleri
+- *Minor*: Yeni özellikler, ancak geriye dönük uyumlu
+- *Yama*: Geriye uyumlu hata düzeltmeleri yalnızca
+- *-Soneki* (isteğe bağlı): bir ön sürüm sürümünü gösteren bir dize takip tire [(Anlamsal Sürüm veya SemVer 1.0 kuralını](https://semver.org/spec/v1.0.0.html)takip eder).
 
-**Örnekler**
+**Örnekler:**
 
     1.0.1
     6.11.1231
@@ -42,22 +42,22 @@ Belirli bir sürüm numarası, *ana. ikincil. Patch [-suffix]* biçiminde olduğ
     2.2.44-beta1
 
 > [!Important]
-> nuget.org, tam sürüm numarası bulunmayan tüm paket karşıya yüklemeyi reddeder. Sürüm, paketi oluşturmak için kullanılan `.nuspec` veya proje dosyasında belirtilmelidir.
+> nuget.org, tam sürüm numarası bulunmayan paket yüklemeyi reddeder. Sürüm, paketi oluşturmak `.nuspec` için kullanılan proje dosyasında belirtilmelidir.
 
-### <a name="pre-release-versions"></a>Yayın öncesi sürümler
+### <a name="pre-release-versions"></a>Ön sürüm sürümleri
 
-Teknik oluşturucular, yayın öncesi sürümü göstermek için herhangi bir dizeyi sonek olarak kullanabilir, böylece NuGet bu sürümü ön sürüm olarak değerlendirir ve başka yorum yapmaz. Diğer bir deyişle, NuGet herhangi bir kullanıcı arabiriminin dahil olduğu tüm sürüm dizesini, son ekin anlamı olan tüketiciye herhangi bir yorum bırakarak görüntüler.
+Teknik olarak konuşursak, paket oluşturucular, nuget ön sürüm gibi herhangi bir sürümü ele alır ve başka bir yorum yapmaması nedeniyle, sürüm öncesi sürümü belirtmek için herhangi bir dizeyi sonek olarak kullanabilirler. Diğer bir deyişle, NuGet, sonekin anlamının yorumunu tüketiciye bırakarak, tam sürüm dizesini ne olursa olsun, ilgili olduğunda görüntüler.
 
-Yani, paket geliştiricileri genellikle tanınan adlandırma kurallarını izler:
+Yani, paket geliştiriciler genellikle tanınan adlandırma kuralları izleyin dedi:
 
-- `-alpha`: genellikle süren iş ve deneme için kullanılan alfa sürümü.
-- `-beta`: beta sürümü, genellikle bir sonraki planlı yayın için bir özelliktir, ancak bilinen hatalar içerebilir.
-- `-rc`: yayın adayı, genellikle önemli hatalar oluşmadığı takdirde son derece nihai (kararlı) bir sürümdür.
+- `-alpha`: Alfa salınımı, genellikle devam etmekte olan işler ve deneyler için kullanılır.
+- `-beta`: Beta sürümü, genellikle bir sonraki planlanan sürüm için tamamlanmış özellik, ancak bilinen hataları içerebilir.
+- `-rc`: Sürüm adayı, önemli hatalar ortaya çıkmadıkça genellikle nihai (kararlı) bir sürüm.
 
 > [!Note]
-> NuGet 4.3.0 +, *1.0.1-Build. 23*' te olduğu gibi nokta gösterimi ile yayın öncesi numaralarını destekleyen [semver 2.0.0](https://semver.org/spec/v2.0.0.html)'i destekler. Nokta gösterimi 4.3.0 öncesi NuGet sürümleriyle desteklenmez. *1.0.1-build23*gibi bir biçim kullanabilirsiniz.
+> NuGet 4.3.0+ *1.0.1-build.23'te*olduğu gibi nokta gösterimi ile ön sürüm sayılarını destekleyen [SemVer 2.0.0'ı](https://semver.org/spec/v2.0.0.html)destekler. Nokta gösterimi 4.3.0'dan önce NuGet sürümleriyle desteklenmez. *1.0.1-build23*gibi bir form kullanabilirsiniz.
 
-Paket başvuruları ve birden çok paket sürümü yalnızca sonek tarafından farklılık gösterdiği zaman, NuGet önce sonek olmadan bir sürüm seçer, ardından ön sürüm sürümüne ters alfabetik sırada öncelik uygular. Örneğin, aşağıdaki sürümler gösterilen tam sırada seçilebilir:
+Paket başvurularını ve birden çok paket sürümünü yalnızca sonek ile farklı olarak çözerken, NuGet önce sonek olmayan bir sürüm seçer, ardından ön sürüm sürümlerine ters alfabetik sırayla öncelik uygular. Örneğin, aşağıdaki sürümler gösterilen tam sırada seçilir:
 
     1.0.1
     1.0.1-zzz
@@ -68,60 +68,60 @@ Paket başvuruları ve birden çok paket sürümü yalnızca sonek tarafından f
     1.0.1-alpha
     1.0.1-aaa
 
-## <a name="semantic-versioning-200"></a>Anlamsal sürüm oluşturma 2.0.0
+## <a name="semantic-versioning-200"></a>Anlamsal Versiyon 2.0.0
 
-NuGet 4.3.0 + ve Visual Studio 2017 sürüm 15.3 + ile NuGet, [semantik sürümü oluşturma 2.0.0](https://semver.org/spec/v2.0.0.html)'yi destekler.
+NuGet 4.3.0+ ve Visual Studio 2017 sürüm 15.3+ ile [NuGet, Anlamsal Sürüm 2.0.0'ı](https://semver.org/spec/v2.0.0.html)destekler.
 
-SemVer v 2.0.0 'in belirli semantiklerinden bazıları eski istemcilerde desteklenmez. NuGet, aşağıdaki deyimlerden herhangi biri geçerliyse, bir paket sürümünü SemVer v 2.0.0 'e özgü olarak kabul eder:
+SemVer v2.0.0 bazı semantik eski istemcilerde desteklenmez. NuGet, aşağıdaki ifadelerden biri doğruysa, bir paket sürümünüSemVer v2.0.0'a özgü olarak kabul eder:
 
-- Yayın öncesi etiketi noktayla ayrılmıştır, örneğin, *1.0.0-Alpha. 1*
-- Sürümde derleme meta verileri vardır, örneğin, *1.0.0 + githash*
+- Ön sürüm etiketi nokta ayrılmış, örneğin, *1.0.0-alfa.1*
+- Sürüm, örneğin, *1.0.0+githash* yapı-meta verivardır
 
-Nuget.org için bir paket, aşağıdaki deyimlerden herhangi biri doğruysa bir SemVer v 2.0.0 paketi olarak tanımlanır:
+Nuget.org için, aşağıdaki ifadelerden biri doğruysa, bir paket SemVer v2.0.0 paketi olarak tanımlanır:
 
-- Paketin kendi sürümü, yukarıda tanımlanan semver v 2.0.0 uyumludur ancak SemVer v 1.0.0 uyumlu değildir.
-- Paketin bağımlılık sürümü aralıklarının herhangi birinin, yukarıda tanımlanan semver v 2.0.0 uyumlu ancak SemVer v 1.0.0 uyumlu olmayan en düşük veya en yüksek sürümü vardır; Örneğin, *[1.0.0-Alpha. 1,)* .
+- Paketin kendi sürümü SemVer v2.0.0 uyumludur, ancak yukarıda tanımlandığı gibi SemVer v1.0.0 uyumlu değildir.
+- Paketin bağımlılık sürüm aralıklarından herhangi biri, semver v2.0.0 uyumlu olan minimum veya maksimum bir sürüme sahiptir, ancak yukarıda tanımlanan SemVer v1.0.0 uyumlu değildir; örneğin, *[1.0.0-alfa.1, )*.
 
-Nuget.org 'e özel bir SemVer v 2.0.0 paketi yüklerseniz, paket eski istemcilere görünmez ve yalnızca aşağıdaki NuGet istemcilerinin kullanımına açık olur:
+nuget.org'a semver v2.0.0'a özel bir paket yüklerseniz, paket eski istemciler tarafından görünmez ve yalnızca aşağıdaki NuGet istemcileri tarafından kullanılabilir:
 
-- NuGet 4.3.0 +
-- Visual Studio 2017 sürüm 15.3 +
-- [NUGET VSIX v 3.6.0](https://dist.nuget.org/visualstudio-2015-vsix/latest/NuGet.Tools.vsix) Ile Visual Studio 2015
+- NuGet 4.3.0+
+- Visual Studio 2017 sürümü 15.3+
+- Visual Studio 2015 [NuGet VSIX v3.6.0](https://dist.nuget.org/visualstudio-2015-vsix/latest/NuGet.Tools.vsix) ile
 - dotnet
-  - dotnetcore. exe (.NET SDK 2.0.0 +)
+  - dotnetcore.exe (.NET SDK 2.0.0+)
 
-Üçüncü taraf istemcileri:
+Üçüncü taraf istemciler:
 
 - JetBrains Rider
-- Paket sürüm 5.0 +
+- Paket sürüm 5.0+
 
 <!-- For compatibility with previous dependency-versions page -->
 <a name="version-ranges"></a>
 
 ## <a name="version-ranges"></a>Sürüm aralıkları
 
-NuGet, paket bağımlılıklarına başvururken, sürüm aralıklarını belirtmek için Aralık gösterimini kullanmayı destekler, şöyle özetlenir:
+Paket bağımlılıklarına atıfta bulunulduğunda, NuGet aşağıdaki gibi özetlenen sürüm aralıklarını belirtmek için aralık gösterimini desteklemektedir:
 
-| İmle | Uygulanan kural | Açıklama |
+| Gösterim | Uygulanan kural | Açıklama |
 |----------|--------------|-------------|
-| 1.0 | x ≥ 1,0 | En düşük sürüm, dahil |
-| (1.0,) | x > 1,0 | En düşük sürüm, özel |
-| [1.0] | x = = 1,0 | Tam sürüm eşleşmesi |
-| (,1.0] | x ≤ 1,0 | En yüksek sürüm, dahil |
-| (,1.0) | x < 1,0 | En yüksek sürüm, özel |
-| [1.0,2.0] | 1,0 ≤ x ≤ 2,0 | Tam Aralık, dahil |
-| (1.0,2.0) | 1,0 < x < 2,0 | Tam Aralık, özel |
-| [1.0,2.0) | 1,0 ≤ x < 2,0 | Karma kapsamlı en düşük ve en yüksek sürüm |
+| 1.0 | x ≥ 1.0 | Minimum sürüm, dahil |
+| (1.0,) | x > 1.0 | Minimum sürüm, özel |
+| [1.0] | x == 1.0 | Tam sürüm eşleşmesi |
+| (,1.0] | x ≤ 1.0 | Maksimum sürüm, dahil |
+| (,1.0) | x < 1.0 | Maksimum sürüm, özel |
+| [1.0,2.0] | 1.0 ≤ x ≤ 2.0 | Tam aralık, dahil |
+| (1.0,2.0) | 1.0 < x < 2.0 | Tam aralık, özel |
+| [1.0,2.0) | 1.0 ≤ x < 2.0 | Karışık dahil minimum ve münhasır maksimum sürüm |
 | (1.0)    | geçersiz | geçersiz |
 
-Bu, PackageReference biçimini kullanırken, büyük, küçük, düzeltme eki uygulama ve sayının yayın öncesi sonek bölümleri için \*kayan bir gösterim kullanımını da destekler. Kayan sürümler `packages.config` biçimiyle desteklenmez.
+PackageReference biçimini kullanırken, NuGet, numaranın Büyük, \*Küçük, Yama ve ön sürüm sonek parçaları için kayan bir gösterim ihdası da destekler. Kayan sürümler `packages.config` biçimiyle desteklenmez.
 
 > [!Note]
-> PackageReference içindeki sürüm aralıkları yayın öncesi sürümleri içerir. Tasarım yaparak, kayan sürümler, kabul edilmediği takdirde ön sürüm sürümlerini çözmez. İlgili özellik isteğinin durumu için bkz. [sorun 6434](https://github.com/NuGet/Home/issues/6434#issuecomment-358782297).
+> PackageReference'daki sürüm aralıkları, ön sürüm sürümleri içerir. Tasarım gereği, kayan sürümler tercih edilmedikçe ön sürüm sürümlerini çözmez. İlgili özellik isteğinin durumu için [6434 sorununa](https://github.com/NuGet/Home/issues/6434#issuecomment-358782297)bakın.
 
 ### <a name="examples"></a>Örnekler
 
-Proje dosyalarında, `packages.config` dosyalarında ve `.nuspec` dosyalarında paket bağımlılıkları için her zaman bir sürüm veya sürüm aralığı belirtin. Sürüm veya sürüm aralığı olmadan, NuGet 2.8. x ve önceki sürümleri bir bağımlılığı çözümlerken kullanılabilir en son paket sürümünü seçer, ancak NuGet 3. x ve sonraki sürümler en düşük paket sürümünü seçer. Bir sürüm veya sürüm aralığı belirtildiğinde bu belirsizlik önlenir.
+Proje dosyalarındaki, `packages.config` dosyalardaki ve `.nuspec` dosyalardaki paket bağımlılıkları için her zaman bir sürüm veya sürüm aralığı belirtin. Bir sürüm veya sürüm aralığı olmadan, NuGet 2.8.x ve daha önce bir bağımlılık çözerken en son kullanılabilir paket sürümünü seçer, NuGet 3.x ise ve daha sonra en düşük paket sürümünü seçer. Sürüm veya sürüm aralığının belirtilmesi bu belirsizliği önler.
 
 #### <a name="references-in-project-files-packagereference"></a>Proje dosyalarındaki başvurular (PackageReference)
 
@@ -149,9 +149,9 @@ Proje dosyalarında, `packages.config` dosyalarında ve `.nuspec` dosyalarında 
 <PackageReference Include="ExamplePackage" Version="[1.3.2,1.5)" />
 ```
 
-**`packages.config`başvurular:**
+**Referanslar `packages.config`:**
 
-`packages.config`, her bağımlılık, paketler geri yüklenirken kullanılan tam bir `version` özniteliğiyle listelenir. `allowedVersions` özniteliği yalnızca paketin güncelleştirilemeyebilir sürümlerini kısıtlamak için güncelleştirme işlemleri sırasında kullanılır.
+Her `packages.config`bağımlılık, paketleri geri verirken kullanılan tam `version` bir öznitelikile listelenir. Öznitelik, `allowedVersions` yalnızca paketin güncelleştirilebileceği sürümleri kısıtlamak için güncelleştirme işlemleri sırasında kullanılır.
 
 ```xml
 <!-- Install/restore version 6.1.0, accept any version 6.1.0 and above on update. -->
@@ -180,9 +180,9 @@ Proje dosyalarında, `packages.config` dosyalarında ve `.nuspec` dosyalarında 
 <package id="ExamplePackage" version="1.3.5" allowedVersions="[1.3.2,1.5)" />
 ```
 
-**`.nuspec` dosyalardaki başvurular**
+**Dosyalardaki `.nuspec` başvurular**
 
-Bir `<dependency>` öğesindeki `version` özniteliği, bağımlılık için kabul edilebilir olan Aralık sürümlerini açıklar.
+Bir `version` `<dependency>` öğedeki öznitelik, bağımlılık için kabul edilebilir aralık sürümlerini açıklar.
 
 ```xml
 <!-- Accepts any version 6.1 and above. -->
@@ -207,25 +207,25 @@ Bir `<dependency>` öğesindeki `version` özniteliği, bağımlılık için kab
 ## <a name="normalized-version-numbers"></a>Normalleştirilmiş sürüm numaraları
 
 > [!Note]
-> Bu, NuGet 3,4 ve üzeri için bir son değişiklik değildir.
+> Bu NuGet 3.4 ve sonrası için bir kırılma değişikliktir.
 
-Yükleme, yeniden yükleme veya geri yükleme işlemleri sırasında bir depodan paket edinirken, NuGet 3.4 + sürüm numaralarını aşağıdaki gibi davranır:
+Yükleme, yeniden yükleme veya geri yükleme işlemleri sırasında bir depodan paket alırken, NuGet 3.4+ sürüm numaralarını aşağıdaki gibi davranır:
 
-- Önde gelen sıfırlar sürüm numaralarına kaldırılır:
+- Satır aralığı sıfırları sürüm numaralarından kaldırılır:
 
         1.00 is treated as 1.0
         1.01.1 is treated as 1.1.1
         1.00.0.1 is treated as 1.0.0.1
 
-- Sürüm numarasının dördüncü bölümünde sıfır yok edilir
+- Sürüm numarasının dördüncü bölümünde ki sıfır atlanır
 
         1.0.0.0 is treated as 1.0.0
         1.0.01.0 is treated as 1.0.1
         
-- SemVer 2.0.0 derleme meta verileri kaldırıldı
+- SemVer 2.0.0 yapı meta verileri kaldırılır
 
         1.0.7+r3456 is treated as 1.0.7
 
-`pack` ve `restore` işlemleri mümkün olduğunda sürümleri normalleştirin. Zaten oluşturulan paketler için, bu normalleştirme, paketlerdeki sürüm numaralarını etkilemez; Bağımlılıklar çözümlenirken yalnızca NuGet 'in sürümleri nasıl eşleştiğini etkiler.
+`pack`ve `restore` işlemler mümkün olduğunda sürümleri normalleştirir. Zaten oluşturulmuş paketler için bu normalleştirme, paketlerdeki sürüm numaralarını etkilemez; yalnızca NuGet'in bağımlılıkları çözerken sürümlerle nasıl eşleştiğini etkiler.
 
-Ancak, NuGet paket depoları, paket sürümü çoğaltmasını engellemek için bu değerleri NuGet ile aynı şekilde ele almalıdır. Bu nedenle, bir paketin *1,0* sürümünü içeren bir depo ayrıca ayrı ve farklı bir paket olarak sürüm *1.0.0* barındırmamalıdır.
+Ancak, NuGet paket depoları, paket sürümünün çoğaltılmasını önlemek için bu değerleri NuGet ile aynı şekilde ele almalıdır. Bu nedenle, bir paketin sürüm *1.0'ını* içeren bir depo, sürüm *1.0.0'ı* ayrı ve farklı bir paket olarak barındırmamalıdır.

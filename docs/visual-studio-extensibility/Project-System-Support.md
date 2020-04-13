@@ -1,41 +1,41 @@
 ---
-title: Visual Studio Proje sistemi için NuGet desteği
-description: Üçüncü taraf proje türleri için Visual Studio Proje sistemi NuGet tümleştirilmesi.
+title: Görsel Stüdyo Proje Sistemi için NuGet Desteği
+description: NuGet'in üçüncü taraf proje türleri için Visual Studio proje sistemine entegrasyonu.
 author: karann-msft
 ms.author: karann
 ms.date: 01/09/2017
 ms.topic: reference
 ms.openlocfilehash: 00a64d95c943e9e5cb3a279358a6495125a1bd87
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551376"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64495926"
 ---
-# <a name="nuget-support-for-the-visual-studio-project-system"></a>Visual Studio Proje sistemi için NuGet desteği
+# <a name="nuget-support-for-the-visual-studio-project-system"></a>Visual Studio proje sistemi için NuGet desteği
 
-Visual Studio'da üçüncü taraf proje türlerini desteklemek için NuGet 3.x+ destekler [ortak proje System (CPS)](https://github.com/Microsoft/VSProjectSystem/blob/master/doc/overview/intro.md), ve NuGet 3.2 + CPS olmayan proje sistemlerini de destekler.
+Visual Studio'da üçüncü taraf proje türlerini desteklemek için NuGet 3.x+, [Ortak Proje Sistemi'ni (CPS)](https://github.com/Microsoft/VSProjectSystem/blob/master/doc/overview/intro.md)ve NuGet 3.2+CPS olmayan proje sistemlerini de destekler.
 
-Proje sistemi, NuGet ile tümleştirmek için bu konuda açıklanan tüm proje özellikleri için kendi destek tanıtma gerekir.
+NuGet ile tümleştirmek için, bir proje sisteminin bu konuda açıklanan tüm proje yetenekleri için kendi desteğini tanıtması gerekir.
 
 > [!Note]
-> Projenize yüklemek için paketler etkinleştirmek için projenizin gerçekten olmayan yetenekleri bildirmeyin. NuGet istemci yanı sıra proje özellikleri Visual Studio ve diğer Uzantılar özelliklerinin çoğu bağlıdır. Projenizin özelliklerini yanlışlıkla reklam bu bileşenler, çalışmasına ve kullanıcılarınızın deneyimini düşmesine yol açabilir.
+> Paketlerin projenize yüklenmesini sağlamak amacıyla projenizin gerçekte sahip olmadığı yetenekleri bildirmeyin. Visual Studio ve diğer uzantıların birçok özelliği NuGet istemcisinin yanı sıra proje özelliklerine bağlıdır. Projenizin yanlış reklam cılık yetenekleri bu bileşenlerin arızaya ve kullanıcılarınızın deneyiminin düşmesine neden olabilir.
 
-## <a name="advertise-project-capabilities"></a>Proje Özellikleri tanıtma
+## <a name="advertise-project-capabilities"></a>Proje özelliklerinin reklamını yapmak
 
-NuGet istemci paketler temel proje türüyle uyumlu belirler [projenin özelliklerini](https://github.com/Microsoft/VSProjectSystem/blob/master/doc/overview/about_project_capabilities.md)aşağıdaki tabloda açıklandığı gibi.
+NuGet istemcisi, aşağıdaki tabloda açıklandığı gibi, [proje özelliklerine](https://github.com/Microsoft/VSProjectSystem/blob/master/doc/overview/about_project_capabilities.md)göre proje türünüzle hangi paketlerin uyumlu olduğunu belirler.
 
 | Özellik | Açıklama |
 | --- | --- |
-| AssemblyReferences | Proje derleme başvuruları (WinRTReferences benzersiz) desteklediğini belirtir. |
-| DeclaredSourceItems | Kaynak Proje öğelerinde bildirir, proje tipik bir MSBuild Projesi (DNX değil) olduğunu gösterir. |
-| UserSourceItems|Kullanıcıya rastgele dosyalar, projeye eklemek için izin verildiğini gösterir. |
+| Assemblyreferences | Projenin montaj başvurularını desteklediğini gösterir (WinRTReferences'tan farklı). |
+| BeyanEdilenKaynak Öğeleri | Projenin, projenin kendisinde kaynak öğeleri ni beyan ettiği tipik bir MSBuild projesi (DNX değil) olduğunu gösterir. |
+| UserSourceItems|Kullanıcının projesine rasgele dosyalar eklemesine izin verildiğini gösterir. |
 
-Proje CPS tabanlı sistemler için sizin için bu bölümün geri kalanında açıklanan proje özellikleri uygulama ayrıntılarını gerçekleştirilmedi. Bkz: [CPS projelerinde proje özellikleri bildirme](https://github.com/Microsoft/VSProjectSystem/blob/master/doc/overview/about_project_capabilities.md#how-to-declare-project-capabilities-in-your-project).
+CPS tabanlı proje sistemleri için, bu bölümün geri kalanında açıklanan proje yetenekleri için uygulama ayrıntıları sizin için yapılmıştır. [CpS projelerinde proje özelliklerini bildirmeye](https://github.com/Microsoft/VSProjectSystem/blob/master/doc/overview/about_project_capabilities.md#how-to-declare-project-capabilities-in-your-project)bakın.
 
 ## <a name="implementing-vsprojectcapabilitiespresencechecker"></a>VsProjectCapabilitiesPresenceChecker uygulama
 
-`VsProjectCapabilitiesPresenceChecker` Sınıfı uygulanmalı `IVsBooleanSymbolPresenceChecker` arabirimi, şu şekilde tanımlanır:
+Sınıf `VsProjectCapabilitiesPresenceChecker` aşağıdaki gibi `IVsBooleanSymbolPresenceChecker` tanımlanan arabirimi uygulamalıdır:
 
 ```cs
 public interface IVsBooleanSymbolPresenceChecker
@@ -67,7 +67,7 @@ public interface IVsBooleanSymbolPresenceChecker
 }
 ```
 
-Bu arabirim için bir örnek uygulama, ardından şöyle olacaktır:
+Bu arabirimin örnek bir uygulaması daha sonra olacaktır:
 
 ```cs
 class VsProjectCapabilitiesPresenceChecker : IVsBooleanSymbolPresenceChecker
@@ -97,13 +97,13 @@ class VsProjectCapabilitiesPresenceChecker : IVsBooleanSymbolPresenceChecker
 }
 ```
 
-Özelliklerini eklemek/kaldırmak unutmayın `ActualProjectCapabilities` küme, ne proje sisteminizi gerçekten desteklediğine temel. Bkz: [proje özellikleri belgeleri](https://github.com/Microsoft/VSProjectSystem/blob/master/doc/overview/project_capabilities.md) tam açıklamaları için.
+Proje sisteminizin `ActualProjectCapabilities` gerçekte neyi desteklediğine bağlı olarak kümeden özellikler eklemeyi/kaldırmayı unutmayın. Tam açıklamalar için [proje özellikleri belgelerine](https://github.com/Microsoft/VSProjectSystem/blob/master/doc/overview/project_capabilities.md) bakın.
 
-## <a name="responding-to-queries"></a>Sorgularına yanıt
+## <a name="responding-to-queries"></a>Sorgulara yanıt verme
 
-Bir proje bu özelliği destekleyen bildirir `VSHPROPID_ProjectCapabilitiesChecker` özelliği aracılığıyla `IVsHierarchy::GetProperty`. Örneği döndürmelidir `Microsoft.VisualStudio.Shell.Interop.IVsBooleanSymbolPresenceChecker`, tanımlanan `Microsoft.VisualStudio.Shell.Interop.14.0.DesignTime.dll` derleme. Yükleyerek bu derlemeye başvuru [kendi NuGet paketi](https://www.nuget.org/packages/Microsoft.VisualStudio.Shell.Interop.14.0.DesignTime).
+Bir proje, `VSHPROPID_ProjectCapabilitiesChecker` özelliği ' nin . `IVsHierarchy::GetProperty` Derlemede `Microsoft.VisualStudio.Shell.Interop.14.0.DesignTime.dll` tanımlanan bir `Microsoft.VisualStudio.Shell.Interop.IVsBooleanSymbolPresenceChecker`örneğini döndürmelidir. [NuGet paketini](https://www.nuget.org/packages/Microsoft.VisualStudio.Shell.Interop.14.0.DesignTime)yükleyerek bu derlemeye başvurun.
 
-Örneğin, aşağıdaki ekleyebilirsiniz `case` deyimi, `IVsHierarchy::GetProperty` yöntemin `switch` deyimi:
+Örneğin, yönteminizin `case` `IVsHierarchy::GetProperty` `switch` deyimine aşağıdaki deyimi ekleyebilirsiniz:
 
 ```cs
 case __VSHPROPID8.VSHPROPID_ProjectCapabilitiesChecker:
@@ -111,8 +111,8 @@ case __VSHPROPID8.VSHPROPID_ProjectCapabilitiesChecker:
     return VSConstants.S_OK;
 ```
 
-## <a name="dte-support"></a>DTE desteği
+## <a name="dte-support"></a>DTE Desteği
 
-NuGet, başvurular, içerik öğeleri eklemek için proje sistemi sürücüleri ve MSBuild aktarır çağırarak [DTE](/dotnet/api/envdte.dte?view=visualstudiosdk-2017), üst düzey Visual Studio Otomasyon arabirimi olduğu. DTE zaten uygulayabilir COM arabirimleri kümesidir.
+NuGet, en üst düzey Visual Studio otomasyon arabirimi olan [DTE'ye](/dotnet/api/envdte.dte?view=visualstudiosdk-2017)çağrıda bulunarak proje sistemini referanslar, içerik öğeleri ve MSBuild içerileri eklemeye yönlendirir. DTE, zaten uygulayabileceğiniz bir COM arabirimi kümesidir.
 
-DTE proje türünüzü CPS alıyorsa, sizin için uygulanır.
+Proje türünüz CPS'yi temel alırsa, DTE sizin için uygulanır.

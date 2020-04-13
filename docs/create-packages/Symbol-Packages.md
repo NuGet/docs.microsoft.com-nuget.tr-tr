@@ -1,36 +1,36 @@
 ---
-title: Eski sembol paketleri oluşturuluyor (. Symbols. nupkg)
-description: Visual Studio 'da diğer NuGet paketlerinde hata ayıklamayı desteklemek için yalnızca semboller içeren NuGet paketleri oluşturma.
+title: Eski sembol paketleri oluşturma (.symbols.nupkg)
+description: Visual Studio'daki diğer NuGet paketlerinin hata ayıklamasını desteklemek için yalnızca semboller içeren NuGet paketleri nasıl oluşturulur?
 author: karann-msft
 ms.author: karann
 ms.date: 09/12/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
 ms.openlocfilehash: 374e9ccfc01cd06508e76529765db3f849342222
-ms.sourcegitcommit: 1799d4ac23c8aacee7498fdc72c40dd1646d267b
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "77476275"
 ---
-# <a name="creating-legacy-symbol-packages-symbolsnupkg"></a>Eski sembol paketleri oluşturuluyor (. Symbols. nupkg)
+# <a name="creating-legacy-symbol-packages-symbolsnupkg"></a>Eski sembol paketleri oluşturma (.symbols.nupkg)
 
 > [!Important]
-> Sembol paketleri için önerilen yeni biçim. snupkg 'dir. Bkz. [sembol paketleri oluşturma (. snupkg)](Symbol-Packages-snupkg.md). </br>
-> . Symbols. nupkg hala desteklenir ancak yalnızca uyumluluk nedenleriyle desteklenir.
+> Sembol paketleri için önerilen yeni biçim .snupkg'dır. Bkz. [Sembol paketleri oluşturma (.snupkg)](Symbol-Packages-snupkg.md). </br>
+> .symbols.nupkg hala ancak uyumluluk nedenleriyle desteklenir.
 
-NuGet, nuget.org veya diğer kaynaklar için paket oluşturmaya ek olarak, sembol sunucularına yayımlanmakta olabilecek ilişkili sembol paketleri oluşturmayı da destekler. Eski sembol paketi biçimi. Symbols. nupkg, SymbolSource deposuna itilmiş olabilir.
+NuGet, nuget.org veya diğer kaynaklar için paket oluşturmanın yanı sıra, sembol sunucularında yayımlanabilen ilişkili sembol paketleri oluşturmayı da destekler. Eski sembol paketi biçimi, .symbols.nupkg, SymbolSource deposuna itilebilir.
 
-Böylece, paket tüketicileri Visual Studio 'daki sembol kaynaklarına `https://nuget.smbsrc.net` ekleyebilir ve bu, Visual Studio hata ayıklayıcısında paket koduna adımlamayı sağlar. Bu işlemle ilgili ayrıntılar için bkz. [Visual Studio hata ayıklayıcısında simge (. pdb) ve kaynak dosyaları belirtme](/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger) .
+Paket tüketicileri `https://nuget.smbsrc.net` daha sonra Visual Studio'daki sembol kaynaklarına ekleyebilir, bu da Visual Studio hata ayıklayıcısında paket koduna adım atmanızı sağlar. Bkz. Bu işlemle ilgili ayrıntılar için [Visual Studio hata ayıklamasında ki simge (.pdb) ve kaynak dosyaları belirtin.](/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger)
 
 ## <a name="creating-a-legacy-symbol-package"></a>Eski sembol paketi oluşturma
 
 Eski bir sembol paketi oluşturmak için aşağıdaki kuralları izleyin:
 
-- Birincil paketi (kodunuzla birlikte) adlandırın `{identifier}.nupkg` ve `.pdb` dosyaları hariç tüm dosyalarınızı ekleyin.
-- Eski sembol paketini adlandırın `{identifier}.symbols.nupkg` ve derleme DLL 'sini, `.pdb` dosyalarını, XMLDOC dosyalarını, kaynak dosyalarını (izleyen bölümlere bakın) ekleyin.
+- Birincil paketi (kodunuzla) `{identifier}.nupkg` adlandırın ve `.pdb` dosyalar hariç tüm dosyalarınızı ekleyin.
+- Eski simge paketini `{identifier}.symbols.nupkg` adlandırın ve `.pdb` montaj DLL, dosyaları, XMLDOC dosyaları, kaynak dosyaları (aşağıdaki bölümlere bakın) içerir.
 
-`-Symbols` seçeneğiyle her iki paketi de oluşturabilirsiniz: bir `.nuspec` dosyası ya da bir proje dosyası:
+Her iki paketi de `-Symbols` `.nuspec` bir dosyadan veya proje dosyasından seçenekle oluşturabilirsiniz:
 
 ```cli
 nuget pack MyPackage.nuspec -Symbols
@@ -38,13 +38,13 @@ nuget pack MyPackage.nuspec -Symbols
 nuget pack MyProject.csproj -Symbols
 ```
 
-`pack` Mac OS X için mono 4.4.2 gerektirdiğini ve Linux sistemlerinde çalışmayacağını unutmayın. Mac 'te Ayrıca, `.nuspec` dosyasındaki Windows yol adları adlarını UNIX stili yollara dönüştürmeniz gerekir.
+Mac `pack` OS X'te Mono 4.4.2 gerektirdiğini ve Linux sistemlerinde çalışmadığını unutmayın. Mac'te, dosyadaki `.nuspec` Windows yol adlarını Unix stili yollara dönüştürmeniz gerekir.
 
-## <a name="legacy-symbol-package-structure"></a>Eski sembol paketi yapısı
+## <a name="legacy-symbol-package-structure"></a>Eski sembol paket yapısı
 
-Eski bir sembol paketi, bir kitaplık paketiyle aynı şekilde birden çok hedef çerçeveyi hedefleyebilir, bu nedenle `lib` klasörünün yapısı yalnızca DLL ile birlikte `.pdb` dosyaları dahil olmak üzere birincil paket ile tam olarak aynı olmalıdır.
+Eski bir simge paketi, kitaplık paketinin yaptığı gibi birden çok hedef `lib` çerçevesini hedefleyebilir, bu nedenle klasörün `.pdb` yapısı yalnızca DLL'nin yanında bulunan dosyalar da dahil olmak üzere birincil paketle tam olarak aynı olmalıdır.
 
-Örneğin, .NET 4,0 ve Silverlight 4 ' ü hedefleyen eski bir sembol paketi bu düzene sahip olacaktır:
+Örneğin, .NET 4.0 ve Silverlight 4'ü hedefleyen bir eski sembol paketi şu düzene sahip olur:
 
     \lib
         \net40
@@ -54,7 +54,7 @@ Eski bir sembol paketi, bir kitaplık paketiyle aynı şekilde birden çok hedef
             \MyAssembly.dll
             \MyAssembly.pdb
 
-Kaynak dosyalar daha sonra, kaynak deponuzun göreli yapısını izlemesi gereken `src`adlı ayrı bir özel klasöre yerleştirilir. Bunun nedeni, pdb 'leri 'ın eşleşen DLL 'yi derlemek için kullanılan kaynak dosyalara mutlak yollar içermesi ve yayımlama işlemi sırasında bulunması gerekir. Temel yol (ortak yol öneki) eklenebilir. Örneğin, bu dosyalardan oluşturulmuş bir kitaplığı düşünün:
+Kaynak dosyaları daha sonra, kaynak `src`deponuzun göreli yapısını izlemesi gereken ayrı bir özel klasöre yerleştirilir. Bunun nedeni, PDB'lerin eşleşen DLL'yi derlemek için kullanılan kaynak dosyalarıiçin mutlak yollar içermesi ve yayımlama işlemi sırasında bulunmaları gerektiğidir. Bir temel yol (ortak yol öneki) çıkarılabilir. Örneğin, bu dosyalardan oluşturulmuş bir kitaplık düşünün:
 
     C:\Projects
         \MyProject
@@ -70,7 +70,7 @@ Kaynak dosyalar daha sonra, kaynak deponuzun göreli yapısını izlemesi gereke
                 \MySilverlightExtensions.cs
                 \MyAssembly.csproj (producing \lib\sl4\MyAssembly.dll)
 
-`lib` klasörden ayrı olarak, eski bir sembol paketinin bu düzeni içermesi gerekir:
+Klasörün `lib` dışında, eski bir simge paketinin bu düzeni içermesi gerekir:
 
     \src
         \Common
@@ -83,9 +83,9 @@ Kaynak dosyalar daha sonra, kaynak deponuzun göreli yapısını izlemesi gereke
                 \AssemblyInfo.cs
             \MySilverlightExtensions.cs
 
-## <a name="referring-to-files-in-the-nuspec"></a>Nuspec içindeki dosyalara başvurma
+## <a name="referring-to-files-in-the-nuspec"></a>Nuspec'teki dosyalara atıfta
 
-Eski bir sembol paketi, önceki bölümde açıklandığı gibi bir klasör yapısından veya bildirimin `files` bölümünde içeriğini belirterek, kurallar tarafından oluşturulabilir. Örneğin, önceki bölümde gösterilen paketi oluşturmak için `.nuspec` dosyasında aşağıdakileri kullanın:
+Eski sembol paketi, önceki bölümde açıklandığı gibi bir klasör yapısından veya bildirimin `files` bölümünde içeriğini belirterek, sözleşmeler tarafından oluşturulabilir. Örneğin, önceki bölümde gösterilen paketi oluşturmak için `.nuspec` dosyada aşağıdakileri kullanın:
 
 ```xml
 <files>
@@ -97,41 +97,41 @@ Eski bir sembol paketi, önceki bölümde açıklandığı gibi bir klasör yap�
 </files>
 ```
 
-## <a name="publishing-a-legacy-symbol-package"></a>Eski bir sembol paketi yayımlanıyor
+## <a name="publishing-a-legacy-symbol-package"></a>Eski sembol paketini yayımlama
 
 > [!Important]
-> Paketleri nuget.org 'e göndermek için gereken [NuGet protokollerini](../api/nuget-protocols.md)uygulayan [NuGet. exe v 4.9.1 veya üstünü](https://www.nuget.org/downloads)kullanmalısınız.
+> Paketleri nuget.org itmek için gerekli [NuGet protokollerini](../api/nuget-protocols.md)uygulayan [nuget.exe v4.9.1 veya üzeri](https://www.nuget.org/downloads)nikullanmalısınız.
 
-1. Daha kolay olması için, önce API anahtarınızı NuGet ile kaydedin (bkz. nuget.org ve symbolsource.org için uygulanacak [bir paket yayımlama](../nuget-org/publish-a-package.md)), bu, paket sahibi olduğunuzu doğrulamak üzere NuGet.org ile kontrol edecektir.
+1. Kolaylık sağlamak için öncelikle API anahtarınızı NuGet ile kaydedin (bkz. hem nuget.org hem de symbolsource.org için geçerli olacak [bir paket yayımla,](../nuget-org/publish-a-package.md)çünkü symbolsource.org paket sahibi olduğunuzu doğrulamak için nuget.org ile kontrol edecektir.
 
     ```cli
     nuget SetApiKey Your-API-Key
     ```
 
-2. Birincil paketinizi nuget.org 'e yayımladıktan sonra, eski sembol paketini aşağıdaki gibi gönderin. Bu, dosya adında `.symbols` nedeniyle otomatik olarak symbolsource.org hedef olarak kullanılır:
+2. Birincil paketinizi nuget.org yayımladıktan sonra, dosya adındaki dosya adı nedeniyle `.symbols` symbolsource.org otomatik olarak hedef olarak kullanacak olan eski sembol paketini aşağıdaki gibi itin:
 
     ```cli
     nuget push MyPackage.symbols.nupkg
     ```
 
-3. Farklı bir sembol deposuna yayımlamak veya adlandırma kuralını izleyen eski bir sembol paketini göndermek için `-Source` seçeneğini kullanın:
+3. Farklı bir sembol deposunda yayımlamak veya adlandırma kuralına uymayan eski bir simge paketini `-Source` zorlamak için aşağıdaki seçeneği kullanın:
 
     ```cli
     nuget push MyPackage.symbols.nupkg -source https://nuget.smbsrc.net/
     ```
 
-4. Ayrıca, aşağıdakileri kullanarak hem birincil hem de sembol paketlerini aynı anda her iki depoya da gönderebilirsiniz:
+4. Ayrıca, hem birincil hem de sembol paketlerini aşağıdakileri kullanarak aynı anda her iki depoya da itebilirsiniz:
 
     ```cli
     nuget push MyPackage.nupkg
     ```
 
    > [!Note]
-   > NuGet. exe 4.5.0 veya üzeri ile, semboller paketleri otomatik olarak symbolsource.org 'e gönderilmez. Önceki adımlarda açıklandığı gibi semboller paketlerini ayrı olarak göndermeniz gerekir.
+   > nuget.exe 4.5.0 veya üzeri ile sembol paketleri otomatik olarak symbolsource.org itilir. Semboller paketlerini daha önceki adımlarda açıklandığı gibi ayrı ayrı itmeniz gerekir.
    
-Bu durumda, NuGet birincil paketi nuget.org ' ye yayımladıktan sonra, varsa NuGet, varsa https://nuget.smbsrc.net/ (symbolsource.org için gönderim URL 'SI) `MyPackage.symbols.nupkg`yayımlar.
+Bu durumda, NuGet `MyPackage.symbols.nupkg`birincil paketi nuget.org https://nuget.smbsrc.net/ yayımladıktan sonra (symbolsource.org için itme URL'si) için yayımlar.
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-* [Sembol paketleri (. snupkg) oluşturuluyor](Symbol-Packages-snupkg.md) -sembol paketleri için önerilen yeni biçim
-* [Yeni SymbolSource Engine 'e geçme](https://tripleemcoder.com/2015/10/04/moving-to-the-new-symbolsource-engine/) (symbolsource.org)
+* [Sembol paketleri oluşturma (.snupkg)](Symbol-Packages-snupkg.md) - Sembol paketleri için önerilen yeni biçim
+* [Yeni SymbolSource motoruna taşıma](https://tripleemcoder.com/2015/10/04/moving-to-the-new-symbolsource-engine/) (symbolsource.org)

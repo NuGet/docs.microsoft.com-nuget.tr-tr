@@ -1,30 +1,30 @@
 ---
 title: Paket güven sınırlarını yönetme
-description: İmzalı NuGet paketleri yükleme ve paket imzası güven ayarlarını yapılandırma sürecini açıklar.
+description: İmzalı NuGet paketlerini yükleme ve paket imzası güven ayarlarını yapılandırma işlemini açıklar.
 author: karann-msft
 ms.author: karann
 ms.date: 11/29/2018
 ms.topic: conceptual
 ms.openlocfilehash: 034b9dd9699af529e4d82d6ee5b1c42214673341
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "79428984"
 ---
 # <a name="manage-package-trust-boundaries"></a>Paket güven sınırlarını yönetme
 
-İmzalı paketler, belirli bir eylemin yüklenmesini gerektirmez; Ancak, içerik imzalanmasından bu yana değiştirilmişse, yükleme [NU3008](../reference/errors-and-warnings/NU3008.md)hatasıyla engellenir.
+İmzalı paketlerin yüklenmesi için belirli bir eylem gerekmez; ancak, içerik imzalandığından beri değiştirildiyse, yükleme [nu3008](../reference/errors-and-warnings/NU3008.md)hatasıyla engellenir.
 
 > [!Warning]
-> Güvenilmeyen sertifikalarla imzalanmış paketler, imzasız olarak değerlendirilir ve herhangi bir imzasız pakette olduğu gibi herhangi bir uyarı veya hata olmadan yüklenir.
+> Güvenilmeyen sertifikalarla imzalanmış paketler imzasız olarak kabul edilir ve diğer imzalanmamış paket gibi herhangi bir uyarı veya hata olmadan yüklenir.
 
-## <a name="configure-package-signature-requirements"></a>Paket imza gereksinimlerini Yapılandır
+## <a name="configure-package-signature-requirements"></a>Paket imza gereksinimlerini yapılandırma
 
 > [!Note]
-> Windows üzerinde NuGet 4.9.0 + ve Visual Studio sürüm 15,9 ve üstünü gerektirir
+> NuGet 4.9.0+ ve Visual Studio sürüm 15.9 ve daha sonra Windows gerektirir
 
-NuGet istemcilerinin, [`nuget config`](../reference/cli-reference/cli-ref-config.md) komutunu kullanarak [NuGet. config](../reference/nuget-config-file.md) dosyasında `require` `signatureValidationMode` ayarlayarak paket imzalarını nasıl doğruladığını yapılandırabilirsiniz.
+NuGet istemcilerinin paket imzalarını nasıl doğruladığını `signatureValidationMode` `require` [`nuget config`](../reference/cli-reference/cli-ref-config.md) [nuget.config](../reference/nuget-config-file.md) dosyasında komutu kullanarak ayarlayarak yapılandırabilirsiniz.
 
 ```cmd
 nuget.exe config -set signatureValidationMode=require
@@ -36,11 +36,11 @@ nuget.exe config -set signatureValidationMode=require
   </config>
 ```
 
-Bu mod, tüm paketlerin `nuget.config` dosyasında güvenilen sertifikalar tarafından imzalandığını doğrular. Bu dosya, sertifikanın parmak izine göre hangi yazarların ve/veya depoların güvenilir olduğunu belirtmenizi sağlar.
+Bu mod, tüm paketlerin dosyada güvenilen sertifikalardan `nuget.config` herhangi biri tarafından imzalandığıdoğrulanır. Bu dosya, sertifikanın parmak izine bağlı olarak hangi yazarlara ve/veya depolara güvenilmenizi sağlar.
 
-### <a name="trust-package-author"></a>Güven paketi yazarı
+### <a name="trust-package-author"></a>Paket yazarına güven
 
-Yazar imzasına göre paketlere güvenmek için, NuGet. config dosyasındaki `author` özelliğini ayarlamak üzere [`trusted-signers`](../reference/cli-reference/cli-ref-trusted-signers.md) komutunu kullanın.
+Yazar imzasına dayalı paketlere [`trusted-signers`](../reference/cli-reference/cli-ref-trusted-signers.md) güvenmek için `author` nuget.config özelliği ayarlamak için komutu kullanın.
 
 ```cmd
 nuget.exe  trusted-signers Add -Name MyCompanyCert -CertificateFingerprint CE40881FF5F0AD3E58965DA20A9F571EF1651A56933748E1BF1C99E537C4E039 -FingerprintAlgorithm SHA256
@@ -55,12 +55,12 @@ nuget.exe  trusted-signers Add -Name MyCompanyCert -CertificateFingerprint CE408
 ```
 
 >[!TIP]
->Sertifikanın parmak izini `SHA256` değerini almak için `nuget.exe` [Verify komutunu](../reference/cli-reference/cli-ref-verify.md) kullanın.
+>Sertifikanın `nuget.exe` parmak izinin `SHA256` değerini almak için [doğrulama komutunu](../reference/cli-reference/cli-ref-verify.md) kullanın.
 
 
-### <a name="trust-all-packages-from-a-repository"></a>Bir depodan tüm paketlere güvenin
+### <a name="trust-all-packages-from-a-repository"></a>Depodaki tüm paketlere güvenin
 
-Depo imzasına göre paketlere güvenmek için `repository` öğesini kullanın:
+Depo imzasına dayalı paketlere güvenmek için `repository` aşağıdaki öğeyi kullanın:
 
 ```xml
 <trustedSigners>  
@@ -72,9 +72,9 @@ Depo imzasına göre paketlere güvenmek için `repository` öğesini kullanın:
 </trustedSigners>
 ```
 
-### <a name="trust-package-owners"></a>Güven paketi sahipleri
+### <a name="trust-package-owners"></a>Paket Sahiplerine Güven
 
-Depo imzaları, gönderim sırasında paketin sahiplerini belirlemede ek meta veriler içerir. Bir sahip listesine göre paketleri bir depodan kısıtlayabilirsiniz:
+Depo imzaları, paket sahiplerini teslim sırasında belirlemek için ek meta veriler içerir. Paketleri, sahipler listesine göre bir depodan kısıtlayabilirsiniz:
 
 ```xml
 <trustedSigners>  
@@ -87,21 +87,21 @@ Depo imzaları, gönderim sırasında paketin sahiplerini belirlemede ek meta ve
 </trustedSigners>
 ```
 
-Bir paket birden çok Sahibe sahipse ve bu sahiplerden herhangi biri güvenilen listede ise, paket yüklemesi başarılı olur.
+Bir paketin birden çok sahibi varsa ve bu sahiplerden herhangi biri güvenilir listedeyse, paket yükleme başarılı olur.
 
-### <a name="untrusted-root-certificates"></a>Güvenilmeyen kök sertifikalar
+### <a name="untrusted-root-certificates"></a>Güvenilmeyen Root sertifikaları
 
-Bazı durumlarda, yerel makinedeki güvenilir bir köke zincirsiz olmayan sertifikaları kullanarak doğrulamayı etkinleştirmek isteyebilirsiniz. Bu davranışı özelleştirmek için `allowUntrustedRoot` özniteliğini kullanabilirsiniz.
+Bazı durumlarda, yerel makinede güvenilir bir köke zincirleme olmayan sertifikalar kullanarak doğrulamayı etkinleştirmek isteyebilirsiniz. Bu davranışı `allowUntrustedRoot` özelleştirmek için özniteliği kullanabilirsiniz.
 
-### <a name="sync-repository-certificates"></a>Depo sertifikalarını Eşitle
+### <a name="sync-repository-certificates"></a>Resit asyon sertifikaları
 
-Paket depoları, kendi [hizmet dizininde](../api/service-index.md)kullandıkları sertifikaları duyurmalıdır. Sonuç olarak, sertifikanın süresi dolduktan sonra depo bu sertifikaları güncelleştirir. Bu durumda, belirli ilkelere sahip istemciler, yeni eklenen sertifikayı dahil etmek için yapılandırmada bir güncelleştirme yapılmasını gerektirir. `nuget.exe` [güvenilir-imzalayanların sync komutunu](../reference/cli-reference/cli-ref-trusted-signers.md#nuget-trusted-signers-sync--name-name)kullanarak bir depoyla ilişkili güvenilen İmzalayanları kolayca yükseltebilirsiniz.
+Paket depoları, kullandıkları sertifikaları [hizmet dizini](../api/service-index.md)içinde duyurmalıdır. Sonunda depo, örneğin sertifikanın süresi dolduğunda bu sertifikaları güncelleştirecektir. Bu durumda, belirli ilkelere sahip istemciler, yeni eklenen sertifikayı eklemek için yapılandırmada bir güncelleştirme gerektirir. `nuget.exe` [Güvenilen imzalayanlar eşitleme komutunu](../reference/cli-reference/cli-ref-trusted-signers.md#nuget-trusted-signers-sync--name-name)kullanarak depoyla ilişkili güvenilir imzalayanları kolayca yükseltebilirsiniz.
 
-### <a name="schema-reference"></a>Şema başvurusu
+### <a name="schema-reference"></a>Şema referansı
 
-İstemci ilkelerine ilişkin tüm şema başvurusu [NuGet. config başvurusunda](../reference/nuget-config-file.md#trustedsigners-section) bulunabilir
+İstemci ilkeleri için tam şema [referans nuget.config referans](../reference/nuget-config-file.md#trustedsigners-section) bulunabilir
 
 ## <a name="related-articles"></a>İlgili makaleler:
 
-- [NuGet paketleri imzalanıyor](../create-packages/Sign-a-Package.md)
-- [İmzalı paket başvurusu](../reference/Signed-Packages-Reference.md)
+- [NuGet Paketlerini İmzalama](../create-packages/Sign-a-Package.md)
+- [İmzalı Paketler Referans](../reference/Signed-Packages-Reference.md)

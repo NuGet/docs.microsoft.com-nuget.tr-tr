@@ -1,64 +1,64 @@
 ---
-title: Evrensel Windows Platformu için NuGet paketleri oluşturma
-description: İçindeki C#Evrensel Windows platformu için bir Windows çalışma zamanı bileşeni kullanarak NuGet paketleri oluşturmaya yönelik uçtan uca bir yönerge.
+title: Evrensel Windows Platformu için NuGet Paketleri Oluşturun
+description: C#'daki Evrensel Windows Platformu için Windows Runtime Bileşeni ni kullanarak NuGet paketleri oluşturmanın uçtan uca bir bölümü.
 author: rrelyea
 ms.author: rrelyea
 ms.date: 02/28/2020
 ms.topic: tutorial
 ms.openlocfilehash: 61f46f2623769927f881877cfe3f96132211b442
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "78231807"
 ---
 # <a name="create-uwp-packages-c"></a>UWP paketleri oluşturma (C#)
 
-[Evrensel Windows platformu (UWP)](/windows/uwp) , Windows 10 çalıştıran her cihaz için ortak bir uygulama platformu sağlar. Bu modelde, UWP uygulamaları tüm cihazlarda ortak olan WinRT API 'Lerini ve ayrıca uygulamanın üzerinde çalıştığı cihaz ailesine özgü API 'Leri (Win32 ve .NET dahil) çağırabilir.
+[Evrensel Windows Platformu (UWP),](/windows/uwp) Windows 10 çalıştıran her cihaz için ortak bir uygulama platformu sağlar. Bu modelde, UWP uygulamaları hem tüm cihazlarda ortak olan WinRT API'lerini hem de uygulamanın çalıştırıldığı aygıt ailesine özgü API'leri (Win32 ve .NET dahil) arayabilir.
 
-Bu kılavuzda, hem yönetilen hem de yerel projelerde kullanılabilen C# UWP BILEŞENI (XAML denetimi dahil) Ile bir NuGet paketi oluşturacaksınız.
+Bu izlenecek yolda, hem Yönetilen hem de Yerel projelerde kullanılabilecek bir C# UWP bileşenine (XAML denetimi dahil) sahip bir NuGet paketi oluşturursunuz.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
-1. Visual Studio 2019. [VisualStudio.com](https://www.visualstudio.com/)'ten ücretsiz olarak 2019 Community Edition 'ı yükleyin; Profesyonel ve kurumsal sürümlerini de kullanabilirsiniz.
+1. Görsel Stüdyo 2019. 2019 Topluluk sürümünü [visualstudio.com](https://www.visualstudio.com/)ücretsiz olarak yükleyin; Profesyonel ve Kurumsal sürümleri de kullanabilirsiniz.
 
-1. NuGet CLı. En son `nuget.exe` sürümünü [NuGet.org/downloads](https://nuget.org/downloads)adresinden indirin, bunu istediğiniz konuma kaydederek (indirme işlemi doğrudan `.exe`). Daha sonra bu konumu yol ortam değişkeninizin zaten olmaması durumunda ekleyin. [Daha fazla ayrıntı](/nuget/reference/nuget-exe-cli-reference#windows).
+1. NuGet CLI. nuget.org/downloads en son `nuget.exe` [nuget.org/downloads](https://nuget.org/downloads)sürümünü indirin, seçtiğiniz bir konuma kaydedin `.exe` (indirme doğrudan). Daha sonra bu konumu, zaten değilse PATH ortamı değişkenine ekleyin. [Daha fazla ayrıntı](/nuget/reference/nuget-exe-cli-reference#windows).
 
-## <a name="create-a-uwp-windows-runtime-component"></a>UWP Windows Çalışma Zamanı bileşeni oluşturma
+## <a name="create-a-uwp-windows-runtime-component"></a>UWP Windows Runtime bileşeni oluşturma
 
-1. Visual Studio 'da **dosya > yeni > proje**' yi seçin, "UWP c#" araması yapın, **Windows çalışma zamanı bileşeni (Evrensel Windows)** şablonunu seçin, ileri ' ye tıklayın, adı ImageEnhancer olarak değiştirin ve Oluştur ' a tıklayın. İstendiğinde, hedef sürüm için varsayılan değerleri ve en düşük sürümü kabul edin.
+1. Visual **Studio'> da, > "uwp**c#" araması, **Windows Runtime Bileşeni (Evrensel Windows)** şablonunu seçin, sonrakini tıklatın, adı ImageEnhancer olarak değiştirin ve Oluştur'u tıklatın. İstendiğinde Hedef Sürüm ve Minimum Sürüm için varsayılan değerleri kabul edin.
 
-    ![Yeni UWP Windows Çalışma Zamanı bileşen projesi oluşturma](media/UWP-NewProject-CS.png)
+    ![Yeni bir UWP Windows Runtime Bileşeni projesi oluşturma](media/UWP-NewProject-CS.png)
 
-1. Çözüm Gezgini projeye sağ tıklayın, **> yeni öğe Ekle**' yi seçin, **şablonlu denetim**' i seçin, adı AwesomeImageControl.cs olarak değiştirin ve **Ekle**' ye tıklayın:
+1. Solution Explorer'da projeyi sağ tıklatın, **Yeni Öğe > Ekle'yi**seçin, **Şablon denetimini**seçin, AwesomeImageControl.cs adını değiştirin ve **Ekle'yi**tıklatın:
 
-    ![Projeye yeni bir XAML şablonlu denetim öğesi ekleniyor](media/UWP-NewXAMLControl-CS.png)
+    ![Projeye yeni bir XAML Şablondenetim öğesi ekleme](media/UWP-NewXAMLControl-CS.png)
 
-1. Çözüm Gezgini ' de projeye sağ tıklayın ve Özellikler ' i seçin **.** Özellikler sayfasında, **derleme** sekmesi ' ni seçin ve **XML belge dosyasını**etkinleştirin:
+1. Solution Explorer'da projeyi sağ tıklatın ve **Özellikler'i seçin.** Özellikler sayfasında, **Yapı** sekmesini seçin ve **XML Belgedosyasını**etkinleştirin:
 
-    ![XML belge dosyalarını oluştur Evet olarak ayarlanıyor](media/UWP-GenerateXMLDocFiles-CS.png)
+    ![XML Belge Dosyalarını Evet'e Ayarlama](media/UWP-GenerateXMLDocFiles-CS.png)
 
-1. Şimdi *çözüme* sağ tıklayın, **Batch Build**' i seçin, iletişim kutusundaki beş derleme kutusunu aşağıda gösterildiği gibi denetleyin. Bu, bir yapı yaparken, Windows 'un desteklediği her bir hedef sistem için tam bir yapıt kümesi üretmenizi sağlar.
+1. Şimdi *çözüme* sağ tıklayın, **Toplu Yapı'yı**seçin, iletişim kutusundaki beş yapı kutusunu aşağıda gösterildiği gibi işaretleyin. Bu, bir yapı yaptığınızda, Windows'un desteklediği hedef sistemlerin her biri için tam bir yapı kümesi oluşturmanızı sağlar.
 
-    ![Batch derlemesi](media/UWP-BatchBuild-CS.png)
+    ![Toplu Yapı](media/UWP-BatchBuild-CS.png)
 
-1. Toplu derleme iletişim kutusunda, projeyi doğrulamak ve NuGet paketi için ihtiyaç duyduğunuz çıkış dosyalarını oluşturmak için **Oluştur** ' a tıklayın.
+1. Toplu Yapı iletişim kutusunda ve projeyi doğrulamak ve NuGet paketi için ihtiyacınız olan çıktı dosyalarını oluşturmak için **Oluştur'u** tıklatın.
 
 > [!Note]
-> Bu kılavuzda, paket için hata ayıklama yapıtlarını kullanırsınız. Hata ayıklama olmayan paket için, bunun yerine toplu derleme iletişim kutusunda sürüm seçeneklerini işaretleyin ve izleyen adımlarda ortaya çıkan sürüm klasörlerine başvurun.
+> Bu gözden geçirme de paket için Hata Ayıklama yapıtlarını kullanırsınız. Hata ayıklama paketi için, Toplu Yapı iletişim kutusundaki Sürüm seçeneklerini denetleyin ve ardından gelen Sürüm klasörlerine bakın.
 
-## <a name="create-and-update-the-nuspec-file"></a>. Nuspec dosyasını oluşturun ve güncelleştirin
+## <a name="create-and-update-the-nuspec-file"></a>.nuspec dosyasını oluşturma ve güncelleştirme
 
-İlk `.nuspec` dosyasını oluşturmak için aşağıdaki üç adımı uygulayın. Aşağıdaki bölümlerde, diğer gerekli güncelleştirmelerde size rehberlik sağlanır.
+İlk `.nuspec` dosyayı oluşturmak için aşağıdaki üç adımı yapın. Ardından gelen bölümler daha sonra diğer gerekli güncelleştirmeler boyunca size rehberlik.
 
-1. Bir komut istemi açın ve `ImageEnhancer.csproj` içeren klasöre gidin (Bu, çözüm dosyasının bulunduğu alt klasör olacaktır).
-1. `ImageEnhancer.nuspec` oluşturmak için [`NuGet spec`](/nuget/reference/cli-reference/cli-ref-spec) komutunu çalıştırın (dosyanın adı `.csroj` dosyanın adından alınır):
+1. Bir komut istemi açın ve `ImageEnhancer.csproj` içeren klasöre gidin (bu çözüm dosyasının olduğu yerin altında bir alt klasör olacaktır).
+1. Oluşturmak [`NuGet spec`](/nuget/reference/cli-reference/cli-ref-spec) `ImageEnhancer.nuspec` için komutu çalıştırın `.csroj` (dosyanın adı dosyanın adından alınır):
 
     ```cli
     nuget spec
     ```
 
-1. `ImageEnhancer.nuspec` bir düzenleyicide açın ve YOUR_NAME uygun bir değerle değiştirerek, bunları bir düzenleyicide eşleşecek şekilde güncelleştirin. $PropertyName $ değerlerinden hiçbirini bırakmayın. `<id>` değeri özellikle, nuget.org genelinde benzersiz olmalıdır ( [paket oluşturma](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number)bölümünde açıklanan adlandırma kurallarına bakın). Ayrıca, yazar ve Açıklama etiketlerini de güncelleştirmeniz gerektiğini veya paketleme adımı sırasında bir hata almanızı unutmayın.
+1. Bir `ImageEnhancer.nuspec` düzenleyicide açın ve YOUR_NAME uygun bir değerle değiştirerek aşağıdakilerle eşleşecek şekilde güncelleştirin. $propertyName$ değerlerinden hiçbirini bırakmayın. Değer, `<id>` özellikle, nuget.org genelinde benzersiz olmalıdır [(paket oluşturmada](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number)açıklanan adlandırma kurallarına bakın). Ayrıca, yazar ve açıklama etiketlerini de güncellemeniz gerektiğini veya paketleme adımı sırasında bir hata almanız gerektiğini unutmayın.
 
     ```xml
     <?xml version="1.0"?>
@@ -79,13 +79,13 @@ Bu kılavuzda, hem yönetilen hem de yerel projelerde kullanılabilen C# UWP BIL
     ```
 
 > [!Note]
-> Ortak tüketim için oluşturulmuş paketler için, bu Etiketler başkalarının paketinizi bulmasına ve ne yaptığını anlamasına yardımcı olmak üzere `<tags>` öğesine özel bir dikkat edin.
+> Genel tüketim için oluşturulmuş paketler için, `<tags>` bu etiketler başkalarının paketinizi bulmasına ve ne işe yaradığına yardımcı olduğundan, öğeye özel olarak dikkat edin.
 
-### <a name="adding-windows-metadata-to-the-package"></a>Windows meta verileri pakete ekleniyor
+### <a name="adding-windows-metadata-to-the-package"></a>Pakete Windows meta verileri ekleme
 
-Windows Çalışma Zamanı bileşeni, diğer uygulamaların ve kitaplıkların bileşeni tüketmesini sağlayan, genel olarak kullanılabilir tüm türlerini açıklayan meta veriler gerektirir. Bu meta veriler, projeyi derlerken oluşturulan ve NuGet paketinize dahil etmeniz gereken bir. winmd dosyasında bulunur. IntelliSense verilerine sahip bir XML dosyası aynı anda oluşturulmuştur ve de dahil edilmelidir.
+Windows Runtime Bileşeni, genel kullanıma açık tüm türlerini açıklayan meta veriler gerektirir ve bu da diğer uygulamaların ve kitaplıkların bileşeni tüketmesini mümkün kılar. Bu meta veriler, projeyi derlediğinizde oluşturulan ve NuGet paketinize eklenmesi gereken bir .winmd dosyasında bulunur. IntelliSense verilerine sahip bir XML dosyası da aynı anda oluşturulur ve eklenmelidir.
 
-Aşağıdaki `<files>` düğümünü `.nuspec` dosyasına ekleyin:
+`.nuspec` Dosyaya aşağıdaki `<files>` düğümü ekleyin:
 
 ```xml
 <package>
@@ -103,7 +103,7 @@ Aşağıdaki `<files>` düğümünü `.nuspec` dosyasına ekleyin:
 
 ### <a name="adding-xaml-content"></a>XAML içeriği ekleme
 
-Bileşeninizdeki XAML denetimini eklemek için, denetimin varsayılan şablonuna sahip XAML dosyasını (proje şablonu tarafından oluşturulan olarak) eklemeniz gerekir. Bu da `<files>` bölümüne gider:
+Bileşeninize bir XAML denetimi eklemek için, denetim için varsayılan şablona sahip XAML dosyasını eklemeniz gerekir (proje şablonu tarafından oluşturulan gibi). Bu da `<files>` bölümünde gider:
 
 ```xml
 <?xml version="1.0"?>
@@ -123,7 +123,7 @@ Bileşeninizdeki XAML denetimini eklemek için, denetimin varsayılan şablonuna
 
 ### <a name="adding-the-native-implementation-libraries"></a>Yerel uygulama kitaplıklarını ekleme
 
-Bileşeninizin içinde, ImageEnhancer türünün Çekirdek mantığı, her bir hedef çalışma zamanı (ARM, ARM64, x86 ve x64) için oluşturulan çeşitli `ImageEnhancer.winmd` derlemelerindeki yerel kodda bulunur. Bunları pakete eklemek için, `<files>` bölümünde ilişkili. pri kaynak dosyalarıyla birlikte bunlara başvurun:
+Bileşeniniz içinde, ImageEnhancer türünün temel mantığı, her hedef çalışma `ImageEnhancer.winmd` zamanı (ARM, ARM64, x86 ve x64) için oluşturulan çeşitli derlemelerde bulunan yerel koddadır. Bunları pakete eklemek için, ilişkili `<files>` .pri kaynak dosyalarıyla birlikte bölüme başvurun:
 
 ```xml
 <?xml version="1.0"?>
@@ -151,9 +151,9 @@ Bileşeninizin içinde, ImageEnhancer türünün Çekirdek mantığı, her bir h
 </package>
 ```
 
-### <a name="final-nuspec"></a>Final. nuspec
+### <a name="final-nuspec"></a>Son .nuspec
 
-Son `.nuspec` dosyanız artık aşağıdaki gibi görünmelidir, burada tekrar YOUR_NAME uygun bir değerle değiştirilmelidir:
+Son `.nuspec` dosyanız şimdi aşağıdaki gibi görünmelidir ve yine YOUR_NAME uygun bir değerle değiştirilmelidir:
 
 ```xml
 <?xml version="1.0"?>
@@ -195,28 +195,28 @@ Son `.nuspec` dosyanız artık aşağıdaki gibi görünmelidir, burada tekrar Y
 </package>
 ```
 
-## <a name="package-the-component"></a>Bileşeni paketleme
+## <a name="package-the-component"></a>Bileşeni paketle
 
-Pakete dahil etmeniz gereken tüm dosyalara başvuran tamamlanmış `.nuspec` ile [`nuget pack`](/nuget/reference/cli-reference/cli-ref-pack) komutunu çalıştırmaya hazırsınız:
+Pakete `.nuspec` eklemeniz gereken tüm dosyalara başvuru nun tamamlanmasıyla, komutu [`nuget pack`](/nuget/reference/cli-reference/cli-ref-pack) çalıştırmaya hazırsınız:
 
 ```cli
 nuget pack ImageEnhancer.nuspec
 ```
 
-Bu, `ImageEnhancer.YOUR_NAME.1.0.0.nupkg`oluşturur. Bu dosyayı [NuGet Paket Gezgini](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer) gibi bir araçta açıp tüm düğümleri genişleterek aşağıdaki içerikleri görürsünüz:
+Bu oluşturur. `ImageEnhancer.YOUR_NAME.1.0.0.nupkg` Bu dosyayı [NuGet Paket Gezgini](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer) gibi bir araçta açmak ve tüm düğümleri genişletmek, aşağıdaki içeriği görürsünüz:
 
-![ImageEnhancer paketini gösteren NuGet Paket Gezgini](media/UWP-PackageExplorer.png)
+![NuGet Paket Explorer ImageEnhancer paketini gösteriyor](media/UWP-PackageExplorer.png)
 
 > [!Tip]
-> `.nupkg` dosyası, farklı uzantılı yalnızca bir ZIP dosyasıdır. Ayrıca, paket içeriğini inceleyebilir, sonra `.nupkg` `.zip`olarak değiştirebilir, ancak paketi nuget.org 'e yüklemeden önce uzantıyı geri yüklemeyi unutmayın.
+> Dosya, `.nupkg` farklı uzantılı bir ZIP dosyasıdır. Ayrıca, daha sonra, değiştirerek `.nupkg` paket `.zip`içeriğini inceleyebilirsiniz , ancak nuget.org bir paket yüklemeden önce uzantısı geri yüklemeyi unutmayın.
 
-Paketinizi diğer geliştiriciler için kullanılabilir hale getirmek için, [paket yayımlama](../nuget-org/publish-a-package.md)yönergelerini izleyin.
+Paketinizi diğer geliştiricilerin kullanımına açmak [için, paket yayımlama](../nuget-org/publish-a-package.md)yönergelerini izleyin.
 
 ## <a name="related-topics"></a>İlgili konular
 
-- [. nuspec başvurusu](../reference/nuspec.md)
+- [.nuspec Başvuru](../reference/nuspec.md)
 - [Sembol paketleri](../create-packages/symbol-packages-snupkg.md)
-- [Paket sürümü oluşturma](../concepts/package-versioning.md)
-- [Çoklu .NET Framework sürümlerini destekleme](../create-packages/supporting-multiple-target-frameworks.md)
-- [Bir pakete MSBuild props ve hedefleri dahil etme](../create-packages/creating-a-package.md#include-msbuild-props-and-targets-in-a-package)
+- [Paket sürüm](../concepts/package-versioning.md)
+- [Çoklu .NET Framework Sürümlerini Destekleme](../create-packages/supporting-multiple-target-frameworks.md)
+- [MSBuild sahne ve hedeflerini bir pakete dahil et](../create-packages/creating-a-package.md#include-msbuild-props-and-targets-in-a-package)
 - [Yerelleştirilmiş Paketler Oluşturma](../create-packages/creating-localized-packages.md)

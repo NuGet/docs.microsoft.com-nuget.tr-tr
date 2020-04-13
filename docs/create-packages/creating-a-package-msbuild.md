@@ -1,45 +1,45 @@
 ---
-title: MSBuild kullanarak bir NuGet paketi oluşturma
-description: Dosyalar ve sürüm oluşturma gibi önemli karar noktaları da dahil olmak üzere bir NuGet paketi tasarlama ve oluşturma işlemine yönelik ayrıntılı kılavuz.
+title: MSBuild'i kullanarak NuGet paketi oluşturma
+description: Dosyaları ve sürüm gibi önemli karar noktaları da dahil olmak üzere bir NuGet paketi tasarlama ve oluşturma sürecine ilişkin ayrıntılı bir kılavuz.
 author: karann-msft
 ms.author: karann
 ms.date: 02/20/2020
 ms.topic: conceptual
 ms.openlocfilehash: 7166d622ef9d3975fc1c931d30caf570a765a6da
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "78231324"
 ---
-# <a name="create-a-nuget-package-using-msbuild"></a>MSBuild kullanarak bir NuGet paketi oluşturma
+# <a name="create-a-nuget-package-using-msbuild"></a>MSBuild'i kullanarak NuGet paketi oluşturma
 
-Kodunuzdan bir NuGet paketi oluşturduğunuzda, bu işlevselliği herhangi bir sayıda diğer geliştirici tarafından paylaşılabilen ve kullanılabilecek bir bileşene paketleyerek. Bu makalede, MSBuild kullanarak bir paketin nasıl oluşturulacağı açıklanır. MSBuild, NuGet içeren her Visual Studio iş yüküne önceden yüklenmiş olarak gelir. Ayrıca DotNet [MSBuild](https://docs.microsoft.com/dotnet/core/tools/dotnet-msbuild)Ile DotNet CLI aracılığıyla MSBuild 'i de kullanabilirsiniz.
+Kodunuzdan bir NuGet paketi oluşturduğunuzda, bu işlevselliği diğer geliştiricilerle paylaşılabilen ve diğer geliştiriciler tarafından kullanılabilecek bir bileşene paketlersiniz. Bu makalede, MSBuild kullanarak bir paket oluşturmak için nasıl açıklanmaktadır. MSBuild, NuGet içeren her Visual Studio iş yüküyle önceden yüklenmiş olarak gelir. Ayrıca [dotnet msbuild](https://docs.microsoft.com/dotnet/core/tools/dotnet-msbuild)ile dotnet CLI üzerinden MSBuild kullanabilirsiniz.
 
-NuGet, .NET Core ve .NET Standard [SDK stili biçimini](../resources/check-project-format.md)kullanan projeler ve diğer SDK stilindeki projeler için, proje dosyasındaki bilgileri doğrudan bir paket oluşturmak üzere kullanır.  `<PackageReference>`kullanan SDK olmayan bir proje için, NuGet Ayrıca bir paket oluşturmak için proje dosyasını kullanır.
+[SDK stili biçimini](../resources/check-project-format.md)ve diğer SDK stili projeleri kullanan .NET Core ve .NET Standard projeleri için NuGet, proje dosyasındaki bilgileri doğrudan bir paket oluşturmak için kullanır.  Kullanan SDK tarzı olmayan bir `<PackageReference>`proje için, NuGet bir paket oluşturmak için proje dosyasını da kullanır.
 
-SDK stili projelerde varsayılan olarak paket işlevselliği bulunur. SDK olmayan biçim PackageReference projeleri için, proje bağımlılıklarına NuGet. Build. Tasks. Pack paketini eklemeniz gerekir. MSBuild paketi hedefleri hakkında ayrıntılı bilgi için bkz. [NuGet paketi ve geri yükleme MSBuild hedefleri olarak](../reference/msbuild-targets.md).
+SDK tarzı projeler varsayılan olarak paket işlevine sahiptir. SDK tarzı olmayan PackageReference projeleri için proje bağımlılıklarına NuGet.Build.Tasks.Pack paketini eklemeniz gerekir. MSBuild paketi hedefleri hakkında ayrıntılı bilgi için [NuGet paketine bakın ve MSBuild hedefleri olarak geri yükleyin.](../reference/msbuild-targets.md)
 
-`msbuild -t:pack`bir paket oluşturan komut, `dotnet pack`işlevi eşdeğerdir.
+Bir paket oluşturan komut, `msbuild -t:pack` `dotnet pack`işlevsellik eşdeğerdir.
 
 > [!IMPORTANT]
-> Bu konu, [SDK stili](../resources/check-project-format.md) projelere, genellikle .NET Core ve .NET Standard projelerine ve PACKAGEREFERENCE kullanan SDK olmayan bir proje için geçerlidir.
+> Bu konu, genellikle .NET Core ve .NET Standart projeleri olan [SDK tarzı](../resources/check-project-format.md) projeler ve PackageReference kullanan SDK tarzı olmayan projeler için geçerlidir.
 
 ## <a name="set-properties"></a>Özellikleri ayarlama
 
 Bir paket oluşturmak için aşağıdaki özellikler gereklidir.
 
-- paketi barındıran Galeri genelinde benzersiz olması gereken paket tanımlayıcısını `PackageId`. Belirtilmemişse, varsayılan değer `AssemblyName`.
-- `Version`, *birincil. ikincil. Patch [-suffix]* biçiminde belirli bir sürüm numarası; burada *-suffix* [yayın öncesi sürümlerini](prerelease-packages.md)tanımlar. Belirtilmemişse, varsayılan değer 1.0.0 ' dir.
-- Paket başlığı konakta görüntülenecek şekilde (nuget.org gibi)
-- `Authors`, yazar ve sahip bilgileri. Belirtilmemişse, varsayılan değer `AssemblyName`.
-- `Company`, şirketinizin adı. Belirtilmemişse, varsayılan değer `AssemblyName`.
+- `PackageId`, paketi barındıran galeride benzersiz olması gereken paket tanımlayıcısı. Belirtilmemişse, varsayılan `AssemblyName`değer .
+- `Version`, *Major.Minor.Patch[-Soneki]* formunda belirli bir sürüm numarası ve *-Soneki* ön [sürüm sürümlerini](prerelease-packages.md)tanımlar. Belirtilmemişse, varsayılan değer 1.0.0'dır.
+- Ana bilgisayarda görünmesi gerektiği gibi paket başlığı (nuget.org gibi)
+- `Authors`, yazar ve sahip bilgileri. Belirtilmemişse, varsayılan `AssemblyName`değer .
+- `Company`, şirket adınız. Belirtilmemişse, varsayılan `AssemblyName`değer .
 
-Ayrıca, PackageReference kullanan SDK olmayan bir stil projesi paketlebiliyorsanız aşağıdakiler gereklidir:
+Ayrıca PackageReference kullanan SDK tarzı olmayan projeleri paketliliyorsanız, aşağıdakiler gereklidir:
 
-- paketi çağırırken oluşturulan paketin çıkış klasörü `PackageOutputPath`.
+- `PackageOutputPath`, paketi ararken oluşturulan paketin çıktı klasörü.
 
-Visual Studio 'da bu değerleri proje özelliklerinde ayarlayabilirsiniz (Çözüm Gezgini ' de projeye sağ tıklayıp **Özellikler**' i seçin ve **paket** sekmesini seçin). Bu özellikleri doğrudan proje dosyaları (*. csproj*) içinde de ayarlayabilirsiniz.
+Visual Studio'da bu değerleri proje özelliklerinde ayarlayabilirsiniz (Çözüm Gezgini'nde projeyi sağ tıklatın, **Özellikler'i**seçin ve **Paket** sekmesini seçin). Ayrıca bu özellikleri doğrudan proje dosyalarında *(.csproj)* ayarlayabilirsiniz.
 
 ```xml
 <PropertyGroup>
@@ -51,9 +51,9 @@ Visual Studio 'da bu değerleri proje özelliklerinde ayarlayabilirsiniz (Çöz�
 ```
 
 > [!Important]
-> Pakete nuget.org genelinde benzersiz bir tanımlayıcı verin veya kullandığınız herhangi bir paket kaynağını kullanın.
+> Pakete, nuget.org veya kullandığınız paket kaynağında benzersiz bir tanımlayıcı verin.
 
-Aşağıdaki örnekte, bu özelliklerle birlikte basit ve tamamlanmış bir proje dosyası gösterilmektedir.
+Aşağıdaki örnekte, bu özelliklere sahip basit, tam bir proje dosyası gösterilmektedir.
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -67,12 +67,12 @@ Aşağıdaki örnekte, bu özelliklerle birlikte basit ve tamamlanmış bir proj
 </Project>
 ```
 
-`Title`, `PackageDescription`ve `PackageTags`gibi isteğe bağlı özellikleri, [MSBuild paketi hedefleri](../reference/msbuild-targets.md#pack-target)' nde açıklandığı gibi, [bağımlılık varlıklarını denetleme](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets)ve [NuGet meta verileri özelliklerini](/dotnet/core/tools/csproj#nuget-metadata-properties)de ayarlayabilirsiniz.
+[MsBuild paketi hedeflerinde](../reference/msbuild-targets.md#pack-target)açıklandığı `Title`gibi `PackageDescription` `PackageTags`isteğe bağlı özellikleri de ayarlayabilirsiniz, [bağımlılık varlıklarını denetleme](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets)ve [NuGet meta veri özellikleri.](/dotnet/core/tools/csproj#nuget-metadata-properties)
 
 > [!NOTE]
-> Genel tüketim için derlenmiş paketler için, paket **etiketleri** özelliğine özel bir dikkat edin, Etiketler başkalarının paketinizi bulmasına ve ne yaptığını anlamalarına yardımcı olur.
+> Genel tüketim için oluşturulmuş paketler için, etiketler başkalarının paketinizi bulmasına ve ne işe yaradığına yardımcı olduğundan, **PackageTags** özelliğine özel olarak dikkat edin.
 
-Bağımlılıkları bildirme ve sürüm numaralarını belirtme hakkında ayrıntılar için bkz. proje dosyaları ve [paket sürümü oluşturma](../concepts/package-versioning.md) [içindeki paket başvuruları](../consume-packages/package-references-in-project-files.md) . Ayrıca, `<IncludeAssets>` ve `<ExcludeAssets>` özniteliklerini kullanarak doğrudan pakette bulunan bağımlılıklardan yüzeylerden yüzey mümkündür. Daha fazla bilgi için, [bağımlılık varlıklarını denetleyen](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets)seee.
+Bağımlılıkları bildirme ve sürüm numaralarını belirtme yle ilgili ayrıntılar için [proje dosyalarındaki paket başvuruları](../consume-packages/package-references-in-project-files.md) ve Paket [sürümüne](../concepts/package-versioning.md)bakın. Varlıkları bağımlılıklardan doğrudan pakete ve `<IncludeAssets>` `<ExcludeAssets>` öznitelikleri kullanarak yüzeye çıkarmak da mümkündür. Daha fazla bilgi için [bkz.](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets)
 
 ## <a name="add-an-optional-description-field"></a>İsteğe bağlı açıklama alanı ekleme
 
@@ -82,11 +82,11 @@ Bağımlılıkları bildirme ve sürüm numaralarını belirtme hakkında ayrın
 
 [!INCLUDE [choose-package-id](includes/choose-package-id.md)]
 
-## <a name="add-the-nugetbuildtaskspack-package"></a>NuGet. Build. Tasks. Pack paketini ekleme
+## <a name="add-the-nugetbuildtaskspack-package"></a>NuGet.Build.Tasks.Pack paketini ekleyin
 
-SDK olmayan bir proje ve PackageReference ile MSBuild kullanıyorsanız, projenize NuGet. Build. Tasks. Pack paketini ekleyin.
+MSBuild'i SDK tarzı olmayan bir proje ve PackageReference ile kullanıyorsanız, Projenize NuGet.Build.Tasks.Pack paketini ekleyin.
 
-1. Proje dosyasını açın ve `<PropertyGroup>` öğeden sonra aşağıdakini ekleyin:
+1. Proje dosyasını açın ve `<PropertyGroup>` öğeden sonra aşağıdakileri ekleyin:
 
    ```xml
    <ItemGroup>
@@ -96,31 +96,31 @@ SDK olmayan bir proje ve PackageReference ile MSBuild kullanıyorsanız, projeni
    </ItemGroup>
    ```
 
-2. Bir geliştirici komut istemi açın ( **arama** kutusunda, **Geliştirici komut istemi**yazın).
+2. Geliştirici komut istemini açın **(Arama** kutusunda **Geliştirici komut istemi**yazın).
 
-   Visual Studio için Geliştirici Komut İstemi, MSBuild için gereken tüm yollarla yapılandırıldıklarında, genellikle **Başlangıç** menüsünden başlatmak istersiniz.
+   MSBuild için gerekli tüm yollarla yapılandırılacak gibi, genellikle Görsel Stüdyo için Geliştirici Komut Komut Ustem komutunu **Başlat** menüsünden başlatmak istersiniz.
 
-3. Proje dosyasını içeren klasöre geçin ve NuGet. Build. Tasks. Pack paketini yüklemek için aşağıdaki komutu yazın.
+3. Proje dosyasını içeren klasöre geçin ve NuGet.Build.Tasks.Pack paketini yüklemek için aşağıdaki komutu yazın.
 
    ```cmd
    # Uses the project file in the current folder by default
    msbuild -t:restore
    ```
 
-   MSBuild çıkışının, yapılandırmanın başarıyla tamamlandığını gösteriyor olduğundan emin olun.
+   MSBuild çıktısının yapının başarıyla tamamlandığını gösterdiğinden emin olun.
 
-## <a name="run-the-msbuild--tpack-command"></a>MSBuild-t:Pack komutunu çalıştırın
+## <a name="run-the-msbuild--tpack-command"></a>msbuild -t:pack komutunu çalıştırın
 
-Projeden bir NuGet paketi (`.nupkg` dosyası) oluşturmak için, Ayrıca projeyi otomatik olarak oluşturan `msbuild -t:pack` komutunu çalıştırın:
+Projeden bir NuGet `.nupkg` paketi (dosya) oluşturmak `msbuild -t:pack` için, projeyi otomatik olarak oluşturan komutu çalıştırın:
 
-Visual Studio için geliştirici komut isteminde aşağıdaki komutu yazın:
+Visual Studio için Geliştirici komut isteminde aşağıdaki komutu yazın:
 
 ```cmd
 # Uses the project file in the current folder by default
 msbuild -t:pack
 ```
 
-Çıktı, `.nupkg` dosyasının yolunu gösterir.
+`.nupkg` Çıktı, dosyaya giden yolu gösterir.
 
 ```output
 Microsoft (R) Build Engine version 16.1.76+g14b0a930a7 for .NET Framework
@@ -149,44 +149,44 @@ Build succeeded.
 Time Elapsed 00:00:01.21
 ```
 
-### <a name="automatically-generate-package-on-build"></a>Derleme üzerinde otomatik olarak paket oluştur
+### <a name="automatically-generate-package-on-build"></a>Otomatik olarak yapı üzerinde paket oluşturmak
 
-Projeyi oluştururken veya geri yüklerken `msbuild -t:pack` otomatik olarak çalıştırmak için, aşağıdaki satırı `<PropertyGroup>`içindeki proje dosyanıza ekleyin:
+Projeyi oluştururken veya geri yüklediğinizde otomatik olarak çalıştırmak `msbuild -t:pack` için `<PropertyGroup>`aşağıdaki satırı proje dosyanıza ekleyin:
 
 ```xml
 <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 ```
 
-Bir çözümde `msbuild -t:pack` çalıştırdığınızda bu, çözümdeki ([<IsPackable>](/dotnet/core/tools/csproj#nuget-metadata-properties) özelliği olarak ayarlanmış olan) tüm projeler için paketler `true`olarak ayarlanmıştır.
+Bir çözüm `msbuild -t:pack` üzerinde çalıştırdığınızda, bu paketlenebilir çözümdeki tüm[<IsPackable>](/dotnet/core/tools/csproj#nuget-metadata-properties) projeleri paketler `true`(özellik ayarlanır).
 
 > [!NOTE]
-> Paketi otomatik olarak oluşturduğunuzda, paketlenecek süre projenizin derleme süresini arttırır.
+> Paketi otomatik olarak oluşturduğunuzda, paketi hazırlama süresi projenizin oluşturma süresini artırır.
 
-### <a name="test-package-installation"></a>Test paketi yüklemesi
+### <a name="test-package-installation"></a>Test paketi kurulumu
 
-Bir paketi yayımlamadan önce, genellikle bir projeye paket yükleme işlemini test etmek istersiniz. Testler, projenin proje içinde doğru konumlarında tüm dosyaları sonlandırmış olduğundan emin olmanızı ister.
+Paket yayımlamadan önce, genellikle bir projeye paket yükleme işlemini sınamak istersiniz. Testler, zorunlu dosyaların tümünden inin projedeki doğru yerlerinde sonunun olmasını sağlar.
 
-Yüklemeleri, Visual Studio 'da veya normal [paket yükleme adımlarını](../consume-packages/overview-and-workflow.md#ways-to-install-a-nuget-package)kullanarak komut satırında el ile test edebilirsiniz.
+Yüklemeleri Visual Studio'da veya komut satırında normal [paket yükleme adımlarını](../consume-packages/overview-and-workflow.md#ways-to-install-a-nuget-package)kullanarak el ile test edebilirsiniz.
 
 > [!IMPORTANT]
-> Paketler sabittir. Bir sorunu düzeltseniz, yeniden test ettiğinizde, siz de [genel paketler](../consume-packages/managing-the-global-packages-and-cache-folders.md#clearing-local-folders) klasörünüzü kaldırana kadar paketin eski sürümünü kullanmaya devam edersiniz. Bu, özellikle her derlemede benzersiz bir ön sürüm etiketi kullanmayan paketleri test ederken ilgilidir.
+> Paketler değişmez. Bir sorunu düzeltirseniz, paketin içeriğini değiştirin ve yeniden paketleyin, yeniden test ettiğinizde, genel paketler klasörünüzü [temize çıkarana](../consume-packages/managing-the-global-packages-and-cache-folders.md#clearing-local-folders) kadar paketin eski sürümünü kullanmaya devam eceksiniz. Bu, özellikle her yapıda benzersiz bir yayın öncesi etiket kullanmayan paketleri sınarken alakalıdır.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-Bir `.nupkg` dosyası olan bir paket oluşturduktan sonra, [paketi yayımlama](../nuget-org/publish-a-package.md)konusunda açıklandığı gibi istediğiniz Galeri ile yayımlayabilirsiniz.
+Bir dosya olan bir `.nupkg` paket oluşturduktan sonra, paketi [Yayımlama'da](../nuget-org/publish-a-package.md)açıklandığı gibi istediğiniz galeride yayınlayabilirsiniz.
 
-Ayrıca, aşağıdaki konularda açıklandığı gibi, paketinizin yeteneklerini genişletmek veya diğer senaryoları desteklemek isteyebilirsiniz:
+Ayrıca paketinizin yeteneklerini genişletmek veya aşağıdaki konularda açıklandığı gibi diğer senaryoları desteklemek de isteyebilirsiniz:
 
-- [NuGet paketi ve geri yükleme MSBuild hedefleri olarak](../reference/msbuild-targets.md)
-- [Paket sürümü oluşturma](../concepts/package-versioning.md)
+- [NuGet paketi ve MSBuild hedefleri olarak geri yükleme](../reference/msbuild-targets.md)
+- [Paket sürüm](../concepts/package-versioning.md)
 - [Birden çok hedef çerçeveyi destekleme](../create-packages/multiple-target-frameworks-project-file.md)
-- [Kaynak ve yapılandırma dosyalarının dönüştürmeleri](../create-packages/source-and-config-file-transformations.md)
+- [Kaynak ve yapılandırma dosyalarının dönüşümleri](../create-packages/source-and-config-file-transformations.md)
 - [Yerelleştirme](../create-packages/creating-localized-packages.md)
-- [Yayın öncesi sürümler](../create-packages/prerelease-packages.md)
+- [Ön sürüm sürümleri](../create-packages/prerelease-packages.md)
 - [Paket türünü ayarlama](../create-packages/set-package-type.md)
-- [COM birlikte çalışma Derlemeleriyle paket oluşturma](../create-packages/author-packages-with-COM-interop-assemblies.md)
+- [COM interop montajları ile paketler oluşturma](../create-packages/author-packages-with-COM-interop-assemblies.md)
 
-Son olarak, bilmeniz için ek paket türleri vardır:
+Son olarak, dikkat edilmesi gereken ek paket türleri vardır:
 
-- [Yerel Paketler](../guides/native-packages.md)
+- [Yerli Paketler](../guides/native-packages.md)
 - [Sembol Paketleri](../create-packages/symbol-packages-snupkg.md)

@@ -1,14 +1,14 @@
 ---
 ms.openlocfilehash: b615bcb78ad2eaf8524bfbf17864d4652e546ff1
-ms.sourcegitcommit: 1a63a84da2719c8141823ac89a20bf507fd22b00
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "80151392"
 ---
-Paketin NuGet.org sayfasında yer alan isteğe bağlı açıklama, `.csproj` dosyasında kullanılan `<description></description>` çekilir ya da [. nuspec dosyasındaki](../../reference/nuspec.md)`$description` üzerinden çekilir.
+Paketin NuGet.org sayfasında görüntülenen isteğe bağlı `<description></description>` açıklaması, `.csproj` dosyada kullanılan dan çekilir veya `$description` [.nuspec dosyasındaki](../../reference/nuspec.md)dosya üzerinden çekilir.
 
-Bir .NET paketinin `.csproj` dosyasının aşağıdaki XML metninde _Açıklama_ alanı örneği gösterilmektedir:
+Bir _.NET_ paketi için dosyanın `.csproj` aşağıdaki XML metninde açıklama alanı örneği gösterilir:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">

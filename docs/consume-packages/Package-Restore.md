@@ -1,92 +1,92 @@
 ---
-title: NuGet paketini geri yükleme
-description: NuGet 'in bir proje tarafından nasıl geri yükleneceği hakkında genel bakış, geri yüklemeyi devre dışı bırakma ve sürümleri kısıtlama de dahil olmak üzere.
+title: NuGet Paketi Geri Yükleme
+description: NuGet'in paketleri nasıl geri yükledığına ilişkin genel bir bakış, sürümleri niçin devre dışı bırakıp sınırlandırılacak da dahil olmak üzere bir projeye bağlıdır.
 author: karann-msft
 ms.author: karann
 ms.date: 08/05/2019
 ms.topic: conceptual
 ms.openlocfilehash: c1f1957c58839ac763238938b476eb0882c56a59
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "79428746"
 ---
-# <a name="restore-packages-using-package-restore"></a>Paket geri yükleme kullanarak paketleri geri yükleme
+# <a name="restore-packages-using-package-restore"></a>Paket Geri Yükleme'yi kullanarak paketleri geri yükleme
 
-Bir temizleyici geliştirme ortamını yükseltmek ve depo boyutunu azaltmak için, NuGet **paket geri yüklemesi** proje dosyasında ya da `packages.config`listelenen tüm bağımlılıklarını yükler. .NET Core 2.0 + `dotnet build` ve `dotnet run` komutları otomatik paket geri yükleme yapılır. Visual Studio bir proje oluşturduğunda paketleri otomatik olarak geri yükleyebilir ve Visual Studio, `nuget restore`, `dotnet restore`ve mono üzerinde xbuild aracılığıyla istediğiniz zaman paketleri geri yükleyebilirsiniz.
+Daha temiz bir geliştirme ortamını tanıtmak ve depo boyutunu azaltmak için NuGet **Paket Geri Yükleme,** proje dosyasında veya `packages.config`. .NET Core `dotnet build` 2.0+ `dotnet run` ve komutları otomatik paket geri yüklemeyapar. Visual Studio, bir proje oluştururken paketleri otomatik olarak geri yükleyebilir ve Visual `nuget restore` `dotnet restore`Studio, , ve Mono üzerinde xbuild aracılığıyla istediğiniz zaman paketleri geri yükleyebilirsiniz.
 
-Paket geri yükleme, tüm proje bağımlılıklarının, kaynak denetiminde depolanması gerekmeden, kullanılabilir olduğundan emin olur. Kaynak denetimi deponuzu paket ikili dosyalarını hariç bırakacak şekilde yapılandırmak için bkz. [paketler ve kaynak denetimi](../consume-packages/packages-and-source-control.md). 
+Paket Geri Yükleme, kaynak denetiminde depolamak zorunda kalmadan, projenin tüm bağımlılıklarının kullanılabilir olmasını sağlar. Paket ikililerini hariç tutmak için kaynak denetim deponuzu yapılandırmak için [Paketler'e ve kaynak denetimine](../consume-packages/packages-and-source-control.md)bakın. 
 
-## <a name="package-restore-overview"></a>Paket geri yüklemeye genel bakış
+## <a name="package-restore-overview"></a>Paket Geri Yükleme genel bakış
 
-Paket geri yükleme, önce bir projenin doğrudan bağımlılıklarını gerektiği şekilde yükler ve ardından bu paketlerin tüm bağımlılıklarını bağımlılık grafiğinin tamamında yükler.
+Paket Geri Yükleme önce bir projenin doğrudan bağımlılıklarını gerektiği gibi yükler, sonra da tüm bağımlılık grafiği boyunca bu paketlerin bağımlılıklarını yükler.
 
-Bir paket zaten yüklü değilse, NuGet ilk olarak onu [önbellekten](../consume-packages/managing-the-global-packages-and-cache-folders.md)almaya çalışır. Paket önbellekte değilse, NuGet paketi Visual Studio 'daki **araçlar** > **Seçenekler** > **NuGet Package Manager** > **paket kaynakları** ' nda bulunan tüm etkin kaynaklardan indirmeyi dener. Geri yükleme sırasında, NuGet paket kaynaklarının sırasını yoksayar ve isteklere yanıt vermek için ilk kaynak olan paketi kullanır. NuGet 'in nasıl davrandığı hakkında daha fazla bilgi için bkz. [ortak NuGet yapılandırması](Configuring-NuGet-Behavior.md). 
+Bir paket zaten yüklenmiyorsa, NuGet önce [önbellekten](../consume-packages/managing-the-global-packages-and-cache-folders.md)paketi almaya çalışır. Paket önbellekte değilse, NuGet paketi Visual Studio'daki **Tools** > **Options** > **NuGet Package Manager** > **Paket Kaynakları'ndaki** listedeki tüm etkin kaynaklardan indirmeye çalışır. Geri yükleme sırasında NuGet paket kaynaklarının sırasını yok sayar ve istekleri yanıtlamak için ilk kaynaktan gelen paketi kullanır. NuGet'in nasıl bir şekilde nasıl bir şekilde besleri hakkında daha fazla bilgi için [Ortak NuGet yapılandırmalarına](Configuring-NuGet-Behavior.md)bakın. 
 
 > [!Note]
-> NuGet, tüm kaynaklar denetlenene kadar bir paketin geri yükleme başarısızlığını göstermez. Bu sırada, NuGet yalnızca listedeki son kaynak için bir hata bildiriyor. Hata, bu kaynakların her biri için ayrı ayrı gösterilmese de, paketin diğer kaynakların *hiçbirinde* mevcut olmadığını gösterir.
+> NuGet, tüm kaynaklar kontrol edilene kadar paketin geri yüklenememesini göstermez. O zaman, NuGet listedeki yalnızca son kaynak için bir hata bildirir. Hata, bu kaynakların her biri için ayrı ayrı gösterilmese de, paketin diğer kaynaklardan *hiçbirinde* bulunmadığı anlamına gelir.
 
-## <a name="restore-packages"></a>Paketleri geri yükle
+## <a name="restore-packages"></a>Paketleri geri yükleme
 
-Paket geri yükleme, tüm paket bağımlılıklarını proje dosyanızdaki ( *. csproj*) veya *Packages. config* dosyanızdaki paket başvurularıyla eşleşen doğru duruma yüklemeye çalışır. (Visual Studio 'da, başvurular **Bağımlılıklar \ NuGet** veya **başvurular** düğümü altında Çözüm Gezgini görüntülenir.)
+Paket Geri Yükleme, tüm paket bağımlılıklarını proje dosyanızdaki paket başvurularıyla *(.csproj)* veya *packages.config* dosyanızla eşleşen doğru duruma yüklemeye çalışır. (Visual Studio'da, başvurular **Bağımlılıklar \ NuGet** veya **Başvuru düğümü** altında Çözüm Gezgini'nde görünür.)
 
-1. Proje dosyanızdaki paket başvuruları doğruysa paketleri geri yüklemek için tercih ettiğiniz aracı kullanın.
+1. Proje dosyanızdaki paket başvuruları doğruysa, paketleri geri yüklemek için tercih ettiğiniz aracı kullanın.
 
-   - [Visual Studio](#restore-using-visual-studio) ([otomatik geri yükleme](#restore-packages-automatically-using-visual-studio) veya [el ile geri yükleme](#restore-packages-manually-using-visual-studio))
+   - [Visual Studio](#restore-using-visual-studio) ([otomatik geri yükleme](#restore-packages-automatically-using-visual-studio) veya manuel geri [yükleme](#restore-packages-manually-using-visual-studio))
    - [dotnet CLI](#restore-using-the-dotnet-cli)
    - [nuget.exe CLI](#restore-using-the-nugetexe-cli)
    - [MSBuild](#restore-using-msbuild)
    - [Azure Pipelines](#restore-using-azure-pipelines)
    - [Azure DevOps Server](#restore-using-azure-devops-server)
 
-   Paket proje dosyanıza ( *. csproj*) veya *paketleriniz. config* dosyanız yanlış ise (paket geri yüklemesinin ardından istenen durumla eşleşmez), bunun yerine paketleri yüklemeniz ya da güncelleştirmeniz gerekir.
+   Proje dosyanızdaki paket başvuruları (*.csproj*) veya *packages.config* dosyanız yanlışsa (Paket Geri Yükleme'den sonra istediğiniz durumla eşleşmiyorsa), bunun yerine paketleri yüklemeniz veya güncelleştirmeniz gerekir.
 
-   PackageReference kullanan projeler için, başarılı bir geri yüklemeden sonra, paket *genel paketler* klasöründe bulunmalı ve `obj/project.assets.json` dosyası yeniden oluşturulur. `packages.config`kullanan projeler için, paketin projenin `packages` klasöründe görünmesi gerekir. Projenin şimdi başarıyla oluşturulması gerekir. 
+   PackageReference kullanan projeleriçin, başarılı bir geri yüklemeden sonra paket *genel* `obj/project.assets.json` paketler klasöründe bulunmalıdır ve dosya yeniden oluşturulmalıdır. Kullanan `packages.config`projeler için paket, projenin `packages` klasöründe görünmelidir. Proje artık başarıyla inşa edilmelidir. 
 
-2. Paket geri yükleme çalıştırıldıktan sonra eksik paketlerle veya paketle ilgili hatalardan (Visual Studio 'da Çözüm Gezgini hata simgeleri) hala karşılaşıyorsanız, [paket geri yükleme hatalarını giderme](package-restore-troubleshooting.md) veya alternatif olarak, [paketleri yeniden yükleme ve güncelleştirme](../consume-packages/reinstalling-and-updating-packages.md)konularında açıklanan yönergeleri izlemeniz gerekebilir.
+2. Paket Geri Yükleme'yi çalıştırdıktan sonra, hala eksik paketler veya paketle ilgili hatalarla (Visual Studio'daki Solution Explorer'daki hata simgeleri gibi) yaşıyorsanız, [Sorun Giderme Paketi Geri Yükleme hatalarında](package-restore-troubleshooting.md) açıklanan yönergeleri izlemeniz veya alternatif olarak [paketleri yeniden yüklemeniz ve güncelleştirmeniz](../consume-packages/reinstalling-and-updating-packages.md)gerekebilir.
 
-   Visual Studio 'da Paket Yöneticisi konsolu paketleri yeniden yüklemek için çeşitli esnek seçenekler sağlar. Bkz. [paket-güncelleştirme kullanma](reinstalling-and-updating-packages.md#using-update-package).
+   Visual Studio'da Package Manager Console paketleri yeniden yüklemek için birkaç esnek seçenek sunar. Bkz. [Paket Güncelleme'yi kullanma.](reinstalling-and-updating-packages.md#using-update-package)
 
-## <a name="restore-using-visual-studio"></a>Visual Studio 'Yu kullanarak geri yükleme
+## <a name="restore-using-visual-studio"></a>Visual Studio kullanarak geri yükleme
 
-Windows üzerinde Visual Studio 'da şunlardan birini yapın:
+Windows'daki Visual Studio'da:
 
-- Paketleri otomatik olarak geri yükleyin veya
+- Paketleri otomatik olarak geri yükleme veya
 
 - Paketleri el ile geri yükleme
 
-### <a name="restore-packages-automatically-using-visual-studio"></a>Visual Studio kullanarak paketleri otomatik olarak geri yükleme
+### <a name="restore-packages-automatically-using-visual-studio"></a>Visual Studio'u kullanarak paketleri otomatik olarak geri yükleme
 
-Bir şablondan proje oluşturduğunuzda veya bir proje oluşturduğunuzda paket geri yükleme otomatik olarak gerçekleşir [ve paket geri yükleme 'Yi etkinleştirme ve devre dışı bırakma](#enable-and-disable-package-restore-in-visual-studio)seçeneklerine tabidir. NuGet 4.0 + ' da, bir SDK stili projede (genellikle bir .NET Core veya .NET Standard Projesi) değişiklikler yaptığınızda geri yükleme de otomatik olarak gerçekleşir.
+Paket Geri Yükleme, bir şablondan bir proje oluşturduğunuzda veya bir proje oluşturduğunuzda, [Etkinleştir ve paketi geri yüklemeyi devre dışı etme](#enable-and-disable-package-restore-in-visual-studio)seçeneklerine tabi olarak otomatik olarak gerçekleşir. NuGet 4.0+'da, SDK tarzı bir projede (genellikle .NET Core veya .NET Standard project) değişiklik yaptığınızda geri yükleme de otomatik olarak gerçekleşir.
 
-1. Otomatik paket geri yüklemeyi etkinleştirmek için **araçlar** > **Seçenekler** > **NuGet Paket Yöneticisi**' ni ve ardından **paket geri yükleme**altında **Visual Studio 'da derleme sırasında eksik paketleri otomatik olarak denetle** ' yi seçerek etkinleştirin.
+1. **Araç** > **Seçenekleri** > **NuGet Paket Yöneticisi'ni**seçerek ve ardından Visual **Studio'da** Paket Geri **Yükleme**altında oluşturma sırasında eksik paketler için otomatik olarak kontrol seçeneğini seçerek otomatik paket geri yüklemesini etkinleştirin.
 
-   SDK olmayan stil projeleri için, ilk olarak otomatik geri yükleme seçeneğini etkinleştirmek üzere **NuGet 'in eksik paketleri Indirmesine Izin ver** ' i seçmeniz gerekir.
+   SDK tarzı olmayan projelerde, otomatik geri yükleme seçeneğini etkinleştirmek için öncelikle **NuGet'in eksik paketleri indirmesine izin** verme seçeneğini seçmeniz gerekir.
 
 1. Projeyi derleyin.
 
-   Bir veya daha fazla paket hala düzgün yüklenmemişse **Çözüm Gezgini** bir hata simgesi gösterir. Sağ tıklayın ve **NuGet Paketlerini Yönet**' i seçin ve etkilenen paketleri kaldırmak ve yeniden yüklemek Için **Paket Yöneticisi** ' ni kullanın. Daha fazla bilgi için bkz. [paketleri yeniden yükleme ve güncelleştirme](../consume-packages/reinstalling-and-updating-packages.md)
+   Bir veya daha fazla tek tek paket hala düzgün yüklenmiyorsa, **Çözüm Gezgini** bir hata simgesi gösterir. NuGet **Paketlerini Yönet'e**sağ tıklayın ve seçin ve etkilenen paketleri kaldırmak ve yeniden yüklemek için **Paket Yöneticisi'ni** kullanın. Daha fazla bilgi için [paketleri yeniden yükle ve güncelleştir'e](../consume-packages/reinstalling-and-updating-packages.md) bakın
 
-   "Bu proje, bu bilgisayarda eksik olan NuGet paketlerine başvuruyor," ya da "bir veya daha fazla NuGet paketinin geri yüklenmesi gerekiyor, ancak izin verilmediğinden," [otomatik geri yüklemeyi etkinleştir](#enable-and-disable-package-restore-in-visual-studio)"hatasını görürseniz. Daha eski projeler için Ayrıca bkz. [otomatik paket geri yüklemeye geçiş](#migrate-to-automatic-package-restore-visual-studio). Ayrıca bkz. [paket geri yükleme sorunlarını giderme](Package-restore-troubleshooting.md).
+   "Bu proje, bu bilgisayarda eksik olan NuGet paketine(ler) başvurur" veya "Bir veya daha fazla NuGet paketinin geri yüklenmemesi gerekir, ancak onay verilmediği için olamaz" hatasını görürseniz, [otomatik geri yüklemeyi etkinleştirin.](#enable-and-disable-package-restore-in-visual-studio) Eski projeler için, [otomatik paket geri yüklemesine geçir'e](#migrate-to-automatic-package-restore-visual-studio)de bakın. Ayrıca [bkz.](Package-restore-troubleshooting.md)
 
-### <a name="restore-packages-manually-using-visual-studio"></a>Visual Studio kullanarak paketleri el ile geri yükleme
+### <a name="restore-packages-manually-using-visual-studio"></a>Visual Studio'u kullanarak paketleri el ile geri yükleme
 
-1. **NuGet paket yöneticisi** > **Araçlar** > **Seçenekler** ' i seçerek paket geri yüklemeyi etkinleştirin. **Paket geri yükleme** seçenekleri altında **NuGet 'in eksik paketleri indirmesine izin ver**' i seçin.
+1. **Araç** > **Seçenekleri** > **NuGet Paket Yöneticisi'ni**seçerek paket geri yüklemeyi etkinleştirin. **Paket Geri Yükleme** seçenekleri altında, eksik paketleri indirmek için **NuGet'e İzin**Ver'i'yi seçin.
 
-1. **Çözüm Gezgini**, çözüme sağ tıklayın ve **NuGet paketlerini geri yükle**' yi seçin.
+1. **Solution**Explorer'da, çözüme sağ tıklayın ve **NuGet Paketlerini Geri Yükle'yi**seçin.
 
-   Bir veya daha fazla paket hala düzgün yüklenmemişse **Çözüm Gezgini** bir hata simgesi gösterir. Sağ tıklayın ve **NuGet Paketlerini Yönet**' i seçin ve ardından **Paket Yöneticisi** ' ni kullanarak etkilenen paketleri kaldırın ve yeniden yükleyin. Daha fazla bilgi için bkz. [paketleri yeniden yükleme ve güncelleştirme](../consume-packages/reinstalling-and-updating-packages.md)
+   Bir veya daha fazla tek tek paket hala düzgün yüklenmiyorsa, **Çözüm Gezgini** bir hata simgesi gösterir. NuGet **Paketlerini Yönet'e**sağ tıklayın ve seçin ve etkilenen paketleri kaldırmak ve yeniden yüklemek için **Paket Yöneticisi'ni** kullanın. Daha fazla bilgi için [paketleri yeniden yükle ve güncelleştir'e](../consume-packages/reinstalling-and-updating-packages.md) bakın
 
-   "Bu proje, bu bilgisayarda eksik olan NuGet paketlerine başvuruyor," ya da "bir veya daha fazla NuGet paketinin geri yüklenmesi gerekiyor, ancak izin verilmediğinden," [otomatik geri yüklemeyi etkinleştir](#enable-and-disable-package-restore-in-visual-studio)"hatasını görürseniz. Daha eski projeler için Ayrıca bkz. [otomatik paket geri yüklemeye geçiş](#migrate-to-automatic-package-restore-visual-studio). Ayrıca bkz. [paket geri yükleme sorunlarını giderme](Package-restore-troubleshooting.md).
+   "Bu proje, bu bilgisayarda eksik olan NuGet paketine(ler) başvurur" veya "Bir veya daha fazla NuGet paketinin geri yüklenmemesi gerekir, ancak onay verilmediği için olamaz" hatasını görürseniz, [otomatik geri yüklemeyi etkinleştirin.](#enable-and-disable-package-restore-in-visual-studio) Eski projeler için, [otomatik paket geri yüklemesine geçir'e](#migrate-to-automatic-package-restore-visual-studio)de bakın. Ayrıca [bkz.](Package-restore-troubleshooting.md)
 
-### <a name="enable-and-disable-package-restore-in-visual-studio"></a>Visual Studio 'da paket geri yüklemeyi etkinleştirme ve devre dışı bırakma
+### <a name="enable-and-disable-package-restore-in-visual-studio"></a>Visual Studio'da paket geri yüklemesini etkinleştirme ve devre dışı
 
-Visual Studio 'da paket geri yüklemeyi öncelikle **araçlar** > **Seçenekler** aracılığıyla ( **NuGet Paket Yöneticisi** > kontrol edersiniz:
+Visual Studio'da, **Öncelikle Araç** > **Seçenekleri** > **NuGet Paket Yöneticisi**aracılığıyla Paket Geri Yükleme kontrol:
 
-![NuGet Paket Yöneticisi seçenekleri aracılığıyla paket geri yüklemeyi denetleme](media/Restore-01-AutoRestoreOptions.png)
+![NuGet Paket Yöneticisi seçenekleri ile Kontrol Paketi Geri Yükleme](media/Restore-01-AutoRestoreOptions.png)
 
-- **NuGet 'in eksik paketleri Indirmesine Izin ver** , `NuGet.Config` dosyasının [packageresubi bölümündeki](../reference/nuget-config-file.md#packagerestore-section) `packageRestore/enabled` ayarını değiştirerek, Windows üzerinde `%AppData%\NuGet\` ya da Mac/Linux üzerinde `~/.nuget/NuGet/`, tüm paket geri yükleme biçimlerini denetler. Bu ayar ayrıca çözümün Visual Studio 'daki bağlam menüsünde **NuGet paketlerini geri yükle** komutunu da sunar.
+- **NuGet'in eksik paketleri indirmesine izin verin,** `packageRestore/enabled` `NuGet.Config` dosyanın geri yükleme `%AppData%\NuGet\` [bölümündeki,](../reference/nuget-config-file.md#packagerestore-section) Windows'da `~/.nuget/NuGet/` veya Mac/Linux'ta ayarını değiştirerek tüm paket geri yükleme biçimlerini kontrol edin. Bu ayar aynı zamanda Visual Studio'daki çözümün bağlam menüsünde **NuGet Paketlerini Geri Yükleme** komutunu da etkinleştiri.
 
     ```xml
     <configuration>
@@ -99,9 +99,9 @@ Visual Studio 'da paket geri yüklemeyi öncelikle **araçlar** > **Seçenekler*
     ```
     
   > [!Note]
-  > `packageRestore/enabled` ayarını küresel olarak geçersiz kılmak için, Visual Studio 'Yu başlatmadan veya bir derlemeyi başlatmadan önce **Enablenugetpackageresant** ortam değişkenini true veya false değeriyle ayarlayın.
+  > `packageRestore/enabled` Ayarı genel olarak geçersiz kılmak için, Visual Studio'yu başlatmadan veya bir yapı başlatmadan önce ortam değişkeni **EnableNuGetPackageRestore'i** True veya False değeriyle ayarlayın.
 
-- **Visual Studio 'da derleme sırasında eksik paketleri otomatik olarak denetle** `NuGet.Config` dosyasının [packageresubi bölümündeki](../reference/nuget-config-file.md#packagerestore-section) `packageRestore/automatic` ayarını değiştirerek otomatik geri yüklemeyi denetler. Bu seçenek true olarak ayarlandığında, Visual Studio 'dan bir derlemeyi çalıştırmak eksik paketleri otomatik olarak geri yükler. Bu ayar MSBuild komut satırından çalıştırılan derlemeleri etkilemez.
+- **Visual Studio'da yapı sırasında eksik paketleri otomatik** olarak `packageRestore/automatic` kontrol edin, dosyanın [paketGeri Yükleme bölümündeki](../reference/nuget-config-file.md#packagerestore-section) ayarı değiştirerek otomatik geri yükleme yi kontrol edin. `NuGet.Config` Bu seçenek True olarak ayarlandığında, Visual Studio'dan bir yapı yı çalıştırmak eksik paketleri otomatik olarak geri yükler. Bu ayar, MSBuild komut satırından çalıştırılatan yapıları etkilemez.
 
     ```xml
     ...
@@ -115,43 +115,43 @@ Visual Studio 'da paket geri yüklemeyi öncelikle **araçlar** > **Seçenekler*
     </configuration>
     ```
 
-Bir bilgisayardaki tüm kullanıcılar için paket geri yüklemeyi etkinleştirmek veya devre dışı bırakmak için, bir geliştirici veya şirket, yapılandırma ayarlarını genel `nuget.config` dosyasına ekleyebilir. Genel `nuget.config`, bazı durumlarda belirli bir `\{IDE}\{Version}\{SKU}\` Visual Studio klasörü veya `~/.local/share`adresinden Mac/Linux altında bulunan Windows 'da `%ProgramData%\NuGet\Config`. Bireysel kullanıcılar daha sonra bir proje düzeyinde gerektiğinde geri yüklemeyi seçmeli olarak etkinleştirebilir. NuGet 'in birden çok yapılandırma dosyasını nasıl önceliklendiren hakkında daha fazla ayrıntı için bkz. [ortak NuGet yapılandırması](../consume-packages/configuring-nuget-behavior.md#how-settings-are-applied).
+Bir geliştirici veya şirket, bir bilgisayardaki tüm kullanıcılar için Paket Geri Yükleme'yi `nuget.config` etkinleştirmek veya devre dışı katmak için yapılandırma ayarlarını genel dosyaya ekleyebilir. Genel `nuget.config` `%ProgramData%\NuGet\Config`windows, bazen belirli `\{IDE}\{Version}\{SKU}\` bir Visual Studio klasörü altında, `~/.local/share`ya da Mac / Linux at . Tek tek kullanıcılar daha sonra proje düzeyinde gerektiğinde geri yüklemeyi seçik olarak etkinleştirebilir. NuGet'in birden çok config dosyaya nasıl öncelik verebildiği hakkında daha fazla bilgi için [Ortak NuGet yapılandırmalarına](../consume-packages/configuring-nuget-behavior.md#how-settings-are-applied)bakın.
 
 > [!Important]
-> `packageRestore` ayarları doğrudan `nuget.config`' de düzenlerseniz, Visual Studio 'Yu yeniden başlatarak **Seçenekler** iletişim kutusunda geçerli değerler gösterilir.
+> `packageRestore` Ayarları doğrudan Görsel Studio'da `nuget.config`ayarlarsanız, **Seçenekler** iletişim kutusunun geçerli değerleri göstermesi için Visual Studio'yu yeniden başlatın.
 
-### <a name="choose-default-package-management-format"></a>Varsayılan paket yönetimi biçimini seçin
+### <a name="choose-default-package-management-format"></a>Varsayılan paket yönetim biçimini seçin
 
-![NuGet Paket Yöneticisi seçeneklerinde varsayılan paket yönetimi biçimini denetle](media/Restore-02-PackageFormatOptions.png)
+![NuGet Package Manager seçeneklerine rağmen varsayılan paket yönetim biçimini denetleme](media/Restore-02-PackageFormatOptions.png)
 
-NuGet, bir projenin paketleri kullanabileceği iki biçimi vardır: [`PackageReference`](package-references-in-project-files.md) ve [`packages.config`](../reference/packages-config.md). Varsayılan biçim **Paket Yönetimi** başlığı altında açılan kutudan seçilebilir. Bir projeye ilk paket yüklendiğinde bir seçenek de kullanılabilir.
+NuGet,bir projenin paketleri kullanabileceği iki biçimi [`PackageReference`](package-references-in-project-files.md) [`packages.config`](../reference/packages-config.md)vardır: ve . Varsayılan **biçim, Paket Yönetimi** başlığı altındaki açılır yerden seçilebilir. Projede ilk paket yüklendiğinde istenecek bir seçenek de kullanılabilir.
 
 > [!Note]
-> Bir proje her iki paket yönetimi biçimini de desteklemiyorsa, kullanılan paket yönetim biçimi proje ile uyumlu olan ve bu nedenle, seçeneklerde varsayılan olarak ayarlanan bir seçenek olmayabilir. Ayrıca, Seçenekler penceresinde seçilmiş olsa bile, NuGet ilk paket yüklemesinde seçim yapılmayacaktır.
+> Bir proje her iki paket yönetim biçimini de desteklemiyorsa, kullanılan paket yönetim biçimi projeyle uyumlu olan biçim olur ve bu nedenle seçeneklerdeki varsayılan küme olmayabilir. Ayrıca, seçenekler penceresinde seçenek seçilse bile NuGet ilk paket yüklemesinde seçim istenmez.
 >
-> Paket Yöneticisi konsolu bir projedeki ilk paketi yüklemek için kullanılıyorsa, Seçenekler penceresinde seçilmiş olsa bile, NuGet biçim seçimini istemez.
+> Paket Yöneticisi Konsolu bir projede ilk paketi yüklemek için kullanılırsa, seçenek seçenekler penceresinde seçilse bile NuGet biçim seçimi için istenmez.
 
-## <a name="restore-using-the-dotnet-cli"></a>DotNet CLı kullanarak geri yükleme
+## <a name="restore-using-the-dotnet-cli"></a>dotnet CLI kullanarak geri yükleme
 
 [!INCLUDE [restore-dotnet-cli](includes/restore-dotnet-cli.md)]
 
 > [!IMPORTANT]
-> Proje dosyasına eksik bir paket başvurusu eklemek için, `restore` komutunu da çalıştıran [DotNet Add paketini](/dotnet/core/tools/dotnet-add-package?tabs=netcore2x)kullanın.
+> Proje dosyasına eksik bir paket başvurusu eklemek için, komutu da `restore` çalıştıran [dotnet ekle paketini](/dotnet/core/tools/dotnet-add-package?tabs=netcore2x)kullanın.
 
-## <a name="restore-using-the-nugetexe-cli"></a>NuGet. exe CLı kullanarak geri yükleme
+## <a name="restore-using-the-nugetexe-cli"></a>nuget.exe CLI kullanarak geri yükleme
 
 [!INCLUDE [restore-nuget-exe-cli](includes/restore-nuget-exe-cli.md)]
 
 > [!IMPORTANT]
-> `restore`komutu bir proje dosyasını veya *Packages. config*öğesini değiştirmez. Bir bağımlılık eklemek için, Visual Studio 'da Paket Yöneticisi Kullanıcı arabirimi veya konsolundan bir paket ekleyin veya *Packages. config dosyasını* değiştirip `install` ya da `restore`çalıştırın.
+> Komut, `restore`proje dosyasını veya *packages.config'i*değiştirmez. Bağımlılık eklemek için Visual Studio'daki Paket Yöneticisi UI veya Console üzerinden paket ekleyin veya *packages.config'i* değiştirin ve sonra ya da `install` `restore`çalıştırın.
 
 ## <a name="restore-using-msbuild"></a>MSBuild kullanarak geri yükleme
 
-Proje dosyasında listelenen paketleri PackageReference ile geri yüklemek için [MSBuild-t:restore](../reference/msbuild-targets.md#restore-target) komutunu kullanın. Bu komut, Visual Studio 2017 ve üzeri sürümlerde bulunan NuGet 4. x + ve MSBuild 15.1 + ' da kullanılabilir. Hem `nuget restore` hem de `dotnet restore` ilgili projeler için bu komutu kullanın.
+PackageReference ile proje dosyasında listelenen paketleri geri yüklemek için [msbuild -t:geri yükleme](../reference/msbuild-targets.md#restore-target) komutunu kullanın. Bu komut yalnızca Visual Studio 2017 ve daha yüksek sürümlerle birlikte bulunan NuGet 4.x+ ve MSBuild 15.1+'da kullanılabilir. Her `nuget restore` `dotnet restore` ikisini de kullanın ve bu komutu geçerli projeler için kullanın.
 
-1. Bir geliştirici komut istemi açın ( **arama** kutusunda, **Geliştirici komut istemi**yazın).
+1. Geliştirici komut istemini açın **(Arama** kutusunda **Geliştirici komut istemi**yazın).
 
-   Visual Studio için Geliştirici Komut İstemi, MSBuild için gereken tüm yollarla yapılandırıldıklarında, genellikle **Başlangıç** menüsünden başlatmak istersiniz.
+   MSBuild için gerekli tüm yollarla yapılandırılacak gibi, genellikle Görsel Stüdyo için Geliştirici Komut Komut Ustem komutunu **Başlat** menüsünden başlatmak istersiniz.
 
 2. Proje dosyasını içeren klasöre geçin ve aşağıdaki komutu yazın.
 
@@ -160,77 +160,77 @@ Proje dosyasında listelenen paketleri PackageReference ile geri yüklemek için
    msbuild -t:restore
    ```
 
-3. Projeyi yeniden derlemek için aşağıdaki komutu yazın.
+3. Projeyi yeniden oluşturmak için aşağıdaki komutu yazın.
 
    ```cmd
    msbuild
    ```
 
-   MSBuild çıkışının, yapılandırmanın başarıyla tamamlandığını gösteriyor olduğundan emin olun.
+   MSBuild çıktısının yapının başarıyla tamamlandığını gösterdiğinden emin olun.
 
-## <a name="restore-using-azure-pipelines"></a>Azure Pipelines kullanarak geri yükleme
+## <a name="restore-using-azure-pipelines"></a>Azure Ardışık Düzenlerini Kullanarak Geri Yükleme
 
-Azure Pipelines ' de bir derleme tanımı oluşturduğunuzda, herhangi bir yapı görevinin önüne, tanım içine NuGet [geri yükleme](/azure/devops/pipelines/tasks/package/nuget#restore-nuget-packages) veya .NET Core [geri yükleme](/azure/devops/pipelines/tasks/build/dotnet-core-cli?view=azure-devops) görevini ekleyin. Bazı yapı şablonlarında geri yükleme görevi varsayılan olarak yer alır.
+Azure Ardışık Düzenler'de bir yapı tanımı oluşturduğunuzda, herhangi bir yapı görevinden önce nuget [geri yükleme](/azure/devops/pipelines/tasks/package/nuget#restore-nuget-packages) sini veya .NET Core [geri yükleme](/azure/devops/pipelines/tasks/build/dotnet-core-cli?view=azure-devops) görevini tanıma ekleyin. Bazı yapı şablonları varsayılan olarak geri yükleme görevini içerir.
 
-## <a name="restore-using-azure-devops-server"></a>Azure DevOps Server kullanarak geri yükleme
+## <a name="restore-using-azure-devops-server"></a>Azure DevOps Server'ı kullanarak geri yükleme
 
-TFS 2013 veya sonraki bir ekip derleme şablonu kullanıyorsanız, derleme sırasında Azure DevOps Server ve TFS 2013 ve üzeri paketleri otomatik olarak geri yükler. Önceki TFS sürümleri için bir komut satırı geri yükleme seçeneği çalıştırmak için bir derleme adımı ekleyebilir veya isteğe bağlı olarak yapı şablonunu daha sonraki bir sürüme geçirebilirsiniz. Daha fazla bilgi için bkz. [Team Foundation Build ile paket geri yüklemeyi ayarlama](../consume-packages/team-foundation-build.md).
+Azure DevOps Server ve TFS 2013 ve daha sonra bir TFS 2013 veya daha sonra Team Build şablonu kullanıyorsanız, yapı sırasında paketleri otomatik olarak geri yükleyin. Önceki TFS sürümleri için, komut satırı geri yükleme seçeneğini çalıştırmak için bir yapı adımı ekleyebilir veya isteğe bağlı olarak yapı şablonunu daha sonraki bir sürüme geçirebilirsiniz. Daha fazla bilgi için [bkz.](../consume-packages/team-foundation-build.md)
 
-## <a name="constrain-package-versions-with-restore"></a>Paket sürümlerini geri yükleme ile sınırlama
+## <a name="constrain-package-versions-with-restore"></a>Paket sürümlerini geri yüklemeyle sınırlandırın
 
-NuGet, paketleri herhangi bir yöntemle geri yüklediğinde, `packages.config` veya proje dosyasında belirttiğiniz tüm kısıtlamalara sahiptir:
+NuGet paketleri herhangi bir yöntemle geri yüklediğinde, belirttiğiniz kısıtlamaları `packages.config` veya proje dosyasını onurlandırar:
 
-- `packages.config`, bağımlılığın `allowedVersion` özelliğinde bir sürüm aralığı belirtebilirsiniz. Daha fazla bilgi için bkz. [yükseltme sürümlerini kısıtlama](../consume-packages/reinstalling-and-updating-packages.md#constraining-upgrade-versions) . Örneğin:
+- , `packages.config`bağımlılık özelliğinde `allowedVersion` bir sürüm aralığı belirtebilirsiniz. Daha fazla bilgi için [Kısıtlama yükseltme sürümlerine](../consume-packages/reinstalling-and-updating-packages.md#constraining-upgrade-versions) bakın. Örneğin:
 
     ```xml
     <package id="Newtonsoft.json" version="6.0.4" allowedVersions="[6,7)" />
     ```
 
-- Bir proje dosyasında, bir bağımlılığın doğrudan aralığını belirtmek için PackageReference kullanabilirsiniz. Örneğin:
+- Proje dosyasında, bir bağımlılık aralığını doğrudan belirtmek için PackageReference'ı kullanabilirsiniz. Örneğin:
 
     ```xml
     <PackageReference Include="Newtonsoft.json" Version="[6, 7)" />
     ```
 
-Her durumda, [paket sürümü oluşturma](../concepts/package-versioning.md)bölümünde açıklanan gösterimi kullanın.
+Her durumda, [Paket sürümünde](../concepts/package-versioning.md)açıklanan gösterimi kullanın.
 
-## <a name="force-restore-from-package-sources"></a>Paket kaynaklarından geri yüklemeyi zorla
+## <a name="force-restore-from-package-sources"></a>Paket kaynaklarından güç geri yüklemesi
 
-NuGet geri yükleme işlemleri, varsayılan olarak genel paketler ve [önbellek klasörlerini yönetme](managing-the-global-packages-and-cache-folders.md)bölümünde açıklanan *genel paketler* ve *http önbellek* klasörlerinden paketleri kullanır.
+Varsayılan olarak, NuGet geri yükleme *işlemleri, genel paketleri* ve [önbellek klasörlerini yönet'te](managing-the-global-packages-and-cache-folders.md)açıklanan genel paketlerden ve *http-cache* klasörlerinden gelen paketleri kullanır.
 
-*Küresel paketler* klasörünü kullanmaktan kaçınmak için aşağıdakilerden birini yapın:
+*Genel paketler* klasörünü kullanmaktan kaçınmak için aşağıdakilerden birini yapın:
 
-- `nuget locals global-packages -clear` veya `dotnet nuget locals global-packages --clear`kullanarak klasörü temizleyin.
+- Klasörü kullanarak `nuget locals global-packages -clear` `dotnet nuget locals global-packages --clear`temizleyin veya .
 - Aşağıdaki yöntemlerden birini kullanarak, geri yükleme işleminden önce *genel paketler* klasörünün konumunu geçici olarak değiştirin:
-  - NUGET_PACKAGES ortam değişkenini farklı bir klasöre ayarlayın.
-  - `globalPackagesFolder` (PackageReference kullanılıyorsa) veya `repositoryPath` (`packages.config`kullanılıyorsa) farklı bir klasöre ayarlayan `NuGet.Config` bir dosya oluşturun. Daha fazla bilgi için bkz. [yapılandırma ayarları](../reference/nuget-config-file.md#config-section).
-  - Yalnızca MSBuild: `RestorePackagesPath` özelliği ile farklı bir klasör belirtin.
+  - NUGET_PACKAGES ortamı değişkenini farklı bir klasöre ayarlayın.
+  - (PackageReference `NuGet.Config` kullanıyorsanız) veya `globalPackagesFolder` `repositoryPath` (kullanıyorsanız) `packages.config`farklı bir klasöre ayarlayan bir dosya oluşturun. Daha fazla bilgi için [yapılandırma ayarlarına](../reference/nuget-config-file.md#config-section)bakın.
+  - Yalnızca MSBuild: Özelliği yle `RestorePackagesPath` birlikte farklı bir klasör belirtin.
 
 HTTP kaynakları için önbelleği kullanmaktan kaçınmak için aşağıdakilerden birini yapın:
 
-- `nuget restore``-NoCache` seçeneğini veya `dotnet restore`ile `--no-cache` seçeneğini kullanın. Bu seçenekler, Visual Studio Paket Yöneticisi veya konsolu aracılığıyla geri yükleme işlemlerini etkilemez.
-- `nuget locals http-cache -clear` veya `dotnet nuget locals http-cache --clear`kullanarak önbelleği temizleyin.
-- NUGET_HTTP_CACHE_PATH ortam değişkenini geçici olarak farklı bir klasöre ayarlayın.
+- `-NoCache` Seçeneği , `nuget restore`'' ile veya ' ile `--no-cache` `dotnet restore`seçeneğini kullanın. Bu seçenekler Visual Studio Package Manager veya konsol aracılığıyla geri yükleme işlemlerini etkilemez.
+- Önbelleği kullanarak `nuget locals http-cache -clear` `dotnet nuget locals http-cache --clear`temizleyin veya.
+- Geçici olarak NUGET_HTTP_CACHE_PATH ortamı değişkenini farklı bir klasöre ayarlayın.
 
-## <a name="migrate-to-automatic-package-restore-visual-studio"></a>Otomatik paket geri yüklemeye geçiş (Visual Studio)
+## <a name="migrate-to-automatic-package-restore-visual-studio"></a>Otomatik paket geri yüklemesine geçiş (Visual Studio)
 
-NuGet 2,6 ve önceki sürümlerde, MSBuild ile tümleşik bir paket geri yükleme daha önce destekleniyordu ancak artık doğru değildir. (Visual Studio 'da bir çözüme sağ tıklayıp **NuGet paketini geri yüklemeyi etkinleştir**' i seçerek, bu genellikle etkinleştirilmiştir. Projeniz kullanım dışı olan MSBuild ile tümleşik paket geri yüklemeyi kullanıyorsa, lütfen otomatik paket geri yüklemeye geçirin.
+NuGet 2.6 ve daha önceki ler için, MSBuild ile entegre edilmiş paket geri yüklemesi daha önce desteklenmiştir, ancak bu artık doğru değildir. (Genellikle Visual Studio'da bir çözüme sağ tıklayarak ve **NuGet Paket Geri Yüklemesini Etkinleştir'i**seçerek etkinleştirildi). Projeniz, amortismana kalanmis MSBuild tümleşik paket geri yüklemesini kullanıyorsa, lütfen otomatik paket geri yüklemesine geçirin.
 
-MSBuild ile tümleşik paket geri yükleme kullanan projeler genellikle üç dosya içeren bir *. NuGet* klasörü Içerir: *NuGet. config*, *NuGet. exe*ve *NuGet. targets*. *NuGet. targets* dosyasının varlığı, NuGet 'in MSBuild-unınted yaklaşımını kullanmaya devam edip etmediğini belirler, bu nedenle geçiş sırasında bu dosyanın kaldırılması gerekir.
+MSBuild-Integrated paketi geri yükleme kullanan projeler genellikle üç dosyaiçeren bir *.nuget* klasörü içerir: *NuGet.config,* *nuget.exe*ve *NuGet.targets.* *NuGet.targets* dosyasının varlığı, NuGet'in MSBuild'e uygun olmayan yaklaşımı kullanmaya devam edip etmeyeceğini belirler, bu nedenle bu dosya geçiş sırasında kaldırılmalıdır.
 
-Otomatik paket geri yüklemeye geçiş yapmak için:
+Otomatik paket geri yüklemesine geçiş yapmak için:
 
 1. Visual Studio’yu kapatın.
-2. *. NuGet/NuGet. exe* ve *. NuGet/NuGet. targets*öğesini silin.
-3. Her proje dosyası için `<RestorePackages>` öğesini kaldırın ve *NuGet. targets*başvurusunu kaldırın.
+2. *Sil .nuget/nuget.exe* ve *.nuget/NuGet.targets*.
+3. Her proje dosyası için `<RestorePackages>` öğeyi kaldırın ve *NuGet.targets'a*yapılan tüm başvuruları kaldırın.
 
-Otomatik paket geri yüklemeyi test etmek için:
+Otomatik paket geri yüklemesini test etmek için:
 
-1. Çözüm klasöründen *paketler* klasörünü kaldırın.
-2. Visual Studio 'da çözümü açın ve bir derleme başlatın.
+1. *Paketler* klasörünü çözümden kaldırın.
+2. Visual Studio'da çözümü açın ve bir yapı başlatın.
 
-   Otomatik paket geri yükleme, her bağımlılık paketini, kaynak denetimine eklenmeden önce indirip yüklemelidir.
+   Otomatik paket geri yükleme, her bağımlılık paketini kaynak denetimine eklemeden karşıdan yüklemeli ve yüklemelidir.
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
-Bkz. [paket geri yükleme sorunlarını giderme](package-restore-troubleshooting.md).
+[Bkz. Sorun Giderme paketi geri yükleme.](package-restore-troubleshooting.md)

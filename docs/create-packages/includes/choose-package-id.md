@@ -1,26 +1,26 @@
 ---
 ms.openlocfilehash: c92f6e0c34347ee8555d416140d95ea2df5a3fbb
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "73610537"
 ---
-Paket tanımlayıcısı ve sürüm numarası, pakette bulunan tam kodu benzersiz bir şekilde tanımladıklarından, projedeki en önemli iki değer vardır.
+Paket tanımlayıcısı ve sürüm numarası, pakette bulunan tam kodu benzersiz bir şekilde tanımladıkları için projedeki en önemli iki değerdir.
 
 **Paket tanımlayıcısı için en iyi uygulamalar:**
 
-- **Benzersizlik**: tanımlayıcı, NuGet.org genelinde benzersiz olmalıdır veya paketi barındıran Galeri. Bir tanımlayıcıya karar vermeden önce, adın zaten kullanımda olup olmadığını denetlemek için ilgili galeride arama yapın. Çakışmaları önlemek için, `Contoso.` gibi, tanımlayıcının ilk parçası olarak şirketinizin adını kullanmak iyi bir modeldir.
-- **Ad alanı benzeri adlar**: kısa çizgi yerine nokta gösterimini kullanarak .net 'teki ad alanlarına benzer bir model izleyin. Örneğin, `Contoso-Utility-UsefulStuff` veya `Contoso_Utility_UsefulStuff`yerine `Contoso.Utility.UsefulStuff` kullanın. Tüketiciler ayrıca, paket tanımlayıcısı kodda kullanılan ad alanları ile eşleştiğinde yararlı olduğunu bulur.
-- **Örnek paketler**: başka bir paketin nasıl kullanılacağını gösteren bir örnek kod paketi oluşturursanız, `Contoso.Utility.UsefulStuff.Sample` ' de olduğu gibi `.Sample` ' i tanımlayıcıda sonek olarak ekleyin. (Örnek paketin, diğer pakete bağımlılığı vardır.) Örnek bir paket oluştururken, `<IncludeAssets>``contentFiles` değerini kullanın. `content` klasöründe, örnek kodu `\Samples\Contoso.Utility.UsefulStuff.Sample`gibi `\Samples\<identifier>` adlı bir klasörde düzenleyin.
+- **Teklik**: Tanımlayıcı, nuget.org veya pakete ev sahipliği yapan galeride benzersiz olmalıdır. Tanımlayıcıya karar vermeden önce, adın zaten kullanIlip kullanılmadığını kontrol etmek için ilgili galeride arama yapın. Çakışmaları önlemek için, iyi bir desen gibi tanımlayıcının ilk bölümü olarak şirket `Contoso.`adınızı kullanmaktır.
+- **Ad alanı benzeri adlar**: Tire yerine nokta gösterimi kullanarak .NET'teki ad boşluklarına benzer bir desen izleyin. Örneğin, kullanmak `Contoso.Utility.UsefulStuff` yerine `Contoso-Utility-UsefulStuff` `Contoso_Utility_UsefulStuff`veya . Tüketiciler, paket tanımlayıcısı kodda kullanılan ad alanlarıyla eşleştiğinde de yararlı olur.
+- **Örnek Paketler**: Başka bir paketin nasıl kullanılacağını gösteren bir `.Sample` örnek kod paketi üretirseniz, tanımlayıcıya sonek `Contoso.Utility.UsefulStuff.Sample`olarak iliştirin. (Örnek paket elbette diğer pakete bağımlı olacaktır.) Örnek bir paket oluştururken, `contentFiles` `<IncludeAssets>`'deki değeri kullanın. Klasörde, `content` örnek kodu ' da `\Samples\<identifier>` olarak `\Samples\Contoso.Utility.UsefulStuff.Sample`adlandırılan bir klasörde düzenleyin.
 
 **Paket sürümü için en iyi uygulamalar:**
 
-- Genel olarak, paketin sürümünü proje (veya bütünleştirilmiş kod) ile eşleşecek şekilde ayarlayın, ancak bu kesinlikle gerekli değildir. Bu, bir paketi tek bir derlemeyle sınırlandırdığınızda basit bir işlemdir. Genel olarak, NuGet 'in derleme sürümlerini değil, bağımlılıkları çözümlerken Paket sürümleriyle uğraşır olduğunu unutmayın.
-- Standart olmayan bir sürüm düzeni kullanırken, [paket sürümü oluşturma](../../concepts/package-versioning.md)bölümünde açıklandığı gibi NuGet sürüm oluşturma kurallarını dikkate aldığınızdan emin olun. NuGet genellikle [semver 2 uyumludur](../../concepts/package-versioning.md#semantic-versioning-200).
+- Genel olarak, paketin sürümünü projeyle (veya derlemeye) uyacak şekilde ayarlayın, ancak bu kesinlikle gerekli değildir. Bir paketi tek bir derlemeyle sınırladiğinizde bu basit bir konudur. Genel olarak, NuGet'in derleme sürümlerini değil, bağımlılıkları çözerken paket sürümleriyle ilgili olduğunu unutmayın.
+- Standart olmayan bir sürüm şeması kullanırken, [Paket sürümde](../../concepts/package-versioning.md)açıklandığı gibi NuGet sürüm kurallarını dikkate almayı unutmayın. NuGet çoğunlukla [semver 2 uyumludur.](../../concepts/package-versioning.md#semantic-versioning-200)
 
-> Bağımlılık çözümleme hakkında daha fazla bilgi için bkz. [PackageReference Ile bağımlılık çözünürlüğü](../../concepts/dependency-resolution.md#dependency-resolution-with-packagereference). Sürüm oluşturmayı daha iyi anlamak için de yararlı olabilecek eski bilgiler için, bu blog gönderilerine bakın.
+> Bağımlılık çözümü hakkında bilgi için [PackageReference ile Bağımlılık çözümü'ne](../../concepts/dependency-resolution.md#dependency-resolution-with-packagereference)bakın. Sürüm yapmayı daha iyi anlamak için de yararlı olabilecek eski bilgiler için bu blog gönderileri serisine bakın.
 >
-> - [1. Bölüm: DLL Hell üzerinde alma](https://blog.davidebbo.com/2011/01/nuget-versioning-part-1-taking-on-dll.html)
-> - [2. Bölüm: çekirdek algoritması](https://blog.davidebbo.com/2011/01/nuget-versioning-part-2-core-algorithm.html)
-> - [3. kısım: bağlama yeniden yönlendirmeleri aracılığıyla birleşme](https://blog.davidebbo.com/2011/01/nuget-versioning-part-3-unification-via.html)
+> - [Bölüm 1: DLL Hell alma](https://blog.davidebbo.com/2011/01/nuget-versioning-part-1-taking-on-dll.html)
+> - [Bölüm 2: Çekirdek algoritması](https://blog.davidebbo.com/2011/01/nuget-versioning-part-2-core-algorithm.html)
+> - [Bölüm 3: Bağlayıcı Yönlendirmelerle Birleşme](https://blog.davidebbo.com/2011/01/nuget-versioning-part-3-unification-via.html)

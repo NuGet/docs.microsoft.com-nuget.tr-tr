@@ -1,158 +1,164 @@
 ---
-title: NuGet 4.9 RTM sürüm notları
-description: NuGet bilinen sorunları, hata düzeltmeleri, yeni özellikler ve dcr dahil olmak üzere 4.9 için sürüm notları.
+title: NuGet 4.9 RTM Yayın Notları
+description: Bilinen sorunlar, hata düzeltmeleri, yeni özellikler ve DCR'ler dahil olmak üzere NuGet 4.9 için sürüm notları.
 author: karann-msft
 ms.author: karann
 ms.date: 11/20/2018
 ms.topic: conceptual
-ms.openlocfilehash: aa9bf87504477506dbb1e9ac10d5c1d5841c224f
-ms.sourcegitcommit: 885973352d31808e3ddbb45da6d6e54d1e4fca9d
+ms.openlocfilehash: e0dea74fe179c0dce4996f3e498185bb3a491856
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56224950"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64496459"
 ---
-# <a name="nuget-49-release-notes"></a>NuGet 4.9 sürüm notları
+# <a name="nuget-49-release-notes"></a>NuGet 4.9 Yayın Notları
 
 NuGet dağıtım araçları:
 
-| NuGet sürüm | Visual Studio sürümü içinde kullanılabilir| .NET SDK'sı sürümünü kullanılabilir|
+| NuGet sürümü | Visual Studio sürümünde mevcuttur| .NET SDK(ler) adresinde mevcuttur|
 |:---|:---|:---|
-| [**4.9.0**](https://nuget.org/downloads) | [Visual Studio 2017 sürüm 15.9.0](https://visualstudio.microsoft.com/downloads/) | [2.1.500, 2.2.100](https://www.microsoft.com/net/download/visual-studio-sdks) |
+| [**4.9.0**](https://nuget.org/downloads) | [Visual Studio 2017 sürümü 15.9.0](https://visualstudio.microsoft.com/downloads/) | [2.1.500, 2.2.100](https://www.microsoft.com/net/download/visual-studio-sdks) |
 | [**4.9.1**](https://nuget.org/downloads) | yok | yok |
-| [**4.9.2**](https://nuget.org/downloads) |[Visual Studio 2017 sürüm 15.9.4](https://visualstudio.microsoft.com/downloads/) | [2.1.502, 2.2.101](https://www.microsoft.com/net/download/visual-studio-sdks) |
-| [**4.9.3**](https://nuget.org/downloads) |[Visual Studio 2017 sürüm 15.9.6](https://visualstudio.microsoft.com/downloads/) | [2.1.504, 2.2.104](https://www.microsoft.com/net/download/visual-studio-sdks) |
+| [**4.9.2**](https://nuget.org/downloads) |[Visual Studio 2017 sürümü 15.9.4](https://visualstudio.microsoft.com/downloads/) | [2.1.502, 2.2.101](https://www.microsoft.com/net/download/visual-studio-sdks) |
+| [**4.9.3**](https://nuget.org/downloads) |[Visual Studio 2017 sürümü 15.9.6](https://visualstudio.microsoft.com/downloads/) | [2.1.504, 2.2.104](https://www.microsoft.com/net/download/visual-studio-sdks) |
 
 
-## <a name="summary-whats-new-in-490"></a>Özet: 4.9.0 yenilikler
+## <a name="summary-whats-new-in-490"></a>Özeti: 4.9.0 Yenilikler
 
-* İmzalama: Güvenilen yazarlar ve depoları NuGet.Config içinde - listelenen bir dizi kullanımını zorunlu ClientPolicies etkinleştirme [#6961](https://github.com/NuGet/Home/issues/6961), [blog gönderisi](https://blog.nuget.org/20181205/Lock-down-your-dependencies-using-configurable-trust-policies.html)
+* İmzalama: Müşteri İlkelerinin NuGet.Config'de listelenen Güvenilir Yazarlar ve Depolar kümesinin kullanılmasını gerektirmesini etkinleştirin - [#6961](https://github.com/NuGet/Home/issues/6961), [blog gönderisi](https://blog.nuget.org/20181205/Lock-down-your-dependencies-using-configurable-trust-policies.html)
 
-* Paketi sembolleri içeren--snupkg dosyalar için Sembol sunucusu - kabul etmek için nuget Protokolü anlamak için anında iletme geliştirmek için ".snupkg" dosyaları oluşturma [#6878](https://github.com/NuGet/Home/issues/6878), [blog gönderisi](https://blog.nuget.org/20181116/Improved-debugging-experience-with-the-NuGet-org-symbol-server-and-snupkg.html)
+* pakette semboller içeren ".snupkg" dosyaları oluşturun - sembol sunucusu için snupkg dosyaları kabul etmek nuget protokolünü anlamak için itme geliştirmek - [#6878](https://github.com/NuGet/Home/issues/6878), [blog yazısı](https://blog.nuget.org/20181116/Improved-debugging-experience-with-the-NuGet-org-symbol-server-and-snupkg.html)
 
-* NuGet kimlik bilgisi eklentisi V2 - [#6642](https://github.com/NuGet/Home/issues/6642)
+* NuGet kimlik bilgileri eklentisi V2 - [#6642](https://github.com/NuGet/Home/issues/6642)
 
-* Müstakil NuGet paketlerini - lisans - [#4628](https://github.com/NuGet/Home/issues/4628), [Duyurusu](https://github.com/NuGet/Announcements/issues/32)
+* Müstakil NuGet Paketleri - Lisans - [#4628](https://github.com/NuGet/Home/issues/4628), [duyuru](https://github.com/NuGet/Announcements/issues/32)
 
-* Kabul etme "GeneratePathProperty" meta verilerini oluşturmak için PackageReference etkinleştirme bir paket MSBuild özelliği için başına "Foo.Bar\1.0\" dizin - [#6949](https://github.com/NuGet/Home/issues/6949)
+* "Foo.Bar\1.0\" dizini " için paket başına MSBuild özelliği oluşturmak için bir PackageReference üzerinde "GeneratePathProperty" meta verileri etkinleştirin - [#6949](https://github.com/NuGet/Home/issues/6949)
 
-* Müşteri başarı ile NuGet işlemleri - geliştirmek [#7108](https://github.com/NuGet/Home/issues/7108)
+* NuGet işlemleri ile müşteri başarısını artırın - [#7108](https://github.com/NuGet/Home/issues/7108)
 
-* Etkinleştirme kilidi kullanarak paket yinelenebilir geri yükler - dosya [#5602](https://github.com/NuGet/Home/issues/5602), [duyuru](https://github.com/NuGet/Announcements/issues/28), [blog gönderisi](https://blog.nuget.org/20181217/Enable-repeatable-package-restores-using-a-lock-file.html)
-
-### <a name="issues-fixed-in-this-release"></a>Bu sürümde giderilen sorunlar
-
-* Uyarıları PackageExtraction tarafından oluşturulan hatalara (aracılığıyla WarnAsErrors) yükseltilmiş etrafında - ayıklanan paket asla terk [#7445](https://github.com/NuGet/Home/issues/7445)
-
-* Hatalı imzalanmış paketleri sone ermemlidir genel paketleri klasöründe - [#7423](https://github.com/NuGet/Home/issues/7423)
-
-* bağlama yeniden yönlendirme oluşturma atlamayın cephe derlemeleri - [#7393](https://github.com/NuGet/Home/issues/7393)
-
-* Kayan aralıkları - VersionRange eşittir karşılaştırma değil [#7324](https://github.com/NuGet/Home/issues/7324)
-
-* Geri yükleme: yeni .NET Core 2.1 HTTP kullanarak performans gerilemesi yığınını - [#7314](https://github.com/NuGet/Home/issues/7314)
-
-* Güncelleştirme paketi değişiklik PrivateAssets - PackageReference'nın [#7285](https://github.com/NuGet/Home/issues/7285)
-
-* İmzalama: bir paket çok fazla paket giriş varsa imzalama başarısız olması (> 65534)- [#7248](https://github.com/NuGet/Home/issues/7248)
-
-* "dotnet nuget anında iletme" kod yolu, yeni kimlik bilgisi sağlayıcısı - desteklemelidir [#7233](https://github.com/NuGet/Home/issues/7233)
-
-* Yürütme eklentileri (gibi docker gerçekleşir) sabit kültür ile-destek [#7223](https://github.com/NuGet/Home/issues/7223)
-
-* nuget kaynağı ekleme NuGet.config - kimlik bilgilerinin silemediğini [#7200](https://github.com/NuGet/Home/issues/7200)
-
-* bir devDependency PackageReference yükleme excludeassets için varsayılan derleme - = [#7084](https://github.com/NuGet/Home/issues/7084)
-
-* Proje uyumsuz - ise tüm projeler ve hatayı Göster görüntülenecek migrator seçeneği düzeltme [#6958](https://github.com/NuGet/Home/issues/6958)
-
-* "dotnet Paketi Ekle" varlıklar dosyasına - gerçekleştirdiği geri işlemesi gerektiğini [#6928](https://github.com/NuGet/Home/issues/6928)
-
-* İmzalama: imzalama ilgili hata iletileri - geliştirmek [#6906](https://github.com/NuGet/Home/issues/6906)
-
-* [Test hatası] zh-TW Dize "Paket Yöneticisi Konsolu" Paket Yöneticisi konsolu - yerelleştirmek değil [#6381](https://github.com/NuGet/Home/issues/6381)
-
-* "Proje bilgileri bulmak için yapılandırılamıyor" geçici hata iletisi ve iç karşılaştırması - biraz daha belirli [#5350](https://github.com/NuGet/Home/issues/5350)
-
-* Nuget paketinin - nuspec sürüm etiketi yanlış kullanırken faydasız hata iletisi [#2714](https://github.com/NuGet/Home/issues/2714)
-
-* DCR - imzalama: NuGet protokolünü destekler: RepositorySignatures/4.9.0 kaynak - [#7421](https://github.com/NuGet/Home/issues/7421)
-
-* -DCR. nupkg.metadata dosya artık - içerir "içerik-hash" - Paket ayıklama sırasında oluşturulur [#7283](https://github.com/NuGet/Home/issues/7283)
-
-* -Mono üzerinde yürütülürken authenticode Doğrulamayı atla eklentileri için - DCR [#7222](https://github.com/NuGet/Home/issues/7222)
-
-[Bu sürümde 4.9.0 düzeltilen tüm sorunlara listesi](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9") <br>
-
-## <a name="summary-whats-new-in-491"></a>Özet: 4.9.1 yenilikler
-
-* Bir yazma okumak için destek eklemek için bir yeni komut güvenilen-İmzalayanları - aracılığıyla nuget.config [#7480](https://github.com/NuGet/Home/issues/7480)
+* Bir kilit dosyası kullanarak tekrarlanabilir paket geri yüklemeleri etkinleştirin - [#5602](https://github.com/NuGet/Home/issues/5602), [duyuru](https://github.com/NuGet/Announcements/issues/28), [blog yazısı](https://blog.nuget.org/20181217/Enable-repeatable-package-restores-using-a-lock-file.html)
 
 ### <a name="issues-fixed-in-this-release"></a>Bu sürümde giderilen sorunlar
 
-* Lisans bağlantı oluşturma - düzeltme [#7515](https://github.com/NuGet/Home/issues/7515)
+* PackageExtraction tarafından yükseltilen hatalara yükseltilen uyarılar (WarnAsErrors aracılığıyla) ayıklanan paketi asla çevrede bırakmamalıdır - [#7445](https://github.com/NuGet/Home/issues/7445)
 
-* Hata kodları imzaları doğrulamak için gerileme- [#7492](https://github.com/NuGet/Home/issues/7492)
+* Kötü imzalanmış paketler küresel paketler klasöründe sona ermemelidir - [#7423](https://github.com/NuGet/Home/issues/7423)
 
-* Lisans bilgileri - NuGet.Build.Tasks.Pack paket yok [#7379](https://github.com/NuGet/Home/issues/7379)
+* bağlama yönlendirme üretimi cephe montajları atlamamalıdır - [#7393](https://github.com/NuGet/Home/issues/7393)
 
-[Bu sürümde 4.9.1 düzeltilen tüm sorunlara listesi](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9.1")
+* VersionRange Equals kayan aralıkları karşılaştırmaz - [#7324](https://github.com/NuGet/Home/issues/7324)
 
-## <a name="summary-whats-new-in-492"></a>Özet: 4.9.2 yenilikler
+* Geri yükleme: yeni .NET Core 2.1 HTTP yığını nı kullanarak performans regresyonu - [#7314](https://github.com/NuGet/Home/issues/7314)
+
+* Paketin Güncellemesi, Bir Paket Referansının PrivateAssets'ini değiştirmemelidir - [#7285](https://github.com/NuGet/Home/issues/7285)
+
+* İmzalama: bir paketçok fazla paket girişi varsa imzalama başarısız olmalıdır (>65534) - [#7248](https://github.com/NuGet/Home/issues/7248)
+
+* "dotnet nuget push" codepath yeni kimlik sağlayıcısı desteklemelidir - [#7233](https://github.com/NuGet/Home/issues/7233)
+
+* Değişmez kültüre sahip eklentileri yürütmeyi destekleme (docker'da olduğu gibi) - [#7223](https://github.com/NuGet/Home/issues/7223)
+
+* nuget kaynakları nuget.config gelen kimlik bilgilerini silmek gerekir eklemek - [#7200](https://github.com/NuGet/Home/issues/7200)
+
+* devDependency PackageReference yükleme varsayılan excludeassets=compile - [#7084](https://github.com/NuGet/Home/issues/7084)
+
+* tüm projeler için görüntülenecek göçmen seçeneğini düzeltin ve proje uyumsuzsa hata gösterin - [#6958](https://github.com/NuGet/Home/issues/6958)
+
+* "dotnet paketi ekle" varlıklar dosyasına gerçekleştirdiği geri yükleme işlemek gerekir - [#6928](https://github.com/NuGet/Home/issues/6928)
+
+* İmzalama: ilgili hata iletilerini imzalamayı geliştirme - [#6906](https://github.com/NuGet/Home/issues/6906)
+
+* [Test Hatası] [zh-TW] String "Package Manager Console" Package Manager Console'da yerelleştirilmese - [#6381](https://github.com/NuGet/Home/issues/6381)
+
+* "Proje bilgilerini bulamıyor" etrafında hata iletisi VS içinde biraz daha spesifik olmalıdır - [#5350](https://github.com/NuGet/Home/issues/5350)
+
+* Nuget paketinin nuspec sürüm etiketini yanlış kullanırken yardımcı olmayan hata [iletisi](https://github.com/NuGet/Home/issues/2714) - #2714
+
+* DCR - İmzalama: destek NuGet protokolü: Depoİmzalar/4.9.0 kaynak - [#7421](https://github.com/NuGet/Home/issues/7421)
+
+* DCR - .nupkg.metadata dosyası artık paket çıkarma sırasında oluşturulacak - "içerik-karma" içerir - [#7283](https://github.com/NuGet/Home/issues/7283)
+
+* DCR - Mono'da çalışırken eklentiler için authenticode doğrulamasını atlayın - [#7222](https://github.com/NuGet/Home/issues/7222)
+
+[Bu sürümde düzeltilen tüm sorunların listesi 4.9.0](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9") <br>
+
+## <a name="summary-whats-new-in-491"></a>Özeti: Yenilikler 4.9.1
+
+* Nuget.config yeni bir komut güvenilir-imzalayanlar aracılığıyla bir yazı okuma için destek ekleyin - [#7480](https://github.com/NuGet/Home/issues/7480)
 
 ### <a name="issues-fixed-in-this-release"></a>Bu sürümde giderilen sorunlar
 
-* Bir boşluk - kaynak adı içerdiğinde VS/dotnet.exe/nuget.exe/msbuild.exe geri yükleme kimlik bilgileri kullanmaz [#7517](https://github.com/NuGet/Home/issues/7517)
+* Lisans bağlantısı oluşturma düzeltme - [#7515](https://github.com/NuGet/Home/issues/7515)
 
-* LicenseAcceptanceWindow ve LicenseFileWindow erişilebilirlik sorunları - [#7452](https://github.com/NuGet/Home/issues/7452)
+* İmzaları doğrulamak için hata kodları regresyon - [#7492](https://github.com/NuGet/Home/issues/7492)
 
-* FormatException içinde DateTime.Parse DateTimeConverter - düzeltme [#7539](https://github.com/NuGet/Home/issues/7539)
+* NuGet.Build.Tasks.Pack paketinin lisans bilgileri yok - [#7379](https://github.com/NuGet/Home/issues/7379)
 
-[Bu sürümde 4.9.2 düzeltilen tüm sorunlara listesi](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9.2")
+[Bu sürümde düzeltilen tüm sorunların listesi 4.9.1](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9.1")
 
-## <a name="summary-whats-new-in-493"></a>Özet: 4.9.3 yenilikler
+## <a name="summary-whats-new-in-492"></a>Özeti: Yenilikler 4.9.2
 
 ### <a name="issues-fixed-in-this-release"></a>Bu sürümde giderilen sorunlar
-#### <a name="repeatable-package-restores-using-a-lock-file-issues"></a>"Kilit dosyası kullanarak paket yinelenebilir geri yüklemeler" sorunları
 
-* Karma yanlış için önceden hesaplanan şekilde çalışmamasıyla kilitli modda paketler - önbelleğe alınmış [#7682](https://github.com/NuGet/Home/issues/7682)
+* VS/dotnet.exe/nuget.exe/msbuild.exe geri yükleme kaynak adı bir boşluk içeriyorsa kimlik bilgileri kullanmaz - [#7517](https://github.com/NuGet/Home/issues/7517)
 
-* Geri yükleme farklı bir sürüme içinde tanımlanan daha çözümlenir `packages.lock.json` dosya - [#7667](https://github.com/NuGet/Home/issues/7667)
+* LisansKabulPencere ve LisansFileWindow Erişilebilirlik sorunları - [#7452](https://github.com/NuGet/Home/issues/7452)
 
-* '--kilitli modda / RestoreLockedMode' başvuruları söz konusu olduğunda - alacaklardır geri yükleme hatalarının neden [#7646](https://github.com/NuGet/Home/issues/7646)
+* DateTimeConverter'dan DateTime.Parse'de Biçimözel durumu düzelt - [#7539](https://github.com/NuGet/Home/issues/7539)
 
-* MSBuild SDK'sı Çözümleyicisi çalıştığında SHA - packages.lock.json kullanırken geri yükleme başarısız için bir SDK paketi doğrulamak [#7599](https://github.com/NuGet/Home/issues/7599)
+[Bu sürümde düzeltilen tüm sorunların listesi 4.9.2](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9.2")
 
-#### <a name="lock-down-your-dependencies-using-configurable-trust-policies-issues"></a>"Yapılandırılabilir güven ilkelerini kullanarak Bağımlılıklarınızı kilitleme" sorunları
-* DotNet.exe değil değerlendirmek güvenilen İmzalayanları imzalanmış paketleri desteklenmez ancak - [#7574](https://github.com/NuGet/Home/issues/7574)
+## <a name="summary-whats-new-in-493"></a>Özeti: Yenilikler 4.9.3
 
-* Yapılandırma dosyasında trustedSigners düzenini etkiler güven değerlendirmesi - [#7572](https://github.com/NuGet/Home/issues/7572)
+### <a name="issues-fixed-in-this-release"></a>Bu sürümde giderilen sorunlar
+#### <a name="repeatable-package-restores-using-a-lock-file-issues"></a>"Yinelenen Paket Kilit Dosyalarını Kullanarak Geri Yüklenir" Sorunları
 
-* ISettings uygulayamaz [ayarları Düzenleyicisi tarafından neden Güven İlkeleri özelliğini desteklemek için API'leri]- [#7614](https://github.com/NuGet/Home/issues/7614)
+* Karma olarak çalışmayan kilitli mod, önceden önbelleğe alınmış paketler için yanlış hesaplanır - [#7682](https://github.com/NuGet/Home/issues/7682)
 
-#### <a name="improved-debugging-experience-issues"></a>"Hata ayıklama deneyimi geliştirildi" sorunları
+* Geri yükleme, dosyada `packages.lock.json` tanımlanandan farklı bir sürüme gider - [#7667](https://github.com/NuGet/Home/issues/7667)
 
-* Sembol paketi için .NET Core genel aracı - yayımlanamıyor [#7632](https://github.com/NuGet/Home/issues/7632)
+* '--kilitli mod / RestoreLockedMode' ProjectReferences söz konusu olduğunda sahte Geri Yükleme hatalarıneden olur - [#7646](https://github.com/NuGet/Home/issues/7646)
 
-#### <a name="self-contained-nuget-packages---license-issues"></a>"Kendi içinde NuGet paketlerini - lisans" sorunları
+* MSBuild SDK çözümleyicisi packages.lock.json kullanırken geri başarısız bir SDK paketi için SHA doğrulamak için çalışır - [#7599](https://github.com/NuGet/Home/issues/7599)
 
-* Sembol .snupkg paketi kullanırken oluşturulurken bir hata oluştu - lisans dosyası katıştırılmış [#7591](https://github.com/NuGet/Home/issues/7591)
+#### <a name="lock-down-your-dependencies-using-configurable-trust-policies-issues"></a>"Yapılandırılabilir Güven İlkelerini Kullanarak Bağımlılıklarınızı Kilitleyin" Sorunları
+* dotnet.exe imzalı paketler desteklenmezken güvenilir imzalayanları değerlendirmemelidir - [#7574](https://github.com/NuGet/Home/issues/7574)
 
-[Bu sürümde 4.9.3 düzeltilen tüm sorunlara listesi](https://github.com/nuget/home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9.3")
+* Config dosyasındaki güvenilir Signers sırası güven değerlendirmesini etkiler - [#7572](https://github.com/NuGet/Home/issues/7572)
+
+* ISettings uygulayamıyorum [Güven İlkeleri özelliğini desteklemek için ayarlar API'lerinin yeniden dizilme neden olur] - [#7614](https://github.com/NuGet/Home/issues/7614)
+
+#### <a name="improved-debugging-experience-issues"></a>"Geliştirilmiş Hata Ayıklama Deneyimi" Sorunları
+
+* .NET Core Global Tool için sembol paketi yayınlayamıyor - [#7632](https://github.com/NuGet/Home/issues/7632)
+
+#### <a name="self-contained-nuget-packages---license-issues"></a>"Müstakil NuGet Paketleri - Lisans" Sorunları
+
+* Gömülü lisans dosyası kullanılırken hata oluşturma sembolü .snupkg paketi - [#7591](https://github.com/NuGet/Home/issues/7591)
+
+[Bu sürümde düzeltilen tüm sorunların listesi 4.9.3](https://github.com/nuget/home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9.3")
+
+## <a name="summary-whats-new-in-494"></a>Özeti: Yenilikler 4.9.4
+
+* Güvenlik Düzeltmesi: ~/.nuget içinde oluşturulan dosyalardaki izinler [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757) [#7673](https://github.com/NuGet/Home/issues/7673) çok açıktır
+
+
 ## <a name="known-issues"></a>Bilinen sorunlar
 
-### <a name="dotnet-nuget-push---interactive-gives-an-error-on-mac---7519httpsgithubcomnugethomeissues7519"></a>DotNet nuget push--etkileşimli Mac üzerinde bir hata verir. - [#7519](https://github.com/NuGet/Home/issues/7519)
+### <a name="dotnet-nuget-push---interactive-gives-an-error-on-mac---7519"></a>dotnet nuget push --interactive Mac'te bir hata verir. - [#7519](https://github.com/NuGet/Home/issues/7519)
 
 #### <a name="issue"></a>Sorun
-`--interactive` Bağımsız değişken dotnet CLI tarafından iletilmez değil ve hataya neden olur `error: Missing value for option 'interactive'`
+Bağımsız `--interactive` değişken dotnet cli tarafından iletilmiyor ve hatayla sonuçlanıyor`error: Missing value for option 'interactive'`
 
-#### <a name="workaround"></a>Geçici Çözüm
-Etkileşimli seçeneğiyle gibi diğer dotnet komutu çalıştırmak `dotnet restore --interactive` ve kimlik doğrulaması. Ardından kimlik doğrulama kimlik bilgisi sağlayıcı tarafından önbelleğe alınabilir. Ardından çalıştırın `dotnet nuget push`.
+#### <a name="workaround"></a>Geçici çözüm
+Gibi etkileşimli seçeneği ile başka bir `dotnet restore --interactive` dotnet komutu çalıştırın ve kimlik doğrulaması. Kimlik doğrulaması daha sonra kimlik bilgisi sağlayıcısı tarafından önbelleğe alınabilir. Ardından `dotnet nuget push` komutunu çalıştırın.
 
-### <a name="packages-in-fallbackfolders-installed-by-net-core-sdk-are-custom-installed-and-fail-signature-validation---7414httpsgithubcomnugethomeissues7414"></a>.NET Core SDK'sı tarafından yüklenen FallbackFolders paketlerinde özel olarak yüklü olan ve imza doğrulaması başarısız. - [#7414](https://github.com/NuGet/Home/issues/7414)
+### <a name="packages-in-fallbackfolders-installed-by-net-core-sdk-are-custom-installed-and-fail-signature-validation---7414"></a>.NET Core SDK tarafından yüklenen FallbackFolders paketleri özel yüklü ve başarısız imza doğrulama. - [#7414](https://github.com/NuGet/Home/issues/7414)
 
 #### <a name="issue"></a>Sorun
-DotNet.exe kullanırken bir proje bu çok hedefleri netcoreapp geri yüklemek için 2.x 1.x ve netcoreapp 2.x, geri dönüş klasörüne bir dosya akışı olarak kabul edilir. Bunun anlamı geri yüklerken, NuGet geri dönüş klasöründen paketi seçin ve genel paketleri klasörüne yükleyin ve başarısız her zamanki imza doğrulama yapmak deneyin.
+netcoreapp 1.x ve netcoreapp 2.x'i hedefleyen bir projeyi geri yüklemek için dotnet.exe 2.x kullanırken, geri dönüş klasörü bir dosya akışı olarak kabul edilir. Bu, geri yükleme sırasında, NuGet geri dönüş klasöründen paketi almak ve küresel paketler klasörüne yüklemek ve başarısız olağan imza doğrulama yapmak çalışacağız anlamına gelir.
 
-#### <a name="workaround"></a>Geçici Çözüm
-Geri dönüş klasör kullanımı ayarlayarak devre dışı bırakmanız `RestoreAdditionalProjectSources` Nothing. `<RestoreAdditionalProjectSources/>` Bu dikkatli olmalıdır aksi halde, NuGet.org adresinden yüklenecek paketler birçok neden olacak şekilde geri yüklendi geri dönüş klasöründen kullanın.
+#### <a name="workaround"></a>Geçici çözüm
+Geri dönüş klasörünün kullanımını hiçbir şeye `RestoreAdditionalProjectSources` ayarlayarak devre dışı k. `<RestoreAdditionalProjectSources/>`Aksi takdirde geri dönüş klasöründen geri olurdu NuGet.org gelen bir çok paket indirilebilir bir sürü neden olacak gibi dikkatli bir şekilde kullanın.

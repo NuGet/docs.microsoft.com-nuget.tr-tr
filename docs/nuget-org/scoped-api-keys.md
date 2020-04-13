@@ -1,107 +1,107 @@
 ---
 title: Kapsamlı API anahtarları
-description: Paketleri göndermek için kullandığınız API anahtarları denetimini elinize alın
+description: Paketleri itmek için kullandığınız API anahtarlarını kontrol altına alın
 author: mikejo5000
 ms.author: mikejo
 ms.date: 06/04/2019
 ms.topic: conceptual
 ms.openlocfilehash: 12d12d5294a474c4d3e4f5d3cad468bb515d21d5
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "67427502"
 ---
 # <a name="scoped-api-keys"></a>Kapsamlı API anahtarları
 
-NuGet paket dağıtımı için daha güvenli bir ortam sağlamak için API anahtarları denetiminizde kapsamları ekleyerek alabilir.
+NuGet'i paket dağıtımı için daha güvenli bir ortam haline getirmek için kapsam ekleyerek API anahtarlarının denetimini alabilirsiniz.
 
-API'leri daha iyi denetim API anahtarlarınızı kapsamına olanağı sağlar. Şunları yapabilirsiniz:
+API tuşlarınıza kapsam sağlama özelliği, API'leriniz üzerinde daha iyi denetim sağlar. Şunları yapabilirsiniz:
 
-- Farklı paketlerle değişen sona erme zaman dilimleri için kullanılabilecek birden çok kapsamı belirlenmiş API anahtarları oluşturun.
-- API anahtarları güvenli bir şekilde edinin.
-- Paket Uygulanabilirlik değiştirmek için mevcut API anahtarları düzenleyin.
-- Yenileyin veya diğer anahtarlar kullanarak işlemleri hampering olmadan var olan API anahtarlarını silin.
+- Değişen son kullanma tarihlerine sahip farklı paketler için kullanılabilecek birden çok kapsamlı API anahtarı oluşturun.
+- API tuşlarını güvenli bir şekilde edinin.
+- Paket uygulanabilirliğini değiştirmek için varolan API anahtarlarını edin.
+- Diğer anahtarları kullanarak işlemleri aksatmadan varolan API tuşlarını yenileyin veya silin.
 
-## <a name="why-do-we-support-scoped-api-keys"></a>Kapsamlı API anahtarları neden destekliyoruz?
+## <a name="why-do-we-support-scoped-api-keys"></a>Kapsamlı API anahtarlarını neden destekliyoruz?
 
-Daha hassas izinlere sahip olmasını sağlamak API anahtarları için kapsamları destekliyoruz. Daha önce bir hesap için tek bir API anahtarı NuGet sunulur ve bu yaklaşımı birkaç sakıncaları vardı:
+Daha ince taneli izinlere sahip olmak için API anahtarlarının kapsamlarını destekliyoruz. Daha önce, NuGet bir hesap için tek bir API anahtarı sundu ve bu yaklaşımın birkaç dezavantajı vardı:
 
-- **Tüm paketleri denetlemek için bir API anahtarı**. Tüm paketleri yönetmek için kullanılan tek bir API anahtarı ile birden fazla Geliştirici farklı paketlerle ilgili olduğunda ve bir yayımcı hesabı paylaştıkları anahtarı güvenli bir şekilde paylaşmak zor olabilir.
-- **Tüm izinleri veya hiçbiri**. API anahtarı erişimi olan herkes tüm izinlere sahiptir (yayımlama, gönderme ve un listesi) paketleri. Bu ortamda birden fazla takımlı arzu değil genellikle.
-- **Tek hata noktası**. Tek bir API anahtarı, aynı zamanda bir tek hata noktası anlamına gelir. Anahtar tehlikedeyse, hesapla ilişkili tüm paketleri olası tehlikeye girebilir. API anahtarını yenileme sızıntısı Tak ve Kullan bir CI/CD akışınızı kesintiye uğramasını önlemek için tek yoludur. Ayrıca, bir kişi (örneğin, bir çalışan kuruluştan ayrılıyor) için API anahtarı erişimi iptal etmek istediğinizde durumlar olabilir. Bugün bu durumu çözmek için temiz bir yol değil.
+- **Tüm paketleri kontrol etmek için bir API anahtarı.** Tüm paketleri yönetmek için kullanılan tek bir API anahtarıyla, birden çok geliştirici farklı paketlerle ilgili olduğunda ve bir yayımcı hesabını paylaştıklarında anahtarı güvenli bir şekilde paylaşmak zordur.
+- **Tüm izinler veya hiçbiri.** API anahtarına erişimi olan herkes paketlerdeki tüm izinlere (yayımlama, itme ve listeyi açma) sahiptir. Bu genellikle birden çok takım ile ortamda istenmez.
+- **Tek hata noktası.** Tek bir API anahtarı da tek bir hata noktası anlamına gelir. Anahtar ele geçirilirse, hesapla ilişkili tüm paketler tehlikeye atılabilir. API anahtarının yenilenmesi, sızıntıyı kapatmanın ve CI/CD iş akışınızda bir kesintiyi önlemenin tek yoludur. Ayrıca, bir birey için API anahtarına erişimi iptal etmek istediğiniz durumlar da olabilir (örneğin, bir çalışan kuruluştur). Bugün bunu halletmenin temiz bir yolu yok.
 
-Mevcut iş akışları hiçbiri ihlal emin olmasını sağlarken bu sorunları gidermeye yönelik kapsamlı API anahtarları ile sizi çalışırız.
+Kapsamlı API anahtarlarıyla, varolan iş akışlarının hiçbirinin kırılmadığından emin olurken bu sorunları gidermeye çalışırız.
 
-## <a name="acquire-an-api-key"></a>Bir API anahtarı alma
+## <a name="acquire-an-api-key"></a>BIR API anahtarı edinme
 
 [!INCLUDE [publish-api-key](../quickstart/includes/publish-api-key.md)]
 
 ## <a name="create-scoped-api-keys"></a>Kapsamlı API anahtarları oluşturma
 
-Gereksinimlerinize göre birden çok API anahtarları oluşturabilirsiniz. Bir API anahtarı bir veya daha fazla paketlere uygulamaları, belirli ayrıcalıkları değişen kapsamlar ve ilişkili bir sona erme tarihi vardır.
+Gereksinimlerinize göre birden çok API anahtarı oluşturabilirsiniz. API anahtarı bir veya daha fazla pakete uygulanabilir, belirli ayrıcalıklar veren farklı kapsamlara sahip ve bununla ilişkili bir son kullanma tarihi ne olabilir.
 
-Aşağıdaki örnekte adlı bir API anahtarı sahip `Contoso service CI` belirli paketleri göndermek için kullanılabilir `Contoso.Service` paketler ve 365 gün boyunca geçerli olur. Bu, farklı paketler aynı kuruluş çalışma ve takım üyeleri farklı ekipler yalnızca üzerinde çalıştıkları paket için ayrıcalıkları verir anahtarı nerede sağlanır, tipik bir senaryodur. Sona erme eski veya unutulan anahtarları önlemek için bir mekanizma işlev görür.
+Aşağıdaki örnekte, belirli `Contoso service CI` `Contoso.Service` paketler için paketleri itmek için kullanılabilecek ve 365 gün boyunca geçerli olan bir API anahtarınız var. Bu, aynı kuruluştaki farklı ekiplerin farklı paketler üzerinde çalıştığı ve takım üyelerinin yalnızca üzerinde çalıştıkları paket için ayrıcalık sağlayan anahtar sağlandığı tipik bir senaryodur. Sona erme, eski veya unutulmuş anahtarları önlemek için bir mekanizma görevi görür.
 
-![API anahtarları oluşturma](media/scoped-api-keys-create-new.png)
+![API tuşlarını oluşturma](media/scoped-api-keys-create-new.png)
 
 ## <a name="use-glob-patterns"></a>Glob desenleri kullanın
 
-Birden çok paket üzerinde çalışıyorsanız ve paketleri yönetmek için büyük bir listeniz varsa, birlikte birden fazla paket seçmek için Glob desenlerinin kullanmayı da tercih edebilirsiniz. Örneğin, belirli kapsamına vermek isterseniz, tümü için bir anahtar ile olan kimliği başlar paketleri `Fabrikam.Service`, belirterek bunu yapabilirsiniz `fabrikam.service.*` içinde **Glob deseni** metin kutusu.
+Birden çok paket üzerinde çalışıyorsanız ve yönetilecek büyük bir paket listesi varsa, birlikte birden çok paket seçmek için globbing desenleri kullanmayı seçebilirsiniz. Örneğin, kimliği ile başlayan tüm paketler için bir anahtara belirli `Fabrikam.Service`kapsamlar vermek isterseniz, `fabrikam.service.*` bunu **Glob desen** metin kutusunda belirterek yapabilirsiniz.
 
-![API anahtarları oluşturma](media/scoped-api-keys-glob-pattern.png)
+![API tuşlarını oluşturma](media/scoped-api-keys-glob-pattern.png)
 
-API anahtarı izinlerini belirlemek için Glob desenleri kullanarak glob deseni ile eşleşen yeni paketler için de geçerlidir. Örneğin, adlı yeni bir paket göndermeyi denerseniz `Fabrikam.Service.Framework`, paket glob deseni ile eşleşen itibaren daha önce oluşturulan anahtar ile bunu yapabilirsiniz `fabrikam.service.*`.
+API anahtar izinlerini belirlemek için glob desenleri kullanarak glob deseni eşleşen yeni paketler için de geçerlidir. Örneğin, adlı `Fabrikam.Service.Framework`yeni bir paket itmeye çalışırsanız, paket glob deseniyle `fabrikam.service.*`eşleştiğinden, bunu daha önce oluşturulan anahtarla yapabilirsiniz.
 
-## <a name="obtain-api-keys-securely"></a>Güvenli bir şekilde API anahtarlarını edinin
+## <a name="obtain-api-keys-securely"></a>API tuşlarını güvenli bir şekilde edinin
 
-Güvenlik için yeni oluşturulan anahtarı ekranda asla gösterilir ve yalnızca kullanılabilir kullanarak **kopyalama** düğmesi. Benzer şekilde, sayfa yenilendikten sonra anahtarın erişilebilir değil.
+Güvenlik için, yeni oluşturulan bir anahtar ekranda asla gösterilmez ve yalnızca **Kopyala** düğmesini kullanarak kullanılabilir. Benzer şekilde, sayfa yenilendikten sonra anahtara erişilemez.
 
-![API anahtarları oluşturma](media/scoped-api-keys-obtain-keys.png)
+![API tuşlarını oluşturma](media/scoped-api-keys-obtain-keys.png)
 
-## <a name="edit-existing-api-keys"></a>Var olan API anahtarlarını Düzenle
+## <a name="edit-existing-api-keys"></a>Varolan API anahtarlarını edin
 
-Anahtar izinler ve kapsamlar anahtarın kendisini değiştirmeden güncelleştirmek isteyebilirsiniz. Tek bir paket için belirli kapsamlar ile bir anahtar varsa, bir veya daha çok diğer paketleri aynı kapsamlar uygulamak seçebilirsiniz.
+Anahtar izinlerini ve kapsamlarını anahtarın kendisini değiştirmeden de güncelleştirmek isteyebilirsiniz. Tek bir paket için belirli kapsam(lar) içeren bir anahtarınız varsa, aynı kapsam(lar)ı bir veya daha birçok pakete uygulamayı seçebilirsiniz.
 
-![API anahtarları oluşturma](media/scoped-api-keys-edit.png)
+![API tuşlarını oluşturma](media/scoped-api-keys-edit.png)
 
-## <a name="refresh-or-delete-existing-api-keys"></a>Yenileme veya var olan API anahtarları silme
+## <a name="refresh-or-delete-existing-api-keys"></a>Varolan API tuşlarını yenileme veya silme
 
-Anahtar yenilemek hesap sahibi seçebilirsiniz, durumda izninin (paket), kapsam ve bitiş tarihi aynı kalır, ancak yeni bir anahtar eski anahtarı kullanılabilmesini verilir. Bu eski anahtarları yönetme konusunda yararlı olur ya da herhangi bir API anahtarı sızıntı potansiyeli olduğu.
+Hesap sahibi anahtarı yenilemeyi seçebilir, bu durumda izin (paketlerde), kapsam ve son kullanma süresi aynı kalır, ancak eski anahtarı kullanılamaz hale getiren yeni bir anahtar verilir. Bu, eski anahtarları veya BIR API anahtarı sızıntısı için herhangi bir potansiyel olduğu durumlarda yönetilmesinde yararlıdır.
 
-![API anahtarları oluşturma](media/scoped-api-keys-refresh.png)
+![API tuşlarını oluşturma](media/scoped-api-keys-refresh.png)
 
-Bu anahtarlar artık gerekmeyen silmeyi seçebilirsiniz. Bir anahtarı silme, anahtar kaldırır ve kullanılamaz hale getirir.
+Artık gerekli değilse, bu anahtarları silmeyi de seçebilirsiniz. Bir anahtarı siler ve kullanılamaz hale getirir.
 
 ## <a name="faqs"></a>SSS
 
-### <a name="what-happens-to-my-old-legacy-api-key"></a>Eski hesabımın (eski) API anahtarı ne olacak?
+### <a name="what-happens-to-my-old-legacy-api-key"></a>Eski (eski) API anahtarıma ne olur?
 
-Eski API anahtarınızı (eski) çalışmaya devam eder ve çalışmak istediğiniz sürece çalışabilir. Ancak, bunlar 365 günden fazla bir süre için bir paket göndermeye kullanılmamış, bu anahtarlar kullanımdan kaldırılacaktır. Diğer ayrıntılar için blog gönderisine bakın [değişiklikleri için süresi dolan API anahtarları](https://blog.nuget.org/20160825/Changes-to-Expiring-API-Keys.html). Bu anahtar artık yenileyebilirsiniz. Eski anahtarı silin ve yeni bir kapsamı belirlenmiş anahtar yerine oluşturmanız gerekir.
+Eski API anahtarınız (eski) çalışmaya devam eder ve istediğiniz sürece çalışabilir. Ancak, bir paketi itmek için 365 günden fazla kullanılmamışsa, bu anahtarlar kullanımdan kaldırılacaktır. Daha fazla bilgi için, süresi dolan API tuşlarına yapılan blog [gönderisi Değişiklikleri'ne](https://blog.nuget.org/20160825/Changes-to-Expiring-API-Keys.html)bakın. Bu anahtarı artık yenileyemezsiniz. Eski anahtarı silmeniz ve bunun yerine yeni bir kapsamlı anahtar oluşturmanız gerekir.
 
 > [!NOTE]
-> Bu anahtar, tüm paketleri tüm izinlere sahiptir ve her zaman geçerli olsun. Bu anahtarı siliniyor ve kapsamlı izinlere ve kesin süre sonu ile yeni anahtarları oluşturma dikkate almalısınız.
+> Bu anahtar tüm paketlerde tüm izinlere sahiptir ve süresi asla dolmaz. Bu anahtarı silmeyi ve kapsamlı izinler ve kesin son kullanma tarihi yle yeni anahtarlar oluşturmayı düşünmelisiniz.
 
-### <a name="how-many-api-keys-can-i-create"></a>Kaç tane API anahtarları oluşturabilirim?
+### <a name="how-many-api-keys-can-i-create"></a>Kaç API anahtarı oluşturabilirim?
 
-API anahtarları oluşturabileceğiniz, sayısına bir sınır yoktur. Ancak biz, size burada bilgi ve bunları kullanan birçok eski anahtarlarla sonunda değil, yönetilebilir bir sayıya tutmak önerin.
+Oluşturabileceğiniz API anahtarlarının sayısında bir sınır yoktur. Ancak, nerede ve kim kullanıyor hiçbir bilgi ile çok bayat anahtarları sahip sona ermemek için yönetilebilir bir sayı tutmak için tavsiye ederiz.
 
-### <a name="can-i-delete-my-legacy-api-key-or-discontinue-using-now"></a>Ben hesabımın eski bir API anahtarı silebilir veya artık kullanmayı Sonlandırabileceğiniz?
+### <a name="can-i-delete-my-legacy-api-key-or-discontinue-using-now"></a>Eski API anahtarımı silebilir miyim veya şimdi kullanmayı durdurabilir miyim?
 
-Evet. Yapabilecekleriniz--ve büyük olasılıkla eski API anahtarınızı silmeniz gerekir.
+Evet. Eski API anahtarınızı silebilirsiniz ve muhtemelen silmelisiniz.
 
-### <a name="can-i-get-back-my-api-key-that-i-deleted-by-mistake"></a>Yanlışlıkla silinen hesabımın API anahtarı geri alabilirim?
+### <a name="can-i-get-back-my-api-key-that-i-deleted-by-mistake"></a>Yanlışlıkla sildiğim API anahtarımı geri alabilir miyim?
 
-Hayır. Silindikten sonra yalnızca yeni anahtarları oluşturabilirsiniz. Yanlışlıkla silinen anahtarlar için olası hiçbir kurtarma yok.
+Hayır. Silindikten sonra yalnızca yeni anahtarlar oluşturabilirsiniz. Yanlışlıkla silinen anahtarlar için kurtarma mümkün değildir.
 
-### <a name="does-the-old-api-key-continue-to-work-upon-api-key-refresh"></a>Eski API anahtarını API anahtarı yenileme sırasında çalışmaya devam eder mi?
+### <a name="does-the-old-api-key-continue-to-work-upon-api-key-refresh"></a>Eski API anahtarı API anahtar yenileme üzerinde çalışmaya devam ediyor mu?
 
-Hayır. Bir anahtarı'nı yenilemeyi sonra yeni bir anahtar kapsamını, izni ve geçerlilik eskisi sahip oluşturulan. Eski anahtarı mevcut olmaktan çıkar.
+Hayır. Bir anahtarı yeniledikten sonra, eskiyle aynı kapsam, izin ve son kullanma süresine sahip yeni bir anahtar oluşturulur. Eski anahtar yok.
 
-### <a name="can-i-give-more-permissions-to-an-existing-api-key"></a>Ben, var olan bir API anahtarı için daha fazla izin verebilir misiniz?
+### <a name="can-i-give-more-permissions-to-an-existing-api-key"></a>Varolan bir API anahtarına daha fazla izin verebilir miyim?
 
-Kapsam değiştirilemedi. ancak geçerli değildir paket listesi düzenleyebilirsiniz.
+Kapsamı değiştiremezsiniz, ancak geçerli olduğu paket listesini değiştirebilirsiniz.
 
-### <a name="how-do-i-know-if-any-of-my-keys-expired-or-are-getting-expired"></a>Herhangi bir anahtarlarımı süresi doldu veya süresi dolmuş nasıl anlarım?
+### <a name="how-do-i-know-if-any-of-my-keys-expired-or-are-getting-expired"></a>Anahtarlarımın süresinin dolduğunu veya süresinin dolduğunu nasıl anlarım?
 
-Herhangi bir tuşa süresi dolarsa, sayfanın üstünde bir uyarı iletisi aracılığıyla bildirin olanak tanır. Üzerinde önceden çalışabilir, böylece biz de uyarı e-posta için hesap sahibi anahtarın süresi dolmadan önce on gün gönderin.
+Herhangi bir anahtarın süresi dolursa, sayfanın üst kısmındaki bir uyarı iletisi aracılığıyla size haber vereceksiniz. Ayrıca, anahtarın süresinin bitiminden on gün önce hesap sahibine bir uyarı e-postası göndeririz, böylece bu konuda önceden iyi davranabilirsiniz.

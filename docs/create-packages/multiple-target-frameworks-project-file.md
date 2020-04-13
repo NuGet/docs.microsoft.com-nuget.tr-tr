@@ -1,43 +1,43 @@
 ---
-title: Proje dosyanızdaki NuGet paketleri için Çoklu hedefleme
-description: Tek bir NuGet paketinin içinden birden çok .NET Framework sürümünü hedeflemek için çeşitli yöntemlerin açıklaması.
+title: Proje dosyanızda NuGet Paketleri için çoklu hedefleme
+description: Tek bir NuGet paketinin içinden birden fazla .NET Framework sürümlerini hedefleyen çeşitli yöntemlerin açıklaması.
 author: karann-msft
 ms.author: karann
 ms.date: 07/15/2019
 ms.topic: conceptual
 ms.openlocfilehash: 1d23759433efb405fa5f0035049befced2c43d6b
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "72380681"
 ---
 # <a name="support-multiple-net-framework-versions-in-your-project-file"></a>Proje dosyanızda birden çok .NET Framework sürümü destekleme
 
-İlk kez bir proje oluşturduğunuzda, en geniş tüketen projelerle uyumluluk sağladığından .NET Standard sınıf kitaplığı oluşturmanızı öneririz. .NET Standard kullanarak, varsayılan olarak bir .NET kitaplığına [platformlar arası destek](/dotnet/standard/library-guidance/cross-platform-targeting) eklersiniz. Ancak, bazı senaryolarda belirli bir çerçeveyi hedefleyen kodu da eklemeniz gerekebilir. Bu makalede, [SDK stilindeki](../resources/check-project-format.md) projeler için nasıl yapılacağı gösterilmektedir.
+Bir projeyi ilk oluşturduğunuzda, en geniş tüketici proje yelpazesiyle uyumluluk sağladığından bir .NET Standart sınıf kitaplığı oluşturmanızı öneririz. .NET Standard'ı kullanarak, varsayılan olarak bir .NET kitaplığına [çapraz platform desteği](/dotnet/standard/library-guidance/cross-platform-targeting) eklersiniz. Ancak, bazı senaryolarda, belirli bir çerçeveyi hedefleyen kod eklemeniz de gerekebilir. Bu makalede, [SDK tarzı](../resources/check-project-format.md) projeler için bunu nasıl yapacağınızı gösterir.
 
-SDK stilindeki projeler için, proje dosyanızda birden çok hedef çerçeve ([TFI](/dotnet/standard/frameworks)) desteğini yapılandırabilir ve ardından paketi oluşturmak için `dotnet pack` veya `msbuild /t:pack` ' yi kullanabilirsiniz.
+SDK tarzı projelerde, proje dosyanızda birden çok hedef çerçevesi[(TFM)](/dotnet/standard/frameworks)için `dotnet pack` `msbuild /t:pack` destek yapılandırabilir, ardından paketi kullanabilir veya oluşturabilirsiniz.
 
 > [!NOTE]
-> NuGet. exe CLı, paketleme SDK stili projelerini desteklemez, bu nedenle yalnızca `dotnet pack` veya `msbuild /t:pack` kullanmanız gerekir. Bunun yerine, genellikle proje dosyasındaki `.nuspec` dosyasında bulunan [tüm özellikleri eklemeniz](../reference/msbuild-targets.md#pack-target) önerilir. SDK olmayan bir projede birden çok .NET Framework sürümünü hedeflemek için bkz. [birden çok .NET Framework sürümünü destekleme](supporting-multiple-target-frameworks.md).
+> nuget.exe CLI SDK tarzı projeleri paketleme desteklemez, `dotnet pack` bu `msbuild /t:pack`yüzden sadece kullanmalısınız veya . Bunun `.nuspec` yerine, genellikle dosyada bulunan tüm özellikleri proje dosyasına [eklemenizi](../reference/msbuild-targets.md#pack-target) öneririz. SDK tarzı olmayan bir projede birden çok .NET Framework sürümlerini [hedeflemek](supporting-multiple-target-frameworks.md)için bkz.
 
-## <a name="create-a-project-that-supports-multiple-net-framework-versions"></a>Çoklu .NET Framework sürümlerini destekleyen bir proje oluşturma
+## <a name="create-a-project-that-supports-multiple-net-framework-versions"></a>Birden çok .NET Framework sürümlerini destekleyen bir proje oluşturma
 
-1. Visual Studio 'da yeni bir .NET Standard Class Kitaplığı oluşturun veya `dotnet new classlib` kullanın.
+1. Visual Studio'da yeni bir .NET Standart `dotnet new classlib`sınıf kitaplığı oluşturun veya kullanın.
 
-   En iyi uyumluluk için bir .NET Standard sınıf kitaplığı oluşturmanızı öneririz.
+   En iyi uyumluluk için bir .NET Standart sınıf kitaplığı oluşturmanızı öneririz.
 
-2. Hedef çerçeveleri desteklemek için *. csproj* dosyasını düzenleyin. Örneğin, Değiştir
+2. Hedef çerçeveleri desteklemek için *.csproj* dosyasını edin. Örneğin, değişiklik
    
    `<TargetFramework>netstandard2.0</TargetFramework>`
    
-   Yeni değer:
+   yerine şunu yazın:
    
    `<TargetFrameworks>netstandard2.0;net45</TargetFrameworks>`
 
-   XML öğesini tekil iken plural olarak değiştirdiğinizden emin olun ("s" öğesini hem açma hem de kapatma etiketlerine ekleyin).
+   XML öğesini tekilden çoğul'a değiştirdiğinizden emin olun (hem açık hem de kapat etiketlere "s" ekleyin).
 
-3. Yalnızca bir tfd içinde çalışacak bir kodunuz varsa, TFE bağımlı kodu ayırmak için `#if NET45` veya `#if NETSTANDARD2_0` kullanabilirsiniz. (Daha fazla bilgi için bkz. [MultiTarget](/dotnet/core/tutorials/libraries#how-to-multitarget).) Örneğin, aşağıdaki kodu kullanabilirsiniz:
+3. Yalnızca bir TFM'de çalışan bir kodunuz `#if NET45` varsa, TFM'ye bağlı kodu kullanabilir veya `#if NETSTANDARD2_0` ayırabilirsiniz. (Daha fazla bilgi için [bkz.](/dotnet/core/tutorials/libraries#how-to-multitarget) Örneğin, aşağıdaki kodu kullanabilirsiniz:
 
    ```csharp
    public string Platform {
@@ -53,15 +53,15 @@ SDK stilindeki projeler için, proje dosyanızda birden çok hedef çerçeve ([T
    }
    ```
 
-4. *. Csproj* öğesine istediğiniz NuGet meta verilerini MSBuild özellikleri olarak ekleyin.
+4. MSBuild özellikleri olarak *.csproj istediğiniz* herhangi bir NuGet meta veri ekleyin.
 
-   Kullanılabilir paket meta verileri ve MSBuild özellik adlarının listesi için bkz. [Pack Target](../reference/msbuild-targets.md#pack-target). Ayrıca bkz. [bağımlılık varlıklarını denetleme](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets).
+   Kullanılabilir paket meta verileri ve MSBuild özellik adları listesi için [paket hedefine](../reference/msbuild-targets.md#pack-target)bakın. Ayrıca [bkz.](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets)
 
-   Yapı ile ilgili özellikleri NuGet meta verilerinden ayırmak istiyorsanız, farklı bir `PropertyGroup` kullanabilir veya NuGet özelliklerini başka bir dosyaya yerleştirebilir ve MSBuild 'in `Import` yönergesini dahil edebilirsiniz. `Directory.Build.Props` ve `Directory.Build.Targets`, MSBuild 15,0 ' den itibaren de desteklenir.
+   Yapıyla ilgili özellikleri NuGet meta verilerinden ayırmak istiyorsanız, `PropertyGroup`farklı bir ,nuget özelliklerini başka bir dosyaya `Import` koyabilir ve MSBuild'in yönergesini bunu eklemek için kullanabilirsiniz. `Directory.Build.Props`ve `Directory.Build.Targets` ayrıca MSBuild 15.0 ile başlayan desteklenir.
 
-5. Şimdi, `dotnet pack` ve elde edilen *. nupkg* hedeflerini hem .NET Standard 2,0 hem de 4,5 .NET Framework kullanın.
+5. Şimdi, `dotnet pack` kullanım ve elde edilen *.nupkg* hedefleri hem .NET Standart 2.0 ve .NET Framework 4.5.
 
-Yukarıdaki adımlar ve 2,2 .NET Core SDK kullanılarak oluşturulan *. csproj* dosyası aşağıda verilmiştir.
+Aşağıda, önceki adımlar ve .NET Core SDK 2.2 kullanılarak oluşturulan *.csproj* dosyası verilmiştir.
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -76,5 +76,5 @@ Yukarıdaki adımlar ve 2,2 .NET Core SDK kullanılarak oluşturulan *. csproj* 
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-* [Hedef çerçeveleri belirtme](/dotnet/standard/frameworks#how-to-specify-target-frameworks)
+* [Hedef çerçeveler nasıl belirtilir?](/dotnet/standard/frameworks#how-to-specify-target-frameworks)
 * [Platformlar arası hedefleme](/dotnet/standard/library-guidance/cross-platform-targeting)

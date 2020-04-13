@@ -1,17 +1,25 @@
-Nuget.org, Profilinden seçin **paketlerini Yönet** bir görmek için yeni yayımladığınız. Aynı zamanda bir onay e-posta alırsınız. Paketiniz sıralanması ve diğerleri bulabileceğiniz arama sonuçlarında görüntülenmesi biraz sürebilir unutmayın. Bu süre boyunca paket sayfanız aşağıdaki iletiyi gösterir:
+---
+ms.openlocfilehash: 9c3cb22c8c220a7297eb88db6ff0941e4c11c914
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64496058"
+---
+nuget.org'daki profilinizden, yeni yayınladığınız profili görmek için **Paketleri Yönet'i** seçin. Ayrıca bir onay e-postası alırsınız. Paketinizin dizine eklenmenin ve başkalarının bulabileceği arama sonuçlarında görünmesinin biraz zaman alacağını unutmayın. Bu süre zarfında paket sayfanız aşağıdaki iletiyi gösterir:
 
-![Bu paket henüz dizini değil. Arama sonuçlarında görünür ve dizin oluşturma işlemi tamamlandıktan sonra yükleme/geri yükleme için kullanılabilir duruma gelir.](../media/QS_Create-03-NotIndexed.png)
+![Bu paket henüz dizine eklenmedi. Arama sonuçlarında görünür ve dizin oluşturma tamamlandıktan sonra yüklemek/geri yükleme için kullanılabilir olacaktır.](../media/QS_Create-03-NotIndexed.png)
 
-Ve İşte bu kadar! Ayrıca, diğer geliştiriciler kendi projelerinde kullanabileceğiniz nuget.org için yalnızca ilk NuGet paketinizi yayımladık.
+Hepsi bu! Diğer geliştiricilerin kendi projelerinde kullanabilecekleri nuget.org için ilk NuGet paketinizi yayınladınız.
 
-Bu izlenecek yolda (örneğin, bir boş sınıf kitaplığı ile oluşturulan bir paket) gerçekten kullanışlı olmayan paketi oluşturduğunuz, kaydetmeniz gerekip gerekmediğini *listeden* paket arama sonuçlarını gizle:
+Bu gözden geçirme de gerçekten yararlı olmayan bir paket oluşturduysanız (boş bir sınıf kitaplığıyla oluşturulmuş bir paket gibi), paketi arama sonuçlarından gizlemek için *listeyi boşaltmanız* gerekir:
 
-1. Nuget.org kullanıcı adınızı (sayfanın sağ üst) seçin ve ardından **paketlerini Yönet**.
+1. nuget.org kullanıcı adınızı (sayfanın sağ üst tarafında) seçin ve **ardından Paketleri Yönet'i**seçin.
 
-1. Altından listeden istediğiniz paketi bulmak **yayımlanan** ve sağdaki Çöp Kutusu simgesini seçin:
+1. **Yayımlanmış** altında listeyi boşaltmak istediğiniz paketi bulun ve sağdaki çöp kutusu simgesini seçin:
 
-    ![Çöp Kutusu simgesine nuget.org adresinden listeleyen bir paket için gösterilen](../media/qs_create-vs-03-trash-can.png)
+    ![nuget.org'da bir paket listesi için gösterilen çöp kutusu simgesi](../media/qs_create-vs-03-trash-can.png)
 
-1. Sonraki sayfada etiketli kutunun işaretini kaldırın. **arama sonuçları listesinde (paket adı)** seçip **Kaydet**:
+1. Sonraki sayfada, **arama sonuçlarında Liste (paket adı)** etiketli kutuyu temizleyin ve **Kaydet'i**seçin:
 
-    ![Nuget.org üzerindeki bir paket listesi onay kutusunu temizleyerek](../media/qs_create-vs-04-unlist.png)
+    ![nuget.org'da bir paket için Liste onay kutusunu temizleme](../media/qs_create-vs-04-unlist.png)

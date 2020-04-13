@@ -1,46 +1,46 @@
 ---
-title: Visual Studio'da NuGet API'si
-description: Visual Studio'da Yönetilen Genişletilebilirlik Çerçevesi aracılığıyla NuGet aktaran API'si için başvuru arabirimi
+title: Visual Studio’da NuGet API’si
+description: NuGet'in Visual Studio'da Yönetilen Genişletilebilirlik Çerçevesi üzerinden dışa aktettiği API için arayüz başvurusu
 author: karann-msft
 ms.author: karann
 ms.date: 01/09/2017
 ms.topic: reference
 ms.openlocfilehash: f1a11eb63c07a5d737a9474870f5653f6f7d850a
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50980982"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64495910"
 ---
-# <a name="nuget-api-in-visual-studio"></a>Visual Studio'da NuGet API'si
+# <a name="nuget-api-in-visual-studio"></a>Visual Studio’da NuGet API’si
 
-NuGet Paket Yöneticisi UI ve Visual Studio'da konsol yanı sıra ayrıca bazı yararlı hizmetleriyle verir. [Yönetilen Genişletilebilirlik Çerçevesi (MEF)](/dotnet/framework/mef/index). Bu arabirim, yükleme ve paketlerini kaldırma ve yüklü paketleri hakkında bilgi almak için kullanılan NuGet ile etkileşim kurmak için Visual Studio'daki diğer bileşenleri sağlar.
+Visual Studio'daki Paket Yöneticisi UI ve Console'a ek olarak, NuGet [yönetilen genişletilebilirlik çerçevesi (MEF)](/dotnet/framework/mef/index)aracılığıyla bazı yararlı hizmetler de ihraç eder. Bu arabirim, Visual Studio'daki diğer bileşenlerin paketleri yüklemek ve kaldırmak için kullanılabilen NuGet ile etkileşimkurmasına ve yüklü paketler hakkında bilgi edinmesine olanak tanır.
 
-NuGet itibarıyla 3.3 +, NuGet içinde bulunduğu her biri aşağıdaki hizmetleri aktarır `NuGet.VisualStudio` ad alanında `NuGet.VisualStudio.dll` derleme:
+NuGet 3.3+'dan itibaren, NuGet `NuGet.VisualStudio` `NuGet.VisualStudio.dll` derlemedeki ad alanında bulunan aşağıdaki hizmetleri ihraç ediyor:
 
-- [`IRegistryKey`](#iregistrykey-interface): Bir kayıt defteri alt anahtarı bir değer almak için yöntemi.
-- [`IVsPackageInstaller`](#ivspackageinstaller-interface): Projelere NuGet paketlerini yüklemek için yöntem.
-- [`IVsPackageInstallerEvents`](#ivspackageinstallerevents-interface)Paket yükleme/kaldırma için olaylar.
-- [`IVsPackageInstallerProjectEvents`](#ivspackageinstallerprojectevents-interface): Batch olayları için paket yükleme/kaldırma.
-- [`IVsPackageInstallerServices`](#ivspackageinstallerservices-interface): Geçerli çözümdeki yüklü paketleri alınması ve belirli bir paket bir projede yüklü olup olmadığını denetlemek için yöntemleri.
-- [`IVsPackageManagerProvider`](#ivspackagemanagerprovider-interface): Bir NuGet paketi için alternatif bir paket Yöneticisi önerileri sağlamak için yöntemleri.
-- [`IVsPackageMetadata`](#ivspackagemetadata-interface): Yüklü paketi hakkında bilgi almak için yöntemler.
-- [`IVsPackageProjectMetadata`](#ivspackageprojectmetadata-interface): NuGet Eylemler burada yürütülen bir projeyle ilgili bilgileri almak için yöntemler.
-- [`IVsPackageRestorer`](#ivspackagerestorer-interface): Bir projede yüklü paketleri geri yüklemek için yöntemleri.
-- [`IVsPackageSourceProvider`](#ivspackagesourceprovider-interface): NuGet listesini almak için yöntemler kaynakları paketi.
-- [`IVsPackageUninstaller`](#ivspackageuninstaller-interface): NuGet paketleri projelerden kaldırmak için yöntemleri.
-- [`IVsTemplateWizard`](#ivstemplatewizard-interface): Proje/öğe şablonları önceden yüklenmiş paketlerini içerecek şekilde tasarlanmıştır; Bu arabirimin *değil* koddan çağrılan içindir ve hiçbir genel yöntemi vardır.
+- [`IRegistryKey`](#iregistrykey-interface): Bir kayıt defteri alt anahtarından bir değer alma yöntemi.
+- [`IVsPackageInstaller`](#ivspackageinstaller-interface): NuGet paketlerini projelere yükleme yöntemleri.
+- [`IVsPackageInstallerEvents`](#ivspackageinstallerevents-interface): Paket yükleme/kaldırma etkinlikleri.
+- [`IVsPackageInstallerProjectEvents`](#ivspackageinstallerprojectevents-interface): Paket yükleme/kaldırma için toplu iş olayları.
+- [`IVsPackageInstallerServices`](#ivspackageinstallerservices-interface): Yüklü paketleri geçerli çözüme alma ve belirli bir paketin projede yüklü olup olmadığını kontrol etme yöntemleri.
+- [`IVsPackageManagerProvider`](#ivspackagemanagerprovider-interface): NuGet paketi için alternatif Paket Yöneticisi önerileri sunma yöntemleri.
+- [`IVsPackageMetadata`](#ivspackagemetadata-interface): Yüklü bir paket hakkında bilgi alma yöntemleri.
+- [`IVsPackageProjectMetadata`](#ivspackageprojectmetadata-interface): NuGet eylemlerinin yürütüldüğü bir proje hakkında bilgi alma yöntemleri.
+- [`IVsPackageRestorer`](#ivspackagerestorer-interface): Bir projede yüklü paketleri geri yükleme yöntemleri.
+- [`IVsPackageSourceProvider`](#ivspackagesourceprovider-interface): NuGet paket kaynaklarının listesini alma yöntemleri.
+- [`IVsPackageUninstaller`](#ivspackageuninstaller-interface): Projelerden NuGet paketlerini kaldırma yöntemleri.
+- [`IVsTemplateWizard`](#ivstemplatewizard-interface): Proje/madde şablonları için önceden yüklenmiş paketleri içerecek şekilde tasarlanmış; bu arabirim koddan çağrılması anlamına *gelmez* ve ortak yöntemleri yoktur.
 
-## <a name="using-nuget-services"></a>NuGet Hizmetleri kullanma
+## <a name="using-nuget-services"></a>NuGet hizmetlerini kullanma
 
-1. Yükleme [ `NuGet.VisualStudio` ](https://www.nuget.org/packages/NuGet.VisualStudio) paket içeren projenize `NuGet.VisualStudio.dll` derleme.
+1. [`NuGet.VisualStudio`](https://www.nuget.org/packages/NuGet.VisualStudio) Paketi, derlemeyi içeren projenize `NuGet.VisualStudio.dll` yükleyin.
 
-    Yüklendiğinde, paketi otomatik olarak ayarlar **birlikte çalışma türlerini katıştır** derleme başvurusunu özelliği **True**. NuGet daha yeni sürümleri için kullanıcılar güncelleştirdiğinizde bu kodunuzu sürüm değişikliklerine karşı dayanıklı hale getirir.
+    Paket yüklendiğinde, montaj referansının **Embed Interop Türleri** özelliğini otomatik olarak **True**olarak ayarlar. Bu, kullanıcılar NuGet'in yeni sürümlerine güncellendiğinde kodunuzu sürüm değişikliklerine karşı esnek hale getirir.
 
 > [!Warning]
-> Kodunuzda ortak arabirimlerin yanı sıra diğer türleri kullanmayın ve dahil olmak üzere tüm diğer NuGet derlemelere başvurma `NuGet.Core.dll`.
+> Kodunuzda ortak arabirimler dışında başka türler kullanmayın ve dahil olmak üzere diğer NuGet derlemelerine başvuruyapmayın. `NuGet.Core.dll`
 
-1. Bir hizmeti kullanmayı üzerinden içeri aktarma [MEF içeri aktarma öznitelik](/dotnet/framework/mef/index#imports-and-exports-with-attributes), aracılığıyla veya [IComponentModel hizmet](/dotnet/api/microsoft.visualstudio.componentmodelhost.icomponentmodel?redirectedfrom=MSDN&view=visualstudiosdk-2017).
+1. Bir hizmeti kullanmak için, [MEF Alma özniteliği](/dotnet/framework/mef/index#imports-and-exports-with-attributes)veya [IComponentModel hizmeti](/dotnet/api/microsoft.visualstudio.componentmodelhost.icomponentmodel?redirectedfrom=MSDN&view=visualstudiosdk-2017)aracılığıyla içe aktarın.
 
     ```cs
     //Using the Import attribute
@@ -57,7 +57,7 @@ NuGet itibarıyla 3.3 +, NuGet içinde bulunduğu her biri aşağıdaki hizmetle
     var installedPackages = installerServices.GetInstalledPackages();
     ```
 
-Başvuru için NuGet.VisualStudio için kaynak kodu içinde yer alan [NuGet.Clients depo](https://github.com/NuGet/NuGet.Client/tree/dev/src/NuGet.Clients/NuGet.VisualStudio).
+Başvuru için, NuGet.VisualStudio için kaynak kodu [NuGet.Clients deposu](https://github.com/NuGet/NuGet.Client/tree/dev/src/NuGet.Clients/NuGet.VisualStudio)içinde yer almaktadır.
 
 ## <a name="iregistrykey-interface"></a>IRegistryKey arabirimi
 
@@ -90,7 +90,7 @@ public interface IRegistryKey
 }
 ```
 
-## <a name="ivspackageinstaller-interface"></a>IVsPackageInstaller arabirimi
+## <a name="ivspackageinstaller-interface"></a>IVsPackageInstaller arayüzü
 
 ```cs
 public interface IVsPackageInstaller
@@ -263,7 +263,7 @@ public interface IVsPackageInstaller
 }
 ```
 
-## <a name="ivspackageinstallerevents-interface"></a>IVsPackageInstallerEvents arabirimi
+## <a name="ivspackageinstallerevents-interface"></a>IVsPackageInstallerEtkinlikler arayüzü
 
 ```cs
 public interface IVsPackageInstallerEvents
@@ -300,7 +300,7 @@ public interface IVsPackageInstallerEvents
 }
 ```
 
-## <a name="ivspackageinstallerprojectevents-interface"></a>IVsPackageInstallerProjectEvents arabirimi
+## <a name="ivspackageinstallerprojectevents-interface"></a>IVsPackageInstallerProjectEvents arayüzü
 
 ```cs
 public interface IVsPackageInstallerProjectEvents
@@ -317,7 +317,7 @@ public interface IVsPackageInstallerProjectEvents
 }
 ```
 
-## <a name="ivspackageinstallerservices-interface"></a>IVsPackageInstallerServices arabirimi
+## <a name="ivspackageinstallerservices-interface"></a>IVsPackageInstallerServices arayüzü
 
 ```cs
 public interface IVsPackageInstallerServices
@@ -369,7 +369,7 @@ public interface IVsPackageInstallerServices
 }
 ```
 
-## <a name="ivspackagemanagerprovider-interface"></a>IVsPackageManagerProvider arabirimi
+## <a name="ivspackagemanagerprovider-interface"></a>IVsPackageManagerProvider arayüzü
 
 ```cs
 public interface IVsPackageManagerProvider
@@ -408,7 +408,7 @@ public interface IVsPackageManagerProvider
 }
 ```
 
-## <a name="ivspackagemetadata-interface"></a>IVsPackageMetadata arabirimi
+## <a name="ivspackagemetadata-interface"></a>IVsPackageMetaveri arabirimi
 
 ```cs
 public interface IVsPackageMetadata
@@ -462,7 +462,7 @@ public interface IVsPackageMetadata
 }
 ```
 
-## <a name="ivspackageprojectmetadata-interface"></a>IVsPackageProjectMetadata interface
+## <a name="ivspackageprojectmetadata-interface"></a>IVsPackageProjectMetaveri arabirimi
 
 ```cs
 public interface IVsPackageProjectMetadata
@@ -479,7 +479,7 @@ public interface IVsPackageProjectMetadata
 }
 ```
 
-## <a name="ivspackagerestorer-interface"></a>IVsPackageRestorer arabirimi
+## <a name="ivspackagerestorer-interface"></a>IVsPackageRestorer arayüzü
 
 ```cs
 public interface IVsPackageRestorer
@@ -499,7 +499,7 @@ public interface IVsPackageRestorer
 }
 ```
 
-## <a name="ivspackagesourceprovider-interface"></a>IVsPackageSourceProvider arabirimi
+## <a name="ivspackagesourceprovider-interface"></a>IVsPackageSourceProvider arayüzü
 
 ```cs
 public interface IVsPackageSourceProvider
@@ -519,7 +519,7 @@ public interface IVsPackageSourceProvider
 }
 ```
 
-## <a name="ivspackageuninstaller-interface"></a>IVsPackageUninstaller arabirimi
+## <a name="ivspackageuninstaller-interface"></a>IVsPackageUninstaller arayüzü
 
 ```cs
 public interface IVsPackageUninstaller
@@ -538,7 +538,7 @@ public interface IVsPackageUninstaller
 }
 ```
 
-## <a name="ivstemplatewizard-interface"></a>IVsTemplateWizard arabirimi
+## <a name="ivstemplatewizard-interface"></a>IVsTemplateSihirbaz arabirimi
 
 ```cs
 /// <summary>

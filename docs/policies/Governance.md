@@ -1,95 +1,95 @@
 ---
-title: NuGet proje yönetimi
-description: NuGet, kodunuzu, Katkıda Bulunanlar ve kullanıcılar için rol ve Sorumluluk dahil olmak üzere için idare modeli.
+title: NuGet Proje Yönetimi
+description: NuGet'in, taahhüt edenlerin, katkıda bulunanların ve kullanıcıların rolleri ve sorumlulukları da dahil olmak üzere yönetim modeli.
 author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: conceptual
 ms.openlocfilehash: 2aaaf41b3fc4ef3621333e5099780b5d7ef393bc
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549456"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64500391"
 ---
-# <a name="nuget-governance"></a>NuGet idare
+# <a name="nuget-governance"></a>NuGet yönetimi
 
-> Bu belge temel aldığı [Benevolent Dictator idare modeli](http://www.oss-watch.ac.uk/resources/benevolentdictatorgovernancemodel) , University Oxford tarafından. Altında lisanslı bir [Creative Commons atıf-Lisansdevam 2.0 UK: İngiltere & Galler lisansı](http://creativecommons.org/licenses/by-sa/2.0/uk/).
+> Bu belge Oxford Üniversitesi'nin [Hayırsever Diktatör Yönetim Modeli'ne](http://www.oss-watch.ac.uk/resources/benevolentdictatorgovernancemodel) dayanmaktadır. Bir [Creative Commons Attribution-ShareAlike 2.0 İngiltere: İngiltere & Galler Lisansı](http://creativecommons.org/licenses/by-sa/2.0/uk/)altında lisanslanmıştır.
 
-NuGet projesi bir Benevolent Dictator tarafından yönetilen ve topluluk tarafından yönetilir. Diğer bir deyişle, topluluk, projenin günlük bakım için etkin olarak katkıda bulunan, ancak genel stratejik çizgi benevolent dictator çizilir. Çözünürlüğünün olması durumunda son sözcüğü benevolent dictator sahiptir.
+NuGet projesi hayırsever bir diktatör tarafından yönetilir ve toplum tarafından yönetilir. Diğer bir zamanda, toplum projenin günlük bakımına aktif olarak katkıda bulunur, ancak genel stratejik çizgi hayırsever diktatör tarafından çizilir. Anlaşmazlık durumunda, son sözü hayırsever diktatör söyler.
 
-Topluluk içinde Anlaşmazlıkların çözüm yeri ve proje koordineli bir şekilde ilerleme erişebildiğinden emin olmak için benevolent dictator'ın işi var. Buna karşılık, etkin katılım ve katkı aracılığıyla benevolent dictator kararları kılavuza birliğinin işidir.
+Toplum içindeki anlaşmazlıkları çözmek ve projenin eşgüdümlü bir şekilde ilerlemesini sağlamak hayırsever diktatörün görevidir. Buna karşılık, toplumun görevi, hayırsever diktatörün kararlarını aktif katılım ve katkı yoluyla yönlendirmektir.
 
-## <a name="roles-and-responsibilities"></a>Rolleri ve sorumlulukları
+## <a name="roles-and-responsibilities"></a>Roller ve sorumluluklar
 
-Burada açıklanan dört rolü vardır: Benevolent Dictator, kodunuzu, Katkıda Bulunanlar ve kullanıcılar.
+Burada açıklanan dört rol vardır: Hayırsever Diktatör, Committers, Katkıda Bulunanlar ve Kullanıcılar.
 
-### <a name="benevolent-dictator"></a>Benevolent dictator
+### <a name="benevolent-dictator"></a>Hayırsever diktatör
 
-NuGet çekirdek ekibi Benevolent Dictator ya da proje lideri olarak kendi kendine kaldırmasını. Ancak, topluluk her zaman çatal özelliği olduğundan, takım topluluğuna tam olarak yanıt verilemeyen olur. Proje lideri bir bütün olarak topluluk anlamak ve çakışan birçok gerektiğinde mümkün olduğunca projenin uzun vadede şekilde kalmıştır sağlarken karşılamak için çaba beklenir.
+NuGet çekirdek ekibi, hayırsever diktatör veya proje lideri olarak kendini atanır. Ancak, topluluk her zaman çatal yeteneğine sahip olduğundan, takım tamamen topluma karşı sorumlu. Proje liderliğinin toplumu bir bütün olarak anlaması ve mümkün olduğunca çok çelişkili ihtiyacı karşılamaya ve projenin uzun vadede ayakta kalmasını sağlaması beklenmektedir.
 
-Birçok yolla benevolent dictator rolünü dictatorship ve diplomacy hakkında daha fazla küçük. Proje genişledikçe doğru kişilere ele etkisi verilir ve topluluk proje lideri sunulmasıyla rallies, anahtar sağlamaktır. Müşteri adayının iş sonra (aşağıya bakın) kodunuzu doğru proje adına kararlar emin emin olmaktır. Genel olarak bakıldığında, kodunuzu içeren projenin stratejisi hizalanır sürece, proje lideri istenen şekilde devam etmek bunları izin verir.
+Pek çok yönden, hayırsever diktatörün rolü diktatörlükten çok diplomasi ile ilgilidir. Önemli olan, proje genişledikçe, doğru insanların bu konuda nüfuz sahibi olmasını ve proje liderliğinin vizyonunun arkasında toplum tarafından miting edeyim. Müşteri adayının görevi, iş verenlerin (aşağıya bakın) proje adına doğru kararları vermelerini sağlamaktır. Genel olarak konuşursak, taahhüt edenler projenin stratejisiyle uyumlu olduğu sürece, proje kurşunu onların istedikleri gibi ilerlemelerini sağlayacaktır.
 
-Ayrıca, .NET Foundation personeli proje lideri NuGet iletişim etki alanı kaydı ve teknik hizmetler (örneğin kod imzalama) gibi işle ilgili işlemlerin amacıyla birincil ya da ilk noktası göz önünde bulundurun.
+Ayrıca, .NET Foundation personeli, etki alanı kayıtları ve teknik hizmetler (örn. kod imzalama) dahil olmak üzere iş işlemleri amacıyla nuget için projenin birincil veya ilk temas noktası olduğunu düşünmektedir.
 
-### <a name="committers"></a>Kodunuzu
+### <a name="committers"></a>Taahhüt edenler
 
-Kodunuzu sürekli değerli Katkıları için NuGet yaptıktan ve tarafından Benevolent Dictator tayin katkıda bulunanlar ' dir. Tayin sonra kodunuzu üzerine hem depoya doğrudan kod yazma ve diğer Katkıları ekran yararlandı. Kodunuzu genellikle geliştiriciler olur ancak başka yollarla da katkıda bulunabilirsiniz.
+Taahhüt edenler, NuGet'e sürekli değerli katkılarda bulunan ve Hayırsever Diktatör tarafından atanan katkıda bulunankişilerdir. Atandıktan sonra, committers hem depoya doğrudan kod yazmak ve başkalarının katkılarını ekrana güvenilir. Committers genellikle geliştiriciler, ancak başka şekillerde katkıda bulunabilir.
 
-Genellikle, bir teslim eden projenin belirli bir yönüne odaklanan ve bir uzmanlık ve bunları topluluğun ve proje lideri saygı işletmeyse anlama düzeyi sunar. Resmi bir teslim eden rolü değil, yalnızca rehberlik ve destek için onlara proje sağlama görünür olarak etkili topluluk üyelerinin varsayar konumu.
+Tipik olarak, bir taahhüter projenin belirli bir yönü üzerinde duruluyor ve onlara toplumun saygısını ve proje liderliğini kazandıracak bir uzmanlık ve anlayış düzeyi getirir. Taahhüt edenin rolü resmi bir değil, sadece toplumun etkili üyelerinin proje kurşun rehberlik ve destek için onlara bakar gibi varsayalım bir pozisyon.
 
-Kodunuzu nereye NuGet genel yönünü ilgilidir yetkili vardır. Ancak, proje lideri kulak vardır. Müşteri adayı birliğinin gereksinimlerini ve ortak hedefleri farkında olduğundan emin olun ve geliştirme veya uygun Katkıları projeye çözüleceği yardımcı olması için teslim eden'ın iş var. Genellikle kodunuzu kendi sorumluluk belirli alanları resmi olmayan bir denetime verilir ve doğrudan kaynak kodunun belirli alanları değiştirmek için hakları atanır. Kodunuzu açık karar verme yetkilisi gerekmese de, diğer bir deyişle, bunlar genellikle eylemlerini sağlama tarafından alınan kararları işlevlerindeki olduğunu göreceksiniz.
+NuGet'in genel yönü söz konusu olduğunda, taahhüt edenlerin hiçbir yetkisi yoktur. Ancak, proje kurşun kulak var. Liderin toplumun ihtiyaçlarının ve kolektif hedeflerinin farkında olmasını sağlamak ve projeye uygun katkıların geliştirilmesine veya ortaya konmasına yardımcı olmak bir taahhütçerin görevidir. Genellikle, committers sorumluluk kendi belirli alanları üzerinde gayri resmi kontrol verilir ve doğrudan kaynak kodun belirli alanları değiştirmek için haklar atanır. Diğer bir nokta, söz edenlerin açık karar verme yetkisi olmamasına rağmen, genellikle eylemlerinin müşteri adayıtarafından alınan kararlarla eş anlamlı olduğunu anlarlar.
 
 ### <a name="contributors"></a>Katkıda Bulunanlar
 
-Katkıda Bulunanlar NuGet düzeltme eki gönderen topluluk üyeleridir. Bu düzeltme ekleri tek seferlik bir olay veya zaman içinde oluşan olabilir. Beklentileri olan Katkıda Bulunanlar, küçük düzeltme eklerinin gönderme ilk ve katkıda bulunan, kodunuzu ve proje lideri katkıda bulunan kişinin düzeltme ekleri kalitesini ellerde geliştirdim olduğunda daha büyük. Katkıda Bulunanlar, ilişkili ürün sürüm notları adlı belgeyi tanınır.
+Katkıda bulunanlar, NuGet'e yamalar gönderen topluluk üyeleridir. Bu düzeltme etekleri bir kerelik bir olay olabilir veya zaman içinde oluşabilir. Beklentiler, katkıda bulunanların ilk başta küçük olan ve katkıda bulunan, taahhüt eden ve proje lideri katılımcının yamaları kalitesinde güven oluşturduğunda daha da büyüyen düzeltmeleridir. Katkıda bulunanlar ilişkili ürün sürüm notları belgesinde tanınır.
 
-Depoya katkıda bulunan kişinin ilk düzeltme eki getirilir önce oturum açmaları gerektiğini bir [katkıda bulunan lisans sözleşmesi](http://en.wikipedia.org/wiki/Contributor_License_Agreement) veya .NET Foundation için bir atama anlaşma. Düzeltme eki gönderildi ve ele alınan ancak aslında yerden uygun belgeler olmadan depoya kaydedilmiş olamaz. Katkıda bulunan lisans sözleşmesi elde etmek için lütfen bir isteği e-posta Gönder [ contributions@nuget.org ](mailto:contributions@nuget.org).
+Bir katılımcının ilk düzeltme eki depoya konmadan önce, [bir Katılımcı Lisans Sözleşmesi](http://en.wikipedia.org/wiki/Contributor_License_Agreement) veya .NET Vakfı'na bir atama sözleşmesi imzalamaları gerekir. Yama sunulabilir ve tartışılabilir, ancak uygun evraklar yerinde olmadan depoya işitedilemez. Katılımcı lisans sözleşmesi almak için lütfen e-posta yoluyla [contributions@nuget.org](mailto:contributions@nuget.org)bir istek gönderin.
 
-Katkıda bulunan olmak için aşağıdaki depolardan birinde bir çekme isteği gönderme:
+Katkıda bulunmak için aşağıdaki depolardan birine çekme isteği gönderin:
 
-- [NuGet istemci](https://github.com/NuGet/NuGet.Client)
+- [NuGet İstemci](https://github.com/NuGet/NuGet.Client)
 - [NuGet Galerisi](https://github.com/nuget/nugetgallery)
-- [NuGet belgeleri](https://github.com/nuget/nugetdocs)
+- [NuGet Dokümanlar](https://github.com/nuget/nugetdocs)
 
-Bir çekme isteği için ayrıntılı işlem depo değişir:
+Çekme isteği göndermek için ayrıntılı işlem depoya göre değişir:
 
-- [NuGet istemci ile NuGet Galerisi'nin için katkı yönergeleri](https://github.com/NuGet/Home/wiki/Contributing-to-NuGet)
-- [Katkı yönergeleri için NuGet belgeleri](https://github.com/NuGet/NuGetDocs/wiki/Contributing-to-NuGet-Documentation)
+- [NuGet Client ve NuGet Gallery için katkı talimatları](https://github.com/NuGet/Home/wiki/Contributing-to-NuGet)
+- [NuGet Dokümanları için katkı talimatları](https://github.com/NuGet/NuGetDocs/wiki/Contributing-to-NuGet-Documentation)
 
 ### <a name="users"></a>Kullanıcılar
 
-Kullanıcıların ihtiyacı olan ve NuGet paketi Tüketicileri ve/veya yazarlar olarak kullanmak topluluk üyeleridir. Topluluk üyelerinin en önemli kullanıcılardır: bunlar olmadan proje herhangi bir amacı yoktur. Herhangi bir kullanıcı olabilir. belirli gereksinimler yoktur.
+Kullanıcılar, paket tüketicileri ve/veya yazarlar olarak NuGet'e ihtiyacı olan ve kullanan topluluk üyeleridir. Kullanıcılar topluluğun en önemli üyeleridir: onlar olmadan, projenin hiçbir amacı olmazdı. Herkes bir kullanıcı olabilir; belirli bir gereksinim yoktur.
 
-Kullanıcılar, NuGet ve mümkün olduğunca topluluk hayatta katılmaya teşvik. Kullanıcı katkılar, söz konusu kullanıcıların ihtiyaçlarını karşılayan emin olmak proje ekibi etkinleştirin. Genel kullanıcı etkinlikleri içerir ancak bunlarla sınırlı değildir:
+Kullanıcılar mümkün olduğunca NuGet ve topluluk hayatına katılmaya teşvik edilmelidir. Kullanıcı katkıları, proje ekibinin bu kullanıcıların gereksinimlerini karşıladıklarından emin olmasını sağlar. Yaygın kullanıcı etkinlikleri aşağıdakileri içerir, ancak bunlarla sınırlı değildir:
 
-- Projeyi kullanıma sağduyulu
-- Proje güçlü ve zayıf yeni bir kullanıcının açısından bildiren geliştiriciler
-- (Uzun yol teşekkür sağlanabilir) moral desteği sağlama
-- Yazma belgeler ve öğreticiler
-- Hata raporlarını ve özellik istekleri dosyalama
-- Hata bashes gibi topluluk etkinlikleri katılma
-- Tartışma panosu veya Forum katılma
+- Projenin kullanımını savunmak
+- Yeni bir kullanıcının bakış açısından proje güçlü ve zayıf yönleri hakkında geliştiricileri bilgilendirmek
+- Manevi destek sağlanması (bir teşekkür uzun bir yol gidiyor)
+- Dokümantasyon ve öğreticiler yazma
+- Hata raporları ve özellik istekleri dosyalama
+- Hata bashes gibi topluluk etkinliklerine katılma
+- Tartışma panolarına veya forumlara katılma
 
-Proje ve onun topluluk ile etkileşim kurmak için devam eden kullanıcıların kendilerini daha ilgili hale genellikle bulabilirsiniz. Bu kullanıcılar ardından Katkıda Bulunanlar, yukarıda açıklanan şekilde olacak geçin.
+Proje ve topluluğuyla etkileşime devam eden kullanıcılar, kendilerini giderek daha fazla işin içinde bulurlar. Bu tür kullanıcılar daha sonra, yukarıda açıklandığı gibi katkıda bulunabilir.
 
-## <a name="package-succession-under-special-circumstances"></a>Paket art arda özel koşullar altında
+## <a name="package-succession-under-special-circumstances"></a>Özel koşullar altında paket veraset
 
-Burada bir NuGet hesap sahibinin incapacitated veya öldü talihsiz durumda biz burada tek sahipliği söz konusu hesabın sahip ve paket altında yayımlanan paket için uygun sahibi/sn eklemek için toplulukla birlikte çalışabilecek bir [OSI Lisans onaylanan](https://opensource.org/licenses/alphabetical). Sahipliği istemek için bize aşağıdaki belgeler göndermeniz gerekir:
+Bir NuGet hesap sahibinin aciz veya vefat ettiği talihsiz bir durumda, ilgili hesabın tek mülkiyetinin bulunduğu ve paketin OSI onaylı bir lisans altında yayınlandığı pakete uygun sahibi/s'leri eklemek için toplulukla birlikte [çalışacağız.](https://opensource.org/licenses/alphabetical) Sahiplik talebinde bulunmak için bize aşağıdaki belgeleri göndermeniz gerekir:
 
-1. Bir kamu verilen fotoğraf kimliğinizi, fotokopi
-1. Önceki hesap sahibinin durum kanıtlama aşağıdaki belgeler biri: 
-    - Bir resmi, kamu verilen ölüm sertifika öldü, önceki hesap sahibi ise veya
-    - Bir sağlık professional incapacitated hesap sahibi sağlık sorumlu tarafından imzalanmış bir sertifika gibi onaylanmış bir belge.
-1. Aşağıdaki belgeler, sağda sahipliği kanıtlama biri: 
-    - Hesap sahibinin sürdüren bağına sahip olduğunu gösteren marriage sertifikası
-    - İmzalı power of avukata
-    - Yürütücü veya isim lehtarıdır gibi adlandırma olacaktır ya da güven belgenin kopyasını,
-    - Doğum sertifika için hesap sahibi, üst ise veya
-    - Hesap sahibinin geçerli bir koruyucu varsa guardianship belgeler.
+1. Devlet tarafından verilmiş fotoğraflı kimliğinin fotokopisi.
+1. Önceki hesap sahibinin durumunu kanıtlayan aşağıdaki belgelerden biri: 
+    - Önceki hesap sahibi vefat etmişse, resmi, devlet tarafından verilmiş bir ölüm belgesi veya
+    - Aciz bir hesap sahibinin bakımından sorumlu bir tıp uzmanı tarafından imzalanmış bir belge gibi onaylı bir belge.
+1. Mülkiyet hakkınızı kanıtlayan aşağıdaki belgelerden biri: 
+    - Hesap sahibinin sağ kalan eşi olduğunuzu gösteren evlilik cüzdanı,
+    - İmzalı vekaletname,
+    - Sizi vasi veya lehdar olarak adlandıran bir vasiyet veya güven belgesinin fotokopisi,
+    - Hesap sahibi nin doğum belgesi, eğer onların ebeveyniyseniz, ya da,
+    - Hesap sahibinin yasal vasisiyseniz vesayet evrakları.
 
-Lütfen bize bir e-postası gönderin kendinizi bu ilke çağrılırken geçirilmesi gereken fark ederseniz, [ support@nuget.org ](mailto:support@nuget.org) kimliği ve Paket sürümü.
+Bu politikayı iptal etmek istiyorsanız, lütfen bize kimliği ve [support@nuget.org](mailto:support@nuget.org) paketin sürümünü içeren bir e-posta gönderin.
 
 ## <a name="transparency"></a>Saydamlık
 
-Açık kaynaklı bir projeyi idare topluluk güven oluşturma, elde edeceği başarı için önemlidir. Bu amaçla, karar alma sürecini saydam ve açık bir şekilde yapılması gerekir. Projenin yönü tartışmasına herkese açık şekilde yapılması gerekir. Topluluk hiçbir zaman yakalanmalıdır geziniyorsanız Benevolent Dictator tarafından karar tarafından. Ayrıca, topluluk üyeleri bir karar ve onun içeriği tüm geçmişini anlayabilmeniz proje kararları hakkında tartışma arşivlenmiş gerekir.
+Açık kaynak projesinin yönetimine toplumun güvenini niçin inşa etmek, projenin başarısı için hayati önem taşımaktadır. Bu amaçla, karar verme şeffaf, açık bir şekilde yapılmalıdır. Projenin yönü ile ilgili tartışmalar genel olarak yapılmalıdır. Toplum asla Yardımsever Diktatör'ün bir kararıyla hazırlıksız yakalanmamalı. Ayrıca, topluluk üyelerinin bir kararın tüm geçmişini ve içeriğini anlayabilmeleri için proje kararları hakkındaki tartışmalar arşivlenmelidir.
