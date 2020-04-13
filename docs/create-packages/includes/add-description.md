@@ -1,14 +1,14 @@
 ---
 ms.openlocfilehash: b615bcb78ad2eaf8524bfbf17864d4652e546ff1
-ms.sourcegitcommit: 1a63a84da2719c8141823ac89a20bf507fd22b00
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "80151392"
 ---
-<span data-ttu-id="24585-101">Paketin NuGet.org sayfasında yer alan isteğe bağlı açıklama, `.csproj` dosyasında kullanılan `<description></description>` çekilir ya da [. nuspec dosyasındaki](../../reference/nuspec.md)`$description` üzerinden çekilir.</span><span class="sxs-lookup"><span data-stu-id="24585-101">The package's optional description, displayed on the package's NuGet.org page, is either pulled in from the `<description></description>` used in the `.csproj` file or pulled in via the `$description` in the [.nuspec file](../../reference/nuspec.md).</span></span>
+<span data-ttu-id="21de4-101">Paketin NuGet.org sayfasında görüntülenen isteğe bağlı `<description></description>` açıklaması, `.csproj` dosyada kullanılan dan çekilir veya `$description` [.nuspec dosyasındaki](../../reference/nuspec.md)dosya üzerinden çekilir.</span><span class="sxs-lookup"><span data-stu-id="21de4-101">The package's optional description, displayed on the package's NuGet.org page, is either pulled in from the `<description></description>` used in the `.csproj` file or pulled in via the `$description` in the [.nuspec file](../../reference/nuspec.md).</span></span>
 
-<span data-ttu-id="24585-102">Bir .NET paketinin `.csproj` dosyasının aşağıdaki XML metninde _Açıklama_ alanı örneği gösterilmektedir:</span><span class="sxs-lookup"><span data-stu-id="24585-102">An example of a _description_ field is shown in the following XML text of the `.csproj` file for a .NET package:</span></span>
+<span data-ttu-id="21de4-102">Bir _.NET_ paketi için dosyanın `.csproj` aşağıdaki XML metninde açıklama alanı örneği gösterilir:</span><span class="sxs-lookup"><span data-stu-id="21de4-102">An example of a _description_ field is shown in the following XML text of the `.csproj` file for a .NET package:</span></span>
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
