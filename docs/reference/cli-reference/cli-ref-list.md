@@ -1,22 +1,22 @@
 ---
 title: NuGet CLı listesi komutu
-description: NuGet. exe list komutu için başvuru
+description: nuget.exe list komutu için başvuru
 author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 94228521b3be85277990bca2da69518b7070bbdf
-ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
+ms.openlocfilehash: 91886dbbdcdb24648289d6f6efbe1f87e4099fff
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76813344"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88623077"
 ---
 # <a name="list-command-nuget-cli"></a>List komutu (NuGet CLı)
 
 **Uygulama hedefi:** paket tüketimi, yayımlama &bullet; **Desteklenen sürümler:** tümü
 
-Belirli bir kaynaktaki paketlerin listesini görüntüler. Hiçbir kaynak belirtilmemişse, genel yapılandırma dosyasında tanımlanan tüm kaynaklar `%AppData%\NuGet\NuGet.Config` (Windows) veya `~/.nuget/NuGet/NuGet.Config`kullanılır. `NuGet.Config` kaynak belirtiyorsa `list` varsayılan akışı kullanır (nuget.org).
+Belirli bir kaynaktaki paketlerin listesini görüntüler. Hiçbir kaynak belirtilmemişse, genel yapılandırma dosyasında `%AppData%\NuGet\NuGet.Config` (Windows) veya ' de tanımlanan tüm kaynaklar `~/.nuget/NuGet/NuGet.Config` kullanılır. `NuGet.Config`Kaynak belirtilmezse, `list` varsayılan akışı kullanır (NuGet.org).
 
 ## <a name="usage"></a>Kullanım
 
@@ -24,21 +24,45 @@ Belirli bir kaynaktaki paketlerin listesini görüntüler. Hiçbir kaynak belirt
 nuget list [search terms] [options]
 ```
 
-isteğe bağlı arama terimleri, görüntülenecek listeyi filtreleyecek. Arama terimleri, paketler, Etiketler ve paket açıklamaları adlarına, bunları nuget.org 'de kullanırken olduğu gibi uygulanır.
+isteğe bağlı arama terimleri, görüntülenecek listeyi filtreleyecek. [Arama terimleri](/nuget/consume-packages/finding-and-choosing-packages#search-syntax) , paketler, Etiketler ve paket açıklamaları adlarına, bunları NuGet.org 'de kullanırken olduğu gibi uygulanır. 
 
 ## <a name="options"></a>Seçenekler
 
-| Seçenek | Açıklama |
-| --- | --- |
-| AllVersions | Bir paketin tüm sürümlerini listeleyin. Varsayılan olarak, yalnızca en son paket sürümü görüntülenir. |
-| ConfigFile | Uygulanacak NuGet yapılandırma dosyası. Belirtilmezse, `%AppData%\NuGet\NuGet.Config` (Windows) veya `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) kullanılır.|
-| ForceEnglishOutput | *(3,5 +)* NuGet. exe ' yi sabit, Ingilizce tabanlı bir kültür kullanarak çalışmaya zorlar. |
-| Yardım | Komut için yardım bilgilerini görüntüler. |
-| IncludeDelisted | *(3.2 +)* Listelenmemiş paketleri görüntüle. |
-| NonInteractive | Kullanıcı girişi veya onayları için istemleri bastırır. |
-| PreRelease | Listedeki yayın öncesi paketleri içerir. |
-| Kaynak | Aranacak paket kaynaklarının bir listesini belirtir. |
-| Ayrıntı Düzeyi | Çıktıda görünen ayrıntı miktarını belirtir: *normal*, *sessiz*, *ayrıntılı*. |
+- **`-AllVersions`**
+
+  Bir paketin tüm sürümlerini listeleyin. Varsayılan olarak, yalnızca en son paket sürümü görüntülenir.
+
+- **`-ConfigFile`**
+
+  Uygulanacak NuGet yapılandırma dosyası. Belirtilmemişse, `%AppData%\NuGet\NuGet.Config` (Windows) veya `~/.nuget/NuGet/NuGet.Config` ya da `~/.config/NuGet/NuGet.Config` (Mac/Linux) kullanılır.
+
+- **`-ForceEnglishOutput`**
+
+  *(3,5 +)* nuget.exe, sabit ve Ingilizce tabanlı bir kültür kullanılarak çalışmaya zorlar.
+
+- **`-?|-help`**
+
+  Komut için yardım bilgilerini görüntüler.
+
+- **`-IncludeDelisted`**
+
+  *(3.2 +)* Listelenmemiş paketleri görüntüle.
+
+- **`-NonInteractive`**
+
+  Kullanıcı girişi veya onayları için istemleri bastırır.
+
+- **`-PreRelease`**
+
+  Listedeki yayın öncesi paketleri içerir.
+
+- **`-Source`**
+
+  Aranacak paket kaynaklarının bir listesini belirtir.
+
+- **`-Verbosity [normal|quiet|detailed]`**
+
+  Çıkışta gösterilecek ayrıntı miktarını belirtir: `normal` (varsayılan), `quiet` veya `detailed` .
 
 Ayrıca bkz. [ortam değişkenleri](cli-ref-environment-variables.md)
 
@@ -64,4 +88,3 @@ Birden çok kaynaktan/akışlardan JSON ile ilgili paketleri Listele:
 ```
 nuget list JSON -Source "https://nuget.org/api/v2" -Source "https://other-feed-url-goes-here"
 ```
-

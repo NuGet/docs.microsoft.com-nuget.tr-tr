@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/13/2019
 ms.topic: reference
-ms.openlocfilehash: 760bf09cb03608275e2c5406474f572a407a7379
-ms.sourcegitcommit: f29fa9b93fd59e679fab50d7413bbf67da3ea5b3
+ms.openlocfilehash: 28fae46a65bd4c2b7050e12568c21123fc8658c1
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86451131"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88623168"
 ---
 # <a name="nugetconfig-reference"></a>nuget.config başvurusu
 
@@ -27,7 +27,7 @@ NuGet davranışı, `NuGet.Config` `nuget.config` [yaygın NuGet yapılandırmal
 
 [ `nuget config` Komutu](../reference/cli-reference/cli-ref-config.md)kullanılarak ayarlanbilen çeşitli yapılandırma ayarlarını içerir.
 
-`dependencyVersion`ve `repositoryPath` yalnızca kullanan projeler için geçerlidir `packages.config` . `globalPackagesFolder`yalnızca PackageReference biçimini kullanan projeler için geçerlidir.
+`dependencyVersion` ve `repositoryPath` yalnızca kullanan projeler için geçerlidir `packages.config` . `globalPackagesFolder` yalnızca PackageReference biçimini kullanan projeler için geçerlidir.
 
 | Anahtar | Değer |
 | --- | --- |
@@ -35,7 +35,7 @@ NuGet davranışı, `NuGet.Config` `nuget.config` [yaygın NuGet yapılandırmal
 | globalPackagesFolder (yalnızca PackageReference kullanan projeler) | Varsayılan genel paketler klasörünün konumu. Varsayılan değer `%userprofile%\.nuget\packages` (Windows) veya `~/.nuget/packages` (Mac/Linux). Göreli bir yol, projeye özgü `nuget.config` dosyalarda kullanılabilir. Bu ayar, öncelik veren NUGET_PACKAGES ortam değişkeni tarafından geçersiz kılınır. |
 | Depoyolu ( `packages.config` yalnızca) | Varsayılan klasör yerine NuGet paketlerinin yükleneceği konum `$(Solutiondir)/packages` . Göreli bir yol, projeye özgü `nuget.config` dosyalarda kullanılabilir. Bu ayar, öncelik veren NUGET_PACKAGES ortam değişkeni tarafından geçersiz kılınır. |
 | defaultPushSource | Bir işlem için başka bir paket kaynağı bulunmazsa varsayılan olarak kullanılması gereken paket kaynağının URL 'sini veya yolunu tanımlar. |
-| http_proxy http_proxy. User http_proxy. Password no_proxy | Paket kaynaklarına bağlanırken kullanılacak proxy ayarları; `http_proxy`biçiminde olmalıdır `http://<username>:<password>@<domain>` . Parolalar şifrelenir ve el ile eklenemez. İçin `no_proxy` , değer, proxy sunucusunu atlayan etki alanlarının virgülle ayrılmış listesidir. Ayrıca, bu değerler için http_proxy ve no_proxy ortam değişkenlerini kullanabilirsiniz. Daha fazla bilgi için bkz. [NuGet proxy ayarları](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (skolima.blogspot.com). |
+| http_proxy http_proxy. User http_proxy. Password no_proxy | Paket kaynaklarına bağlanırken kullanılacak proxy ayarları; `http_proxy` biçiminde olmalıdır `http://<username>:<password>@<domain>` . Parolalar şifrelenir ve el ile eklenemez. İçin `no_proxy` , değer, proxy sunucusunu atlayan etki alanlarının virgülle ayrılmış listesidir. Ayrıca, bu değerler için http_proxy ve no_proxy ortam değişkenlerini kullanabilirsiniz. Daha fazla bilgi için bkz. [NuGet proxy ayarları](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (skolima.blogspot.com). |
 | signatureValidationMode | Paket yüklemesi için paket imzalarını doğrulamak ve geri yüklemek için kullanılan doğrulama modunu belirtir. Değerler `accept` , `require` . Varsayılan olarak olur `accept` .
 
 **Örnek**:
@@ -132,14 +132,16 @@ Bilinen tüm paket kaynaklarını listeler. Geri yükleme işlemleri sırasında
 ### <a name="packagesourcecredentials"></a>packageSourceCredentials
 
 Genellikle ve anahtarlarıyla belirtilen kaynaklar için Kullanıcı adlarını ve parolaları depolar `-username` `-password` `nuget sources` . `-storepasswordincleartext`Seçeneği de kullanılmamışsa parolalar varsayılan olarak şifrelenir.
+İsteğe bağlı olarak, anahtarla geçerli kimlik doğrulama türleri de belirtilebilir `-validauthenticationtypes` .
 
 | Anahtar | Değer |
 | --- | --- |
 | username | Kaynağın düz metin olarak Kullanıcı adı. |
 | password | Kaynak için şifrelenmiş parola. Şifrelenmiş parolalar yalnızca Windows 'da desteklenir ve yalnızca aynı makinede kullanıldığında ve özgün şifrelemeyle aynı kullanıcı aracılığıyla şifresi çözülür. |
 | cleartextpassword | Kaynak için şifrelenmemiş parola. Note: ortam değişkenleri, geliştirilmiş güvenlik için kullanılabilir. |
+| validauthenticationtypes | Bu kaynak için geçerli kimlik doğrulama türlerinin virgülle ayrılmış listesi. `basic`Sunucu ntlm veya anlaşma duyurur ise ve şirket içi Azure DevOps Server BIR Pat kullanırken, kimlik bilgilerinizin temel mekanizma kullanılarak gönderilmesi gerekiyorsa, bunu olarak ayarlayın. Diğer geçerli değerler,,, ve içerir, `negotiate` `kerberos` `ntlm` `digest` ancak bu değerlerin yararlı olması çok düşüktür. |
 
-**Örneğinde**
+**Örnek:**
 
 Yapılandırma dosyasında, `<packageSourceCredentials>` öğesi ilgili her kaynak adı için alt düğümleri içerir (ad içindeki boşluklar ile değiştirilmiştir `_x0020_` ). Diğer bir deyişle, "contoso" ve "test kaynağı" adlı kaynaklar için, şifreli parolalar kullanılırken yapılandırma dosyası aşağıdakileri içerir:
 
@@ -186,6 +188,23 @@ Bir ortam değişkeninde depolanan şifrelenmemiş parolaları kullanırken:
 </packageSourceCredentials>
 ```
 
+Ayrıca, geçerli kimlik doğrulama yöntemleri sağlanabilir:
+
+```xml
+<packageSourceCredentials>
+    <Contoso>
+        <add key="Username" value="user@contoso.com" />
+        <add key="Password" value="..." />
+        <add key="ValidAuthenticationTypes" value="basic" />
+    </Contoso>
+    <Test_x0020_Source>
+        <add key="Username" value="user" />
+        <add key="ClearTextPassword" value="hal+9ooo_da!sY" />
+        <add key="ValidAuthenticationTypes" value="basic, negotiate" />
+    </Test_x0020_Source>
+</packageSourceCredentials>
+```
+
 ### <a name="apikeys"></a>apikeys tuşları
 
 [ `nuget setapikey` Komutuyla](../reference/cli-reference/cli-ref-setapikey.md)ayarlanan API anahtarı kimlik doğrulaması kullanan kaynaklar için anahtarları depolar.
@@ -210,7 +229,7 @@ Bir ortam değişkeninde depolanan şifrelenmemiş parolaları kullanırken:
 | --- | --- |
 | (kaynağın adı) | Kaynağın devre dışı olup olmadığını gösteren bir Boole değeri. |
 
-**Örneğinde**
+**Örnek:**
 
 ```xml
 <disabledPackageSources>
@@ -229,7 +248,7 @@ Bir ortam değişkeninde depolanan şifrelenmemiş parolaları kullanırken:
 
 | Anahtar | Değer |
 | --- | --- |
-| (kaynağın adı) veya`All` | Anahtar bir kaynağın adı ise, değer kaynak yolu veya URL olur. Eğer `All` değeri, `(Aggregate source)` Aksi durumda devre dışı bırakılmayan tüm paket kaynaklarını birleştirmek için olmalıdır. |
+| (kaynağın adı) veya `All` | Anahtar bir kaynağın adı ise, değer kaynak yolu veya URL olur. Eğer `All` değeri, `(Aggregate source)` Aksi durumda devre dışı bırakılmayan tüm paket kaynaklarını birleştirmek için olmalıdır. |
 
 **Örnek**:
 
@@ -306,7 +325,7 @@ Varsayılan paket yönetim biçimini *packages.config* ya da packagereference ol
 | Anahtar | Değer |
 | --- | --- |
 | biçim | Varsayılan paket yönetimi biçimini gösteren bir Boole değeri. İse `1` Format, PackageReference olur. İse `0` , biçim *packages.config*. |
-| devre dışı | İlk paket yüklemesi sırasında varsayılan bir paket biçimi seçme isteminin gösterilip gösterilmeyeceğini belirten bir Boole değeri. `False`istemi gizler. |
+| devre dışı | İlk paket yüklemesi sırasında varsayılan bir paket biçimi seçme isteminin gösterilip gösterilmeyeceğini belirten bir Boole değeri. `False` istemi gizler. |
 
 **Örnek**:
 
@@ -323,9 +342,21 @@ Varsayılan paket yönetim biçimini *packages.config* ya da packagereference ol
 
 Örneğin, `HOME` Windows üzerindeki ortam değişkeni olarak ayarlandıysa `c:\users\username` , `%HOME%\NuGetRepository` yapılandırma dosyasındaki değeri olarak çözümlenir `c:\users\username\NuGetRepository` .
 
-Windows stili ortam değişkenlerini (başladığı ve bitişi%) kullanmanız gerektiğini unutmayın Mac/Linux üzerinde bile. `$HOME/NuGetRepository`Yapılandırma dosyasında bulunması çözümlenmeyecektir. Mac/Linux üzerinde değeri `%HOME%\NuGetRepository` olarak çözümlenir `/home/myStuff/NuGetRepository` .
+Windows stili ortam değişkenlerini (başladığı ve bitişi%) kullanmanız gerektiğini unutmayın Mac/Linux üzerinde bile. `$HOME/NuGetRepository`Yapılandırma dosyasında bulunması çözümlenmeyecektir. Mac/Linux üzerinde değeri `%HOME%/NuGetRepository` olarak çözümlenir `/home/myStuff/NuGetRepository` .
 
-Bir ortam değişkeni bulunmazsa, NuGet yapılandırma dosyasından sabit değeri kullanır.
+Bir ortam değişkeni bulunmazsa, NuGet yapılandırma dosyasından sabit değeri kullanır. Örneğin `%MY_UNDEFINED_VAR%/NuGetRepository` , şu şekilde çözümlenir `path/to/current_working_dir/$MY_UNDEFINED_VAR/NuGetRepository`
+
+Aşağıdaki tabloda, NuGet.Config dosyaları için environnment değişken sözdizimi ve yol ayırıcı desteği gösterilmektedir.
+
+### <a name="nugetconfig-environment-variable-support"></a>NuGet.Config ortam değişkeni desteği
+
+| Syntax | Dizin ayırıcı | Windows nuget.exe | Windows dotnet.exe | Mac nuget.exe (mono) | Mac dotnet.exe |
+|---|---|---|---|---|---|
+| `%MY_VAR%` | `/`  | Yes | Yes | Yes | Yes |
+| `%MY_VAR%` | `\`  | Yes | Yes | Hayır | Hayır |
+| `$MY_VAR` | `/`  | Hayır | Hayır | Hayır | Hayır |
+| `$MY_VAR` | `\`  | Hayır | Hayır | Hayır | Hayır |
+
 
 ## <a name="example-config-file"></a>Örnek yapılandırma dosyası
 
@@ -340,10 +371,10 @@ Aşağıda, `nuget.config` isteğe bağlı olanlar dahil olmak üzere bir dizi a
             See: nuget.exe help install
             See: nuget.exe help update
 
-            In this example, %PACKAGEHOME% is an environment variable. On Mac/Linux,
-            use $PACKAGE_HOME/External as the value.
+            In this example, %PACKAGEHOME% is an environment variable.
+            This syntax works on Windows/Mac/Linux
         -->
-        <add key="repositoryPath" value="%PACKAGEHOME%\External" />
+        <add key="repositoryPath" value="%PACKAGEHOME%/External" />
 
         <!--
             Used to specify default source for the push command.

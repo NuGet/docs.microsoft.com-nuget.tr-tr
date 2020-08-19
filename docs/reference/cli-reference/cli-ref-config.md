@@ -1,20 +1,20 @@
 ---
 title: NuGet CLı yapılandırma komutu
-description: NuGet. exe yapılandırma komutuna yönelik başvuru
+description: nuget.exe config komutuna yönelik başvuru
 author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 384e708187a747221de103720cc51af07acf713e
-ms.sourcegitcommit: f9e39ff9ca19ba4a26e52b8a5e01e18eb0de5387
+ms.openlocfilehash: 7d0c1c51f40cba9a5b69f209ffbd995451bfeb9f
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68433314"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88622882"
 ---
 # <a name="config-command-nuget-cli"></a>config komutu (NuGet CLı)
 
-**Uygulama hedefi:** &bullet; tüm **Desteklenen sürümler**: tümü
+**Uygulama hedefi:** tüm &bullet; **Desteklenen sürümler**: tümü
 
 NuGet yapılandırma değerlerini alır veya ayarlar. Ek kullanım için bkz. [ortak NuGet yapılandırması](../../consume-packages/configuring-nuget-behavior.md). İzin verilen anahtar adları hakkında daha fazla bilgi için [NuGet yapılandırma dosyası başvurusuna](../nuget-config-file.md)bakın.
 
@@ -25,22 +25,42 @@ nuget config -Set <name>=[<value>] [<name>=<value> ...] [options]
 nuget config -AsPath <name> [options]
 ```
 
-Burada `<name>` ve`<value>` yapılandırmada ayarlanacak bir anahtar-değer çifti belirtin. İstediğiniz kadar çok çifti belirtebilirsiniz. Bir değeri kaldırmak için, adı ve `=` işareti belirtin ancak değeri belirtmeyin.
+Burada `<name>` ve `<value>` yapılandırmada ayarlanacak bir anahtar-değer çifti belirtin. İstediğiniz kadar çok çifti belirtebilirsiniz. Bir değeri kaldırmak için, adı ve `=` işareti belirtin ancak değeri belirtmeyin.
 
 İzin verilen anahtar adları için bkz. [NuGet yapılandırma dosyası başvurusu](../nuget-config-file.md).
 
-NuGet 3.4 + ' `<value>` da [ortam değişkenlerini](cli-ref-environment-variables.md)kullanabilir.
+NuGet 3.4 + ' da `<value>` [ortam değişkenlerini](cli-ref-environment-variables.md)kullanabilir.
 
 ## <a name="options"></a>Seçenekler
 
-| Seçenek | Açıklama |
-| --- | --- |
-| AsPath | Yapılandırma değerini bir yol olarak döndürür, kullanıldığında yok sayılır `-Set` . |
-| ConfigFile | Değiştirilecek NuGet yapılandırma dosyası. Belirtilmemişse, varsayılan dosya kullanılır-`%AppData%\NuGet\NuGet.Config` (Windows) veya `~/.config/NuGet/NuGet.Config` (Mac/Linux) veya `~/.nuget/NuGet/NuGet.Config` (OS dağıtımına göre değişir).|
-| ForceEnglishOutput | *(3,5 +)* NuGet. exe ' yi sabit, Ingilizce tabanlı bir kültür kullanarak çalışmaya zorlar. |
-| Help | Komut için yardım bilgilerini görüntüler. |
-| NonInteractive | Kullanıcı girişi veya onayları için istemleri bastırır. |
-| Verbosity | Çıktıda görünen ayrıntı miktarını belirtir: *normal*, *sessiz*, *ayrıntılı*. |
+
+- **`AsPath`**
+
+  Yapılandırma değerini bir yol olarak döndürür, kullanıldığında yok sayılır `-Set` .
+
+- **`-ConfigFile`**
+
+  Uygulanacak NuGet yapılandırma dosyası. Belirtilmemişse, `%AppData%\NuGet\NuGet.Config` (Windows) veya `~/.nuget/NuGet/NuGet.Config` ya da `~/.config/NuGet/NuGet.Config` (Mac/Linux) kullanılır.
+
+- **`-ForceEnglishOutput`**
+
+  *(3,5 +)* nuget.exe, sabit ve Ingilizce tabanlı bir kültür kullanılarak çalışmaya zorlar.
+
+- **`-?|-help`**
+
+  Komut için yardım bilgilerini görüntüler.
+
+- **`-NonInteractive`**
+
+  Kullanıcı girişi veya onayları için istemleri bastırır.
+
+- **`-Set`**
+
+  Yapılandırma içinde ayarlanacak daha fazla anahtar-değer çiftinden biridir.
+
+- **`-Verbosity [normal|quiet|detailed]`**
+
+  Çıkışta gösterilecek ayrıntı miktarını belirtir: `normal` (varsayılan), `quiet` veya `detailed` .
 
 Ayrıca bkz. [ortam değişkenleri](cli-ref-environment-variables.md)
 

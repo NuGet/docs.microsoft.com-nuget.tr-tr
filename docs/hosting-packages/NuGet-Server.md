@@ -1,69 +1,69 @@
 ---
-title: NuGet Akışlarını Barındırmak için NuGet.Server'ı kullanma
-description: NuGet.Server kullanarak IIS çalıştıran herhangi bir sunucuda bir NuGet paket akışı oluşturma ve barındırma, paketleri HTTP ve OData üzerinden kullanılabilir hale getirme.
+title: NuGet akışlarını barındırmak için NuGet. Server kullanma
+description: NuGet. Server kullanarak IIS çalıştıran herhangi bir sunucuda NuGet paket akışı oluşturma ve barındırma, paketleri HTTP ve OData aracılığıyla kullanılabilir hale getirme.
 author: karann-msft
 ms.author: karann
 ms.date: 03/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: 098375b2bba13675ba5d80a27e0226dc2ee39e77
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 7a806e6b586c63c701642c9e43865cb077d7999c
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79059586"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88623051"
 ---
 # <a name="nugetserver"></a>NuGet.Server
 
-NuGet.Server, .NET Foundation tarafından sağlanan ve IIS çalıştıran herhangi bir sunucuda paket akışı barındırabilen ASP.NET bir uygulama oluşturan bir pakettir. Basitçe, NuGet.Server sunucuda http(S) (özellikle OData) aracılığıyla kullanılabilir bir klasör yapar söyledi. Kurulumu kolaydır ve basit senaryolar için en iyisidir.
+NuGet. Server, .NET Foundation tarafından sunulan ve IIS çalıştıran herhangi bir sunucuda paket akışını barındırasağlayan bir ASP.NET uygulaması oluşturan bir pakettir. Yalnızca NuGet. Server, sunucudaki bir klasörü HTTP (S) (özellikle OData) üzerinden kullanılabilir hale getirir. Kolayca ayarlanabilir ve basit senaryolar için idealdir.
 
-1. Visual Studio'da boş bir ASP.NET Web uygulaması oluşturun ve NuGet.Server paketini ekleyin.
-1. Uygulamadaki `Packages` klasörü yapılandırın ve paket ekleyin.
+1. Visual Studio 'da boş bir ASP.NET Web uygulaması oluşturun ve NuGet. Server paketini buna ekleyin.
+1. `Packages`Uygulamadaki klasörü yapılandırın ve paketleri ekleyin.
 1. Uygulamayı uygun bir sunucuya dağıtın.
 
-Aşağıdaki bölümler, C# kullanarak bu işlemi ayrıntılı olarak inceleyin.
+Aşağıdaki bölümler, C# kullanarak bu süreci ayrıntılı olarak göstermektedir.
 
-NuGet.Server hakkında başka sorularınız varsa, [https://github.com/nuget/NuGetGallery/issues](https://github.com/nuget/NuGetGallery/issues)bir sorun oluşturun.
+NuGet. Server hakkında başka sorularınız varsa, üzerinde bir sorun oluşturun [https://github.com/nuget/NuGetGallery/issues](https://github.com/nuget/NuGetGallery/issues) .
 
-## <a name="create-and-deploy-an-aspnet-web-application-with-nugetserver"></a>NuGet.Server ile ASP.NET bir Web uygulaması oluşturun ve dağıtın
+## <a name="create-and-deploy-an-aspnet-web-application-with-nugetserver"></a>NuGet. Server ile bir ASP.NET Web uygulaması oluşturma ve dağıtma
 
-1. Visual Studio'da, **"ASP.NET**Web Uygulaması (.NET Framework)" araması > Yeni > Projesi dosyasını seçin, C#için eşleşen şablonu seçin.
+1. Visual Studio 'da **dosya > yeni > proje**' yi seçin, "ASP.NET Web uygulaması (.NET Framework)" araması yapın, **C#** için eşleşen şablonu seçin.
 
-    ![.NET Framework web proje şablonu seçin](media/Hosting_00-NuGet.Server-ProjectType.png)
+    ![.NET Framework Web projesi şablonunu seçin](media/Hosting_00-NuGet.Server-ProjectType.png)
 
-1. **Çerçeveyi** ".NET Framework 4.6" olarak ayarlayın.
+1. **Framework 'ü** ".NET Framework 4,6" olarak ayarlayın.
 
-    ![Yeni bir proje için hedef çerçevenin ayarlanması](media/Hosting_01-NuGet.Server-Set4.6.png)
+    ![Yeni bir proje için hedef Framework 'ü ayarlama](media/Hosting_01-NuGet.Server-Set4.6.png)
 
-1. Uygulamaya NuGet.Server *dışında* uygun bir ad verin, Tamam'ı seçin ve bir sonraki iletişim kutusunda **Boş** şablonu seçin ve ardından **Tamam'ı**seçin.
+1. Uygulamaya NuGet. *Server dışında uygun bir ad verin* , Tamam ' ı seçin ve sonraki Iletişim kutusunda **boş** şablonu seçin, sonra **Tamam**' ı seçin.
 
-    ![Boş web projesini seçin](media/Hosting_02-NuGet.Server-Empty.png)
+    ![Boş Web projesini seçin](media/Hosting_02-NuGet.Server-Empty.png)
 
-1. Projeye sağ tıklayın, **NuGet Paketlerini Yönet'i**seçin.
+1. Projeye sağ tıklayın, **NuGet Paketlerini Yönet**' i seçin.
 
-1. Paket Yöneticisi Web Ekibi'nde **Gözat** sekmesini seçin ve .NET Framework 4.6'yı hedefliyorsanız NuGet.Server paketinin en son sürümünü arayın ve yükleyin. (Ayrıca Paket Yöneticisi Konsolu ile `Install-Package NuGet.Server`yükleyebilirsiniz.) İstenirse lisans koşullarını kabul edin.
+1. Paket Yöneticisi Kullanıcı arabiriminde, **Gözden** geçirme sekmesini seçin, ardından .NET Framework 4,6 ' i hedefliyorsanız NuGet. Server paketinin en son sürümünü arayın ve yükleyebilirsiniz. (Ayrıca paket yöneticisi konsolundan ile yükleyebilirsiniz `Install-Package NuGet.Server` .) İstenirse lisans koşullarını kabul edin.
 
-    ![NuGet.Server paketini yükleme](media/Hosting_03-NuGet.Server-Package.png)
+    ![NuGet. Server paketini yükleme](media/Hosting_03-NuGet.Server-Package.png)
 
-1. NuGet.Server'ın yüklenmesi, boş Web uygulamasını bir paket kaynağına dönüştürür. Çeşitli diğer paketleri yükler, uygulamada bir `Packages` klasör oluşturur ve ek `web.config` ayarlar içerecek şekilde değişir (ayrıntılar için bu dosyadaki yorumlara bakın).
+1. NuGet. Server yükleme, boş Web uygulamasını bir paket kaynağına dönüştürür. Diğer birçok paketi kurar, `Packages` uygulamada bir klasör oluşturur ve `web.config` ek ayarları dahil etmek için değiştirir (Ayrıntılar için bu dosyadaki açıklamalara bakın).
 
     > [!Important]
-    > NuGet.Server paketi bu dosyadaki değişikliklerini tamamladıktan sonra dikkatlice inceleyin. `web.config` NuGet.Server varolan öğelerin üzerine yazmıyor, bunun yerine yinelenen öğeler oluşturabilir. Bu yinelemeler, daha sonra projeyi çalıştırmayı denediğinizde bir "İç Sunucu Hatasına" neden olur. Örneğin, NuGet.Server'ı yüklemeden önce içerseniz, `web.config` `<compilation debug="true" targetFramework="4.5.2" />` paket üzerine yazmıyor, `<compilation debug="true" targetFramework="4.6" />`ikinci bir şey ekler. Bu durumda, eski çerçeve sürümü ile öğeyi silin.
+    > `web.config`NuGet. Server paketi bu dosyadaki değişikliklerini tamamladıktan sonra dikkatle inceleyin. NuGet. Server varolan öğelerin üzerine yazmayabilir, bunun yerine yinelenen öğeler oluşturabilir. Bu yinelemeler, daha sonra Projeyi çalıştırmaya çalıştığınızda bir "Iç sunucu hatası" oluşmasına neden olur. Örneğin, `web.config` `<compilation debug="true" targetFramework="4.5.2" />` NuGet. Server 'ı yüklemeden önce içeriyorsa, paket onun üzerine yazmaz ancak ikinci bir ekler `<compilation debug="true" targetFramework="4.6" />` . Bu durumda, öğesini eski Framework sürümü ile silin.
 
-1. Siteyi Visual Studio'da yerel olarak çalıştırın **(Hata Ayıklama > Hata Ayıklama veya** Ctrl+F5 olmadan Başlat'ı kullanarak). Ana sayfa, aşağıda gösterildiği gibi paket besleme URL'lerini sağlar. Hatalar görürseniz, daha önce `web.config` belirtildiği gibi yinelenen öğeler için dikkatlice denetleyin.
+1. Siteyi Visual Studio 'da yerel olarak çalıştırın (hata ayıklama **> kullanarak hata ayıklamadan başlayın** veya CTRL + F5). Giriş sayfası, aşağıda gösterildiği gibi paket akışı URL 'Lerini sağlar. Hata görürseniz `web.config` daha önce belirtildiği gibi yinelenen öğeleri dikkatle inceleyin.
 
-    ![NuGet.Server ile bir uygulama için varsayılan giriş sayfası](media/Hosting_04-NuGet.Server-FeedHomePage.png)
+    ![NuGet. Server içeren bir uygulama için varsayılan giriş sayfası](media/Hosting_04-NuGet.Server-FeedHomePage.png)
 
-1.  Uygulamayı ilk çalıştırdığınızda, NuGet.Server klasörü `Packages` her paket için bir klasör içerecek şekilde yeniden yapılandırır. Bu, performansı artırmak için NuGet 3.3 ile tanıtılan [yerel depolama düzeniyle](https://blog.nuget.org/20151118/nuget-3.3.html#folder-based-repository-commands) eşleşir. Daha fazla paket eklerken, bu yapıyı izlemeye devam edin.
+1.  Uygulamayı ilk kez çalıştırdığınızda NuGet. Server, `Packages` klasörü her bir paket için bir klasör içerecek şekilde yeniden yapılandırır. Bu, performansı artırmak için NuGet 3,3 ile sunulan [yerel depolama düzeniyle](https://blog.nuget.org/20151118/nuget-3.3.html#folder-based-repository-commands) eşleşir. Daha fazla paket eklerken bu yapıyı izlemeye devam edin.
 
-1. Yerel dağıtımınızı test ettikten sonra, uygulamayı gerektiğinde başka bir dahili veya harici siteye dağıtın.
+1. Yerel dağıtımınızı sınadıktan sonra, gerektiğinde uygulamayı başka bir iç veya dış siteye dağıtın.
 
-1. Bir kez `http://<domain>`dağıtıldıktan sonra, paket kaynağı için `http://<domain>/nuget`kullandığınız URL olacaktır.
+1. ' A dağıtıldıktan sonra `http://<domain>` , paket kaynağı için KULLANDıĞıNıZ URL olur `http://<domain>/nuget` .
 
-## <a name="adding-packages-to-the-feed-externally"></a>Beslemeye harici paket ekleme
+## <a name="adding-packages-to-the-feed-externally"></a>Akışa paket dışarıdan ekleniyor
 
-NuGet.Server sitesi çalışmaya başladıktan sonra, ['de](../reference/cli-reference/cli-ref-push.md) `web.config`bir API anahtar değeri ayarlamanız koşuluyla nuget push kullanarak paketler ekleyebilirsiniz.
+NuGet. Server sitesi çalışmaya başladıktan sonra, içinde bir API anahtarı değeri ayarlamanız kaydıyla, [NuGet Push](../reference/cli-reference/cli-ref-push.md) kullanarak paket ekleyebilirsiniz `web.config` .
 
-NuGet.Server paketini yükledikten sonra `appSetting/apiKey` boş bir değer `web.config` içerir:
+NuGet. Server paketini yükledikten sonra `web.config` boş bir `appSetting/apiKey` değer içerir:
 
 ```xml
 <appSettings>
@@ -71,9 +71,9 @@ NuGet.Server paketini yükledikten sonra `appSetting/apiKey` boş bir değer `we
 </appSettings>
 ```
 
-Atlandığında veya boş olduğunda, `apiKey` paketleri özet akışına itme devre dışı bırakılır.
+`apiKey`Atlanırsa veya boş bırakıldığında, paketlerin akışa gönderilmesi devre dışı bırakılır.
 
-Bu özelliği etkinleştirmek `apiKey` için, bir değer (ideal olarak güçlü bir `appSettings/requireApiKey` parola) `true`ayarlayın ve değeri ile adlandırılan bir anahtar ekleyin:
+Bu özelliği etkinleştirmek için, `apiKey` değerini bir değere ayarlayın (ideal bir parola) ve şu değere sahip adlı bir anahtar ekleyin `appSettings/requireApiKey` `true` :
 
 ```xml
 <appSettings>
@@ -85,21 +85,21 @@ Bu özelliği etkinleştirmek `apiKey` için, bir değer (ideal olarak güçlü 
 </appSettings>
 ```
 
-Sunucunuz zaten güvenliyse veya başka bir şekilde bir API anahtarına ihtiyaç damıyorsanız `requireApiKey` (örneğin, yerel `false`bir ekip ağında özel bir sunucu kullanırken), . Sunucuya erişimi olan tüm kullanıcılar daha sonra paketleri itebilir.
+Sunucunuz zaten güvenli hale getirilse veya başka türlü bir API anahtarı (örneğin, yerel bir ekip ağı üzerinde bir özel sunucu kullanırken) gerektirmiyorsa, `requireApiKey` olarak ayarlayabilirsiniz `false` . Sunucuya erişimi olan tüm kullanıcılar daha sonra paketleri gönderebilir.
 
-NuGet.Server 3.0.0 ile başlayarak, paketleri itme için URL 'ye `http://<domain>/nuget`göre değiştirildi. 3.0.0 sürümünden önce, itme `http://<domain>/api/v2/package`URL'si .
+NuGet. Server 3.0.0 'den başlayarak, paketlerin gönderilmesi URL 'SI olarak değişir `http://<domain>/nuget` . 3.0.0 sürümünden önce, gönderim URL 'SI idi `http://<domain>/api/v2/package` .
 
-NuGet 3.2.1 ve daha yeni `/api/v2/package` ile bu eski `/nuget` URL, `enableLegacyPushRoute: true` başlangıç config'inizdeki seçenek üzerinden varsayılan olarak (varsayılan`NuGetODataConfig.cs` olarak) ek olarak etkinleştirilir. Aynı projede birden çok özet akışı barındırıldığında bu özelliğin çalışmadığını unutmayın.
+NuGet 3.2.1 ve daha yeni bir sürümü ile, bu eski URL, `/api/v2/package` `/nuget` Varsayılan olarak `enableLegacyPushRoute: true` Başlangıç CONFIG ( `NuGetODataConfig.cs` Varsayılan olarak) seçeneği aracılığıyla etkinleştirilir. Aynı projede birden çok akış barındırıldığı zaman bu özelliğin çalışmadığına unutmayın.
 
 ## <a name="removing-packages-from-the-feed"></a>Paketleri akıştan kaldırma
 
-NuGet.Server ile [nuget silme](../reference/cli-reference/cli-ref-delete.md) komutu, yoruma API anahtarı eklemeniz koşuluyla bir paketi depodan kaldırır.
+NuGet. Server ile, [NuGet Delete](../reference/cli-reference/cli-ref-delete.md) komutu, açıklama ile API anahtarını dahil etmeniz kaydıyla bir paketi depodan kaldırır.
 
-Bunun yerine paketin listesini çıkarmak için davranışı değiştirmek istiyorsanız (paket geri `enableDelisting` yükleme `web.config` için kullanılabilir bırakarak), anahtarı true olarak değiştirin.
+Bunun yerine paketin listesini kaldırma (paket geri yükleme için kullanılabilir durumda bırakma) davranışını değiştirmek istiyorsanız, `enableDelisting` içindeki anahtarı `web.config` true olarak değiştirin.
 
 ## <a name="configuring-the-packages-folder"></a>Paketler klasörünü yapılandırma
 
-1.5 ve sonrası ile, `NuGet.Server` `appSettings/packagesPath` aşağıdaki değeri kullanarak paket `web.config`klasörünü özelleştirebilirsiniz:
+`NuGet.Server`1,5 ve sonraki sürümlerde paket klasörünü, `appSettings/packagesPath` içindeki değeri kullanarak özelleştirebilirsiniz `web.config` :
 
 ```xml
 <appSettings>
@@ -108,21 +108,21 @@ Bunun yerine paketin listesini çıkarmak için davranışı değiştirmek istiy
 </appSettings>
 ```
 
-`packagesPath`mutlak veya sanal bir yol olabilir.
+`packagesPath` mutlak veya sanal yol olabilir.
 
-Atlandığında veya boş bırakıldığında, `packagesPath` paketler klasörü `~/Packages`varsayılandır.
+`packagesPath`Atlanırsa veya boş bırakılırsa, paketler klasörü varsayılandır `~/Packages` .
 
 ## <a name="making-packages-available-when-you-publish-the-web-app"></a>Web uygulamasını yayımladığınızda paketleri kullanılabilir hale getirme
 
-Uygulamayı bir sunucuda yayımladığınızda özet akışında paketleri kullanılabilir `.nupkg` hale `Packages` getirmek için, her dosyayı Visual Studio'daki klasöre ekleyin ve ardından her birinin **Yapı Eylemini** **İçerik'e** ayarlayın ve Her **zaman Kopyalamak** **için Çıktı Dizini'ne Kopyala:**
+Uygulamayı bir sunucuda yayımladığınızda paketleri akışta kullanılabilir hale getirmek için, her `.nupkg` `Packages` bir dosyayı Visual Studio 'daki klasöre ekleyin, sonra her bir **yapı eylemini** **Içeriğe** ayarlayın ve her **zaman kopyalamak**için **çıkış dizinine kopyalayın** :
 
-![Projedeki Paketler klasörüne paketleri kopyalama](media/Hosting_05-NuGet.Server-Package-Folder.png)
+![Paketler projedeki paketler klasörüne kopyalanıyor](media/Hosting_05-NuGet.Server-Package-Folder.png)
 
 ## <a name="release-notes"></a>Sürüm Notları
 
-NuGet.Server için sürüm notları [GitHub sürüm sayfasında](https://github.com/NuGet/NuGet.Server/releases)mevcuttur.
-Bu hata düzeltmeleri ve eklenen yeni özellikler hakkında ayrıntıları içerir.
+NuGet [Sürüm sayfasında](https://github.com/NuGet/NuGet.Server/releases)NuGet. Server için sürüm notları bulunur.
+Bu, hata düzeltmeleri ve eklenen yeni özellikler hakkındaki ayrıntıları içerir.
 
-## <a name="nugetserver-support"></a>NuGet.Server desteği
+## <a name="nugetserver-support"></a>NuGet. Server desteği
 
-NuGet.Server'ı kullanarak ek yardım [https://github.com/nuget/NuGetGallery/issues](https://github.com/nuget/NuGetGallery/issues)için bir sorun oluşturun.
+NuGet. Server kullanarak ek yardım için, üzerinde bir sorun oluşturun [https://github.com/nuget/NuGetGallery/issues](https://github.com/nuget/NuGetGallery/issues) .

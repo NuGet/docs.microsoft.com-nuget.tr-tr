@@ -1,17 +1,17 @@
 ---
 title: NuGet CLı doğrulama komutu
-description: NuGet. exe Verify komutu için başvuru
+description: nuget.exe Verify komutu için başvuru
 author: dtivel
 ms.author: dtivel
 ms.date: 03/06/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: 9510f7323fe0cb860e0dbde51c1eda761846ee27
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 2c501753a16820c5d027441001561c6b637ccda9
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68328254"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88622609"
 ---
 # <a name="verify-command-nuget-cli"></a>Verify komutu (NuGet CLı)
 
@@ -27,7 +27,7 @@ Bir paketi doğrular.
 nuget verify <-All|-Signatures> <package(s)> [options]
 ```
 
-Burada `<package(s)>` bir veya daha fazla `.nupkg` dosya bulunur.
+Burada `<package(s)>` bir veya daha fazla `.nupkg` Dosya bulunur.
 
 ## <a name="nuget-verify--all"></a>NuGet Verify-tümü
 
@@ -39,18 +39,31 @@ Paket imzası doğrulamasının gerçekleştirilmesi gerektiğini belirtir.
 
 ## <a name="options-for-verify--signatures"></a>"Verify-Imzalara" seçenekleri
 
-| Seçenek | Açıklama |
-| --- | --- |
-| CertificateFingerprint | İmzalı paketlerin imzalı olması gereken sertifikaların bir veya daha fazla SHA-256 sertifikası parmak izlerini belirtir. Bir sertifika SHA-256 parmak izi, sertifikanın SHA-256 karmasıdır. Birden çok giriş noktalı virgülle ayrılmalıdır. |
+- **`-CertificateFingerprint`**
+
+  İmzalı paketlerin imzalı olması gereken sertifikaların bir veya daha fazla SHA-256 sertifikası parmak izlerini belirtir. Bir sertifika SHA-256 parmak izi, sertifikanın SHA-256 karmasıdır. Birden çok giriş noktalı virgülle ayrılmalıdır.
 
 ## <a name="options"></a>Seçenekler
 
-| Seçenek | Açıklama |
-| --- | --- |
-| ConfigFile | Uygulanacak NuGet yapılandırma dosyası. Belirtilmemişse, `%AppData%\NuGet\NuGet.Config` (Windows) veya `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) kullanılır.|
-| ForceEnglishOutput | NuGet. exe ' yi sabit, Ingilizce tabanlı bir kültür kullanarak çalışmaya zorlar. |
-| Help | Komut için yardım bilgilerini görüntüler. |
-| Verbosity | Çıktıda görünen ayrıntı miktarını belirtir: *normal*, *sessiz*, *ayrıntılı*. |
+- **`-ConfigFile`**
+
+  Uygulanacak NuGet yapılandırma dosyası. Belirtilmemişse, `%AppData%\NuGet\NuGet.Config` (Windows) veya `~/.nuget/NuGet/NuGet.Config` ya da `~/.config/NuGet/NuGet.Config` (Mac/Linux) kullanılır.
+
+- **`-ForceEnglishOutput`**
+
+  nuget.exe, sabit ve Ingilizce tabanlı bir kültür kullanılarak çalışmaya zorlar.
+
+- **`-?|-help`**
+
+  Komut için yardım bilgilerini görüntüler.
+
+- **`-NonInteractive`**
+
+  Kullanıcı girişi veya onayları için istemleri bastırır.
+
+- **`-Verbosity [normal|quiet|detailed]`**
+
+  Çıkışta gösterilecek ayrıntı miktarını belirtir: `normal` (varsayılan), `quiet` veya `detailed` .
 
 ## <a name="examples"></a>Örnekler
 

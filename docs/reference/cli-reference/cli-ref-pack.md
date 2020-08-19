@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 649c440d868c89068a069a396919b58b999369e5
-ms.sourcegitcommit: f29fa9b93fd59e679fab50d7413bbf67da3ea5b3
+ms.openlocfilehash: 0483a75c7ee1fd851f935f44d96a417e2e86bf20
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86451144"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88622960"
 ---
 # <a name="pack-command-nuget-cli"></a>Pack komutu (NuGet CLı)
 
@@ -31,29 +31,109 @@ nuget pack <nuspecPath | projectPath> [options] [-Properties ...]
 Burada `<nuspecPath>` `<projectPath>` `.nuspec` veya proje dosyasını sırasıyla belirtin.
 
 ## <a name="options"></a>Seçenekler
+- **`-BasePath`**
 
-| Seçenek | Açıklama |
-| --- | --- |
-| BasePath | [. Nuspec](../nuspec.md) dosyasında tanımlanan dosyaların temel yolunu ayarlar. |
-| Yapı | Paketi oluşturmadan önce projenin oluşturulması gerektiğini belirtir. |
-| Exclude | Bir paket oluştururken dışlanacak bir veya daha fazla joker karakter deseni belirtir. Birden fazla model belirtmek için-exclude bayrağını tekrarlayın. Aşağıdaki örneğe bakın. |
-| Excludeemptydizinler | Paketi oluştururken boş dizinlerin eklenmesini engeller. |
-| ForceEnglishOutput | *(3,5 +)* nuget.exe, sabit ve Ingilizce tabanlı bir kültür kullanılarak çalışmaya zorlar. |
-| ConfigFile | Paket komutu için yapılandırma dosyasını belirtin. |
-| Help (Yardım) | Komut için yardım bilgilerini görüntüler. |
-| Includprojelere başvuru | Oluşturulan paketin, bağımlılık olarak veya paketin parçası olarak başvurulan projeleri içermesi gerektiğini gösterir. Başvurulan bir proje, `.nuspec` projeyle aynı ada sahip karşılık gelen bir dosya içeriyorsa, bu başvurulan proje bir bağımlılık olarak eklenir. Aksi takdirde, başvurulan proje, paketin parçası olarak eklenir. |
-| MinClientVersion | Oluşturulan paket için *Minclientversion* özniteliğini ayarlayın. Bu değer, dosyadaki var olan *Minclientversion* özniteliğinin (varsa) değerini geçersiz kılar `.nuspec` . |
-| MSBuildPath | *(4.0 +)* Komutuyla birlikte kullanılacak MSBuild 'in yolunu belirtir `-MSBuildVersion` . |
-| MSBuildVersion | *(3.2 +)* Bu komutla kullanılacak MSBuild sürümünü belirtir. Desteklenen değerler şunlardır 4, 12, 14, 15,1, 15,3, 15,4, 15,5, 15,6, 15,7, 15,8, 15,9. Varsayılan olarak, yolunuzda MSBuild çekilir, aksi takdirde en yüksek MSBuild 'in yüklü sürümü varsayılan olarak ayarlanır. |
-| NoDefaultExcludes | , Ve gibi bir noktayla başlayan NuGet paket dosyalarının ve dosyalarının ve klasörlerinin varsayılan dışlamasını engeller `.svn` `.gitignore` . |
-| NoPackageAnalysis | Paketi derlemeden sonra paketin paket analizini çalıştırmamalıdır. |
-| OutputDirectory | Oluşturulan Paketin depolandığı klasörü belirtir. Hiçbir klasör belirtilmemişse, geçerli klasör kullanılır. |
-| Özellikler | Diğer seçeneklerden sonra komut satırında son olarak görünmelidir. Proje dosyasındaki değerleri geçersiz kılan özelliklerin bir listesini belirtir; Özellik adları için bkz. [Ortak MSBuild proje özellikleri](/visualstudio/msbuild/common-msbuild-project-properties) . Burada bulunan Properties bağımsız değişkeni, noktalı virgülle ayrılmış bir belirteç = değer çiftleri listesi ve dosyadaki her oluşumun `$token$` `.nuspec` verilen değer ile değiştirilmesidir. Değerler, tırnak işaretleri içinde dizeler olabilir. "Yapılandırma" özelliği için varsayılan "hata ayıkla" dır. Bir sürüm yapılandırmasına geçiş yapmak için kullanın `-Properties Configuration=Release` . **Genel**olarak, alışılmadık davranışları önlemek için ilgili proje derlemesi sırasında kullanılan özellikler aynı olmalıdır. |
-| Önekini | *(3.4.4 +)* Genellikle derleme veya diğer yayın öncesi tanımlayıcıları eklemek için kullanılan, dahili olarak oluşturulan sürüm numarasına bir sonek ekler. Örneğin, kullanmak `-suffix nightly` gibi sürüm numarasına sahip bir paket oluşturur `1.2.3-nightly` . Farklı NuGet ve NuGet Paket Yöneticisi sürümleriyle uyarı, hata ve potansiyel uyumsuzluktan kaçınmak için son ekler bir harfle başlamalıdır. |
-| Simgeleri | Paketin kaynakları ve sembolleri içerdiğini belirtir. Bir dosya ile kullanıldığında `.nuspec` , bu, normal bir NuGet paket dosyası ve ilgili semboller paketini oluşturur. Varsayılan olarak, eski bir [sembol paketi](../../create-packages/Symbol-Packages.md)oluşturur. Sembol paketleri için önerilen yeni biçim. snupkg 'dir. Bkz. [sembol paketleri oluşturma (. snupkg)](../../create-packages/Symbol-Packages-snupkg.md). |
-| Araç | Projenin çıkış dosyalarının klasöre yerleştirilmesi gerektiğini belirtir `tool` . |
-| Ayrıntı Düzeyi | Çıktıda görünen ayrıntı miktarını belirtir: *normal*, *sessiz*, *ayrıntılı*. |
-| Sürüm | Dosyadaki sürüm numarasını geçersiz kılar `.nuspec` . |
+   [. Nuspec](../nuspec.md) dosyasında tanımlanan dosyaların temel yolunu ayarlar.
+
+- **`-Build`**
+
+  Paketi oluşturmadan önce projenin oluşturulması gerektiğini belirtir.
+
+- **`-ConfigFile`**
+
+  Uygulanacak NuGet yapılandırma dosyası. Belirtilmemişse, `%AppData%\NuGet\NuGet.Config` (Windows) veya `~/.nuget/NuGet/NuGet.Config` ya da `~/.config/NuGet/NuGet.Config` (Mac/Linux) kullanılır.
+
+- **`-Exclude`**
+
+  Bir paket oluştururken dışlanacak bir veya daha fazla joker karakter deseni belirtir. Birden fazla model belirtmek için-exclude bayrağını tekrarlayın. Aşağıdaki örneğe bakın.
+
+- **`-ExcludeEmptyDirectories`**
+
+  Paketi oluştururken boş dizinlerin eklenmesini engeller.
+
+- **`-ForceEnglishOutput`**
+
+  *(3,5 +)* nuget.exe, sabit ve Ingilizce tabanlı bir kültür kullanılarak çalışmaya zorlar.
+
+- **`-?|-help`**
+
+  Komut için yardım bilgilerini görüntüler.
+
+- **`-IncludeReferencedProjects`**
+
+  Oluşturulan paketin, bağımlılık olarak veya paketin parçası olarak başvurulan projeleri içermesi gerektiğini gösterir. Başvurulan bir proje, `.nuspec` projeyle aynı ada sahip karşılık gelen bir dosya içeriyorsa, bu başvurulan proje bir bağımlılık olarak eklenir. Aksi takdirde, başvurulan proje, paketin parçası olarak eklenir.
+
+- **`-InstallPackageToOutputPath`**
+
+  Komutun, paylaşılan akışı desteklemek için paket çıkış dizinini hazırlaması gerekip gerekmediğini belirtin.
+
+- **`-MinClientVersion`**
+
+  Oluşturulan paket için *Minclientversion* özniteliğini ayarlayın. Bu değer, dosyadaki var olan *Minclientversion* özniteliğinin (varsa) değerini geçersiz kılar `.nuspec` .
+
+- **`-MSBuildPath`**
+
+  *(4.0 +)* Komutuyla birlikte kullanılacak MSBuild 'in yolunu belirtir `-MSBuildVersion` .
+
+- **`-MSBuildVersion`**
+
+  *(3.2 +)* Bu komutla kullanılacak MSBuild sürümünü belirtir. Desteklenen değerler şunlardır 4, 12, 14, 15,1, 15,3, 15,4, 15,5, 15,6, 15,7, 15,8, 15,9. Varsayılan olarak, yolunuzda MSBuild çekilir, aksi takdirde en yüksek MSBuild 'in yüklü sürümü varsayılan olarak ayarlanır.
+
+- **`-NoDefaultExcludes`**
+
+  , Ve gibi bir noktayla başlayan NuGet paket dosyalarının ve dosyalarının ve klasörlerinin varsayılan dışlamasını engeller `.svn` `.gitignore` .
+
+- **`-NonInteractive`**
+
+  Kullanıcı girişi veya onayları için istemleri bastırır.
+
+- **`-NoPackageAnalysis`**
+
+  Paketi derlemeden sonra paketin paket analizini çalıştırmamalıdır.
+
+- **`-OutputDirectory`**
+
+  Oluşturulan Paketin depolandığı klasörü belirtir. Hiçbir klasör belirtilmemişse, geçerli klasör kullanılır.
+
+- **`-OutputFileNamesWithoutVersion`**
+
+  Komutun paket çıkış adını sürüm olmadan hazırlaması gerekip gerekmediğini belirtin.
+
+- **`-PackagesDirectory`**
+
+  Paketler klasörünü belirtir.
+
+- **`-p|-Properties`**
+
+  Diğer seçeneklerden sonra komut satırında son olarak görünmelidir. Proje dosyasındaki değerleri geçersiz kılan özelliklerin bir listesini belirtir; Özellik adları için bkz. [Ortak MSBuild proje özellikleri](/visualstudio/msbuild/common-msbuild-project-properties) . Burada bulunan Properties bağımsız değişkeni, noktalı virgülle ayrılmış bir belirteç = değer çiftleri listesi ve dosyadaki her oluşumun `$token$` `.nuspec` verilen değer ile değiştirilmesidir. Değerler, tırnak işaretleri içinde dizeler olabilir. "Yapılandırma" özelliği için varsayılan "hata ayıkla" dır. Bir sürüm yapılandırmasına geçiş yapmak için kullanın `-Properties Configuration=Release` . **Genel**olarak, alışılmadık davranışları önlemek için ilgili proje derlemesi sırasında kullanılan özellikler aynı olmalıdır.
+
+- **`-SolutionDirectory`**
+
+  Çözüm dizinini belirtir.
+
+- **`-Suffix`**
+
+  *(3.4.4 +)* Genellikle derleme veya diğer yayın öncesi tanımlayıcıları eklemek için kullanılan, dahili olarak oluşturulan sürüm numarasına bir sonek ekler. Örneğin, kullanmak `-suffix nightly` gibi sürüm numarasına sahip bir paket oluşturur `1.2.3-nightly` . Farklı NuGet ve NuGet Paket Yöneticisi sürümleriyle uyarı, hata ve potansiyel uyumsuzluktan kaçınmak için son ekler bir harfle başlamalıdır.
+
+- **`-SymbolPackageFormat`**
+
+  Bir semboller paketi oluştururken, ve biçimi arasında seçim yapılmasına izin `snupkg` verir `symbols.nupkg` .
+
+- **`-Symbols`**
+
+  Paketin kaynakları ve sembolleri içerdiğini belirtir. Bir dosya ile kullanıldığında `.nuspec` , bu, normal bir NuGet paket dosyası ve ilgili semboller paketini oluşturur. Varsayılan olarak, eski bir [sembol paketi](../../create-packages/Symbol-Packages.md)oluşturur. Sembol paketleri için önerilen yeni biçim. snupkg 'dir. Bkz. [sembol paketleri oluşturma (. snupkg)](../../create-packages/Symbol-Packages-snupkg.md).
+
+- **`-Tool`**
+
+   Projenin çıkış dosyalarının klasöre yerleştirilmesi gerektiğini belirtir `tool` .
+
+- **`-Verbosity [normal|quiet|detailed]`**
+
+  Çıkışta gösterilecek ayrıntı miktarını belirtir: `normal` (varsayılan), `quiet` veya `detailed` .
+
+- **`-Version`**
+
+  Dosyadaki sürüm numarasını geçersiz kılar `.nuspec` .
 
 Ayrıca bkz. [ortam değişkenleri](cli-ref-environment-variables.md)
 

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 45928e60033959bc8b4f43d1ef3e4c943e7ec057
-ms.sourcegitcommit: e02482e15c0cef63153086ed50d14f5b2a38f598
+ms.openlocfilehash: feb21ae1e70144491a5c0fe8f6a7be36e61d9b32
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87473899"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88622998"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Projeniz için NuGet paketlerini bulma ve değerlendirme
 
@@ -72,9 +72,9 @@ Visual Studio 'da ve NuGet ve DotNet CLı araçları kullanılırken, NuGet vars
 
 - **Paket Yöneticisi konsolu**:,,, `-IncludePrerelease` `Find-Package` `Get-Package` `Install-Package` `Sync-Package` ve `Update-Package` komutlarıyla anahtarı kullanın. [PowerShell başvurusuna](../reference/powershell-reference.md)bakın.
 
-- **CLInuget.exe**:,, `-prerelease` `install` `update` `delete` ve komutlarıyla anahtarı kullanın `mirror` . [NUGET CLI başvurusuna](../reference/nuget-exe-cli-reference.md) bakın
+- ** CLInuget.exe**:,, `-prerelease` `install` `update` `delete` ve komutlarıyla anahtarı kullanın `mirror` . [NUGET CLI başvurusuna](../reference/nuget-exe-cli-reference.md) bakın
 
-- **Clıdotnet.exe**: bağımsız değişkenini kullanarak tam yayın öncesi sürümü belirtin `-v` . [DotNet paket başvurusu Ekle](/dotnet/core/tools/dotnet-add-package)' ye başvurun.
+- ** Clıdotnet.exe**: bağımsız değişkenini kullanarak tam yayın öncesi sürümü belirtin `-v` . [DotNet paket başvurusu Ekle](/dotnet/core/tools/dotnet-add-package)' ye başvurun.
 
 <a name="native-cpp-packages"></a>
 
@@ -90,32 +90,41 @@ Bir paketin kullanışlılığını değerlendirmek için en iyi yol, bunu indir
 
 Aynı zamanda, bir NuGet paketinin kullanılması, bunun sağlam ve güvenilir olduğundan emin olmak için buna bir bağımlılık alınması anlamına gelir. Bir paketin yüklenmesi ve doğrudan sınanması zaman alıcı olduğundan, bir paketin liste sayfasındaki bilgileri kullanarak bir paketin kalitesi hakkında çok fazla bilgi edinebilirsiniz:
 
-- *İndirmeler istatistikleri*: NuGet.org üzerindeki paket sayfasında, **İstatistikler** bölümünde Toplam indirme, en son sürüm indirmeleri ve günde ortalama indirme işlemleri gösterilir. Daha büyük sayılar, diğer birçok geliştiricinin pakete bağımlılığı olduğunu, yani kendini kanıtlamış olduğunu gösterir.
+- **İndirmeler istatistikleri**: NuGet.org üzerindeki paket sayfasında, **İstatistikler** bölümünde Toplam indirme, en son sürüm indirmeleri ve günde ortalama indirme işlemleri gösterilir. Daha büyük sayılar, diğer birçok geliştiricinin pakete bağımlılığı olduğunu, yani kendini kanıtlamış olduğunu gösterir.
 
     ![Bir paketin listeleme sayfasına istatistik yükleme](media/Finding-03-Downloads.png)
 
-- *GitHub kullanımı*: Paket sayfasında, **GitHub kullanım** bölümü, bu pakete bağımlı olan ve GitHub üzerinde yüksek sayıda yıldızlı olan genel GitHub depolarını listeler. GitHub deposunun yıldız sayısı genellikle bu deponun GitHub kullanıcılarıyla ne kadar popüler olduğunu gösterir (daha fazla yıldız genellikle daha popüler anlamına gelir). GitHub 'ın yıldızı ve depo derecelendirme sistemi hakkında daha fazla bilgi için lütfen [GitHub 'ın başlangıç sayfasını](https://help.github.com/en/github/getting-started-with-github/saving-repositories-with-stars#about-stars) ziyaret edin.
+- **Kullanan**: Paket sayfasında **, bölümünde en** popüler 5 NuGet.org paketi ve bu pakete bağımlı olan popüler GitHub depoları listelenir. Bu pakete bağımlı paketlere ve depoya bu paketin "bağımlıları" adı verilir. Bağımlı paketler ve depolar bu paketin "onaylama" olarak görülebilir, çünkü paket yazarları güvenmeyi ve buna bağımlı olur.
+  - Bağımlı bir paket, bu paketin *en son kalıcı listelenen sürümünde* *herhangi bir sürümüne* bağlı olmalıdır. Bu tanım, görüntülenen bağımlı paketlerin, güvenilir ve bu pakete bağımlı olan paket yazarının güncel bir yansıması olmasını sağlar. Ön sürüm bağımlılıkları henüz tam olarak düşünülmemiş olduklarından listelenmez. Örnekler için aşağıdaki tabloya bakın:
 
-    ![GitHub kullanımı](media/GitHub-Usage.png)
+    | Sürümleri paketleyin | A paketi B paketi 'ne bağlı olarak listelendi mi? |
+    |-|-|
+    | v 1.0.0<br>v 1.1.0 (en son kararlı)--> Paket B<br>v 1.2.0-Önizleme | DOĞRU, en son kararlı sürüm B paketine bağlıdır |
+    | v 1.0.0--> paketi B<br>v 1.1.0 (en son kararlı)<br>v 1.2.0-Önizleme | YANLıŞ, en son kararlı sürüm B paketine bağlı değildir |
+    | v 1.0.0--> paketi B<br>v 1.1.0 (en son kararlı)<br>v 1.2.0-Preview--> Paket B | YANLıŞ, en son kararlı sürüm B paketine bağlı değildir |
+
+  - GitHub deposunun yıldız sayısı genellikle bu deponun GitHub kullanıcılarıyla ne kadar popüler olduğunu gösterir (daha fazla yıldız genellikle daha popüler anlamına gelir). GitHub 'ın yıldızı ve depo derecelendirme sistemi hakkında daha fazla bilgi için lütfen [GitHub 'ın başlangıç sayfasını](https://help.github.com/en/github/getting-started-with-github/saving-repositories-with-stars#about-stars) ziyaret edin.
+
+    ![Kullanan](media/Used-By-section-Humanizer.png)
 
     > [!Note]
-    > Bir paketin GitHub kullanım bölümü otomatik olarak, tek tek depoların insan tarafından incelenmesi gerekmeden ve yalnızca pakete bağlı olan ve GitHub kullanıcıları ile popüler GitHub depolarını göstermek için yalnızca bilgilendirme amaçlı olarak oluşturulur.
+    > Bölüm tarafından kullanılan bir paket, tek tek depoların insan tarafından incelenmesi gerekmeden otomatik olarak oluşturulur ve yalnızca NuGet.org paketlerini ve pakete bağlı olan popüler GitHub depolarını göstermek için bilgilendirme amaçlıdır.
 
-- *Sürüm geçmişi*: Paket sayfasında, en son güncelleştirme tarihi için **bilgi** ' yi arayın ve **sürüm geçmişini**inceleyin. İyi tutulan bir pakette, son güncelleştirmeler ve zengin bir sürüm geçmişi bulunur. İhmal edilen paketlerin birkaç güncelleştirmesi vardır ve genellikle bir süre güncelleştirilmemiş demektir.
+- **Sürüm geçmişi**: Paket sayfasında, en son güncelleştirme tarihi için **bilgi** ' yi arayın ve **sürüm geçmişini**inceleyin. İyi tutulan bir pakette, son güncelleştirmeler ve zengin bir sürüm geçmişi bulunur. İhmal edilen paketlerin birkaç güncelleştirmesi vardır ve genellikle bir süre güncelleştirilmemiş demektir.
 
     ![Paketin listeleme sayfasında sürüm geçmişi](media/Finding-04-VersionHistory.png)
 
-- *Son yüklemeler*: Paket sayfasında **İstatistikler**altında, **tam istatistikleri görüntüle**' yi seçin. Tüm İstatistikler sayfasında, paketin sürüm numarasına göre son altı haftaya göre yüklemesi gösterilmektedir. Diğer geliştiricilerin etkin şekilde kullandığı bir paket, genellikle daha iyi bir seçenektir.
+- **Son yüklemeler**: Paket sayfasında **İstatistikler**altında, **tam istatistikleri görüntüle**' yi seçin. Tüm İstatistikler sayfasında, paketin sürüm numarasına göre son altı haftaya göre yüklemesi gösterilmektedir. Diğer geliştiricilerin etkin şekilde kullandığı bir paket, genellikle daha iyi bir seçenektir.
 
-- *Destek*: Yazar **' ın altındaki**paket sayfasında, yazarın sağladığı destek seçeneklerini görmek için **Proje sitesi** ' ni (varsa) seçin. Adanmış bir siteye sahip bir proje genellikle daha iyi desteklenir.
+- **Destek**: Yazar **' ın altındaki**paket sayfasında, yazarın sağladığı destek seçeneklerini görmek için **Proje sitesi** ' ni (varsa) seçin. Adanmış bir siteye sahip bir proje genellikle daha iyi desteklenir.
 
-- *Geliştirici geçmişi*: **sahipler**altındaki paket sayfasında, yayımladıkları diğer paketleri görmek için bir sahip seçin. Birden çok pakete sahip olanlar, işlerini daha sonra desteklemeye devam edememe olasılığı yüksektir.
+- **Geliştirici geçmişi**: **sahipler**altındaki paket sayfasında, yayımladıkları diğer paketleri görmek için bir sahip seçin. Birden çok pakete sahip olanlar, işlerini daha sonra desteklemeye devam edememe olasılığı yüksektir.
 
-- *Açık kaynak katkıları*: birçok paket açık kaynaklı depolarda tutulur ve bunlar, geliştiricilerin doğrudan hata düzeltmeleri ve özellik iyileştirmeleri katkıda bulunmasına olanak tanır. Belirli bir paketin katkı geçmişi Ayrıca, kaç geliştirici etkin bir şekilde dahil olduğu konusunda iyi bir göstergedir.
+- **Açık kaynak katkıları**: birçok paket açık kaynaklı depolarda tutulur ve bunlar, geliştiricilerin doğrudan hata düzeltmeleri ve özellik iyileştirmeleri katkıda bulunmasına olanak tanır. Belirli bir paketin katkı geçmişi Ayrıca, kaç geliştirici etkin bir şekilde dahil olduğu konusunda iyi bir göstergedir.
 
-- *Sahipleri*arayın: yeni geliştiriciler, sizin için harika paketler oluşturmaya tamamen eşit bir şekilde kararlıdır ve bu kullanıcılara NuGet ekosistemine yeni bir şey getirmenin bir şansı vermek iyi olabilir. Bu göz önünde bulundurularak, liste sayfasında **bilgi** altında **kişi sahipleri** ' nı kullanarak doğrudan paket geliştiricilerine ulaşın. Olasılığınızı karşılamak için sizinle birlikte çalışmak iyi olacaktır!
+- **Sahipleri**arayın: yeni geliştiriciler, sizin için harika paketler oluşturmaya tamamen eşit bir şekilde kararlıdır ve bu kullanıcılara NuGet ekosistemine yeni bir şey getirmenin bir şansı vermek iyi olabilir. Bu göz önünde bulundurularak, liste sayfasında **bilgi** altında **kişi sahipleri** ' nı kullanarak doğrudan paket geliştiricilerine ulaşın. Olasılığınızı karşılamak için sizinle birlikte çalışmak iyi olacaktır!
 
-- *Ayrılmış paket kimliği önekleri*: için çok sayıda paket sahibi uygulandı ve [ayrılmış bir paket kimliği öneki](../nuget-org/id-prefix-reservation.md)verdi. [NuGet.org](https://www.nuget.org/)veya Visual Studio 'daki BIR paket kimliğinin yanındaki görsel onay işaretini gördüğünüzde, bu, paket sahibinin kimlik ön eki ayırma [ölçütlerimizi](../nuget-org/id-prefix-reservation.md#id-prefix-reservation-criteria) karşıladığı anlamına gelir. Bu, paket sahibinin kendilerini ve paketini tanımlamaya açık olduğu anlamına gelir.
+- **Ayrılmış paket kimliği önekleri**: için çok sayıda paket sahibi uygulandı ve [ayrılmış bir paket kimliği öneki](../nuget-org/id-prefix-reservation.md)verdi. [NuGet.org](https://www.nuget.org/)veya Visual Studio 'daki BIR paket kimliğinin yanındaki görsel onay işaretini gördüğünüzde, bu, paket sahibinin kimlik ön eki ayırma [ölçütlerimizi](../nuget-org/id-prefix-reservation.md#id-prefix-reservation-criteria) karşıladığı anlamına gelir. Bu, paket sahibinin kendilerini ve paketini tanımlamaya açık olduğu anlamına gelir.
 
 > [!Note]
 > Her zaman bir paketin lisans koşullarına sahip olun, bu, nuget.org üzerindeki bir paketin liste sayfasında **Lisans bilgileri** ' ni seçerek görebilirsiniz. Bir paket lisans koşulları belirtmezse, paket sayfasındaki **kişi sahipleri** bağlantısını kullanarak doğrudan paket sahibine başvurun. Microsoft, üçüncü taraf paket sağlayıcılarından sizin için herhangi bir fikri mülkiyet hakkı vermez ve üçüncü taraflar tarafından sunulan bilgilerden sorumlu değildir.

@@ -1,16 +1,16 @@
 ---
 title: NuGet CLı Delete komutu
-description: NuGet. exe delete komutu için başvuru
+description: nuget.exe Delete komutu için başvuru
 author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 5185bc8b89f645a0a0f4d3241b5fa04e09560ede
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: bec1a778d4986a4cb7ee87e1ef8a98550c96ed57
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68328356"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88622869"
 ---
 # <a name="delete-command-nuget-cli"></a>Delete komutu (NuGet CLı)
 
@@ -24,19 +24,43 @@ Paket kaynağından bir paketi siler veya listesini kaldırır. Nuget.org için,
 nuget delete <packageID> <packageVersion> [options]
 ```
 
-silmek `<packageID>` veya `<packageVersion>` listeden kaldırmak için tam paketi burada ve belirler. Tam davranış kaynağa bağlıdır. Örneğin, yerel klasörler için, paket silinir; nuget.org için paket listelenmemiş değildir.
+`<packageID>` `<packageVersion>` silmek veya listeden kaldırmak için tam paketi burada ve belirler. Tam davranış kaynağa bağlıdır. Örneğin, yerel klasörler için, paket silinir; nuget.org için paket listelenmemiş değildir.
 
 ## <a name="options"></a>Seçenekler
 
-| Seçenek | Açıklama |
-| --- | --- |
-| ApiKey | Hedef depo için API anahtarı. Mevcut değilse, yapılandırma dosyasında belirtilen bir tane kullanılır. |
-| ConfigFile | Uygulanacak NuGet yapılandırma dosyası. Belirtilmemişse, `%AppData%\NuGet\NuGet.Config` (Windows) veya `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) kullanılır.|
-| ForceEnglishOutput | *(3,5 +)* NuGet. exe ' yi sabit, Ingilizce tabanlı bir kültür kullanarak çalışmaya zorlar. |
-| Help | Komut için yardım bilgilerini görüntüler. |
-| NonInteractive | Kullanıcı girişi veya onayları için istemleri bastırır. |
-| Source | Sunucu URL 'sini belirtir. Nuget.org URL 'SI `https://api.nuget.org/v3/index.json`. Özel akışlar için ana bilgisayar adını (örneğin, *% hostname%/api/v3*) değiştirin. |
-| Verbosity | Çıktıda görünen ayrıntı miktarını belirtir: *normal*, *sessiz*, *ayrıntılı*. |
+- **`-ApiKey`**
+
+  Hedef depo için API anahtarı. Mevcut değilse, yapılandırma dosyasında belirtilen bir tane kullanılır.
+
+- **`-ConfigFile`**
+
+  Uygulanacak NuGet yapılandırma dosyası. Belirtilmemişse, `%AppData%\NuGet\NuGet.Config` (Windows) veya `~/.nuget/NuGet/NuGet.Config` ya da `~/.config/NuGet/NuGet.Config` (Mac/Linux) kullanılır.
+
+- **`-ForceEnglishOutput`**
+
+  *(3,5 +)* nuget.exe, sabit ve Ingilizce tabanlı bir kültür kullanılarak çalışmaya zorlar.
+
+- **`-?|-help`**
+
+  Komut için yardım bilgilerini görüntüler.
+
+- **`-NonInteractive`**
+
+  Kullanıcı girişi veya onayları için istemleri bastırır.
+
+ - **`-np|-NoPrompt`**
+
+   Silme sırasında sorma.
+
+ - **`-NoServiceEndpoint`** Kaynak URL 'ye "API/v2/paket" eklemez.
+
+- **`-src|-Source`**
+
+  Sunucu URL 'sini belirtir. Nuget.org URL 'SI `https://api.nuget.org/v3/index.json` . Özel akışlar için ana bilgisayar adını (örneğin, *% hostname%/api/v3*) değiştirin.
+
+- **`-Verbosity [normal|quiet|detailed]`**
+
+  Çıkışta gösterilecek ayrıntı miktarını belirtir: `normal` (varsayılan), `quiet` veya `detailed` .
 
 Ayrıca bkz. [ortam değişkenleri](cli-ref-environment-variables.md)
 
