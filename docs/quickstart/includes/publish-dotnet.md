@@ -1,20 +1,20 @@
 ---
-ms.openlocfilehash: 1df35c96124584bddbe58b8dd6587e3fff256ef9
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 9167b4b5943dd797c5a4cb20e53ee6832f0b3021
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "74825296"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88623037"
 ---
-1. <span data-ttu-id="c2539-101">Dosyayı içeren klasöre değiştirin. `.nupkg`</span><span class="sxs-lookup"><span data-stu-id="c2539-101">Change to the folder containing the `.nupkg` file.</span></span>
+1. <span data-ttu-id="3639d-101">Dosyayı içeren klasöre geçin `.nupkg` .</span><span class="sxs-lookup"><span data-stu-id="3639d-101">Change to the folder containing the `.nupkg` file.</span></span>
 
-1. <span data-ttu-id="c2539-102">Paket adınızı (benzersiz paket kimliğinizi) belirterek ve anahtar değerini API anahtarınızla değiştirerek aşağıdaki komutu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="c2539-102">Run the following command, specifying your package name (unique package ID) and replacing the key value with your API key:</span></span>
+1. <span data-ttu-id="3639d-102">Aşağıdaki komutu çalıştırarak paket adınızı (benzersiz paket KIMLIĞI) belirtip anahtar değerini API anahtarınızla değiştirin:</span><span class="sxs-lookup"><span data-stu-id="3639d-102">Run the following command, specifying your package name (unique package ID) and replacing the key value with your API key:</span></span>
 
     ```dotnetcli
-    dotnet nuget push AppLogger.1.0.0.nupkg -k qz2jga8pl3dvn2akksyquwcs9ygggg4exypy3bhxy6w6x6 -s https://api.nuget.org/v3/index.json
+    dotnet nuget push AppLogger.1.0.0.nupkg --api-key qz2jga8pl3dvn2akksyquwcs9ygggg4exypy3bhxy6w6x6 --source https://api.nuget.org/v3/index.json
     ```
 
-1. <span data-ttu-id="c2539-103">dotnet yayımlama sürecinin sonuçlarını görüntüler:</span><span class="sxs-lookup"><span data-stu-id="c2539-103">dotnet displays the results of the publishing process:</span></span>
+1. <span data-ttu-id="3639d-103">DotNet yayımlama işleminin sonuçlarını görüntüler:</span><span class="sxs-lookup"><span data-stu-id="3639d-103">dotnet displays the results of the publishing process:</span></span>
 
     ```output
     info : Pushing AppLogger.1.0.0.nupkg to 'https://www.nuget.org/api/v2/package'...
@@ -23,4 +23,4 @@ ms.locfileid: "74825296"
     info : Your package was pushed.
     ```
 
-<span data-ttu-id="c2539-104">Bkz. [dotnet nuget itme](/dotnet/core/tools/dotnet-nuget-push).</span><span class="sxs-lookup"><span data-stu-id="c2539-104">See [dotnet nuget push](/dotnet/core/tools/dotnet-nuget-push).</span></span>
+<span data-ttu-id="3639d-104">Bkz. [DotNet NuGet Push](/dotnet/core/tools/dotnet-nuget-push).</span><span class="sxs-lookup"><span data-stu-id="3639d-104">See [dotnet nuget push](/dotnet/core/tools/dotnet-nuget-push).</span></span>

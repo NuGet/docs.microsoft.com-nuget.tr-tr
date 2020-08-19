@@ -1,37 +1,37 @@
 ---
 title: NuGet CLı güvenilir-imzalayanlar komutu
-description: NuGet. exe güvenilir-signers komutuna yönelik başvuru
+description: nuget.exe Trusted-signers komutu için başvuru
 author: patbel
 ms.author: patbel
 ms.date: 11/12/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: 94c4c6524c1870898893b80be914477af5a14e8b
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: 2753f92601b3d8b43593762cc07cd8384646feea
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73610341"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88622674"
 ---
-# <a name="trusted-signers-command-nuget-cli"></a><span data-ttu-id="b36e0-103">Güvenilen imzalayanlar komutu (NuGet CLı)</span><span class="sxs-lookup"><span data-stu-id="b36e0-103">trusted-signers command (NuGet CLI)</span></span>
+# <a name="trusted-signers-command-nuget-cli"></a><span data-ttu-id="777e8-103">Güvenilen imzalayanlar komutu (NuGet CLı)</span><span class="sxs-lookup"><span data-stu-id="777e8-103">trusted-signers command (NuGet CLI)</span></span>
 
-<span data-ttu-id="b36e0-104">**Uygulama hedefi:** paket tüketimi **Desteklenen sürümler &bullet;:** 4.9.1 +</span><span class="sxs-lookup"><span data-stu-id="b36e0-104">**Applies to:** package consumption &bullet; **Supported versions:** 4.9.1+</span></span>
+<span data-ttu-id="777e8-104">**Uygulama hedefi:** paket tüketimi &bullet; **Desteklenen sürümler:** 4.9.1 +</span><span class="sxs-lookup"><span data-stu-id="777e8-104">**Applies to:** package consumption &bullet; **Supported versions:** 4.9.1+</span></span>
 
-<span data-ttu-id="b36e0-105">Güvenilen İmzalayanları NuGet yapılandırmasına alır veya ayarlar.</span><span class="sxs-lookup"><span data-stu-id="b36e0-105">Gets or sets trusted signers to the NuGet configuration.</span></span> <span data-ttu-id="b36e0-106">Ek kullanım için bkz. [ortak NuGet yapılandırması](../../consume-packages/configuring-nuget-behavior.md).</span><span class="sxs-lookup"><span data-stu-id="b36e0-106">For additional usage, see [Common NuGet configurations](../../consume-packages/configuring-nuget-behavior.md).</span></span> <span data-ttu-id="b36e0-107">NuGet. config şemasının nasıl görüneceğine ilişkin ayrıntılar için [NuGet yapılandırma dosyası başvurusuna](../nuget-config-file.md)bakın.</span><span class="sxs-lookup"><span data-stu-id="b36e0-107">For details on how the nuget.config schema looks like, refer to the [NuGet config file reference](../nuget-config-file.md).</span></span>
+<span data-ttu-id="777e8-105">Güvenilen İmzalayanları NuGet yapılandırmasına alır veya ayarlar.</span><span class="sxs-lookup"><span data-stu-id="777e8-105">Gets or sets trusted signers to the NuGet configuration.</span></span> <span data-ttu-id="777e8-106">Ek kullanım için bkz. [ortak NuGet yapılandırması](../../consume-packages/configuring-nuget-behavior.md).</span><span class="sxs-lookup"><span data-stu-id="777e8-106">For additional usage, see [Common NuGet configurations](../../consume-packages/configuring-nuget-behavior.md).</span></span> <span data-ttu-id="777e8-107">nuget.config şemasının nasıl görüneceğine ilişkin ayrıntılar için [NuGet yapılandırma dosyası başvurusuna](../nuget-config-file.md)bakın.</span><span class="sxs-lookup"><span data-stu-id="777e8-107">For details on how the nuget.config schema looks like, refer to the [NuGet config file reference](../nuget-config-file.md).</span></span>
 
-## <a name="usage"></a><span data-ttu-id="b36e0-108">Kullanım</span><span class="sxs-lookup"><span data-stu-id="b36e0-108">Usage</span></span>
+## <a name="usage"></a><span data-ttu-id="777e8-108">Kullanım</span><span class="sxs-lookup"><span data-stu-id="777e8-108">Usage</span></span>
 
 ```cli
 nuget trusted-signers <list|add|remove|sync> [options]
 ```
 
-<span data-ttu-id="b36e0-109">`list|add|remove|sync` Hiçbiri belirtilmediyse, komut varsayılan olarak `list`olur.</span><span class="sxs-lookup"><span data-stu-id="b36e0-109">if none of `list|add|remove|sync` is specified, the command will default to `list`.</span></span>
+<span data-ttu-id="777e8-109">hiçbiri `list|add|remove|sync` belirtilmemişse, komut varsayılan olarak olur `list` .</span><span class="sxs-lookup"><span data-stu-id="777e8-109">if none of `list|add|remove|sync` is specified, the command will default to `list`.</span></span>
 
-## <a name="nuget-trusted-signers-list"></a><span data-ttu-id="b36e0-110">NuGet güvenilir-imzalayanlar listesi</span><span class="sxs-lookup"><span data-stu-id="b36e0-110">nuget trusted-signers list</span></span>
+## <a name="nuget-trusted-signers-list"></a><span data-ttu-id="777e8-110">NuGet güvenilir-imzalayanlar listesi</span><span class="sxs-lookup"><span data-stu-id="777e8-110">nuget trusted-signers list</span></span>
 
-<span data-ttu-id="b36e0-111">Yapılandırmadaki tüm güvenilen İmzalayanları listeler.</span><span class="sxs-lookup"><span data-stu-id="b36e0-111">Lists all the trusted signers in the configuration.</span></span> <span data-ttu-id="b36e0-112">Bu seçenek, her İmzalayanın sahip olduğu tüm sertifikaları (parmak izi ve parmak izi algoritması) içerir.</span><span class="sxs-lookup"><span data-stu-id="b36e0-112">This option will include all the certificates (with fingerprint and fingerprint algorithm) each signer has.</span></span> <span data-ttu-id="b36e0-113">Bir sertifikanın önceki bir `[U]`varsa, bu sertifika girişinin `true`olarak `allowUntrustedRoot` ayarlandığı anlamına gelir.</span><span class="sxs-lookup"><span data-stu-id="b36e0-113">If a certificate has a preceding `[U]`, it means that certificate entry has `allowUntrustedRoot` set as `true`.</span></span>
+<span data-ttu-id="777e8-111">Yapılandırmadaki tüm güvenilen İmzalayanları listeler.</span><span class="sxs-lookup"><span data-stu-id="777e8-111">Lists all the trusted signers in the configuration.</span></span> <span data-ttu-id="777e8-112">Bu seçenek, her İmzalayanın sahip olduğu tüm sertifikaları (parmak izi ve parmak izi algoritması) içerir.</span><span class="sxs-lookup"><span data-stu-id="777e8-112">This option will include all the certificates (with fingerprint and fingerprint algorithm) each signer has.</span></span> <span data-ttu-id="777e8-113">Bir sertifika öncesinde varsa `[U]` , sertifika girişinin `allowUntrustedRoot` olarak ayarlandığı anlamına gelir `true` .</span><span class="sxs-lookup"><span data-stu-id="777e8-113">If a certificate has a preceding `[U]`, it means that certificate entry has `allowUntrustedRoot` set as `true`.</span></span>
 
-<span data-ttu-id="b36e0-114">Bu komuttan bir örnek çıktı aşağıda verilmiştir:</span><span class="sxs-lookup"><span data-stu-id="b36e0-114">Below is an example output from this command:</span></span>
+<span data-ttu-id="777e8-114">Bu komuttan bir örnek çıktı aşağıda verilmiştir:</span><span class="sxs-lookup"><span data-stu-id="777e8-114">Below is an example output from this command:</span></span>
 
 ```cli
 $ nuget trusted-signers
@@ -53,75 +53,115 @@ Registered trusted signers:
         
 ```
 
-## <a name="nuget-trusted-signers-add-options"></a><span data-ttu-id="b36e0-115">NuGet güvenilir-imzalayanlar Add [seçenekler]</span><span class="sxs-lookup"><span data-stu-id="b36e0-115">nuget trusted-signers add [options]</span></span>
+## <a name="nuget-trusted-signers-add-options"></a><span data-ttu-id="777e8-115">NuGet güvenilir-imzalayanlar Add [seçenekler]</span><span class="sxs-lookup"><span data-stu-id="777e8-115">nuget trusted-signers add [options]</span></span>
 
-<span data-ttu-id="b36e0-116">Yapılandırmaya verilen adı taşıyan güvenilen bir imzalayan ekler. Bu seçeneğin, güvenilen bir yazar veya depo eklemek için farklı hareketleri vardır.</span><span class="sxs-lookup"><span data-stu-id="b36e0-116">Adds a trusted signer with the given name to the config. This option has different gestures to add a trusted author or repository.</span></span>
+<span data-ttu-id="777e8-116">Yapılandırmaya verilen adı taşıyan güvenilen bir imzalayan ekler. Bu seçeneğin, güvenilen bir yazar veya depo eklemek için farklı hareketleri vardır.</span><span class="sxs-lookup"><span data-stu-id="777e8-116">Adds a trusted signer with the given name to the config. This option has different gestures to add a trusted author or repository.</span></span>
 
-## <a name="options-for-add-based-on-a-package"></a><span data-ttu-id="b36e0-117">Pakete dayalı ekleme seçenekleri</span><span class="sxs-lookup"><span data-stu-id="b36e0-117">Options for add based on a package</span></span>
+## <a name="options-for-add-based-on-a-package"></a><span data-ttu-id="777e8-117">Pakete dayalı ekleme seçenekleri</span><span class="sxs-lookup"><span data-stu-id="777e8-117">Options for add based on a package</span></span>
 
 ```cli
 nuget trusted-signers add <package(s)> -Name <name> [options]
 ```
 
-<span data-ttu-id="b36e0-118">Burada `<package(s)>` bir veya daha fazla `.nupkg` dosya olur.</span><span class="sxs-lookup"><span data-stu-id="b36e0-118">where `<package(s)>` is one or more `.nupkg` files.</span></span>
+<span data-ttu-id="777e8-118">Burada `<package(s)>` bir veya daha fazla `.nupkg` Dosya bulunur.</span><span class="sxs-lookup"><span data-stu-id="777e8-118">where `<package(s)>` is one or more `.nupkg` files.</span></span>
 
-| <span data-ttu-id="b36e0-119">Seçenek</span><span class="sxs-lookup"><span data-stu-id="b36e0-119">Option</span></span> | <span data-ttu-id="b36e0-120">Açıklama</span><span class="sxs-lookup"><span data-stu-id="b36e0-120">Description</span></span> |
-| --- | --- |
-| <span data-ttu-id="b36e0-121">Yazar</span><span class="sxs-lookup"><span data-stu-id="b36e0-121">Author</span></span> | <span data-ttu-id="b36e0-122">Paket (ler) in yazar imzasında güvenilir olması gerektiğini belirtir.</span><span class="sxs-lookup"><span data-stu-id="b36e0-122">Specifies that the author signature of the package(s) should be trusted.</span></span> |
-| <span data-ttu-id="b36e0-123">Depo</span><span class="sxs-lookup"><span data-stu-id="b36e0-123">Repository</span></span> | <span data-ttu-id="b36e0-124">Paket (lar) için depo imzasının veya onay imzasının güvenilir olması gerektiğini belirtir.</span><span class="sxs-lookup"><span data-stu-id="b36e0-124">Specifies that the repository signature or countersignature of the package(s) should be trusted.</span></span> |
-| <span data-ttu-id="b36e0-125">AllowUntrustedRoot</span><span class="sxs-lookup"><span data-stu-id="b36e0-125">AllowUntrustedRoot</span></span> | <span data-ttu-id="b36e0-126">Güvenilen İmzalayanın sertifikasının güvenilmeyen bir köke zincirine izin verilip verilmeyeceğini belirtir.</span><span class="sxs-lookup"><span data-stu-id="b36e0-126">Specifies if the certificate for the trusted signer should be allowed to chain to an untrusted root.</span></span> |
-| <span data-ttu-id="b36e0-127">lere</span><span class="sxs-lookup"><span data-stu-id="b36e0-127">Owners</span></span> | <span data-ttu-id="b36e0-128">Bir deponun güvenini daha fazla kısıtlamak için güvenilen sahipler için noktalı virgülle ayrılmış liste.</span><span class="sxs-lookup"><span data-stu-id="b36e0-128">Semi-colon separated list of trusted owners to further restrict the trust of a repository.</span></span> <span data-ttu-id="b36e0-129">Yalnızca `-Repository` seçeneği kullanılırken geçerlidir.</span><span class="sxs-lookup"><span data-stu-id="b36e0-129">Only valid when using the `-Repository` option.</span></span> |
+- **`-Author`**
 
-<span data-ttu-id="b36e0-130">Hem `-Author` hem de `-Repository` aynı anda sağlanması desteklenmez.</span><span class="sxs-lookup"><span data-stu-id="b36e0-130">Providing both `-Author` and `-Repository` at the same time is not supported.</span></span>
+  <span data-ttu-id="777e8-119">Paket (ler) in yazar imzasında güvenilir olması gerektiğini belirtir.</span><span class="sxs-lookup"><span data-stu-id="777e8-119">Specifies that the author signature of the package(s) should be trusted.</span></span>
 
-## <a name="options-for-add-based-on-a-service-index"></a><span data-ttu-id="b36e0-131">Hizmet dizinine dayalı ekleme seçenekleri</span><span class="sxs-lookup"><span data-stu-id="b36e0-131">Options for add based on a service index</span></span>
+- **`-AllowUntrustedRoot`**
 
-```cli
-nuget trusted-signers add -Name <name> [options]
-```
+  <span data-ttu-id="777e8-120">Güvenilen İmzalayanın sertifikasının güvenilmeyen bir köke zincirine izin verilip verilmeyeceğini belirtir.</span><span class="sxs-lookup"><span data-stu-id="777e8-120">Specifies if the certificate for the trusted signer should be allowed to chain to an untrusted root.</span></span>
 
-<span data-ttu-id="b36e0-132">_Note_: Bu seçenek yalnızca güvenilen depolar ekler.</span><span class="sxs-lookup"><span data-stu-id="b36e0-132">_Note_: This option will only add trusted repositories.</span></span> 
+- **`-Owners`**
 
-| <span data-ttu-id="b36e0-133">Seçenek</span><span class="sxs-lookup"><span data-stu-id="b36e0-133">Option</span></span> | <span data-ttu-id="b36e0-134">Açıklama</span><span class="sxs-lookup"><span data-stu-id="b36e0-134">Description</span></span> |
-| --- | --- |
-| <span data-ttu-id="b36e0-135">Serviceındex</span><span class="sxs-lookup"><span data-stu-id="b36e0-135">ServiceIndex</span></span> | <span data-ttu-id="b36e0-136">Güvenilecek deponun v3 hizmeti dizinini belirtir.</span><span class="sxs-lookup"><span data-stu-id="b36e0-136">Specifies the V3 service index of the repository to be trusted.</span></span> <span data-ttu-id="b36e0-137">Bu depo, depo imzaları kaynağını desteklemelidir.</span><span class="sxs-lookup"><span data-stu-id="b36e0-137">This repository has to support the repository signatures resource.</span></span> <span data-ttu-id="b36e0-138">Sağlanmazsa, komut aynı `-Name` bir paket kaynağına bakar ve hizmet dizinini buradan alırlar.</span><span class="sxs-lookup"><span data-stu-id="b36e0-138">If not provided, the command will look for a package source with the same `-Name` and get the service index from there.</span></span> |
-| <span data-ttu-id="b36e0-139">AllowUntrustedRoot</span><span class="sxs-lookup"><span data-stu-id="b36e0-139">AllowUntrustedRoot</span></span> | <span data-ttu-id="b36e0-140">Güvenilen İmzalayanın sertifikasının güvenilmeyen bir köke zincirine izin verilip verilmeyeceğini belirtir.</span><span class="sxs-lookup"><span data-stu-id="b36e0-140">Specifies if the certificate for the trusted signer should be allowed to chain to an untrusted root.</span></span> |
-| <span data-ttu-id="b36e0-141">lere</span><span class="sxs-lookup"><span data-stu-id="b36e0-141">Owners</span></span> | <span data-ttu-id="b36e0-142">Bir deponun güvenini daha fazla kısıtlamak için güvenilen sahipler için noktalı virgülle ayrılmış liste.</span><span class="sxs-lookup"><span data-stu-id="b36e0-142">Semi-colon separated list of trusted owners to further restrict the trust of a repository.</span></span> |
+  <span data-ttu-id="777e8-121">Bir deponun güvenini daha fazla kısıtlamak için güvenilen sahipler için noktalı virgülle ayrılmış liste.</span><span class="sxs-lookup"><span data-stu-id="777e8-121">Semi-colon separated list of trusted owners to further restrict the trust of a repository.</span></span> <span data-ttu-id="777e8-122">Yalnızca seçeneği kullanılırken geçerlidir `-Repository` .</span><span class="sxs-lookup"><span data-stu-id="777e8-122">Only valid when using the `-Repository` option.</span></span>
 
-## <a name="options-for-add-based-on-the-certificate-information"></a><span data-ttu-id="b36e0-143">Sertifika bilgilerine göre ekleme seçenekleri</span><span class="sxs-lookup"><span data-stu-id="b36e0-143">Options for add based on the certificate information</span></span>
+- **`-Repository`**
+
+  <span data-ttu-id="777e8-123">Paket (lar) için depo imzasının veya onay imzasının güvenilir olması gerektiğini belirtir.</span><span class="sxs-lookup"><span data-stu-id="777e8-123">Specifies that the repository signature or countersignature of the package(s) should be trusted.</span></span>
+
+<span data-ttu-id="777e8-124">`-Author` `-Repository` Aynı anda ve aynı zamanda sağlama desteklenmez.</span><span class="sxs-lookup"><span data-stu-id="777e8-124">Providing both `-Author` and `-Repository` at the same time is not supported.</span></span>
+
+## <a name="options-for-add-based-on-a-service-index"></a><span data-ttu-id="777e8-125">Hizmet dizinine dayalı ekleme seçenekleri</span><span class="sxs-lookup"><span data-stu-id="777e8-125">Options for add based on a service index</span></span>
 
 ```cli
 nuget trusted-signers add -Name <name> [options]
 ```
 
-<span data-ttu-id="b36e0-144">_Note_: verilen ada sahip bir güvenilir imzalayan zaten varsa, sertifika öğesi bu İmzalayanın birlikte eklenir.</span><span class="sxs-lookup"><span data-stu-id="b36e0-144">_Note_: If a trusted signer with the given name already exists, the certificate item will be added to that signer.</span></span> <span data-ttu-id="b36e0-145">Aksi halde, belirtilen sertifika bilgileri 'nden bir sertifika öğesiyle güvenilir bir yazar oluşturulacaktır.</span><span class="sxs-lookup"><span data-stu-id="b36e0-145">Otherwise a trusted author will be created with a certificate item from given certificate information.</span></span>
+<span data-ttu-id="777e8-126">_Note_: Bu seçenek yalnızca güvenilen depolar ekler.</span><span class="sxs-lookup"><span data-stu-id="777e8-126">_Note_: This option will only add trusted repositories.</span></span> 
 
-| <span data-ttu-id="b36e0-146">Seçenek</span><span class="sxs-lookup"><span data-stu-id="b36e0-146">Option</span></span> | <span data-ttu-id="b36e0-147">Açıklama</span><span class="sxs-lookup"><span data-stu-id="b36e0-147">Description</span></span> |
-| --- | --- |
-| <span data-ttu-id="b36e0-148">CertificateFingerprint</span><span class="sxs-lookup"><span data-stu-id="b36e0-148">CertificateFingerprint</span></span> | <span data-ttu-id="b36e0-149">İmzalı paketlerin imzalı olması gereken bir sertifikanın sertifika parmak izlerini belirtir.</span><span class="sxs-lookup"><span data-stu-id="b36e0-149">Specifies a certificate fingerprints of a certificate which signed packages must be signed with.</span></span> <span data-ttu-id="b36e0-150">Sertifika parmak izi, sertifikanın bir karmasıdır.</span><span class="sxs-lookup"><span data-stu-id="b36e0-150">A certificate fingerprint is a hash of the certificate.</span></span> <span data-ttu-id="b36e0-151">Bu karmayı hesaplamak için kullanılan karma algoritma `FingerprintAlgorithm` seçeneğinde belirtilmelidir.</span><span class="sxs-lookup"><span data-stu-id="b36e0-151">The hash algorithm used for calculating this hash should be specifies in the `FingerprintAlgorithm` option.</span></span> |
-| <span data-ttu-id="b36e0-152">Parmak izi Talgorithd</span><span class="sxs-lookup"><span data-stu-id="b36e0-152">FingerprintAlgorithm</span></span> | <span data-ttu-id="b36e0-153">Sertifika parmak izini hesaplamak için kullanılan karma algoritmasını belirtir.</span><span class="sxs-lookup"><span data-stu-id="b36e0-153">Specifies the hash algorithm used to calculate the certificate fingerprint.</span></span> <span data-ttu-id="b36e0-154">Varsayılan olarak `SHA256`olur.</span><span class="sxs-lookup"><span data-stu-id="b36e0-154">Defaults to `SHA256`.</span></span> <span data-ttu-id="b36e0-155">Desteklenen değerler `SHA256`, `SHA384` ve `SHA512`</span><span class="sxs-lookup"><span data-stu-id="b36e0-155">Values supported are `SHA256`, `SHA384` and `SHA512`</span></span> |
-| <span data-ttu-id="b36e0-156">AllowUntrustedRoot</span><span class="sxs-lookup"><span data-stu-id="b36e0-156">AllowUntrustedRoot</span></span> | <span data-ttu-id="b36e0-157">Güvenilen İmzalayanın sertifikasının güvenilmeyen bir köke zincirine izin verilip verilmeyeceğini belirtir.</span><span class="sxs-lookup"><span data-stu-id="b36e0-157">Specifies if the certificate for the trusted signer should be allowed to chain to an untrusted root.</span></span> |
+- **`-AllowUntrustedRoot`**
 
-## <a name="nuget-trusted-signers-remove--name-name"></a><span data-ttu-id="b36e0-158">NuGet güvenilir-imzalayanlar Remove-Name \<Name\></span><span class="sxs-lookup"><span data-stu-id="b36e0-158">nuget trusted-signers remove -Name \<name\></span></span>
+  <span data-ttu-id="777e8-127">Güvenilen İmzalayanın sertifikasının güvenilmeyen bir köke zincirine izin verilip verilmeyeceğini belirtir.</span><span class="sxs-lookup"><span data-stu-id="777e8-127">Specifies if the certificate for the trusted signer should be allowed to chain to an untrusted root.</span></span>
 
-<span data-ttu-id="b36e0-159">Verilen adla eşleşen tüm güvenilen İmzalayanları kaldırır.</span><span class="sxs-lookup"><span data-stu-id="b36e0-159">Removes any trusted signers that match the given name.</span></span>
+- **`-Owners`**
 
-## <a name="nuget-trusted-signers-sync--name-name"></a><span data-ttu-id="b36e0-160">NuGet güvenilir-sonuçcılar eşitleme-adı \<adı\></span><span class="sxs-lookup"><span data-stu-id="b36e0-160">nuget trusted-signers sync -Name \<name\></span></span>
+  <span data-ttu-id="777e8-128">Bir deponun güvenini daha fazla kısıtlamak için güvenilen sahipler için noktalı virgülle ayrılmış liste.</span><span class="sxs-lookup"><span data-stu-id="777e8-128">Semi-colon separated list of trusted owners to further restrict the trust of a repository.</span></span>
 
-<span data-ttu-id="b36e0-161">Güvenilen İmzalayanın mevcut sertifika listesini güncelleştirmek için şu anda güvenilir bir depoda kullanılan sertifikaların en son listesini ister.</span><span class="sxs-lookup"><span data-stu-id="b36e0-161">Requests the latest list of certificates used in a currently trusted repository to update the the existing certificate list in the trusted signer.</span></span>
+- **`-ServiceIndex`**
 
-<span data-ttu-id="b36e0-162">_Note_: Bu hareket, geçerli sertifika listesini silecek ve bunları depodan güncel bir listeyle değiştirecek.</span><span class="sxs-lookup"><span data-stu-id="b36e0-162">_Note_: This gesture will delete the current list of certificates and replace them with an up-to-date list from the repository.</span></span>
+  <span data-ttu-id="777e8-129">Güvenilecek deponun v3 hizmeti dizinini belirtir.</span><span class="sxs-lookup"><span data-stu-id="777e8-129">Specifies the V3 service index of the repository to be trusted.</span></span> <span data-ttu-id="777e8-130">Bu depo, depo imzaları kaynağını desteklemelidir.</span><span class="sxs-lookup"><span data-stu-id="777e8-130">This repository has to support the repository signatures resource.</span></span> <span data-ttu-id="777e8-131">Sağlanmazsa, komut aynı olan bir paket kaynağını arar `-Name` ve hizmet dizinini buradan alır.</span><span class="sxs-lookup"><span data-stu-id="777e8-131">If not provided, the command will look for a package source with the same `-Name` and get the service index from there.</span></span>
 
-## <a name="options"></a><span data-ttu-id="b36e0-163">Seçenekler</span><span class="sxs-lookup"><span data-stu-id="b36e0-163">Options</span></span>
+## <a name="options-for-add-based-on-the-certificate-information"></a><span data-ttu-id="777e8-132">Sertifika bilgilerine göre ekleme seçenekleri</span><span class="sxs-lookup"><span data-stu-id="777e8-132">Options for add based on the certificate information</span></span>
 
-| <span data-ttu-id="b36e0-164">Seçenek</span><span class="sxs-lookup"><span data-stu-id="b36e0-164">Option</span></span> | <span data-ttu-id="b36e0-165">Açıklama</span><span class="sxs-lookup"><span data-stu-id="b36e0-165">Description</span></span> |
-| --- | --- |
-| <span data-ttu-id="b36e0-166">ConfigFile</span><span class="sxs-lookup"><span data-stu-id="b36e0-166">ConfigFile</span></span> | <span data-ttu-id="b36e0-167">Uygulanacak NuGet yapılandırma dosyası.</span><span class="sxs-lookup"><span data-stu-id="b36e0-167">The NuGet configuration file to apply.</span></span> <span data-ttu-id="b36e0-168">Belirtilmezse, `%AppData%\NuGet\NuGet.Config` (Windows) veya `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) kullanılır.</span><span class="sxs-lookup"><span data-stu-id="b36e0-168">If not specified, `%AppData%\NuGet\NuGet.Config` (Windows) or `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) is used.</span></span>|
-| <span data-ttu-id="b36e0-169">ForceEnglishOutput</span><span class="sxs-lookup"><span data-stu-id="b36e0-169">ForceEnglishOutput</span></span> | <span data-ttu-id="b36e0-170">NuGet. exe ' yi sabit, Ingilizce tabanlı bir kültür kullanarak çalışmaya zorlar.</span><span class="sxs-lookup"><span data-stu-id="b36e0-170">Forces nuget.exe to run using an invariant, English-based culture.</span></span> |
-| <span data-ttu-id="b36e0-171">Yardım</span><span class="sxs-lookup"><span data-stu-id="b36e0-171">Help</span></span> | <span data-ttu-id="b36e0-172">Komut için yardım bilgilerini görüntüler.</span><span class="sxs-lookup"><span data-stu-id="b36e0-172">Displays help information for the command.</span></span> |
-| <span data-ttu-id="b36e0-173">Ayrıntı Düzeyi</span><span class="sxs-lookup"><span data-stu-id="b36e0-173">Verbosity</span></span> | <span data-ttu-id="b36e0-174">Çıktıda görünen ayrıntı miktarını belirtir: *normal*, *sessiz*, *ayrıntılı*.</span><span class="sxs-lookup"><span data-stu-id="b36e0-174">Specifies the amount of detail displayed in the output: *normal*, *quiet*, *detailed*.</span></span> |
+```cli
+nuget trusted-signers add -Name <name> [options]
+```
 
-## <a name="examples"></a><span data-ttu-id="b36e0-175">Örnekler</span><span class="sxs-lookup"><span data-stu-id="b36e0-175">Examples</span></span>
+<span data-ttu-id="777e8-133">_Note_: verilen ada sahip bir güvenilir imzalayan zaten varsa, sertifika öğesi bu İmzalayanın birlikte eklenir.</span><span class="sxs-lookup"><span data-stu-id="777e8-133">_Note_: If a trusted signer with the given name already exists, the certificate item will be added to that signer.</span></span> <span data-ttu-id="777e8-134">Aksi halde, belirtilen sertifika bilgileri 'nden bir sertifika öğesiyle güvenilir bir yazar oluşturulacaktır.</span><span class="sxs-lookup"><span data-stu-id="777e8-134">Otherwise a trusted author will be created with a certificate item from given certificate information.</span></span>
+
+
+- **`-AllowUntrustedRoot`**
+
+  <span data-ttu-id="777e8-135">Güvenilen İmzalayanın sertifikasının güvenilmeyen bir köke zincirine izin verilip verilmeyeceğini belirtir.</span><span class="sxs-lookup"><span data-stu-id="777e8-135">Specifies if the certificate for the trusted signer should be allowed to chain to an untrusted root.</span></span>
+
+- **`-CertificateFingerprint`**
+
+  <span data-ttu-id="777e8-136">İmzalı paketlerin imzalı olması gereken bir sertifikanın sertifika parmak izlerini belirtir.</span><span class="sxs-lookup"><span data-stu-id="777e8-136">Specifies a certificate fingerprints of a certificate which signed packages must be signed with.</span></span> <span data-ttu-id="777e8-137">Sertifika parmak izi, sertifikanın bir karmasıdır.</span><span class="sxs-lookup"><span data-stu-id="777e8-137">A certificate fingerprint is a hash of the certificate.</span></span> <span data-ttu-id="777e8-138">Bu karmayı hesaplamak için kullanılan karma algoritma, `FingerprintAlgorithm` seçeneğinde belirtilmelidir.</span><span class="sxs-lookup"><span data-stu-id="777e8-138">The hash algorithm used for calculating this hash should be specifies in the `FingerprintAlgorithm` option.</span></span>
+
+- **`-FingerprintAlgorithm`**
+
+  <span data-ttu-id="777e8-139">Sertifika parmak izini hesaplamak için kullanılan karma algoritmasını belirtir.</span><span class="sxs-lookup"><span data-stu-id="777e8-139">Specifies the hash algorithm used to calculate the certificate fingerprint.</span></span> <span data-ttu-id="777e8-140">Varsayılan olarak olur `SHA256` .</span><span class="sxs-lookup"><span data-stu-id="777e8-140">Defaults to `SHA256`.</span></span> <span data-ttu-id="777e8-141">Desteklenen değerler `SHA256` ve ' `SHA384` dir `SHA512` .</span><span class="sxs-lookup"><span data-stu-id="777e8-141">Values supported are `SHA256`, `SHA384` and `SHA512`.</span></span>
+
+## <a name="nuget-trusted-signers-remove--name-name"></a><span data-ttu-id="777e8-142">NuGet güvenilir-imzalayanlar Remove-Name \<name\></span><span class="sxs-lookup"><span data-stu-id="777e8-142">nuget trusted-signers remove -Name \<name\></span></span>
+
+<span data-ttu-id="777e8-143">Verilen adla eşleşen tüm güvenilen İmzalayanları kaldırır.</span><span class="sxs-lookup"><span data-stu-id="777e8-143">Removes any trusted signers that match the given name.</span></span>
+
+## <a name="nuget-trusted-signers-sync--name-name"></a><span data-ttu-id="777e8-144">NuGet güvenilir-imzalayanlar eşitleme-adı \<name\></span><span class="sxs-lookup"><span data-stu-id="777e8-144">nuget trusted-signers sync -Name \<name\></span></span>
+
+<span data-ttu-id="777e8-145">Güvenilen İmzalayanın mevcut sertifika listesini güncelleştirmek için şu anda güvenilir bir depoda kullanılan sertifikaların en son listesini ister.</span><span class="sxs-lookup"><span data-stu-id="777e8-145">Requests the latest list of certificates used in a currently trusted repository to update the the existing certificate list in the trusted signer.</span></span>
+
+<span data-ttu-id="777e8-146">_Note_: Bu hareket, geçerli sertifika listesini silecek ve bunları depodan güncel bir listeyle değiştirecek.</span><span class="sxs-lookup"><span data-stu-id="777e8-146">_Note_: This gesture will delete the current list of certificates and replace them with an up-to-date list from the repository.</span></span>
+
+## <a name="options"></a><span data-ttu-id="777e8-147">Seçenekler</span><span class="sxs-lookup"><span data-stu-id="777e8-147">Options</span></span>
+
+- **`-ConfigFile`**
+
+  <span data-ttu-id="777e8-148">Uygulanacak NuGet yapılandırma dosyası.</span><span class="sxs-lookup"><span data-stu-id="777e8-148">The NuGet configuration file to apply.</span></span> <span data-ttu-id="777e8-149">Belirtilmemişse, `%AppData%\NuGet\NuGet.Config` (Windows) veya `~/.nuget/NuGet/NuGet.Config` ya da `~/.config/NuGet/NuGet.Config` (Mac/Linux) kullanılır.</span><span class="sxs-lookup"><span data-stu-id="777e8-149">If not specified, `%AppData%\NuGet\NuGet.Config` (Windows), or `~/.nuget/NuGet/NuGet.Config` or `~/.config/NuGet/NuGet.Config` (Mac/Linux) is used.</span></span>
+
+- **`-ForceEnglishOutput`**
+
+  <span data-ttu-id="777e8-150">nuget.exe, sabit ve Ingilizce tabanlı bir kültür kullanılarak çalışmaya zorlar.</span><span class="sxs-lookup"><span data-stu-id="777e8-150">Forces nuget.exe to run using an invariant, English-based culture.</span></span>
+
+- **`-?|-help`**
+
+  <span data-ttu-id="777e8-151">Komut için yardım bilgilerini görüntüler.</span><span class="sxs-lookup"><span data-stu-id="777e8-151">Displays help information for the command.</span></span>
+
+- **`-Name`**
+
+  <span data-ttu-id="777e8-152">Güvenilen İmzalayanın adı.</span><span class="sxs-lookup"><span data-stu-id="777e8-152">Name of the trusted signer.</span></span>
+
+- **`-NonInteractive`**
+
+  <span data-ttu-id="777e8-153">Kullanıcı girişi veya onayları için istemleri bastırır.</span><span class="sxs-lookup"><span data-stu-id="777e8-153">Suppresses prompts for user input or confirmations.</span></span>
+
+- **`-Verbosity [normal|quiet|detailed]`**
+
+  <span data-ttu-id="777e8-154">Çıkışta gösterilecek ayrıntı miktarını belirtir: `normal` (varsayılan), `quiet` veya `detailed` .</span><span class="sxs-lookup"><span data-stu-id="777e8-154">Specifies the amount of detail displayed in the output: `normal` (the default), `quiet`, or `detailed`.</span></span>
+
+
+## <a name="examples"></a><span data-ttu-id="777e8-155">Örnekler</span><span class="sxs-lookup"><span data-stu-id="777e8-155">Examples</span></span>
 
 ```cli
 nuget trusted-signers list
