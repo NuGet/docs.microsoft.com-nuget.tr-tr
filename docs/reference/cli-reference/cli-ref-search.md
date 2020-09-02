@@ -5,12 +5,12 @@ author: advay26
 ms.author: t-adtand
 ms.date: 08/17/2020
 ms.topic: reference
-ms.openlocfilehash: 35e4906960534299418cb2a17c190476708b2634
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 8d63efefb8f14c03fbe3986d8d7eebcc3eb5bcac
+ms.sourcegitcommit: 6cda91f135e58cf57a2471b0c7c4a2f748f40024
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623271"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89359688"
 ---
 # <a name="search-command-nuget-cli"></a>Search komutu (NuGet CLı)
 
@@ -33,18 +33,16 @@ arama koşullarının, paketler, Etiketler ve paket açıklamaları adına, bunl
 | Sp1'in | Yayın öncesi paketleri varsayılan olarak dahil edilmez, ancak bu bağımsız değişken kullanılarak eklenebilir | -Ön sürüm |
 | Kaynak | __nuget.config__ varsayılan kaynakları sorgulamak yerine aranacak belirli paket kaynakları | -Kaynak `<Source URL>`|
 | Take | Döndürülecek sonuç sayısı. Varsayılan değer 20 ' dir. | -Al `<positive integer>` |
-| Ayrıntı Düzeyi | Çıktıda görüntülenecek ayrıntı düzeyi. Varsayılan değer _normaldir_. (Aşağıdaki nota bakın)  | -Ayrıntı düzeyi `<quiet\|normal\|detailed>` |
+| Ayrıntı Düzeyi | Çıktıda görüntülenecek ayrıntı düzeyi. Varsayılan değer _normaldir_. (Aşağıdaki nota bakın)  | -Ayrıntı düzeyi `<quiet|normal|detailed>` |
 | Yardım | Komut için yardım bilgilerini görüntüler | -Yardım |
 
 Ayrıca bkz. [ortam değişkenleri](cli-ref-environment-variables.md)
 
-__NOT__
-
-Ayrıntı düzeyleri:
-
-* _sessiz_ paket kimliği, sürüm
-* _normal_ -paket kimliği, sürüm, Indirmeler, açıklama önizlemesi
-* _ayrıntılı_ -paket kimliği, sürüm, Indirmeler, tam açıklama, sorgu URL 'Si gibi diğer bilgiler
+> [!NOTE] 
+> Ayrıntı düzeyleri:
+> * _sessiz_ paket kimliği, sürüm
+> * _normal_ -paket kimliği, sürüm, Indirmeler, açıklama önizlemesi
+> * _ayrıntılı_ -paket kimliği, sürüm, Indirmeler, tam açıklama, sorgu URL 'Si gibi diğer bilgiler
 
 ## <a name="examples"></a>Örnekler
 
