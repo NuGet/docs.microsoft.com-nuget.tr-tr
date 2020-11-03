@@ -1,16 +1,16 @@
 ---
 title: NuGet Add-BindingRedirect PowerShell Başvurusu
-description: Visual Studio 'daki NuGet Paket Yöneticisi konsolundaki Add-BindingRedirect PowerShell komutu için başvuru.
+description: Visual Studio 'daki NuGet Paket Yöneticisi konsolundaki Add-BindingRedirect PowerShell komutuna yönelik başvuru.
 author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: f5ba4bd8140fa8cac7da8bf1351ad5448671b768
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 382ba9b179428c70e3eb16db86a363e095207d61
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623129"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237263"
 ---
 # <a name="add-bindingredirect-package-manager-console-in-visual-studio"></a>Add-BindingRedirect (Visual Studio 'da Paket Yöneticisi konsolu)
 
@@ -23,7 +23,7 @@ Bir projenin çıkış yolundaki tüm derlemeleri inceler ve gerektiğinde uygul
 
 Bağlama yeniden yönlendirmeleri ve bunların kullanılma nedenleri hakkında daha fazla bilgi için bkz. .NET belgelerindeki [derleme sürümlerini yeniden yönlendirme](/dotnet/framework/configure-apps/redirect-assembly-versions) .
 
-## <a name="syntax"></a>Söz dizimi
+## <a name="syntax"></a>Sözdizimi
 
 ```ps
 Add-BindingRedirect [-ProjectName] <string> [<CommonParameters>]
@@ -39,7 +39,7 @@ Bu parametrelerin hiçbiri, işlem hattı girişi veya joker karakterler kabul e
 
 ## <a name="common-parameters"></a>Ortak Parametreler
 
-`Add-BindingRedirect` Şu [ortak PowerShell parametrelerini](https://go.microsoft.com/fwlink/?LinkID=113216)destekler: Hata Ayıkla, hata eylemi, ErrorVariable, OutBuffer, OutVariable, Pipelinevariable, verbose, WarningAction ve WarningVariable.
+`Add-BindingRedirect` Şu [ortak PowerShell parametrelerini](/powershell/module/microsoft.powershell.core/about/about_commonparameters)destekler: Hata Ayıkla, hata eylemi, ErrorVariable, OutBuffer, OutVariable, Pipelinevariable, verbose, WarningAction ve WarningVariable.
 
 ## <a name="examples"></a>Örnekler
 

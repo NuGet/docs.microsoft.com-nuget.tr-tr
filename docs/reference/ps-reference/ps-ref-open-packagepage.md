@@ -1,18 +1,18 @@
 ---
-title: NuGet açık PackagePage PowerShell Başvurusu
-description: Visual Studio 'daki NuGet Paket Yöneticisi konsolunda Open-PackagePage PowerShell komutu için başvuru.
+title: NuGet Open-PackagePage PowerShell Başvurusu
+description: Visual Studio 'daki NuGet Paket Yöneticisi konsolundaki Open-PackagePage PowerShell komutuna yönelik başvuru.
 author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 39199ebfc37756ed40158a1c07afca7709067350
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: ba90e09c017ec66d73c35a60025474bc77cf65a7
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75384434"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93238068"
 ---
-# <a name="open-packagepage-package-manager-console-in-visual-studio"></a>Open-PackagePage (Visual Studio'da Paket Yöneticisi Konsolu)
+# <a name="open-packagepage-package-manager-console-in-visual-studio"></a>Open-PackagePage (Visual Studio 'da Paket Yöneticisi konsolu)
 
 *3.0 + ' da kullanımdan kaldırılmıştır; yalnızca Windows üzerinde Visual Studio 'da bulunan [Paket Yöneticisi konsolu](../../consume-packages/install-use-packages-powershell.md) içinde kullanılabilir.*
 
@@ -40,7 +40,7 @@ Bu parametrelerin hiçbiri, işlem hattı girişi veya joker karakterler kabul e
 
 ## <a name="common-parameters"></a>Ortak Parametreler
 
-`Open-PackagePage`, şu [ortak PowerShell parametrelerini](https://go.microsoft.com/fwlink/?LinkID=113216)destekler: Hata Ayıkla, hata eylemi, ErrorVariable, OutBuffer, OutVariable, Pipelinevariable, verbose, WarningAction ve WarningVariable.
+`Open-PackagePage` Şu [ortak PowerShell parametrelerini](/powershell/module/microsoft.powershell.core/about/about_commonparameters)destekler: Hata Ayıkla, hata eylemi, ErrorVariable, OutBuffer, OutVariable, Pipelinevariable, verbose, WarningAction ve WarningVariable.
 
 ## <a name="examples"></a>Örnekler
 

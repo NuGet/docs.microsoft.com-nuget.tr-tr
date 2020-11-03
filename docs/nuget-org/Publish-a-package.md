@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/18/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: dc20e43bfb43a4b6e47297fb3446319860034d46
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: fe5625247dca51c10d82fffe82022c40a4716069
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623038"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237938"
 ---
 # <a name="publishing-packages"></a>Paketler yayımlanıyor
 
@@ -24,7 +24,7 @@ Bu makalede, nuget.org ' a yayımlama ele alınmaktadır. Azure Artifacts yayım
 
 ## <a name="publish-to-nugetorg"></a>Nuget.org 'e Yayımla
 
-Nuget.org için Microsoft hesabı ile oturum açmanız gerekir, bu, hesabı nuget.org ile kaydetmeniz istenecektir. Ayrıca, portalın eski sürümleri kullanılarak oluşturulan bir nuget.org hesabıyla da oturum açabilirsiniz.
+Nuget.org için Microsoft hesabı ile oturum açmanız gerekir, bu, hesabı nuget.org ile kaydetmeniz istenecektir.
 
 ![NuGet oturum açma konumu](media/publish_NuGetSignIn.png)
 
@@ -47,7 +47,7 @@ Daha sonra, nuget.org Web portalı aracılığıyla paketi karşıya yükleyebil
 ### <a name="command-line"></a>Komut satırı
 
 Paketleri nuget.org 'e göndermek için, önce nuget.org üzerinde oluşturulan bir API anahtarına ihtiyacınız vardır. Gerekli NuGet protokollerini uygulayan dotnet.exe (.NET Core) veya nuget.exe v 4.1.0 ya da üstünü kullanmanız gerekir.
-Daha fazla bilgi için bkz. [.NET Core](https://docs.microsoft.com/dotnet/core/install/), [nuget.exe](https://www.nuget.org/downloads)ve [NuGet protokolleri](../api/nuget-protocols.md).
+Daha fazla bilgi için bkz. [.NET Core](/dotnet/core/install/), [nuget.exe](https://www.nuget.org/downloads)ve [NuGet protokolleri](../api/nuget-protocols.md).
 
 #### <a name="create-api-keys"></a>API anahtarları oluşturma
 
@@ -111,13 +111,13 @@ Tüm paket sahipleri, diğer sahipleri ekleme ve kaldırma ve güncelleştirme y
 Bir paketin sahipliğini değiştirmek için aşağıdakileri yapın:
 
 1. Nuget.org 'de paketin geçerli sahibi olan hesapla oturum açın.
-1. Hesap adınızı seçin, **paketleri Yönet**' i seçin ve **yayımlanan paketler**' i genişletin.
-1. Yönetmek istediğiniz paketi seçin, ardından sağ tarafta **sahipleri Yönet**' i seçin.
+1. Hesap adınızı seçin, **paketleri Yönet** ' i seçin ve **yayımlanan paketler** ' i genişletin.
+1. Yönetmek istediğiniz paketi seçin, ardından sağ tarafta **sahipleri Yönet** ' i seçin.
 
 Buradan çeşitli seçenekleriniz vardır:
 
-1. **Geçerli sahipler**altında listelenen tüm sahipleri kaldırın.
-1. Kullanıcı adını, bir iletiyi girerek ve **Ekle**' yi seçerek **sahip Ekle** altına bir sahip ekleyin. Bu eylem, bu yeni ortak Sahibe onay bağlantısı ile bir e-posta gönderir. Onaylandıktan sonra, bu kişinin sahipleri eklemek ve kaldırmak için tam izinleri vardır. (Onaylanana kadar, **geçerli sahipler** bölümü söz konusu kişi için bekleyen onay olduğunu gösterir.)
+1. **Geçerli sahipler** altında listelenen tüm sahipleri kaldırın.
+1. Kullanıcı adını, bir iletiyi girerek ve **Ekle** ' yi seçerek **sahip Ekle** altına bir sahip ekleyin. Bu eylem, bu yeni ortak Sahibe onay bağlantısı ile bir e-posta gönderir. Onaylandıktan sonra, bu kişinin sahipleri eklemek ve kaldırmak için tam izinleri vardır. (Onaylanana kadar, **geçerli sahipler** bölümü söz konusu kişi için bekleyen onay olduğunu gösterir.)
 1. Sahipliği aktarmak için (sahiplik değişiklikleri veya bir paket yanlış hesap altında yayımlandığında olduğu gibi), yeni sahibi ekleyin ve sahipliği onayladıktan sonra listeden kaldırabilir.
 
 Bir şirkete veya gruba sahiplik atamak için, uygun takım üyelerine iletilen bir e-posta diğer adı kullanarak bir nuget.org hesabı oluşturun. Örneğin, çeşitli Microsoft ASP.NET paketleri [Microsoft](https://nuget.org/profiles/microsoft) ve [ASPNET](https://nuget.org/profiles/aspnet) hesaplarına aittir, bu da yalnızca diğer adlar vardır.

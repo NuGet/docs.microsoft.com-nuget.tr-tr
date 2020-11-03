@@ -1,60 +1,60 @@
 ---
-title: NuGet için .NET Derleyici Platform Analizörü Biçimleri
-description: API veya kitaplık uygulayan NuGet paketleriyle paketlenip dağıtılan .NET çözümleyicileri için sözleşmeler.
+title: NuGet için .NET Compiler Platform çözümleyici biçimleri
+description: Bir API veya kitaplık uygulayan NuGet paketleri ile paketlenmiş ve dağıtılan .NET Çözümleyicileri için kurallar.
 author: karann-msft
 ms.author: karann
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: 4d337299f725b38981b0121069d5e6295b05e34e
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 9de890d14747a74a13a660109a3b6812a5e08acc
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "72924634"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237925"
 ---
-# <a name="analyzer-nuget-formats"></a>Analyzer NuGet biçimleri
+# <a name="analyzer-nuget-formats"></a>Çözümleyici NuGet biçimleri
 
-.NET Derleyici Platformu ("Roslyn" olarak da bilinir), geliştiricilerin kod sözdizimi ağacını ve kod anlamtlarını incelenirken inceleyen [çözümleyiciler](https://github.com/dotnet/roslyn/wiki/How-To-Write-a-C%23-Analyzer-and-Code-Fix) oluşturmasına olanak tanır. Bu, geliştiricilere, belirli bir API veya kitaplığın kullanımına rehberlik edecek alanlar gibi etki alanına özgü çözümleme araçları oluşturmanın bir yolunu sağlar. [.NET/Roslyn](https://github.com/dotnet/roslyn/wiki) GitHub wiki hakkında daha fazla bilgi bulabilirsiniz. Ayrıca makaleye bakın, MSDN Dergisi'nde [API için canlı kod analizörü yazmak için Roslyn kullanın.](https://msdn.microsoft.com/magazine/dn879356.aspx)
+.NET Compiler Platform ("Roslyn" olarak da bilinir), geliştiricilerin yazıldığı haliyle kodun sözdizimi ağacını ve semantiğini inceleyecek [çözümleyiciler](https://github.com/dotnet/roslyn/wiki/How-To-Write-a-C%23-Analyzer-and-Code-Fix) oluşturmalarına olanak tanır. Bu, geliştiricilere belirli bir API veya kitaplığın kullanılmasına kılavuzluk eden gibi, etki alanına özgü analiz araçları oluşturmak için bir yol sağlar. [.Net/Roslyn](https://github.com/dotnet/roslyn/wiki) GitHub wiki hakkında daha fazla bilgi bulabilirsiniz. Ayrıca, MSDN Magazine 'teki [API 'niz Için canlı bir kod Çözümleyicisi yazmak Için Roslyn](/archive/msdn-magazine/2014/special-issue/csharp-and-visual-basic-use-roslyn-to-write-a-live-code-analyzer-for-your-api) ' yi kullanma makalesine bakın.
 
-Çözümleyicilerin kendileri genellikle söz konusu API veya kitaplığı uygulayan NuGet paketlerinin bir parçası olarak paketlenir ve dağıtılır.
+Çözümleyiciler, genellikle, söz konusu API veya kitaplığı uygulayan NuGet paketlerinin bir parçası olarak paketlenir ve dağıtılır.
 
-İyi bir örnek için, aşağıdaki içerikleri içeren [System.Runtime.Analyzers](https://www.nuget.org/packages/System.Runtime.Analyzers) paketine bakın:
+İyi bir örnek için, aşağıdaki içeriğe sahip olan [System. Runtime. çözümleyiciler](https://www.nuget.org/packages/System.Runtime.Analyzers) paketine bakın:
 
-- çözümleyiciler\dotnet\System.Runtime.Analyzers.dll
-- çözümleyiciler\dotnet\cs\System.Runtime.CSharp.Analyzers.dll
-- çözümleyiciler\dotnet\vb\System.Runtime.VisualBasic.Analyzers.dll
+- analyzers\dotnet\System.Runtime.Analyzers.dll
+- analyzers\dotnet\cs\System.Runtime.CSharp.Analyzers.dll
+- analyzers\dotnet\vb\System.Runtime.VisualBasic.Analyzers.dll
 - build\System.Runtime.Analyzers.Common.props
 - build\System.Runtime.Analyzers.props
 - build\System.Runtime.CSharp.Analyzers.props
 - build\System.Runtime.VisualBasic.Analyzers.props
-- araçlar\install.ps1
-- araçlar\uninstall.ps1
+- tools\install.ps1
+- tools\uninstall.ps1
 
-Gördüğünüz gibi, çözümleyici DL'leri paketteki `analyzers` bir klasöre yersiniz.
+Gördüğünüz gibi, çözümleyici dll 'Lerini `analyzers` paketteki bir klasöre yerleştirebilirsiniz.
 
-Çözümleyici uygulaması lehine eski FxCop kurallarını devre dışı bırakan sahne dosyaları klasöre `build` yerleştirilir.
+Çözümleyici uygulamasının yerine eski FxCop kurallarını devre dışı bırakmak için bulunan props dosyaları `build` klasörüne yerleştirilir.
 
-Projeleri destekleyen `packages.config` komut dosyalarını yükleyin ve `tools`kaldırın.
+Kullanılarak projeleri destekleyen betikleri yükleme ve kaldırma komutları `packages.config` içine yerleştirilir `tools` .
 
-Ayrıca, bu paketin platforma özgü gereksinimleri `platform` olmadığından klasörün atlandığına da dikkat edin.
+Ayrıca, bu paketin platforma özgü gereksinimleri olmadığından, klasörün atlandığına de göz önünde unutmayın `platform` .
 
 
 ## <a name="analyzers-path-format"></a>Çözümleyiciler yol biçimi
 
-Klasörün `analyzers` kullanımı [hedef çerçeveler](../create-packages/supporting-multiple-target-frameworks.md)için kullanılana benzer , ancak yoldaki belirteçler yapı zamanı yerine geliştirme ana bilgisayar bağımlılıklarını açıklar. Genel biçimi aşağıdaki gibidir:
+Klasörün kullanımı, `analyzers` [hedef çerçeveler](../create-packages/supporting-multiple-target-frameworks.md)için kullanılan ile benzerdir, yoldaki tanımlayıcılar derleme zamanı yerine geliştirme ana bilgisayar bağımlılıklarını da anlatmaktadır. Genel biçim aşağıdaki gibidir:
 
     $/analyzers/{framework_name}{version}/{supported_architecture}/{supported_language}/{analyzer_name}.dll
 
-- **framework_name** ve **sürüm**: .NET Framework'ün, içerdiği DL'lerin çalışması gereken *isteğe bağlı* API yüzey alanı. `dotnet`roslyn çözümleyicileri çalıştırabilen tek ana bilgisayar olduğundan, şu anda tek geçerli değerdir. Hedef belirtilmemişse, DL'lerin *tüm* hedeflere uygulanacağı varsayılır.
-- **supported_language**: DLL'nin geçerli olduğu dil, `cs` (C#) ve (Visual Basic) ve `vb` `fs` (F#). Dil, çözümleyicinin yalnızca bu dili kullanan bir proje için yüklenmesi gerektiğini gösterir. Dil belirtilmemişse, DLL'nin çözümleyicileri destekleyen *tüm* dillere uygulanacağı varsayılır.
-- **analyzer_name**: çözümleyicinin DL'lerini belirtir. DL'lerin ötesinde ek dosyalara ihtiyacınız varsa, bunlar bir hedef veya özellik dosyaları aracılığıyla eklenmelidir.
+- **framework_name** ve **Sürüm** : içerilen dll 'lerin çalıştırılması gereken .NET Framework *isteğe bağlı* API yüzey alanı. `dotnet` Şu anda tek geçerli değerdir çünkü Roslyn, çözümleyiciler çalıştırabildiğinden tek ana bilgisayar. Hiçbir hedef belirtilmemişse, dll 'Lerin *Tüm* hedeflere uygulanacak kabul edilir.
+- **supported_language** : DLL 'nin uygulandığı dil `cs` (C#) ve `vb` (Visual Basic) ve `fs` (F #). Dil, çözümleyici 'nin yalnızca bu dil kullanılarak bir proje için yüklenmesi gerektiğini gösterir. Hiçbir dil belirtilmemişse, DLL 'nin Çözümleyicileri destekleyen *Tüm* dillere uygulanacağını kabul edilir.
+- **analyzer_name** : çözümleyicinin dll 'lerini belirtir. Dll 'Lerden daha fazla dosya gerekiyorsa, bunlar bir hedefler veya özellikler dosyalarına dahil olmalıdır.
 
 
-## <a name="install-and-uninstall-scripts"></a>Komut dosyalarını yükleme ve kaldırma
+## <a name="install-and-uninstall-scripts"></a>Betikleri yükleme ve kaldırma
 
-Kullanıcının projesi `packages.config`kullanıyorsa, çözümleyiciyi alan MSBuild komut dosyası devreye girmez, `install.ps1` bu `uninstall.ps1` nedenle `tools` aşağıda açıklanan içerikleri klasöre yerleştirmeniz gerekir.
+Kullanıcının projesi kullanıyorsa `packages.config` , çözümleyici 'yi yükleyen MSBuild betiği Play 'e gelmez, `install.ps1` Bu nedenle `uninstall.ps1` `tools` klasörü aşağıda açıklanan içerikle birlikte yerleştirmeniz gerekir.
 
-**install.ps1 dosya içeriği**
+**Dosya içeriğiniinstall.ps1**
 
 ```ps
 param($installPath, $toolsPath, $package, $project)
@@ -109,7 +109,7 @@ foreach($analyzersPath in $analyzersPaths)
 ```
 
 
-**uninstall.ps1 dosya içeriği**
+**Dosya içeriğiniuninstall.ps1**
 
 ```ps
 param($installPath, $toolsPath, $package, $project)

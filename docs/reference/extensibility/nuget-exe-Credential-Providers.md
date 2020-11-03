@@ -1,45 +1,45 @@
 ---
-title: NuGet. exe kimlik bilgileri sağlayıcıları
-description: NuGet. exe kimlik bilgileri sağlayıcıları bir akışa kimlik doğrular ve belirli kuralları izleyen komut satırı yürütülebilir dosyaları olarak uygulanır.
+title: nuget.exe kimlik bilgileri sağlayıcıları
+description: nuget.exe kimlik bilgileri sağlayıcıları bir akışa göre kimlik doğrulaması yapabilir ve belirli kuralları izleyen komut satırı yürütülebilir dosyaları olarak uygulanır.
 author: karann-msft
 ms.author: karann
 ms.date: 12/12/2017
 ms.topic: conceptual
 ms.openlocfilehash: 41e3e63138351bafd5e3a56080268faef10d85a3
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2020
-ms.locfileid: "79428725"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93238120"
 ---
-# <a name="authenticating-feeds-with-nugetexe-credential-providers"></a>NuGet. exe kimlik bilgisi sağlayıcılarıyla akışların kimliğini doğrulama
+# <a name="authenticating-feeds-with-nugetexe-credential-providers"></a>nuget.exe kimlik bilgileri sağlayıcılarıyla akışların kimliğini doğrulama
 
-Sürüm `3.3` `nuget.exe` belirli kimlik bilgileri sağlayıcıları için destek eklenmiştir. Sonrasında, tüm komut satırı senaryolarında (`nuget.exe`, `dotnet.exe`, `msbuild.exe`) çalışan [kimlik bilgileri sağlayıcıları için](NuGet-Cross-Platform-Authentication-Plugin.md) sürüm `4.8` desteği eklenmiştir.
+`3.3` `nuget.exe` Belirli kimlik bilgileri sağlayıcıları için sürüm desteği eklenmiştir. Sonrasında, `4.8` tüm komut satırı senaryolarında (,,) çalışan [kimlik bilgileri sağlayıcıları için sürüm desteği](NuGet-Cross-Platform-Authentication-Plugin.md) ' nde `nuget.exe` `dotnet.exe` `msbuild.exe` eklenmiştir.
 
-`nuget.exe` yönelik tüm kimlik doğrulama yaklaşımları hakkında daha fazla bilgi için bkz. [kimliği doğrulanmış akışlardan paketleri](../../consume-packages/consuming-packages-authenticated-feeds.md#nugetexe) kullanma
+Tüm kimlik doğrulama yaklaşımları hakkında daha fazla bilgi için bkz. [kimliği doğrulanmış akışlardan paketleri](../../consume-packages/consuming-packages-authenticated-feeds.md#nugetexe) kullanma `nuget.exe`
 
-## <a name="nugetexe-credential-provider-discovery"></a>NuGet. exe kimlik bilgisi sağlayıcısı bulma
+## <a name="nugetexe-credential-provider-discovery"></a>nuget.exe kimlik bilgisi sağlayıcısı bulma
 
-NuGet. exe kimlik bilgileri sağlayıcıları 3 şekilde kullanılabilir:
+nuget.exe kimlik bilgileri sağlayıcıları 3 şekilde kullanılabilir:
 
-- **Küresel**: bir kimlik bilgisi sağlayıcısını geçerli kullanıcının profilinde çalıştırılan tüm `nuget.exe` örnekleri için kullanılabilir hale getirmek için, `%LocalAppData%\NuGet\CredentialProviders`ekleyin. `CredentialProviders` klasörünü oluşturmanız gerekebilir. Kimlik bilgileri sağlayıcıları `CredentialProviders` klasörünün köküne veya bir alt klasöre yüklenebilir. Bir kimlik bilgisi sağlayıcısında birden çok dosya/derleme varsa, sağlayıcıları düzenli tutmak için alt klasörleri kullanabilirsiniz.
+- **Küresel** : bir kimlik bilgisi sağlayıcısını geçerli kullanıcının profilinde çalıştırılacak tüm örnekleri için kullanılabilir hale getirmek için `nuget.exe` , ' ye ekleyin `%LocalAppData%\NuGet\CredentialProviders` . Klasörünü oluşturmanız gerekebilir `CredentialProviders` . Kimlik bilgisi sağlayıcıları `CredentialProviders`  klasörün köküne veya bir alt klasöre yüklenebilir. Bir kimlik bilgisi sağlayıcısında birden çok dosya/derleme varsa, sağlayıcıları düzenli tutmak için alt klasörleri kullanabilirsiniz.
 
-- **Bir ortam değişkeninden**: kimlik bilgileri sağlayıcıları her yerde depolanabilir ve `%NUGET_CREDENTIALPROVIDERS_PATH%` ortam değişkeni sağlayıcı konumuna ayarlanarak `nuget.exe` erişilebilir hale getirilebilir. Birden çok konumunuz varsa, bu değişken noktalı virgülle ayrılmış bir liste (örneğin, `path1;path2`) olabilir.
+- **Bir ortam değişkeninden** : kimlik bilgileri sağlayıcıları `nuget.exe` , `%NUGET_CREDENTIALPROVIDERS_PATH%` ortam değişkeni sağlayıcı konumuna ayarlanarak her yerde depolanabilir ve erişilebilir hale getirilebilir. Bu değişken, birden fazla konumunuz varsa, noktalı virgülle ayrılmış bir liste olabilir (örneğin, `path1;path2` ).
 
-- **NuGet. exe ' nin yanı sıra**, NuGet. exe kimlik bilgileri sağlayıcıları `nuget.exe`ile aynı klasöre yerleştirilebilir.
+- **nuget.exe** : nuget.exe kimlik bilgileri sağlayıcıları ile aynı klasöre yerleştirilebilir `nuget.exe` .
 
-Kimlik bilgileri sağlayıcıları yüklenirken `nuget.exe`, Yukarıdaki konumları sırasıyla, `credentialprovider*.exe`adlı herhangi bir dosya için arar ve ardından bu dosyaları bulundukları sırada yükler. Aynı klasörde birden çok kimlik bilgisi sağlayıcısı varsa, bunlar alfabetik sırayla yüklenir.
+Kimlik bilgileri sağlayıcıları yüklenirken, `nuget.exe` Yukarıdaki konumları sırasıyla, adlı herhangi bir dosya için arar `credentialprovider*.exe` ve ardından bu dosyaları bulundukları sırada yükler. Aynı klasörde birden çok kimlik bilgisi sağlayıcısı varsa, bunlar alfabetik sırayla yüklenir.
 
-## <a name="creating-a-nugetexe-credential-provider"></a>NuGet. exe kimlik bilgisi sağlayıcısı oluşturma
+## <a name="creating-a-nugetexe-credential-provider"></a>nuget.exe kimlik bilgisi sağlayıcısı oluşturma
 
-Kimlik bilgisi sağlayıcısı, girdileri toplayan, uygun kimlik bilgilerini alan ve uygun çıkış durum kodunu ve Standart çıktıyı döndüren form `CredentialProvider*.exe`adlı bir komut satırı çalıştırılabilir dosyadır.
+Kimlik bilgisi sağlayıcısı, formda adlı, `CredentialProvider*.exe` girdileri toplayan, uygun şekilde kimlik bilgilerini alan ve uygun çıkış durum kodunu ve Standart çıktıyı döndüren bir komut satırı çalıştırılabilir dosyadır.
 
 Sağlayıcı aşağıdakileri yapması gerekir:
 
 - Kimlik bilgilerinin alımı başlatmadan önce hedeflenen URI için kimlik bilgileri sağlayıp sağlayamayacağını belirleme. Aksi takdirde, kimlik bilgileri olmadan durum kodu 1 döndürmelidir.
-- `Nuget.Config` değiştirmeyin (burada kimlik bilgilerini ayarlama gibi).
+- Değiştirme `Nuget.Config` (kimlik bilgilerini orada ayarlama gibi).
 - NuGet, eklentiye ara sunucu bilgileri sağlamadığından, HTTP proxy yapılandırmasını kendi kendine işleyin.
-- UTF-8 kodlaması kullanarak, stdout için bir JSON yanıt nesnesi (aşağıya bakın) yazarak `nuget.exe` kimlik bilgilerini veya hata ayrıntılarını döndürün.
+- `nuget.exe`UTF-8 kodlaması kullanarak, stdout için BIR JSON yanıt nesnesi (aşağıya bakın) yazarak kimlik bilgilerini veya hata ayrıntılarını geri döndürün.
 - İsteğe bağlı olarak stderr 'e ek izleme günlüğü yayın. Ayrıntı düzeyleri "normal" veya "ayrıntılı" olarak, bu tür izlemelerin konsola NuGet tarafından yankılanmış olması nedeniyle, hiçbir gizli dizi hiçbir zaman stderr 'e yazılmamalıdır.
 - NuGet 'in gelecekteki sürümleriyle ileri doğru uyumluluk sağlayan beklenmeyen parametreler göz ardı edilmelidir.
 
@@ -48,7 +48,7 @@ Sağlayıcı aşağıdakileri yapması gerekir:
 | Parametre/anahtar |Açıklama|
 |----------------|-----------|
 | URI {Value} | Kimlik bilgileri gerektiren paket kaynak URI 'SI.|
-| NonInteractive | Varsa, sağlayıcı etkileşimli istemler vermez. |
+| Etkileşimsiz | Varsa, sağlayıcı etkileşimli istemler vermez. |
 | Isretry | Varsa, bu girişimin daha önce başarısız olan bir girişimin yeniden denendiğini gösterir. Sağlayıcılar genellikle bu bayrağı, var olan herhangi bir önbelleği atlamalarını ve mümkünse yeni kimlik bilgilerini sormasını sağlamak için kullanır.|
 | Ayrıntı ayrıntısı {Value} | Varsa, aşağıdaki değerlerden biri: "normal", "sessiz" veya "ayrıntılı". Değer sağlanmazsa, varsayılan olarak "normal" olur. Sağlayıcılar bunu standart hata akışına yayma için isteğe bağlı günlük kaydı düzeyinin bir göstergesi olarak kullanmalıdır. |
 
@@ -58,7 +58,7 @@ Sağlayıcı aşağıdakileri yapması gerekir:
 |----------------|-----------|-----------|
 | 0 | Başarılı | Kimlik bilgileri başarıyla alındı ve STDOUT 'a yazıldı.|
 | 1 | ProviderNotApplicable | Geçerli sağlayıcı verilen URI için kimlik bilgileri sağlamıyor.|
-| 2 | Hata | Sağlayıcı, belirtilen URI için doğru sağlayıcıdır, ancak kimlik bilgileri sağlayamaz. Bu durumda, NuGet. exe kimlik doğrulamasını yeniden denemez ve başarısız olur. Tipik bir örnek, bir kullanıcı etkileşimli oturum açmayı iptal ettiğinde olur. |
+| 2 | Hata | Sağlayıcı, belirtilen URI için doğru sağlayıcıdır, ancak kimlik bilgileri sağlayamaz. Bu durumda nuget.exe kimlik doğrulaması yeniden denenmez ve başarısız olur. Tipik bir örnek, bir kullanıcı etkileşimli oturum açmayı iptal ettiğinde olur. |
 
 ### <a name="standard-output"></a>Standart çıktı
 
@@ -80,9 +80,9 @@ NuGet, özel kimlik bilgisi sağlayıcılarının hatalarını ayıklamak için 
 
 Şunları da yapabilirsiniz:
 
-- Ayrıntılı çıktıyı incelemek için NuGet. exe ' yi `-verbosity` anahtarıyla çalıştırın.
-- Uygun yerlere `stdout` hata ayıklama iletileri ekleyin.
-- NuGet. exe 3,3 veya üstünü kullandığınızdan emin olun.
+- `-verbosity`Ayrıntılı çıktıyı incelemek için nuget.exe anahtarla çalıştırın.
+- Uygun yerlere hata ayıklama iletileri ekleyin `stdout` .
+- nuget.exe 3,3 veya üstünü kullandığınızdan emin olun.
 - Bu kod parçacığı ile başlangıçta hata ayıklayıcı ekle:
 
     ```cs

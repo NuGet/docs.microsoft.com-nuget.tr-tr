@@ -1,24 +1,24 @@
 ---
 title: NuGet Install-Package PowerShell Başvurusu
-description: Visual Studio 'daki NuGet Paket Yöneticisi konsolundaki Install-Package PowerShell komutu için başvuru.
+description: Visual Studio 'daki NuGet Paket Yöneticisi konsolundaki Install-Package PowerShell komutuna yönelik başvuru.
 author: karann-msft
 ms.author: karann
 ms.date: 06/01/2017
 ms.topic: reference
-ms.openlocfilehash: a65ba63ed070f40e82c43d12e5fad12d86f28112
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: 5bda888e0fb526faca79e88da93b0ceb9aff5348
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75384447"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237211"
 ---
-# <a name="install-package-package-manager-console-in-visual-studio"></a>Install-Package (Visual Studio'da Paket Yöneticisi Konsolu)
+# <a name="install-package-package-manager-console-in-visual-studio"></a>Install-Package (Visual Studio 'da Paket Yöneticisi konsolu)
 
 *Bu konuda, Windows üzerinde Visual Studio 'da [Paket Yöneticisi konsolu](../../consume-packages/install-use-packages-powershell.md) içindeki komut açıklanmaktadır. Genel PowerShell Install-Package komutu için bkz. [PowerShell PackageManagement başvurusu](/powershell/module/packagemanagement/?view=powershell-6).*
 
 Bir paketi ve bağımlılıklarını bir projeye kurar.
 
-## <a name="syntax"></a>Sözdizimi
+## <a name="syntax"></a>Syntax
 
 ```ps
 Install-Package [-Id] <string> [-IgnoreDependencies] [-ProjectName <string>] [[-Source] <string>] 
@@ -26,7 +26,7 @@ Install-Package [-Id] <string> [-IgnoreDependencies] [-ProjectName <string>] [[-
     [-WhatIf] [<CommonParameters>]
 ```
 
-NuGet 2.8 + ' de `Install-Package`, projenizdeki mevcut bir paketin indirgenmesini sağlayabilir. Örneğin, Microsoft. AspNet. MVC 5.1.0-RC1 yüklüyse, aşağıdaki komut bunu 5.0.0 'e indirgeyebilecek:
+NuGet 2.8 + ' de, `Install-Package` projenizdeki mevcut bir paketin indirgenmesini sağlayabilir. Örneğin, Microsoft. AspNet. MVC 5.1.0-RC1 yüklüyse, aşağıdaki komut bunu 5.0.0 'e indirgeyebilecek:
 
 ```ps
 Install-Package Microsoft.AspNet.MVC -Version 5.0.0.
@@ -36,21 +36,21 @@ Install-Package Microsoft.AspNet.MVC -Version 5.0.0.
 
 | Parametre | Açıklama |
 | --- | --- |
-| Id | Istenir Yüklenecek paketin tanımlayıcısı. (*3.0 +* ) Tanımlayıcı, bir `packages.config` dosyasının veya bir `.nupkg` dosyasının bir yolu veya URL 'SI olabilir. -ID anahtarı isteğe bağlıdır. |
+| Id | Istenir Yüklenecek paketin tanımlayıcısı. ( *3.0 +* ) Tanımlayıcı, bir dosyanın veya dosyanın bir yolu veya URL 'SI olabilir `packages.config` `.nupkg` . -ID anahtarı isteğe bağlıdır. |
 | Ignoredependencies | Yalnızca bu paketi yükler ve bağımlılıklarını değil. |
 | ProjectName | Paketin yükleneceği proje, varsayılan projenin varsayılan bir proje olur. |
 | Kaynak | Aranacak paket kaynağının URL veya klasör yolu. Yerel klasör yolları mutlak veya geçerli klasöre göreli olabilir. Atlanırsa, `Install-Package` Şu anda seçili olan paket kaynağını arar. |
 | Sürüm | Yüklenecek paketin sürümü, en son sürümü varsayılan olarak sağlar. |
 | Includeönsürümü | Yüklemenin yayın öncesi paketlerini dikkate alır. Atlanırsa, yalnızca kararlı paketler değerlendirilir. |
-| FileConflictAction | Proje tarafından başvurulan var olan dosyaların üzerine yazılması veya yoksayılması istendiğinde gerçekleştirilecek eylem. Olası değerler *üzerine yazılır, Yoksay, None, overwriteall*ve *(3,0 +)* *IgnoreAll*. |
-| DependencyVersion | Kullanılacak bağımlılık paketlerinin sürümü, bu, aşağıdakilerden biri olabilir:<br/><ul><li>*En düşük* (varsayılan): en düşük sürüm</li><li>*HighestPatch*: en düşük ana, en düşük ikincil, en yüksek düzeltme eki olan sürüm</li><li>*HighestMinor*: en düşük ana, en yüksek ikincil, en yüksek düzeltme eki olan sürüm</li><li>*En yüksek* (parametresi olmayan Update-Package için varsayılan): en yüksek sürüm</li></ul>`Nuget.Config` dosyasındaki [`dependencyVersion`](../nuget-config-file.md#config-section) ayarını kullanarak varsayılan değeri ayarlayabilirsiniz. |
+| FileConflictAction | Proje tarafından başvurulan var olan dosyaların üzerine yazılması veya yoksayılması istendiğinde gerçekleştirilecek eylem. Olası değerler *üzerine yazılır, Yoksay, None, overwriteall* ve *(3,0 +)* *IgnoreAll* . |
+| DependencyVersion | Kullanılacak bağımlılık paketlerinin sürümü, bu, aşağıdakilerden biri olabilir:<br/><ul><li>*En düşük* (varsayılan): en düşük sürüm</li><li>*HighestPatch* : en düşük ana, en düşük ikincil, en yüksek düzeltme eki olan sürüm</li><li>*HighestMinor* : en düşük ana, en yüksek ikincil, en yüksek düzeltme eki olan sürüm</li><li>*En yüksek* (parametresiz Update-Package için varsayılan): en yüksek sürüm</li></ul>Varsayılan değeri, [`dependencyVersion`](../nuget-config-file.md#config-section) dosyadaki ayarını kullanarak ayarlayabilirsiniz `Nuget.Config` . |
 | WhatIf | Yüklemeyi yapmadan komutu çalıştırırken ne olacağını gösterir. |
 
 Bu parametrelerin hiçbiri, işlem hattı girişi veya joker karakterler kabul etmez.
 
 ## <a name="common-parameters"></a>Ortak Parametreler
 
-`Install-Package`, şu [ortak PowerShell parametrelerini](https://go.microsoft.com/fwlink/?LinkID=113216)destekler: Hata Ayıkla, hata eylemi, ErrorVariable, OutBuffer, OutVariable, Pipelinevariable, verbose, WarningAction ve WarningVariable.
+`Install-Package` Şu [ortak PowerShell parametrelerini](/powershell/module/microsoft.powershell.core/about/about_commonparameters)destekler: Hata Ayıkla, hata eylemi, ErrorVariable, OutBuffer, OutVariable, Pipelinevariable, verbose, WarningAction ve WarningVariable.
 
 ## <a name="examples"></a>Örnekler
 

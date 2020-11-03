@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/23/2018
 ms.topic: tutorial
-ms.openlocfilehash: e1ebf5042597693ee55d986a4f93e797c27ad30a
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 17062d83349fe1b8cd28e57dd888686a226ac9cb
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622713"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93238029"
 ---
 # <a name="creating-ui-controls-as-nuget-packages"></a>NuGet paketleri olarak UI denetimleri oluşturma
 
 Visual Studio 2017 ' den itibaren, NuGet paketlerinde teslim ettiğiniz UWP ve WPF denetimleri için eklenen özelliklerden yararlanabilirsiniz. Bu kılavuzda, [Extensionsdkasnugetpackage örneği](https://github.com/NuGet/Samples/tree/master/ExtensionSDKasNuGetPackage)kullanılarak UWP denetimleri bağlamında bu özelliklerde adım adım gösterilmektedir. Aksi belirtilmedikçe WPF denetimleri için de geçerlidir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 1. Visual Studio 2017
 1. [UWP paketleri oluşturmayı](create-uwp-packages.md) anlama
@@ -59,11 +59,11 @@ Dosyanın yapısı aşağıdaki gibidir:
 
 burada:
 
-- *your_package_file*: `ManagedPackage.winmd` ("managedpackage" gibi) denetim dosyanızın adı bu örnek için kullanılan rastgele bir adlandırılmış addır ve başka bir anlamı yoktur).
-- *vs_category*: denetimin Visual Studio Tasarımcısı araç kutusunda görünmesi gereken grubun etiketi. `VSCategory`Denetim, denetimin araç kutusunda görünmesi için gereklidir.
-*ui_framework*: çerçeve adı (örneğin, ' WPF '), `UIFramework` denetimin araç kutusunda görünmesi için Visual Studio 16,7 Preview 3 veya üzeri sürümlerde ToolBoxItems düğümlerinde bu özniteliğin gerekli olduğunu unutmayın.
-- *blend_category*: denetimin Blend Tasarımcısı varlık bölmesinde görünmesi gereken grubun etiketi. , `BlendCategory` Denetimin varlıklarda görünmesi için gereklidir.
-- *type_full_name_n*: ad alanı da dahil olmak üzere her denetim için tam olarak nitelenmiş addır `ManagedPackage.MyCustomControl` . Hem yönetilen hem de yerel türler için nokta biçiminin kullanıldığını unutmayın.
+- *your_package_file* : `ManagedPackage.winmd` ("managedpackage" gibi) denetim dosyanızın adı bu örnek için kullanılan rastgele bir adlandırılmış addır ve başka bir anlamı yoktur).
+- *vs_category* : denetimin Visual Studio Tasarımcısı araç kutusunda görünmesi gereken grubun etiketi. `VSCategory`Denetim, denetimin araç kutusunda görünmesi için gereklidir.
+*ui_framework* : çerçeve adı (örneğin, ' WPF '), `UIFramework` denetimin araç kutusunda görünmesi için Visual Studio 16,7 Preview 3 veya üzeri sürümlerde ToolBoxItems düğümlerinde bu özniteliğin gerekli olduğunu unutmayın.
+- *blend_category* : denetimin Blend Tasarımcısı varlık bölmesinde görünmesi gereken grubun etiketi. , `BlendCategory` Denetimin varlıklarda görünmesi için gereklidir.
+- *type_full_name_n* : ad alanı da dahil olmak üzere her denetim için tam olarak nitelenmiş addır `ManagedPackage.MyCustomControl` . Hem yönetilen hem de yerel türler için nokta biçiminin kullanıldığını unutmayın.
 
 Daha Gelişmiş senaryolarda, `<File>` `<FileList>` tek bir paket birden çok denetim derlemesi içerdiğinde içinde birden çok öğe de ekleyebilirsiniz. Ayrıca, `<ToolboxItems>` `<File>` denetimlerinizi ayrı kategoriler halinde düzenlemek istiyorsanız tek bir içinde birden fazla düğüme sahip olabilirsiniz.
 
@@ -94,7 +94,7 @@ Desteklenen biçimler şunlardır,,, `.png` `.jpg` `.jpeg` `.gif` ve `.bmp` . Ö
 
 ![Araç kutusu simgesi örneği](https://raw.githubusercontent.com/NuGet/docs.microsoft.com-nuget/live/docs/guides/media/ColorPicker_16x16x24.bmp)
 
-Pembe arka plan, çalışma zamanında değiştirilmiştir. Visual Studio teması değiştirildiğinde ve arka plan rengi beklendiğinde simgeler yeniden renklendirilmez. Daha fazla bilgi için lütfen [Visual Studio görüntüleri ve simgelerine](https://docs.microsoft.com/visualstudio/extensibility/ux-guidelines/images-and-icons-for-visual-studio)başvurun.
+Pembe arka plan, çalışma zamanında değiştirilmiştir. Visual Studio teması değiştirildiğinde ve arka plan rengi beklendiğinde simgeler yeniden renklendirilmez. Daha fazla bilgi için lütfen [Visual Studio görüntüleri ve simgelerine](/visualstudio/extensibility/ux-guidelines/images-and-icons-for-visual-studio)başvurun.
 
 Aşağıdaki örnekte, proje "ManagedPackage.MyCustomControl.png" adlı bir görüntü dosyası içerir.
 
@@ -147,7 +147,7 @@ WPF için, WPF denetimleri paketinizin .NET Framework v 4.6.1 veya üstünü hed
 
 ## <a name="use-strings-and-resources"></a>Dizeleri ve kaynakları kullanma
 
-`.resw`Paketinize veya tüketen UWP projesi tarafından kullanılabilecek dize kaynaklarını (),, dosyanın **derleme eylemi** özelliğini `.resw` **priresource**olarak ayarlayabilirsiniz.
+`.resw`Paketinize veya tüketen UWP projesi tarafından kullanılabilecek dize kaynaklarını (),, dosyanın **derleme eylemi** özelliğini `.resw` **priresource** olarak ayarlayabilirsiniz.
 
 Bir örnek için, ExtensionSDKasNuGetPackage örneğindeki [MyCustomControl.cs](https://github.com/NuGet/Samples/blob/master/ExtensionSDKasNuGetPackage/ManagedPackage/MyCustomControl.cs) adresine bakın.
 

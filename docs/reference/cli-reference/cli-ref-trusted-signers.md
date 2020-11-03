@@ -6,12 +6,12 @@ ms.author: patbel
 ms.date: 11/12/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: 2753f92601b3d8b43593762cc07cd8384646feea
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 9e25f439617a76d30880bea3c10a5d063e681a41
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622674"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93238159"
 ---
 # <a name="trusted-signers-command-nuget-cli"></a>Güvenilen imzalayanlar komutu (NuGet CLı)
 
@@ -46,6 +46,7 @@ Registered trusted signers:
  2.   microsoft [author]
       Certificate fingerprint(s):
         SHA256 - 3F9001EA83C560D712C24CF213C3D312CB3BFF51EE89435D3430BD06B5D0EECE
+        SHA256 - AA12DA22A49BCE7D5C1AE64CC1F3D892F150DA76140F210ABD2CBFFCA2C18A27
 
  3.   myUntrustedAuthorSignature [author]
       Certificate fingerprint(s):
@@ -89,7 +90,7 @@ Burada `<package(s)>` bir veya daha fazla `.nupkg` Dosya bulunur.
 nuget trusted-signers add -Name <name> [options]
 ```
 
-_Note_: Bu seçenek yalnızca güvenilen depolar ekler. 
+_Note_ : Bu seçenek yalnızca güvenilen depolar ekler. 
 
 - **`-AllowUntrustedRoot`**
 
@@ -109,7 +110,7 @@ _Note_: Bu seçenek yalnızca güvenilen depolar ekler.
 nuget trusted-signers add -Name <name> [options]
 ```
 
-_Note_: verilen ada sahip bir güvenilir imzalayan zaten varsa, sertifika öğesi bu İmzalayanın birlikte eklenir. Aksi halde, belirtilen sertifika bilgileri 'nden bir sertifika öğesiyle güvenilir bir yazar oluşturulacaktır.
+_Note_ : verilen ada sahip bir güvenilir imzalayan zaten varsa, sertifika öğesi bu İmzalayanın birlikte eklenir. Aksi halde, belirtilen sertifika bilgileri 'nden bir sertifika öğesiyle güvenilir bir yazar oluşturulacaktır.
 
 
 - **`-AllowUntrustedRoot`**
@@ -132,7 +133,7 @@ Verilen adla eşleşen tüm güvenilen İmzalayanları kaldırır.
 
 Güvenilen İmzalayanın mevcut sertifika listesini güncelleştirmek için şu anda güvenilir bir depoda kullanılan sertifikaların en son listesini ister.
 
-_Note_: Bu hareket, geçerli sertifika listesini silecek ve bunları depodan güncel bir listeyle değiştirecek.
+_Note_ : Bu hareket, geçerli sertifika listesini silecek ve bunları depodan güncel bir listeyle değiştirecek.
 
 ## <a name="options"></a>Seçenekler
 

@@ -1,76 +1,76 @@
 ---
-title: NuGet Paketlerini İmzalama
-description: İmzalı paketlerin içerik bütünlüğü doğrulamasını etkinleştirmek için nasıl kullanılabileceğini açıklar.
+title: NuGet paketleri imzalanıyor
+description: İmzalanan paketlerin, içerik bütünlüğü doğrulamasını etkinleştirmek için nasıl kullanılabileceğini açıklar.
 author: rido-min
 ms.author: rmpablos
 ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 00fe1d5fa81132b5d6826203a0d26e56aa8d4755
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 81f8695d7b3cec73f3e18f90ddf38dfe6c3ecf4d
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79429005"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237594"
 ---
-# <a name="signing-nuget-packages"></a>NuGet Paketlerini İmzalama
+# <a name="signing-nuget-packages"></a>NuGet paketleri imzalanıyor
 
-İmzalı paketler, içerik tahrifatına karşı koruma sağlayan içerik bütünlüğü doğrulama denetimlerine izin verir. Paket imzası aynı zamanda paketin gerçek kökeni hakkında tek bir doğruluk kaynağı olarak hizmet vermektedir ve tüketici için paket orijinalliğini destekler. Bu kılavuz, zaten [bir paket oluşturduğunuzu](creating-a-package.md)varsayar.
+İmzalı paketler, içerik değişikliklere karşı koruma sağlayan içerik bütünlüğü doğrulama denetimleri sağlar. Paket imzası Ayrıca paketin gerçek kaynağı ve tüketicinin paket özgünlük değeri hakkında tek bir kaynak kaynağı görevi görür. Bu kılavuzda zaten [bir paket oluşturmuş](creating-a-package.md)olduğunuz varsayılmaktadır.
 
-## <a name="get-a-code-signing-certificate"></a>Kod imzalama sertifikası alma
+## <a name="get-a-code-signing-certificate"></a>Kod imzalama sertifikası alın
 
-Geçerli sertifikalar [Symantec,](https://trustcenter.websecurity.symantec.com/process/trust/productOptions?productType=SoftwareValidationClass3) [DigiCert,](https://www.digicert.com/code-signing/) [Go Daddy,](https://www.godaddy.com/web-security/code-signing-certificate) [Global Sign](https://www.globalsign.com/en/code-signing-certificate/), [Comodo,](https://www.comodo.com/e-commerce/code-signing/code-signing-certificate.php) [Certum,](https://www.certum.eu/certum/cert,offer_en_open_source_cs.xml)vb. gibi bir kamu sertifika yetkilisinden alınabilir. Windows tarafından güvenilen sertifika yetkililerinin tam [http://aka.ms/trustcertpartners](https://aka.ms/trustcertpartners)listesi.
+Geçerli sertifikalar [Symantec](https://trustcenter.websecurity.symantec.com/process/trust/productOptions?productType=SoftwareValidationClass3), [DigiCert](https://www.digicert.com/code-signing/), [Go Daddy](https://www.godaddy.com/web-security/code-signing-certificate), [Global Sign](https://www.globalsign.com/en/code-signing-certificate/), [Comodo](https://www.comodo.com/e-commerce/code-signing/code-signing-certificate.php), [Certum](https://www.certum.eu/certum/cert,offer_en_open_source_cs.xml)vb. gibi bir genel sertifika yetkilisinden elde edilebilir. Windows tarafından güvenilen sertifika yetkililerinin tüm listesi, adresinden elde edilebilir [http://aka.ms/trustcertpartners](/security/trusted-root/participants-list) .
 
-Kendi kendine verilen sertifikaları sınama amacıyla kullanabilirsiniz. Ancak, kendi kendine verilen sertifikalar kullanılarak imzalanan paketler NuGet.org tarafından kabul edilmez. [Test sertifikası oluşturma](#create-a-test-certificate) hakkında daha fazla bilgi edinin
+Test amaçlı olarak, kendi kendine verilen sertifikaları kullanabilirsiniz. Ancak, otomatik olarak verilen sertifikalar kullanılarak imzalanmış paketler NuGet.org tarafından kabul edilmez. [Test sertifikası oluşturma](#create-a-test-certificate) hakkında daha fazla bilgi edinin
 
-## <a name="export-the-certificate-file"></a>Sertifika dosyasını dışa aktarma
+## <a name="export-the-certificate-file"></a>Sertifika dosyasını dışarı aktarma
 
-* Varolan bir sertifikayı Sertifika Dışa Aktarma Sihirbazı'nı kullanarak ikili DER biçimine dışa aktarabilirsiniz.
+* Sertifika Dışarı Aktarma Sihirbazı 'nı kullanarak, var olan bir sertifikayı ikili DER biçimine aktarabilirsiniz.
 
-  ![Sertifika Verme Sihirbazı](../reference/media/CertificateExportWizard.png)
+  ![Sertifika Dışarı Aktarma Sihirbazı](../reference/media/CertificateExportWizard.png)
 
-* Ayrıca [Dışa Aktarma Sertifikası PowerShell komutunu](/powershell/module/pkiclient/export-certificate)kullanarak sertifikayı dışa aktarabilirsiniz.
+* Sertifikayı [dışarı aktar-sertifika PowerShell komutunu](/powershell/module/pkiclient/export-certificate)kullanarak da dışa aktarabilirsiniz.
 
-## <a name="sign-the-package"></a>Paketi imzalayın
+## <a name="sign-the-package"></a>Paketi imzala
 
 > [!note]
-> nuget.exe 4.6.0 veya sonrası gerektirir. dotnet.exe desteği yakında geliyor - [#7939](https://github.com/NuGet/Home/issues/7939)
+> nuget.exe 4.6.0 veya üstünü gerektirir. dotnet.exe destek yakında kullanıma sunulacak [#7939](https://github.com/NuGet/Home/issues/7939)
 
-[Nuget işaretini](../reference/cli-reference/cli-ref-sign.md)kullanarak paketi imzalayın:
+[NuGet işaretini](../reference/cli-reference/cli-ref-sign.md)kullanarak paketi imzala:
 
 ```cli
 nuget sign MyPackage.nupkg -CertificatePath <PathToTheCertificate> -Timestamper <TimestampServiceURL>
 ```
 
 > [!Tip]
-> Sertifika sağlayıcısı genellikle yukarıda belirtilen `Timestamper` isteğe bağlı bağımsız değişken için kullanabileceğiniz bir zaman damgası sunucusu URL'si de sağlar. Sağlayıcınızın bu hizmet URL'si için belgelerine ve/veya desteğine danışın.
+> Sertifika sağlayıcısı çoğunlukla, `Timestamper` yukarıda görüntülenecek isteğe bağlı bağımsız değişken için kullanabileceğiniz bir zaman damgası sunucu URL 'si de sağlar. Sağlayıcının belgelerine ve/veya bu hizmet URL 'sine yönelik desteğe başvurun.
 
-* Sertifika deposunda bulunan bir sertifikayı kullanabilir veya bir dosyadan sertifika kullanabilirsiniz. [Nuget işareti](../reference/cli-reference/cli-ref-sign.md)için CLI başvurusuna bakın.
-* İmzalanan paketler, imza sertifikasının süresi dolduğunda imzanın geçerli kalmasını sağlamak için bir zaman damgası içermelidir. Aksi takdirde işaret işlemi bir [uyarı](../reference/errors-and-warnings/NU3002.md)üretecek.
-* Nuget [doğrulamak](../reference/cli-reference/cli-ref-verify.md)kullanarak belirli bir paketin imza ayrıntılarını görebilirsiniz.
+* Sertifika deposunda bulunan bir sertifikayı kullanabilir veya bir dosyadaki sertifikayı kullanabilirsiniz. [NuGet işareti](../reference/cli-reference/cli-ref-sign.md)için CLI başvurusuna bakın.
+* İmzalı paketler, imzalama sertifikasının süresi dolduğunda imzanın geçerli kaldığından emin olmak için bir zaman damgası içermelidir. Aksi takdirde imza işlemi bir [Uyarı](../reference/errors-and-warnings/NU3002.md)üretir.
+* [NuGet doğrulaması](../reference/cli-reference/cli-ref-verify.md)' nı kullanarak belirli bir paketin imza ayrıntılarını görebilirsiniz.
 
-## <a name="register-the-certificate-on-nugetorg"></a>Sertifikayı NuGet.org kaydedin
+## <a name="register-the-certificate-on-nugetorg"></a>Sertifikayı NuGet.org 'e kaydetme
 
-İmzalı bir paketi yayımlamak için önce sertifikayı NuGet.org kaydettirmelisiniz. Sertifikayı ikili DER `.cer` formatında bir dosya olarak almanız gerekir.
+İmzalı bir paket yayımlamak için öncelikle sertifikayı NuGet.org ile kaydetmeniz gerekir. Bir ikili DER biçiminde bir dosya olarak sertifikaya ihtiyacınız vardır `.cer` .
 
-1. NuGet.org [oturum açın.](https://www.nuget.org/users/account/LogOn?returnUrl=%2F)
-1. Gidin `Account settings` (veya `Manage Organization` **>** `Edit Organziation` sertifikayı bir Kuruluş hesabına kaydettirmek istiyorsanız).
-1. Bölümü `Certificates` genişletin `Register new`ve seçin.
-1. Daha önce dışa aktarılan sertifika dosyasına göz atın ve seçin.
-  ![Kayıtlı Sertifikalar](../reference/media/registered-certs.png)
+1. NuGet.org ['de oturum açın](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) .
+1. `Account settings`(Veya `Manage Organization` **>** `Edit Organziation` sertifikayı bir kuruluş hesabıyla kaydetmek istiyorsanız) bölümüne gidin.
+1. Bölümünü genişletin `Certificates` ve öğesini seçin `Register new` .
+1. Daha önce aktarılmış olan sertifika dosyasına gidip seçin.
+  ![Kayıtlı sertifikalar](../reference/media/registered-certs.png)
 
 **Not**
-* Bir kullanıcı birden çok sertifika gönderebilir ve aynı sertifika birden çok kullanıcı tarafından kaydedilebilir.
-* Bir kullanıcı bir sertifikayı kaydettikten sonra, gelecekteki tüm paket gönderimlerinin sertifikalardan biriyle imzalanması **gerekir.** Bkz. [NuGet.org paketiniz için imza gereksinimlerini yönetin](#manage-signing-requirements-for-your-package-on-nugetorg)
-* Kullanıcılar kayıtlı bir sertifikayı da hesaptan kaldırabilir. Sertifika kaldırıldıktan sonra, bu sertifikayla imzalanan yeni paketler gönderimsırasında başarısız olur. Varolan paketler etkilenmez.
+* Bir Kullanıcı birden çok sertifika gönderebilir ve aynı sertifika birden çok kullanıcı tarafından kaydedilebilir.
+* Bir Kullanıcı bir sertifikaya kaydolduktan sonra, gelecekteki tüm paket gönderimlerinin sertifikalardan biri ile imzalanması **gerekir** . Bkz. [NuGet.org 'de paketiniz için imzalama gereksinimlerini yönetme](#manage-signing-requirements-for-your-package-on-nugetorg)
+* Kullanıcılar ayrıca, kayıtlı bir sertifikayı hesaptan kaldırabilir. Bir sertifika kaldırıldıktan sonra, bu sertifikayla imzalanmış yeni paketler gönderim sırasında başarısız olur. Mevcut paketler etkilenmemektedir.
 
-## <a name="publish-the-package"></a>Paketi yayımlama
+## <a name="publish-the-package"></a>Paketi Yayımla
 
-Paketi NuGet.org yayınlamaya hazırsınız. Bkz. [Yayımlama paketleri.](../nuget-org/Publish-a-package.md)
+Artık paketi NuGet.org 'e yayımlamaya hazırsınız. Bkz. [paketleri yayımlama](../nuget-org/Publish-a-package.md).
 
 ## <a name="create-a-test-certificate"></a>Test sertifikası oluşturma
 
-Kendi kendine verilen sertifikaları sınama amacıyla kullanabilirsiniz. Kendi kendine verilen bir sertifika oluşturmak için [Yeni İmzalı Sertifika PowerShell komutunu](/powershell/module/pkiclient/new-selfsignedcertificate)kullanın.
+Test amaçlı olarak, kendi kendine verilen sertifikaları kullanabilirsiniz. Kendi kendine verilen bir sertifika oluşturmak için [New-SelfSignedCertificate PowerShell komutunu](/powershell/module/pkiclient/new-selfsignedcertificate)kullanın.
 
 ```ps
 New-SelfSignedCertificate -Subject "CN=NuGet Test Developer, OU=Use for testing purposes ONLY" `
@@ -84,24 +84,24 @@ New-SelfSignedCertificate -Subject "CN=NuGet Test Developer, OU=Use for testing 
                           -CertStoreLocation "Cert:\CurrentUser\My" 
 ```
 
-Bu komut, geçerli kullanıcının kişisel sertifika deposunda kullanılabilen bir sınama sertifikası oluşturur. Yeni oluşturulan sertifikayı görmek `certmgr.msc` için çalıştırarak sertifika mağazasını açabilirsiniz.
+Bu komut, geçerli kullanıcının kişisel sertifika deposunda bulunan bir test sertifikası oluşturur. `certmgr.msc`Yeni oluşturulan sertifikayı görmek için, çalıştırarak sertifika deposunu açabilirsiniz.
 
 > [!Warning]
-> NuGet.org, kendi kendine verilen sertifikalarla imzalanmış paketleri kabul etmez.
+> NuGet.org, otomatik olarak verilen sertifikalarla imzalanmış paketleri kabul etmez.
 
-## <a name="manage-signing-requirements-for-your-package-on-nugetorg"></a>Paketiniz için imza gereksinimlerini NuGet.org
-1. NuGet.org [oturum açın.](https://www.nuget.org/users/account/LogOn?returnUrl=%2F)
+## <a name="manage-signing-requirements-for-your-package-on-nugetorg"></a>NuGet.org 'de paketiniz için imzalama gereksinimlerini yönetme
+1. NuGet.org ['de oturum açın](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) .
 
-1. Paket `Manage Packages`  
-    ![imzalayanları yapılandırmaya git](../reference/media/configure-package-signers.png)
+1. `Manage Packages`  
+    ![ Paket İmzalayanları yapılandırma bölümüne git](../reference/media/configure-package-signers.png)
 
-* Bir paketin tek sahibisizseniz, gerekli imzalayan sizsiniz, yani paketlerinizi imzalamak ve NuGet.org yayınlamak için kayıtlı sertifikalardan herhangi birini kullanabilirsiniz.
+* Bir paketin tek sahibiyseniz, gerekli olan imzalamanıza karşı, paketlerinizi imzalamak ve NuGet.org 'e yayımlamak için kayıtlı sertifikalardan herhangi birini kullanabilirsiniz.
 
-* Bir paketin birden çok sahibi varsa, varsayılan olarak, paketi imzalamak için "Herhangi bir" sahibinin sertifikaları kullanılabilir. Paketin ortaklarından biri olarak, gerekli imzalayan kişi olmak için kendiniz veya başka bir ortak sahibiile "Any"yi geçersiz kılabilirsiniz. Kayıtlı sertifikası olmayan bir sahip yaparsanız, imzasız paketlere izin verilir. 
+* Bir paketin birden çok sahibi varsa, varsayılan olarak "Any" sahibinin sertifikaları paketi imzalamak için kullanılabilir. Paketin ortak sahibi olarak, "Any" i veya diğer tüm ikincil sahiplerle gerekli imzacı olacak şekilde geçersiz kılabilirsiniz. Kayıtlı bir sertifikası olmayan bir sahip yaparsanız, imzasız paketlere izin verilir. 
 
-* Benzer şekilde, bir sahibin sertifikasının kayıtlı olduğu ve başka bir sahibinin kayıtlı sertifikası nın olmadığı bir paket için varsayılan "Herhangi bir" seçeneği seçilirse, NuGet.org, sahiplerinden biri tarafından kaydedilmiş imzalı bir paketi veya imzasız paketi kabul eder (çünkü sahiplerden birinin kayıtlı sertifikası yoktur).
+* Benzer şekilde, bir sahibin kayıtlı bir sertifikası olan bir paket için varsayılan "Any" seçeneği seçilmişse ve başka bir sahibe kayıtlı bir sertifika yoksa, NuGet.org, sahip olduğu imzalı bir paketi veya bir imzasız paketi kabul eder (sahiplerden birinde kayıtlı sertifika olmadığından).
 
 ## <a name="related-articles"></a>İlgili makaleler:
 
 - [Paket güven sınırlarını yönetme](../consume-packages/installing-signed-packages.md)
-- [İmzalı Paketler Referans](../reference/Signed-Packages-Reference.md)
+- [İmzalı paket başvurusu](../reference/Signed-Packages-Reference.md)

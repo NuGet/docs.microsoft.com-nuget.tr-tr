@@ -1,16 +1,16 @@
 ---
-title: NuGet sık sorulan sorular
+title: NuGet Frequently-Asked soruları
 description: NuGet 'i komut satırında ve Visual Studio 'da kullanmak için ortak sorular ve yanıtlar
 author: shishirx34
 ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 937a0083ca47ba5668059736a7e99f7ca88e8908
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: aae6f0474cc6e8e8aa5c269b79be6fd949d9184c
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622622"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93238003"
 ---
 # <a name="nuget-frequently-asked-questions"></a>NuGet sık sorulan sorular
 
@@ -41,13 +41,13 @@ Daha fazla bilgi için bkz. [paketleri bulma ve seçme](../consume-packages/find
 - Windows üzerinde Visual Studio, [Paket Yöneticisi Kullanıcı arabirimini](../consume-packages/install-use-packages-visual-studio.md) ve [Paket Yöneticisi konsolunu](../consume-packages/install-use-packages-powershell.md)destekler.
 - Mac için Visual Studio, [projenizde bir NuGet paketi ekleme](/visualstudio/mac/nuget-walkthrough)konusunda açıklandığı gibi yerleşik NuGet özelliklerine sahiptir.
 - Visual Studio Code (tüm platformlar) doğrudan bir NuGet tümleştirmesi yoktur. [NUGET CLI](../reference/nuget-exe-cli-reference.md) veya [DotNet CLI](../reference/dotnet-commands.md)kullanın.
-- Azure DevOps, [NuGet paketlerini geri yüklemek için bir derleme adımı](/vsts/build-release/tasks/package/nuget)sağlar. Ayrıca, [özel NuGet paket akışlarını Azure DevOps üzerinde de barındırabilirsiniz](https://docs.microsoft.com/azure/devops/artifacts/nuget/publish).
+- Azure DevOps, [NuGet paketlerini geri yüklemek için bir derleme adımı](/vsts/build-release/tasks/package/nuget)sağlar. Ayrıca, [özel NuGet paket akışlarını Azure DevOps üzerinde de barındırabilirsiniz](/azure/devops/artifacts/nuget/publish).
 
 **Nasıl yaparım?, yüklü olan NuGet araçlarının tam sürümü kontrol edilsin mi?**
 
-Visual Studio 'da **Microsoft Visual Studio hakkında yardım >** komutunu kullanın ve **NuGet Paket Yöneticisi**' nin yanında görüntülenecek sürüme bakın.
+Visual Studio 'da **Microsoft Visual Studio hakkında yardım >** komutunu kullanın ve **NuGet Paket Yöneticisi** ' nin yanında görüntülenecek sürüme bakın.
 
-Alternatif olarak, Paket Yöneticisi konsolunu (**araçlar > NuGet paket yöneticisi > Paket Yöneticisi konsolu**) başlatın ve `$host` sürümü içeren NuGet hakkındaki bilgileri görmek için girin.
+Alternatif olarak, Paket Yöneticisi konsolunu ( **araçlar > NuGet paket yöneticisi > Paket Yöneticisi konsolu** ) başlatın ve `$host` sürümü içeren NuGet hakkındaki bilgileri görmek için girin.
 
 **NuGet hangi programlama dillerini destekler?**
 
@@ -61,7 +61,7 @@ NuGet, Windows, Web, Cloud, SharePoint, Wix gibi çeşitli proje şablonları i�
 
 **Visual Studio şablonlarının parçası olan Nasıl yaparım? güncelleştirme paketleri mi?**
 
-Paket Yöneticisi Kullanıcı arabirimindeki **güncelleştirmeler** sekmesine gidin ve **Tümünü Güncelleştir**' i seçin ya da paket yöneticisi konsolundan [ `Update-Package` komutunu](../reference/ps-reference/ps-ref-update-package.md) kullanın.
+Paket Yöneticisi Kullanıcı arabirimindeki **güncelleştirmeler** sekmesine gidin ve **Tümünü Güncelleştir** ' i seçin ya da paket yöneticisi konsolundan [ `Update-Package` komutunu](../reference/ps-reference/ps-ref-update-package.md) kullanın.
 
 Şablonun kendisini güncelleştirmek için şablon deposunu el ile güncelleştirmeniz gerekir. Bu konudaki [Xavier Ayrışıcı 'nın bloguna](http://www.xavierdecoster.com/update-project-template-to-latest-nuget-packages) bakın. Tüm bağımlılıkların en son sürümü birbirleriyle uyumlu değilse, el ile yapılan güncelleştirmeler şablonu bozabileceğinden bunun sizin sorumluluğunuzdadır.
 
@@ -103,7 +103,7 @@ Bu, PowerShell 'in bir COM nesnesiyle etkileşime girdiği bilinen bir sorundur.
 
 **Nasıl yaparım? bir akışta paketmi Listele?**
 
-Bkz. [paket oluşturma ve yayımlama](../quickstart/create-and-publish-a-package.md).
+Bkz. [paket oluşturma ve yayımlama](../quickstart/create-and-publish-a-package-using-visual-studio.md).
 
 **.NET Framework farklı sürümlerini hedefleyen kitaplığımın birden çok sürümü var. Bunu destekleyen tek bir paket mi Nasıl yaparım??**
 

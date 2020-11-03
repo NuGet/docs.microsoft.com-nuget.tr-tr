@@ -1,24 +1,24 @@
 ---
 title: NuGet Get-Package PowerShell Başvurusu
-description: Visual Studio 'daki NuGet Paket Yöneticisi konsolunda Get-Package PowerShell komutu için başvuru.
+description: Visual Studio 'daki NuGet Paket Yöneticisi konsolundaki Get-Package PowerShell komutuna yönelik başvuru.
 author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 1c39fea2131b8f4b8a91314347a19366d5a582c2
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: 1576e3f20eba1ecdd099b1e7c23aef6b1a1a0a4f
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75385199"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237237"
 ---
-# <a name="get-package-package-manager-console-in-visual-studio"></a>Get-Package (Visual Studio'da Paket Yöneticisi Konsolu)
+# <a name="get-package-package-manager-console-in-visual-studio"></a>Get-Package (Visual Studio 'da Paket Yöneticisi konsolu)
 
 *Bu konuda, Windows üzerinde Visual Studio 'da [Paket Yöneticisi konsolu](../../consume-packages/install-use-packages-powershell.md) içindeki komut açıklanmaktadır. Genel PowerShell Get-Package komutu için bkz. [PowerShell PackageManagement başvurusu](/powershell/module/packagemanagement/?view=powershell-6).*
 
 Yerel depoda yüklü paketlerin listesini alır,-ListAvailable anahtarıyla birlikte kullanıldığında bir paket kaynağından kullanılabilir olan paketleri listeler veya-Update anahtarıyla birlikte kullanıldığında kullanılabilir güncelleştirmeleri listeler.
 
-## <a name="syntax"></a>Sözdizimi
+## <a name="syntax"></a>Syntax
 
 ```ps
 Get-Package -Source <string> [-ListAvailable] [-Updates] [-ProjectName <string>]
@@ -36,9 +36,9 @@ Parametresiz, `Get-Package` varsayılan projede yüklü paketlerin listesini gö
 | ListAvailable | Bir paket kaynağından kullanılabilir olan paketleri listeler, varsayılan olarak nuget.org. -PageSize ve/veya-First belirtilmemişse, varsayılan 50 paket gösterir. |
 | Güncelleştirmeler | Paket kaynağından kullanılabilir bir güncelleştirme olan paketleri listeler. |
 | ProjectName | Yüklü paketlerin alınacağı proje. Atlanırsa, tüm çözüm için yüklü projeleri döndürür. |
-| Filtrele | Paket KIMLIĞINE, açıklamaya ve etiketlere uygulayarak paket listesini daraltmak için kullanılan bir filtre dizesi. |
+| Filtre | Paket KIMLIĞINE, açıklamaya ve etiketlere uygulayarak paket listesini daraltmak için kullanılan bir filtre dizesi. |
 | Birinci | Listenin başından döndürülecek paket sayısı. Belirtilmemişse, varsayılan olarak 50 ' dir. |
-| Atla | Görünen listeden ilk &lt;int&gt; paketlerini atlar.  |
+| Atla | &lt;Görüntülenmiş listedeki ilk int &gt; paketleri atlar.  |
 | AllVersions | Her bir paketin yalnızca en son sürümü yerine tüm kullanılabilir sürümlerini görüntüler. |
 | Includeönsürümü | Sonuçlarda yayın öncesi paketleri içerir. |
 | PageSize | *(3.0 +)* -ListAvailable (zorunlu) ile kullanıldığında, devam etmek için bir istem vermeden önce listeye eklenecek paket sayısı. |
@@ -47,7 +47,7 @@ Bu parametrelerin hiçbiri, işlem hattı girişi veya joker karakterler kabul e
 
 ## <a name="common-parameters"></a>Ortak Parametreler
 
-`Get-Package`, şu [ortak PowerShell parametrelerini](https://go.microsoft.com/fwlink/?LinkID=113216)destekler: Hata Ayıkla, hata eylemi, ErrorVariable, OutBuffer, OutVariable, Pipelinevariable, verbose, WarningAction ve WarningVariable.
+`Get-Package` Şu [ortak PowerShell parametrelerini](/powershell/module/microsoft.powershell.core/about/about_commonparameters)destekler: Hata Ayıkla, hata eylemi, ErrorVariable, OutBuffer, OutVariable, Pipelinevariable, verbose, WarningAction ve WarningVariable.
 
 ## <a name="examples"></a>Örnekler
 

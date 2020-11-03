@@ -6,15 +6,15 @@ ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
 ms.openlocfilehash: 5d10d6bf27614980a144c30c3af6f9892a109061
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2020
-ms.locfileid: "79429089"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237198"
 ---
 # <a name="nuget-12-release-notes"></a>NuGet 1,2 sürüm notları
 
-[Nuget 1,0 ve 1,1 sürüm notları](../release-notes/nuget-1.1.md) | [NuGet 1,3 sürüm notları](../release-notes/nuget-1.3.md)
+[NuGet 1,0 ve 1,1 sürüm notları](../release-notes/nuget-1.1.md)  |  [NuGet 1,3 sürüm notları](../release-notes/nuget-1.3.md)
 
 NuGet 1,2, 30 Mart 2011 ' de yayımlanmıştır.
 
@@ -36,14 +36,14 @@ Güçlü adlandırılmış derlemelere sahip bir paket yüklerken, NuGet artık 
 
 ### <a name="specifying-framework-assembly-references-gac"></a>Çerçeve derleme başvurularını belirtme (GAC)
 
-Bazı durumlarda, bir paket .NET Framework bir derlemeye bağlı olabilir. Kesinlikle konuşuyor, paketinizin tüketicisinin Framework derlemesine başvurması her zaman gerekli değildir. Ancak bazı durumlarda, örneğin, geliştiricinin paketinizi kullanabilmesi için bu derlemedeki türlere karşı kod kullanması gerektiğinde önemlidir. Meta veri öğesinin bir alt öğesi olan New `frameworkAssemblies` öğesi, GAC içindeki bir Framework derlemesini işaret eden bir dizi `frameworkAssembly` öğesi belirtmenize olanak tanır. Çerçeve derlemesinde vurgu notuna göz önünde edin.
-Bu derlemeler, .NET Framework bir parçası olarak her makinede olduğu varsayılarsa paketinize dahil edilmez. Aşağıdaki tabloda `frameworkAssembly` öğesinin öznitelikleri listelenmektedir.
+Bazı durumlarda, bir paket .NET Framework bir derlemeye bağlı olabilir. Kesinlikle konuşuyor, paketinizin tüketicisinin Framework derlemesine başvurması her zaman gerekli değildir. Ancak bazı durumlarda, örneğin, geliştiricinin paketinizi kullanabilmesi için bu derlemedeki türlere karşı kod kullanması gerektiğinde önemlidir. `frameworkAssemblies`Meta veri öğesinin bir alt öğesi olan yeni öğesi, `frameworkAssembly` GAC Içindeki bir Framework derlemesine işaret eden bir öğe kümesi belirtmenize olanak tanır. Çerçeve derlemesinde vurgu notuna göz önünde edin.
+Bu derlemeler, .NET Framework bir parçası olarak her makinede olduğu varsayılarsa paketinize dahil edilmez. Aşağıdaki tablo, öğesinin özniteliklerini listelemektedir `frameworkAssembly` .
 
 
 |Öznitelik |Açıklama|
 |----------------|-----------|
-|**assemblyName**|*Gerekli*. `System.Net`gibi bütünleştirilmiş kodun adı.|
-|**targetFramework**|*İsteğe bağlı*. Bu çerçeve derlemesinin "net40" veya "SL4" gibi uyguladığı bir çerçeve ve profil adı (veya diğer ad) belirtilmesine izin verir. [Birden çok hedef çerçeveyi destekleme](../create-packages/supporting-multiple-target-frameworks.md)bölümünde açıklanan biçimi kullanır.|
+|**assemblyName**|*Gerekli* . Bütünleştirilmiş kodun adı `System.Net` .|
+|**targetFramework**|*Isteğe bağlı* . Bu çerçeve derlemesinin "net40" veya "SL4" gibi uyguladığı bir çerçeve ve profil adı (veya diğer ad) belirtilmesine izin verir. [Birden çok hedef çerçeveyi destekleme](../create-packages/supporting-multiple-target-frameworks.md)bölümünde açıklanan biçimi kullanır.|
 
 ```xml
   <frameworkAssemblies>
@@ -52,9 +52,9 @@ Bu derlemeler, .NET Framework bir parçası olarak her makinede olduğu varsayı
   </frameworkAssemblies>
 ```
 
-### <a name="nugetexe-now-is-able-to-store-api-key-credentials"></a>NuGet. exe artık API anahtarı kimlik bilgilerini depolayabiliyor
+### <a name="nugetexe-now-is-able-to-store-api-key-credentials"></a>nuget.exe artık API anahtarı kimlik bilgilerini depolayabiliyor
 
-NuGet. exe komut satırı aracını kullanırken, API anahtarınızı depolamak için artık SetApiKey komutunu kullanabilirsiniz. Bu şekilde, paketini her gönderişinizde belirtmeniz gerekmez. API anahtarınızı NuGet. exe ile kaydetme hakkında daha fazla bilgi için, [bir paket yayımlama belgelerini okuyun](../nuget-org/publish-a-package.md).
+nuget.exe komut satırı aracını kullanırken, API anahtarınızı depolamak için artık SetApiKey komutunu kullanabilirsiniz. Bu şekilde, paketini her gönderişinizde belirtmeniz gerekmez. API anahtarınızı nuget.exe kaydetme hakkında daha fazla ayrıntı için, [paket yayımlama belgelerini okuyun](../nuget-org/publish-a-package.md).
 
 ### <a name="package-explorer"></a>Paket Gezgini
 Paket Gezgini, NuGet 1,2 ' i destekleyecek şekilde güncelleştirilmiştir. Daha fazla bilgi için, [Paket Gezgini sürüm notlarına](http://nuget.codeplex.com/wikipage?title=New%20features%20in%20NuGet%20Package%20Explorer%201.0)göz atın.
@@ -65,6 +65,6 @@ Paket Gezgini, NuGet 1,2 ' i destekleyecek şekilde güncelleştirilmiştir. Dah
 
 ## <a name="known-issues"></a>Bilinen Sorunlar
 
-* **1,2 paket uyumsuzluğu**: komut satırı aracının en son sürümüyle oluşturulan paketler NuGet. exe (> 1,2), NuGet vs eklentisinin (1,1 gibi) eski sürümleriyle çalışmaz. Uyumsuz şemayla ilgili bir şeyi belirten bir hata mesajınızı çalıştırırsanız, bu hatayla çalışıyorsunuz demektir. Lütfen NuGet 'i en son sürüme güncelleştirin.
-* **NuGet. Server uyumsuzluğu**: NuGet. Server projesini kullanarak dahili bir NuGet akışı barındırıyorsanız, bu projeyi NuGet. Server ' ın en son sürümüyle güncelleştirmeniz gerekir.
-* **Imza uyumsuzluğu hatası**: bir imza uyumsuzluğu hakkında bir iletiyle birlikte yükseltme sırasında hata halinde çalıştırırsanız, önce NuGet 'i kaldırmanız ve ardından yüklemeniz gerekir. Bu, daha fazla ayrıntı sağlayan [Bilinen Sorunlar sayfamızda](../release-notes/known-issues.md) listelenmiştir. Sorun yalnızca çalışan Visual Studio 2010 SP1 'i etkiler ve hatalı imzalı bir NuGet 1,0 sürümü yüklü. Bu sürüm kısa bir süre boyunca yalnızca CodePlex Web sitesinden kullanıma sunulmuştur. bu sorunun çok fazla kişiyi etkilememesi gerekir.
+* **1,2 paket uyumsuzluğu** : komut satırı aracının en son sürümüyle oluşturulan paketler nuget.exe (> 1,2), NuGet vs eklentisinin eski sürümleriyle (1,1 gibi) çalışmaz. Uyumsuz şemayla ilgili bir şeyi belirten bir hata mesajınızı çalıştırırsanız, bu hatayla çalışıyorsunuz demektir. Lütfen NuGet 'i en son sürüme güncelleştirin.
+* **NuGet. Server uyumsuzluğu** : NuGet. Server projesini kullanarak dahili bir NuGet akışı barındırıyorsanız, bu projeyi NuGet. Server ' ın en son sürümüyle güncelleştirmeniz gerekir.
+* **Imza uyumsuzluğu hatası** : bir imza uyumsuzluğu hakkında bir iletiyle birlikte yükseltme sırasında hata halinde çalıştırırsanız, önce NuGet 'i kaldırmanız ve ardından yüklemeniz gerekir. Bu, daha fazla ayrıntı sağlayan [Bilinen Sorunlar sayfamızda](../release-notes/known-issues.md) listelenmiştir. Sorun yalnızca çalışan Visual Studio 2010 SP1 'i etkiler ve hatalı imzalı bir NuGet 1,0 sürümü yüklü. Bu sürüm kısa bir süre boyunca yalnızca CodePlex Web sitesinden kullanıma sunulmuştur. bu sorunun çok fazla kişiyi etkilememesi gerekir.

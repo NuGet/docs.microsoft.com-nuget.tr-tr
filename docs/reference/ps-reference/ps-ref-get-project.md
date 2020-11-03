@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 3343952535c2d3c822f5cac24cb30c8f5bfa5be3
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: 6d9e1d48c8e1838f193878cab3483b1bfba7d7f0
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75384626"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93238081"
 ---
-# <a name="get-project-package-manager-console-in-visual-studio"></a>Get-Project (Visual Studio'da Paket Yöneticisi Konsolu)
+# <a name="get-project-package-manager-console-in-visual-studio"></a>Get-Project (Visual Studio 'da Paket Yöneticisi konsolu)
 
 *Yalnızca Windows üzerinde Visual Studio 'da bulunan [Paket Yöneticisi konsolu](../../consume-packages/install-use-packages-powershell.md) içinde kullanılabilir.*
 
-Varsayılan veya belirtilen proje hakkındaki bilgileri görüntüler. `Get-Project` özel olarak, projenin Visual Studio DTE (geliştirme araçları ortamı) nesnesine bir başvuru döndürür.
+Varsayılan veya belirtilen proje hakkındaki bilgileri görüntüler. `Get-Project` Özellikle, projenin Visual Studio DTE (geliştirme araçları ortamı) nesnesine bir başvuru döndürür.
 
 ## <a name="syntax"></a>Sözdizimi
 
@@ -28,14 +28,14 @@ Get-Project [[-Name] <string>] [-All] [<CommonParameters>]
 
 | Parametre | Açıklama |
 | --- | --- |
-| Name | Görüntülenecek projeyi, varsayılan projenin Paket Yöneticisi konsolunda seçili olduğunu belirtir. -Name anahtarının kendisi isteğe bağlıdır. |
+| Ad | Görüntülenecek projeyi, varsayılan projenin Paket Yöneticisi konsolunda seçili olduğunu belirtir. -Name anahtarının kendisi isteğe bağlıdır. |
 | Tümü | Çözümdeki her proje için bilgi görüntüler; projelerin sırası belirleyici değildir. |
 
 Bu parametrelerin hiçbiri, işlem hattı girişi veya joker karakterler kabul etmez.
 
 ## <a name="common-parameters"></a>Ortak Parametreler
 
-`Get-Project`, şu [ortak PowerShell parametrelerini](https://go.microsoft.com/fwlink/?LinkID=113216)destekler: Hata Ayıkla, hata eylemi, ErrorVariable, OutBuffer, OutVariable, Pipelinevariable, verbose, WarningAction ve WarningVariable.
+`Get-Project` Şu [ortak PowerShell parametrelerini](/powershell/module/microsoft.powershell.core/about/about_commonparameters)destekler: Hata Ayıkla, hata eylemi, ErrorVariable, OutBuffer, OutVariable, Pipelinevariable, verbose, WarningAction ve WarningVariable.
 
 ## <a name="examples"></a>Örnekler
 

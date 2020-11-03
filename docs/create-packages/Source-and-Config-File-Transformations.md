@@ -1,33 +1,33 @@
 ---
-title: NuGet paketleri için kaynak ve config dosya dönüşümleri
-description: NuGet paketlerinin yüklendiğinde kaynak kodu ve yapılandırma (XML) dosyalarını dönüştürme yeteneğiyle ilgili ayrıntılar.
+title: NuGet paketleri için kaynak ve yapılandırma dosyası dönüşümleri
+description: NuGet paketlerinin yüklenirken kaynak kodu ve yapılandırma (XML) dosyalarını dönüştürme yeteneği hakkında ayrıntılı bilgi.
 author: karann-msft
 ms.author: karann
 ms.date: 04/24/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 2fefd9cff4d151111023521c31d58878743775bf
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 8e3eade14c70782563ba82894f072f9b3a611923
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "78231181"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237990"
 ---
 # <a name="transforming-source-code-and-configuration-files"></a>Kaynak kodu ve yapılandırma dosyalarını dönüştürme
 
-**Kaynak kodu dönüştürme,** paketin `content` veya `contentFiles` klasöründeki dosyalara tek`content` yönlü belirteç `packages.config` `contentFiles` değiştirme `PackageReference`(paket yüklendiğinde ve için) için, jetonların Visual Studio [proje özelliklerine](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7)atıfta bulunduğu dosyalara tek yönlü belirteç değiştirme uygular. Bu, projenin ad alanına bir dosya eklemenize veya genellikle ASP.NET bir `global.asax` projede girecek kodu özelleştirmenize olanak tanır.
+**Kaynak kodu dönüştürmesi** , paket `content` `contentFiles` `content` `packages.config` `contentFiles` `PackageReference` yüklendiğinde, belirtecin Visual Studio [Proje özelliklerine](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7)başvurduğu paketin veya klasördeki dosyalara tek yönlü belirteç değişimini uygular (ve için kullanan müşteriler için). Bu, projenin ad alanına bir dosya eklemenize veya tipik `global.asax` olarak bir ASP.net projesinde gidilecek kodu özelleştirmenize olanak sağlar.
 
-**Config dosyası dönüştürme,** hedef projede zaten var olan dosyaları `web.config` `app.config`değiştirmenize olanak tanır. Örneğin, paketinizin config dosyasındaki `modules` bölüme bir öğe eklemesi gerekebilir. Bu dönüştürme, yapılandırma dosyalarına eklenecek bölümleri açıklayan pakete özel dosyalar eklenerek yapılır. Bir paket kaldırıldığında, aynı değişiklikler daha sonra tersine çevrilerek bu iki yönlü bir dönüştürme haline getirir.
+Bir **yapılandırma dosyası dönüştürmesi** , ve gibi bir hedef projede zaten mevcut olan dosyaları değiştirmenize izin verir `web.config` `app.config` . Örneğin, paketinizin yapılandırma dosyasındaki bölümüne bir öğe eklemesi gerekebilir `modules` . Bu dönüşüm, yapılandırma dosyalarına eklenecek bölümleri tanımlayan paketteki özel dosyalar eklenerek yapılır. Bir paket kaldırıldığında, bu değişiklikler iki yönlü bir dönüşüm yaparak ters çevrilir.
 
 ## <a name="specifying-source-code-transformations"></a>Kaynak kodu dönüşümlerini belirtme
 
-1. Paketten projeye eklemek istediğiniz dosyalar paketin `content` ve `contentFiles` klasörlerin içinde olmalıdır. Örneğin, çağrılan `ContosoData.cs` bir dosyanın hedef projenin bir `Models` klasörüne yüklenmesini istiyorsanız, dosyanın `content\Models` paketteki ve `contentFiles\{lang}\{tfm}\Models` klasörlerin içinde olması gerekir.
+1. Paketten projeye eklemek istediğiniz dosyalar, paket `content` ve klasörler içinde bulunmalıdır `contentFiles` . Örneğin, adlı bir dosyanın `ContosoData.cs` `Models` hedef projenin bir klasörüne yüklenmesini istiyorsanız, `content\Models` paketin içinde ve klasörlerinde olması gerekir `contentFiles\{lang}\{tfm}\Models` .
 
-1. NuGet'e yükleme zamanında belirteç değiştirme `.pp` uygulaması talimatı vermek için kaynak kodu dosya adını ekleyebilir. Yüklemeden sonra, dosya uzantısı `.pp` olmayacaktır.
+1. NuGet 'in yüklemesi sırasında belirteç değişimini uygulamasına bildirmek için `.pp` kaynak kodu dosya adına ekleyin. Yüklemeden sonra, dosya uzantıya sahip olmaz `.pp` .
 
-    Örneğin, dönüşümler yapmak `ContosoData.cs`için , paketteki `ContosoData.cs.pp`dosyayı adlandırın. Kurulumdan sonra . `ContosoData.cs`
+    Örneğin, içinde dönüşümler yapmak için `ContosoData.cs` dosyayı pakette adlandırın `ContosoData.cs.pp` . Yükleme sonrasında, olarak görünür `ContosoData.cs` .
 
-1. Kaynak kod dosyasında, NuGet'in proje özellikleriyle `$token$` değiştirmesi gereken değerleri belirtmek için formun büyük/küçük harf duyarlı belirteçlerini kullanın:
+1. Kaynak kodu dosyasında, `$token$` NuGet 'in proje özellikleriyle değiştirmek zorunda olduğu değerleri belirtmek için formun büyük/küçük harfe duyarsız belirteçlerini kullanın:
 
     ```cs
     namespace $rootnamespace$.Models
@@ -43,27 +43,27 @@ ms.locfileid: "78231181"
     }
     ```
 
-    Yükleme üzerine, NuGet `$rootnamespace$` `Fabrikam` hedef projenin kök ad alanı olduğunu `Fabrikam`varsayarak değiştirir.
+    Yükleme sonrasında NuGet, `$rootnamespace$` `Fabrikam` hedef projenin kök ad alanı olduğu varsayımıyla değiştirilir `Fabrikam` .
 
-Belirteç `$rootnamespace$` en yaygın olarak kullanılan proje özelliğidir; diğerleri [proje özelliklerinde](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7)listelenir. Elbette, bazı özelliklerin proje türüne özgü olabileceğine dikkat edin.
+`$rootnamespace$`Belirteç en yaygın olarak kullanılan proje özelliğidir; diğerleri [proje özelliklerinde](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7)listelenir. Kuşkusuz, bazı özelliklerin proje türüne özgü olabileceğini unutmayın.
 
-## <a name="specifying-config-file-transformations"></a>Config dosya dönüşümlerini belirtme
+## <a name="specifying-config-file-transformations"></a>Yapılandırma dosyası dönüşümlerini belirtme
 
-Takip eden bölümlerde açıklandığı gibi, config dosya dönüşümleri iki şekilde yapılabilir:
+Aşağıdaki bölümlerde açıklandığı gibi, yapılandırma dosyası dönüştürmeleri iki şekilde yapılabilir:
 
-- Uzantı, Paket yüklü `content` olduğunda varolan config dosyalarıyla birleştirmek için Bu dosyaların XML içerdiğini NuGet'e söylediği paketin klasörüne `web.config.transform` ve dosyalarını ekleyin. `app.config.transform` `.transform` Bir paket kaldırıldığında, aynı XML kaldırılır.
-- İstediğindeğişiklikleri `web.config.install.xdt` açıklamak için [XDT sözdizimini](https://msdn.microsoft.com/library/dd465326.aspx) kullanarak paketinizin `content` klasörüne dosya ekleyin `app.config.install.xdt` ve dosya ekleyin. Bu seçenekle, paket `.uninstall.xdt` projeden kaldırıldığında değişiklikleri tersine çevirecek bir dosya da ekleyebilirsiniz.
+- Paketin `app.config.transform` , `web.config.transform` `content` `.transform` paketin yüklendiği sırada var olan yapılandırma dosyalarıyla birleştirmek için bu dosyaların NuGet 'e söylemiş olduğunu ve paketinizin klasörüne dosya ekleyin. Bir paket kaldırıldığında aynı XML kaldırılır.
+- `app.config.install.xdt` `web.config.install.xdt` `content` İstenen değişiklikleri anlatmak için [xdt söz dizimini](/previous-versions/aspnet/dd465326(v=vs.110)) kullanarak paketinizin klasörüne ve dosyalarını ekleyin. Bu seçenekle `.uninstall.xdt` , paket bir projeden kaldırıldığında ters değişiklikler için bir dosya de ekleyebilirsiniz.
 
 > [!Note]
-> Dönüşümler Visual Studio'da `.config` bağlantı olarak başvurulan dosyalara uygulanmaz.
+> Dönüşümler, `.config` Visual Studio 'da bağlantı olarak başvurulan dosyalara uygulanmaz.
 
-XDT kullanmanın avantajı, yalnızca iki statik dosyayı birleştirmek yerine, tam XPath desteğini kullanarak öğe ve öznitelik eşleştirme kullanarak Bir XML DOM yapısını işlemek için bir sözdizimi sağlamasıdır. XDT daha sonra öğeleri ekleyebilir, güncelleyebilir veya kaldırabilir, belirli bir konuma yeni öğeler yerleyebilir veya öğeleri değiştirebilir/kaldırabilir (alt düğümler dahil). Bu, paket yükleme sırasında yapılan tüm dönüşümleri geri kaldıran kaldırma dönüşümleri oluşturmayı kolaylaştırır.
+XDT kullanmanın avantajı, yalnızca iki statik dosyayı birleştirmek yerine, bir XML DOM yapısını, tam XPath desteği kullanılarak öğe ve öznitelik eşleştirme kullanarak işlemek için bir sözdizimi sağlar. XDT daha sonra öğeleri ekleyebilir, güncelleştirebilir veya kaldırabilir, belirli bir konuma yeni öğeleri yerleştirebilir veya öğeleri (alt düğümler dahil) değiştirebilir/kaldırabilir. Bu, paket yüklemesi sırasında yapılan tüm dönüştürmeleri geri yükleyen kaldırma dönüştürmeleri oluşturmayı basit hale getirir.
 
-### <a name="xml-transforms"></a>XML dönüştürür
+### <a name="xml-transforms"></a>XML dönüşümleri
 
-Ve `app.config.transform` `web.config.transform` bir paketin `content` klasöründe yalnızca projenin varolan `app.config` ve `web.config` dosyaları birleştirmek için bu öğeleri içerir.
+`app.config.transform` `web.config.transform` Bir paketin klasöründe ve, `content` yalnızca projenin var olan ve dosyalarında birleştirilecek öğeleri içerir `app.config` `web.config` .
 
-Örnek olarak, projenin başlangıçta aşağıdaki içeriği `web.config`içerdiğini varsayalım:
+Örnek olarak, projenin başlangıçta aşağıdaki içeriği içerdiğini varsayın `web.config` :
 
 ```xml
 <configuration>
@@ -75,7 +75,7 @@ Ve `app.config.transform` `web.config.transform` bir paketin `content` klasörü
 </configuration>
 ```
 
-Paket yükleme `MyNuModule` sırasında `modules` bölüme bir öğe `web.config.transform` eklemek için, paketin `content` klasöründe aşağıdaki gibi görünen bir dosya oluşturun:
+`MyNuModule` `modules` Paket yüklemesi sırasında bölüme bir öğe eklemek için, paketin klasöründe şuna benzeyen bir `web.config.transform` dosya oluşturun `content` :
 
 ```xml
 <configuration>
@@ -87,7 +87,7 @@ Paket yükleme `MyNuModule` sırasında `modules` bölüme bir öğe `web.config
 </configuration>
 ```
 
-NuGet paketi `web.config` yükledikten sonra aşağıdaki gibi görünür:
+NuGet paketi yükledikten sonra `web.config` aşağıdaki gibi görünür:
 
 ```xml
 <configuration>
@@ -100,24 +100,24 @@ NuGet paketi `web.config` yükledikten sonra aşağıdaki gibi görünür:
 </configuration>
 ```
 
-`modules` NuGet'in bölümün yerini almadığını, yalnızca yeni öğeler ve öznitelikler ekleyerek yeni girişi birleştirdiğini fark edin. NuGet varolan öğeleri veya öznitelikleri değiştirmez.
+NuGet 'in bölümün yerini değiştirmediğine dikkat edin `modules` , yalnızca yeni öğeler ve öznitelikler ekleyerek yalnızca yeni girişi birleştirir. NuGet, varolan herhangi bir öğeyi veya özniteliği değiştirmez.
 
-Paket kaldırıldığında, NuGet `.transform` dosyaları yeniden inceler ve içerdiği öğeleri uygun `.config` dosyalardan kaldırır. Bu `.config` işlemin, paket yüklemeden sonra değiştirdiğiniz dosyadaki satırları etkilemeyeceğini unutmayın.
+Paket kaldırıldığında, NuGet `.transform` dosyaları yeniden inceler ve içerdiği öğeleri uygun `.config` dosyalardan kaldırır. Bu işlemin, `.config` dosyadaki paket yüklemesinden sonra değişiklik yaptığınız herhangi bir satırı etkilemeyeceğini unutmayın.
 
-Daha kapsamlı bir örnek olarak, [ASP.NET için Hata Günlüğü Modülleri ve İşleyiciler (ELMAH)](https://www.nuget.org/packages/elmah/) paketi, bir paket kaldırıldığında yeniden kaldırılan `web.config`birçok giriş ekler.
+Daha kapsamlı bir örnek olarak, [ASP.net (ELMAH) paketi Için hata günlüğü modülleri ve işleyiciler](https://www.nuget.org/packages/elmah/) , `web.config` ' a bir paket kaldırıldığında yeniden kaldırılan birçok giriş ekler.
 
-Dosyasını `web.config.transform` incelemek için, elmah paketini yukarıdaki bağlantıdan indirin, paket uzantısını ''dan `.nupkg` ' ''a `.zip`çevirin ve sonra o ZIP dosyasında açın. `content\web.config.transform`
+Dosyasını incelemek için `web.config.transform` Yukarıdaki bağlantıdan ELMAH paketini indirin, paket uzantısını `.nupkg` olarak olarak değiştirin `.zip` ve ardından `content\web.config.transform` Bu ZIP dosyasında açın.
 
-Paketi yükleme ve kaldırma nın etkisini görmek için Visual Studio'da yeni bir ASP.NET projesi oluşturun (şablon Yeni Proje iletişim kutusunda **Visual C# > Web** altındadır) ve boş bir ASP.NET uygulaması seçin. İlk `web.config` durumunu görmek için açın. Ardından projeyi sağ tıklatın, **NuGet Paketlerini Yönet'i**seçin, nuget.org'da ELMAH'a göz atın ve en son sürümü yükleyin. Tüm değişikliklere `web.config`dikkat edin. Şimdi paketi kaldırın ve `web.config` önceki durumuna geri dönmek bakın.
+Paketi yükleme ve kaldırma etkisini görmek için, Visual Studio 'da yeni bir ASP.NET projesi oluşturun (şablon, yeni proje iletişim kutusunda **visual C# > Web** altında bulunur) ve boş bir ASP.NET uygulaması seçin. `web.config`İlk durumunu görmek için açın. Ardından projeye sağ tıklayın, **NuGet Paketlerini Yönet** ' i seçin, NuGet.org üzerinde ELMAH için gezinme yapın ve en son sürümü yükler. Tüm değişiklikleri unutmayın `web.config` . Şimdi paketi kaldırın ve `web.config` önceki durumuna geri dönün.
 
-### <a name="xdt-transforms"></a>XDT dönüştürür
+### <a name="xdt-transforms"></a>XDT dönüşümleri
 
 > [!Note]
-> Aşağıda açıklandığı gibi , XDT [dönüşümleri geçiş `packages.config` `PackageReference`için dokümanların paket uyumluluk sorunları bölümünde ](../consume-packages/migrate-packages-config-to-package-reference.md#package-compatibility-issues)belirtildiği gibi `packages.config`sadece desteklenir . Aşağıdaki dosyaları paketinize eklerseniz, paketinizi `PackageReference` kullanan tüketiciler dönüşümleri uygulamaz (XDT dönüşümlerinin işe yaraması için bu [örneğe](https://github.com/NuGet/Samples/tree/master/XDTransformExample) `PackageReference`bakın).
+> ' [Dan `packages.config` `PackageReference` ' a geçiş için docs 'ın paket uyumluluk sorunları bölümünde ](../consume-packages/migrate-packages-config-to-package-reference.md#package-compatibility-issues)belirtildiği gibi, aşağıda açıklandığı gibi xdt dönüştürmeleri yalnızca tarafından desteklenir `packages.config` . Aşağıdaki dosyaları paketinize eklerseniz, paketinizi kullanan tüketiciler, `PackageReference` Dönüştürmelere uygulanmaz (XDT dönüştürmelerinin birlikte çalışmasını sağlamak için [Bu örneğe](https://github.com/NuGet/Samples/tree/master/XDTransformExample) başvurun `PackageReference` ).
 
-[XDT sözdizimini](https://msdn.microsoft.com/library/dd465326.aspx)kullanarak config dosyalarını değiştirebilirsiniz. Ayrıca, nuget belirteçleri [proje özellikleri](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7) ile delimiters `$` (büyük/küçük harf duyarsız) içinde özellik adını ekleyerek değiştirebilirsiniz.
+[Xdt sözdizimini](/previous-versions/aspnet/dd465326(v=vs.110))kullanarak yapılandırma dosyalarını değiştirebilirsiniz. Ayrıca, sınırlayıcıları (büyük/küçük harfe duyarsız) içinde özellik adını ekleyerek NuGet 'in belirteçleri [Proje özellikleriyle](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7) değiştirmesini sağlayabilirsiniz `$` .
 
-`app.config.install.xdt` Örneğin, aşağıdaki dosya projeden `appSettings` `app.config` `FullPath`, ve `FileName` `ActiveConfigurationSettings` değerleri içeren bir öğe ekler:
+Örneğin, aşağıdaki `app.config.install.xdt` Dosya `appSettings` `app.config` `FullPath` `FileName` projedeki, ve değerlerini içeren içine bir öğesi ekleyecektir `ActiveConfigurationSettings` :
 
 ```xml
 <?xml version="1.0"?>
@@ -130,7 +130,7 @@ Paketi yükleme ve kaldırma nın etkisini görmek için Visual Studio'da yeni b
 </configuration>
 ```
 
-Başka bir örnek olarak, projenin başlangıçta `web.config`aşağıdaki içeriği içerdiğini varsayalım:
+Başka bir örnek için, projenin başlangıçta aşağıdaki içeriği içerdiğini varsayalım `web.config` :
 
 ```xml
 <configuration>
@@ -142,7 +142,7 @@ Başka bir örnek olarak, projenin başlangıçta `web.config`aşağıdaki içer
 </configuration>
 ```
 
-Paket yükleme `MyNuModule` sırasında `modules` bölüme bir öğe eklemek `web.config.install.xdt` için, paketin aşağıdakileri içerir:
+`MyNuModule` `modules` Paket yüklemesi sırasında bölüme bir öğe eklemek için, paket `web.config.install.xdt` şunları içerir:
 
 ```xml
 <?xml version="1.0"?>
@@ -155,7 +155,7 @@ Paket yükleme `MyNuModule` sırasında `modules` bölüme bir öğe eklemek `we
 </configuration>
 ```
 
-Paketi yükledikten `web.config` sonra, bu gibi görünecektir:
+Paketi yükledikten sonra şöyle `web.config` görünür:
 
 ```xml
 <configuration>
@@ -168,7 +168,7 @@ Paketi yükledikten `web.config` sonra, bu gibi görünecektir:
 </configuration>
 ```
 
-Paket kaldırma `MyNuModule` sırasında yalnızca öğeyi `web.config.uninstall.xdt` kaldırmak için dosya aşağıdakileri içermelidir:
+Yalnızca `MyNuModule` paketi kaldırma sırasında öğeyi kaldırmak için, `web.config.uninstall.xdt` Dosya şunları içermelidir:
 
 ```xml
 <?xml version="1.0"?>

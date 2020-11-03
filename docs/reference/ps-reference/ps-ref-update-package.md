@@ -1,24 +1,24 @@
 ---
 title: NuGet Update-Package PowerShell Başvurusu
-description: Visual Studio 'daki NuGet Paket Yöneticisi konsolundaki Update-Package PowerShell komutu için başvuru.
+description: Visual Studio 'daki NuGet Paket Yöneticisi konsolundaki Update-Package PowerShell komutuna yönelik başvuru.
 author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: e1bff9d4b7391d8be87afa4b8f2fbd51ae922140
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: af918d11e8f976be962d52084c5eda4d53e382c6
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75384862"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93238042"
 ---
-# <a name="update-package-package-manager-console-in-visual-studio"></a>Update-Package (Visual Studio'da Paket Yöneticisi Konsolu)
+# <a name="update-package-package-manager-console-in-visual-studio"></a>Update-Package (Visual Studio 'da Paket Yöneticisi konsolu)
 
 *Yalnızca Windows üzerinde Visual Studio 'daki [NuGet Paket Yöneticisi konsolu](../../consume-packages/install-use-packages-powershell.md) içinde kullanılabilir.*
 
 Bir paketi ve onun bağımlılıklarını veya bir projedeki tüm paketleri daha yeni bir sürüme güncelleştirir.
 
-## <a name="syntax"></a>Sözdizimi
+## <a name="syntax"></a>Syntax
 
 ```ps
 Update-Package [-Id] <string> [-IgnoreDependencies] [-ProjectName <string>] [-Version <string>]
@@ -26,7 +26,7 @@ Update-Package [-Id] <string> [-IgnoreDependencies] [-ProjectName <string>] [-Ve
     [-DependencyVersion] [-ToHighestPatch] [-ToHighestMinor] [-WhatIf] [<CommonParameters>]
 ```
 
-NuGet 2.8 + ' de `Update-Package`, projenizdeki mevcut bir paketin indirgenmesini sağlamak için kullanılabilir. Örneğin, Microsoft. AspNet. MVC 5.1.0-RC1 yüklüyse, aşağıdaki komut bunu 5.0.0 'e indirgeyebilecek:
+NuGet 2.8 + ' de, `Update-Package` projenizde var olan bir paketin indirgenmesini sağlamak için kullanılabilir. Örneğin, Microsoft. AspNet. MVC 5.1.0-RC1 yüklüyse, aşağıdaki komut bunu 5.0.0 'e indirgeyebilecek:
 
 ```ps
 Update-Package Microsoft.AspNet.MVC -Version 5.0.0.
@@ -39,13 +39,13 @@ Update-Package Microsoft.AspNet.MVC -Version 5.0.0.
 | Id | Güncelleştirilecek paketin tanımlayıcısı. Atlanırsa, tüm paketleri güncelleştirir. -ID anahtarı isteğe bağlıdır. |
 | Ignoredependencies | Paketin bağımlılıklarını güncelleştirmeyi atlar. |
 | ProjectName | Güncelleştirilecek paketleri içeren projenin adı, tüm projeleri varsayılan olarak içerir. |
-| Sürüm | Yükseltme için kullanılacak sürüm, en son sürüme varsayılan olarak ayarlanıyor. NuGet 3.0 + sürümünde sürüm değeri *En düşük, en yüksek, HighestMinor*veya *HighestPatch* (-Safe) olmalıdır. |
+| Sürüm | Yükseltme için kullanılacak sürüm, en son sürüme varsayılan olarak ayarlanıyor. NuGet 3.0 + sürümünde sürüm değeri *En düşük, en yüksek, HighestMinor* veya *HighestPatch* (-Safe) olmalıdır. |
 | Güven | Yükseltmeleri, şu anda yüklü olan paket ile aynı ana ve alt sürümü olan sürümlerle kısıtlar. |
 | Kaynak | Aranacak paket kaynağının URL veya klasör yolu. Yerel klasör yolları mutlak veya geçerli klasöre göreli olabilir. Atlanırsa, `Update-Package` Şu anda seçili olan paket kaynağını arar. |
 | Includeönsürümü | Güncelleştirmeler için yayın öncesi paketleri içerir. |
 | Yeniden yükleme | Paketleri şu anda yüklü sürümlerini kullanarak resintalls. Bkz. [paketleri yeniden yükleme ve güncelleştirme](../../consume-packages/reinstalling-and-updating-packages.md). |
-| FileConflictAction | Proje tarafından başvurulan var olan dosyaların üzerine yazılması veya yoksayılması istendiğinde gerçekleştirilecek eylem. Olası değerler *üzerine yazılır, Yoksay, None, overwriteall*ve *IgnoreAll* (3.0 +). |
-| DependencyVersion | Kullanılacak bağımlılık paketlerinin sürümü, bu, aşağıdakilerden biri olabilir:<br/><ul><li>*En düşük* (varsayılan): en düşük sürüm</li><li>*HighestPatch*: en düşük ana, en düşük ikincil, en yüksek düzeltme eki olan sürüm</li><li>*HighestMinor*: en düşük ana, en yüksek ikincil, en yüksek düzeltme eki olan sürüm</li><li>*En yüksek* (parametresi olmayan Update-Package için varsayılan): en yüksek sürüm</li></ul>`Nuget.Config` dosyasındaki [`dependencyVersion`](../nuget-config-file.md#config-section) ayarını kullanarak varsayılan değeri ayarlayabilirsiniz. |
+| FileConflictAction | Proje tarafından başvurulan var olan dosyaların üzerine yazılması veya yoksayılması istendiğinde gerçekleştirilecek eylem. Olası değerler *üzerine yazılır, Yoksay, None, overwriteall* ve *IgnoreAll* (3.0 +). |
+| DependencyVersion | Kullanılacak bağımlılık paketlerinin sürümü, bu, aşağıdakilerden biri olabilir:<br/><ul><li>*En düşük* (varsayılan): en düşük sürüm</li><li>*HighestPatch* : en düşük ana, en düşük ikincil, en yüksek düzeltme eki olan sürüm</li><li>*HighestMinor* : en düşük ana, en yüksek ikincil, en yüksek düzeltme eki olan sürüm</li><li>*En yüksek* (parametresiz Update-Package için varsayılan): en yüksek sürüm</li></ul>Varsayılan değeri, [`dependencyVersion`](../nuget-config-file.md#config-section) dosyadaki ayarını kullanarak ayarlayabilirsiniz `Nuget.Config` . |
 | ToHighestPatch | -Safe ile eşdeğerdir. |
 | ToHighestMinor | Yükseltmeleri yalnızca, yüklü olan paketle aynı ana sürüme sahip sürümlere kısıtlar. |
 | WhatIf | Gerçekten güncelleştirmeyi gerçekleştirmeden, komutu çalıştırırken ne olacağını gösterir. |
@@ -54,7 +54,7 @@ Bu parametrelerin hiçbiri, işlem hattı girişi veya joker karakterler kabul e
 
 ### <a name="common-parameters"></a>Ortak Parametreler
 
-`Update-Package`, şu [ortak PowerShell parametrelerini](https://go.microsoft.com/fwlink/?LinkID=113216)destekler: Hata Ayıkla, hata eylemi, ErrorVariable, OutBuffer, OutVariable, Pipelinevariable, verbose, WarningAction ve WarningVariable.
+`Update-Package` Şu [ortak PowerShell parametrelerini](/powershell/module/microsoft.powershell.core/about/about_commonparameters)destekler: Hata Ayıkla, hata eylemi, ErrorVariable, OutBuffer, OutVariable, Pipelinevariable, verbose, WarningAction ve WarningVariable.
 
 ### <a name="examples"></a>Örnekler
 
@@ -81,11 +81,11 @@ Update-Package Elmah -ProjectName MvcApplication1 -Safe
 # (subject to version constraints). If this command rolls a dependency back to an earlier version,
 # use Update-Package <dependency_name> to reinstall that one dependency without affecting the
 # dependent package.
-Update-Package ELmah –reinstall 
+Update-Package Elmah –reinstall 
 
 # Reinstall the Elmah package in just MyProject
 Update-Package Elmah -ProjectName MyProject -reinstall
 
 # Reinstall the same version of the original package without touching dependencies.
-Update-Package ELmah –reinstall -ignoreDependencies
+Update-Package Elmah –reinstall -ignoreDependencies
 ```

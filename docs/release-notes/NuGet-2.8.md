@@ -6,43 +6,43 @@ ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
 ms.openlocfilehash: 98b8b7334738306e6d40ba7c455409a87c4bb822
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2020
-ms.locfileid: "79429054"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237037"
 ---
 # <a name="nuget-28-release-notes"></a>NuGet 2,8 sürüm notları
 
-NuGet [2.7.2 sürüm notları](../release-notes/nuget-2.7.2.md) | [NuGet 2.8.1 sürüm notları](../release-notes/nuget-2.8.1.md)
+[NuGet 2.7.2 sürüm notları](../release-notes/nuget-2.7.2.md)  |  [NuGet 2.8.1 sürüm notları](../release-notes/nuget-2.8.1.md)
 
 NuGet 2,8, 29 Ocak 2014 tarihinde yayınlandı.
 
-## <a name="acknowledgements"></a>Bildirimler
+## <a name="acknowledgements"></a>Teşekkürler
 
-1. [Ltakaynakları Lyn Pritchard](https://www.codeplex.com/site/users/view/leppie) ([@leppie](https://twitter.com/leppie))
+1. [Ltakaynakları Lyn Pritchard](https://www.codeplex.com/site/users/view/leppie) ( [@leppie](https://twitter.com/leppie) )
     - [#3466](https://nuget.codeplex.com/workitem/3466) -paket paketleme, bağımlılık paketlerinin kimliği doğrulanıyor.
-2. [Maaron Balliauw](https://www.codeplex.com/site/users/view/maartenba) ([@maartenballiauw](https://twitter.com/maartenballiauw))
+2. [Maaron Balliauw](https://www.codeplex.com/site/users/view/maartenba) ( [@maartenballiauw](https://twitter.com/maartenballiauw) )
     - [#2379](https://nuget.codeplex.com/workitem/2379) -akış kimlik bilgilerini sürekli olarak $Metadata son eki kaldırın.
-3. [Filıp de Vos](https://www.codeplex.com/site/users/view/FilipDeVos) ([@foxtricks](https://twitter.com/foxtricks))
-    - [#3538](http://nuget.codeplex.com/workitem/3538) -NuGet. exe Update komutu için proje dosyası belirtme desteği.
+3. [Filıp de Vos](https://www.codeplex.com/site/users/view/FilipDeVos) ( [@foxtricks](https://twitter.com/foxtricks) )
+    - [#3538](http://nuget.codeplex.com/workitem/3538) -nuget.exe Update komutu için proje dosyası belirtme desteği.
 4. [Juan Gonzataz](https://www.codeplex.com/site/users/view/jjgonzalez)
     - [#3536](http://nuget.codeplex.com/workitem/3536) değiştirme belirteçleri-ınclubir başvuru kimliği ile geçirilmedi.
-5. [David Poole](https://www.codeplex.com/site/users/view/Sarkie) ([@Sarkie_Dave](https://twitter.com/Sarkie_Dave))
+5. [David Poole](https://www.codeplex.com/site/users/view/Sarkie) ( [@Sarkie_Dave](https://twitter.com/Sarkie_Dave) )
     - [#3677](http://nuget.codeplex.com/workitem/3677) -büyük paketi gönderirken NuGet. Push oluşturma OutOfMemoryException 'ı atma.
 6. [Wouter Valeştirir](https://www.codeplex.com/site/users/view/Despotes)
-    - [#3666](http://nuget.codeplex.com/workitem/3666) -proje başka bir CLI/C++ projeye başvurduğunda yanlış hedef yolu düzeltir.
-7. [Adam Canph](http://www.codeplex.com/site/users/view/adamralph) ([@adamralph](https://twitter.com/adamralph))
+    - [#3666](http://nuget.codeplex.com/workitem/3666) -proje başka bir CLI/C++ projesine başvurduğunda yanlış hedef yolu düzeltir.
+7. [Adam Canph](http://www.codeplex.com/site/users/view/adamralph) ( [@adamralph](https://twitter.com/adamralph) )
     - [#3639](https://nuget.codeplex.com/workitem/3639) -paketlerin varsayılan olarak geliştirme bağımlılıkları olarak yüklenmesine izin ver
-8. [David Fowler](https://www.codeplex.com/site/users/view/dfowler) ([@davidfowl](https://twitter.com/davidfowl))
+8. [David Fowler](https://www.codeplex.com/site/users/view/dfowler) ( [@davidfowl](https://twitter.com/davidfowl) )
     - [#3717](https://nuget.codeplex.com/workitem/3717) -en son düzeltme eki sürümüne örtük yükseltmeleri kaldırın
 9. [Gregvandenbkaback](https://www.codeplex.com/site/users/view/vdbg)
-    - NuGet. Server, NuGet. exe yansıtma komutu ve diğerleri için çeşitli hata düzeltmeleri ve geliştirmeleri.
+    - NuGet. Server için çeşitli hata düzeltmeleri ve iyileştirmeler, nuget.exe yansıtma komutu ve diğerleri.
     - Bu iş, 2,8 için ana öğe ile tümleştirilmesine yönelik doğru zamanlamaya göre bizimle birlikte çalışarak, çok sayıda aya göre yapılmıştı.
 
 ## <a name="patch-resolution-for-dependencies"></a>Bağımlılıklar için düzeltme eki çözme
 
-Paket bağımlılıkları çözümlenirken, NuGet, paketteki bağımlılıkları karşılayan en düşük ana ve ikincil paket sürümünü seçme stratejisini değiştirdi. Ancak, büyük ve küçük sürümden farklı olarak, düzeltme eki sürümü her zaman en yüksek sürüme çözümlenmelidir. Davranış iyi bir şekilde olsa da, bağımlılıkları olan paketleri yüklemek için bir belirleyici eksiklik oluşturmıştı. Aşağıdaki örnek göz önünde bulundurun:
+Paket bağımlılıkları çözümlenirken, NuGet, paketteki bağımlılıkları karşılayan en düşük ana ve ikincil paket sürümünü seçme stratejisini değiştirdi. Ancak, büyük ve küçük sürümden farklı olarak, düzeltme eki sürümü her zaman en yüksek sürüme çözümlenmelidir. Davranış iyi bir şekilde olsa da, bağımlılıkları olan paketleri yüklemek için bir belirleyici eksiklik oluşturmıştı. Aşağıdaki örneği inceleyin:
 
     PackageA@1.0.0 -[ >=1.0.0 ]-> PackageB@1.0.0
 
@@ -52,7 +52,7 @@ Paket bağımlılıkları çözümlenirken, NuGet, paketteki bağımlılıkları
 
     Developer2 installs PackageA@1.0.0: installed PackageA@1.0.0 and PackageB@1.0.1
 
-Bu örnekte, Developer1 ve Developer2 PackageA@1.0.0yüklü olsa da, her biri PackageB 'nin farklı bir sürümüyle sona ermiştir. NuGet 2,8, düzeltme eki sürümleri için bağımlılık çözümleme davranışı büyük ve küçük sürümlerin davranışıyla tutarlı olacak şekilde bu varsayılan davranışı değiştirir. Yukarıdaki örnekte, daha yeni düzeltme eki sürümünden bağımsız olarak, PackageA@1.0.0yükleme sonucu olarak PackageB@1.0.0 yüklenir.
+Bu örnekte, Developer1 ve Developer2 yüklü olsa bile PackageA@1.0.0 , her biri PackageB 'nin farklı bir sürümü ile sona erer. NuGet 2,8, düzeltme eki sürümleri için bağımlılık çözümleme davranışı büyük ve küçük sürümlerin davranışıyla tutarlı olacak şekilde bu varsayılan davranışı değiştirir. Yukarıdaki örnekte, daha PackageB@1.0.0 PackageA@1.0.0 Yeni bir düzeltme eki sürümüne bakılmaksızın yükleme sonucu olarak yüklenir.
 
 ## <a name="-dependencyversion-switch"></a>-DependencyVersion anahtarı
 
@@ -62,7 +62,7 @@ NuGet 2,8, bağımlılıkları çözümlemek için _varsayılan_ davranışı de
 
 ## <a name="dependencyversion-attribute"></a>DependencyVersion özniteliği
 
-Yukarıda açıklanan-DependencyVersion anahtarına ek olarak, NuGet. config dosyasında varsayılan değerin ne olduğunu tanımlayan NuGet. config dosyasında yeni bir öznitelik ayarlama yeteneği de vardır; örneğin,-DependencyVersion anahtarı bir çağrısında belirtilmemişse, Install-Package. Bu değer, herhangi bir paket yüklemesi işlemi için NuGet Paket Yöneticisi Iletişim kutusu tarafından da kullanılacaktır. Bu değeri ayarlamak için aşağıdaki özniteliği NuGet. config dosyanıza ekleyin:
+Yukarıda açıklanan-DependencyVersion anahtarına ek olarak, NuGet 'in,-DependencyVersion anahtarı Install-Package çağrısında belirtilmemişse, varsayılan değerin ne olduğunu tanımlayan Nuget.Config dosyasında yeni bir öznitelik ayarlama yeteneği de vardır. Bu değer, herhangi bir paket yüklemesi işlemi için NuGet Paket Yöneticisi Iletişim kutusu tarafından da kullanılacaktır. Bu değeri ayarlamak için aşağıdaki özniteliği Nuget.Config dosyanıza ekleyin:
 
     <config>
         <add key="dependencyversion" value="Highest" />
@@ -70,7 +70,7 @@ Yukarıda açıklanan-DependencyVersion anahtarına ek olarak, NuGet. config dos
 
 ## <a name="preview-nuget-operations-with--whatif"></a>-WhatIf Ile NuGet Işlemlerini önizleyin
 
-Bazı NuGet paketlerinde derin bağımlılık grafikleri bulunabilir ve bu nedenle, ne olacağını görmek için yükleme, kaldırma veya güncelleştirme işlemi sırasında yararlı olabilir. NuGet 2,8, standart PowerShell-whatIf anahtarını Install-Package, Uninstall-Package ve Update-Package komutlarına ekleyerek komutun uygulanacağı paketlerin tüm kapanışına görselleştirmeyi etkinleştirir. Örneğin, boş bir ASP.NET Web uygulamasında `install-package Microsoft.AspNet.WebApi -whatif` çalıştırmak aşağıdakileri verir.
+Bazı NuGet paketlerinde derin bağımlılık grafikleri bulunabilir ve bu nedenle, ne olacağını görmek için yükleme, kaldırma veya güncelleştirme işlemi sırasında yararlı olabilir. NuGet 2,8, standart PowerShell-whatIf anahtarını Install-Package, Uninstall-Package ve Update-Package komutlarına ekleyerek komutun uygulanacağı paketlerin tüm kapanışına görselleştirmeyi etkinleştirir. Örneğin, `install-package Microsoft.AspNet.WebApi -whatif` boş bir ASP.NET Web uygulamasında çalıştırmak aşağıdakileri verir.
 
     PM> install-package Microsoft.AspNet.WebApi -whatif
     Attempting to resolve dependency 'Microsoft.AspNet.WebApi.WebHost (≥ 5.0.0)'.
@@ -89,13 +89,13 @@ Yeni özellikleri araştırmak ve sonra son kararlı sürüme geri alma kararı 
 
 ## <a name="development-dependencies"></a>Geliştirme bağımlılıkları
 
-Geliştirme sürecini iyileştirmek için kullanılan araçlar da dahil olmak üzere birçok farklı özellik türü NuGet paketleri olarak teslim edilebilir. Bu bileşenler, yeni bir paket geliştirilirken, daha sonra yayımlandığında yeni paketin bağımlılığı olarak düşünülmemelidir. NuGet 2,8, bir paketin `.nuspec` dosyasında kendisini bir developmentDependency olarak tanımlamasına olanak sağlar. Yüklendiğinde, bu meta veriler paketin yüklendiği projenin `packages.config` dosyasına da eklenecektir. Bu `packages.config` dosya daha sonra `nuget.exe pack`sırasında NuGet bağımlılıkları için çözümlendikten sonra, bu bağımlılıklar geliştirme bağımlılıkları olarak işaretlenmiş bağımlılıkları hariç bırakır.
+Geliştirme sürecini iyileştirmek için kullanılan araçlar da dahil olmak üzere birçok farklı özellik türü NuGet paketleri olarak teslim edilebilir. Bu bileşenler, yeni bir paket geliştirilirken, daha sonra yayımlandığında yeni paketin bağımlılığı olarak düşünülmemelidir. NuGet 2,8, bir paketin `.nuspec` dosyanın kendisini bir developmentDependency olarak tanımlamasına olanak sağlar. Yüklendiğinde, bu meta veriler `packages.config` paketin yüklendiği projenin dosyasına da eklenecektir. Bu `packages.config` dosya daha sonra, sırasında NuGet bağımlılıkları için `nuget.exe pack` çözümlendikten sonra, geliştirme bağımlılıkları olarak işaretlenen bağımlılıkları hariç bırakır.
 
-## <a name="individual-packagesconfig-files-for-different-platforms"></a>Farklı platformlar için bağımsız paket. config dosyaları
+## <a name="individual-packagesconfig-files-for-different-platforms"></a>Farklı platformlar için bireysel packages.config dosyaları
 
-Birden çok hedef platform için uygulama geliştirirken, ilgili Yapı ortamlarının her biri için farklı proje dosyaları olması yaygındır. Farklı proje dosyalarındaki farklı NuGet paketlerini kullanmak da yaygındır, çünkü paketler farklı platformlar için farklı destek düzeylerine sahiptir. NuGet 2,8, platforma özgü farklı proje dosyaları için farklı `packages.config` dosyaları oluşturarak bu senaryoya yönelik gelişmiş destek sağlar.
+Birden çok hedef platform için uygulama geliştirirken, ilgili Yapı ortamlarının her biri için farklı proje dosyaları olması yaygındır. Farklı proje dosyalarındaki farklı NuGet paketlerini kullanmak da yaygındır, çünkü paketler farklı platformlar için farklı destek düzeylerine sahiptir. NuGet 2,8, `packages.config` platforma özgü farklı proje dosyaları için farklı dosyalar oluşturarak bu senaryoya yönelik gelişmiş destek sağlar.
 
-![Birden çok Package. config dosyası](./media/NuGet-2.8/multiple-packageconfigs.png)
+![Birden çok package.config dosyası](./media/NuGet-2.8/multiple-packageconfigs.png)
 
 ## <a name="fallback-to-local-cache"></a>Yerel önbelleğe geri dön
 
