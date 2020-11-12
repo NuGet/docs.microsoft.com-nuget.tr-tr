@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 0edfa1f61e6b18ef38689ed2272b2c5992a46ae6
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 05fa68ad3a0b353117a14e2b3e1cdf13dc806127
+ms.sourcegitcommit: 0cc6ac680c3202d0b036c0bed7910f6709215682
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237854"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94550394"
 ---
 # <a name="restore-packages-using-package-restore"></a>Paket geri yükleme kullanarak paketleri geri yükleme
 
@@ -36,7 +36,7 @@ Paket geri yükleme, tüm paket bağımlılıklarını proje dosyanızdaki ( *. 
    - [Visual Studio](#restore-using-visual-studio) ([otomatik geri yükleme](#restore-packages-automatically-using-visual-studio) veya [el ile geri yükleme](#restore-packages-manually-using-visual-studio))
    - [dotnet CLI](#restore-using-the-dotnet-cli)
    - [nuget.exe CLI](#restore-using-the-nugetexe-cli)
-   - [MSBuild](#restore-using-msbuild)
+   - [MSBUILD](#restore-using-msbuild)
    - [Azure Pipelines](#restore-using-azure-pipelines)
    - [Azure DevOps Server](#restore-using-azure-devops-server)
 
@@ -169,7 +169,7 @@ Proje dosyasında listelenen paketleri PackageReference ile geri yüklemek için
    MSBuild çıkışının, yapılandırmanın başarıyla tamamlandığını gösteriyor olduğundan emin olun.
    
 > [!Note]
-> MSBuild 'in `-restore` çalışacağı bir anahtarı vardır `Restore` , projeyi yeniden yükler ve ardından derler. Bkz. [bir MSBuild komutuyla geri yükleme ve oluşturma](/nuget/reference/msbuild-targets#restoring-and-building-with-one-msbuild-command).
+> MSBuild 'in `-restore` çalışacağı bir anahtarı vardır `Restore` , projeyi yeniden yükler ve ardından derler. Bkz. [bir MSBuild komutuyla geri yükleme ve oluşturma](../reference/msbuild-targets.md#restoring-and-building-with-one-msbuild-command).
 
 ```cmd
 # Will restore the project, then build, since build is the default target.
@@ -188,13 +188,13 @@ TFS 2013 veya sonraki bir ekip derleme şablonu kullanıyorsanız, derleme sıra
 
 NuGet, paketleri herhangi bir yöntemle geri yüklediğinde, `packages.config` veya proje dosyasında belirttiğiniz kısıtlamalara sahiptir:
 
-- İçinde `packages.config` , bağımlılık özelliğinde bir sürüm aralığı belirtebilirsiniz `allowedVersion` . Daha fazla bilgi için bkz. [yükseltme sürümlerini kısıtlama](../consume-packages/reinstalling-and-updating-packages.md#constraining-upgrade-versions) . Örneğin:
+- İçinde `packages.config` , bağımlılık özelliğinde bir sürüm aralığı belirtebilirsiniz `allowedVersion` . Daha fazla bilgi için bkz. [yükseltme sürümlerini kısıtlama](../consume-packages/reinstalling-and-updating-packages.md#constraining-upgrade-versions) . Örnek:
 
     ```xml
     <package id="Newtonsoft.json" version="6.0.4" allowedVersions="[6,7)" />
     ```
 
-- Bir proje dosyasında, bir bağımlılığın doğrudan aralığını belirtmek için PackageReference kullanabilirsiniz. Örneğin:
+- Bir proje dosyasında, bir bağımlılığın doğrudan aralığını belirtmek için PackageReference kullanabilirsiniz. Örnek:
 
     ```xml
     <PackageReference Include="Newtonsoft.json" Version="[6, 7)" />
@@ -224,7 +224,7 @@ HTTP kaynakları için önbelleği kullanmaktan kaçınmak için aşağıdakiler
 
 NuGet 2,6 ve önceki sürümlerde, MSBuild ile tümleşik bir paket geri yükleme daha önce destekleniyordu ancak artık doğru değildir. (Visual Studio 'da bir çözüme sağ tıklayıp **NuGet paketini geri yüklemeyi etkinleştir** ' i seçerek, bu genellikle etkinleştirilmiştir. Projeniz kullanım dışı olan MSBuild ile tümleşik paket geri yüklemeyi kullanıyorsa, lütfen otomatik paket geri yüklemeye geçirin.
 
-MSBuild-Integrated paketi geri yükleme kullanan projeler genellikle üç dosya içeren bir *. NuGet* klasörü içerir: *NuGet.config* , *nuget.exe* ve *NuGet. targets* . *NuGet. targets* dosyasının varlığı, NuGet 'in MSBuild ile tümleşik yaklaşımı kullanmaya devam edip etmediğini belirler. bu nedenle, geçiş sırasında bu dosyanın kaldırılması gerekir.
+MSBuild-Integrated paketi geri yükleme kullanan projeler genellikle üç dosya içeren bir *. NuGet* klasörü içerir: *NuGet.config* , *nuget.exe* ve *NuGet. targets*. *NuGet. targets* dosyasının varlığı, NuGet 'in MSBuild ile tümleşik yaklaşımı kullanmaya devam edip etmediğini belirler. bu nedenle, geçiş sırasında bu dosyanın kaldırılması gerekir.
 
 Otomatik paket geri yüklemeye geçiş yapmak için:
 

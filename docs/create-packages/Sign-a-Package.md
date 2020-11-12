@@ -6,12 +6,12 @@ ms.author: rmpablos
 ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 81f8695d7b3cec73f3e18f90ddf38dfe6c3ecf4d
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 64b28c29ae3b533bde7c8f41dd38a4ab0a5afef7
+ms.sourcegitcommit: 0cc6ac680c3202d0b036c0bed7910f6709215682
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237594"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94550381"
 ---
 # <a name="signing-nuget-packages"></a>NuGet paketleri imzalanıyor
 
@@ -54,7 +54,7 @@ nuget sign MyPackage.nupkg -CertificatePath <PathToTheCertificate> -Timestamper 
 İmzalı bir paket yayımlamak için öncelikle sertifikayı NuGet.org ile kaydetmeniz gerekir. Bir ikili DER biçiminde bir dosya olarak sertifikaya ihtiyacınız vardır `.cer` .
 
 1. NuGet.org ['de oturum açın](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) .
-1. `Account settings`(Veya `Manage Organization` **>** `Edit Organziation` sertifikayı bir kuruluş hesabıyla kaydetmek istiyorsanız) bölümüne gidin.
+1. `Account settings`(Veya `Manage Organization` **>** `Edit Organization` sertifikayı bir kuruluş hesabıyla kaydetmek istiyorsanız) bölümüne gidin.
 1. Bölümünü genişletin `Certificates` ve öğesini seçin `Register new` .
 1. Daha önce aktarılmış olan sertifika dosyasına gidip seçin.
   ![Kayıtlı sertifikalar](../reference/media/registered-certs.png)
