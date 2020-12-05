@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: f91d47bdf9b957b512d3d83434693ee93de07afb
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 6e5107ac05046ea46cc819ebe2a504ba6b030634
+ms.sourcegitcommit: e39e5a5ddf68bf41e816617e7f0339308523bbb3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623142"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96738948"
 ---
 # <a name="nuspec-reference"></a>. nuspec başvurusu
 
@@ -96,6 +96,9 @@ Bir paketi nuget.org 'e yüklerken, `authors` alan 4000 karakterle sınırlıdı
 ### <a name="optional-metadata-elements"></a>İsteğe bağlı meta veri öğeleri
 
 #### <a name="owners"></a>lere
+> [!Important]
+> sahipler kullanım dışıdır. Bunun yerine yazarları kullanın.
+
 Nuget.org üzerindeki profil adlarını kullanan paket oluşturucularının virgülle ayrılmış listesi. Bu, genellikle ile aynı listeyle aynıdır `authors` ve paket NuGet.org 'e yüklenirken yok sayılır. Bkz. [NuGet.org üzerinde paket sahiplerini yönetme](../nuget-org/publish-a-package.md#managing-package-owners-on-nugetorg). 
 
 #### <a name="projecturl"></a>projectUrl
@@ -261,7 +264,7 @@ Bir paketi nuget.org 'e yüklerken, `title` alan 256 karakterle sınırlıdır, 
 #### <a name="collection-elements"></a>Koleksiyon öğeleri
 
 #### <a name="packagetypes"></a>packageTypes
-*(3,5 +)* `<packageType>` Geleneksel bir bağımlılık paketi dışında paketin türünü belirten sıfır veya daha fazla öğe koleksiyonu. Her packageType 'ın *ad* ve *Sürüm*öznitelikleri vardır. Bkz. [paket türünü ayarlama](../create-packages/set-package-type.md).
+*(3,5 +)* `<packageType>` Geleneksel bir bağımlılık paketi dışında paketin türünü belirten sıfır veya daha fazla öğe koleksiyonu. Her packageType 'ın *ad* ve *Sürüm* öznitelikleri vardır. Bkz. [paket türünü ayarlama](../create-packages/set-package-type.md).
 #### <a name="dependencies"></a>bağımlılıklar
 Paketin bağımlılıklarını belirten sıfır veya daha fazla `<dependency>` öğe koleksiyonu. Her bağımlılığın *kimliği*, *sürümü*, *içerme* (3. x +) ve *exclude* (3. x +) öznitelikleri vardır. Aşağıdaki [bağımlılıklara](#dependencies-element) bakın.
 #### <a name="frameworkassemblies"></a>frameworkAssemblies
@@ -353,7 +356,7 @@ Ve `AssemblyName` `LoggingLibrary` MSBuild 'de yapılandırma ile olan bir derle
 | --- | --- |
 | `id` | Istenir "EntityFramework" ve "NUnit" gibi bağımlılığın paket KIMLIĞI, nuget.org paketinin adı bir paket sayfasında gösterilmektedir. |
 | `version` | Istenir Bağımlılık olarak kabul edilebilir sürüm aralığı. Tam sözdizimi için [paket sürümü oluşturma](../concepts/package-versioning.md#version-ranges) bölümüne bakın. Kayan sürümler desteklenmez. |
-| include | Son pakete dahil edilecek bağımlılığı belirten, etiketleri ekle/çıkar (aşağıya bakın) listesi. Varsayılan değer: `all`. |
+| include | Son pakete dahil edilecek bağımlılığı belirten, etiketleri ekle/çıkar (aşağıya bakın) listesi. `all` varsayılan değerdir. |
 | dışlama | Son pakette hariç tutulacak bağımlılığı belirten, etiketleri dahil et/hariç tut (aşağıya bakın) listesi. Varsayılan değer, `build,analyzers` üzerine yazılabilir. Ancak `content/ ContentFiles` , üzerine yazılabilir olmayan son pakette da örtük olarak hariç tutulur. İle belirtilen Etiketler `exclude` , ile belirtilen değerlere göre önceliğe sahip olacak şekilde belirlenir `include` . Örneğin, `include="runtime, compile" exclude="compile"` ile aynıdır `include="runtime"` . |
 
 Bir paketi nuget.org 'e yüklerken, her bağımlılığın `id` özniteliği 128 karakterle sınırlıdır ve `version` öznitelik 256 karakterle sınırlıdır.
@@ -519,7 +522,7 @@ Her `<file>` öğe aşağıdaki öznitelikleri belirtir:
 | --- | --- |
 | **src** | Özniteliği tarafından belirtilen Dışlamalar ile ilgili olarak içerilecek dosyanın veya dosyaların konumu `exclude` . `.nuspec`Mutlak bir yol belirtilmediği takdirde yol dosyayla ilişkilidir. Joker karaktere `*` izin verilir ve çift joker karakter `**` özyinelemeli bir klasör aramasını ifade etmenizi gerektirir. |
 | **hedef** | Kaynak dosyaların yerleştirildiği,,, veya ile başlaması gereken paket içindeki klasörün göreli yolu `lib` `content` `build` `tools` . Bkz. [kural tabanlı çalışma dizininden. nuspec oluşturma](../create-packages/creating-a-package.md#from-a-convention-based-working-directory). |
-| **dışlama** | Konumdan hariç tutulacak dosyaların veya dosya desenlerinin noktalı virgülle ayrılmış listesi `src` . Joker karaktere `*` izin verilir ve çift joker karakter `**` özyinelemeli bir klasör aramasını ifade etmenizi gerektirir. |
+| **amaz** | Konumdan hariç tutulacak dosyaların veya dosya desenlerinin noktalı virgülle ayrılmış listesi `src` . Joker karaktere `*` izin verilir ve çift joker karakter `**` özyinelemeli bir klasör aramasını ifade etmenizi gerektirir. |
 
 ### <a name="examples"></a>Örnekler
 
@@ -723,7 +726,7 @@ Bu dosyalar, proje sistemi içinde nasıl kullanılması gerektiğini betimleyen
 | Öznitelik | Açıklama |
 | --- | --- |
 | **içeriyor** | Istenir Özniteliği tarafından belirtilen Dışlamalar ile ilgili olarak içerilecek dosyanın veya dosyaların konumu `exclude` . `contentFiles`Mutlak bir yol belirtilmediği takdirde yol klasöre göre değişir. Joker karaktere `*` izin verilir ve çift joker karakter `**` özyinelemeli bir klasör aramasını ifade etmenizi gerektirir. |
-| **dışlama** | Konumdan hariç tutulacak dosyaların veya dosya desenlerinin noktalı virgülle ayrılmış listesi `src` . Joker karaktere `*` izin verilir ve çift joker karakter `**` özyinelemeli bir klasör aramasını ifade etmenizi gerektirir. |
+| **amaz** | Konumdan hariç tutulacak dosyaların veya dosya desenlerinin noktalı virgülle ayrılmış listesi `src` . Joker karaktere `*` izin verilir ve çift joker karakter `**` özyinelemeli bir klasör aramasını ifade etmenizi gerektirir. |
 | **buildAction** | ,,, `Content` `None` `Embedded Resource` Vb. gibi MSBuild için içerik öğesine atanacak yapı eylemi `Compile` . Varsayılan değer `Compile` . |
 | **copyToOutput** | İçerik öğelerinin derleme (veya yayımlama) çıkış klasörüne kopyalanıp kopyalanmayacağını gösteren bir Boole değeri. Varsayılan değer false. |
 | **leştirebilir** | İçerik öğelerinin derleme çıkışında tek bir klasöre mi kopyalanacağını (true) veya paketteki klasör yapısını korumayı (false) gösteren bir Boole değeri. Bu bayrak yalnızca copyToOutput bayrağı true olarak ayarlandığında kullanılabilir. Varsayılan değer false. |

@@ -1,9 +1,7 @@
 ---
 title: Sembol paketlerini gönderme, NuGet API | Microsoft Docs
 author: cristinamanum
-ms.author:
-- cmanu
-- kraigb
+ms.author: cmanu
 manager: skofman
 ms.date: 10/30/2018
 ms.topic: reference
@@ -12,12 +10,12 @@ ms.technology: ''
 description: Yayımla hizmeti, istemcilerin yeni sembol paketleri yayımlamasına izin verir.
 keywords: NuGet API gönderme sembol paketi
 ms.reviewer: karann
-ms.openlocfilehash: 27e557bf15ce31152243a409eddc4112eeb6c38b
-ms.sourcegitcommit: ac9a00ccaf90e539a381e92b650074910b21eb0d
+ms.openlocfilehash: bd4a10cc976c9d0775a63cfe61c35327c196065c
+ms.sourcegitcommit: e39e5a5ddf68bf41e816617e7f0339308523bbb3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70235111"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96738883"
 ---
 # <a name="push-symbol-packages"></a>Sembol paketlerini gönder
 
@@ -28,17 +26,17 @@ Bu işlemler `SymbolPackagePublish` [hizmet dizininde](service-index.md)bulunan 
 
 Aşağıdaki `@type` değer kullanılır:
 
-@typedeeri                 | Notlar
+@type deeri                 | Notlar
 --------------------        | -----
 SymbolPackagePublish/4.9.0  | İlk yayın
 
-## <a name="base-url"></a>Taban URL 'SI
+## <a name="base-url"></a>Temel URL
 
-Aşağıdaki API 'lerin temel URL 'si, paket kaynağının `@id` [hizmet dizinindeki](service-index.md) `SymbolPackagePublish/4.9.0` kaynak özelliğinin değeridir. Aşağıdaki belgeler için NuGet. org 'ın URL 'SI kullanılır. Hizmet `https://www.nuget.org/api/v2/symbolpackage` dizininde bulunan `@id` değer için bir yer tutucu olarak düşünün.
+Aşağıdaki API 'Lerin temel URL 'SI, `@id` `SymbolPackagePublish/4.9.0` paket kaynağının [hizmet dizinindeki](service-index.md)kaynak özelliğinin değeridir. Aşağıdaki belgeler için NuGet. org 'ın URL 'SI kullanılır. `https://www.nuget.org/api/v2/symbolpackage`Hizmet dizininde bulunan değer için bir yer tutucu olarak düşünün `@id` .
 
 ## <a name="http-methods"></a>HTTP yöntemleri
 
-`PUT` Http yöntemi bu kaynak tarafından destekleniyor. 
+`PUT`Http yöntemi bu kaynak tarafından destekleniyor. 
 
 ## <a name="push-a-symbol-package"></a>Bir sembol paketini gönder
 
@@ -53,9 +51,9 @@ Aynı KIMLIĞE ve sürüme sahip sembol paketleri birden çok kez gönderilebili
 
 ### <a name="request-parameters"></a>İstek parametreleri
 
-Ad           | İçindeki     | Tür   | Gerekli | Notlar
+Ad           | İçinde     | Tür   | Gerekli | Notlar
 -------------- | ------ | ------ | -------- | -----
-X-NuGet-ApiKey | Üstbilgi | dize | evet      | Örneğin, `X-NuGet-ApiKey: {USER_API_KEY}`
+X-NuGet-ApiKey | Üst bilgi | string | evet      | Örneğin, `X-NuGet-ApiKey: {USER_API_KEY}`
 
 API anahtarı, Kullanıcı tarafından paket kaynağından alınan ve istemciye yapılandırılan donuk bir dizedir. Belirli bir dize biçimi uygulanan değildir ancak API anahtarının uzunluğu, HTTP üst bilgisi değerleri için makul bir boyutu aşmamalıdır.
 
@@ -65,7 +63,7 @@ Sembol gönderimi için istek gövdesi, bir paket gönderme isteğinin istek gö
 
 ### <a name="response"></a>Yanıt
 
-Durum kodu | Açıklama
+Durum Kodu | Anlamı
 ----------- | -------
 201         | Sembol paketi başarıyla gönderildi.
 400         | Belirtilen sembol paketi geçersiz.

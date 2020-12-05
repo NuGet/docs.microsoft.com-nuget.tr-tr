@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 16fd7b9103ef5ac335f0b2e5493dd2983b182f50
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 4a04c6dd7993fc47bcf7a6fe46236ed700a0d105
+ms.sourcegitcommit: e39e5a5ddf68bf41e816617e7f0339308523bbb3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623181"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96738935"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet paketi ve geri yükleme MSBuild hedefleri olarak
 
@@ -53,7 +53,7 @@ Aşağıdaki tabloda, ilk düğüm içindeki bir proje dosyasına eklenebilen MS
 | VersionPrefix | PackageVersionPrefix | empty | PackageVersion ayarı PackageVersionPrefix üzerine yazıyor |
 | VersionSuffix | PackageVersionSuffix | empty | MSBuild 'ten $ (VersionSuffix). PackageVersion ayarı PackageVersionSuffix üzerine yazıyor |
 | Yazarlar | Yazarlar | Geçerli kullanıcının Kullanıcı adı | |
-| Sahipler | N/A | NuSpec içinde yok | |
+| Sahipler | Yok | NuSpec içinde yok | |
 | Başlık | Başlık | PackageID| |
 | Açıklama | Açıklama | "Paket açıklaması" | |
 | Telif Hakkı | Telif Hakkı | empty | |
@@ -365,7 +365,8 @@ Bir nuspec dosyası paketiçin bir *. csproj* dosyası örneği:
 1. Paketleri İndir
 1. Varlıklar dosyası, hedefler ve props yazma
 
-`restore`Hedef **yalnızca** packagereference biçimini kullanan projeler için kullanılabilir. Bu, biçimi kullanan projeler **için çalışmaz** `packages.config` ; bunun yerine [NuGet geri yüklemeyi](../reference/cli-reference/cli-ref-restore.md) kullanın.
+`restore`Hedef, PackageReference biçimini kullanan projeler için geçerlidir.
+`MSBuild 16.5+` Ayrıca, biçim için [kabul desteği](#restoring-packagereference-and-packages.config-with-msbuild) de vardır `packages.config` .
 
 ### <a name="restore-properties"></a>Özellikleri geri yükle
 
@@ -391,7 +392,8 @@ Ek geri yükleme ayarları proje dosyasındaki MSBuild özelliklerinden gelebili
 | RestorePackagesWithLockFile | Bir kilit dosyasının kullanımıyla ilgili olarak. |
 | RestoreLockedMode | Geri yüklemeyi kilitli modda çalıştırın. Bu, geri yüklemenin bağımlılıkları yeniden değerlendirmeyeceği anlamına gelir. |
 | NuGetLockFilePath | Kilit dosyası için özel bir konum. Varsayılan konum projenin yanında bulunur ve adlandırılır `packages.lock.json` . |
-| Restoreforcedeğerlendir | Bağımlılıkları yeniden hesaplamak ve herhangi bir uyarı olmadan kilit dosyasını güncelleştirmek için geri yüklemeyi zorlar. | 
+| Restoreforcedeğerlendir | Bağımlılıkları yeniden hesaplamak ve herhangi bir uyarı olmadan kilit dosyasını güncelleştirmek için geri yüklemeyi zorlar. |
+| RestorePackagesConfig | packages.config olan projeleri geri yükleyen bir kabul etme anahtarı. Yalnızca ile desteklenir `MSBuild -t:restore` . |
 
 #### <a name="examples"></a>Örnekler
 
@@ -435,6 +437,17 @@ msbuild -t:build -restore
 ```
 
 Aynı Logic şuna benzer diğer hedefler için de geçerlidir `build` .
+
+### <a name="restoring-packagereference-and-packagesconfig-with-msbuild"></a>MSBuild ile PackageReference ve packages.config geri yükleme
+
+MSBuild 16.5 + ile packages.config de desteklenir `msbuild -t:restore` .
+
+```cli
+msbuild -t:restore -p:RestorePackagesConfig=true
+```
+
+> [!NOTE]
+> `packages.config` restore yalnızca ile kullanılabilir `MSBuild 16.5+` ve `dotnet.exe`
 
 ### <a name="packagetargetfallback"></a>PackageTargetFallback
 
