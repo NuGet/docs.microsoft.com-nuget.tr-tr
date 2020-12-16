@@ -1,4 +1,3 @@
-# [Bir bakışta belgeler](index.yml)
 # [NuGet nedir?](what-is-nuget.md)
 # Kullanmaya başlayın
 ## [NuGet istemci araçlarını yükleme](install-nuget-client-tools.md)
