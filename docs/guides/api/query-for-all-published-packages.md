@@ -1,120 +1,120 @@
 ---
-title: nuget.org için yayınlanan tüm paketler için sorgu
-description: NuGet API'sini kullanarak, nuget.org için yayınlanan tüm paketleri sorgulayabilir ve zaman içinde güncel kalabilirsiniz.
+title: Nuget.org 'e yayınlanan tüm paketler için sorgu
+description: NuGet API 'sini kullanarak, nuget.org ' de yayınlanan tüm paketleri sorgulayabilir ve zaman içinde güncel kalın.
 author: joelverhagen
 ms.author: jver
 ms.date: 11/02/2017
 ms.topic: tutorial
 ms.reviewer: kraigb
-ms.openlocfilehash: 0bd21c427b5b89ae9e5f1500d75e1bf63a96e828
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 749d9466976d51c7cb65332c8b149e3a30862e63
+ms.sourcegitcommit: 650c08f8bc3d48dfd206a111e5e2aaca3001f569
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "64498229"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97523406"
 ---
-# <a name="query-for-all-packages-published-to-nugetorg"></a>nuget.org için yayınlanan tüm paketler için sorgu
+# <a name="query-for-all-packages-published-to-nugetorg"></a>Nuget.org 'e yayınlanan tüm paketler için sorgu
 
-Eski OData V2 API'sindeki ortak bir sorgu deseni, paketin yayımlandığı zaman sipariş edilen nuget.org'a göre yayınlanan tüm paketleri sıralıyordu. nuget.org karşı bu tür bir sorgu gerektiren senaryolar büyük ölçüde değişir:
+Eski OData v2 API 'sindeki yaygın bir sorgu deseninin, paket yayımlandığında tarafından sıralanan, nuget.org 'e yayınlanan tüm paketler numaralandırıldığı için. Nuget.org karşı bu tür bir sorgu gerektiren senaryolar farklılık gösterir:
 
-- nuget.org tamamen çoğaltma
-- Paketlerin yeni sürümlerinin ne zaman serbest bırakıldığını algılama
+- Nuget.org tamamen çoğaltılıyor
+- Paketlerin yeni sürümleri ne zaman yayımlanmışsa algılanıyor
 - Paketinize bağlı paketleri bulma
 
-Bunu yapmanın eski yolu genellikle OData paket varlığını bir zaman damgası ile sıralamaya ve `skip` (sayfa boyutu) parametreleri kullanılarak `top` belirlenen büyük sonuç kümesi boyunca sayfalama bağlıdır. Ne yazık ki, bu yaklaşımın bazı dezavantajları vardır:
+Bunu yapmanın eski yolu, genellikle OData paketi varlığının, `skip` ve `top` (sayfa boyutu) parametreleri kullanılarak oluşan büyük sonuç kümesinde bir zaman damgası ve sayfalama yoluyla sıralanarak yapılır. Ne yazık ki bu yaklaşımın bazı dezavantajları vardır:
 
-- Sorgular genellikle sıra değiştiren veriler üzerinde yapıldığından, paketlerin eksik olma olasılığı
-- Sorgular en iyi duruma getirilmediği için sorgu yanıt süresi yavaşladı (en iyi duruma getirilmiş sorgular resmi NuGet istemcisi için ana satır senaryosunu destekleyen sorgulardır)
-- Amortismana ve belgesiz API'nin kullanımı, gelecekte bu tür sorguların desteklenmesi nin garanti olmadığı anlamına gelir
-- Tarihin tam olarak meydana gelen sırayla tekrarlanamaması
+- Eksik paket olma olasılığı, çünkü sorgular sıklıkla değişen sırada olan veriler üzerinde yapılıyor
+- Sorgular en iyi duruma getirilmediğinden (en iyileştirilmiş sorgular resmi NuGet istemcisi için bir ana hat senaryosu destekleenler) yavaş sorgu yanıt süresi
+- Kullanım dışı bırakılmış ve belgelenmemiş API 'nin kullanımı, gelecekte bu sorguların desteklenmesi garanti edilmez
+- Geçmişi transpired doğru sırada yeniden oynalamama
 
-Bu nedenle, yukarıda belirtilen senaryoları daha güvenilir ve geleceğe yönelik bir şekilde ele almak için aşağıdaki kılavuz izlenebilir.
+Bu nedenle, aşağıdaki kılavuzun, daha güvenilir ve gelecekte prova bir şekilde açıklanan senaryolara yönelik olarak ele alınabilir.
 
 ## <a name="overview"></a>Genel Bakış
 
-Bu kılavuzun merkezinde **NuGet** [API](../../api/overview.md) kataloğu olarak adlandırılan kaynak. Katalog, arayanın nuget.org eklenen, değiştirilen ve silinen paketlerin tam geçmişini görmesini sağlayan yalnızca ek apidir. Nuget.org için yayınlanan paketlerin tümüyle ve hatta bir alt kümesiyle ilgileniyorsanız, katalog, zaman geçtikçe mevcut paketlerkümesinden haberdar olmak için harika bir yoldur.
+Bu kılavuzun merkezinde **Katalog** ADLı [NuGet API](../../api/overview.md) 'sindeki kaynak bulunur. Katalog, çağıranın nuget.org ' de eklenen, değiştirilen ve silinen paketlerin tam geçmişini görmesini sağlayan bir yalnızca Append API 'sidir. Nuget.org ' de yayınlanan paketlerin tümünün veya hatta bir alt kümesiyle ilgileniyorsanız, katalog, zaman içinde mevcut olan paketler kümesiyle güncel kalabilmek için harika bir yoldur.
 
-Bu kılavuz, üst düzey bir walk-through olması amaçlanmıştır ama kataloğun ince tane ayrıntıları ilgileniyorsanız, onun [API başvuru belgesi](../../api/catalog-resource.md)bakın.
+Bu kılavuzun üst düzey bir adım adım olması amaçlanmıştır ancak kataloğun ayrıntılı ayrıntılarını almak istiyorsanız, [API başvuru belgesine](../../api/catalog-resource.md)bakın.
 
-Aşağıdaki adımlar seçtiğiniz herhangi bir programlama dilinde uygulanabilir. Tam çalışan bir örnek istiyorsanız, aşağıda belirtilen [C# örneğine](#c-sample-code) bir göz atın.
+Aşağıdaki adımlar, tercih ettiğiniz herhangi bir programlama dilinde uygulanabilir. Tam çalışan bir örnek istiyorsanız aşağıda bahsedilen [C# örneğine](#c-sample-code) göz atın.
 
-Aksi takdirde, güvenilir bir katalog okuyucu oluşturmak için aşağıdaki kılavuzu izleyin.
+Aksi takdirde, güvenilir bir katalog okuyucusu oluşturmak için aşağıdaki kılavuzu izleyin.
 
-## <a name="initialize-a-cursor"></a>İmleci başlatma
+## <a name="initialize-a-cursor"></a>İmleç başlatma
 
-Güvenilir bir katalog okuyucu oluşturmanın ilk adımı bir imleç uygulamaktır. Katalog imlecinin tasarımı hakkında tüm ayrıntılar için [katalog başvuru belgesine](../../api/catalog-resource.md#cursor)bakın. Kısacası, imleç, katalogdaki olayları işlediğiniz bir zaman dilimi dir. Katalogdaki olaylar paket yayınlarını ve diğer paket değişikliklerini temsil eder. NuGet'de yayınlanan tüm paketleri önemsiyorsanız (zamanın başlangıcından beri), imlecinizi "minimum değer" zaman damgasına (örn. `DateTime.MinValue` .NET'te) başlatılırsınız. Şu andan itibaren yalnızca yayınlanan paketleri önemsiyorsanız, geçerli zaman damgasını ilk imleç değeriniz olarak kullanırsınız.
+Güvenilir bir katalog okuyucusu oluşturmanın ilk adımı bir imleç uygulamalarıdır. Katalog imlecinin tasarımı hakkında tam Ayrıntılar için bkz. [Katalog başvuru belgesi](../../api/catalog-resource.md#cursor). Kısaca, imleç katalogda olayları işleen zaman bir noktasıdır. Katalogdaki olaylar paket yayımlarımı ve diğer paket değişikliklerini temsil eder. NuGet 'e yayınlanan tüm paketlerle (zamandan itibaren) endişelenmeniz durumunda imlecinizi "En düşük değer" zaman damgasına (örn. `DateTime.MinValue` .net 'te) başlatmalısınız. Yalnızca şu anda yayımlanan paketler hakkında hatırlıyorsanız, geçerli zaman damgasını ilk imleç değeri olarak kullanacaksınız.
 
-Bu kılavuz için imlecimizi bir saat önce bir zaman damgasına alacağız. Şimdilik, hafızadaki zaman damgasını kaydet.
+Bu kılavuzda, imlecinizi bir saat önce zaman damgasına başlatacağız. Şimdilik bu zaman damgasını bellekte kaydetmelisiniz.
 
 ```cs
 DateTime cursor = DateTime.UtcNow.AddHours(-1);
 ```
 
-## <a name="determine-catalog-index-url"></a>Katalog dizini URL'si belirleme
+## <a name="determine-catalog-index-url"></a>Katalog dizini URL 'sini belirleme
 
-NuGet API'sindeki her kaynağın (bitiş noktası) konumu [hizmet dizini](../../api/service-index.md)kullanılarak keşfedilmelidir. Bu kılavuz nuget.org odaklandığından, nuget.org'un hizmet dizinini kullanacağız.
+NuGet API 'sindeki her kaynağın (uç nokta) konumu, [hizmet dizini](../../api/service-index.md)kullanılarak keşfedilmelidir. Bu kılavuz nuget.org 'e odaklandığından NuGet. org 'ın hizmet dizinini kullanacağız.
 
     GET https://api.nuget.org/v3/index.json
 
-Hizmet belgesi, nuget.org tüm kaynakları içeren JSON belgesidir. `Catalog/3.0.0`Özellik değerine `@type` sahip kaynağı arayın. İlişkili `@id` özellik değeri, katalog dizininin URL'sidir. 
+Hizmet belgesi, nuget.org üzerindeki tüm kaynakları içeren JSON belgesidir. Özellik değerine sahip kaynağı arayın `@type` `Catalog/3.0.0` . İlişkili `@id` özellik değeri, Katalog dizininin URL 'sidir. 
 
-## <a name="find-new-catalog-leaves"></a>Yeni katalog yapraklarını bulma
+## <a name="find-new-catalog-leaves"></a>Yeni Katalog bul yaprakları
 
-Önceki `@id` adımda bulunan özellik değerini kullanarak katalog dizini indirin:
+`@id`Önceki adımda bulunan özellik değerini kullanarak, Katalog dizinini indirin:
 
     GET https://api.nuget.org/v3/catalog0/index.json
 
-[Katalog dizini](../../api/catalog-resource.md#catalog-index)deserialize. Tüm [katalog sayfa nesnelerini](../../api/catalog-resource.md#catalog-page-object-in-the-index) geçerli imleç değerinizden daha az veya eşit olacak `commitTimeStamp` şekilde filtreleyin.
+[Katalog dizininin](../../api/catalog-resource.md#catalog-index)serisini kaldırma. Geçerli imlecinizin değerine eşit veya daha küçük olan tüm [Katalog sayfası nesnelerini](../../api/catalog-resource.md#catalog-page-object-in-the-index) filtreleyin `commitTimeStamp` .
 
-Kalan her katalog sayfası için, özelliği `@id` kullanarak belgenin tamamını indirin.
+Kalan her bir katalog sayfası için, özelliğini kullanarak tam belgeyi indirin `@id` .
 
     GET https://api.nuget.org/v3/catalog0/page2926.json
 
-[Katalog sayfasını](../../api/catalog-resource.md#catalog-page)deserialize. Tüm [katalog yaprağı nesnelerini](../../api/catalog-resource.md#catalog-item-object-in-a-page) geçerli imleç değerinizden daha az veya eşit olacak `commitTimeStamp` şekilde filtreleyin.
+[Katalog sayfasının](../../api/catalog-resource.md#catalog-page)serisini kaldırma. Geçerli imlecinizin değerine eşit veya daha küçük olan tüm [Katalog yaprak nesnelerini](../../api/catalog-resource.md#catalog-item-object-in-a-page) filtreleyin `commitTimeStamp` .
 
-Filtrelenmemiş tüm katalog sayfalarını indirdikten sonra, imleç zaman damganız ile şimdi arasındaki süre içinde yayınlanmış, listelenmemiş, listelenen veya silinmiş paketleri temsil eden bir katalog yaprağı nesne kümeniz vardır.
+Filtrelenmeyen tüm katalog sayfalarını indirdikten sonra, imlecinizin zaman damgası ve hemen sonrasında yayımlanmış, listelenmemiş, listelenen veya silinen paketleri temsil eden bir katalog yaprak nesneleri kümesine sahip olursunuz.
 
 ## <a name="process-catalog-leaves"></a>İşlem kataloğu yaprakları
 
-Bu noktada, katalog öğeleri üzerinde istediğiniz herhangi bir özel işleme gerçekleştirebilirsiniz. İhtiyacınız olan tek şey paketin kimliği ve sürümüyse, sayfalarda bulunan katalog öğesi nesnelerindeki `nuget:id` ve `nuget:version` özelliklerini inceleyebilirsiniz. Katalog öğesinin varolan bir paketle mi yoksa silinmiş bir paketle mi ilgili olduğunu öğrenmek için tesise baktığınızdan `@type` emin olun.
+Bu noktada, Katalog öğelerinde istediğiniz özel işlemleri gerçekleştirebilirsiniz. Tüm ihtiyacınız olan paketin KIMLIĞI ve sürümü ise, `nuget:id` `nuget:version` sayfada bulunan katalog öğesi nesnelerinde ve özelliklerini inceleyebilirsiniz. `@type`Katalog öğesinin mevcut bir paket veya silinen bir paket ile ilgilenmediğini görmek için özelliğine baktığınızdan emin olun.
 
-Paketle ilgili meta verilerle ilgileniyorsanız (açıklama, bağımlılıklar, .nupkg boyutu, vb.) özelliği kullanarak `@id` katalog yaprağı [belgesini](../../api/catalog-resource.md#catalog-leaf) getirebilirsiniz.
+Paketle ilgili meta veriler (örneğin, açıklama, bağımlılıklar,. nupkg boyutu vb.) ile ilgileniyorsanız, özelliğini kullanarak [Katalog yaprak belgesini](../../api/catalog-resource.md#catalog-leaf) getirebilirsiniz `@id` .
 
     GET https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.storage.1.0.0.json
 
-Bu [belge, paket meta veri kaynağında](../../api/registration-base-url-resource.md)yer alan tüm meta verilere ve daha fazlana sahiptir!
+Bu belge, [paket meta verileri kaynağında](../../api/registration-base-url-resource.md)bulunan tüm meta verilere sahiptir ve daha fazla!
 
-Bu adım, özel mantığınızı uyguladığınız yerdir. Bu kılavuzdaki diğer adımlar katalog yaprakları ile ne yapıyor olursa olsun hemen hemen aynı şekilde uygulanır.
+Bu adım, özel mantığınızı uyguladığınız yerdir. Bu kılavuzdaki diğer adımlar, Katalog yaprakları ile yaptığınız bağımsız şekilde oldukça benzer şekilde uygulanır.
 
-### <a name="downloading-the-nupkg"></a>.nupkg'ı indirme
+### <a name="downloading-the-nupkg"></a>. Nupkg indiriliyor
 
-Katalogda bulunan paketler için .nupkg'ları indirmek istiyorsanız, paket içerik [kaynağını](../../api/package-base-address-resource.md)kullanabilirsiniz. Ancak, bir paketin katalogda bulunmasıyla paket içeriği kaynağında kullanılabilir olması arasında kısa bir gecikme olduğunu unutmayın. Bu nedenle, `404 Not Found` katalogda bulduğunuz bir paket için .nupkg indirmeye çalışırken karşılaşırsanız, kısa bir süre sonra yeniden denemeniz yeterlidir. Bu gecikmegiderme GitHub sorunu [NuGet / NuGetGallery # 3455](https://github.com/NuGet/NuGetGallery/issues/3455)tarafından izlenir.
+Kataloğunda bulunan paketler için. nupkg 'yı indirmek istiyorsanız [paket içerik kaynağını](../../api/package-base-address-resource.md)kullanabilirsiniz. Ancak, katalogda bir paketin bulunduğu ve paket içerik kaynağında kullanılabildiği zaman arasında kısa bir gecikme olduğunu unutmayın. Bu nedenle, `404 Not Found` katalogda bulduğunuz bir paket için. nupkg 'yı indirmeye çalışırken karşılaşırsanız, daha sonra kısa bir süre sonra yeniden deneyin. Bu gecikmeyi düzeltmek, GitHub sorunu [NuGet/NuGetGallery # 3455](https://github.com/NuGet/NuGetGallery/issues/3455)tarafından izlenir.
 
-## <a name="move-the-cursor-forward"></a>İmleci ileri doğru hareket ettirin
+## <a name="move-the-cursor-forward"></a>İmleci öne taşı
 
-Katalog öğelerini başarıyla işledikten sonra, kaydetmek için yeni imleç değerini belirlemeniz gerekir. Bunu yapmak için, işlediğiniz tüm `commitTimeStamp` katalog öğelerinin maksimum (en son kronolojik) öğesini bulun. Bu senin yeni imleç değeriniz. Veritabanı, dosya sistemi veya blob depolama gibi bazı kalıcı depoya kaydedin. Daha fazla katalog öğesi almak istediğinizde, imleç değerinizi bu kalıcı mağazadan başlatarak [ilk adımdan](#initialize-a-cursor) başlamanız yeterlidir.
+Katalog öğelerini başarıyla işledikten sonra kaydedilecek yeni imleç değerini belirlemeniz gerekir. Bunu yapmak için, istediğiniz tüm Katalog öğelerinin en yüksek (en son kronolojik) `commitTimeStamp` sayısını bulun. Bu, yeni imlecinizin değeridir. Veritabanı, dosya sistemi veya blob depolama gibi bir kalıcı depoya kaydedin. Daha fazla katalog öğesi almak istediğinizde, bu kalıcı mağazadan imlecinizin değerini başlatarak [ilk adımdan](#initialize-a-cursor) başlamanız yeterlidir.
 
-Uygulamanız bir özel durum veya hata atarsa, imleci ileri itmeyin. İmleci ileriye taşımak, imlecinizin önünde katalog öğelerini bir daha işlemeniz gerekmeyecek bir anlama gelir.
+Uygulamanız bir özel durum veya hatalar oluşturursa, imleci öne taşımayın. İmleci ileriye doğru taşımak, imlecinizin öncesinde katalog öğelerini işlemek için hiçbir değişiklik yapmanıza gerek kalmaz.
 
-Nedense, katalog yapraklarını işleme şeklinizde bir hata varsa, imlecinizi zamanda geriye doğru taşıyabilir ve kodunuzu eski katalog öğelerini yeniden işlemesine izin verebilirsiniz.
+Bazı nedenlerle, Katalog yaprakları sırasında bir hata varsa imlecinizi geri doğru bir şekilde hareket ettirmeniz ve kodunuzun eski katalog öğelerini yeniden işlemesini sağlayabilirsiniz.
 
 ## <a name="c-sample-code"></a>C# örnek kodu
 
-Katalog HTTP üzerinden kullanılabilir JSON belgeleri kümesi olduğundan, bir HTTP istemcisi ve JSON deserializer olan herhangi bir programlama dili kullanılarak etkileşim olabilir.
+Katalog, HTTP üzerinden kullanılabilen bir JSON belgeleri kümesi olduğundan, HTTP istemcisi ve JSON seri hale getiricisi olan herhangi bir programlama dili kullanılarak ile etkileşim kurabilirsiniz.
 
-C# örnekleri [NuGet/Numune deposunda](https://github.com/NuGet/Samples/tree/master/CatalogReaderExample)mevcuttur.
+C# örnekleri [NuGet/Samples deposunda](https://github.com/NuGet/Samples/tree/master/CatalogReaderExample)mevcuttur.
 
 ```cli
 git clone https://github.com/NuGet/Samples.git
 ```
 
-### <a name="catalog-sdk"></a>Katalog SDK
+### <a name="catalog-sdk"></a>Katalog SDK 'Sı
 
-Kataloğu kullanmanın en kolay yolu ön sürüm .NET kataloğu SDK paketini kullanmaktır: [NuGet.Protocol.Catalog](https://dotnet.myget.org/feed/nuget-build/package/nuget/NuGet.Protocol.Catalog). Bu paket, NuGet paket kaynak URL'sini `nuget-build` `https://dotnet.myget.org/F/nuget-build/api/v3/index.json`kullandığınız MyGet akışında mevcuttur.
+Kataloğu kullanmanın en kolay yolu `NuGet.Protocol.Catalog` , aşağıdaki NuGet paketi kaynak URL 'si kullanılarak Azure Artifacts sağlanan yayın öncesi .net Catalog SDK paketini kullanmaktır: `https://pkgs.dev.azure.com/dnceng/public/_packaging/nuget-build/nuget/v3/index.json` .
 
-Bu paketi (.NET Framework `netstandard1.3` 4.6 gibi) uyumlu veya daha büyük bir projeye yükleyebilirsiniz.
+Bu paketi, `netstandard1.3` veya daha büyük (.NET Framework 4,6 gibi) uyumlu bir projeye yükleyebilirsiniz.
 
-Bu paketi kullanan bir örnek GitHub'da [NuGet.Protocol.Catalog.Sample projesinde](https://github.com/NuGet/Samples/tree/master/CatalogReaderExample/NuGet.Protocol.Catalog.Sample)mevcuttur.
+Bu paketi kullanan bir örnek, [NuGet. Protocol. Catalog. Sample projesinde](https://github.com/NuGet/Samples/tree/master/CatalogReaderExample/NuGet.Protocol.Catalog.Sample)GitHub 'da bulunabilir.
 
 #### <a name="sample-output"></a>Örnek çıktı
 
@@ -152,9 +152,9 @@ warn: NuGet.Protocol.Catalog.CatalogProcessor[0]
 
 ### <a name="minimal-sample"></a>Minimum örnek
 
-Katalogla etkileşimi daha ayrıntılı olarak gösteren daha az bağımlılık içeren bir örnek [için, CatalogReaderExample örnek projesine](https://github.com/NuGet/Samples/tree/master/CatalogReaderExample/CatalogReaderExample)bakın. Proje `netcoreapp2.0` [nuGet.Protocol 4.4.0](https://www.nuget.org/packages/NuGet.Protocol/4.4.0) (hizmet indeksini çözmek için) ve [Newtonsoft.Json 9.0.1](https://www.nuget.org/packages/Newtonsoft.Json/9.0.1) (JSON deserialization için) hedeflerini ve bağlıdır.
+Daha ayrıntılı olarak katalogla etkileşimi gösteren daha az bağımlılıklara sahip bir örnek için bkz. [Catalogreadersample örnek projesi](https://github.com/NuGet/Samples/tree/master/CatalogReaderExample/CatalogReaderExample). Proje, `netcoreapp2.0` [NuGet. Protocol 4.4.0](https://www.nuget.org/packages/NuGet.Protocol/4.4.0) (hizmet dizinini çözümlemek için) ve [ 9.0.1 üzerindeNewtonsoft.Js](https://www.nuget.org/packages/Newtonsoft.Json/9.0.1) (JSON serisini kaldırma için) öğesine bağımlıdır.
 
-Kodun ana mantığı [Program.cs dosyasında](https://github.com/NuGet/Samples/blob/master/CatalogReaderExample/CatalogReaderExample/Program.cs)görünür.
+Kodun ana mantığı [program.cs dosyasında](https://github.com/NuGet/Samples/blob/master/CatalogReaderExample/CatalogReaderExample/Program.cs)görünür.
 
 #### <a name="sample-output"></a>Örnek çıktı
 

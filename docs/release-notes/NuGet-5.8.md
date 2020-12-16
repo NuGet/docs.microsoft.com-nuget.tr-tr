@@ -5,12 +5,12 @@ author: dominofire
 ms.author: feaguila
 ms.date: 11/9/2020
 ms.topic: conceptual
-ms.openlocfilehash: 09fb98eec79ee4ed08d85a1c557a420d6b265f11
-ms.sourcegitcommit: f4b74b500e3db9e468f11142df48d87880382267
+ms.openlocfilehash: 329fdf6479d0799ae4b15cc3493848ba2d999853
+ms.sourcegitcommit: 650c08f8bc3d48dfd206a111e5e2aaca3001f569
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94572837"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97523437"
 ---
 # <a name="nuget-58-release-notes"></a>NuGet 5,8 sürüm notları
 
@@ -84,7 +84,7 @@ NuGet dağıtım araçlar:
 
 * NuGet. CommandLine. XPlat ortak API 'Ler içermemelidir- [#9821](https://github.com/NuGet/Home/issues/9821)
 
-* #9822 iş parçacığı havuzu iş parçacığını engelleyerek çözüm yükleme sırasında kaynak çekişmesini azaltma `BlockingCollection.Take()`  -  [#9822](https://github.com/NuGet/Home/issues/9822)
+* #9822 iş parçacığı havuzu iş parçacığını engelleyerek çözüm yükleme sırasında kaynak çekişmesini azaltma `BlockingCollection.Take()`  -  [](https://github.com/NuGet/Home/issues/9822)
 
 * Komut satırı geri yükleme ' de, çok hedefli projelerle, NuGet iç derlemeden ilgili hedef Framework bilgilerini okumalı- [#9869](https://github.com/NuGet/Home/issues/9869)
 
@@ -144,5 +144,5 @@ Bu NuGet yayınını harika hale getirmek için size yardımcı olan tüm katkı
 
 ## <a name="feedback-welcome"></a>Geri bildirim hoş geldiniz
 
-Görüşleriniz bizim için önemlidir.  Bu sürümle ilgili herhangi bir sorun varsa, mevcut sorunlar için [GitHub sorunlarımızı](https://github.com/NuGet/Home/issues) ve [Visual Studio Geliştirici topluluğu](https://developercommunity.visualstudio.com/) ' na bakın.  NuGet içindeki yeni sorunlar için lütfen bir [GitHub sorunu](hhttps://github.com/NuGet/Home/issues/new)bildirin.
+Görüşleriniz bizim için önemlidir.  Bu sürümle ilgili herhangi bir sorun varsa, mevcut sorunlar için [GitHub sorunlarımızı](https://github.com/NuGet/Home/issues) ve [Visual Studio Geliştirici topluluğu](https://developercommunity.visualstudio.com/) ' na bakın.  NuGet içindeki yeni sorunlar için lütfen bir [GitHub sorunu](https://github.com/NuGet/Home/issues/new)bildirin.
 Genel NuGet deneyimi sorunları için, **yardım > bir sorun bildirmek** üzere en sevdiğiniz IDE 'de bulunan [sorun bildir](https://docs.microsoft.com/visualstudio/ide/how-to-report-a-problem-with-visual-studio) seçeneğini kullanarak bize bilgi verin.

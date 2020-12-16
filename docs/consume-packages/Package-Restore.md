@@ -1,16 +1,16 @@
 ---
 title: NuGet paketini geri yükleme
 description: NuGet 'in bir proje tarafından nasıl geri yükleneceği hakkında genel bakış, geri yüklemeyi devre dışı bırakma ve sürümleri kısıtlama de dahil olmak üzere.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: be68d3bd1c7dfcc5661276c0b62d46722af61a00
-ms.sourcegitcommit: e39e5a5ddf68bf41e816617e7f0339308523bbb3
+ms.openlocfilehash: bac4d88c29539f9fbe7b33b44ce11d350920d365
+ms.sourcegitcommit: 650c08f8bc3d48dfd206a111e5e2aaca3001f569
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96738961"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97523524"
 ---
 # <a name="restore-packages-using-package-restore"></a>Paket geri yükleme kullanarak paketleri geri yükleme
 
@@ -22,7 +22,7 @@ Paket geri yükleme, tüm proje bağımlılıklarının, kaynak denetiminde depo
 
 Paket geri yükleme, önce bir projenin doğrudan bağımlılıklarını gerektiği şekilde yükler ve ardından bu paketlerin tüm bağımlılıklarını bağımlılık grafiğinin tamamında yükler.
 
-Bir paket zaten yüklü değilse, NuGet ilk olarak onu [önbellekten](../consume-packages/managing-the-global-packages-and-cache-folders.md)almaya çalışır. Paket önbellekte değilse, NuGet paketi **Tools**  >  **Options**  >  Visual Studio 'daki araçlar seçenekleri **NuGet Paket Yöneticisi**  >  **paket kaynakları** ' nda bulunan tüm etkin kaynaklardan indirmeyi dener. Geri yükleme sırasında, NuGet paket kaynaklarının sırasını yoksayar ve isteklere yanıt vermek için ilk kaynak olan paketi kullanır. NuGet 'in nasıl davrandığı hakkında daha fazla bilgi için bkz. [ortak NuGet yapılandırması](Configuring-NuGet-Behavior.md). 
+Bir paket zaten yüklü değilse, NuGet ilk olarak onu [önbellekten](../consume-packages/managing-the-global-packages-and-cache-folders.md)almaya çalışır. Paket önbellekte değilse, NuGet paketi   >    >  Visual Studio 'daki araçlar seçenekleri **NuGet Paket Yöneticisi**  >  **paket kaynakları** ' nda bulunan tüm etkin kaynaklardan indirmeyi dener. Geri yükleme sırasında, NuGet paket kaynaklarının sırasını yoksayar ve isteklere yanıt vermek için ilk kaynak olan paketi kullanır. NuGet 'in nasıl davrandığı hakkında daha fazla bilgi için bkz. [ortak NuGet yapılandırması](Configuring-NuGet-Behavior.md). 
 
 > [!Note]
 > NuGet, tüm kaynaklar denetlenene kadar bir paketin geri yükleme başarısızlığını göstermez. Bu sırada, NuGet yalnızca listedeki son kaynak için bir hata bildiriyor. Hata, bu kaynakların her biri için ayrı ayrı gösterilmese de, paketin diğer kaynakların *hiçbirinde* mevcut olmadığını gösterir.
@@ -147,7 +147,7 @@ NuGet, bir projenin paketleri kullanabileceği iki biçimi vardır: [`PackageRef
 
 ## <a name="restore-using-msbuild"></a>MSBuild kullanarak geri yükleme
 
-Proje dosyasında listelenen paketleri geri yüklemek için [MSBuild-t:restore](../reference/msbuild-targets.md#restore-target) komutunu kullanın (bkz. [packagereference](../../consume-packages/package-references-in-project-files.md)) ve MSBuild 16.5 +, projeler ile başlama `packages.config` .
+Proje dosyasında listelenen paketleri geri yüklemek için [MSBuild-t:restore](../reference/msbuild-targets.md#restore-target) komutunu kullanın (bkz. [packagereference](package-references-in-project-files.md)) ve MSBuild 16.5 +, projeler ile başlama `packages.config` .
 
  Bu komut, Visual Studio 2017 ve üzeri sürümlerde bulunan NuGet 4. x + ve MSBuild 15.1 + ' da kullanılabilir.
 MSBuild 16.5 + ile başlayarak bu komut, `packages.config` ile birlikte çalıştırıldığında tabanlı projeleri de geri yükleyebilir `-p:RestorePackagesConfig=true` .
