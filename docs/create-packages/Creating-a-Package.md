@@ -1,89 +1,89 @@
 ---
-title: nuget.exe CLI kullanarak bir NuGet paketi oluşturun
-description: Dosyaları ve sürüm gibi önemli karar noktaları da dahil olmak üzere bir NuGet paketi tasarlama ve oluşturma sürecine ilişkin ayrıntılı bir kılavuz.
+title: nuget.exe CLı kullanarak bir NuGet paketi oluşturma
+description: Dosyalar ve sürüm oluşturma da dahil olmak üzere bir NuGet paketi tasarlamaya ve oluşturmaya yönelik ayrıntılı kılavuz.
 author: karann-msft
-ms.author: karann
+ms.author: feaguila
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: b3e6f0efc9e2e12de186ffd4ce29d496d07d5fc4
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: ec06a8f721b7b67ddc5d72323305b9b22f292de6
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79428949"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699803"
 ---
-# <a name="create-a-package-using-the-nugetexe-cli"></a>nuget.exe CLI kullanarak bir paket oluşturma
+# <a name="create-a-package-using-the-nugetexe-cli"></a>nuget.exe CLı kullanarak paket oluşturma
 
-Paketiniz ne yaparsa yapsın veya hangi kodu içerse içersin, `dotnet.exe`bu işlevselliği diğer geliştiricilerle paylaşılabilen ve diğer geliştiriciler tarafından kullanılabilecek bir bileşene dönüştürmek için CLI araçlarından `nuget.exe` birini kullanırsınız. NuGet CLI araçlarını yüklemek için [NuGet istemci araçlarını yükleyin.](../install-nuget-client-tools.md) Visual Studio'nun otomatik olarak bir CLI aracı içermediğini unutmayın.
+Paketinizin ne yaptığını veya hangi kodu içerdiğini bağımsız olarak, `nuget.exe` Bu işlevselliği bir veya daha fazla `dotnet.exe` Geliştirici tarafından kullanılabilen bir bileşene paketlemek için ya da CLI araçlarından birini kullanırsınız. NuGet CLı araçları 'nı yüklemek için bkz. [NuGet istemci araçları 'Nı yüklemek](../install-nuget-client-tools.md). Visual Studio 'Nun otomatik olarak bir CLı aracı içermediği unutulmamalıdır.
 
-- Genellikle .NET Framework projeleri olan SDK tarzı olmayan projeler de bir paket oluşturmak için bu makalede açıklanan adımları izleyin. Visual Studio ve `nuget.exe` CLI'yi kullanarak adım adım talimatlar için bir [.NET Framework paketi oluştur ve yayımla'ya](../quickstart/create-and-publish-a-package-using-visual-studio-net-framework.md)bakın.
+- SDK olmayan stil projeleri için genellikle projeleri .NET Framework, bir paket oluşturmak için bu makalede açıklanan adımları izleyin. Visual Studio ve CLI kullanarak adım adım yönergeler için `nuget.exe` bkz. [.NET Framework paketi oluşturma ve yayımlama](../quickstart/create-and-publish-a-package-using-visual-studio-net-framework.md).
 
-- [SDK stili biçimini](../resources/check-project-format.md)kullanan .NET Core ve .NET Standard projeleri ve diğer SDK tarzı projeler için [bkz.](creating-a-package-dotnet-cli.md)
+- .NET Core .NET Standard ve [SDK stili biçimi](../resources/check-project-format.md)kullanan projeleri ve diğer SDK stili projeleri için, bkz. [DotNet CLI kullanarak bir NuGet paketi oluşturma](creating-a-package-dotnet-cli.md).
 
-- `packages.config` [PackageReference'a](../consume-packages/package-references-in-project-files.md)geçirilen projeler için [msbuild -t:pack](../consume-packages/migrate-packages-config-to-package-reference.md#create-a-package-after-migration)kullanın.
+- `packages.config`' Den [packagereference](../consume-packages/package-references-in-project-files.md)'a geçirilen projeler için [MSBuild-t:Pack](../consume-packages/migrate-packages-config-to-package-reference.md#create-a-package-after-migration)kullanın.
 
-Teknik olarak konuşursak, NuGet paketi, `.nupkg` uzantıyla birlikte yeniden adlandırılan ve içeriği belirli kurallarla eşleşen bir ZIP dosyasıdır. Bu konu, bu kuralları karşılayan bir paket oluşturma nın ayrıntılı işlemini açıklar.
+Teknik olarak, bir NuGet paketi yalnızca uzantısıyla yeniden adlandırılan `.nupkg` ve içeriği belirli kurallara uyan BIR ZIP dosyasıdır. Bu konuda, bu kuralları karşılayan bir paket oluşturmanın ayrıntılı süreci açıklanmaktadır.
 
-Ambalaj, paket olarak sunmak istediğiniz derlenmiş kod (derlemeler), semboller ve/veya diğer dosyalarla başlar (bkz. [Genel Bakış ve iş akışı).](overview-and-workflow.md) Derlenen derlemeleri ve paketleri eşit tutmak için proje dosyasındaki bilgilerden yararlanabilmekle birlikte, bu işlem pakete giren dosyaları derlemekten veya başka bir şekilde oluşturmaktan bağımsızdır.
+Paketleme, derlenmiş kod (derlemeler), semboller ve/veya paket olarak teslim etmek istediğiniz diğer dosyaları (bkz. [genel bakış ve iş akışı](overview-and-workflow.md)) ile başlar. Bu işlem, derlenmiş derlemeleri ve paketleri eşitlenmiş halde tutmak için bir proje dosyasındaki bilgilerden çizim yapabilmenize rağmen, derleme ' den bağımsız olan dosyaları derlemeden veya oluşturmadan bağımsızdır.
 
 > [!Important]
-> Bu konu, Visual Studio 2017 ve daha yüksek sürümler ve NuGet 4.0+ kullanarak genellikle .NET Core ve .NET Standard projeleri dışındaki projeler olan SDK tarzı olmayan projeler için geçerlidir.
+> Bu konu SDK olmayan projeler için geçerlidir, genellikle .NET Core dışındaki projeler ve Visual Studio 2017 ve daha yeni sürümleri ve NuGet 4.0 + kullanan projeler .NET Standard.
 
-## <a name="decide-which-assemblies-to-package"></a>Hangi derlemelerin paketlenenene karar vereceğine karar verin
+## <a name="decide-which-assemblies-to-package"></a>Hangi derlemelerin paketlenecek olduğuna karar verin
 
-Genel amaçlı paketlerin çoğu, diğer geliştiricilerin kendi projelerinde kullanabilecekleri bir veya daha fazla derleme içerir.
+Genel amaçlı paketlerin çoğu, diğer geliştiricilerin kendi projelerinde kullanabileceği bir veya daha fazla derleme içerir.
 
-- Genel olarak, her derlemenin bağımsız olarak yararlı olması koşuluyla, NuGet paketi başına bir derleme olması en iyisidir. Örneğin, kendi başına `Utilities.dll` buna bağlı `Parser.dll`ve `Parser.dll` yararlı olan bir paketiniz varsa, her biri için bir paket oluşturun. Bunu yapmak, geliştiricilerin `Parser.dll` `Utilities.dll`'' den bağımsız olarak kullanmasına olanak tanır.
+- Genel olarak, her derlemenin bağımsız olarak yararlı olması şartıyla her bir derleme için tek bir derlemeye sahip olmak en iyisidir. Örneğin, öğesine bağlı bir uygulamanız varsa `Utilities.dll` `Parser.dll` ve `Parser.dll` kendi yararlıysa, her biri için bir paket oluşturun. Bunun yapılması `Parser.dll` , geliştiricilerin bağımsız olarak kullanmasını sağlar `Utilities.dll` .
 
-- Kitaplığınız bağımsız olarak yararlı olmayan birden çok derlemeden oluşuyorsa, bunları tek bir pakette birleştirmek te sorun değildir. Önceki örneği kullanarak, `Parser.dll` yalnızca kullanılan `Utilities.dll`kod içeriyorsa, aynı pakette `Parser.dll` tutmak iyidir.
+- Kitaplığınız bağımsız olarak yararlı olmayan birden çok derlemeden oluşuyorsa, bunları tek bir pakette birleştirmek iyi olur. Önceki örneği kullanarak, `Parser.dll` yalnızca tarafından kullanılan kodu içeriyorsa `Utilities.dll` , aynı pakette tutulması iyi olur `Parser.dll` .
 
-- Benzer şekilde, `Utilities.dll` eğer `Utilities.resources.dll`bağlıdır , nerede tekrar ikincisi kendi başına yararlı değildir, o zaman aynı pakette her ikisini de koyun.
+- Benzer şekilde, `Utilities.dll` ne olursa `Utilities.resources.dll` yapın, her ikisi de kendi üzerinde yararlı değildir ve her ikisini de aynı pakete koyun.
 
-Kaynaklar aslında özel bir durum. Bir paket projeye yüklendiğinde, NuGet otomatik olarak yerelleştirilmiş uydu derlemeleri olarak *excluding* kabul edildikleri için `.resources.dll` adı geçenler hariç olmak üzere paketin DL'lerine montaj başvuruları ekler (bkz. [yerelleştirilmiş paketler oluşturma).](creating-localized-packages.md) Bu nedenle, aksi `.resources.dll` takdirde temel paket kodu içeren dosyalar için kullanmaktan kaçının.
+Kaynaklar aslında özel bir durumdur. Bir paket projeye yüklendiğinde NuGet otomatik olarak paketin dll 'Lerine derleme başvuruları *ekler,* `.resources.dll` çünkü yerelleştirilmiş uydu derlemeleri (bkz. [yerelleştirilmiş paketler oluşturma](creating-localized-packages.md)) olarak kabul edilir. Bu nedenle, `.resources.dll` başka bir şekilde temel paket kodu içeren dosyalar için kullanmaktan kaçının.
 
-Kitaplığınız COM interop derlemeleri içeriyorsa, [COM interop derlemeleri ile paketleri oluştur'daki](author-packages-with-com-interop-assemblies.md)ek yönergeleri izleyin.
+Kitaplığınız COM birlikte çalışma derlemelerini içeriyorsa, [com birlikte çalışma Derlemeleriyle paket oluşturma](author-packages-with-com-interop-assemblies.md)' daki ek yönergeleri izleyin.
 
-## <a name="the-role-and-structure-of-the-nuspec-file"></a>.nuspec dosyasının rolü ve yapısı
+## <a name="the-role-and-structure-of-the-nuspec-file"></a>. Nuspec dosyasının rolü ve yapısı
 
-Hangi dosyaları paketlemek istediğinizi bildiğinizde, bir sonraki adım `.nuspec` XML dosyasında bir paket bildirimi oluşturmaktır.
+Hangi dosyaları paketlemek istediğinizi öğrendikten sonra, bir sonraki adım bir XML dosyasında paket bildirimi oluşturuyor `.nuspec` .
 
-Manifesto:
+Bildirim:
 
-1. Paketin içeriğini açıklar ve paketin kendisi dahildir.
-1. Paketin oluşturulmasını hem sürücüler hem de NuGet'e paketi projeye nasıl yükleyeceklerine ilişkin talimat verir. Örneğin, bildirim, NuGet'in ana paket yüklendiğinde bu bağımlılıkları da yükleyebileceği diğer paket bağımlılıklarını tanımlar.
-1. Aşağıda açıklandığı gibi hem gerekli hem de isteğe bağlı özellikleri içerir. Burada belirtilmeyen diğer özellikler de dahil olmak üzere tam ayrıntılar için [.nuspec başvurusuna](../reference/nuspec.md)bakın.
+1. Paketin içeriğini açıklar ve pakete dahil edilmiştir.
+1. Hem paketin oluşturulmasını hem de paketin bir projeye nasıl yükleneceğine ilişkin NuGet 'e yöneltir. Örneğin, bildirim diğer paket bağımlılıklarını tanımlar, bu da ana paket yüklendiğinde NuGet bu bağımlılıkları yükleyebilir.
+1. Aşağıda açıklandığı gibi hem gerekli hem de isteğe bağlı özellikleri içerir. Burada bahsedilen diğer özellikler dahil olmak üzere tam Ayrıntılar için bkz [. nuspec başvurusu](../reference/nuspec.md).
 
-Gerekli özellikler:
+Gerekli Özellikler:
 
-- Paketi barındıran galeride benzersiz olması gereken paket tanımlayıcısı.
-- *Major.Minor.Patch[-Soneki]* formunda *-Sonek* ön sürüm [sürümlerini](prerelease-packages.md) tanımlayan belirli bir sürüm numarası
-- Ana bilgisayarda görünmesi gerektiği gibi paket başlığı (nuget.org gibi)
+- Paketi barındıran Galeri genelinde benzersiz olması gereken paket tanımlayıcısı.
+- *Birincil. ikincil. Patch [-suffix]* biçiminde belirli bir sürüm numarası; burada *-suffix* [yayın öncesi sürümlerini](prerelease-packages.md) tanımlar
+- Paket başlığı konakta görüntülenecek şekilde (nuget.org gibi)
 - Yazar ve sahip bilgileri.
-- Paketin uzun bir açıklaması.
+- Paketin uzun açıklaması.
 
-Yaygın isteğe bağlı özellikler:
+Ortak isteğe bağlı özellikler:
 
 - Sürüm notları
 - Telif hakkı bilgileri
-- [Visual Studio'da Paket Yöneticisi UI](../consume-packages/install-use-packages-visual-studio.md) için kısa bir açıklama
-- Yerel kimlik
-- Proje URL'si
-- İfade veya dosya olarak`licenseUrl` lisans (amortismana uymaktadır, [ `license` nuspec meta veri öğesini](../reference/nuspec.md#license)kullanın )
-- Simge URL'si
-- Bağımlılıklar ve referanslar listeleri
-- Galeri aramalarına yardımcı olan etiketler
+- [Visual Studio 'Da Paket Yöneticisi Kullanıcı arabirimi](../consume-packages/install-use-packages-visual-studio.md) için kısa bir açıklama
+- Yerel ayar KIMLIĞI
+- Proje URL 'SI
+- Bir ifade veya dosya olarak lisans ( `licenseUrl` kullanım dışı, bunun yerine [ `license` nuspec meta verileri öğesi](../reference/nuspec.md#license) kullanın)
+- Bir simge dosyası ( `iconUrl` bunun yerine [ `icon` nuspec meta veri öğesini](../reference/nuspec.md#icon) kullanım dışı)
+- Bağımlılıklar ve başvuru listeleri
+- Galeri aramalarında yardımcı olan Etiketler
 
-Aşağıdaki özellikleri açıklayan yorumlar ile tipik `.nuspec` (ama hayali) bir dosya:
+Aşağıda, özellikleri açıklayan açıklamalar içeren tipik bir (ancak kurgusal) `.nuspec` Dosya verilmiştir:
 
 ```xml
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
-        <!-- The identifier that must be unique within the hosting gallery -->
+        <!-- Identifier that must be unique within the hosting gallery -->
         <id>Contoso.Utility.UsefulStuff</id>
 
-        <!-- The package version number that is used when resolving dependencies -->
-        <version>1.8.3-beta</version>
+        <!-- Package version number that is used when resolving dependencies -->
+        <version>1.8.3</version>
 
         <!-- Authors contain text that appears directly on the gallery -->
         <authors>Dejana Tesic, Rajeev Dey</authors>
@@ -101,8 +101,8 @@ Aşağıdaki özellikleri açıklayan yorumlar ile tipik `.nuspec` (ama hayali) 
         <license type="expression">Apache-2.0</license>
         
 
-        <!-- The icon is used in Visual Studio's package manager UI -->
-        <iconUrl>http://github.com/contoso/UsefulStuff/nuget_icon.png</iconUrl>
+        <!-- Icon is used in Visual Studio's package manager UI -->
+        <icon>icon.png</icon>
 
         <!-- 
             If true, this value prompts the user to accept the license when
@@ -134,155 +134,156 @@ Aşağıdaki özellikleri açıklayan yorumlar ile tipik `.nuspec` (ama hayali) 
     <!-- A readme.txt to display when the package is installed -->
     <files>
         <file src="readme.txt" target="" />
+        <file src="icon.png" target="" />
     </files>
 </package>
 ```
 
-Bağımlılıkları bildirme ve sürüm numaralarını belirtme hakkında ayrıntılı bilgi için [packages.config](../reference/packages-config.md) ve [Package sürümüne](../concepts/package-versioning.md)bakın. Ayrıca, öğedeki `include` öznitelikleri ve `exclude` öznitelikleri kullanarak varlıkları doğrudan paketteki bağımlılıklardan yüzeye çıkarmak da mümkündür. `dependency` [Bkz..nuspec Başvuru - Bağımlılıklar](../reference/nuspec.md#dependencies).
+Bağımlılıkları bildirme ve sürüm numaralarını belirtme hakkında ayrıntılar için bkz. [packages.config](../reference/packages-config.md) ve [paket sürümü oluşturma](../concepts/package-versioning.md). Ayrıca, `include` öğe üzerindeki ve özniteliklerini kullanarak doğrudan pakette bulunan bağımlılıklardan yüzeylerden yüzey mümkündür `exclude` `dependency` . Bkz [.. nuspec başvurusu-bağımlılıklar](../reference/nuspec.md#dependencies).
 
-Bildirim, oluşturulan pakete dahil olduğundan, varolan paketleri inceleyerek istediğiniz sayıda ek örnek bulabilirsiniz. İyi bir kaynak, bilgisayarınızdaki *genel paketler* klasörüdür ve konumu aşağıdaki komutla döndürülür:
+Bildirim bundan oluşturulan pakete eklendiğinden, var olan paketleri inceleyerek istediğiniz sayıda ek örnek bulabilirsiniz. İyi bir kaynak, bilgisayarınızdaki *genel paketler* klasörüdür ve aşağıdaki komut tarafından döndürülen konumudur:
 
 ```cli
 nuget locals -list global-packages
 ```
 
-Herhangi bir *paket\sürüm* klasörüne `.nupkg` gidin, `.zip` dosyayı bir `.zip` dosyaya `.nuspec` kopyalayın, sonra dosyayı açın ve dosyanın içini inceleyin.
+Herhangi bir *package\version* klasörüne gidin, `.nupkg` dosyayı bir `.zip` dosyaya kopyalayın, sonra dosyayı açın `.zip` ve `.nuspec` içinde inceleyin.
 
 > [!Note]
-> Bir Visual `.nuspec` Studio projesinden bir oluşturma yaparken, bildirim, paket oluşturulduğunda projedeki bilgilerle değiştirilen belirteçler içerir. Bkz. [Bir Visual Studio projesinden .nuspec oluşturma.](#from-a-visual-studio-project)
+> `.nuspec`Visual Studio projesinden bir oluştururken, bildirim, paket oluşturulduğunda projedeki bilgilerle değiştirilmiş belirteçleri içerir. Bkz. [Visual Studio projesinden. nuspec oluşturma](#from-a-visual-studio-project).
 
-## <a name="create-the-nuspec-file"></a>.nuspec dosyasını oluşturma
+## <a name="create-the-nuspec-file"></a>. Nuspec dosyası oluşturma
 
-Tam bir bildirim oluşturma genellikle `.nuspec` aşağıdaki yöntemlerden biri aracılığıyla oluşturulan temel bir dosya ile başlar:
+Komple bir bildirim oluşturmak `.nuspec` , genellikle aşağıdaki yöntemlerden biri kullanılarak oluşturulan temel bir dosya ile başlar:
 
-- [Kongre tabanlı çalışma dizini](#from-a-convention-based-working-directory)
-- [Bir montaj DLL](#from-an-assembly-dll)
-- [Görsel Stüdyo projesi](#from-a-visual-studio-project)    
+- [Kural tabanlı çalışma dizini](#from-a-convention-based-working-directory)
+- [Derleme DLL 'SI](#from-an-assembly-dll)
+- [Bir Visual Studio projesi](#from-a-visual-studio-project)    
 - [Varsayılan değerlere sahip yeni dosya](#new-file-with-default-values)
 
-Daha sonra, son pakette istediğiniz içeriği tam olarak açıklayabilmek için dosyayı elle düzenlemeniz.
+Ardından dosyayı el ile düzenleyerek son pakette istediğiniz içeriğin tam olarak oluşturulmasını sağlayabilirsiniz.
 
 > [!Important]
-> Oluşturulan `.nuspec` `nuget pack` dosyalar, komutla paketi oluşturmadan önce değiştirilmesi gereken yer tutucular içerir. Herhangi bir yer `.nuspec` tutucu içeriyorsa bu komut başarısız olur.
+> Oluşturulan `.nuspec` dosyalar, paketini komutuyla oluşturmadan önce değiştirilmesi gereken yer tutucuları içerir `nuget pack` . `.nuspec`Herhangi bir yer tutucu içeriyorsa, bu komut başarısız olur.
 
-### <a name="from-a-convention-based-working-directory"></a>Sözleşme tabanlı çalışma dizininden
+### <a name="from-a-convention-based-working-directory"></a>Kural tabanlı çalışma dizininden
 
-NuGet paketi `.nupkg` yalnızca uzantıyla yeniden adlandırılabilen bir ZIP dosyası olduğundan, yerel dosya sisteminizde istediğiniz klasör yapısını oluşturmak `.nuspec` ve ardından dosyayı doğrudan bu yapıdan oluşturmak genellikle en kolayıdır. Komut `nuget pack` daha sonra otomatik olarak bu klasör yapısına tüm dosyaları `.`ekler (ile başlayan tüm klasörler hariç , aynı yapıda özel dosyaları tutmak için izin).
+Bir NuGet paketi yalnızca uzantısıyla yeniden adlandırılmış bir ZIP dosyası olduğundan `.nupkg` , yerel dosya sisteminizde istediğiniz klasör yapısını oluşturmak ve ardından `.nuspec` dosyayı doğrudan bu yapıyla oluşturmak daha kolay olur. `nuget pack`Komut daha sonra bu klasör yapısındaki tüm dosyaları otomatik olarak ekler (ile başlayan tüm klasörler hariç `.` ) ve özel dosyaları aynı yapıda tutmanıza olanak sağlar.
 
-Bu yaklaşımın avantajı, pakete hangi dosyaları eklemek istediğinizi (bu konuda daha sonra açıklandığı gibi) bildirimde belirtmeniz gerekmemelidir. Yapı işleminizin pakete giren tam klasör yapısını oluşturmasını sağlayabilir ve aksi takdirde projenin parçası olmayan diğer dosyaları kolayca ekleyebilirsiniz:
+Bu yaklaşımın avantajı, pakete dahil etmek istediğiniz dosyaları (Bu konunun ilerleyen kısımlarında açıklandığı gibi) belirtmeniz gerekmez. Yapı işleminizin pakete giden tam klasör yapısını oluşturması, aksi takdirde bir projenin parçası olmayan diğer dosyaları kolayca dahil edebilirsiniz:
 
-- Hedef projeye enjekte edilmesi gereken içerik ve kaynak kodu.
+- Hedef projeye eklenmesi gereken içerik ve kaynak kodu.
 - PowerShell komut dosyaları
-- Projedeki varolan yapılandırma ve kaynak kodu dosyalarına dönüşümler.
+- Bir projedeki mevcut yapılandırma ve kaynak kod dosyalarına dönüşümler.
 
 Klasör kuralları aşağıdaki gibidir:
 
-| Klasör | Açıklama | Paket yükleme üzerine eylem |
+| Klasör | Açıklama | Paket yüklendikten sonra gerçekleştirilecek eylem |
 | --- | --- | --- |
-| (kök) | readme.txt için konum | Visual Studio, paket yüklendiğinde paket kökünde bir readme.txt dosyası görüntüler. |
-| lib/{tfm} | Verilen`.dll`Hedef Çerçeve`.xml`Takma (TFM) için Derleme ( ), belgeler ve sembol (`.pdb`) dosyaları | Derleme için referans olarak derleme ve çalışma zamanı olarak derleme derleme ler eklenir; `.xml` ve `.pdb` proje klasörlerine kopyalanır. Bkz. Çerçeve hedefe özgü alt klasörler oluşturmak için [birden çok hedef çerçeveyi destekleme.](supporting-multiple-target-frameworks.md) |
-| ref/{tfm} | Verilen`.dll`Hedef Çerçeve`.pdb`Takma (TFM) için Montaj ( ), ve sembol ( ) dosyaları | Derlemeler yalnızca derleme süresi için referans olarak eklenir; Böylece hiçbir şey proje kutusu klasörüne kopyalanır. |
-| Çalıştırma | Mimariye özgü`.dll`derleme (`.pdb`), sembolü`.pri`( ), ve yerel kaynak ( ) dosyaları | Derlemeler yalnızca çalışma süresi için başvuru olarak eklenir; diğer dosyalar proje klasörlerine kopyalanır. Her zaman ilgili derleme zaman `AnyCPU` derlemesağlamak `/ref/{tfm}` için klasör altında karşılık gelen (TFM) özel bir derleme olmalıdır. Bkz. [Birden çok hedef çerçeveyi destekleme.](supporting-multiple-target-frameworks.md) |
-| content | Rasgele dosyalar | İçerikler proje köküne kopyalanır. **İçerik** klasörünü, sonuçta paketi tüketen hedef uygulamanın kökü olarak düşünün. Paketin uygulamanın */images* klasörüne bir resim eklemesini sağlamak için, paketin *içerik/resim* klasörüne yerleştirin. |
-| derleme | *(3.x+)* MSBuild `.targets` `.props` ve dosyalar | Projeye otomatik olarak eklenir. |
-| buildMultiTargeting | *(4.0+)* MSBuild `.targets` `.props` ve çerçeveler arası hedefleme için dosyalar | Projeye otomatik olarak eklenir. |
-| buildGeçişive | *(5.0+)* MSBuild `.targets` `.props` ve herhangi bir tüketen projeye geçişli olarak akan dosyalar. [Özellik](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior) sayfasına bakın. | Projeye otomatik olarak eklenir. |
-| araçlar | Powershell komut dosyaları ve programlara Package Manager Konsolu'ndan erişilebiliyor | Klasör `tools` yalnızca Paket `PATH` Yöneticisi Konsolu için ortam değişkenine *not* eklenir `PATH` (özellikle, projeyi oluştururken MSBuild için ayarlanan aküme değil). |
+| Asıl | readme.txt konumu | Paket yüklendiğinde, Visual Studio paket kökünde bir readme.txt dosyası görüntüler. |
+| LIB/{tfd} | `.dll` `.xml` `.pdb` Verilen hedef çerçeve bilinen adı (TFI) için bütünleştirilmiş kod (), belge () ve sembol () dosyaları | Derlemeler derleme ve çalışma zamanı için başvurular olarak eklenir; `.xml` ve `.pdb` Proje klasörlerine kopyalanabilir. Bkz. çerçeve hedefine özgü alt klasörler oluşturmak için [birden çok hedef çerçeve destekleme](supporting-multiple-target-frameworks.md) . |
+| ref/{tfd} | `.dll` `.pdb` Verilen hedef çerçeve bilinen adı (TFI) için bütünleştirilmiş kod () ve sembol () dosyaları | Derlemeler yalnızca derleme süresi için başvuru olarak eklenir; Bu nedenle proje bin klasörüne hiçbir şey kopyalanmayacak. |
+| zamanları | Mimariye özgü bütünleştirilmiş kod ( `.dll` ), simge ( `.pdb` ) ve yerel kaynak ( `.pri` ) dosyaları | Derlemeler yalnızca çalışma zamanı için başvuru olarak eklenir; diğer dosyalar proje klasörlerine kopyalanır. `AnyCPU` `/ref/{tfm}` Karşılık gelen derleme zamanı derlemesini sağlamak için klasörü altında her zaman karşılık gelen (TFE) özel bütünleştirilmiş kod olmalıdır. Bkz. [birden çok hedef çerçeveyi destekleme](supporting-multiple-target-frameworks.md). |
+| içerik | Rastgele dosyalar | İçerikler proje köküne kopyalanır. **İçerik** klasörünü, son olarak paketi tüketen hedef uygulamanın kökü olarak düşünün. Paketin uygulamanın */Images* klasörüne görüntü eklemesi için, paketin *içerik/görüntüler* klasörüne yerleştirin. |
+| derleme | *(3. x +)* MSBuild `.targets` ve `.props` dosyalar | Projeye otomatik olarak ekleniyor. |
+| Buildmultihedefleme | *(4.0 +)* `.targets` `.props` Platformlar arası hedefleme için MSBuild ve dosyalar | Projeye otomatik olarak ekleniyor. |
+| buildTransitive | *(5.0 +)* `.targets` `.props` Herhangi bir tüketen projeye geçişli olarak akan MSBuild ve dosyalar. Bkz. [özellik](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior) sayfası. | Projeye otomatik olarak ekleniyor. |
+| araçlar | Paket Yöneticisi konsolundan erişilebilen PowerShell betikleri ve programları | `tools`Klasör, `PATH` yalnızca Paket Yöneticisi konsolu için ortam değişkenine eklenir (özellikle,  `PATH` proje oluşturulurken MSBuild için ayarlanan as kümesine uygulanmaz). |
 
-Klasör yapınız herhangi bir sayıda hedef çerçeve için herhangi bir sayıda derleme içerebileceğinden, birden çok çerçeveyi destekleyen paketler oluştururken bu yöntem gereklidir.
+Klasör yapınız herhangi bir sayıda hedef çerçeve için herhangi bir sayıda derleme içerebildiğinden, bu yöntem birden çok çerçeveyi destekleyen paketler oluştururken gereklidir.
 
-Her durumda, istediğiniz klasör yapısını yerleştirdikten sonra, dosyayı oluşturmak için `.nuspec` bu klasörde aşağıdaki komutu çalıştırın:
+Herhangi bir durumda, istenen klasör yapısına sahip olduktan sonra dosyayı oluşturmak için bu klasörde aşağıdaki komutu çalıştırın `.nuspec` :
 
 ```cli
 nuget spec
 ```
 
-Yine, oluşturulan `.nuspec` klasör yapısında dosyalara açık başvurular içerir. Paket oluşturulduğunda NuGet tüm dosyaları otomatik olarak içerir. Ancak, yine de bildirimin diğer bölümlerinde yer tutucu değerlerini de yapmanız gerekir.
+Yine, oluşturulan, `.nuspec` klasör yapısındaki dosyalara açık başvuru içermez. NuGet, Paket oluşturulduğu zaman otomatik olarak tüm dosyaları içerir. Bununla birlikte, bildirimin diğer bölümlerinde yer tutucu değerlerini de düzenlemeniz gerekir.
 
-### <a name="from-an-assembly-dll"></a>Bir montaj DLL gönderen
+### <a name="from-an-assembly-dll"></a>Bir derleme DLL 'sinden
 
-Derlemeden paket oluşturma basit durumda, aşağıdaki komutu `.nuspec` kullanarak derlemedeki meta verilerden bir dosya oluşturabilirsiniz:
+Derlemeden bir paket oluşturduğunuzda, `.nuspec` aşağıdaki komutu kullanarak derlemedeki meta verilerden bir dosya oluşturabilirsiniz:
 
 ```cli
 nuget spec <assembly-name>.dll
 ```
 
-Bu formu kullanmak, bildirimdeki birkaç yer tutucunun yerine derlemeden belirli değerler le birlikte çıkar. Örneğin, `<id>` özellik derleme adına ayarlanır ve `<version>` derleme sürümüne ayarlanır. Ancak, bildirimdeki diğer özellikler derlemede eşleşen değerlere sahip değildir ve bu nedenle yine de yer tutucular içerir.
+Bu formun kullanılması, bildirimdeki bazı yer tutucuları derlemedeki belirli değerlerle değiştirir. Örneğin, `<id>` özelliği derleme adına ayarlanır ve `<version>` derleme sürümü olarak ayarlanır. Ancak bildirimde bulunan diğer özellikler, derlemede eşleşen değerlere sahip değildir ve bu nedenle yine de yer tutucu içerir.
 
-### <a name="from-a-visual-studio-project"></a>Görsel Stüdyo projesinden
+### <a name="from-a-visual-studio-project"></a>Visual Studio projesinden
 
-Bu `.nuspec` projeye `.csproj` yüklenen `.vbproj` diğer paketler otomatik olarak bağımlılık olarak başvurulduğundan, bir veya dosyadan bir dosya oluşturmak uygundur. Proje dosyasıyla aynı klasörde aşağıdaki komutu kullanmanız yeterlidir:
+`.nuspec` `.csproj` `.vbproj` Bu projeye yüklenmiş olan diğer paketlere otomatik olarak bağımlılık olarak başvurulduğundan, veya dosyasından bir oluşturma işlemi kullanışlıdır. Aşağıdaki komutu, proje dosyasıyla aynı klasörde kullanmanız yeterlidir:
 
 ```cli
 # Use in a folder containing a project file <project-name>.csproj or <project-name>.vbproj
 nuget spec
 ```
 
-Ortaya çıkan `<project-name>.nuspec` dosya, paketleme sırasında projedeki değerlerle değiştirilen *belirteçler* içerir ve bu belirteçler, önceden yüklenmiş diğer paketlere yapılan atıflar da dahil olmak üzere.
+Elde edilen `<project-name>.nuspec` Dosya, zaten yüklenmiş olan diğer paketlere yönelik başvurular da dahil olmak üzere, paketleme sırasında değişen *belirteçleri* , projedeki değerlerle birlikte içerir.
 
-*.nuspec'e*eklemek için paket bağımlılıklarınız `nuget pack`varsa, bunun yerine kullanın ve *.nuspec* dosyasını oluşturulan *.nupkg* dosyasının içinden alın. Örneğin, aşağıdaki komutu kullanın.
+*. Nuspec* içine dahil edilecek paket bağımlılıklarınız varsa, kullanın `nuget pack` ve *. nuspec* dosyasını oluşturulan *. nupkg* dosyasından alın. Örneğin, aşağıdaki komutu kullanın.
 
 ```cli
 # Use in a folder containing a project file <project-name>.csproj or <project-name>.vbproj
 nuget pack myproject.csproj
 ```
 
-Bir belirteç, `$` proje özelliğinin her iki tarafındaki sembollerle sınırlandırılır. Örneğin, bu `<id>` şekilde oluşturulan bir bildirimdeki değer genellikle aşağıdaki gibi görünür:
+Belirteç `$` , proje özelliğinin her iki tarafında da semboller tarafından sınırlandırılır. Örneğin, `<id>` Bu şekilde oluşturulan bir bildirimin değeri, genellikle aşağıdaki gibi görünür:
 
 ```xml
 <id>$id$</id>
 ```
 
-Bu belirteç, paketleme `AssemblyName` sırasında proje dosyasındaki değerle değiştirilir. Proje değerlerinin `.nuspec` belirteçlere tam eşlenemi [için, Yedek Belirteçler başvurusuna](../reference/nuspec.md#replacement-tokens)bakın.
+Bu belirteç, `AssemblyName` paket zamanında proje dosyasındaki değerle değiştirilmiştir. Proje değerlerinin belirteçlere tam eşlemesi için `.nuspec` , [değiştirme belirteçleri başvurusuna](../reference/nuspec.md#replacement-tokens)bakın.
 
-Belirteçler, projeyi `.nuspec` güncellediğiniz sürüm numarası gibi önemli değerleri güncelleştirmegereksinimini giderir. (İstenirse belirteçleri her zaman gerçek değerlerle değiştirebilirsiniz). 
+Belirteçler, projeyi güncelleştirmediğiniz gibi önemli değerleri, içindeki sürüm numarası gibi güncelleştirmek zorunda kalduymasını sağlar `.nuspec` . (İsterseniz belirteçleri, her zaman değişmez değerlerle değiştirebilirsiniz). 
 
-Bir Visual Studio projesinde [çalışırken,.nupkg dosyasını](#run-nuget-pack-to-generate-the-nupkg-file) daha sonra oluşturmak için Running nuget paketinde açıklandığı gibi birkaç ek paketleme seçeneği nin mevcut olduğunu unutmayın.
+Visual Studio projesinden çalışırken, daha sonra [. nupkg dosyasını oluşturmak için NuGet paketini çalıştırma](#run-nuget-pack-to-generate-the-nupkg-file) bölümünde açıklandığı gibi, bir Visual Studio projesinden çalışırken kullanılabilecek birkaç ek paketleme seçeneği olduğunu unutmayın.
 
-#### <a name="solution-level-packages"></a>Çözüm düzeyinde paketler
+#### <a name="solution-level-packages"></a>Çözüm düzeyi paketler
 
-*NuGet 2.x sadece. NuGet 3.0+ adresinde kullanılamaz.*
+*Yalnızca NuGet 2. x. NuGet 3.0 + ' da kullanılamaz.*
 
-NuGet 2.x, Paket Yöneticisi Konsolu `tools` (klasörün içeriği) için araçlar veya ek komutlar yükleyen, ancak çözümdeki herhangi bir projeye referans, içerik eklemeyen veya özelleştirmeler oluşturmayan çözüm düzeyinde bir paket kavramını desteklemektedir. Bu tür paketler `lib`doğrudan , `content`, `build` veya klasörlerinde hiçbir dosya içermez ve `lib`bağımlılıklarının hiçbirinde ilgili , `content`veya `build` klasörlerinde dosya bulunmaz.
+NuGet 2. x, Paket Yöneticisi konsoluna yönelik araçlar veya ek komutlar yükleyen `tools` , ancak çözümdeki herhangi bir projeye başvuru, içerik veya çözüm ekleme gibi çözüm düzeyindeki bir paket kavramını destekliyordu. Bu tür paketler doğrudan `lib` , veya klasörlerinde hiçbir dosya içermez `content` `build` ve bağımlılıklarından hiçbirinin ilgili `lib` , `content` veya klasörlerinde dosyaları yoktur `build` .
 
-NuGet, yüklü çözüm düzeyi paketlerini `packages.config` projenin `.nuget` `packages.config` dosyası yerine klasördeki bir dosyada izler.
+NuGet, çözüm düzeyindeki paketleri `packages.config` `.nuget` Proje dosyası yerine klasöründe bulunan bir dosyada izler `packages.config` .
 
 ### <a name="new-file-with-default-values"></a>Varsayılan değerlere sahip yeni dosya
 
-Aşağıdaki komut, uygun dosya yapısıyla başlamanızı sağlayan yer tutucularla varsayılan bir bildirim oluşturur:
+Aşağıdaki komut, uygun dosya yapısıyla başlayabilmenizi sağlayan yer tutucuları olan varsayılan bir bildirim oluşturur:
 
 ```cli
 nuget spec [<package-name>]
 ```
 
-Paket adını \<\>atlarsanız, ortaya çıkan dosya `Package.nuspec`. Gibi bir ad `Contoso.Utility.UsefulStuff`sağlarsanız, dosya `Contoso.Utility.UsefulStuff.nuspec`.
+Atlanırsa \<package-name\> , elde edilen dosya olur `Package.nuspec` . Gibi bir ad sağlarsanız, `Contoso.Utility.UsefulStuff` dosya olur `Contoso.Utility.UsefulStuff.nuspec` .
 
-Elde edilen `.nuspec` yer tutucular. `projectUrl` Son `.nupkg` dosyayı oluşturmak için kullanmadan önce dosyayı yeniden oluşturduğundan emin olun.
+Sonuç olarak `.nuspec` , gibi değerler için yer tutucular içerir `projectUrl` . Son dosyayı oluşturmak için dosyayı kullanmadan önce düzenlendiğinizden emin olun `.nupkg` .
 
-## <a name="choose-a-unique-package-identifier-and-setting-the-version-number"></a>Benzersiz bir paket tanımlayıcısı seçin ve sürüm numarasını ayarlama
+## <a name="choose-a-unique-package-identifier-and-setting-the-version-number"></a>Benzersiz bir paket tanımlayıcısı seçin ve sürüm numarasını ayarla
 
-Paket tanımlayıcısı (öğe)`<id>` ve sürüm numarası`<version>` (öğe) pakette bulunan tam kodu benzersiz olarak tanımladıkları için bildirimdeki en önemli iki değerdir.
+Paket tanımlayıcısı ( `<id>` öğe) ve sürüm numarası ( `<version>` öğe), pakette bulunan tam kodu benzersiz bir şekilde tanımladıklarından, bildirimdeki en önemli iki değerden oluşur.
 
 **Paket tanımlayıcısı için en iyi uygulamalar:**
 
-- **Teklik**: Tanımlayıcı, nuget.org veya pakete ev sahipliği yapan galeride benzersiz olmalıdır. Tanımlayıcıya karar vermeden önce, adın zaten kullanIlip kullanılmadığını kontrol etmek için ilgili galeride arama yapın. Çakışmaları önlemek için, iyi bir desen gibi tanımlayıcının ilk bölümü olarak şirket `Contoso.`adınızı kullanmaktır.
-- **Ad alanı benzeri adlar**: Tire yerine nokta gösterimi kullanarak .NET'teki ad boşluklarına benzer bir desen izleyin. Örneğin, kullanmak `Contoso.Utility.UsefulStuff` yerine `Contoso-Utility-UsefulStuff` `Contoso_Utility_UsefulStuff`veya . Tüketiciler, paket tanımlayıcısı kodda kullanılan ad alanlarıyla eşleştiğinde de yararlı olur.
-- **Örnek Paketler**: Başka bir paketin nasıl kullanılacağını gösteren bir `.Sample` örnek kod paketi üretirseniz, tanımlayıcıya sonek `Contoso.Utility.UsefulStuff.Sample`olarak iliştirin. (Örnek paket elbette diğer pakete bağımlı olacaktır.) Örnek bir paket oluştururken, daha önce açıklanan kural tabanlı çalışma dizini yöntemini kullanın. Klasörde, `content` örnek kodu ' da `\Samples\<identifier>` olarak `\Samples\Contoso.Utility.UsefulStuff.Sample`adlandırılan bir klasörde düzenleyin.
+- **Benzersizlik**: tanımlayıcı, NuGet.org genelinde benzersiz olmalıdır veya paketi barındıran Galeri. Bir tanımlayıcıya karar vermeden önce, adın zaten kullanımda olup olmadığını denetlemek için ilgili galeride arama yapın. Çakışmaları önlemek için iyi bir model, tanımlayıcı ilk parçası olarak şirketinizin adını kullanmaktır `Contoso.` .
+- **Ad alanı benzeri adlar**: kısa çizgi yerine nokta gösterimini kullanarak .net 'teki ad alanlarına benzer bir model izleyin. Örneğin, `Contoso.Utility.UsefulStuff` veya yerine kullanın `Contoso-Utility-UsefulStuff` `Contoso_Utility_UsefulStuff` . Tüketiciler ayrıca, paket tanımlayıcısı kodda kullanılan ad alanları ile eşleştiğinde yararlı olduğunu bulur.
+- **Örnek paketler**: başka bir paketin nasıl kullanılacağını gösteren bir örnek kod paketi oluşturursanız, ' `.Sample` de olduğu gibi, tanımlayıcıda bir sonek olarak iliştirme `Contoso.Utility.UsefulStuff.Sample` . (Örnek paketin, diğer pakete bağımlılığı vardır.) Örnek bir paket oluştururken, daha önce açıklanan kural tabanlı çalışma dizini yöntemini kullanın. `content`Klasöründe, örnek kodu içinde olarak adlandırılan bir klasörde düzenleyin `\Samples\<identifier>` `\Samples\Contoso.Utility.UsefulStuff.Sample` .
 
 **Paket sürümü için en iyi uygulamalar:**
 
-- Genel olarak, bu kesinlikle gerekli olmasa da, kitaplık maç için paketin sürümünü ayarlayın. Bu, bir paketi tek bir derlemeyle sınırladığınızda, [hangi derlemelerin paketlenecene karar](#decide-which-assemblies-to-package)verirken açıklandığı gibi basit bir konudur. Genel olarak, NuGet'in derleme sürümlerini değil, bağımlılıkları çözerken paket sürümleriyle ilgili olduğunu unutmayın.
-- Standart olmayan bir sürüm şeması kullanırken, [Paket sürümde](../concepts/package-versioning.md)açıklandığı gibi NuGet sürüm kurallarını dikkate almayı unutmayın.
+- Genel olarak, paketin sürümünü kitaplıkla eşleşecek şekilde ayarlayın, ancak bu kesinlikle gerekli değildir. Bu, [Hangi derlemelerin paketlenecek olduğuna karar verirken](#decide-which-assemblies-to-package)daha önce açıklandığı gibi, bir paketi tek bir derlemeyle sınırlandırdığınızda bu basit bir işlemdir. Genel olarak, NuGet 'in derleme sürümlerini değil, bağımlılıkları çözümlerken Paket sürümleriyle uğraşır olduğunu unutmayın.
+- Standart olmayan bir sürüm düzeni kullanırken, [paket sürümü oluşturma](../concepts/package-versioning.md)bölümünde açıklandığı gibi NuGet sürüm oluşturma kurallarını dikkate aldığınızdan emin olun.
 
-> Kısa blog gönderileri aşağıdaki dizi de sürüm anlamak için yararlıdır:
+> Aşağıdaki kısa blog gönderisi serisi, sürüm oluşturmayı anlamak için de yararlıdır:
 >
-> - [Bölüm 1: DLL Hell alma](https://blog.davidebbo.com/2011/01/nuget-versioning-part-1-taking-on-dll.html)
-> - [Bölüm 2: Çekirdek algoritması](https://blog.davidebbo.com/2011/01/nuget-versioning-part-2-core-algorithm.html)
-> - [Bölüm 3: Bağlayıcı Yönlendirmelerle Birleşme](https://blog.davidebbo.com/2011/01/nuget-versioning-part-3-unification-via.html)
+> - [1. Bölüm: DLL Hell üzerinde alma](https://blog.davidebbo.com/2011/01/nuget-versioning-part-1-taking-on-dll.html)
+> - [2. Bölüm: çekirdek algoritması](https://blog.davidebbo.com/2011/01/nuget-versioning-part-2-core-algorithm.html)
+> - [3. kısım: bağlama yeniden yönlendirmeleri aracılığıyla birleşme](https://blog.davidebbo.com/2011/01/nuget-versioning-part-3-unification-via.html)
 
-## <a name="add-a-readme-and-other-files"></a>Okuma mem ve diğer dosyalar ekleme
+## <a name="add-a-readme-and-other-files"></a>Benioku dosyası ve diğer dosyaları ekleme
 
-Pakete dahil olacak dosyaları doğrudan belirtmek `<files>` için, `.nuspec` `<metadata>` etiketi *izleyen* dosyadaki düğümü kullanın:
+Pakete dahil edilecek dosyaları doğrudan belirtmek için, `<files>` `.nuspec` dosyasında etiketini *takip* eden düğümünü kullanın `<metadata>` :
 
 ```xml
 <?xml version="1.0"?>
@@ -301,21 +302,22 @@ Pakete dahil olacak dosyaları doğrudan belirtmek `<files>` için, `.nuspec` `<
 ```
 
 > [!Tip]
-> Kural tabanlı çalışma dizini yaklaşımını kullanırken, readme.txt'yi paket köküne ve `content` diğer içeriğe klasöre yerleştirebilirsiniz. Bildirimde hiçbir öğe gerekli değildir. `<file>`
+> Kural tabanlı çalışma dizini yaklaşımını kullanırken, readme.txt paket köküne ve klasördeki diğer içeriklere yerleştirebilirsiniz `content` . `<file>`Bildirimde hiçbir öğe gerekli değildir.
 
-Paket köküne bir `readme.txt` dosya eklediğinizde, Visual Studio paketi doğrudan yükledikten hemen sonra dosyanın içeriğini düz metin olarak görüntüler. (Bağımlılık olarak yüklenen paketler için Okuma dosyaları görüntülenmez). Örneğin, HtmlAgilityPack paketinin okuma sı şu şekilde görünür:
+Paket kökünde adlı bir dosyayı dahil ettiğinizde `readme.txt` , Visual Studio Paketi doğrudan yükledikten hemen sonra bu dosyanın içeriğini düz metin olarak görüntüler. (Benioku dosyaları, bağımlılıklar olarak yüklenen paketler için gösterilmez). Örneğin, HtmlAgilityPack paketinin Benioku dosyası şöyle görünür:
 
-![Yükleme üzerine NuGet paketi için okuma dosyasının görüntülenmesi](media/Create_01-ShowReadme.png)
+![Yükleme sonrasında bir NuGet paketi için Benioku dosyası görüntüleme](media/Create_01-ShowReadme.png)
 
 > [!Note]
-> Dosyaya boş `<files>` bir düğüm eklerseniz, NuGet `lib` pakete klasördekinden başka içerik eklemez. `.nuspec`
+> Dosyada boş bir düğüm eklerseniz `<files>` `.nuspec` , NuGet, pakette bulunan ve bu klasördeki diğer içerikleri içermez `lib` .
 
-## <a name="include-msbuild-props-and-targets-in-a-package"></a>MSBuild sahne ve hedeflerini bir pakete dahil et
+## <a name="include-msbuild-props-and-targets-in-a-package"></a>Bir pakete MSBuild props ve hedefleri dahil etme
 
-Bazı durumlarda, paketinizi tüketen projelere (örneğin, yapı sırasında özel bir araç veya işlem çalıştırmak gibi) özel yapı hedefleri veya özellikleri eklemek isteyebilirsiniz. `<package_id>.targets` Bunu, dosyaları projeye `<package_id>.props` veya (örneğin) `Contoso.Utility.UsefulStuff.targets`proje `\build` klasörüne yerleştirerek yaparsınız.
+Bazı durumlarda, özel bir araç veya derleme sırasında işlem çalıştırma gibi paketinizi kullanan projelere özel yapı hedefleri veya özellikler eklemek isteyebilirsiniz. Bu, dosyaları forma `<package_id>.targets` veya `<package_id>.props` (gibi `Contoso.Utility.UsefulStuff.targets` ) `\build` projenin klasörü içine yerleştirerek yapabilirsiniz.
 
-Kök `\build` klasördeki dosyalar tüm hedef çerçeveler için uygun kabul edilir. Çerçeveye özgü dosyaları sağlamak için, öncelikle bunları aşağıdakiler gibi uygun alt klasörlere yerleştirin:
+Kök `\build` klasördeki dosyalar tüm hedef çerçeveler için uygun kabul edilir. Çerçeveye özgü dosyalar sağlamak için, önce bunları aşağıdaki gibi uygun alt klasörlere yerleştirin:
 
+```
     \build
         \netstandard1.4
             \Contoso.Utility.UsefulStuff.props
@@ -323,8 +325,9 @@ Kök `\build` klasördeki dosyalar tüm hedef çerçeveler için uygun kabul edi
         \net462
             \Contoso.Utility.UsefulStuff.props
             \Contoso.Utility.UsefulStuff.targets
+```
 
-Daha sonra `.nuspec` dosyada, `<files>` düğümdeki bu dosyalara başvurup bakın:
+Ardından `.nuspec` dosyada, düğümdeki bu dosyalara başvurduğunuzdan emin olun `<files>` :
 
 ```xml
 <?xml version="1.0"?>
@@ -342,96 +345,96 @@ Daha sonra `.nuspec` dosyada, `<files>` düğümdeki bu dosyalara başvurup bak�
 </package>
 ```
 
-Bir pakette MSBuild sahne ve hedefleri dahil [NuGet 2.5 ile tanıtıldı](../release-notes/NuGet-2.5.md#automatic-import-of-msbuild-targets-and-props-files), `minClientVersion="2.5"` bu nedenle `metadata` paketi tüketmek için gerekli minimum NuGet istemci sürümü belirtmek için, öğeözeklemek için tavsiye edilir.
+Bir paketteki MSBuild props ve hedefleri de dahil olmak üzere [NuGet 2,5 ile birlikte sunulmuştur](../release-notes/NuGet-2.5.md#automatic-import-of-msbuild-targets-and-props-files). bu nedenle, `minClientVersion="2.5"` `metadata` paketi kullanmak Için gereken en düşük NuGet istemci sürümünü göstermek için özniteliğini öğesine eklemeniz önerilir.
 
-NuGet `\build` dosyaları içeren bir paket yüklediğinde, `<Import>` proje dosyasına `.props` ve `.targets` dosyaları işaret eden MSBuild öğeleri ni ekler. (`.props` proje dosyasının üst kısmında eklenir; `.targets` alt kısmında eklenir.) Her hedef çerçeve `<Import>` için ayrı bir koşullu MSBuild öğesi eklenir.
+NuGet dosyaları içeren bir paket yüklediğinde `\build` , `<Import>` ve dosyalarını gösteren proje dosyasına MSBuild öğeleri ekler `.targets` `.props` . ( `.props` Proje dosyasının üst kısmına eklenir; `.targets` alt kısmına eklenir.) `<Import>` Her hedef çerçeve için ayrı bir koşullu MSBuild öğesi eklenir.
 
-MSBuild `.props` `.targets` ve çerçeveler arası hedefleme dosyaları `\buildMultiTargeting` klasöre yerleştirilebilir. Paket yükleme sırasında NuGet, `<Import>` hedef çerçevenin ayarlanmadığını (MSBuild özelliğinin `$(TargetFramework)` boş olması gerekir) koşuluyla proje dosyasına karşılık gelen öğeleri ekler.
+`.props` `.targets` Çapraz çerçeve hedefleme için MSBuild ve dosyalar `\buildMultiTargeting` klasöre yerleştirilebilir. Paket yüklemesi sırasında, NuGet ilgili `<Import>` öğeleri koşul ile proje dosyasına ekler; hedef Framework ayarlanmadı (MSBuild özelliği `$(TargetFramework)` boş olmalıdır).
 
-NuGet 3.x ile hedefler projeye eklenmez, bunun `{projectName}.nuget.g.targets` yerine `{projectName}.nuget.g.props`kullanılabilir hale getirilir ve .
+NuGet 3. x ile, hedefleri projeye eklenmez, ancak bunun yerine ve ile kullanılabilir hale getirilir `{projectName}.nuget.g.targets` `{projectName}.nuget.g.props` .
 
-## <a name="run-nuget-pack-to-generate-the-nupkg-file"></a>.nupkg dosyasını oluşturmak için nuget paketini çalıştırın
+## <a name="run-nuget-pack-to-generate-the-nupkg-file"></a>. Nupkg dosyasını oluşturmak için NuGet paketini çalıştırın
 
-Bir derleme veya kural tabanlı çalışma dizini kullanırken, `nuget pack` dosyanızla `.nuspec` birlikte `<project-name>` çalışarak, belirli dosya adınızı değiştirerek bir paket oluşturun:
+Bir bütünleştirilmiş kod veya kural tabanlı çalışma dizini kullanırken, `nuget pack` `.nuspec` dosyanıza çalıştırarak, `<project-name>` özel dosya adı ile değiştirerek bir paket oluşturun:
 
 ```cli
 nuget pack <project-name>.nuspec
 ```
 
-Visual Studio projesi kullanırken, proje `nuget pack` `.nuspec` dosyasını otomatik olarak yükleyen ve proje dosyasındaki değerleri kullanarak içindeki belirteçleri değiştiren proje dosyanızla çalıştırın:
+Bir Visual Studio projesi kullanırken, proje dosyasını `nuget pack` otomatik olarak yükleyen ve proje dosyasındaki `.nuspec` değerleri kullanarak onun içindeki belirteçleri değiştiren proje dosyası ile çalıştırın:
 
 ```cli
 nuget pack <project-name>.csproj
 ```
 
 > [!Note]
-> Proje belirteç değerlerinin kaynağı olduğundan, proje dosyasının doğrudan belirteç değişimi için kullanılması gereklidir. Bir `nuget pack` `.nuspec` dosyayla kullanırsanız belirteç değiştirme gerçekleşmez.
+> Projenin belirteç değerlerinin kaynağı olduğundan, belirteç değişikliği için proje dosyasını doğrudan kullanmak gereklidir. Bir dosya ile kullanırsanız belirteç değiştirme gerçekleşmez `nuget pack` `.nuspec` .
 
-Her durumda, `nuget pack` bir dönemle başlayan klasörleri hariç `.git` `.hg`tutar, örneğin.
+Her durumda, `nuget pack` veya gibi bir noktayla başlayan klasörleri dışlar `.git` `.hg` .
 
-NuGet, `.nuspec` dosyada düzeltmesi gereken (örneğin, bildirimdeki yer tutucu değerlerini değiştirmeyi unutmagibi) herhangi bir hata olup olmadığını gösterir.
+NuGet, dosyada düzeltilmesi gereken herhangi bir hata olup olmadığını gösterir ( `.nuspec` bildirimin yer tutucu değerlerini değiştirme gibi).
 
-Başarılı `nuget pack` olduktan sonra, `.nupkg` [Paketi Yayımlama'da](../nuget-org/publish-a-package.md)açıklandığı gibi uygun bir galeride yayımlayabileceğiniz bir dosyanız vardır.
+Başarılı olduktan sonra `nuget pack` , `.nupkg` [paket yayımlama](../nuget-org/publish-a-package.md)konusunda açıklandığı gibi uygun bir galeride yayımlayacağınız bir dosyanız vardır.
 
 > [!Tip]
-> Bir paketi oluşturduktan sonra incelemenin yararlı bir yolu, [paketi Paket Gezgini](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer) aracında açmaktır. Bu, paket içeriğinin ve manifestosunun grafiksel bir görünümünü sağlar. Ayrıca, ortaya çıkan `.nupkg` dosyayı bir `.zip` dosyaya yeniden adlandırabilir ve içeriğini doğrudan keşfedebilirsiniz.
+> Paketi oluşturduktan sonra, [Paket Gezgini](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer) aracında açmak için yararlı bir yol. Bu, paket içeriklerinin ve bildiriminin grafik görünümünü sağlar. Ayrıca, elde edilen `.nupkg` dosyayı bir dosya olarak yeniden adlandırabilir `.zip` ve içeriğini doğrudan keşfedebilirsiniz.
 
 ### <a name="additional-options"></a>Ek seçenekler
 
-Dosyaları hariç tutmak, bildirimdeki `nuget pack` sürüm numarasını geçersiz kılmak ve diğer özelliklerin yanı sıra çıktı klasörünü değiştirmek için çeşitli komut satırı anahtarlarını kullanabilirsiniz. Tam liste için paket [komutu başvurusuna](../reference/cli-reference/cli-ref-pack.md)bakın.
+`nuget pack`Dosyaları dışlamak, bildirimdeki sürüm numarasını geçersiz kılmak ve diğer özelliklerin yanı sıra çıkış klasörünü değiştirmek için ile çeşitli komut satırı anahtarlarını kullanabilirsiniz. Tüm liste için, [paket komut başvurusuna](../reference/cli-reference/cli-ref-pack.md)bakın.
 
-Aşağıdaki seçenekler Visual Studio projeleri ile ortak birkaçıdır:
+Aşağıdaki seçenekler, Visual Studio projeleriyle yaygın olarak karşılaşılan birkaç seçenek vardır:
 
-- **Başvurulan projeler**: Proje diğer projelere başvuruyorsa, başvurulan projeleri paketin bir parçası olarak `-IncludeReferencedProjects` veya bağımlılık olarak, seçeneği kullanarak ekleyebilirsiniz:
+- **Başvurulan projeler**: proje diğer projelere başvuruyorsa, bu seçeneği kullanarak başvurulan projeleri paketin parçası olarak veya bağımlılıklar olarak ekleyebilirsiniz `-IncludeReferencedProjects` :
 
     ```cli
     nuget pack MyProject.csproj -IncludeReferencedProjects
     ```
 
-    Bu ekleme işlemi özyinelemelidir, `MyProject.csproj` bu nedenle başvurular B ve C projeleri yse ve bu projeler D, E ve F'ye başvuruyorsa, B, C, D, E ve F'den dosyalar pakete dahil edilir.
+    Bu içerme işlemi özyinelemeli olduğundan, `MyProject.csproj` b ve c projeleri ve bu projeler D, e ve f 'ye başvuruyorsa, b, C, D, E ve f 'ye ait dosyalar pakete dahil edilir.
 
-    Başvurulan bir `.nuspec` proje kendi dosyasını içeriyorsa, NuGet başvurulan projeyi bağımlılık olarak ekler.  Bu projeyi ayrı olarak paketlemeniz ve yayınlamanız gerekir.
+    Başvurulan bir proje `.nuspec` kendi dosyasını içeriyorsa, NuGet bu başvurulan projeyi bunun yerine bağımlılık olarak ekler.  Bu projeyi ayrı ayrı paketleyip yayımlamanız gerekir.
 
-- **Yapı yapılandırması**: NuGet varsayılan olarak proje dosyasındaki varsayılan yapı yapılandırma kümesini kullanır, genellikle *Hata Ayıklama.* *Sürüm*gibi farklı bir yapı yapılandırmasından dosyaları `-properties` paketlemek için yapılandırma seçeneğini kullanın:
+- **Derleme yapılandırması**: varsayılan olarak, NuGet proje dosyasında varsayılan derleme yapılandırma kümesini kullanır, genellikle *hata ayıklayın*. *Yayın* gibi farklı bir derleme yapılandırmasından dosyaları paketetmek için, bu `-properties` seçeneği yapılandırmayla birlikte kullanın:
 
     ```cli
     nuget pack MyProject.csproj -properties Configuration=Release
     ```
 
-- **Semboller**: tüketicilerin paket kodunuzu hata ayıklayıcıya eklemesine olanak `-Symbols` tanıyan sembolleri eklemek için aşağıdaki seçeneği kullanın:
+- **Semboller**: tüketicilerin hata ayıklayıcıdaki paket kodunuzda ilerlemenize izin veren sembolleri dahil etmek için şu `-Symbols` seçeneği kullanın:
 
     ```cli
     nuget pack MyProject.csproj -symbols
     ```
 
-### <a name="test-package-installation"></a>Test paketi kurulumu
+### <a name="test-package-installation"></a>Test paketi yüklemesi
 
-Paket yayımlamadan önce, genellikle bir projeye paket yükleme işlemini sınamak istersiniz. Testler, zorunlu dosyaların tümünden inin projedeki doğru yerlerinde sonunun olmasını sağlar.
+Bir paketi yayımlamadan önce, genellikle bir projeye paket yükleme işlemini test etmek istersiniz. Testler, projenin proje içinde doğru konumlarında tüm dosyaları sonlandırmış olduğundan emin olmanızı ister.
 
-Yüklemeleri Visual Studio'da veya komut satırında normal [paket yükleme adımlarını](../consume-packages/overview-and-workflow.md#ways-to-install-a-nuget-package)kullanarak el ile test edebilirsiniz.
+Yüklemeleri, Visual Studio 'da veya normal [paket yükleme adımlarını](../consume-packages/overview-and-workflow.md#ways-to-install-a-nuget-package)kullanarak komut satırında el ile test edebilirsiniz.
 
-Otomatik sınama için temel işlem aşağıdaki gibidir:
+Otomatikleştirilmiş test için temel işlem aşağıdaki gibidir:
 
-1. Dosyayı `.nupkg` yerel bir klasöre kopyalayın.
-1. Komutu kullanarak `nuget sources add -name <name> -source <path>` klasörü paket kaynaklarınıza ekleyin [(nuget kaynaklarına](../reference/cli-reference/cli-ref-sources.md)bakın). Bu yerel kaynağı herhangi bir bilgisayarda yalnızca bir kez ayarlamanız gerektiğini unutmayın.
-1. Verilen kaynağınızın adı `nuget install <packageID> -source <name>` ile `<name>` eşleşen bir yerde kullanarak `nuget sources`paketi o kaynaktan yükleyin. Kaynağın belirtilmesi, paketin tek başına o kaynaktan yüklenmesini sağlar.
-1. Dosyaların doğru yüklenmesini denetlemek için dosya sisteminizi inceleyin.
+1. `.nupkg`Dosyayı yerel bir klasöre kopyalayın.
+1. Komutunu kullanarak, klasörü paket kaynaklarınıza ekleyin `nuget sources add -name <name> -source <path>` (bkz. [NuGet kaynakları](../reference/cli-reference/cli-ref-sources.md)). Bu yerel kaynağı yalnızca belirli bir bilgisayarda bir kez ayarlamanız gerektiğini unutmayın.
+1. Bu kaynaktan paketi, `nuget install <packageID> -source <name>` `<name>` kaynağına verildiği şekilde kaynağınızın adıyla eşleşen yeri kullanarak yükler `nuget sources` . Kaynağı belirtmek paketin o kaynaktan yalnızca yüklenmesini sağlar.
+1. Dosyaların doğru şekilde yüklenip yüklenmediğini denetlemek için dosya sisteminizi inceleyin.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-Bir dosya olan bir `.nupkg` paket oluşturduktan sonra, paketi [Yayımlama'da](../nuget-org/publish-a-package.md)açıklandığı gibi istediğiniz galeride yayınlayabilirsiniz.
+Bir dosya olan bir paket oluşturduktan sonra `.nupkg` , bir [paket yayımlama](../nuget-org/publish-a-package.md)konusunda açıklandığı gibi istediğiniz Galeri ile yayımlayabilirsiniz.
 
-Ayrıca paketinizin yeteneklerini genişletmek veya aşağıdaki konularda açıklandığı gibi diğer senaryoları desteklemek de isteyebilirsiniz:
+Ayrıca, aşağıdaki konularda açıklandığı gibi, paketinizin yeteneklerini genişletmek veya diğer senaryoları desteklemek isteyebilirsiniz:
 
-- [Paket sürüm](../concepts/package-versioning.md)
+- [Paket sürümü oluşturma](../concepts/package-versioning.md)
 - [Birden çok hedef çerçeveyi destekleme](../create-packages/supporting-multiple-target-frameworks.md)
-- [Kaynak ve yapılandırma dosyalarının dönüşümleri](../create-packages/source-and-config-file-transformations.md)
-- [Yerelleştirme](../create-packages/creating-localized-packages.md)
-- [Ön sürüm sürümleri](../create-packages/prerelease-packages.md)
+- [Kaynak ve yapılandırma dosyalarının dönüştürmeleri](../create-packages/source-and-config-file-transformations.md)
+- [Localization (Yerelleştirme)](../create-packages/creating-localized-packages.md)
+- [Yayın öncesi sürümler](../create-packages/prerelease-packages.md)
 - [Paket türünü ayarlama](../create-packages/set-package-type.md)
-- [COM interop montajları ile paketler oluşturma](../create-packages/author-packages-with-COM-interop-assemblies.md)
+- [COM birlikte çalışma Derlemeleriyle paket oluşturma](../create-packages/author-packages-with-COM-interop-assemblies.md)
 
-Son olarak, dikkat edilmesi gereken ek paket türleri vardır:
+Son olarak, bilmeniz için ek paket türleri vardır:
 
-- [Yerli Paketler](../guides/native-packages.md)
-- [Sembol Paketleri](../create-packages/symbol-packages-snupkg.md)
+- [Yerel paketler](../guides/native-packages.md)
+- [Sembol paketleri](../create-packages/symbol-packages-snupkg.md)

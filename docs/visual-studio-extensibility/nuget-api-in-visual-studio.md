@@ -1,46 +1,64 @@
 ---
 title: Visual Studio’da NuGet API’si
-description: NuGet'in Visual Studio'da Yönetilen Genişletilebilirlik Çerçevesi üzerinden dışa aktettiği API için arayüz başvurusu
-author: karann-msft
-ms.author: karann
+description: NuGet 'in Visual Studio 'daki Managed Extensibility Framework aracılığıyla dışarı aktardığı API için arabirim başvurusu
+author: nkolev92
+ms.author: nikolev
 ms.date: 01/09/2017
 ms.topic: reference
-ms.openlocfilehash: f1a11eb63c07a5d737a9474870f5653f6f7d850a
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 3592280d5398e13e71403023fbb361b5e26e7786
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "64495910"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699880"
 ---
 # <a name="nuget-api-in-visual-studio"></a>Visual Studio’da NuGet API’si
 
-Visual Studio'daki Paket Yöneticisi UI ve Console'a ek olarak, NuGet [yönetilen genişletilebilirlik çerçevesi (MEF)](/dotnet/framework/mef/index)aracılığıyla bazı yararlı hizmetler de ihraç eder. Bu arabirim, Visual Studio'daki diğer bileşenlerin paketleri yüklemek ve kaldırmak için kullanılabilen NuGet ile etkileşimkurmasına ve yüklü paketler hakkında bilgi edinmesine olanak tanır.
+NuGet, Visual Studio 'daki Paket Yöneticisi Kullanıcı arabirimine ve konsoluna ek olarak [Managed Extensibility Framework (MEF)](/dotnet/framework/mef/index)aracılığıyla bazı faydalı hizmetleri de dışarı aktarır. Bu arabirim, Visual Studio 'daki diğer bileşenlerin, paketleri yüklemek ve kaldırmak ve yüklü paketler hakkında bilgi almak için kullanılabilen NuGet ile etkileşime geçmesini sağlar.
 
-NuGet 3.3+'dan itibaren, NuGet `NuGet.VisualStudio` `NuGet.VisualStudio.dll` derlemedeki ad alanında bulunan aşağıdaki hizmetleri ihraç ediyor:
+Yıl boyunca, NuGet derlemede ad alanında bulunan çok sayıda hizmeti ekledi `NuGet.VisualStudio` `NuGet.VisualStudio.dll` :
 
-- [`IRegistryKey`](#iregistrykey-interface): Bir kayıt defteri alt anahtarından bir değer alma yöntemi.
-- [`IVsPackageInstaller`](#ivspackageinstaller-interface): NuGet paketlerini projelere yükleme yöntemleri.
-- [`IVsPackageInstallerEvents`](#ivspackageinstallerevents-interface): Paket yükleme/kaldırma etkinlikleri.
-- [`IVsPackageInstallerProjectEvents`](#ivspackageinstallerprojectevents-interface): Paket yükleme/kaldırma için toplu iş olayları.
-- [`IVsPackageInstallerServices`](#ivspackageinstallerservices-interface): Yüklü paketleri geçerli çözüme alma ve belirli bir paketin projede yüklü olup olmadığını kontrol etme yöntemleri.
-- [`IVsPackageManagerProvider`](#ivspackagemanagerprovider-interface): NuGet paketi için alternatif Paket Yöneticisi önerileri sunma yöntemleri.
-- [`IVsPackageMetadata`](#ivspackagemetadata-interface): Yüklü bir paket hakkında bilgi alma yöntemleri.
-- [`IVsPackageProjectMetadata`](#ivspackageprojectmetadata-interface): NuGet eylemlerinin yürütüldüğü bir proje hakkında bilgi alma yöntemleri.
-- [`IVsPackageRestorer`](#ivspackagerestorer-interface): Bir projede yüklü paketleri geri yükleme yöntemleri.
-- [`IVsPackageSourceProvider`](#ivspackagesourceprovider-interface): NuGet paket kaynaklarının listesini alma yöntemleri.
-- [`IVsPackageUninstaller`](#ivspackageuninstaller-interface): Projelerden NuGet paketlerini kaldırma yöntemleri.
-- [`IVsTemplateWizard`](#ivstemplatewizard-interface): Proje/madde şablonları için önceden yüklenmiş paketleri içerecek şekilde tasarlanmış; bu arabirim koddan çağrılması anlamına *gelmez* ve ortak yöntemleri yoktur.
+NuGet 3.3 + itibariyle, NuGet aşağıdakini dışarı aktarır
+
+- [`IRegistryKey`](#iregistrykey-interface): Bir kayıt defteri alt anahtarından değer alma yöntemi. (3.3 +)
+- [`IVsCredentialProvider`](#ivscredentialprovider-interface) NuGet işlemlerine yönelik kimlik bilgilerini almak için yöntemler içerir. (4.0 +)
+- [`IVsFrameworkCompatibility`](#ivsframeworkcompatibility-interface) Çerçeveler ve çerçeveler arasında uyumluluk bulma yöntemlerini içerir. (4.0 +)
+- [`IVsFrameworkCompatibility2`](#ivsframeworkcompatibility2-interface) Çerçeveler ve çerçeveler arasında uyumluluk bulma yöntemlerini içerir. (4.0 +)
+- [`IVsFrameworkCompatibility3`](#ivsframeworkcompatibility3-interface) Çerçeveler ve çerçeveler arasında uyumluluk bulma yöntemlerini içerir. (5,8 +)
+- [`IVsFrameworkParser`](#ivsframeworkparser-interface) Dizeler ile [FrameworkName](/dotnet/api/system.runtime.versioning.frameworkname) (4.0 +) arasında dönüştürme ile ilgili bir arabirim
+- [`IVsFrameworkParser2`](#ivsframeworkparser2-interface) .NET Framework dizelerini ayrıştırmak için arabirim. Bkz. [NuGet-ıvsframeworkparser](https://aka.ms/NuGet-IVsFrameworkParser). (5,8 +)
+- [`IVsGlobalPackagesInitScriptExecutor`](#ivsglobalpackagesinitscriptexecutor-interface) Bir çözümde (4.0 +) paketten PowerShell betikleri yürütün
+- [`IVsNuGetFramework`](#ivsnugetframework-interface) .NET hedef çerçeve adının bileşenlerini temsil eden bir tür. (5,8 +)
+- [`IVsPackageInstaller`](#ivspackageinstaller-interface): Projelere NuGet paketleri yüklemeye yönelik yöntemler. (3.3 +)
+- [' IVsPackageInstaller2](#ivspackageinstaller2-interface) Geçerli çözüm içindeki bir projeye tek bir paketin en son sürümünü yüklemek için bir yöntem içerir.
+- [`IVsPackageInstallerEvents`](#ivspackageinstallerevents-interface): Paket yükleme/kaldırma olayları. (3.3 +)
+- [`IVsPackageInstallerProjectEvents`](#ivspackageinstallerprojectevents-interface): Paket yükleme/kaldırma için Batch olayları. (3.3 +)
+- [`IVsPackageInstallerServices`](#ivspackageinstallerservices-interface): Yüklü paketleri geçerli çözümde alma ve belirli bir paketin bir projede yüklü olup olmadığını denetleme yöntemleri. (3.3 +)
+- [`IVsPackageManagerProvider`](#ivspackagemanagerprovider-interface): Bir NuGet paketi için alternatif Paket Yöneticisi önerileri sağlama yöntemleri. (3.3 +)
+- [`IVsPackageMetadata`](#ivspackagemetadata-interface): Yüklü bir paket hakkında bilgi almak için yöntemler. (3.3 +)
+- [`IVsPackageProjectMetadata`](#ivspackageprojectmetadata-interface): NuGet eylemlerinin yürütüldüğü bir proje hakkındaki bilgileri alma yöntemleri. (3.3 +)
+- [`IVsPackageRestorer`](#ivspackagerestorer-interface): Bir projeye yüklenmiş paketleri geri yükleme yöntemleri. (3.3 +)
+- [`IVsPackageSourceProvider`](#ivspackagesourceprovider-interface): NuGet paket kaynaklarının listesini alma yöntemleri. (3.3 +)
+- [`IVsPackageUninstaller`](#ivspackageuninstaller-interface): Projeden NuGet paketlerini kaldırma yöntemleri. (3.3 +)
+- [`IVsPathContext`](#ivspathcontext-interface) Geçerli bağlama özgü NuGet yol bilgileri (örn. proje bağlamı). (4.0 +)
+- [`IVsPathContext2`](#ivspathcontext2-interface) Geçerli bağlama özgü NuGet yol bilgileri (örn. proje bağlamı). (5.0 +)
+- [`IVsPathContextProvider`](#ivspathcontextprovider-interface)[Ispathcontext](#ivspathcontext-interface) örneklerini başlatacak bir fabrika. (4.0 +)
+- [`IVsPathContextProvider2`](#ivspathcontextprovider2-interface)[IVsPathContext2](#ivspathcontext2-interface) örnekleri başlatacak bir fabrika. (5.0 +)
+- [`IVsProjectJsonToPackageReferenceMigrateResult`](#ivsprojectjsontopackagereferencemigrateresult-interface)  Projedeki eski project.jsgeçiş işleminin sonucunu içerir (4.3 +)
+- [`IVsProjectJsonToPackageReferenceMigrator`](#ivsprojectjsontopackagereferencemigrator-interface) project.jstabanlı eski bir projeyi PackageReference tabanlı projeye geçirme yöntemlerini içerir. (4.3 +)
+- [`IVsSemanticVersionComparer`](#ivssemanticversioncomparer-interface) NuGet anlam (4.0 +) olarak davranarak iki donuk sürüm dizesini karşılaştıran bir arabirim
+- [`IVsTemplateWizard`](#ivstemplatewizard-interface): Önceden yüklenmiş paketleri dahil etmek için proje/öğe şablonları için tasarlanmıştır; Bu arabirimin koddan çağrılması amaçsız *değildir* ve ortak yöntemlere sahip olmaz. (3.3 +)
 
 ## <a name="using-nuget-services"></a>NuGet hizmetlerini kullanma
 
-1. [`NuGet.VisualStudio`](https://www.nuget.org/packages/NuGet.VisualStudio) Paketi, derlemeyi içeren projenize `NuGet.VisualStudio.dll` yükleyin.
+1. Paketi, [`NuGet.VisualStudio`](https://www.nuget.org/packages/NuGet.VisualStudio) Derlemeyi içeren projenize yükler `NuGet.VisualStudio.dll` .
 
-    Paket yüklendiğinde, montaj referansının **Embed Interop Türleri** özelliğini otomatik olarak **True**olarak ayarlar. Bu, kullanıcılar NuGet'in yeni sürümlerine güncellendiğinde kodunuzu sürüm değişikliklerine karşı esnek hale getirir.
+    Yüklendiğinde, paket, derleme başvurusunun **birlikte çalışma türlerini katıştır** özelliğini **doğru** olarak ayarlar. Bu, kullanıcılar NuGet 'in daha yeni sürümlerine güncelleştirerek kodunuzun sürüm değişikliklerine karşı dayanıklı olmasını sağlar.
 
 > [!Warning]
-> Kodunuzda ortak arabirimler dışında başka türler kullanmayın ve dahil olmak üzere diğer NuGet derlemelerine başvuruyapmayın. `NuGet.Core.dll`
+> Kodunuzda ortak arabirimlerin yanı sıra başka bir tür kullanmayın ve dahil olmak üzere başka bir NuGet derlemesine başvurmayın `NuGet.Core.dll` .
 
-1. Bir hizmeti kullanmak için, [MEF Alma özniteliği](/dotnet/framework/mef/index#imports-and-exports-with-attributes)veya [IComponentModel hizmeti](/dotnet/api/microsoft.visualstudio.componentmodelhost.icomponentmodel?redirectedfrom=MSDN&view=visualstudiosdk-2017)aracılığıyla içe aktarın.
+1. Bir hizmeti kullanmak için, [MEF Içeri aktarma özniteliğiyle](/dotnet/framework/mef/index#imports-and-exports-with-attributes)veya [ıonentmodel hizmeti](/dotnet/api/microsoft.visualstudio.componentmodelhost.icomponentmodel)aracılığıyla içeri aktarın.
 
     ```cs
     //Using the Import attribute
@@ -57,9 +75,9 @@ NuGet 3.3+'dan itibaren, NuGet `NuGet.VisualStudio` `NuGet.VisualStudio.dll` der
     var installedPackages = installerServices.GetInstalledPackages();
     ```
 
-Başvuru için, NuGet.VisualStudio için kaynak kodu [NuGet.Clients deposu](https://github.com/NuGet/NuGet.Client/tree/dev/src/NuGet.Clients/NuGet.VisualStudio)içinde yer almaktadır.
+Başvuru için, NuGet. VisualStudio için kaynak kodu [NuGet. clients deposu](https://github.com/NuGet/NuGet.Client/tree/dev/src/NuGet.Clients/NuGet.VisualStudio)içinde bulunur.
 
-## <a name="iregistrykey-interface"></a>IRegistryKey arabirimi
+## <a name="iregistrykey-interface"></a>Iregistrykey arabirimi
 
 ```cs
 /// <summary>
@@ -90,7 +108,258 @@ public interface IRegistryKey
 }
 ```
 
-## <a name="ivspackageinstaller-interface"></a>IVsPackageInstaller arayüzü
+## <a name="ivscredentialprovider-interface"></a>IVsCredentialProvider arabirimi
+
+```cs
+    /// <summary>
+    /// Contains methods to get credentials for NuGet operations.
+    /// </summary>
+    public interface IVsCredentialProvider
+    {
+        /// <summary>
+        /// Get credentials for the supplied package source Uri.
+        /// </summary>
+        /// <param name="uri">The NuGet package source Uri for which credentials are being requested. Implementors are
+        /// expected to first determine if this is a package source for which they can supply credentials.
+        /// If not, then Null should be returned.</param>
+        /// <param name="proxy">Web proxy to use when comunicating on the network.  Null if there is no proxy
+        /// authentication configured.</param>
+        /// <param name="isProxyRequest">True if if this request is to get proxy authentication
+        /// credentials. If the implementation is not valid for acquiring proxy credentials, then
+        /// null should be returned.</param>
+        /// <param name="isRetry">True if credentials were previously acquired for this uri, but
+        /// the supplied credentials did not allow authorized access.</param>
+        /// <param name="nonInteractive">If true, then interactive prompts must not be allowed.</param>
+        /// <param name="cancellationToken">This cancellation token should be checked to determine if the
+        /// operation requesting credentials has been cancelled.</param>
+        /// <returns>Credentials acquired by this provider for the given package source uri.
+        /// If the provider does not handle requests for the input parameter set, then null should be returned.
+        /// If the provider does handle the request, but cannot supply credentials, an exception should be thrown.</returns>
+        Task<ICredentials> GetCredentialsAsync(Uri uri,
+            IWebProxy proxy,
+            bool isProxyRequest,
+            bool isRetry,
+            bool nonInteractive,
+            CancellationToken cancellationToken);
+    }
+```
+
+## <a name="ivsframeworkcompatibility-interface"></a>Ivsframeworkcompatibility arabirimi
+
+```cs
+    /// <summary>
+    /// Contains methods to discover frameworks and compatibility between frameworks.
+    /// </summary>
+    public interface IVsFrameworkCompatibility
+    {
+        /// <summary>
+        /// Gets all .NETStandard frameworks currently supported, in ascending order by version.
+        /// </summary>
+        IEnumerable<FrameworkName> GetNetStandardFrameworks();
+
+        /// <summary>
+        /// Gets frameworks that support packages of the provided .NETStandard version.
+        /// </summary>
+        /// <remarks>
+        /// The result list is not exhaustive as it is meant to human-readable. For example,
+        /// equivalent frameworks are not returned. Additionally, a framework name with version X
+        /// in the result implies that framework names with versions greater than or equal to X
+        /// but having the same <see cref="FrameworkName.Identifier"/> are also supported.
+        /// </remarks>
+        /// <param name="frameworkName">The .NETStandard version to get supporting frameworks for.</param>
+        IEnumerable<FrameworkName> GetFrameworksSupportingNetStandard(FrameworkName frameworkName);
+
+        /// <summary>
+        /// Selects the framework from <paramref name="frameworks"/> that is nearest
+        /// to the <paramref name="targetFramework"/>, according to NuGet's framework
+        /// compatibility rules. <c>null</c> is returned of none of the frameworks
+        /// are compatible.
+        /// </summary>
+        /// <param name="targetFramework">The target framework.</param>
+        /// <param name="frameworks">The list of frameworks to choose from.</param>
+        /// <exception cref="ArgumentException">If any of the arguments are <c>null</c>.</exception>
+        /// <returns>The nearest framework.</returns>
+        FrameworkName GetNearest(FrameworkName targetFramework, IEnumerable<FrameworkName> frameworks);
+    }
+```
+
+## <a name="ivsframeworkcompatibility2-interface"></a>IVsFrameworkCompatibility2 arabirimi
+
+```cs
+    /// <summary>
+    /// Gets all .NETStandard frameworks currently supported, in ascending order by version.
+    /// </summary>
+    public interface IVsFrameworkCompatibility2 : IVsFrameworkCompatibility
+    {
+        /// <summary>
+        /// Selects the framework from <paramref name="frameworks"/> that is nearest
+        /// to the <paramref name="targetFramework"/>, according to NuGet's framework
+        /// compatibility rules. <c>null</c> is returned of none of the frameworks
+        /// are compatible.
+        /// </summary>
+        /// <param name="targetFramework">The target framework.</param>
+        /// <param name="fallbackTargetFrameworks">
+        /// Target frameworks to use if the provided <paramref name="targetFramework"/> is not compatible.
+        /// These fallback frameworks are attempted in sequence after <paramref name="targetFramework"/>.
+        /// </param>
+        /// <param name="frameworks">The list of frameworks to choose from.</param>
+        /// <exception cref="ArgumentException">If any of the arguments are <c>null</c>.</exception>
+        /// <returns>The nearest framework.</returns>
+        FrameworkName GetNearest(
+            FrameworkName targetFramework,
+            IEnumerable<FrameworkName> fallbackTargetFrameworks,
+            IEnumerable<FrameworkName> frameworks);
+    }
+```
+
+## <a name="ivsframeworkcompatibility3-interface"></a>IVsFrameworkCompatibility3 arabirimi
+
+```cs
+    /// <summary>
+    /// Gets all .NETStandard frameworks currently supported, in ascending order by version.
+    /// </summary>
+    public interface IVsFrameworkCompatibility3
+    {
+        /// <summary>
+        /// Selects the framework from <paramref name="frameworks"/> that is nearest
+        /// to the <paramref name="targetFramework"/>, according to NuGet's framework
+        /// compatibility rules. <c>null</c> is returned of none of the frameworks
+        /// are compatible.
+        /// </summary>
+        /// <param name="targetFramework">The target framework.</param>
+        /// <param name="frameworks">The list of frameworks to choose from.</param>
+        /// <exception cref="ArgumentNullException">If any of the arguments are null.</exception>
+        /// <exception cref="ArgumentException">If any of the frameworks cannot be parsed.</exception>
+        /// <returns>The nearest framework.</returns>
+        /// <remarks>This API is <a href="https://github.com/microsoft/vs-threading/blob/9f065f155525c4561257e02ad61e66e93e073886/doc/cookbook_vs.md#how-do-i-effectively-verify-that-my-code-is-fully-free-threaded">free-threaded</a>.</remarks>
+        IVsNuGetFramework GetNearest(IVsNuGetFramework targetFramework, IEnumerable<IVsNuGetFramework> frameworks);
+
+        /// <summary>
+        /// Selects the framework from <paramref name="frameworks"/> that is nearest
+        /// to the <paramref name="targetFramework"/>, according to NuGet's framework
+        /// compatibility rules. <c>null</c> is returned of none of the frameworks
+        /// are compatible.
+        /// </summary>
+        /// <param name="targetFramework">The target framework.</param>
+        /// <param name="fallbackTargetFrameworks">
+        /// Target frameworks to use if the provided <paramref name="targetFramework"/> is not compatible.
+        /// These fallback frameworks are attempted in sequence after <paramref name="targetFramework"/>.
+        /// </param>
+        /// <param name="frameworks">The list of frameworks to choose from.</param>
+        /// <exception cref="ArgumentNullException">If any of the arguments are null.</exception>
+        /// <exception cref="ArgumentException">If any of the frameworkscannot be parsed.</exception>
+        /// <returns>The nearest framework.</returns>
+        /// <remarks>This API is <a href="https://github.com/microsoft/vs-threading/blob/9f065f155525c4561257e02ad61e66e93e073886/doc/cookbook_vs.md#how-do-i-effectively-verify-that-my-code-is-fully-free-threaded">free-threaded</a>.</remarks>
+        IVsNuGetFramework GetNearest(
+            IVsNuGetFramework targetFramework,
+            IEnumerable<IVsNuGetFramework> fallbackTargetFrameworks,
+            IEnumerable<IVsNuGetFramework> frameworks);
+    }
+```
+
+## <a name="ivsframeworkparser-interface"></a>Ivsframeworkparser arabirimi
+
+```cs
+    /// <summary>
+    /// An interface for dealing with the conversion between strings and <see cref="FrameworkName"/>
+    /// instances.
+    /// </summary>
+    public interface IVsFrameworkParser
+    {
+        /// <summary>
+        /// Parses a short framework name (e.g. "net45") or a full framework name
+        /// (e.g. ".NETFramework,Version=v4.5") into a <see cref="FrameworkName"/>
+        /// instance.
+        /// </summary>
+        /// <param name="shortOrFullName">The framework string.</param>
+        /// <exception cref="ArgumentNullException">If the provided string is null.</exception>
+        /// <exception cref="ArgumentException">If the provided string cannot be parsed.</exception>
+        /// <returns>The parsed framework.</returns>
+        FrameworkName ParseFrameworkName(string shortOrFullName);
+
+        /// <summary>
+        /// Gets the shortened version of the framework name from a <see cref="FrameworkName"/>
+        /// instance.
+        /// </summary>
+        /// <remarks>
+        /// For example, ".NETFramework,Version=v4.5" is converted to "net45". This is the value
+        /// used inside of .nupkg folder structures as well as in project.json files.
+        /// </remarks>
+        /// <param name="frameworkName">The framework name.</param>
+        /// <exception cref="ArgumentNullException">If the input is null.</exception>
+        /// <exception cref="ArgumentException">
+        /// If the provided framework name cannot be converted to a short name.
+        /// </exception>
+        /// <returns>The short framework name. </returns>
+        string GetShortFrameworkName(FrameworkName frameworkName);
+    }
+```
+
+## <a name="ivsframeworkparser2-interface"></a>IVsFrameworkParser2 arabirimi
+
+```cs
+    /// <summary>An interface to parse .NET Framework strings. See <a href="http://aka.ms/NuGet-IVsFrameworkParser">http://aka.ms/NuGet-IVsFrameworkParser</a>.</summary>
+    public interface IVsFrameworkParser2
+    {
+        /// <summary>
+        /// Parses a short framework name (e.g. "net45") or a full Target Framework Moniker
+        /// (e.g. ".NETFramework,Version=v4.5") into a <see cref="IVsNuGetFramework"/>
+        /// instance.
+        /// </summary>
+        /// <param name="input">The framework string</param>
+        /// <param name="nuGetFramework">The resulting <see cref="IVsNuGetFramework"/>. If the method returns false, this return NuGet's "Unsupported" framework details.</param>
+        /// <returns>A boolean to specify whether the input could be parsed into a valid <see cref="IVsNuGetFramework"/> object.</returns>
+        /// <remarks>This API is not needed to get framework information about loaded projects, and should not be used to parse the project's TargetFramework property. See <a href="http://aka.ms/NuGet-IVsFrameworkParser">http://aka.ms/NuGet-IVsFrameworkParser</a>.<br/>
+        /// This API is <a href="https://github.com/microsoft/vs-threading/blob/9f065f155525c4561257e02ad61e66e93e073886/doc/cookbook_vs.md#how-do-i-effectively-verify-that-my-code-is-fully-free-threaded">free-threaded</a>.</remarks>
+        bool TryParse(string input, out IVsNuGetFramework nuGetFramework);
+    }
+```
+
+## <a name="ivsglobalpackagesinitscriptexecutor-interface"></a>Ivsglobalpackagesınitscriptexecutor arabirimi
+
+```cs
+    /// <summary>
+    /// Execute powershell scripts from package(s) in a solution
+    /// </summary>
+    /// <remarks>Intended for internal use only.</remarks>
+    public interface IVsGlobalPackagesInitScriptExecutor
+    {
+        /// <summary>
+        /// Executes the init script of the given package if available.
+        /// 1) If the init.ps1 script has already been executed by the powershell host, it will not be executed again.
+        /// True is returned.
+        /// 2) If the package is found in the global packages folder it will be used.
+        /// If not, it will return false and do nothing.
+        /// 3) Also, note if other scripts are executing while this call was made, it will wait for them to complete.
+        /// </summary>
+        /// <param name="packageId">Id of the package whose init.ps1 will be executed.</param>
+        /// <param name="packageVersion">Version of the package whose init.ps1 will be executed.</param>
+        /// <returns>Returns true if the script was executed or has been executed already.</returns>
+        /// <remarks>This method throws if the init.ps1 being executed throws.</remarks>
+        Task<bool> ExecuteInitScriptAsync(string packageId, string packageVersion);
+    }
+```
+
+## <a name="ivsnugetframework-interface"></a>Isnugetframework arabirimi
+
+```cs
+    /// <summary>A type that represents the components of a .NET Target Framework Moniker.</summary>
+    /// <remarks><see cref="System.Runtime.Versioning.FrameworkName"/> does not support .NET 5 Target Framework Monikers with a platform, but this type does.</remarks>
+    public interface IVsNuGetFramework
+    {
+        /// <summary>The framework moniker.</summary>
+        string TargetFrameworkMoniker { get; }
+
+        /// <summary>The platform moniker.</summary>
+        string TargetPlatformMoniker { get; }
+
+        /// <summary>The platform minimum version.</summary>
+        /// <remarks>This property is read by <see cref="IVsFrameworkCompatibility3" />, but will always have a null value when returned from <see cref="IVsFrameworkParser2"/>.</remarks>
+        string TargetPlatformMinVersion { get; }
+    }
+```
+
+## <a name="ivspackageinstaller-interface"></a>Ispackageınstaller arabirimi
 
 ```cs
 public interface IVsPackageInstaller
@@ -263,7 +532,46 @@ public interface IVsPackageInstaller
 }
 ```
 
-## <a name="ivspackageinstallerevents-interface"></a>IVsPackageInstallerEtkinlikler arayüzü
+## <a name="ivspackageinstaller2-interface"></a>IVsPackageinstaller2 arabirimi
+
+```cs
+   [Guid("4F3B122B-A53B-432C-8D85-0FAFB8BE4FF4")]
+    public interface IVsPackageInstaller2 : IVsPackageInstaller
+    {
+        /// <summary>
+        /// Installs the latest version of a single package from the specified package source.
+        /// </summary>
+        /// <param name="source">
+        /// The package source to install the package from. This value can be <c>null</c>
+        /// to indicate that the user's configured sources should be used. Otherwise,
+        /// this should be the source path as a string. If the user has credentials
+        /// configured for a source, this value must exactly match the configured source
+        /// value.
+        /// </param>
+        /// <param name="project">The target project for package installation.</param>
+        /// <param name="packageId">The package ID of the package to install.</param>
+        /// <param name="includePrerelease">
+        /// Whether or not to consider prerelease versions when finding the latest version
+        /// to install.
+        /// </param>
+        /// <param name="ignoreDependencies">
+        /// A boolean indicating whether or not to ignore the package's dependencies
+        /// during installation.
+        /// </param>
+        /// <exception cref="InvalidOperationException">
+        /// Thrown when <see paramref="includePrerelease"/> is <c>false</c> and no stable version
+        /// of the package exists.
+        /// </exception>
+        void InstallLatestPackage(
+            string source,
+            Project project,
+            string packageId,
+            bool includePrerelease,
+            bool ignoreDependencies);
+    }
+```
+
+## <a name="ivspackageinstallerevents-interface"></a>Ibspackageınstallerevents arabirimi
 
 ```cs
 public interface IVsPackageInstallerEvents
@@ -300,7 +608,7 @@ public interface IVsPackageInstallerEvents
 }
 ```
 
-## <a name="ivspackageinstallerprojectevents-interface"></a>IVsPackageInstallerProjectEvents arayüzü
+## <a name="ivspackageinstallerprojectevents-interface"></a>IVsPackageInstallerProjectEvents arabirimi
 
 ```cs
 public interface IVsPackageInstallerProjectEvents
@@ -317,7 +625,7 @@ public interface IVsPackageInstallerProjectEvents
 }
 ```
 
-## <a name="ivspackageinstallerservices-interface"></a>IVsPackageInstallerServices arayüzü
+## <a name="ivspackageinstallerservices-interface"></a>Ibspackageınstallerservices arabirimi
 
 ```cs
 public interface IVsPackageInstallerServices
@@ -369,7 +677,7 @@ public interface IVsPackageInstallerServices
 }
 ```
 
-## <a name="ivspackagemanagerprovider-interface"></a>IVsPackageManagerProvider arayüzü
+## <a name="ivspackagemanagerprovider-interface"></a>Ispackagemanagerprovider arabirimi
 
 ```cs
 public interface IVsPackageManagerProvider
@@ -408,7 +716,7 @@ public interface IVsPackageManagerProvider
 }
 ```
 
-## <a name="ivspackagemetadata-interface"></a>IVsPackageMetaveri arabirimi
+## <a name="ivspackagemetadata-interface"></a>Ispackagemetadata arabirimi
 
 ```cs
 public interface IVsPackageMetadata
@@ -462,7 +770,7 @@ public interface IVsPackageMetadata
 }
 ```
 
-## <a name="ivspackageprojectmetadata-interface"></a>IVsPackageProjectMetaveri arabirimi
+## <a name="ivspackageprojectmetadata-interface"></a>Ispackageprojectmetadata arabirimi
 
 ```cs
 public interface IVsPackageProjectMetadata
@@ -479,7 +787,7 @@ public interface IVsPackageProjectMetadata
 }
 ```
 
-## <a name="ivspackagerestorer-interface"></a>IVsPackageRestorer arayüzü
+## <a name="ivspackagerestorer-interface"></a>Ispackagerestorer arabirimi
 
 ```cs
 public interface IVsPackageRestorer
@@ -499,9 +807,12 @@ public interface IVsPackageRestorer
 }
 ```
 
-## <a name="ivspackagesourceprovider-interface"></a>IVsPackageSourceProvider arayüzü
+## <a name="ivspackagesourceprovider-interface"></a>Ispackagesourceprovider arabirimi
 
 ```cs
+/// <summary>
+/// A public API for retrieving the list of NuGet package sources.
+/// </summary>
 public interface IVsPackageSourceProvider
 {
     /// <summary>
@@ -509,6 +820,11 @@ public interface IVsPackageSourceProvider
     /// </summary>
     /// <param name="includeUnOfficial">Unofficial sources will be included in the results</param>
     /// <param name="includeDisabled">Disabled sources will be included in the results</param>
+    /// <remarks>Does not require the UI thread.</remarks>
+    /// <exception cref="ArgumentException">Thrown if a NuGet configuration file is invalid.</exception>
+    /// <exception cref="ArgumentNullException">Thrown if a NuGet configuration file is invalid.</exception>
+    /// <exception cref="InvalidOperationException">Thrown if a NuGet configuration file is invalid.</exception>
+    /// <exception cref="InvalidDataException">Thrown if a NuGet configuration file is invalid.</exception>
     /// <returns>Key: source name Value: source URI</returns>
     IEnumerable<KeyValuePair<string, string>> GetSources(bool includeUnOfficial, bool includeDisabled);
 
@@ -519,7 +835,7 @@ public interface IVsPackageSourceProvider
 }
 ```
 
-## <a name="ivspackageuninstaller-interface"></a>IVsPackageUninstaller arayüzü
+## <a name="ivspackageuninstaller-interface"></a>Ispackageunınstaller arabirimi
 
 ```cs
 public interface IVsPackageUninstaller
@@ -538,7 +854,230 @@ public interface IVsPackageUninstaller
 }
 ```
 
-## <a name="ivstemplatewizard-interface"></a>IVsTemplateSihirbaz arabirimi
+## <a name="ivspathcontext-interface"></a>Ispathcontext arabirimi
+
+```cs
+/// <summary>
+    /// NuGet path information specific to the current context (e.g. project context).
+    /// Represents captured snapshot associated with current project/solution settings.
+    /// Should be discarded immediately after all queries are done.
+    /// </summary>
+    [ComImport]
+    [Guid("24A1A187-75EE-4296-A8B3-59F0E0707119")]
+    public interface IVsPathContext
+    {
+        /// <summary>
+        /// User package folder directory. The path returned is an absolute path.
+        /// </summary>
+        string UserPackageFolder { get; }
+
+        /// <summary>
+        /// Fallback package folder locations. The paths (if any) in the returned list are absolute paths. If no
+        /// fallback package folders are configured, an empty list is returned. The item type of this sequence is
+        /// <see cref="string"/>.
+        /// </summary>
+        IEnumerable FallbackPackageFolders { get; }
+
+        /// <summary>
+        /// Fetch a package directory containing the provided asset path.
+        /// </summary>
+        /// <param name="packageAssetPath">Absolute path to package asset file.</param>
+        /// <param name="packageDirectoryPath">Full path to a package directory. 
+        /// <code>null</code> if returned falue is <code>false</code>.</param>
+        /// <returns>
+        /// <code>true</code> when a package containing the given file was found, <code>false</code> - otherwise.
+        /// </returns>
+        /// <example>
+        /// Suppose the project is a packages.config project and the following asset paths are provided:
+        /// 
+        /// - C:\src\MyProject\packages\NuGet.Versioning.3.5.0-rc1-final\lib\net45\NuGet.Versioning.dll
+        /// - C:\path\to\non\package\assembly\Newtonsoft.Json.dll
+        /// - C:\src\MyOtherProject\packages\NuGet.Core.2.12.0\lib\net40\NuGet.Core.dll
+        /// - C:\src\MyProject\packages\Autofac.3.5.2\lib\net40\Autofac.dll
+        /// - C:\src\MyProject\packages\Autofac.3.5.2\lib\net40\Autofac.Fake.dll
+        /// 
+        /// The result will be:
+        /// 
+        /// - C:\src\MyProject\packages\NuGet.Versioning.3.5.0-rc1-final
+        /// - null
+        /// - null
+        /// - C:\src\MyProject\packages\Autofac.3.5.2
+        /// - C:\src\MyProject\packages\Autofac.3.5.2
+        /// </example>
+        bool TryResolvePackageAsset(string packageAssetPath, out string packageDirectoryPath);
+    }
+```
+
+## <a name="ivspathcontext2-interface"></a>IVsPathContext2 arabirimi
+
+```cs
+/// <summary>
+    /// NuGet path information specific to the current context (e.g. project context) or solution context
+    /// Represents captured snapshot associated with current project/solution settings.
+    /// Should be discarded immediately after all queries are done.
+    /// </summary>
+    public interface IVsPathContext2 : IVsPathContext
+    {
+        /// <summary>
+        /// Solution packages folder directory. This will always be set irrespective if folder actually exists or not.
+        /// The path returned is an absolute path.
+        /// </summary>
+        string SolutionPackageFolder { get; }
+    }
+```
+
+## <a name="ivspathcontextprovider-interface"></a>Ispathcontextprovider arabirimi
+
+```cs
+    /// <summary>
+    /// A factory to initialize <see cref="IVsPathContext"/> instances.
+    /// </summary>
+    public interface IVsPathContextProvider
+    {
+        /// <summary>
+        /// Attempts to create an instance of <see cref="IVsPathContext"/>.
+        /// </summary>
+        /// <param name="projectUniqueName">
+        /// Unique identificator of the project. Should be a full path to project file.
+        /// </param>
+        /// <param name="context">The path context associated with given project.</param>
+        /// <returns>
+        /// <code>True</code> if operation has succeeded and context was created.
+        /// False, otherwise, e.g. when provided project is not managed by NuGet.
+        /// </returns>
+        /// <throws>
+        /// <code>ArgumentNullException</code> if projectUniqueName is passed as null.
+        /// <code>InvalidOperationException</code> when it fails to create a context and return appropriate error message.
+        /// </throws>
+        bool TryCreateContext(string projectUniqueName, out IVsPathContext context);
+    }
+```
+
+## <a name="ivspathcontextprovider2-interface"></a>IVsPathContextProvider2 arabirimi
+
+```cs
+    /// <summary>
+    /// A factory to initialize <see cref="IVsPathContext2"/> instances.
+    /// </summary>
+    public interface IVsPathContextProvider2 : IVsPathContextProvider
+    {
+        /// <summary>
+        /// Attempts to create an instance of <see cref="IVsPathContext2"/> for the solution.
+        /// </summary>
+        /// <param name="context">The path context associated with this solution.</param>
+        /// <returns>
+        /// <code>True</code> if operation has succeeded and context was created.
+        /// <code>False</code> otherwise.
+        /// </returns>
+        /// <throws>
+        /// <code>InvalidOperationException</code> when it fails to create a context and return appropriate error message.
+        /// </throws>
+        bool TryCreateSolutionContext(out IVsPathContext2 context);
+
+        /// <summary>
+        /// Attempts to create an instance of <see cref="IVsPathContext2"/> for the solution.
+        /// </summary>
+        /// <param name="solutionDirectory">
+        /// path to the solution directory. Must be an absolute path.
+        /// It will be performant to pass the solution directory if it's available.
+        /// </param>
+        /// <param name="context">The path context associated with this solution.</param>
+        /// <returns>
+        /// <code>True</code> if operation has succeeded and context was created.
+        /// <code>False</code> otherwise.
+        /// </returns>
+        /// <throws>
+        /// <code>ArgumentNullException</code> if solutionDirectory is passed as null.
+        /// <code>InvalidOperationException</code> when it fails to create a context and return appropriate error message.
+        /// </throws>
+        bool TryCreateSolutionContext(string solutionDirectory, out IVsPathContext2 context);
+
+        /// <summary>
+        /// Attempts to create an instance of <see cref="IVsPathContext"/> containing only the user wide and machine wide configurations.
+        /// If a solution is loaded, note that the values in the path context might not be the actual effective values for the solution.
+        /// If a customer has overriden the `globalPackagesFolder` key or cleared the `fallbackPackageFolders`, these values will be incorrect.
+        /// It is important to keep this scenario in mind when working with this path. To predict differences you can call this in combination with <see cref="TryCreateSolutionContext(out IVsPathContext2)"/>.
+        /// </summary>
+        /// <returns>
+        /// <code>True</code> if operation has succeeded and context was created.
+        /// <code>False</code> otherwise.
+        /// </returns>
+        /// <remarks>
+        /// This method can be safely invoked from a background thread. Do note that this method might switch to the UI thread internally, so be mindful of blocking the UI thread on this.
+        /// </remarks>
+        bool TryCreateNoSolutionContext(out IVsPathContext vsPathContext);
+
+```
+
+## <a name="ivsprojectjsontopackagereferencemigrateresult-interface"></a>IVsProjectJsonToPackageReferenceMigrateResult arabirimi
+
+```cs
+    /// <summary>
+    /// Contains the result of the migrate operation on a legacy project.json project
+    /// </summary>
+    public interface IVsProjectJsonToPackageReferenceMigrateResult
+    {
+        /// <summary>
+        /// Returns the success value of the migration operation.
+        /// </summary>
+        bool IsSuccess { get; }
+
+        /// <summary>
+        /// If migrate operation was unsuccessful, stores the error message in the exception.
+        /// </summary>
+        string ErrorMessage { get; }
+    }
+```
+
+## <a name="ivsprojectjsontopackagereferencemigrator-interface"></a>IVsProjectJsonToPackageReferenceMigrator arabirimi
+
+```cs
+    /// <summary>
+    /// Contains methods to migrate a project.json based legacy project to PackageReference based project.
+    /// </summary>
+    public interface IVsProjectJsonToPackageReferenceMigrator
+    {
+        /// <summary>
+        /// Migrates a legacy Project.json based project to Package Reference based project. The result 
+        /// should be casted to type <see cref="IVsProjectJsonToPackageReferenceMigrateResult"/>
+        /// The backup of the original project file and project.json file is created in the Backup folder
+        /// in the root of the project directory.
+        /// </summary>
+        /// <param name="projectUniqueName">The full path to the project that needs to be migrated</param>
+        Task<object> MigrateProjectJsonToPackageReferenceAsync(string projectUniqueName);
+
+    }
+```
+
+## <a name="ivssemanticversioncomparer-interface"></a>Ivssemanticversioncomparer arabirimi
+
+```cs
+    /// <summary>
+    /// An interface for comparing two opaque version strings by treating them as NuGet semantic
+    /// versions.
+    /// </summary>
+    public interface IVsSemanticVersionComparer
+    {
+        /// <summary>
+        /// Compares two version strings as if they were NuGet semantic version
+        /// strings. Returns a number less than zero if <paramref name="versionA"/>
+        /// is less than <paramref name="versionB"/>. Returns zero if the two versions 
+        /// are equivalent. Returns a number greater than zero if <paramref name="versionA"/>
+        /// is greater than <paramref name="versionB"/>.
+        /// </summary>
+        /// <param name="versionA">The first version string.</param>
+        /// <param name="versionB">The second version string.</param>
+        /// <exception cref="ArgumentNullException">If either version string is null.</exception>
+        /// <exception cref="ArgumentException">If either string cannot be parsed.</exception>
+        /// <returns>
+        /// A standard comparison integer based on the relationship between the
+        /// two provided versions.
+        /// </returns>
+        int Compare(string versionA, string versionB);
+    }
+```
+
+## <a name="ivstemplatewizard-interface"></a>IVsTemplateWizard arabirimi
 
 ```cs
 /// <summary>

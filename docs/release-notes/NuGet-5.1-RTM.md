@@ -1,102 +1,102 @@
 ---
-title: NuGet 5.1 RTM sürüm notları
-description: NuGet yeni özellikler, hata düzeltmeleri yapıldı ve dcr 5.1 sürüm notları.
+title: NuGet 5,1 RTM sürüm notları
+description: Yeni özellikler, hata düzeltmeleri ve DTU 'lar dahil olmak üzere NuGet 5,1 sürüm notları.
 author: karann-msft
 ms.author: karann
 ms.date: 05/21/2019
 ms.topic: conceptual
-ms.openlocfilehash: 384145947b19af6577dc1255985df1a361c72bb5
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 2a94360dc375ba90b90c1045f4acbcfca81fea5b
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842576"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699859"
 ---
-# <a name="nuget-51-release-notes"></a>NuGet 5.1 sürüm notları
+# <a name="nuget-51-release-notes"></a>NuGet 5,1 sürüm notları
 
-NuGet dağıtım araçları:
+NuGet dağıtım araçlar:
 
-| NuGet sürüm | Visual Studio sürümü içinde kullanılabilir| .NET SDK'sı sürümünü kullanılabilir|
+| NuGet sürümü | Visual Studio sürümünde kullanılabilir| .NET SDK 'ları 'nda kullanılabilir|
 |:---|:---|:---|
-| [**5.1.0**](https://nuget.org/downloads) | [Visual Studio 2019 16.1 sürümü](https://visualstudio.microsoft.com/downloads/) | [2.1.70X](https://dotnet.microsoft.com/download/dotnet-core/2.1)<sup>1</sup>, [2.2.30X](https://dotnet.microsoft.com/download/dotnet-core/2.2)<sup>2</sup> |
+| [**5.1.0**](https://nuget.org/downloads) | [Visual Studio 2019 sürüm 16,1](https://visualstudio.microsoft.com/downloads/) | [2.1.70 x](https://dotnet.microsoft.com/download/dotnet-core/2.1)<sup>1</sup>, [2.2.30 x](https://dotnet.microsoft.com/download/dotnet-core/2.2)<sup>2</sup> |
 
-<sup>1</sup>.NET Core iş yüküyle Visual Studio 2019 ile yüklü 
+<sup>1</sup> .NET Core iş yüküne sahip Visual Studio 2019 ile yüklendi 
 
-<sup>2</sup>.NET Core iş yüküyle Visual Studio 2019 ile isteğe bağlı bir yükleme olarak kullanılabilir
+<sup>2</sup> .NET Core iş yüküne sahip Visual Studio 2019 ile isteğe bağlı bir install olarak kullanılabilir
 
-## <a name="summary-whats-new-in-51"></a>Özet: 5.1 yenilikler nelerdir?
+## <a name="summary-whats-new-in-51"></a>Özet: 5,1 sürümündeki yenilikler
 
-* Daha iyi iş akışlarıyla tümleştirme CI/CD - izin vermek için zaten bir paket anında iletme atlayın için destek [#1630](https://github.com/NuGet/Home/issues/1630#issuecomment-483461100)
+* CI/CD iş akışlarıyla daha iyi tümleştirme sağlamak için zaten mevcutsa bir paket gönderimi atlama desteği- [#1630](https://github.com/NuGet/Home/issues/1630#issuecomment-483461100)
 
-* Visual Studio artık uygun bir bağlantı sağlar paketin nuget.org galeri sayfası - [#5299](https://github.com/NuGet/Home/issues/5299#issuecomment-494458510)
+* Visual Studio artık paketin nuget.org Galeri sayfasına uygun bir bağlantı sağlamaktadır [#5299](https://github.com/NuGet/Home/issues/5299#issuecomment-494458510)
 
-* Yeni .NET Core 3.0 varlıklarını gibi destekleyen [Targeting Pack](https://github.com/dotnet/cli/issues/10006) ve [çalışma zamanı paketleri](https://github.com/dotnet/cli/issues/10007)
-  * NuGet paketi ve geri yükleme desteği ve çalışma zamanı paket başvuruları - etkinleştirmek FrameworkReferences için destek [#7342](https://github.com/NuGet/Home/issues/7342)
-  * Destek "yalnızca indirin" PackageDownload - paket senaryosuyla [#7339](https://github.com/NuGet/Home/issues/7339)
-  * Exlcude çalışma zamanı ve arama sonuçları & geri yükleme paketlerinden hedefleyen grafiğini kullanarak PackageType - [#7337](https://github.com/NuGet/Home/issues/7337)
+* [Hedefleme paketleri](https://github.com/dotnet/cli/issues/10006) ve [çalışma zamanı paketleri](https://github.com/dotnet/cli/issues/10007) gibi yeni .NET Core 3,0 varlıkları için destek
+  * Hedef ve çalışma zamanı paket başvurularını etkinleştirmek üzere FrameworkReferences için NuGet paketi ve geri yükleme desteği- [#7342](https://github.com/NuGet/Home/issues/7342)
+  * PackageDownload- [#7339](https://github.com/NuGet/Home/issues/7339) ile "yalnızca indir" paket senaryosunu destekleme
+  * Çalışma zamanı ve hedefleme paketlerini, PackageType- [#7337](https://github.com/NuGet/Home/issues/7337) kullanarak & geri yükleme graflarından çıkar
 
 ### <a name="issues-fixed-in-this-release"></a>Bu sürümde giderilen sorunlar
 
-**Hataları**
+**Hata**
 
-* Eklentiler: özel durum ayrıntıları kayıp eklentisi oluşturma sırasında - [#8057](https://github.com/NuGet/Home/issues/8057)
+* Eklentiler: eklenti oluşturma sırasında özel durum ayrıntıları kayboldu- [#8057](https://github.com/NuGet/Home/issues/8057)
 
-* Alt sınır kaynaklardan biri mevcutsa PackageReference aralığı özel alt sınırı ile çalışmaz. - [#8054](https://github.com/NuGet/Home/issues/8054)
+* , Kaynaklardan birinde alt sınır varsa, özel alt sınırı olan PackageReference aralığı çalışmaz. - [#8054](https://github.com/NuGet/Home/issues/8054)
 
-* IsPackableFalseError iletisi - geliştirmek [#8021](https://github.com/NuGet/Home/issues/8021)
+* Ispackabsolalseerror iletisini geliştirme- [#8021](https://github.com/NuGet/Home/issues/8021)
 
-* Paketler kilidi dosyası - proje graf değiştiğinde yeniden oluşturma kilit - [#8019](https://github.com/NuGet/Home/issues/8019)
+* Paketler kilit dosyası-proje grafiği değiştiğinde kilit dosyasını yeniden oluştur- [#8019](https://github.com/NuGet/Home/issues/8019)
 
-* Proje sistemi hatası: Nuget paketlerini otomatik alma kaldırıldı - [#8017](https://github.com/NuGet/Home/issues/8017)
+* ProjectSystem hatası: NuGet paketleri otomatik olarak kaldırılıyor- [#8017](https://github.com/NuGet/Home/issues/8017)
 
-* FrameworkReference döndürmek için bir hedef ekleyin CollectPackageDownloads ve CollectPackageReferences - benzer [#8005](https://github.com/NuGet/Home/issues/8005)
+* CollectPackageDownloads ve Collectpackagerefersin- [#8005](https://github.com/NuGet/Home/issues/8005) benzer bir frameworkreference döndürmek için bir hedef ekleyin
 
-* HTTP önbellek:  Tutulan bir biçimde - RepositoryResources kaynak önbelleğe alınmamış [#7997](https://github.com/NuGet/Home/issues/7997)
+* HTTP önbelleği: Depokaynak kaynağı, sürümlü bir şekilde önbelleğe alınmaz- [#7997](https://github.com/NuGet/Home/issues/7997)
 
-* Günlüğe kaydetme: özel durum çağrı yığınını ayrıntılı ayrıntı ile - bildirilmez [#7955](https://github.com/NuGet/Home/issues/7955)
+* Günlüğe kaydetme: özel durum callyığınları ayrıntılı ayrıntı düzeyi ile bildirilmedi [#7955](https://github.com/NuGet/Home/issues/7955)
 
-* Tüm NuGet belgeleri - HTTPS kullanacak şekilde URL'leri değiştirmeyi [#7950](https://github.com/NuGet/Home/issues/7950)
+* Tüm NuGet belgeleri URL 'Lerini HTTPS- [#7950](https://github.com/NuGet/Home/issues/7950) kullanacak şekilde değiştir
 
-* Uyarı iletisi NU3024 - geliştirmek [#7933](https://github.com/NuGet/Home/issues/7933)
+* NU3024 uyarı iletisini geliştirme- [#7933](https://github.com/NuGet/Home/issues/7933)
 
-* ne zaman güncelleştirilmiyor kilit dosyası kaldırıldı - packagereference [#7930](https://github.com/NuGet/Home/issues/7930)
+* packagereference kaldırıldığında kilit dosyası güncelleştirilmiyor- [#7930](https://github.com/NuGet/Home/issues/7930)
 
-* Hata örneği işleme nuspec - licenseurl ve lisans öğesindeki doğrularken geliştirmek [#7915](https://github.com/NuGet/Home/issues/7915)
+* Nuspec- [#7915](https://github.com/NuGet/Home/issues/7915) içinde licenseurl ve lisans öğesi doğrulanırken hata durum işlemeyi geliştir
 
-* PM UI - sağ tıklayın sekmesini üstbilgi ve sonuçları hata - tıklatarak "dosya konumunu Aç" [#7913](https://github.com/NuGet/Home/issues/7913)
+* PM Kullanıcı arabirimi-sekme başlığına sağ tıklayıp "dosya konumunu aç" seçeneğine tıkladığınızda hata [#7913](https://github.com/NuGet/Home/issues/7913)
 
-* Eklentiler: oturum eklentisi işlem çıktığında - [#7907](https://github.com/NuGet/Home/issues/7907)
+* Eklentiler: eklenti işlemi çıktığında günlüğe kaydet- [#7907](https://github.com/NuGet/Home/issues/7907)
 
-* Eklentiler: yüksek çakışma oranı günlük datetime değerleri - [#7899](https://github.com/NuGet/Home/issues/7899)
+* Eklentiler: günlük tarih değerlerini günlüğe kaydetme sırasında yüksek çakışma oranı- [#7899](https://github.com/NuGet/Home/issues/7899)
 
-* Manifest.ReadFrom başarısız LicenseExpression ile-herhangi bir nuspec üzerinde [#7894](https://github.com/NuGet/Home/issues/7894)
+* LicenseExpression- [#7894](https://github.com/NuGet/Home/issues/7894) ile herhangi bir nuspec üzerinde manifest. ReadFrom başarısız
 
-* RestoreLockedMode: Bir projeye özel AssemblyName ile-ProjectReference başvurduğunda beklenmeyen NU1004 [#7889](https://github.com/NuGet/Home/issues/7889)
+* RestoreLockedMode: ProjectReference özel AssemblyName içeren bir projeye başvurduğunda, beklenmeyen NU1004- [#7889](https://github.com/NuGet/Home/issues/7889)
 
-* Bir özel durumla - eklentisi başlatma başarısız olduğunda daha iyi hata iletisi [#7857](https://github.com/NuGet/Home/issues/7857)
+* Eklenti başlatması bir özel durumla başarısız olduğunda daha iyi hata iletisi [#7857](https://github.com/NuGet/Home/issues/7857)
 
-* NoOp geri yükleme yaparken önlemek *. obj dizinindeki - dgspec.json yazma [#7854](https://github.com/NuGet/Home/issues/7854)
+* Bir NoOp geri yükleme işlemi yaparken, obj dizininde yazma sırasında * .dgspec.jsönleyin- [#7854](https://github.com/NuGet/Home/issues/7854)
 
-* GeneratePathProperty büyük/küçük harf uyuşmazlığı - özelliği oluşturmak için true başarısız = [#7843](https://github.com/NuGet/Home/issues/7843)
+* GeneratePathProperty = true, büyük/küçük harf uyuşmazlığı üzerinde özellik üretemiyor- [#7843](https://github.com/NuGet/Home/issues/7843)
 
-* Ayarları: VS - paket kaynağı yolu geçersiz karakter çökebilir [#7820](https://github.com/NuGet/Home/issues/7820)
+* Ayarlar: paket kaynak yolunda geçersiz karakter kilitlenebilir VS- [#7820](https://github.com/NuGet/Home/issues/7820)
 
-* Kilit dosya silinirse, geri yükleme - NoOp üzerinde kilit dosyası oluşturmaz [#7807](https://github.com/NuGet/Home/issues/7807)
+* Kilit dosyası silinirse, geri yükleme işlemi NoOp 'de kilit dosyası oluşturmaz [#7807](https://github.com/NuGet/Home/issues/7807)
 
-* Lisans URL'si ve lisans nedenleri okuma hatası - meta verilerle [#7547](https://github.com/NuGet/Home/issues/7547)
+* Lisans URL 'SI ve lisans, meta verilerle okuma hatasına neden olur- [#7547](https://github.com/NuGet/Home/issues/7547)
 
-* İşlenmeyen özel durumları V2FeedParser - [#7523](https://github.com/NuGet/Home/issues/7523)
+* V2FeedParser- [#7523](https://github.com/NuGet/Home/issues/7523) işlenmemiş özel durumlar
 
-* nuget.exe - geçersiz bağımsız değişkenler için çıkış kodu sıfır döndürür [#7178](https://github.com/NuGet/Home/issues/7178)
+* nuget.exe geçersiz bağımsız değişkenler için sıfır çıkış kodu döndürüyor- [#7178](https://github.com/NuGet/Home/issues/7178)
 
-* Hata ve uyarı docs imzalama ilgili senaryoları - yansıtacak şekilde güncelleştirmek [#6498](https://github.com/NuGet/Home/issues/6498)
+* İmzalama ilgili senaryolarını yansıtmak için hataları ve uyarı belgelerini güncelleştirin- [#6498](https://github.com/NuGet/Home/issues/6498)
 
-* Varlıklar dosya taşıma projeleri daha bir kolayca - etkinleştirmek için göreli yolların kullanmalıdır [#4582](https://github.com/NuGet/Home/issues/4582)
+* Varlıklar dosyası, projeleri taşımayı daha kolay bir şekilde etkinleştirmek için göreli yollar kullanmalıdır [#4582](https://github.com/NuGet/Home/issues/4582)
 
-**Dcr**
+**DCR**
 
-* Eklentiler: Tanılama günlüğüne kaydetme - etkinleştirme [#7859](https://github.com/NuGet/Home/issues/7859)
+* Eklentiler: Tanılama günlüğünü etkinleştirme- [#7859](https://github.com/NuGet/Home/issues/7859)
 
-* NetStandard 2.1 - yapma Tizen 6 eşlemesine [#7773](https://github.com/NuGet/Home/issues/7773)
+* Tizen 6 eşlemesini NetStandard 2,1 ile yapın [#7773](https://github.com/NuGet/Home/issues/7773)
 
-**[Bu sürümde - 5.1 RTM düzeltilen tüm sorunlara listesi](https://github.com/nuget/home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%225.1")**
+**[Bu yayında düzeltilen tüm sorunların listesi-5,1 RTM](https://github.com/nuget/home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%225.1")**

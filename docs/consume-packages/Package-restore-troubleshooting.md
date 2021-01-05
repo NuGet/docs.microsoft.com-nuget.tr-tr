@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: b162990eae2160961f560b6c6ee73e47cb4121d6
-ms.sourcegitcommit: f29fa9b93fd59e679fab50d7413bbf67da3ea5b3
+ms.openlocfilehash: 9f680a714717d1bde0472f2e1266cacfd8bd4d5f
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86451157"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699718"
 ---
 # <a name="troubleshooting-package-restore-errors"></a>Paket geri yükleme hatalarını giderme
 
@@ -25,7 +25,7 @@ Buradaki yönergeler sizin için çalışmadıysanız, senaryonuzu daha dikkatli
 Visual Studio kullanıyorsanız, önce paket geri yüklemeyi aşağıdaki gibi etkinleştirin. Aksi takdirde, izleyen bölümlerle devam edin.
 
 1. **NuGet paket yöneticisi > Paket Yöneticisi ayarları menü komutunu > araçlar** ' ı seçin.
-1. **Paket geri yükleme**altındaki her iki seçeneği de ayarlayın.
+1. **Paket geri yükleme** altındaki her iki seçeneği de ayarlayın.
 1. **Tamam**’ı seçin.
 1. Projenizi yeniden derleyin.
 
@@ -46,7 +46,7 @@ Use NuGet Package Restore to download them. The missing file is {name}.
 
 Bu hata, bir veya daha fazla NuGet paketine başvuru içeren bir proje oluşturmaya çalıştığınızda, ancak bu paketlerin bilgisayarda veya projede yüklü olmadığı durumlarda oluşur.
 
-- [Packagereference](package-references-in-project-files.md) yönetim biçimi kullanılırken, hata, paketin genel [paketleri ve önbellek klasörlerini yönetme](managing-the-global-packages-and-cache-folders.md)konusunda açıklandığı gibi *genel paketler* klasöründe yüklü olmadığı anlamına gelir.
+- [Packagereference](package-references-in-project-files.md) yönetim biçimi kullanılırken, bu hata bir packages.config bir, packagereference geçişine yönelik bir soltover olabilir ve proje dosyasından [el ile kaldırılması](../resources/NuGet-FAQ.md#working-with-packages) gerekir.
 - [packages.config](../reference/packages-config.md)kullanırken hata, paketin çözüm kökündeki klasöre yüklenmediği anlamına gelir `packages` .
 
 Bu durum genellikle projenin kaynak kodunu kaynak denetiminden veya başka bir indirmenin edindiğinizde oluşur. Paketler, nuget.org gibi paket akışından geri yüklenebildiğinden genellikle kaynak denetiminden veya indirmelerden çıkarılır (bkz. [paketler ve kaynak denetimi](Packages-and-Source-Control.md)). Bunlar dahil olmak üzere depoyu veya gereksiz büyük. zip dosyaları oluşturur.
@@ -59,7 +59,7 @@ Paketleri geri yüklemek için aşağıdaki yöntemlerden birini kullanın:
 - [Visual Studio](package-restore.md#restore-using-visual-studio) ([otomatik geri yükleme](package-restore.md#restore-packages-automatically-using-visual-studio) veya [el ile geri yükleme](package-restore.md#restore-packages-manually-using-visual-studio))
 - [dotnet CLI](package-restore.md#restore-using-the-dotnet-cli)
 - [nuget.exe CLI](package-restore.md#restore-using-the-nugetexe-cli)
-- [MSBUILD](package-restore.md#restore-using-msbuild)
+- [MSBuild](package-restore.md#restore-using-msbuild)
 - [Azure Pipelines](package-restore.md#restore-using-azure-pipelines)
 - [Azure DevOps Server](package-restore.md#restore-using-azure-devops-server)
 

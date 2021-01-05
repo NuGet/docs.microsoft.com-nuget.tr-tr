@@ -1,16 +1,16 @@
 ---
 title: NuGet paketi ve geri yükleme MSBuild hedefleri olarak
 description: NuGet paketi ve geri yükleme, NuGet 4.0 + ile doğrudan MSBuild hedefleri olarak çalışabilir.
-author: karann-msft
-ms.author: karann
+author: nkolev92
+ms.author: nikolev
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 4a04c6dd7993fc47bcf7a6fe46236ed700a0d105
-ms.sourcegitcommit: e39e5a5ddf68bf41e816617e7f0339308523bbb3
+ms.openlocfilehash: 66df4e0e4739300608fd5f9e44eea5bcd00079c8
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96738935"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699893"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet paketi ve geri yükleme MSBuild hedefleri olarak
 
@@ -54,7 +54,7 @@ Aşağıdaki tabloda, ilk düğüm içindeki bir proje dosyasına eklenebilen MS
 | VersionSuffix | PackageVersionSuffix | empty | MSBuild 'ten $ (VersionSuffix). PackageVersion ayarı PackageVersionSuffix üzerine yazıyor |
 | Yazarlar | Yazarlar | Geçerli kullanıcının Kullanıcı adı | |
 | Sahipler | Yok | NuSpec içinde yok | |
-| Başlık | Başlık | PackageID| |
+| Title | Title | PackageID| |
 | Açıklama | Açıklama | "Paket açıklaması" | |
 | Telif Hakkı | Telif Hakkı | empty | |
 | Requirelicensekabulünü | Packagerequirelicensekabulünü | yanlış | |
@@ -131,7 +131,7 @@ NuGet 5,3 & Visual Studio 2019 sürüm 16,3 ' den itibaren, `pack` paket meta ve
 
 Bir simge resim dosyası paketleme sırasında, paketin `PackageIcon` köküne göre paket yolunu belirtmek için özelliğini kullanmanız gerekir. Ayrıca, dosyanın pakete eklendiğinden emin olmanız gerekir. Görüntü dosyası boyutu 1 MB ile sınırlıdır. Desteklenen dosya biçimleri JPEG ve PNG içerir. 128x128 görüntü çözümlemesi yapmanızı öneririz.
 
-Örnek:
+Örneğin:
 
 ```xml
 <PropertyGroup>
@@ -242,7 +242,7 @@ Bir lisans ifadesi kullanılırken PackageLicenseExpression özelliğinin kullan
 
 [NuGet.org tarafından kabul edilen lisans ifadeleri ve lisanslar hakkında daha fazla bilgi edinin](nuspec.md#license).
 
-Bir lisans dosyası paketleme sırasında, paketin köküne göre paket yolunu belirtmek için PackageLicenseFile özelliğini kullanmanız gerekir. Ayrıca, dosyanın pakete eklendiğinden emin olmanız gerekir. Örnek:
+Bir lisans dosyası paketleme sırasında, paketin köküne göre paket yolunu belirtmek için PackageLicenseFile özelliğini kullanmanız gerekir. Ayrıca, dosyanın pakete eklendiğinden emin olmanız gerekir. Örneğin:
 
 ```xml
 <PropertyGroup>
@@ -256,6 +256,23 @@ Bir lisans dosyası paketleme sırasında, paketin köküne göre paket yolunu b
 
 [Lisans dosyası örneği](https://github.com/NuGet/Samples/tree/master/PackageLicenseFileExample).
 
+### <a name="packing-a-file-without-an-extension"></a>Uzantı olmadan dosya paketleme
+
+Bir lisans dosyası paketleme gibi bazı senaryolarda, uzantısı olmayan bir dosya eklemek isteyebilirsiniz.
+Geçmiş nedenlerle NuGet & MSBuild, bir uzantısı olmayan yolları dizin olarak değerlendirir.
+
+```xml
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="LICENSE" Pack="true" PackagePath=""/>
+  </ItemGroup>  
+```
+
+[Dosya uzantı örneği olmadan](https://github.com/NuGet/Samples/blob/master/PackageLicenseFileExtensionlessExample/).
 ### <a name="istool"></a>IsTool
 
 Kullanırken `MSBuild -t:pack -p:IsTool=true` , [Çıkış derlemeleri](#output-assemblies) senaryosunda belirtilen tüm çıkış dosyaları, `tools` klasörü yerine klasörüne kopyalanır `lib` . Bunun, `DotNetCliTool` içindeki dosyasını ayarlayarak belirtilen öğesinden farklı olduğunu unutmayın `PackageType` `.csproj` .
@@ -366,7 +383,10 @@ Bir nuspec dosyası paketiçin bir *. csproj* dosyası örneği:
 1. Varlıklar dosyası, hedefler ve props yazma
 
 `restore`Hedef, PackageReference biçimini kullanan projeler için geçerlidir.
-`MSBuild 16.5+` Ayrıca, biçim için [kabul desteği](#restoring-packagereference-and-packages.config-with-msbuild) de vardır `packages.config` .
+`MSBuild 16.5+` Ayrıca, biçim için [kabul desteği](#restoring-packagereference-and-packagesconfig-with-msbuild) de vardır `packages.config` .
+
+> [!NOTE]
+> `restore`Hedef, hedefle birlikte [çalıştırılmamalıdır](#restoring-and-building-with-one-msbuild-command) `build` .
 
 ### <a name="restore-properties"></a>Özellikleri geri yükle
 

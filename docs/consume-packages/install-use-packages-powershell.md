@@ -7,18 +7,21 @@ ms.date: 07/08/2019
 ms.topic: conceptual
 f1_keywords:
 - vs.nuget.packagemanager.console
-ms.openlocfilehash: 8b23b6cc22eff5413e317fbe619edd3d4f4716ee
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 31fa51bc017eaaf9306d5f267e5d4b0d7a15ec9c
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237406"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699832"
 ---
 # <a name="install-and-manage-packages-with-the-package-manager-console-in-visual-studio-powershell"></a>Visual Studio 'da Paket Yöneticisi konsolu ile paket yükleyip yönetme (PowerShell)
 
 NuGet Paket Yöneticisi konsolu NuGet paketlerini bulmak, yüklemek, kaldırmak ve güncelleştirmek için [NuGet PowerShell komutlarını](../reference/powershell-reference.md) kullanmanıza olanak sağlar. Konsolunu kullanmak, Paket Yöneticisi Kullanıcı arabiriminin bir işlemi gerçekleştirmek için bir yol sağlamayan durumlarda gereklidir. `nuget.exe`Konsolunda CLI komutlarını kullanmak için, bkz. [nuget.exe CLI 'Yi konsolda kullanma](#use-the-nugetexe-cli-in-the-console).
 
 Konsol, Windows üzerinde Visual Studio 'da yerleşik olarak bulunur. Mac için Visual Studio veya Visual Studio Code dahil değildir.
+
+> [!Important]
+> Burada listelenen komutlar, Visual Studio 'da Paket Yöneticisi konsoluna özgüdür ve genel bir PowerShell ortamında kullanılabilir olan [paket yönetimi modülü komutlarından](/powershell/module/packagemanagement/) farklıdır. Özellikle, her ortamın diğeri üzerinde kullanılamayan komutları vardır ve aynı ada sahip komutlar, belirli bağımsız değişkenlerinde de farklılık gösterebilir. Visual Studio 'da Paket Yönetimi konsolunu kullanırken, bu konu başlığı altında belgelenen komutlar ve bağımsız değişkenler geçerlidir.
 
 ## <a name="find-and-install-a-package"></a>Paket bulma ve yüklemeyi
 

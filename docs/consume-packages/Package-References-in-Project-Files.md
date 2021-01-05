@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: a5833df60c5f7905359f421141347b1237f45d86
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 1127e7aee27d57abd5f14dd3bea82dfff3ba6d93
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237646"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699786"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Proje dosyalarında paket başvuruları (PackageReference)
 
@@ -20,7 +20,7 @@ PackageReference ile, MSBuild koşullarını hedef çerçeve başına paket baş
 
 ## <a name="project-type-support"></a>Proje türü desteği
 
-Varsayılan olarak, PackageReference, .NET Core projeleri, .NET Standard projeleri ve Windows 10 Build 15063 (Creators Update) ve üstünü hedefleyen UWP projeleri için, C++ UWP projeleri dışında kullanılır. .NET Framework projeler, PackageReference destekler, ancak şu anda varsayılan olarak `packages.config` . PackageReference kullanmak için, [migrate](../consume-packages/migrate-packages-config-to-package-reference.md) bağımlılıkları `packages.config` proje dosyanıza geçirin ve ardından packages.config kaldırın.
+Varsayılan olarak, PackageReference, .NET Core projeleri, .NET Standard projeleri ve Windows 10 Build 15063 (Creators Update) ve üstünü hedefleyen UWP projeleri için, C++ UWP projeleri dışında kullanılır. .NET Framework projeler, PackageReference destekler, ancak şu anda varsayılan olarak `packages.config` . PackageReference kullanmak için, [](../consume-packages/migrate-packages-config-to-package-reference.md) bağımlılıkları `packages.config` proje dosyanıza geçirin ve ardından packages.config kaldırın.
 
 Tam .NET Framework hedefleyen uygulamalar, PackageReference için yalnızca [sınırlı desteği](https://github.com/NuGet/Home/issues/5877) içerir. C++ ve JavaScript proje türleri desteklenmez.
 
@@ -115,7 +115,7 @@ Bu etiketler için izin verilen değerler aşağıdaki gibidir: ile, ve arasınd
 | derleme | `.props` ve `.targets` `build` klasörü |
 | Buildmultihedefleme | *(4,0)* `.props` ve `.targets` `buildMultitargeting` klasöründe, platformlar arası hedefleme için |
 | buildTransitive | *(5.0 +)* `.props` ve `.targets` `buildTransitive` klasörü, her bir tüketen projeye geçişli olarak akan varlıklar içindir. Bkz. [özellik](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior) sayfası. |
-| Çözümleyicileri | .NET Çözümleyicileri |
+| Çözümleyicileri | .NET çözümleyicileri |
 | yerel | `native`Klasörün içeriği |
 | yok | Yukarıdakilerin hiçbiri kullanılmaz. |
 | tümü | Yukarıdakilerin tümü (hariç `none` ) |
@@ -136,7 +136,7 @@ Aşağıdaki örnekte, paketteki içerik dosyaları hariç her şey proje taraf�
 </ItemGroup>
 ```
 
-`build`İle birlikte dahil edilmediğinden `PrivateAssets` , hedefler ve props ana projeye akacağından *will* emin olmanız gerekir. Örneğin, yukarıdaki başvurunun Appgünlükçü adlı bir NuGet paketi oluşturan bir projede kullanıldığını göz önünde bulundurun. Appgünlükçü, `Contoso.Utility.UsefulStuff` Appgünlükçü kullanan projeler gibi, öğesinden hedefleri ve props 'ı kullanabilir.
+`build`İle birlikte dahil edilmediğinden `PrivateAssets` , hedefler ve props ana projeye akacağından  emin olmanız gerekir. Örneğin, yukarıdaki başvurunun Appgünlükçü adlı bir NuGet paketi oluşturan bir projede kullanıldığını göz önünde bulundurun. Appgünlükçü, `Contoso.Utility.UsefulStuff` Appgünlükçü kullanan projeler gibi, öğesinden hedefleri ve props 'ı kullanabilir.
 
 > [!NOTE]
 > `developmentDependency` `true` , Bir dosyada olarak ayarlandığında `.nuspec` , paketin diğer paketlere bağımlılık olarak eklenmesini önleyen bir paketi yalnızca geliştirme bağımlılığı olarak işaretler. PackageReference *(NuGet 4.8 +)* ile bu bayrak Ayrıca derleme zamanı varlıklarını derlemeden dışlayacak anlamına gelir. Daha fazla bilgi için bkz. [PackageReference Için Developmentdependency desteği](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference).
@@ -201,10 +201,42 @@ Ayrıca NuGet, bir Araçlar klasörü içeren paketler için otomatik olarak Öz
   <Target Name="TakeAction" AfterTargets="Build">
     <Exec Command="$(PkgPackage_With_Tools)\tools\tool.exe" />
   </Target>
-````
+```
 
 MSBuild özellikleri ve paket kimlikleri aynı kısıtlamalara sahip değildir, bu nedenle paket kimliğinin, sözcüğün ön eki olan MSBuild kolay adına değiştirilmesi gerekir `Pkg` .
 Oluşturulan özelliğin tam adını doğrulamak için, oluşturulan [NuGet. g. props](../reference/msbuild-targets.md#restore-outputs) dosyasına bakın.
+
+## <a name="packagereference-aliases"></a>PackageReference diğer adları
+
+Nadir bazı örneklerde farklı paketler aynı ad alanındaki sınıfları içerecektir. NuGet 5,7 ' den başlayarak, ProjectReference ile eşdeğer olan Visual Studio 2019 güncelleştirme 7 &, PackageReference desteklenir [`Aliases`](/dotnet/api/microsoft.codeanalysis.projectreference.aliases) .
+Varsayılan olarak, diğer ad sağlanmaz. Bir diğer ad belirtildiğinde, ek açıklamalı paketten gelen *Tüm* derlemeler bir diğer adla başvurulmalıdır.
+
+[Nuget\samples](https://github.com/NuGet/Samples/tree/master/PackageReferenceAliasesExample) ' da örnek kullanıma bakabilirsiniz
+
+Proje dosyasında, diğer adları aşağıdaki gibi belirtin:
+
+```xml
+  <ItemGroup>
+    <PackageReference Include="NuGet.Versioning" Version="5.8.0" Aliases="ExampleAlias" />
+  </ItemGroup>
+```
+
+kodda, bunu aşağıdaki gibi kullanın:
+
+```cs
+extern alias ExampleAlias;
+
+namespace PackageReferenceAliasesExample
+{
+...
+        {
+            var version = ExampleAlias.NuGet.Versioning.NuGetVersion.Parse("5.0.0");
+            Console.WriteLine($"Version : {version}");
+        }
+...
+}
+
+```
 
 ## <a name="nuget-warnings-and-errors"></a>NuGet uyarıları ve hataları
 
@@ -346,7 +378,7 @@ ProjectA
              |------>PackageX 1.0.0
 ```
 
-Bir `ProjectA` sürüme bağımlılığının yanı `PackageX` `2.0.0` sıra `ProjectB` sürüme bağlı olan başvurular varsa `PackageX` `1.0.0` , için kilit dosyası `ProjectB` sürüme bir bağımlılık listeleyecek `PackageX` `1.0.0` . Ancak, yapılandırıldığında `ProjectA` kilit dosyası, `PackageX` **`2.0.0`** **not** `1.0.0` için kilit dosyasında listelenenlerin değil, sürüm için bir bağımlılık içerecektir `ProjectB` . Bu nedenle, ortak bir kod projesinin kilit dosyası, kendisine bağımlı olan projeler için çözümlenen paketlerin üzerinde çok daha fazla bilgiye sahiptir.
+Bir `ProjectA` sürüme bağımlılığının yanı `PackageX` `2.0.0` sıra `ProjectB` sürüme bağlı olan başvurular varsa `PackageX` `1.0.0` , için kilit dosyası `ProjectB` sürüme bir bağımlılık listeleyecek `PackageX` `1.0.0` . Ancak, yapılandırıldığında `ProjectA` kilit dosyası, `PackageX` **`2.0.0`**  `1.0.0` için kilit dosyasında listelenenlerin değil, sürüm için bir bağımlılık içerecektir `ProjectB` . Bu nedenle, ortak bir kod projesinin kilit dosyası, kendisine bağımlı olan projeler için çözümlenen paketlerin üzerinde çok daha fazla bilgiye sahiptir.
 
 ### <a name="lock-file-extensibility"></a>Kilit dosyası genişletilebilirliği
 
