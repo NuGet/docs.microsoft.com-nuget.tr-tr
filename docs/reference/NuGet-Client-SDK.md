@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: 39a4de4071eec70c88a2add158f2a3a734f7d7b7
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 0eca8478b4d6509dbc1407560d2c86069c7575dd
+ms.sourcegitcommit: 323a107c345c7cb4e344a6e6d8de42c63c5188b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622934"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98235744"
 ---
 # <a name="nuget-client-sdk"></a>NuGet İstemci SDK’sı
 
@@ -20,23 +20,18 @@ ms.locfileid: "88622934"
 * [`NuGet.Packaging`](https://www.nuget.org/packages/NuGet.Packaging) -NuGet paketleri ile etkileşim kurmak için kullanılır. `NuGet.Protocol` Bu pakete bağımlıdır
 
 Bu paketlerin kaynak kodunu [NuGet/NuGet. Client](https://github.com/NuGet/NuGet.Client) GitHub deposunda bulabilirsiniz.
+Bu örneklerin kaynak kodunu GitHub 'daki [NuGet. Protocol. Samples](https://github.com/NuGet/Samples/tree/master/NuGetProtocolSamples) projesinde bulabilirsiniz.
 
 > [!Note]
 > NuGet sunucu protokolü hakkındaki belgeler için lütfen [NuGet sunucu API](~/api/overview.md)'sine bakın.
 
-## <a name="getting-started"></a>Başlarken
+## <a name="nugetprotocol"></a>NuGet. Protocol
 
-### <a name="install-the-packages"></a>Paketleri yükler
+`NuGet.Protocol`Http ve klasör tabanlı NuGet paket akışlarıyla etkileşim kurmak için paketini yükler:
 
 ```ps1
-dotnet add package NuGet.Protocol  # interact with HTTP and folder-based NuGet package feeds, includes NuGet.Packaging
-
-dotnet add package NuGet.Packaging # interact with .nupkg and .nuspec files from a stream
+dotnet add package NuGet.Protocol
 ```
-
-## <a name="examples"></a>Örnekler
-
-Bu örnekleri GitHub 'da [NuGet. Protocol. Samples](https://github.com/NuGet/Samples/tree/master/NuGetProtocolSamples) projesinde bulabilirsiniz.
 
 ### <a name="list-package-versions"></a>Paket sürümlerini Listele
 
@@ -61,6 +56,36 @@ Bu örnekleri GitHub 'da [NuGet. Protocol. Samples](https://github.com/NuGet/Sam
 [NuGet v3 arama API](../api/search-query-service-resource.md)'sini kullanarak "JSON" paketleri arayın:
 
 [!code-csharp[SearchPackages](~/../nuget-samples/NuGetProtocolSamples/Program.cs?name=SearchPackages)]
+
+### <a name="push-a-package"></a>Paket gönder
+
+[NuGet v3 Push ve DELETE API](../api/package-publish-resource.md)kullanarak bir paketi gönderin:
+
+[!code-csharp[PushPackage](~/../nuget-samples/NuGetProtocolSamples/Program.cs?name=PushPackage)]
+
+### <a name="delete-a-package"></a>Paket silme
+
+[NuGet v3 Push ve DELETE API 'yi](../api/package-publish-resource.md)kullanarak bir paketi silme:
+
+> [!Note]
+> NuGet sunucuları bir paket silme isteğini "sabit silme", "geçici silme" veya "listeden kaldır" olarak yorumlamaya ücretsizdir.
+> Örneğin, nuget.org paket silme isteğini "Unlist" olarak yorumlar. Bu uygulama hakkında daha fazla bilgi için bkz. [paketleri silme](../nuget-org/policies/deleting-packages.md) ilkesi.
+
+[!code-csharp[DeletePackage](~/../nuget-samples/NuGetProtocolSamples/Program.cs?name=DeletePackage)]
+
+### <a name="work-with-authenticated-feeds"></a>Kimliği doğrulanmış akışlarla çalışma
+
+[`NuGet.Protocol`](https://www.nuget.org/packages/NuGet.Protocol)Kimliği doğrulanmış akışlarla çalışmak için kullanın.
+
+[!code-csharp[AuthenticatedFeed](~/../nuget-samples/NuGetProtocolSamples/Program.cs?name=AuthenticatedFeed)]
+
+## <a name="nugetpackaging"></a>NuGet. paketleme
+
+`NuGet.Packaging`İle etkileşimde bulunmak için paketi yükler `.nupkg` ve `.nuspec` bir akıştan dosyalar:
+
+```ps1
+dotnet add package NuGet.Packaging
+```
 
 ### <a name="create-a-package"></a>Paket oluşturma
 

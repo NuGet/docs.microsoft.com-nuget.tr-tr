@@ -5,12 +5,12 @@ author: nkolev92
 ms.author: nikolev
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 66df4e0e4739300608fd5f9e44eea5bcd00079c8
-ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
+ms.openlocfilehash: 7de3f0f1133a89848e9268d489751293fb3cbf25
+ms.sourcegitcommit: 323a107c345c7cb4e344a6e6d8de42c63c5188b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97699893"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98235704"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet paketi ve geri yükleme MSBuild hedefleri olarak
 
@@ -54,8 +54,8 @@ Aşağıdaki tabloda, ilk düğüm içindeki bir proje dosyasına eklenebilen MS
 | VersionSuffix | PackageVersionSuffix | empty | MSBuild 'ten $ (VersionSuffix). PackageVersion ayarı PackageVersionSuffix üzerine yazıyor |
 | Yazarlar | Yazarlar | Geçerli kullanıcının Kullanıcı adı | |
 | Sahipler | Yok | NuSpec içinde yok | |
-| Title | Title | PackageID| |
-| Açıklama | Açıklama | "Paket açıklaması" | |
+| Başlık | Başlık | PackageID| |
+| Description | Description | "Paket açıklaması" | |
 | Telif Hakkı | Telif Hakkı | empty | |
 | Requirelicensekabulünü | Packagerequirelicensekabulünü | yanlış | |
 | lisans | PackageLicenseExpression | empty | Karşılık gelen `<license type="expression">` |
@@ -80,7 +80,7 @@ Aşağıdaki tabloda, ilk düğüm içindeki bir proje dosyasına eklenebilen MS
 - PackageVersion
 - PackageID
 - Yazarlar
-- Açıklama
+- Description
 - Telif Hakkı
 - Packagerequirelicensekabulünü
 - DevelopmentDependency
@@ -414,6 +414,7 @@ Ek geri yükleme ayarları proje dosyasındaki MSBuild özelliklerinden gelebili
 | NuGetLockFilePath | Kilit dosyası için özel bir konum. Varsayılan konum projenin yanında bulunur ve adlandırılır `packages.lock.json` . |
 | Restoreforcedeğerlendir | Bağımlılıkları yeniden hesaplamak ve herhangi bir uyarı olmadan kilit dosyasını güncelleştirmek için geri yüklemeyi zorlar. |
 | RestorePackagesConfig | packages.config olan projeleri geri yükleyen bir kabul etme anahtarı. Yalnızca ile desteklenir `MSBuild -t:restore` . |
+| Restoreusestaticgraphedeğerleme | Standart değerlendirme yerine statik grafik MSBuild değerlendirmesi kullanmak için bir tercih edilen anahtar. Statik grafik değerlendirmesi, büyük depolar ve çözümler için önemli ölçüde daha hızlı olan deneysel bir özelliktir. |
 
 #### <a name="examples"></a>Örnekler
 
@@ -435,7 +436,7 @@ Proje dosyası:
 
 Restore derleme klasöründe aşağıdaki dosyaları oluşturur `obj` :
 
-| Dosya | Açıklama |
+| Dosya | Description |
 |--------|--------|
 | `project.assets.json` | Tüm paket başvurularının bağımlılık grafiğini içerir. |
 | `{projectName}.projectFileExtension.nuget.g.props` | Paketlerde bulunan MSBuild props 'a başvurular |
@@ -469,25 +470,40 @@ msbuild -t:restore -p:RestorePackagesConfig=true
 > [!NOTE]
 > `packages.config` restore yalnızca ile kullanılabilir `MSBuild 16.5+` ve `dotnet.exe`
 
-### <a name="packagetargetfallback"></a>PackageTargetFallback
+### <a name="restoring-with-msbuild-static-graph-evaluation"></a>MSBuild statik Graph değerlendirmesi ile geri yükleme
 
-`PackageTargetFallback`Öğesi, paketler geri yüklenirken kullanılacak bir dizi uyumlu hedef belirtmenize olanak tanır. DotNet [TXD](../reference/target-frameworks.md) kullanan paketlere, DotNet TXD bildirmeyin uyumlu paketlerle çalışmak üzere tasarlanmıştır. Diğer bir deyişle, projeniz DotNet TXI kullanıyorsa, bu durumda, `<PackageTargetFallback>` DotNet olmayan platformların DotNet ile uyumlu olmasını sağlamak için projeye eklemediğiniz sürece bağımlı olduğu tüm paketler DotNet TXD olmalıdır.
+> [!NOTE]
+> MSBuild 16.6 + ile, NuGet, büyük depolar için geri yükleme süresini önemli ölçüde artıran komut satırından statik grafik değerlendirmesi kullanmak için deneysel bir özellik eklemiştir.
 
-Örneğin, proje `netstandard1.6` TXI kullanıyorsa ve bağımlı bir paket yalnızca `lib/net45/a.dll` ve içeriyorsa `lib/portable-net45+win81/a.dll` , proje derlenmeyecektir. İçine getirmek istediğiniz değer ikinci DLL ise, `PackageTargetFallback` DLL 'nin uyumlu olduğunu söylemek için aşağıdaki gibi bir ekleyebilirsiniz `portable-net45+win81` :
-
-```xml
-<PackageTargetFallback Condition="'$(TargetFramework)'=='netstandard1.6'">
-    portable-net45+win81
-</PackageTargetFallback>
+```cli
+msbuild -t:restore -p:RestoreUseStaticGraphEvaluation=true
 ```
 
-Projenizdeki tüm hedeflere yönelik bir geri dönüş bildirmek için, özniteliği devre dışı bırakın `Condition` . Ayrıca, `PackageTargetFallback` burada gösterildiği gibi, var olan varsa de genişletebilirsiniz `$(PackageTargetFallback)` :
+Alternatif olarak, bir dizin. Build. props içindeki özelliği ayarlayarak bunu etkinleştirebilirsiniz.
 
 ```xml
-<PackageTargetFallback>
-    $(PackageTargetFallback);portable-net45+win81
-</PackageTargetFallback >
+<Project>
+  <PropertyGroup>
+    <RestoreUseStaticGraphEvaluation>true</RestoreUseStaticGraphEvaluation>
+  </PropertyGroup>
+</Project>
 ```
+
+> [!NOTE]
+> Visual Studio 2019. x ve NuGet 5. x itibariyle, bu özellik deneysel ve kabul edilmelidir. Bu özelliğin varsayılan olarak etkinleştirileceği hakkında daha fazla bilgi için [NuGet/Home # 9803](https://github.com/NuGet/Home/issues/9803) izleyin.
+
+Statik grafik geri yükleme, geri yükleme 'nin MSBuild bölümünü, Proje okuma ve değerlendirme, ancak geri yükleme algoritmasını etkilemez! Geri yükleme algoritması tüm NuGet araçları (NuGet.exe, MSBuild.exe, dotnet.exe ve Visual Studio) genelinde aynıdır.
+
+Birçok senaryoda, statik grafik geri yükleme geçerli geri yüklemeden farklı davranabilir ve belirtilen bazı Packagereferklu veya ProjectReferences eksik olabilir.
+
+Bir kez göz önünde bulundurmanız için, statik grafik geri yüklemeye geçiş yaparken şunu çalıştırmayı göz önünde bulundurun:
+
+```cli
+msbuild.exe -t:restore -p:RestoreUseStaticGraphEvaluation
+msbuild.exe -t:restore
+```
+
+NuGet hiçbir *değişiklik bildirmemelidir* . Bir tutarsızlık görürseniz lütfen [NuGet/evde](https://github.com/nuget/home/issues/new)bir sorun bildirin.
 
 ### <a name="replacing-one-library-from-a-restore-graph"></a>Bir geri yükleme grafiğinden bir kitaplığı değiştirme
 

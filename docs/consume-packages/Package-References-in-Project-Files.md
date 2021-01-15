@@ -1,16 +1,16 @@
 ---
 title: NuGet PackageReference biçimi (proje dosyalarındaki paket başvuruları)
 description: NuGet 4.0 + ve VS2017 ve .NET Core 2,0 tarafından desteklenen proje dosyalarında NuGet PackageReference ile ilgili ayrıntılar
-author: karann-msft
-ms.author: karann
+author: nkolev92
+ms.author: nikolev
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 1127e7aee27d57abd5f14dd3bea82dfff3ba6d93
-ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
+ms.openlocfilehash: dcaed83ca54e3234702e963ffc2ebbde4cd75b28
+ms.sourcegitcommit: 323a107c345c7cb4e344a6e6d8de42c63c5188b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97699786"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98235769"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Proje dosyalarında paket başvuruları (PackageReference)
 
@@ -99,7 +99,7 @@ Yalnızca bir geliştirme bandı olarak bir bağımlılık kullanıyor olabilirs
 
 Aşağıdaki meta veri etiketleri denetim bağımlılığı varlıkları:
 
-| Etiket | Açıklama | Varsayılan değer |
+| Etiket | Description | Varsayılan değer |
 | --- | --- | --- |
 | Includevarlıklarını | Bu varlıklar tüketilecektir | tümü |
 | Excludevarlıklarının | Bu varlıklar tüketilmeyecek | yok |
@@ -384,9 +384,40 @@ Bir `ProjectA` sürüme bağımlılığının yanı `PackageX` `2.0.0` sıra `Pr
 
 Aşağıda açıklandığı gibi kilit dosyası ile geri yükleme davranışlarını çeşitli davranışlar için denetleyebilirsiniz:
 
-| NuGet.exe seçeneği | DotNet seçeneği | MSBuild eşdeğer seçeneği | Açıklama |
+| NuGet.exe seçeneği | DotNet seçeneği | MSBuild eşdeğer seçeneği | Description |
 |:--- |:--- |:--- |:--- |
 | `-UseLockFile` |`--use-lock-file` | RestorePackagesWithLockFile | Bir kilit dosyasının kullanımıyla ilgili olarak. |
 | `-LockedMode` | `--locked-mode` | RestoreLockedMode | Geri yükleme için kilitli modu etkinleştirilir. Bu, yinelenebilir derlemeler istediğiniz CI/CD senaryolarında kullanışlıdır.|   
 | `-ForceEvaluate` | `--force-evaluate` | Restoreforcedeğerlendir | Bu seçenek, projede tanımlanmış kayan sürüme sahip paketlerle faydalıdır. Varsayılan olarak, NuGet geri yükleme, bu seçenekle geri yükleme çalıştırılmadığınız takdirde, her geri yükleme sırasında paket sürümünü otomatik olarak güncelleştirmez. |
 | `-LockFilePath` | `--lock-file-path` | NuGetLockFilePath | Bir proje için özel bir kilit dosyası konumu tanımlar. Varsayılan olarak, NuGet `packages.lock.json` kök dizinde destekler. Aynı dizinde birden çok projeniz varsa, NuGet projeye özgü kilit dosyasını destekler `packages.<project_name>.lock.json` |
+
+## <a name="assettargetfallback"></a>AssetTargetFallback
+
+Özelliği, projenizin `AssetTargetFallback` başvurduğu projeler için ek uyumlu çerçeve sürümlerini belirtmenizi sağlar ve projenizin kullandığı NuGet paketleri.
+
+Kullanarak bir paket bağımlılığı belirtirseniz `PackageReference` , ancak bu paket, projelerinizin hedef çerçevesiyle uyumlu olan varlıkları içermiyorsa, `AssetTargetFallback` özelliği yürütmeye gelir. Başvurulan paketin uyumluluğu, içinde belirtilen her bir hedef çerçeve kullanılarak yeniden denetlenir `AssetTargetFallback` .
+Bir `project` veya `package` öğesine ile başvurulduğunda `AssetTargetFallback` , [NU1701](../reference/errors-and-warnings/NU1701.md) uyarısı başlatılır.
+
+Uyumluluğun nasıl etkilendiğine ilişkin örnekler için aşağıdaki tabloya bakın `AssetTargetFallback` .
+
+| Proje çerçevesi | AssetTargetFallback | Paket çerçeveleri | Sonuç |
+|-------------------|---------------------|--------------------|--------|
+|  .NET Framework 4.7.2 | | .NET Standard 2,0 | .NET Standard 2,0 |
+| .NET Core uygulaması 3,1 | | .NET Standard 2,0, .NET Framework 4.7.2 | .NET Standard 2,0 |
+| .NET Core uygulaması 3,1 | |  .NET Framework 4.7.2 | Uyumsuz, ile başarısız oldu [`NU1202`](../reference/errors-and-warnings/NU1202.md) |
+| .NET Core uygulaması 3,1 | net472;net471 |  .NET Framework 4.7.2 | .NET Framework 4.7.2 [`NU1701`](../reference/errors-and-warnings/NU1701.md) |
+
+Ayırıcı olarak kullanılarak birden çok çerçeve belirtilebilir `;` . Bir geri dönüş çerçevesi eklemek için aşağıdakileri yapabilirsiniz:
+
+```xml
+<AssetTargetFallback Condition=" '$(TargetFramework)'=='netcoreapp3.1' ">
+    $(AssetTargetFallback);net472;net471
+</AssetTargetFallback>
+```
+
+`$(AssetTargetFallback)`Varolan değerlere eklemek yerine üzerine yazmak isterseniz, ' ı kapatabilirsiniz `AssetTargetFallback` .
+
+> [!NOTE]
+> [.NET SDK tabanlı bir proje](/dotnet/core/sdk)kullanıyorsanız, uygun `$(AssetTargetFallback)` değerler yapılandırılır ve bunları el ile ayarlamanız gerekmez.
+>
+> `$(PackageTargetFallback)` , bu zorluğu ele almaya çalıştı, ancak temel olarak *bozulmuş ve kullanılmamalıdır* . ' Dan ' a geçiş yapmak için `$(PackageTargetFallback)` `$(AssetTargetFallback)` özellik adını değiştirmeniz yeterlidir.
