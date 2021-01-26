@@ -1,121 +1,121 @@
 ---
 title: NuGet İstemci SDK’sı
 description: API gelişiyor ve henüz belgelenmemiştir, ancak örnek, bave Glick 'in blogundan bulunabilir.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0eca8478b4d6509dbc1407560d2c86069c7575dd
-ms.sourcegitcommit: 323a107c345c7cb4e344a6e6d8de42c63c5188b7
+ms.openlocfilehash: e89b50601deb204892536406b4ddabf7005e0642
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98235744"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776129"
 ---
-# <a name="nuget-client-sdk"></a><span data-ttu-id="28179-103">NuGet İstemci SDK’sı</span><span class="sxs-lookup"><span data-stu-id="28179-103">NuGet Client SDK</span></span>
+# <a name="nuget-client-sdk"></a><span data-ttu-id="03da4-103">NuGet İstemci SDK’sı</span><span class="sxs-lookup"><span data-stu-id="03da4-103">NuGet Client SDK</span></span>
 
-<span data-ttu-id="28179-104">*NuGet istemci SDK 'sı* bir NuGet paketleri grubunu ifade eder:</span><span class="sxs-lookup"><span data-stu-id="28179-104">The *NuGet Client SDK* refers to a group of NuGet packages:</span></span>
+<span data-ttu-id="03da4-104">*NuGet istemci SDK 'sı* bir NuGet paketleri grubunu ifade eder:</span><span class="sxs-lookup"><span data-stu-id="03da4-104">The *NuGet Client SDK* refers to a group of NuGet packages:</span></span>
 
-* <span data-ttu-id="28179-105">[`NuGet.Protocol`](https://www.nuget.org/packages/NuGet.Protocol) -HTTP ve dosya tabanlı NuGet akışlarıyla etkileşim kurmak için kullanılır</span><span class="sxs-lookup"><span data-stu-id="28179-105">[`NuGet.Protocol`](https://www.nuget.org/packages/NuGet.Protocol) - Used to interact with HTTP and file-based NuGet feeds</span></span>
-* <span data-ttu-id="28179-106">[`NuGet.Packaging`](https://www.nuget.org/packages/NuGet.Packaging) -NuGet paketleri ile etkileşim kurmak için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="28179-106">[`NuGet.Packaging`](https://www.nuget.org/packages/NuGet.Packaging) - Used to interact with NuGet packages.</span></span> <span data-ttu-id="28179-107">`NuGet.Protocol` Bu pakete bağımlıdır</span><span class="sxs-lookup"><span data-stu-id="28179-107">`NuGet.Protocol` depends on this package</span></span>
+* <span data-ttu-id="03da4-105">[`NuGet.Protocol`](https://www.nuget.org/packages/NuGet.Protocol) -HTTP ve dosya tabanlı NuGet akışlarıyla etkileşim kurmak için kullanılır</span><span class="sxs-lookup"><span data-stu-id="03da4-105">[`NuGet.Protocol`](https://www.nuget.org/packages/NuGet.Protocol) - Used to interact with HTTP and file-based NuGet feeds</span></span>
+* <span data-ttu-id="03da4-106">[`NuGet.Packaging`](https://www.nuget.org/packages/NuGet.Packaging) -NuGet paketleri ile etkileşim kurmak için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="03da4-106">[`NuGet.Packaging`](https://www.nuget.org/packages/NuGet.Packaging) - Used to interact with NuGet packages.</span></span> <span data-ttu-id="03da4-107">`NuGet.Protocol` Bu pakete bağımlıdır</span><span class="sxs-lookup"><span data-stu-id="03da4-107">`NuGet.Protocol` depends on this package</span></span>
 
-<span data-ttu-id="28179-108">Bu paketlerin kaynak kodunu [NuGet/NuGet. Client](https://github.com/NuGet/NuGet.Client) GitHub deposunda bulabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="28179-108">You can find the source code for these packages in the [NuGet/NuGet.Client](https://github.com/NuGet/NuGet.Client) GitHub repository.</span></span>
-<span data-ttu-id="28179-109">Bu örneklerin kaynak kodunu GitHub 'daki [NuGet. Protocol. Samples](https://github.com/NuGet/Samples/tree/master/NuGetProtocolSamples) projesinde bulabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="28179-109">You can find the source code for these examples on the [NuGet.Protocol.Samples](https://github.com/NuGet/Samples/tree/master/NuGetProtocolSamples) project on GitHub.</span></span>
+<span data-ttu-id="03da4-108">Bu paketlerin kaynak kodunu [NuGet/NuGet. Client](https://github.com/NuGet/NuGet.Client) GitHub deposunda bulabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="03da4-108">You can find the source code for these packages in the [NuGet/NuGet.Client](https://github.com/NuGet/NuGet.Client) GitHub repository.</span></span>
+<span data-ttu-id="03da4-109">Bu örneklerin kaynak kodunu GitHub 'daki [NuGet. Protocol. Samples](https://github.com/NuGet/Samples/tree/master/NuGetProtocolSamples) projesinde bulabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="03da4-109">You can find the source code for these examples on the [NuGet.Protocol.Samples](https://github.com/NuGet/Samples/tree/master/NuGetProtocolSamples) project on GitHub.</span></span>
 
 > [!Note]
-> <span data-ttu-id="28179-110">NuGet sunucu protokolü hakkındaki belgeler için lütfen [NuGet sunucu API](~/api/overview.md)'sine bakın.</span><span class="sxs-lookup"><span data-stu-id="28179-110">For documentation on the NuGet server protocol, please refer to the [NuGet Server API](~/api/overview.md).</span></span>
+> <span data-ttu-id="03da4-110">NuGet sunucu protokolü hakkındaki belgeler için lütfen [NuGet sunucu API](~/api/overview.md)'sine bakın.</span><span class="sxs-lookup"><span data-stu-id="03da4-110">For documentation on the NuGet server protocol, please refer to the [NuGet Server API](~/api/overview.md).</span></span>
 
-## <a name="nugetprotocol"></a><span data-ttu-id="28179-111">NuGet. Protocol</span><span class="sxs-lookup"><span data-stu-id="28179-111">NuGet.Protocol</span></span>
+## <a name="nugetprotocol"></a><span data-ttu-id="03da4-111">NuGet. Protocol</span><span class="sxs-lookup"><span data-stu-id="03da4-111">NuGet.Protocol</span></span>
 
-<span data-ttu-id="28179-112">`NuGet.Protocol`Http ve klasör tabanlı NuGet paket akışlarıyla etkileşim kurmak için paketini yükler:</span><span class="sxs-lookup"><span data-stu-id="28179-112">Install the `NuGet.Protocol` package to interact with HTTP and folder-based NuGet package feeds:</span></span>
+<span data-ttu-id="03da4-112">`NuGet.Protocol`Http ve klasör tabanlı NuGet paket akışlarıyla etkileşim kurmak için paketini yükler:</span><span class="sxs-lookup"><span data-stu-id="03da4-112">Install the `NuGet.Protocol` package to interact with HTTP and folder-based NuGet package feeds:</span></span>
 
 ```ps1
 dotnet add package NuGet.Protocol
 ```
 
-### <a name="list-package-versions"></a><span data-ttu-id="28179-113">Paket sürümlerini Listele</span><span class="sxs-lookup"><span data-stu-id="28179-113">List package versions</span></span>
+### <a name="list-package-versions"></a><span data-ttu-id="03da4-113">Paket sürümlerini Listele</span><span class="sxs-lookup"><span data-stu-id="03da4-113">List package versions</span></span>
 
-<span data-ttu-id="28179-114">[NuGet V3 paketi IÇERIK API](../api/package-base-address-resource.md#enumerate-package-versions)'sini kullanarak tüm Newtonsoft.Jssürümlerini bulun:</span><span class="sxs-lookup"><span data-stu-id="28179-114">Find all versions of Newtonsoft.Json using the [NuGet V3 Package Content API](../api/package-base-address-resource.md#enumerate-package-versions):</span></span>
+<span data-ttu-id="03da4-114">[NuGet V3 paketi IÇERIK API](../api/package-base-address-resource.md#enumerate-package-versions)'sini kullanarak tüm Newtonsoft.Jssürümlerini bulun:</span><span class="sxs-lookup"><span data-stu-id="03da4-114">Find all versions of Newtonsoft.Json using the [NuGet V3 Package Content API](../api/package-base-address-resource.md#enumerate-package-versions):</span></span>
 
 [!code-csharp[ListPackageVersions](~/../nuget-samples/NuGetProtocolSamples/Program.cs?name=ListPackageVersions)]
 
-### <a name="download-a-package"></a><span data-ttu-id="28179-115">Paket indir</span><span class="sxs-lookup"><span data-stu-id="28179-115">Download a package</span></span>
+### <a name="download-a-package"></a><span data-ttu-id="03da4-115">Paket indir</span><span class="sxs-lookup"><span data-stu-id="03da4-115">Download a package</span></span>
 
-<span data-ttu-id="28179-116">[NuGet V3 paketi IÇERIK API](../api/package-base-address-resource.md)'sini kullanarak v 12.0.1 üzerinde Newtonsoft.Jsindirin:</span><span class="sxs-lookup"><span data-stu-id="28179-116">Download Newtonsoft.Json v12.0.1 using the [NuGet V3 Package Content API](../api/package-base-address-resource.md):</span></span>
+<span data-ttu-id="03da4-116">[NuGet V3 paketi IÇERIK API](../api/package-base-address-resource.md)'sini kullanarak v 12.0.1 üzerinde Newtonsoft.Jsindirin:</span><span class="sxs-lookup"><span data-stu-id="03da4-116">Download Newtonsoft.Json v12.0.1 using the [NuGet V3 Package Content API](../api/package-base-address-resource.md):</span></span>
 
 [!code-csharp[DownloadPackage](~/../nuget-samples/NuGetProtocolSamples/Program.cs?name=DownloadPackage)]
 
-### <a name="get-package-metadata"></a><span data-ttu-id="28179-117">Paket meta verilerini al</span><span class="sxs-lookup"><span data-stu-id="28179-117">Get package metadata</span></span>
+### <a name="get-package-metadata"></a><span data-ttu-id="03da4-117">Paket meta verilerini al</span><span class="sxs-lookup"><span data-stu-id="03da4-117">Get package metadata</span></span>
 
-<span data-ttu-id="28179-118">[NuGet V3 paketi meta veri API 'sini](../api/registration-base-url-resource.md)kullanarak "Newtonsoft.Json" paketine ait meta verileri alın:</span><span class="sxs-lookup"><span data-stu-id="28179-118">Get the metadata for the "Newtonsoft.Json" package using the [NuGet V3 Package Metadata API](../api/registration-base-url-resource.md):</span></span>
+<span data-ttu-id="03da4-118">[NuGet V3 paketi meta veri API 'sini](../api/registration-base-url-resource.md)kullanarak "Newtonsoft.Json" paketine ait meta verileri alın:</span><span class="sxs-lookup"><span data-stu-id="03da4-118">Get the metadata for the "Newtonsoft.Json" package using the [NuGet V3 Package Metadata API](../api/registration-base-url-resource.md):</span></span>
 
 [!code-csharp[GetPackageMetadata](~/../nuget-samples/NuGetProtocolSamples/Program.cs?name=GetPackageMetadata)]
 
-### <a name="search-packages"></a><span data-ttu-id="28179-119">Paketleri ara</span><span class="sxs-lookup"><span data-stu-id="28179-119">Search packages</span></span>
+### <a name="search-packages"></a><span data-ttu-id="03da4-119">Paketleri ara</span><span class="sxs-lookup"><span data-stu-id="03da4-119">Search packages</span></span>
 
-<span data-ttu-id="28179-120">[NuGet v3 arama API](../api/search-query-service-resource.md)'sini kullanarak "JSON" paketleri arayın:</span><span class="sxs-lookup"><span data-stu-id="28179-120">Search for "json" packages using the [NuGet V3 Search API](../api/search-query-service-resource.md):</span></span>
+<span data-ttu-id="03da4-120">[NuGet v3 arama API](../api/search-query-service-resource.md)'sini kullanarak "JSON" paketleri arayın:</span><span class="sxs-lookup"><span data-stu-id="03da4-120">Search for "json" packages using the [NuGet V3 Search API](../api/search-query-service-resource.md):</span></span>
 
 [!code-csharp[SearchPackages](~/../nuget-samples/NuGetProtocolSamples/Program.cs?name=SearchPackages)]
 
-### <a name="push-a-package"></a><span data-ttu-id="28179-121">Paket gönder</span><span class="sxs-lookup"><span data-stu-id="28179-121">Push a package</span></span>
+### <a name="push-a-package"></a><span data-ttu-id="03da4-121">Paket gönder</span><span class="sxs-lookup"><span data-stu-id="03da4-121">Push a package</span></span>
 
-<span data-ttu-id="28179-122">[NuGet v3 Push ve DELETE API](../api/package-publish-resource.md)kullanarak bir paketi gönderin:</span><span class="sxs-lookup"><span data-stu-id="28179-122">Push a package using the [NuGet V3 Push and Delete API](../api/package-publish-resource.md):</span></span>
+<span data-ttu-id="03da4-122">[NuGet v3 Push ve DELETE API](../api/package-publish-resource.md)kullanarak bir paketi gönderin:</span><span class="sxs-lookup"><span data-stu-id="03da4-122">Push a package using the [NuGet V3 Push and Delete API](../api/package-publish-resource.md):</span></span>
 
 [!code-csharp[PushPackage](~/../nuget-samples/NuGetProtocolSamples/Program.cs?name=PushPackage)]
 
-### <a name="delete-a-package"></a><span data-ttu-id="28179-123">Paket silme</span><span class="sxs-lookup"><span data-stu-id="28179-123">Delete a package</span></span>
+### <a name="delete-a-package"></a><span data-ttu-id="03da4-123">Paket silme</span><span class="sxs-lookup"><span data-stu-id="03da4-123">Delete a package</span></span>
 
-<span data-ttu-id="28179-124">[NuGet v3 Push ve DELETE API 'yi](../api/package-publish-resource.md)kullanarak bir paketi silme:</span><span class="sxs-lookup"><span data-stu-id="28179-124">Delete a package using the [NuGet V3 Push and Delete API](../api/package-publish-resource.md):</span></span>
+<span data-ttu-id="03da4-124">[NuGet v3 Push ve DELETE API 'yi](../api/package-publish-resource.md)kullanarak bir paketi silme:</span><span class="sxs-lookup"><span data-stu-id="03da4-124">Delete a package using the [NuGet V3 Push and Delete API](../api/package-publish-resource.md):</span></span>
 
 > [!Note]
-> <span data-ttu-id="28179-125">NuGet sunucuları bir paket silme isteğini "sabit silme", "geçici silme" veya "listeden kaldır" olarak yorumlamaya ücretsizdir.</span><span class="sxs-lookup"><span data-stu-id="28179-125">NuGet servers are free to interpret a package delete request as a "hard delete", "soft delete", or "unlist".</span></span>
-> <span data-ttu-id="28179-126">Örneğin, nuget.org paket silme isteğini "Unlist" olarak yorumlar.</span><span class="sxs-lookup"><span data-stu-id="28179-126">For example, nuget.org interprets the package delete request as an "unlist".</span></span> <span data-ttu-id="28179-127">Bu uygulama hakkında daha fazla bilgi için bkz. [paketleri silme](../nuget-org/policies/deleting-packages.md) ilkesi.</span><span class="sxs-lookup"><span data-stu-id="28179-127">For more information about this practice, see the [Deleting Packages](../nuget-org/policies/deleting-packages.md) policy.</span></span>
+> <span data-ttu-id="03da4-125">NuGet sunucuları bir paket silme isteğini "sabit silme", "geçici silme" veya "listeden kaldır" olarak yorumlamaya ücretsizdir.</span><span class="sxs-lookup"><span data-stu-id="03da4-125">NuGet servers are free to interpret a package delete request as a "hard delete", "soft delete", or "unlist".</span></span>
+> <span data-ttu-id="03da4-126">Örneğin, nuget.org paket silme isteğini "Unlist" olarak yorumlar.</span><span class="sxs-lookup"><span data-stu-id="03da4-126">For example, nuget.org interprets the package delete request as an "unlist".</span></span> <span data-ttu-id="03da4-127">Bu uygulama hakkında daha fazla bilgi için bkz. [paketleri silme](../nuget-org/policies/deleting-packages.md) ilkesi.</span><span class="sxs-lookup"><span data-stu-id="03da4-127">For more information about this practice, see the [Deleting Packages](../nuget-org/policies/deleting-packages.md) policy.</span></span>
 
 [!code-csharp[DeletePackage](~/../nuget-samples/NuGetProtocolSamples/Program.cs?name=DeletePackage)]
 
-### <a name="work-with-authenticated-feeds"></a><span data-ttu-id="28179-128">Kimliği doğrulanmış akışlarla çalışma</span><span class="sxs-lookup"><span data-stu-id="28179-128">Work with authenticated feeds</span></span>
+### <a name="work-with-authenticated-feeds"></a><span data-ttu-id="03da4-128">Kimliği doğrulanmış akışlarla çalışma</span><span class="sxs-lookup"><span data-stu-id="03da4-128">Work with authenticated feeds</span></span>
 
-<span data-ttu-id="28179-129">[`NuGet.Protocol`](https://www.nuget.org/packages/NuGet.Protocol)Kimliği doğrulanmış akışlarla çalışmak için kullanın.</span><span class="sxs-lookup"><span data-stu-id="28179-129">Use [`NuGet.Protocol`](https://www.nuget.org/packages/NuGet.Protocol) to work with authenticated feeds.</span></span>
+<span data-ttu-id="03da4-129">[`NuGet.Protocol`](https://www.nuget.org/packages/NuGet.Protocol)Kimliği doğrulanmış akışlarla çalışmak için kullanın.</span><span class="sxs-lookup"><span data-stu-id="03da4-129">Use [`NuGet.Protocol`](https://www.nuget.org/packages/NuGet.Protocol) to work with authenticated feeds.</span></span>
 
 [!code-csharp[AuthenticatedFeed](~/../nuget-samples/NuGetProtocolSamples/Program.cs?name=AuthenticatedFeed)]
 
-## <a name="nugetpackaging"></a><span data-ttu-id="28179-130">NuGet. paketleme</span><span class="sxs-lookup"><span data-stu-id="28179-130">NuGet.Packaging</span></span>
+## <a name="nugetpackaging"></a><span data-ttu-id="03da4-130">NuGet. paketleme</span><span class="sxs-lookup"><span data-stu-id="03da4-130">NuGet.Packaging</span></span>
 
-<span data-ttu-id="28179-131">`NuGet.Packaging`İle etkileşimde bulunmak için paketi yükler `.nupkg` ve `.nuspec` bir akıştan dosyalar:</span><span class="sxs-lookup"><span data-stu-id="28179-131">Install the `NuGet.Packaging` package to interact with `.nupkg` and `.nuspec` files from a stream:</span></span>
+<span data-ttu-id="03da4-131">`NuGet.Packaging`İle etkileşimde bulunmak için paketi yükler `.nupkg` ve `.nuspec` bir akıştan dosyalar:</span><span class="sxs-lookup"><span data-stu-id="03da4-131">Install the `NuGet.Packaging` package to interact with `.nupkg` and `.nuspec` files from a stream:</span></span>
 
 ```ps1
 dotnet add package NuGet.Packaging
 ```
 
-### <a name="create-a-package"></a><span data-ttu-id="28179-132">Paket oluşturma</span><span class="sxs-lookup"><span data-stu-id="28179-132">Create a package</span></span>
+### <a name="create-a-package"></a><span data-ttu-id="03da4-132">Paket oluşturma</span><span class="sxs-lookup"><span data-stu-id="03da4-132">Create a package</span></span>
 
-<span data-ttu-id="28179-133">Bir paket oluşturun, meta veri ayarlayın ve kullanarak bağımlılıklar ekleyin [`NuGet.Packaging`](https://www.nuget.org/packages/NuGet.Packaging) .</span><span class="sxs-lookup"><span data-stu-id="28179-133">Create a package, set metadata, and add dependencies using [`NuGet.Packaging`](https://www.nuget.org/packages/NuGet.Packaging).</span></span>
+<span data-ttu-id="03da4-133">Bir paket oluşturun, meta veri ayarlayın ve kullanarak bağımlılıklar ekleyin [`NuGet.Packaging`](https://www.nuget.org/packages/NuGet.Packaging) .</span><span class="sxs-lookup"><span data-stu-id="03da4-133">Create a package, set metadata, and add dependencies using [`NuGet.Packaging`](https://www.nuget.org/packages/NuGet.Packaging).</span></span>
 
 > [!IMPORTANT]
-> <span data-ttu-id="28179-134">NuGet paketlerinin resmi NuGet **araçları kullanılarak oluşturulması ve bu** alt düzey API 'nin kullanılması önemle önerilir.</span><span class="sxs-lookup"><span data-stu-id="28179-134">It is strongly recommended that NuGet packages are created using the official NuGet tooling and **not** using this low-level API.</span></span> <span data-ttu-id="28179-135">İyi biçimlendirilmiş bir paket için önemli özellikler vardır ve araç en son sürümü bu en iyi uygulamaların sağlanmasına yardımcı olur.</span><span class="sxs-lookup"><span data-stu-id="28179-135">There are a variety of characteristics important for a well-formed package and the latest version of tooling helps incorporate these best practices.</span></span>
+> <span data-ttu-id="03da4-134">NuGet paketlerinin resmi NuGet **araçları kullanılarak oluşturulması ve bu** alt düzey API 'nin kullanılması önemle önerilir.</span><span class="sxs-lookup"><span data-stu-id="03da4-134">It is strongly recommended that NuGet packages are created using the official NuGet tooling and **not** using this low-level API.</span></span> <span data-ttu-id="03da4-135">İyi biçimlendirilmiş bir paket için önemli özellikler vardır ve araç en son sürümü bu en iyi uygulamaların sağlanmasına yardımcı olur.</span><span class="sxs-lookup"><span data-stu-id="03da4-135">There are a variety of characteristics important for a well-formed package and the latest version of tooling helps incorporate these best practices.</span></span>
 > 
-> <span data-ttu-id="28179-136">NuGet paketleri oluşturma hakkında daha fazla bilgi için bkz. [paket oluşturma iş akışına](../create-packages/overview-and-workflow.md) genel bakış ve resmi paket araçları (örneğin, [DotNet CLI kullanılarak](../create-packages/creating-a-package-dotnet-cli.md)) belgeleri.</span><span class="sxs-lookup"><span data-stu-id="28179-136">For more information about creating NuGet packages, see the overview of the [package creation workflow](../create-packages/overview-and-workflow.md) and the documentation for official pack tooling (for example, [using the dotnet CLI](../create-packages/creating-a-package-dotnet-cli.md)).</span></span>
+> <span data-ttu-id="03da4-136">NuGet paketleri oluşturma hakkında daha fazla bilgi için bkz. [paket oluşturma iş akışına](../create-packages/overview-and-workflow.md) genel bakış ve resmi paket araçları (örneğin, [DotNet CLI kullanılarak](../create-packages/creating-a-package-dotnet-cli.md)) belgeleri.</span><span class="sxs-lookup"><span data-stu-id="03da4-136">For more information about creating NuGet packages, see the overview of the [package creation workflow](../create-packages/overview-and-workflow.md) and the documentation for official pack tooling (for example, [using the dotnet CLI](../create-packages/creating-a-package-dotnet-cli.md)).</span></span>
 
 [!code-csharp[CreatePackage](~/../nuget-samples/NuGetProtocolSamples/Program.cs?name=CreatePackage)]
 
-### <a name="read-a-package"></a><span data-ttu-id="28179-137">Paket okuma</span><span class="sxs-lookup"><span data-stu-id="28179-137">Read a package</span></span>
+### <a name="read-a-package"></a><span data-ttu-id="03da4-137">Paket okuma</span><span class="sxs-lookup"><span data-stu-id="03da4-137">Read a package</span></span>
 
-<span data-ttu-id="28179-138">Kullanarak bir dosya akışından paket okuyun [`NuGet.Packaging`](https://www.nuget.org/packages/NuGet.Packaging) .</span><span class="sxs-lookup"><span data-stu-id="28179-138">Read a package from a file stream using [`NuGet.Packaging`](https://www.nuget.org/packages/NuGet.Packaging).</span></span>
+<span data-ttu-id="03da4-138">Kullanarak bir dosya akışından paket okuyun [`NuGet.Packaging`](https://www.nuget.org/packages/NuGet.Packaging) .</span><span class="sxs-lookup"><span data-stu-id="03da4-138">Read a package from a file stream using [`NuGet.Packaging`](https://www.nuget.org/packages/NuGet.Packaging).</span></span>
 
 [!code-csharp[ReadPackage](~/../nuget-samples/NuGetProtocolSamples/Program.cs?name=ReadPackage)]
 
-## <a name="third-party-documentation"></a><span data-ttu-id="28179-139">Üçüncü taraf belgeleri</span><span class="sxs-lookup"><span data-stu-id="28179-139">Third-party documentation</span></span>
+## <a name="third-party-documentation"></a><span data-ttu-id="03da4-139">Üçüncü taraf belgeleri</span><span class="sxs-lookup"><span data-stu-id="03da4-139">Third-party documentation</span></span>
 
-<span data-ttu-id="28179-140">Aşağıdaki blog serisindeki bazı API 'ler için örnekler ve belgeler için Glick, yayımlanan 2016:</span><span class="sxs-lookup"><span data-stu-id="28179-140">You can find examples and documentation for some of the API in the following blog series by Dave Glick, published 2016:</span></span>
+<span data-ttu-id="03da4-140">Aşağıdaki blog serisindeki bazı API 'ler için örnekler ve belgeler için Glick, yayımlanan 2016:</span><span class="sxs-lookup"><span data-stu-id="03da4-140">You can find examples and documentation for some of the API in the following blog series by Dave Glick, published 2016:</span></span>
 
-- [<span data-ttu-id="28179-141">NuGet v3 kitaplıklarını keşfetme, 1. Bölüm: giriş ve kavramlar</span><span class="sxs-lookup"><span data-stu-id="28179-141">Exploring the NuGet v3 Libraries, Part 1: Introduction and concepts</span></span>](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-1)
-- [<span data-ttu-id="28179-142">NuGet v3 kitaplıklarını keşfetme, Bölüm 2: paketleri arama</span><span class="sxs-lookup"><span data-stu-id="28179-142">Exploring the NuGet v3 Libraries, Part 2: Searching for packages</span></span>](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-2)
-- [<span data-ttu-id="28179-143">NuGet v3 kitaplıklarını keşfetme, 3. Bölüm: paketleri yükleme</span><span class="sxs-lookup"><span data-stu-id="28179-143">Exploring the NuGet v3 Libraries, Part 3: Installing packages</span></span>](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-3)
+- [<span data-ttu-id="03da4-141">NuGet v3 kitaplıklarını keşfetme, 1. Bölüm: giriş ve kavramlar</span><span class="sxs-lookup"><span data-stu-id="03da4-141">Exploring the NuGet v3 Libraries, Part 1: Introduction and concepts</span></span>](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-1)
+- [<span data-ttu-id="03da4-142">NuGet v3 kitaplıklarını keşfetme, Bölüm 2: paketleri arama</span><span class="sxs-lookup"><span data-stu-id="03da4-142">Exploring the NuGet v3 Libraries, Part 2: Searching for packages</span></span>](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-2)
+- [<span data-ttu-id="03da4-143">NuGet v3 kitaplıklarını keşfetme, 3. Bölüm: paketleri yükleme</span><span class="sxs-lookup"><span data-stu-id="03da4-143">Exploring the NuGet v3 Libraries, Part 3: Installing packages</span></span>](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-3)
 
 > [!Note]
-> <span data-ttu-id="28179-144">Bu blog gönderileri, NuGet istemci SDK paketlerinin **3.4.3** sürümü yayımlandıktan kısa bir süre sonra yazıldı.</span><span class="sxs-lookup"><span data-stu-id="28179-144">These blog posts were written shortly after the **3.4.3** version of the NuGet client SDK packages were released.</span></span>
-> <span data-ttu-id="28179-145">Paketlerin daha yeni sürümleri, blog gönderilerinin bilgileriyle uyumsuz olabilir.</span><span class="sxs-lookup"><span data-stu-id="28179-145">Newer versions of the packages may be incompatible with the information in the blog posts.</span></span>
+> <span data-ttu-id="03da4-144">Bu blog gönderileri, NuGet istemci SDK paketlerinin **3.4.3** sürümü yayımlandıktan kısa bir süre sonra yazıldı.</span><span class="sxs-lookup"><span data-stu-id="03da4-144">These blog posts were written shortly after the **3.4.3** version of the NuGet client SDK packages were released.</span></span>
+> <span data-ttu-id="03da4-145">Paketlerin daha yeni sürümleri, blog gönderilerinin bilgileriyle uyumsuz olabilir.</span><span class="sxs-lookup"><span data-stu-id="03da4-145">Newer versions of the packages may be incompatible with the information in the blog posts.</span></span>
 
-<span data-ttu-id="28179-146">Marve Glick 'in blog serisine, NuGet paketlerini yüklemek için NuGet Istemci SDK 'sını kullanma konusunda farklı bir yaklaşım tanıtan bir izleme blog gönderisi Björkström.</span><span class="sxs-lookup"><span data-stu-id="28179-146">Martin Björkström did a follow-up blog post to Dave Glick's blog series where he introduces a different approach on using the NuGet Client SDK to install NuGet packages:</span></span>
+<span data-ttu-id="03da4-146">Marve Glick 'in blog serisine, NuGet paketlerini yüklemek için NuGet Istemci SDK 'sını kullanma konusunda farklı bir yaklaşım tanıtan bir izleme blog gönderisi Björkström.</span><span class="sxs-lookup"><span data-stu-id="03da4-146">Martin Björkström did a follow-up blog post to Dave Glick's blog series where he introduces a different approach on using the NuGet Client SDK to install NuGet packages:</span></span>
 
-- [<span data-ttu-id="28179-147">NuGet v3 kitaplıklarını yeniden ziyaret etme</span><span class="sxs-lookup"><span data-stu-id="28179-147">Revisiting the NuGet v3 Libraries</span></span>](https://martinbjorkstrom.com/posts/2018-09-19-revisiting-nuget-client-libraries)
+- [<span data-ttu-id="03da4-147">NuGet v3 kitaplıklarını yeniden ziyaret etme</span><span class="sxs-lookup"><span data-stu-id="03da4-147">Revisiting the NuGet v3 Libraries</span></span>](https://martinbjorkstrom.com/posts/2018-09-19-revisiting-nuget-client-libraries)
