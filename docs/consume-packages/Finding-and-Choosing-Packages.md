@@ -1,16 +1,16 @@
 ---
 title: NuGet paketlerini bulma ve seçme
 description: NuGet arama söz dizimi hakkında ayrıntılar dahil olmak üzere bir proje için en iyi NuGet paketlerini bulma ve seçme hakkında genel bakış.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: feb21ae1e70144491a5c0fe8f6a7be36e61d9b32
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 4ba51028c1a69a3466cec655db19c2c498e29d9b
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622998"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775174"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Projeniz için NuGet paketlerini bulma ve değerlendirme
 
@@ -54,7 +54,7 @@ Neyse ki, desteklenen çerçeveleri iki farklı yöntemle de belirleyebilirsiniz
 
 1. NuGet Paket Yöneticisi konsolundaki komutunu kullanarak bir projeye paket yüklemeyi deneyin [`Install-Package`](../reference/ps-reference/ps-ref-install-package.md) . Paket uyumsuzsa, bu komutta paketin desteklenen çerçeveleri gösterilir.
 
-1. **Bilgi**altında **el ile indirme** bağlantısını kullanarak paketi NuGet.org sayfasındaki sayfasından indirin. Uzantısını `.nupkg` olarak değiştirin `.zip` ve klasörünün içeriğini incelemek için dosyayı açın `lib` . Her bir alt klasörün bir hedef çerçeve adıyla (tfd; bkz. [hedef çerçeveler](../reference/target-frameworks.md)) adlandırılmış olduğu her bir desteklenen çerçeve için alt klasörler görürsünüz. `lib`Ve yalnızca tek BIR DLL altında alt klasör yoksa, uyumluluğunu öğrenmek için bu paketi projenize yüklemeyi denemeniz gerekir.
+1. **Bilgi** altında **el ile indirme** bağlantısını kullanarak paketi NuGet.org sayfasındaki sayfasından indirin. Uzantısını `.nupkg` olarak değiştirin `.zip` ve klasörünün içeriğini incelemek için dosyayı açın `lib` . Her bir alt klasörün bir hedef çerçeve adıyla (tfd; bkz. [hedef çerçeveler](../reference/target-frameworks.md)) adlandırılmış olduğu her bir desteklenen çerçeve için alt klasörler görürsünüz. `lib`Ve yalnızca tek BIR DLL altında alt klasör yoksa, uyumluluğunu öğrenmek için bu paketi projenize yüklemeyi denemeniz gerekir.
 
 ## <a name="pre-release-packages"></a>Yayın öncesi paketler
 
@@ -72,9 +72,9 @@ Visual Studio 'da ve NuGet ve DotNet CLı araçları kullanılırken, NuGet vars
 
 - **Paket Yöneticisi konsolu**:,,, `-IncludePrerelease` `Find-Package` `Get-Package` `Install-Package` `Sync-Package` ve `Update-Package` komutlarıyla anahtarı kullanın. [PowerShell başvurusuna](../reference/powershell-reference.md)bakın.
 
-- ** CLInuget.exe**:,, `-prerelease` `install` `update` `delete` ve komutlarıyla anahtarı kullanın `mirror` . [NUGET CLI başvurusuna](../reference/nuget-exe-cli-reference.md) bakın
+- **CLInuget.exe**:,, `-prerelease` `install` `update` `delete` ve komutlarıyla anahtarı kullanın `mirror` . [NUGET CLI başvurusuna](../reference/nuget-exe-cli-reference.md) bakın
 
-- ** Clıdotnet.exe**: bağımsız değişkenini kullanarak tam yayın öncesi sürümü belirtin `-v` . [DotNet paket başvurusu Ekle](/dotnet/core/tools/dotnet-add-package)' ye başvurun.
+- **Clıdotnet.exe**: bağımsız değişkenini kullanarak tam yayın öncesi sürümü belirtin `-v` . [DotNet paket başvurusu Ekle](/dotnet/core/tools/dotnet-add-package)' ye başvurun.
 
 <a name="native-cpp-packages"></a>
 
@@ -110,19 +110,19 @@ Aynı zamanda, bir NuGet paketinin kullanılması, bunun sağlam ve güvenilir o
     > [!Note]
     > Bölüm tarafından kullanılan bir paket, tek tek depoların insan tarafından incelenmesi gerekmeden otomatik olarak oluşturulur ve yalnızca NuGet.org paketlerini ve pakete bağlı olan popüler GitHub depolarını göstermek için bilgilendirme amaçlıdır.
 
-- **Sürüm geçmişi**: Paket sayfasında, en son güncelleştirme tarihi için **bilgi** ' yi arayın ve **sürüm geçmişini**inceleyin. İyi tutulan bir pakette, son güncelleştirmeler ve zengin bir sürüm geçmişi bulunur. İhmal edilen paketlerin birkaç güncelleştirmesi vardır ve genellikle bir süre güncelleştirilmemiş demektir.
+- **Sürüm geçmişi**: Paket sayfasında, en son güncelleştirme tarihi için **bilgi** ' yi arayın ve **sürüm geçmişini** inceleyin. İyi tutulan bir pakette, son güncelleştirmeler ve zengin bir sürüm geçmişi bulunur. İhmal edilen paketlerin birkaç güncelleştirmesi vardır ve genellikle bir süre güncelleştirilmemiş demektir.
 
     ![Paketin listeleme sayfasında sürüm geçmişi](media/Finding-04-VersionHistory.png)
 
-- **Son yüklemeler**: Paket sayfasında **İstatistikler**altında, **tam istatistikleri görüntüle**' yi seçin. Tüm İstatistikler sayfasında, paketin sürüm numarasına göre son altı haftaya göre yüklemesi gösterilmektedir. Diğer geliştiricilerin etkin şekilde kullandığı bir paket, genellikle daha iyi bir seçenektir.
+- **Son yüklemeler**: Paket sayfasında **İstatistikler** altında, **tam istatistikleri görüntüle**' yi seçin. Tüm İstatistikler sayfasında, paketin sürüm numarasına göre son altı haftaya göre yüklemesi gösterilmektedir. Diğer geliştiricilerin etkin şekilde kullandığı bir paket, genellikle daha iyi bir seçenektir.
 
-- **Destek**: Yazar **' ın altındaki**paket sayfasında, yazarın sağladığı destek seçeneklerini görmek için **Proje sitesi** ' ni (varsa) seçin. Adanmış bir siteye sahip bir proje genellikle daha iyi desteklenir.
+- **Destek**: Yazar **' ın altındaki** paket sayfasında, yazarın sağladığı destek seçeneklerini görmek için **Proje sitesi** ' ni (varsa) seçin. Adanmış bir siteye sahip bir proje genellikle daha iyi desteklenir.
 
-- **Geliştirici geçmişi**: **sahipler**altındaki paket sayfasında, yayımladıkları diğer paketleri görmek için bir sahip seçin. Birden çok pakete sahip olanlar, işlerini daha sonra desteklemeye devam edememe olasılığı yüksektir.
+- **Geliştirici geçmişi**: **sahipler** altındaki paket sayfasında, yayımladıkları diğer paketleri görmek için bir sahip seçin. Birden çok pakete sahip olanlar, işlerini daha sonra desteklemeye devam edememe olasılığı yüksektir.
 
 - **Açık kaynak katkıları**: birçok paket açık kaynaklı depolarda tutulur ve bunlar, geliştiricilerin doğrudan hata düzeltmeleri ve özellik iyileştirmeleri katkıda bulunmasına olanak tanır. Belirli bir paketin katkı geçmişi Ayrıca, kaç geliştirici etkin bir şekilde dahil olduğu konusunda iyi bir göstergedir.
 
-- **Sahipleri**arayın: yeni geliştiriciler, sizin için harika paketler oluşturmaya tamamen eşit bir şekilde kararlıdır ve bu kullanıcılara NuGet ekosistemine yeni bir şey getirmenin bir şansı vermek iyi olabilir. Bu göz önünde bulundurularak, liste sayfasında **bilgi** altında **kişi sahipleri** ' nı kullanarak doğrudan paket geliştiricilerine ulaşın. Olasılığınızı karşılamak için sizinle birlikte çalışmak iyi olacaktır!
+- **Sahipleri** arayın: yeni geliştiriciler, sizin için harika paketler oluşturmaya tamamen eşit bir şekilde kararlıdır ve bu kullanıcılara NuGet ekosistemine yeni bir şey getirmenin bir şansı vermek iyi olabilir. Bu göz önünde bulundurularak, liste sayfasında **bilgi** altında **kişi sahipleri** ' nı kullanarak doğrudan paket geliştiricilerine ulaşın. Olasılığınızı karşılamak için sizinle birlikte çalışmak iyi olacaktır!
 
 - **Ayrılmış paket kimliği önekleri**: için çok sayıda paket sahibi uygulandı ve [ayrılmış bir paket kimliği öneki](../nuget-org/id-prefix-reservation.md)verdi. [NuGet.org](https://www.nuget.org/)veya Visual Studio 'daki BIR paket kimliğinin yanındaki görsel onay işaretini gördüğünüzde, bu, paket sahibinin kimlik ön eki ayırma [ölçütlerimizi](../nuget-org/id-prefix-reservation.md#id-prefix-reservation-criteria) karşıladığı anlamına gelir. Bu, paket sahibinin kendilerini ve paketini tanımlamaya açık olduğu anlamına gelir.
 

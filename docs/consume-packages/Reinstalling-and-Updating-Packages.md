@@ -1,16 +1,16 @@
 ---
 title: NuGet paketlerini yeniden yükleme ve güncelleştirme
 description: Visual Studio 'daki bozuk paket başvurularına göre paketlerin yeniden yüklenmesi ve güncelleştirilmesi için gerekli olduğu zaman hakkındaki ayrıntılar.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 12/07/2017
 ms.topic: conceptual
-ms.openlocfilehash: 101c6d6b9d93da912f60c40b27559e80327154b8
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 588d546352e5733ba8198061beb8006a79ecedac
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237737"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774974"
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>Paketleri yeniden yükleme ve güncelleştirme
 
@@ -23,7 +23,7 @@ Paketlerin güncelleştirilmesi ve yeniden yüklenmesi şu şekilde gerçekleşt
 | Yöntem | Güncelleştir | Yeniden yükleme |
 | --- | --- | --- |
 | Paket Yöneticisi Konsolu ( [Update-Package kullanma](#using-update-package)bölümünde açıklanmıştır) | `Update-Package` komutu | `Update-Package -reinstall` komutu |
-| Paket Yöneticisi UI | **Güncelleştirmeler** sekmesinde bir veya daha fazla paket seçin ve **Güncelleştir** ' i seçin. | **Yüklü** sekmesinde bir paket seçin, adını kaydedin ve **Kaldır** ' ı seçin. **Araştır** sekmesine geçin, paket adını arayın, seçin ve sonra da **Install** öğesini seçin. |
+| Paket Yöneticisi UI | **Güncelleştirmeler** sekmesinde bir veya daha fazla paket seçin ve **Güncelleştir** ' i seçin. | **Yüklü** sekmesinde bir paket seçin, adını kaydedin ve **Kaldır**' ı seçin. **Araştır** sekmesine geçin, paket adını arayın, seçin ve sonra da **Install** öğesini seçin. |
 | nuget.exe CLI | `nuget update` komutu | Tüm paketler için paket klasörünü silip çalıştırın `nuget install` . Tek bir paket için paket klasörünü silin ve `nuget install <id>` aynısını yeniden yüklemek için kullanın. |
 
 > [!NOTE]
@@ -36,11 +36,11 @@ Bu makalede:
 
 ## <a name="when-to-reinstall-a-package"></a>Bir paketin ne zaman yeniden yüklenmesi
 
-1. **Paket geri yüklemeden sonra bozuk başvurular** : bir projeyi açtıysanız ve NuGet paketlerini geri yüklediyseniz ancak hala bozuk başvurular görüyorsanız, bu paketlerin her birini yeniden yüklemeyi deneyin.
-1. **Silinen dosyalar nedeniyle proje bozuk** : NuGet, paketten eklenen öğeleri kaldırmanızı engellemez, bu nedenle bir paketten yüklenmiş içerikleri yanlışlıkla değiştirmek ve projenizi bölmek kolaydır. Projeyi geri yüklemek için etkilenen paketleri yeniden yükleyin.
+1. **Paket geri yüklemeden sonra bozuk başvurular**: bir projeyi açtıysanız ve NuGet paketlerini geri yüklediyseniz ancak hala bozuk başvurular görüyorsanız, bu paketlerin her birini yeniden yüklemeyi deneyin.
+1. **Silinen dosyalar nedeniyle proje bozuk**: NuGet, paketten eklenen öğeleri kaldırmanızı engellemez, bu nedenle bir paketten yüklenmiş içerikleri yanlışlıkla değiştirmek ve projenizi bölmek kolaydır. Projeyi geri yüklemek için etkilenen paketleri yeniden yükleyin.
 1. **Paket güncelleştirmesi projeyi** bozma: bir paket güncelleştirmesi bir projeyi kesintiye uğramıyorsa, hata genellikle güncelleştirilmiş bir bağımlılık paketidir. Bağımlılığın durumunu geri yüklemek için söz konusu paketi yeniden yükleyin.
-1. **Proje yeniden hedefleme veya yükseltme** : Bu, bir proje yeniden hedeflendiğinde veya yükseltildiğinde ve hedef çerçevesindeki değişiklik nedeniyle paketin yeniden yüklenmesi gerekiyorsa yararlı olabilir. NuGet, proje yeniden hedefledikten hemen sonra bu tür durumlarda derleme hatası gösterir ve sonraki derleme uyarıları paketin yeniden yüklenmesi gerekebileceklerini bilmenizi sağlar. Proje yükseltmesinde, NuGet proje yükseltme günlüğünde bir hata gösterir.
-1. **Bir paketi geliştirme sırasında yeniden yükleme** : paket yazarları genellikle, davranışın test olması için geliştirdikleri paketin aynı sürümünü yeniden yüklemelidir. `Install-Package`Komut yeniden yükleme zorlaması için bir seçenek sağlamıyor, `Update-Package -reinstall` bunun yerine kullanın.
+1. **Proje yeniden hedefleme veya yükseltme**: Bu, bir proje yeniden hedeflendiğinde veya yükseltildiğinde ve hedef çerçevesindeki değişiklik nedeniyle paketin yeniden yüklenmesi gerekiyorsa yararlı olabilir. NuGet, proje yeniden hedefledikten hemen sonra bu tür durumlarda derleme hatası gösterir ve sonraki derleme uyarıları paketin yeniden yüklenmesi gerekebileceklerini bilmenizi sağlar. Proje yükseltmesinde, NuGet proje yükseltme günlüğünde bir hata gösterir.
+1. **Bir paketi geliştirme sırasında yeniden yükleme**: paket yazarları genellikle, davranışın test olması için geliştirdikleri paketin aynı sürümünü yeniden yüklemelidir. `Install-Package`Komut yeniden yükleme zorlaması için bir seçenek sağlamıyor, `Update-Package -reinstall` bunun yerine kullanın.
 
 ## <a name="constraining-upgrade-versions"></a>Yükseltme sürümlerini kısıtlama
 
@@ -63,7 +63,7 @@ Her durumda, [paket sürümü oluşturma](../concepts/package-versioning.md#vers
 
 ## <a name="using-update-package"></a>Update-Package kullanma
 
-Aşağıda açıklanan [hususlar göz önünde bulundurmanız](#considerations) , Visual Studio Paket Yöneticisi konsolundaki [Update-Package komutunu](../reference/ps-reference/ps-ref-update-package.md) ( **Araçlar**  >  **NuGet paket** Yöneticisi  >  **Paket Yöneticisi konsolu** ) kullanarak herhangi bir paketi kolayca yeniden yükleyebilirsiniz.
+Aşağıda açıklanan [hususlar göz önünde bulundurmanız](#considerations) , Visual Studio Paket Yöneticisi konsolundaki [Update-Package komutunu](../reference/ps-reference/ps-ref-update-package.md) (**Araçlar**  >  **NuGet paket** Yöneticisi  >  **Paket Yöneticisi konsolu**) kullanarak herhangi bir paketi kolayca yeniden yükleyebilirsiniz.
 
 ```ps
 Update-Package -Id <package_name> –reinstall

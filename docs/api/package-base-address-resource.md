@@ -6,16 +6,16 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 7aea28d6224a89149aa33be035c82a45db3058f0
-ms.sourcegitcommit: 1eda83ab537c86cc27316e7bc67f95a358766e63
+ms.openlocfilehash: 8ea03ece635aa06e22032c4fb43ce932dbdf717c
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71094125"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98773935"
 ---
 # <a name="package-content"></a>Paket Içeriği
 
-V3 API kullanarak rastgele bir paketin içeriğini (. nupkg dosyası) getirmek için bir URL oluşturmak mümkündür. Paket içeriğini `PackageBaseAddress` getirmek için kullanılan kaynak, [hizmet dizininde](service-index.md)bulunan kaynaktır. Bu kaynak Ayrıca, listelenen veya listelenmemiş bir paketin tüm sürümlerinin bulunmasına da izin verebilir.
+V3 API kullanarak rastgele bir paketin içeriğini (. nupkg dosyası) getirmek için bir URL oluşturmak mümkündür. Paket içeriğini getirmek için kullanılan kaynak, `PackageBaseAddress` [hizmet dizininde](service-index.md)bulunan kaynaktır. Bu kaynak Ayrıca, listelenen veya listelenmemiş bir paketin tüm sürümlerinin bulunmasına da izin verebilir.
 
 Bu kaynak genellikle "paket temel adresi" ya da "düz kapsayıcı" olarak adlandırılır.
 
@@ -23,17 +23,17 @@ Bu kaynak genellikle "paket temel adresi" ya da "düz kapsayıcı" olarak adland
 
 Aşağıdaki `@type` değer kullanılır:
 
-@typedeeri              | Notlar
+@type deeri              | Notlar
 ------------------------ | -----
 PackageBaseAddress/3.0.0 | İlk yayın
 
-## <a name="base-url"></a>Taban URL 'SI
+## <a name="base-url"></a>Temel URL
 
-Aşağıdaki API 'lerin temel URL 'si, belirtilen kaynak `@id` `@type` değeriyle ilişkili özelliğin değeridir. Aşağıdaki belgede, yer tutucu temel URL 'si `{@id}` kullanılacaktır.
+Aşağıdaki API 'Lerin temel URL 'SI, `@id` belirtilen kaynak değeriyle ilişkili özelliğin değeridir `@type` . Aşağıdaki belgede, yer tutucu temel URL 'SI `{@id}` kullanılacaktır.
 
 ## <a name="http-methods"></a>HTTP yöntemleri
 
-Kayıt kaynağında bulunan tüm URL 'ler http yöntemlerini `GET` ve ' i `HEAD`destekler.
+Kayıt kaynağında bulunan tüm URL 'Ler HTTP yöntemlerini `GET` ve ' i destekler `HEAD` .
 
 ## <a name="enumerate-package-versions"></a>Paket sürümlerini listeleme
 
@@ -42,15 +42,17 @@ Kayıt kaynağında bulunan tüm URL 'ler http yöntemlerini `GET` ve ' i `HEAD`
 > [!Note]
 > Bu liste hem listelenmiş hem de listelenmemiş paket sürümlerini içerir.
 
-    GET {@id}/{LOWER_ID}/index.json
+```
+GET {@id}/{LOWER_ID}/index.json
+```
 
 ### <a name="request-parameters"></a>İstek parametreleri
 
-Ad     | İçindeki     | Tür    | Gerekli | Notlar
+Name     | İçinde     | Tür    | Gerekli | Notlar
 -------- | ------ | ------- | -------- | -----
-LOWER_ID | URL    | dize  | evet      | Paket KIMLIĞI, küçük harf
+LOWER_ID | URL    | string  | evet      | Paket KIMLIĞI, küçük harf
 
-`LOWER_ID` Değer, tarafından uygulanan kurallar kullanılarak istenen paket kimliği küçük harf olarak belirlenir. NET 'in [`System.String.ToLowerInvariant()`](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) yöntemi.
+`LOWER_ID`Değer, tarafından uygulanan kurallar kullanılarak istenen paket kimliği küçük harf olarak belirlenir. NET 'in [`System.String.ToLowerInvariant()`](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant&preserve-view=true) yöntemi.
 
 ### <a name="response"></a>Yanıt
 
@@ -60,15 +62,17 @@ Paket kaynağında bir veya daha fazla sürüm varsa, 200 durum kodu döndürül
 
 Ad     | Tür             | Gerekli | Notlar
 -------- | ---------------- | -------- | -----
-sürümler | Dizeler dizisi | evet      | Kullanılabilir sürümler
+versions | dize dizisi | evet      | Kullanılabilir sürümler
 
-`versions` Dizideki dizeler, tüm küçük harf, [normalleştirilmiş NuGet sürüm dizeleridir](../concepts/package-versioning.md#normalized-version-numbers). Sürüm dizeleri herhangi bir SemVer 2.0.0 derleme meta verisi içermiyor.
+`versions`Dizideki dizeler, tüm küçük harf, [normalleştirilmiş NuGet sürüm dizeleridir](../concepts/package-versioning.md#normalized-version-numbers). Sürüm dizeleri herhangi bir SemVer 2.0.0 derleme meta verisi içermiyor.
 
-Amaç, bu dizide bulunan sürüm dizelerinin aşağıdaki uç noktalarında bulunan `LOWER_VERSION` belirteçler için tam olarak kullanılabileceği şekilde kullanılabilir.
+Amaç, bu dizide bulunan sürüm dizelerinin `LOWER_VERSION` aşağıdaki uç noktalarında bulunan belirteçler için tam olarak kullanılabileceği şekilde kullanılabilir.
 
 ### <a name="sample-request"></a>Örnek istek
 
-    GET https://api.nuget.org/v3-flatcontainer/owin/index.json
+```
+GET https://api.nuget.org/v3-flatcontainer/owin/index.json
+```
 
 ### <a name="sample-response"></a>Örnek yanıt
 
@@ -78,16 +82,18 @@ Amaç, bu dizide bulunan sürüm dizelerinin aşağıdaki uç noktalarında bulu
 
 İstemci bir paket KIMLIĞI ve sürümünü biliyor ve paket içeriğini indirmek istiyorsa, yalnızca aşağıdaki URL 'yi oluşturmak gerekir:
 
-    GET {@id}/{LOWER_ID}/{LOWER_VERSION}/{LOWER_ID}.{LOWER_VERSION}.nupkg
+```
+GET {@id}/{LOWER_ID}/{LOWER_VERSION}/{LOWER_ID}.{LOWER_VERSION}.nupkg
+```
 
 ### <a name="request-parameters"></a>İstek parametreleri
 
-Ad          | İçindeki     | Tür   | Gerekli | Notlar
+Name          | İçinde     | Tür   | Gerekli | Notlar
 ------------- | ------ | ------ | -------- | -----
-LOWER_ID      | URL    | dize | evet      | Paket KIMLIĞI, küçük harf
-LOWER_VERSION | URL    | dize | evet      | Paket sürümü, normalleştirilmiş ve küçük harfleri
+LOWER_ID      | URL    | string | evet      | Paket KIMLIĞI, küçük harf
+LOWER_VERSION | URL    | string | evet      | Paket sürümü, normalleştirilmiş ve küçük harfleri
 
-Her ikisi de `LOWER_ID` tarafından uygulanan kurallar kullanılarak küçük harfe dönüştürülür.`LOWER_VERSION` NET 'in[`System.String.ToLowerInvariant()`](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant)
+Her ikisi de `LOWER_ID` `LOWER_VERSION` tarafından uygulanan kurallar kullanılarak küçük harfe dönüştürülür. NET 'in [`System.String.ToLowerInvariant()`](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant&preserve-view=true)
 yöntemidir.
 
 , `LOWER_VERSION` NuGet 'in sürüm [normalleştirme kuralları](../concepts/package-versioning.md#normalized-version-numbers)kullanılarak istenen paket sürümü normalleştirilir. Bu, SemVer 2.0.0 belirtiminin izin verdiği derleme meta verilerinin bu durumda dışlanması gerektiği anlamına gelir.
@@ -100,26 +106,30 @@ Paket, paket kaynağında yoksa, 404 durum kodu döndürülür.
 
 ### <a name="sample-request"></a>Örnek istek
 
-    GET https://api.nuget.org/v3-flatcontainer/newtonsoft.json/9.0.1/newtonsoft.json.9.0.1.nupkg
+```
+GET https://api.nuget.org/v3-flatcontainer/newtonsoft.json/9.0.1/newtonsoft.json.9.0.1.nupkg
+```
 
 ### <a name="sample-response"></a>Örnek yanıt
 
-Newtonsoft. JSON 9.0.1 için. nupkg olan ikili akış.
+9.0.1 üzerinde Newtonsoft.Jsiçin. nupkg olan ikili akış.
 
 ## <a name="download-package-manifest-nuspec"></a>Paket bildirimini indir (. nuspec)
 
 İstemci bir paket KIMLIĞI ve sürümünü biliyor ve paket bildirimini indirmek istiyorsa, yalnızca aşağıdaki URL 'yi oluşturmak gerekir:
 
-    GET {@id}/{LOWER_ID}/{LOWER_VERSION}/{LOWER_ID}.nuspec
+```
+GET {@id}/{LOWER_ID}/{LOWER_VERSION}/{LOWER_ID}.nuspec
+```
 
 ### <a name="request-parameters"></a>İstek parametreleri
 
-Ad          | İçindeki     | Tür   | Gerekli | Notlar
+Name          | İçinde     | Tür   | Gerekli | Notlar
 ------------- | ------ | ------ | -------- | -----
-LOWER_ID      | URL    | dize | evet      | Paket KIMLIĞI, küçük harf
-LOWER_VERSION | URL    | dize | evet      | Paket sürümü, normalleştirilmiş ve küçük harfleri
+LOWER_ID      | URL    | string | evet      | Paket KIMLIĞI, küçük harf
+LOWER_VERSION | URL    | string | evet      | Paket sürümü, normalleştirilmiş ve küçük harfleri
 
-Her ikisi de `LOWER_ID` tarafından uygulanan kurallar kullanılarak küçük harfe dönüştürülür.`LOWER_VERSION` NET 'in [`System.String.ToLowerInvariant()`](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) yöntemi.
+Her ikisi de `LOWER_ID` `LOWER_VERSION` tarafından uygulanan kurallar kullanılarak küçük harfe dönüştürülür. NET 'in [`System.String.ToLowerInvariant()`](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant&preserve-view=true) yöntemi.
 
 , `LOWER_VERSION` NuGet 'in sürüm [normalleştirme kuralları](../concepts/package-versioning.md#normalized-version-numbers)kullanılarak istenen paket sürümü normalleştirilir. Bu, SemVer 2.0.0 belirtiminin izin verdiği derleme meta verilerinin bu durumda dışlanması gerektiği anlamına gelir.
 
@@ -131,7 +141,9 @@ Paket, paket kaynağında yoksa, 404 durum kodu döndürülür.
 
 ### <a name="sample-request"></a>Örnek istek
 
-    GET https://api.nuget.org/v3-flatcontainer/newtonsoft.json/6.0.4/newtonsoft.json.nuspec
+```
+GET https://api.nuget.org/v3-flatcontainer/newtonsoft.json/6.0.4/newtonsoft.json.nuspec
+```
 
 ### <a name="sample-response"></a>Örnek yanıt
 

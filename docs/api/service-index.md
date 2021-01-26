@@ -1,65 +1,69 @@
 ---
-title: API NuGet hizmet dizini
-description: Hizmet dizini NuGet HTTP API'sinin giriş noktasıdır ve sunucu yeteneklerini numaralandırır.
+title: Hizmet dizini, NuGet API 'SI
+description: Hizmet dizini, NuGet HTTP API 'sinin giriş noktasıdır ve sunucunun yeteneklerini sıralar.
 author: joelverhagen
 ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 1dcfb87690b728280b494d4434f9c1d7ee7a7e74
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: c2d4d23313c80c24b537b1df227a9cea6784ef6e
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324727"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775362"
 ---
 # <a name="service-index"></a>Hizmet dizini
 
-Hizmet dizini NuGet paket kaynağı için giriş noktası ve bir istemci uygulama paket kaynağının özelliklerini hemen bulmasına izin veren bir JSON belgesidir. Hizmet dizini iki gerekli özelliklere sahip bir JSON nesnesidir: `version` (hizmet dizini şema sürümü) ve `resources` (uç noktaları veya paket kaynağının özellikleri).
+Hizmet dizini, bir NuGet paket kaynağı için giriş noktası olan ve istemci uygulamasının paket kaynağının yeteneklerini bulmasına izin veren bir JSON belgesidir. Hizmet dizini, iki gerekli özelliği olan bir JSON nesnesidir: `version` (hizmet dizininin şema sürümü) ve `resources`  (paket kaynağının uç noktaları veya özellikleri).
 
-nuget.org hizmet dizini adresindedir `https://api.nuget.org/v3/index.json`.
+NuGet. org 'ın hizmet dizini konumunda bulunur `https://api.nuget.org/v3/index.json` .
 
-## <a name="versioning"></a>Sürüm oluşturma
+## <a name="versioning"></a>Sürüm Oluşturma
 
-`version` Hizmet dizini şema sürümünü gösteren bir SemVer 2.0.0 parseable sürüm dizesi değeridir. API sürüm dizesi bir ana sürüm numarasını sahip olduğunu taahhütlerin `3`. Hizmet dizin şeması için hataya neden olmayan değişiklikler yapıldıkça, sürüm dizesinin alt sürümü artırılır.
+`version`Değer, hizmet dizininin şema sürümünü gösteren bir SemVer 2.0.0 parseable sürümü dizesidir. Sürüm dizesinin ana sürüm numarası olan API mantarihlerinin `3` . Hizmet dizini şemasında, önemli olmayan değişiklikler yapıldığından, sürüm dizesinin ikincil sürümü artar.
 
-Her hizmet dizinindeki bağımsız olarak hizmet dizin şema sürümünden tutulan bir kaynaktır.
+Hizmet dizinindeki her kaynak hizmet dizini şema sürümünden bağımsız olarak sürümlüdür.
 
-Geçerli şema sürümü `3.0.0`. `3.0.0` Sürümüdür eski işlevsel olarak eşdeğer `3.0.0-beta.1` sürüm ancak kararlı, tanımlı bir şema daha net bir şekilde iletişim kuran olarak tercih edilen olmalıdır.
+Geçerli şema sürümü `3.0.0` . `3.0.0`Sürüm işlevsel olarak eski sürüme eşdeğerdir, `3.0.0-beta.1` ancak kararlı, tanımlı şemayı daha açık bir şekilde iletişim kurduğundan tercih edilmelidir.
 
 ## <a name="http-methods"></a>HTTP yöntemleri
 
-Hizmet dizini, HTTP yöntemleri kullanılarak erişilebilir `GET` ve `HEAD`.
+Hizmet dizinine HTTP yöntemleri ve aracılığıyla erişilebilir `GET` `HEAD` .
 
 ## <a name="resources"></a>Kaynaklar
 
-`resources` Kaynakları bu paket kaynak tarafından desteklenen bir dizi özelliği içerir.
+`resources`Özelliği, bu paket kaynağı tarafından desteklenen bir kaynak dizisi içeriyor.
 
 ### <a name="resource"></a>Kaynak
 
-Bir nesneyi bir kaynaktır `resources` dizisi. Bu paket kaynağının tutulan bir özelliği temsil eder. Bir kaynak, aşağıdaki özelliklere sahiptir:
+Kaynak, dizideki bir nesnedir `resources` . Paket kaynağının sürümlü bir özelliğini temsil eder. Bir kaynak aşağıdaki özelliklere sahiptir:
 
 Ad          | Tür   | Gerekli | Notlar
 ------------- | ------ | -------- | -----
-@id           | dize | evet      | Kaynak URL'si
-@type         | dize | evet      | Kaynak türünü temsil eden bir dize sabiti
-comment       | dize | Yok       | Kaynak insan tarafından okunabilir bir açıklaması
+@id           | string | evet      | Kaynağın URL 'SI
+@type         | string | evet      | Kaynak türünü temsil eden bir dize sabiti
+comment       | string | hayır       | Kaynağın okunabilir bir açıklaması
 
-`@id` Gerekir ve mutlak bir URL HTTP veya HTTPS şeması sahip olabilir.
+`@id`Mutlak olması gereken ve http ya da https şemasına sahip olması gereken BIR URL 'dir.
 
-`@type` Kaynakla etkileşim kurarken kullanacağı özel bir protokolü tanımlamak için kullanılır. Kaynak türü, genel olmayan bir dizedir, ancak genellikle şu biçimdedir:
+, `@type` Kaynakla etkileşim kurarken kullanılacak belirli Protokolü belirlemek için kullanılır. Kaynağın türü donuk bir dizedir, ancak genellikle şu biçimdedir:
 
-    {RESOURCE_NAME}/{RESOURCE_VERSION}
+```
+{RESOURCE_NAME}/{RESOURCE_VERSION}
+```
 
-İstemciler için sabit kod beklenen `@type` anlamak ve bir paket kaynağının hizmet dizinine bakarak değerleri. Tam `@type` numaralandırılmış değerlerinin bugün kullanımda listelenen ayrı kaynak başvuru belgelerindeki [API'sine genel bakış](overview.md#resources-and-schema).
+İstemcilerin `@type` anladıkları değerleri sabit olarak kodlamaları ve bir paket kaynağının hizmet dizininde bunları araması beklenir. `@type`Günümüzde kullanımda olan değerler, [API genel](overview.md#resources-and-schema)görünümünde listelenen tek kaynak başvuru belgelerinde numaralandırılır.
 
-Bu belge için farklı kaynaklar ile ilgili belgeler tarafından temelde gruplandırılacak `{RESOURCE_NAME}` senaryoya göre gruplandırma benzer olan hizmet dizinde bulunamadı. 
+Bu belgelerin bir listesi için, farklı kaynaklarla ilgili belgeler temelde, `{RESOURCE_NAME}` senaryoya göre gruplandırma ile benzer hizmet dizininde bulunan tarafından gruplandırılır. 
 
-Her bir kaynağın benzersiz olan bir gereksinimi yoktur `@id` veya `@type`. Bu istemci uygulamasının hangi kaynağı diğerine tercih kadar olur. Olası bir uygulaması olan kaynaklar aynı veya uyumlu `@type` ettirirsiniz bağlantı kesintisi veya sunucu hatası olması durumunda kullanılabilir.
+Her kaynak için benzersiz bir veya olan bir gereksinim yoktur `@id` `@type` . Bu, başka bir kaynağın hangi kaynağa tercih edeceğini belirleyen istemci uygulamasına çalışır. Olası bir uygulama, `@type` bağlantı hatası veya sunucu hatası durumunda aynı veya uyumlu olan kaynakların hepsini bir kez deneme biçiminde kullanılabilir.
 
 ### <a name="sample-request"></a>Örnek istek
 
-    GET https://api.nuget.org/v3/index.json
+```
+GET https://api.nuget.org/v3/index.json
+```
 
 ### <a name="sample-response"></a>Örnek yanıt
 

@@ -1,17 +1,17 @@
 ---
 title: NuGet paket sürümü başvurusu
 description: Bir NuGet paketinin bağımlı olduğu diğer paketler için sürüm numaralarını ve aralıklarını belirtmeyle ilgili tam ayrıntılar ve bağımlılıkların yüklenme şekli.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 03/23/2018
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 4cb12f439d796d583f52d657225c39418d5a4836
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 5ba7860fae1037c0c0eb4c55d2df12d98b1d77cf
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237367"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775121"
 ---
 # <a name="package-versioning"></a>Paket sürümü oluşturma
 
@@ -29,17 +29,19 @@ Bu konuda:
 
 Belirli bir sürüm numarası, *ana. ikincil. Patch [-suffix]* biçiminde olduğundan, bileşenler aşağıdaki anlamlara sahiptir:
 
-- *Birincil* : son değişiklikler
-- *İkincil* : yeni özellikler, ancak geriye dönük olarak uyumlu
-- *Düzeltme Eki* : yalnızca geriye dönük uyumlu hata düzeltmeleri
+- *Birincil*: son değişiklikler
+- *İkincil*: yeni özellikler, ancak geriye dönük olarak uyumlu
+- *Düzeltme Eki*: yalnızca geriye dönük uyumlu hata düzeltmeleri
 - *-Soneki* (isteğe bağlı): ön sürüm sürümünü belirten bir dize ( [anlamsal sürüm oluşturma veya semver 1,0 kuralını](https://semver.org/spec/v1.0.0.html)izleyerek).
 
 **Örnekler:**
 
-    1.0.1
-    6.11.1231
-    4.3.1-rc
-    2.2.44-beta1
+```
+1.0.1
+6.11.1231
+4.3.1-rc
+2.2.44-beta1
+```
 
 > [!Important]
 > nuget.org, tam sürüm numarası bulunmayan tüm paket karşıya yüklemeyi reddeder. Sürümün, `.nuspec` paketi oluşturmak için kullanılan proje dosyasında belirtilmesi gerekir.
@@ -55,18 +57,20 @@ Yani, paket geliştiricileri genellikle tanınan adlandırma kurallarını izler
 - `-rc`: Yayın adayı, genellikle önemli hatalar oluşmadığı takdirde son derece nihai (kararlı) bir sürümdür.
 
 > [!Note]
-> NuGet 4.3.0 +, *1.0.1-Build. 23* ' te olduğu gibi nokta gösterimi ile yayın öncesi numaralarını destekleyen [semver 2.0.0](https://semver.org/spec/v2.0.0.html)'i destekler. Nokta gösterimi 4.3.0 öncesi NuGet sürümleriyle desteklenmez. *1.0.1-build23* gibi bir biçim kullanabilirsiniz.
+> NuGet 4.3.0 +, *1.0.1-Build. 23*' te olduğu gibi nokta gösterimi ile yayın öncesi numaralarını destekleyen [semver 2.0.0](https://semver.org/spec/v2.0.0.html)'i destekler. Nokta gösterimi 4.3.0 öncesi NuGet sürümleriyle desteklenmez. *1.0.1-build23* gibi bir biçim kullanabilirsiniz.
 
 Paket başvuruları ve birden çok paket sürümü yalnızca sonek tarafından farklılık gösterdiği zaman, NuGet önce sonek olmadan bir sürüm seçer, ardından ön sürüm sürümüne ters alfabetik sırada öncelik uygular. Örneğin, aşağıdaki sürümler gösterilen tam sırada seçilebilir:
 
-    1.0.1
-    1.0.1-zzz
-    1.0.1-rc
-    1.0.1-open
-    1.0.1-beta
-    1.0.1-alpha2
-    1.0.1-alpha
-    1.0.1-aaa
+```
+1.0.1
+1.0.1-zzz
+1.0.1-rc
+1.0.1-open
+1.0.1-beta
+1.0.1-alpha2
+1.0.1-alpha
+1.0.1-aaa
+```
 
 ## <a name="semantic-versioning-200"></a>Anlamsal Sürüm Oluşturma 2.0.0
 
@@ -80,7 +84,7 @@ SemVer v 2.0.0 'in belirli semantiklerinden bazıları eski istemcilerde destekl
 Nuget.org için bir paket, aşağıdaki deyimlerden herhangi biri doğruysa bir SemVer v 2.0.0 paketi olarak tanımlanır:
 
 - Paketin kendi sürümü, yukarıda tanımlanan semver v 2.0.0 uyumludur ancak SemVer v 1.0.0 uyumlu değildir.
-- Paketin bağımlılık sürümü aralıklarının herhangi birinin, yukarıda tanımlanan semver v 2.0.0 uyumlu ancak SemVer v 1.0.0 uyumlu olmayan en düşük veya en yüksek sürümü vardır; Örneğin, *[1.0.0-Alpha. 1,)* .
+- Paketin bağımlılık sürümü aralıklarının herhangi birinin, yukarıda tanımlanan semver v 2.0.0 uyumlu ancak SemVer v 1.0.0 uyumlu olmayan en düşük veya en yüksek sürümü vardır; Örneğin, *[1.0.0-Alpha. 1,)*.
 
 Nuget.org 'e özel bir SemVer v 2.0.0 paketi yüklerseniz, paket eski istemcilere görünmez ve yalnızca aşağıdaki NuGet istemcilerinin kullanımına açık olur:
 
@@ -104,15 +108,15 @@ NuGet, paket bağımlılıklarına başvururken, sürüm aralıklarını belirtm
 
 | Gösterim | Uygulanan kural | Açıklama |
 |----------|--------------|-------------|
-| 1,0 | x ≥ 1,0 | En düşük sürüm, dahil |
-| (1.0,) | x > 1,0 | En düşük sürüm, özel |
-| [1,0] | x = = 1,0 | Tam sürüm eşleşmesi |
-| (, 1,0] | x ≤ 1,0 | En yüksek sürüm, dahil |
-| (, 1,0) | x < 1,0 | En yüksek sürüm, özel |
-| [1.0,2.0] | 1,0 ≤ x ≤ 2,0 | Tam Aralık, dahil |
-| (1.0,2.0) | 1,0 < x < 2,0 | Tam Aralık, özel |
-| [1.0,2.0) | 1,0 ≤ x < 2,0 | Karma kapsamlı en düşük ve en yüksek sürüm |
-| (1,0)    | geçersiz | geçersiz |
+| 1,0 | x ≥ 1,0 | En düşük sürüm, belirtilen değerler dahil |
+| (1.0,) | x > 1.0 | En düşük sürüm, belirtilen değerler hariç |
+| [1.0] | x == 1.0 | Tam sürüm eşleşmesi |
+| (,1.0] | x ≤ 1.0 | En yüksek sürüm, belirtilen değerler dahil |
+| (,1.0) | x < 1.0 | En yüksek sürüm, belirtilen değerler hariç |
+| [1.0,2.0] | 1.0 ≤ x ≤ 2.0 | Tam aralık, belirtilen değerler dahil |
+| (1.0,2.0) | 1.0 < x < 2.0 | Tam aralık, belirtilen değerler hariç |
+| [1.0,2.0) | 1.0 ≤ x < 2.0 | En düşük (belirtilen değerler dahil) ve en yüksek (belirtilen değerler hariç) sürümlerin karması |
+| (1.0)    | geçersiz | geçersiz |
 
 Bu, PackageReference biçimini kullanırken, \* büyük, ikincil, düzeltme eki uygulama ve sayının yayın öncesi sonek bölümleri için de kayan bir gösterim kullanılmasını destekler. Kayan sürümler `packages.config` biçimde desteklenmez. Kayan bir sürüm belirtildiğinde, kural sürüm açıklamasıyla eşleşen en yüksek sürüme çözümlenmektedir. Kayan sürümlerin ve çözümlerin örnekleri aşağıda verilmiştir.
 
@@ -228,18 +232,15 @@ Yükleme, yeniden yükleme veya geri yükleme işlemleri sırasında bir depodan
 
 - Önde gelen sıfırlar sürüm numaralarına kaldırılır:
 
-        1.00 is treated as 1.0
-        1.01.1 is treated as 1.1.1
-        1.00.0.1 is treated as 1.0.0.1
+  1,0 1,00, 1.01.1 olarak kabul edilir 1.00.0.1 1.0.0.1 olarak kabul edilir.
 
 - Sürüm numarasının dördüncü bölümünde sıfır yok edilir
 
-        1.0.0.0 is treated as 1.0.0
-        1.0.01.0 is treated as 1.0.1
-        
+  1.0.0.0, 1.0.0 1.0.01.0 olarak değerlendirilir 1.0.1 olarak değerlendirilir
+
 - SemVer 2.0.0 derleme meta verileri kaldırıldı
 
-        1.0.7+r3456 is treated as 1.0.7
+  1.0.7 + r3456, 1.0.7 olarak değerlendirilir
 
 `pack` ve `restore` işlemler mümkün olduğunda sürümleri normalleştirin. Zaten oluşturulan paketler için, bu normalleştirme, paketlerdeki sürüm numaralarını etkilemez; Bağımlılıklar çözümlenirken yalnızca NuGet 'in sürümleri nasıl eşleştiğini etkiler.
 

@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 852dca8c70b09d941e844b1f7cd03b38e2192481
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 403686de42bf4dc1fa94b9dd92ca6d33f3be2183
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237529"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775292"
 ---
 # <a name="package-metadata"></a>Paket meta verileri
 
@@ -58,9 +58,9 @@ Kayıt kaynağında bulunan tüm URL 'Ler HTTP yöntemlerini `GET` ve ' i destek
 
 Kayıt kaynağı paket meta verilerini paket KIMLIĞIYLE gruplandırır. Aynı anda birden fazla paket KIMLIĞI hakkında veri almak mümkün değildir. Bu kaynak paket kimliklerini bulmayı sağlayan bir yol sağlar. Bunun yerine, istemcinin istenen paket KIMLIĞINI zaten öğrenmiş olduğu varsayılır. Her paket sürümü hakkında kullanılabilir meta veriler sunucu uygulamasına göre değişir. Paket kayıt Blobları aşağıdaki hiyerarşik yapıya sahiptir:
 
-- **Dizin** : aynı paket kimliğine sahip bir kaynaktaki tüm paketler tarafından paylaşılan paket meta verileri için giriş noktası.
-- **Sayfa** : paket sürümlerinin gruplandırması. Bir sayfadaki paket sürümü sayısı sunucu uygulamasına göre tanımlanır.
-- **Yaprak** : tek bir paket sürümüne özgü bir belge.
+- **Dizin**: aynı paket kimliğine sahip bir kaynaktaki tüm paketler tarafından paylaşılan paket meta verileri için giriş noktası.
+- **Sayfa**: paket sürümlerinin gruplandırması. Bir sayfadaki paket sürümü sayısı sunucu uygulamasına göre tanımlanır.
+- **Yaprak**: tek bir paket sürümüne özgü bir belge.
 
 Kayıt dizininin URL 'SI öngörülebilir olur ve istemci tarafından, hizmet dizininden bir paket KIMLIĞI ve kayıt kaynağının değeri verildiğinde belirlenebilir `@id` . Kayıt sayfaları ve yaprakları için URL 'Ler kayıt dizinini inceleyerek bulunur.
 
@@ -72,15 +72,17 @@ Kayıt dizininde tüm paket sürümlerinin (yaprakları) depolanması, paket met
 
 Nuget.org 'in kullandığı buluşsal yöntem şu şekildedir: bir paketin 128 veya daha fazla sürümü varsa, yaprakları 64 boyutundaki sayfalara bölün. 128 'den az sürüm varsa, satır içi tümü kayıt dizininde kalır. Bunun anlamı, 65 ile 127 arasındaki paketlerin dizinde iki sayfa olacağını, ancak her iki sayfanın de satır içine alınır olduğunu unutmayın.
 
-    GET {@id}/{LOWER_ID}/index.json
+```
+GET {@id}/{LOWER_ID}/index.json
+```
 
 ### <a name="request-parameters"></a>İstek parametreleri
 
 Name     | İçinde     | Tür    | Gerekli | Notlar
 -------- | ------ | ------- | -------- | -----
-LOWER_ID | URL    | string  | yes      | Paket KIMLIĞI, küçük harf
+LOWER_ID | URL    | string  | evet      | Paket KIMLIĞI, küçük harf
 
-`LOWER_ID`Değer, tarafından uygulanan kurallar kullanılarak istenen paket kimliği küçük harf olarak belirlenir. NET 'in [`System.String.ToLowerInvariant()`](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) yöntemi.
+`LOWER_ID`Değer, tarafından uygulanan kurallar kullanılarak istenen paket kimliği küçük harf olarak belirlenir. NET 'in [`System.String.ToLowerInvariant()`](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant&preserve-view=true) yöntemi.
 
 ### <a name="response"></a>Yanıt
 
@@ -88,8 +90,8 @@ Yanıt, aşağıdaki özelliklere sahip bir kök nesnesi olan bir JSON belgesidi
 
 Ad  | Tür             | Gerekli | Notlar
 ----- | ---------------- | -------- | -----
-count | tamsayı          | yes      | Dizindeki kayıt sayfası sayısı
-öğeler | nesne dizisi | yes      | Kayıt sayfaları dizisi
+count | tamsayı          | evet      | Dizindeki kayıt sayfası sayısı
+öğeler | nesne dizisi | evet      | Kayıt sayfaları dizisi
 
 Dizin nesnesi dizisindeki her öğe `items` , bir kayıt sayfasını temsil eden BIR JSON nesnesidir.
 
@@ -99,12 +101,12 @@ Kayıt dizininde bulunan kayıt sayfası nesnesi aşağıdaki özelliklere sahip
 
 Ad   | Tür             | Gerekli | Notlar
 ------ | ---------------- | -------- | -----
-@id    | string           | yes      | Kayıt sayfasının URL 'SI
-count  | tamsayı          | yes      | Kayıt sayısı sayfada kalır
+@id    | string           | evet      | Kayıt sayfasının URL 'SI
+count  | tamsayı          | evet      | Kayıt sayısı sayfada kalır
 öğeler  | nesne dizisi | hayır       | Kayıt dizisi ve onların ilişkilendirme meta verileri
-düşürül  | string           | yes      | Sayfada en düşük SemVer 2.0.0 sürümü (dahil)
+düşürül  | string           | evet      | Sayfada en düşük SemVer 2.0.0 sürümü (dahil)
 üst | string           | hayır       | Kayıt dizininin URL 'SI
-üst  | string           | yes      | Sayfada en yüksek SemVer 2.0.0 sürümü (dahil)
+üst  | string           | evet      | Sayfada en yüksek SemVer 2.0.0 sürümü (dahil)
 
 `lower` `upper` Sayfa nesnesinin ve sınırları, belirli bir sayfa sürümü için meta veriler gerektiğinde faydalıdır.
 Bu sınırlar, gereken tek kayıt sayfasını getirmek için kullanılabilir. Sürüm dizeleri [NuGet 'in sürüm kurallarına](../concepts/package-versioning.md)uyar. Sürüm dizeleri normalleştirilir ve derleme meta verilerini içermez. NuGet ekosistemindeki tüm sürümlerde olduğu gibi, sürüm dizelerinin karşılaştırması, [Semver 2.0.0 'in sürüm önceliği kuralları](https://semver.org/spec/v2.0.0.html#spec-item-11)kullanılarak uygulanır.
@@ -123,9 +125,9 @@ Kayıt sayfasında bulunan kayıt yaprak nesnesi aşağıdaki özelliklere sahip
 
 Ad           | Tür   | Gerekli | Notlar
 -------------- | ------ | -------- | -----
-@id            | string | yes      | Kayıt yaprağın URL 'SI
-catalogEntry   | object | yes      | Paket meta verilerini içeren katalog girdisi
-packageContent | string | yes      | Paket içeriğinin URL 'SI (. nupkg)
+@id            | string | evet      | Kayıt yaprağın URL 'SI
+catalogEntry   | object | evet      | Paket meta verilerini içeren katalog girdisi
+packageContent | string | evet      | Paket içeriğinin URL 'SI (. nupkg)
 
 Her kayıt yaprak nesnesi, tek bir paket sürümüyle ilişkili verileri temsil eder.
 
@@ -135,13 +137,13 @@ Her kayıt yaprak nesnesi, tek bir paket sürümüyle ilişkili verileri temsil 
 
 Ad                     | Tür                       | Gerekli | Notlar
 ------------------------ | -------------------------- | -------- | -----
-@id                      | string                     | yes      | Bu nesneyi oluşturmak için kullanılan belgenin URL 'SI
+@id                      | string                     | evet      | Bu nesneyi oluşturmak için kullanılan belgenin URL 'SI
 düzenliyor                  | dizelerin dizesi veya dizisi | hayır       | 
 dependencyGroups         | nesne dizisi           | hayır       | Hedef çerçeveye göre gruplanmış paketin bağımlılıkları
 kullanımdan kaldırma              | object                     | hayır       | Paketle ilişkili kullanımdan kaldırma
 açıklama              | string                     | hayır       | 
 Iurl                  | string                     | hayır       | 
-kimlik                       | string                     | yes      | Paketin KIMLIĞI
+kimlik                       | string                     | evet      | Paketin KIMLIĞI
 licenseUrl               | string                     | hayır       |
 licenseExpression        | string                     | hayır       | 
 listelenen                   | boolean                    | hayır       | Yoksa listelenen olarak kabul edilmelidir
@@ -152,7 +154,7 @@ Requirelicensekabulünü | boolean                    | hayır       |
 Özet                  | string                     | hayır       | 
 etiketler                     | dize veya dize dizisi  | hayır       | 
 başlık                    | string                     | hayır       | 
-sürüm                  | string                     | yes      | Normalleştirme sonrasında tam sürüm dizesi
+sürüm                  | string                     | evet      | Normalleştirme sonrasında tam sürüm dizesi
 
 Package `version` özelliği, normalleştirmenin ardından tam sürüm dizesidir. Bu, SemVer 2.0.0 derleme verilerinin buraya dahil edileceğini gösterir.
 
@@ -182,7 +184,7 @@ Her paket bağımlılığı aşağıdaki özelliklere sahiptir:
 
 Ad         | Tür   | Gerekli | Notlar
 ------------ | ------ | -------- | -----
-kimlik           | string | yes      | Paket bağımlılığının KIMLIĞI
+kimlik           | string | evet      | Paket bağımlılığının KIMLIĞI
 aralık        | object | hayır       | Bağımlılığın izin verilen [Sürüm aralığı](../concepts/package-versioning.md#version-ranges)
 kayıt | string | hayır       | Bu bağımlılık için kayıt dizininin URL 'SI
 
@@ -194,7 +196,7 @@ Her bir paket kullanımdan kaldırılması aşağıdaki özelliklere sahiptir:
 
 Ad             | Tür             | Gerekli | Notlar
 ---------------- | ---------------- | -------- | -----
-olası          | dize dizisi | yes      | Paketin kullanım dışı olma nedenleri
+olası          | dize dizisi | evet      | Paketin kullanım dışı olma nedenleri
 message          | string           | hayır       | Bu kullanımdan kaldırma ile ilgili ek ayrıntılar
 alternatePackage | object           | hayır       | Bunun yerine kullanılması gereken alternatif paket
 
@@ -214,12 +216,14 @@ Alternatif paket nesnesi aşağıdaki özelliklere sahiptir:
 
 Ad         | Tür   | Gerekli | Notlar
 ------------ | ------ | -------- | -----
-kimlik           | string | yes      | Alternatif paketin KIMLIĞI
+kimlik           | string | evet      | Alternatif paketin KIMLIĞI
 aralık        | object | hayır       | İzin verilen [Sürüm aralığı](../concepts/package-versioning.md#version-ranges)veya `*` herhangi bir sürüme izin veriliyorsa
 
 ### <a name="sample-request"></a>Örnek istek
 
-    GET https://api.nuget.org/v3/registration3/nuget.server.core/index.json
+```
+GET https://api.nuget.org/v3/registration3/nuget.server.core/index.json
+```
 
 ### <a name="sample-response"></a>Örnek yanıt
 
@@ -238,18 +242,20 @@ Kayıt sayfası, kayıt yaprakları içerir. Kayıt sayfasını getirecek URL, `
 
 Ad   | Tür             | Gerekli | Notlar
 ------ | ---------------- | -------- | -----
-@id    | string           | yes      | Kayıt sayfasının URL 'SI
-count  | tamsayı          | yes      | Kayıt sayısı sayfada kalır
-öğeler  | nesne dizisi | yes      | Kayıt dizisi ve onların ilişkilendirme meta verileri
-düşürül  | string           | yes      | Sayfada en düşük SemVer 2.0.0 sürümü (dahil)
-üst | string           | yes      | Kayıt dizininin URL 'SI
-üst  | string           | yes      | Sayfada en yüksek SemVer 2.0.0 sürümü (dahil)
+@id    | string           | evet      | Kayıt sayfasının URL 'SI
+count  | tamsayı          | evet      | Kayıt sayısı sayfada kalır
+öğeler  | nesne dizisi | evet      | Kayıt dizisi ve onların ilişkilendirme meta verileri
+düşürül  | string           | evet      | Sayfada en düşük SemVer 2.0.0 sürümü (dahil)
+üst | string           | evet      | Kayıt dizininin URL 'SI
+üst  | string           | evet      | Sayfada en yüksek SemVer 2.0.0 sürümü (dahil)
 
 Kayıt yaprak nesnelerinin şekli [Yukarıdaki](#registration-leaf-object-in-a-page)kayıt diziniyle aynıdır.
 
 ## <a name="sample-request"></a>Örnek istek
 
-    GET https://api.nuget.org/v3/registration3/ravendb.client/page/1.0.531/1.0.729-unstable.json
+```
+GET https://api.nuget.org/v3/registration3/ravendb.client/page/1.0.531/1.0.729-unstable.json
+```
 
 ## <a name="sample-response"></a>Örnek yanıt
 
@@ -268,7 +274,7 @@ Kayıt yaprağı, aşağıdaki özelliklere sahip bir kök nesnesine sahip bir J
 
 Ad           | Tür    | Gerekli | Notlar
 -------------- | ------- | -------- | -----
-@id            | string  | yes      | Kayıt yaprağın URL 'SI
+@id            | string  | evet      | Kayıt yaprağın URL 'SI
 catalogEntry   | string  | hayır       | Bu yaprağı üreten Katalog girişinin URL 'SI
 listelenen         | boolean | hayır       | Yoksa listelenen olarak kabul edilmelidir
 packageContent | string  | hayır       | Paket içeriğinin URL 'SI (. nupkg)
@@ -280,7 +286,9 @@ kayıt   | string  | hayır       | Kayıt dizininin URL 'SI
 
 ### <a name="sample-request"></a>Örnek istek
 
-    GET https://api.nuget.org/v3/registration3/nuget.versioning/4.3.0.json
+```
+GET https://api.nuget.org/v3/registration3/nuget.versioning/4.3.0.json
+```
 
 ### <a name="sample-response"></a>Örnek yanıt
 

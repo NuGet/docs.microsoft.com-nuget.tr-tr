@@ -1,55 +1,55 @@
 ---
-title: NuGet Paketlerini nuget.org Silme
-description: nuget.org gelen paketleri listedışı bırakma ilkeleri; paketlerin diğer ilkeleri ihlal ettiği durumlar dışında kalıcı silme desteklenmez.
-author: karann-msft
-ms.author: karann
+title: NuGet paketlerini nuget.org 'dan silme
+description: Nuget.org konumundan paketlerin listesini kaldırma ilkeleri paketlerin diğer ilkeleri ihlal ettiği durumlar dışında kalıcı silme desteklenmez.
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3abe809d76e75801c2f936aba129d27ba7b64913
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: e5c62177b40162cb8b6b37b0d272fb7a945156c1
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80581274"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775715"
 ---
 # <a name="deleting-packages"></a>Paketleri silme
 
-nuget.org paketlerin kalıcı olarak silinmesini desteklemez. Bunu yapmak, özellikle paket geri yüklemeiçeren yapı iş akışları ile, paketin kullanılabilirliğine bağlı olarak her projeyi bozar.
+nuget.org, paketlerin kalıcı olarak silinmesini desteklemez. Bunun yapılması, özellikle paket geri yüklemeyi içeren derleme iş akışlarıyla, paketin kullanılabilirliğine bağlı olarak her projeyi keser.
 
-nuget.org, web sitesindeki paket yönetim sayfasında yapılabilecek [bir paketin listedışı kalınmasına](#unlisting-a-package)destek veriyor. Listelenmemiş paketler nuget.org veya Visual Studio UI'de görünmez ve arama sonuçlarında görünmez. Ancak listelenmemiş paketler, paket geri yüklemeyi destekleyen tam bir sürüm numarası kullanılarak indirilebilir ve yüklenebilir. Buna ek olarak, listelenmemiş paketler hala aşağıdaki özel senaryolarda keşfedilebilir:
+nuget.org, Web sitesindeki paket yönetimi sayfasında yapılabilecek [bir paketin listesini kaldırma](#unlisting-a-package)işlemi destekler. Listelenmemiş paketler nuget.org veya Visual Studio Kullanıcı arabiriminde görünmez ve arama sonuçlarında görünmez. Ancak, listelenmemiş paketler, paket geri yüklemeyi destekleyen tam bir sürüm numarası kullanılarak indirilip yüklenebilirler. Ayrıca, listelenmemiş paketler yine de aşağıdaki belirli senaryolarda bulunabilir:
 
-- Sürüm veya bağımlılık kısıtlamalarıyla eşleşen `1.0.0-*`en son kullanılabilir paket listelenmemiş bir paketse, kayan sürümleri (örneğin, ) kullanarak paket geri yükleme.
-- Katalog aracılığıyla paketlerin çoğaltılması (katalog da listelenmemiş paketleri içerdiğinden).
+- Kayan sürümler (örneğin,) kullanarak paket geri yükleme `1.0.0-*` , sürüm veya bağımlılık kısıtlamalarıyla eşleşen en son paket listelenmemiş bir pakettir.
+- Katalog aracılığıyla paketlerin çoğaltılması (Katalog Ayrıca listelenmemiş paketleri de içerir).
 
 ## <a name="exceptions"></a>Özel durumlar
 
-Telif hakkı ihlali ve zararlı olabilecek içerik gibi istisnai durumlarda paketler NuGet ekibi tarafından el ile silinebilir. NuGet.org paket ayrıntıları sayfasındaki "Kötüye kullanımı bildir" düğmesini kullanarak paketi bildirebilirsiniz. Paket sahibiyseniz, NuGet.org paket ayrıntıları sayfasındaki "Destekle İletişim" düğmesini kullanarak NuGet desteğine ulaşmak için NuGet.org hesabınıza giriş yapın.
+Telif hakkı ihlali ve potansiyel olarak zararlı içerik gibi olağanüstü durumlarda, paketler NuGet ekibi tarafından el ile silinebilir. NuGet.org paket ayrıntıları sayfasındaki "kötüye kullanımı raporla" düğmesini kullanarak bir paket bildirebilirsiniz. Paket sahibiyseniz, NuGet.org paket ayrıntıları sayfasındaki "desteğe başvur" düğmesini kullanarak NuGet desteğine ulaşmak için NuGet.org hesabınızda oturum açın.
 
-## <a name="prohibited-use"></a>Yasak kullanım
+## <a name="prohibited-use"></a>Yasaklanmış Kullanım
 
-Aşağıdaki ölçütlerden herhangi birini karşılayan paketlerin genel NuGet galerisinde girmesine izin verilmez ve tartışmadan hemen kaldırılır. Ancak paket sahipleri kaldırma hakkında bilgilendirilecek.
+Ortak NuGet galerisinde aşağıdaki ölçütlerden birine uyan paketlere izin verilmez ve hiçbir tartışma yapılmadan hemen kaldırılır. Bununla birlikte, paket sahipleri, kaldırma işleminin bilgilendirilmesine sahip olur.
 
-- Kötü amaçlı yazılımlar, adware veya her türlü casus yazılım içerir.
-- Bir geliştiricinin iş istasyonuna veya kuruluşuna zarar vermek üzere tasarlanmıştır.
-- Telif haklarını ihlal eder veya lisansları ihlal eder.
-- Yasa dışı içerik içerir.
-- Sıfır üretken içeriğe sahip paketler de dahil olmak üzere paket tanımlayıcıları üzerinde çömelmek için kullanılıyor. Paketler kod içermelidir veya sahipleri aslında sevk için bir ürün olan birine tanımlayıcı kabul etmelidir.
-- Galeriye açıkça tasarlanmadığı bir şeyi yapmaya çalış.
+- Kötü amaçlı yazılım, reklam yazılımı veya herhangi bir tür casus yazılım içerir.
+- , Bir geliştiricinin iş istasyonuna veya kuruluşuna zarar verecek şekilde tasarlanmıştır.
+- Kuruluşa ait telif hakları veya ihlal ediyor.
+- Geçersiz içerik içeriyor.
+- , Sıfır üretken içeriğe sahip paketler dahil paket tanımlayıcılarında squon 'ta kullanılıyor. Paketler kod içermeli veya sahipler, gerçekten bir ürüne sahip olan bir kişiye tanımlayıcıyı bir biçimde gizleme olmalıdır.
+- Galeri 'yi açıkça yapmak üzere tasarlanmadığı bir şeyi yapmayı deneyin.
 
-Bu öğelerden herhangi birini ihlal eden bir paket bulursanız, paket ayrıntıları sayfasındaki **Kötüye Kullanımı Bildir** bağlantısını tıklayın ve bir rapor gönderin.
+Bu öğelerden herhangi birini ihlal eden bir paket bulursanız, paket ayrıntıları sayfasında **kötüye kullanımı bildir** bağlantısına tıklayın ve bir rapor gönderebilirsiniz.
 
-NuGet ekibinin ve .NET Vakfı'nın bu kriterleri istediği zaman değiştirme hakkını saklı tutar.
+NuGet ekibi ve .NET Foundation 'ın, bu ölçütleri istediğiniz zaman değiştirme hakkını ayırdığını unutmayın.
 
-## <a name="unlisting-a-package"></a>Paketi listeleme
-Paket sürümünün listelenmesi, paketi aramadan ve paket ayrıntıları sayfasından nuget.org gizler. Bu, paketin mevcut kullanıcılarının paketi kullanmaya devam etmesine izin verir, ancak paket aramada görünmediğinden yeni benimsenmesini azaltır.
+## <a name="unlisting-a-package"></a>Bir paketin listesini kaldırma
+Bir paket sürümünün listesinin kaldırılması, onu arama ve nuget.org paket ayrıntıları sayfasından gizler. Bu, paketin var olan kullanıcılarının bu uygulamayı kullanmaya devam etmesine izin verir, ancak paket aramada görülemediğinden yeni benimsemeyi azaltır.
 
-Paketin listesini çıkarmak için adımlar:
+Paket listesini kaldırma adımları:
 
-1. Seçin `Your account name` (sağ üst köşede) >`Manage packages` > `Published packages`
-1. "Paketi yönet" simgesini seçin
+1. Seç `Your account name` (sağ üst köşede) >`Manage packages` > `Published packages`
+1. "Paketi Yönet" simgesini seçin
 1. "Listeleme" bölümünü genişletin ve paket sürümünü seçin
-1. "Arama sonuçlarında listele" seçeneğini kaldırın ve "Kaydet"i seçin
+1. "Arama sonuçlarında Listele" seçeneğinin işaretini kaldırın ve "Kaydet" i seçin
 
-Belirli paket sürümü artık listedışı bırakıldı. Bunu doğrulamak için, hesabınızın oturumuna geçin ve paket sayfasına (sürüm bölümü olmadan) gidin: https://www.nuget.org/packages/YOUR-PACKAGE-NAME/. Bu paketin listelenmemiş tüm sürümlerini görürsünüz. **not** Ancak, paket sahibi oturum açtığınızda tüm sürümleri ve giriş durumlarını görebilir.
+Belirli paket sürümü artık listelenmemiş. Bunu doğrulamak için, hesabınızın oturumunu kapatın ve paket sayfasına (sürüm bölümü olmadan) gidin, örneğin: https://www.nuget.org/packages/YOUR-PACKAGE-NAME/ . Bu paketin listede listelenmemiş tüm sürümlerini görürsünüz.  Ancak, oturum açıldığında paket sahibi, tüm sürümleri ve bunların listeleme durumlarını görebilir.
 
-Bir paket sürümünü amortismana kullanabilirsiniz (paket sürümünü silemezseniz). Paket sürümlerini küçümseme hakkında daha fazla bilgi için [bkz.](../deprecate-packages.md)
+Paket sürümünü kullanımdan kaldırmak da mümkündür (bir paket sürümünü silemmeniz durumunda). Paket sürümlerini kullanımdan kaldırma hakkında daha fazla bilgi için bkz. [paketleri kullanımdan](../deprecate-packages.md)kaldırma.

@@ -1,16 +1,16 @@
 ---
 title: NuGet akışlarını barındırmak için NuGet. Server kullanma
 description: NuGet. Server kullanarak IIS çalıştıran herhangi bir sunucuda NuGet paket akışı oluşturma ve barındırma, paketleri HTTP ve OData aracılığıyla kullanılabilir hale getirme.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 03/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7a806e6b586c63c701642c9e43865cb077d7999c
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 3a9fb843f071eda72b9469292a7276ad81f8c24d
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623051"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774075"
 ---
 # <a name="nugetserver"></a>NuGet.Server
 
@@ -114,7 +114,7 @@ Bunun yerine paketin listesini kaldırma (paket geri yükleme için kullanılabi
 
 ## <a name="making-packages-available-when-you-publish-the-web-app"></a>Web uygulamasını yayımladığınızda paketleri kullanılabilir hale getirme
 
-Uygulamayı bir sunucuda yayımladığınızda paketleri akışta kullanılabilir hale getirmek için, her `.nupkg` `Packages` bir dosyayı Visual Studio 'daki klasöre ekleyin, sonra her bir **yapı eylemini** **Içeriğe** ayarlayın ve her **zaman kopyalamak**için **çıkış dizinine kopyalayın** :
+Uygulamayı bir sunucuda yayımladığınızda paketleri akışta kullanılabilir hale getirmek için, her `.nupkg` `Packages` bir dosyayı Visual Studio 'daki klasöre ekleyin, sonra her bir **yapı eylemini** **Içeriğe** ayarlayın ve her **zaman kopyalamak** için **çıkış dizinine kopyalayın** :
 
 ![Paketler projedeki paketler klasörüne kopyalanıyor](media/Hosting_05-NuGet.Server-Package-Folder.png)
 

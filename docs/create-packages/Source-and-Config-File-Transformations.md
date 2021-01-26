@@ -1,17 +1,17 @@
 ---
 title: NuGet paketleri için kaynak ve yapılandırma dosyası dönüşümleri
 description: NuGet paketlerinin yüklenirken kaynak kodu ve yapılandırma (XML) dosyalarını dönüştürme yeteneği hakkında ayrıntılı bilgi.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 04/24/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 8e3eade14c70782563ba82894f072f9b3a611923
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 5bd0e409f527fb668008204fb16ad002f4784c46
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237990"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774585"
 ---
 # <a name="transforming-source-code-and-configuration-files"></a>Kaynak kodu ve yapılandırma dosyalarını dönüştürme
 
@@ -108,7 +108,7 @@ Daha kapsamlı bir örnek olarak, [ASP.net (ELMAH) paketi Için hata günlüğü
 
 Dosyasını incelemek için `web.config.transform` Yukarıdaki bağlantıdan ELMAH paketini indirin, paket uzantısını `.nupkg` olarak olarak değiştirin `.zip` ve ardından `content\web.config.transform` Bu ZIP dosyasında açın.
 
-Paketi yükleme ve kaldırma etkisini görmek için, Visual Studio 'da yeni bir ASP.NET projesi oluşturun (şablon, yeni proje iletişim kutusunda **visual C# > Web** altında bulunur) ve boş bir ASP.NET uygulaması seçin. `web.config`İlk durumunu görmek için açın. Ardından projeye sağ tıklayın, **NuGet Paketlerini Yönet** ' i seçin, NuGet.org üzerinde ELMAH için gezinme yapın ve en son sürümü yükler. Tüm değişiklikleri unutmayın `web.config` . Şimdi paketi kaldırın ve `web.config` önceki durumuna geri dönün.
+Paketi yükleme ve kaldırma etkisini görmek için, Visual Studio 'da yeni bir ASP.NET projesi oluşturun (şablon, yeni proje iletişim kutusunda **visual C# > Web** altında bulunur) ve boş bir ASP.NET uygulaması seçin. `web.config`İlk durumunu görmek için açın. Ardından projeye sağ tıklayın, **NuGet Paketlerini Yönet**' i seçin, NuGet.org üzerinde ELMAH için gezinme yapın ve en son sürümü yükler. Tüm değişiklikleri unutmayın `web.config` . Şimdi paketi kaldırın ve `web.config` önceki durumuna geri dönün.
 
 ### <a name="xdt-transforms"></a>XDT dönüşümleri
 

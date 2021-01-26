@@ -1,60 +1,64 @@
 ---
 title: nuget.org protokolleri
-description: NuGet istemcileri ile etkileşim kurmak için gelişen nuget.org protokolleri.
+description: NuGet istemcileriyle etkileşimde bulunmak için gelişen nuget.org protokolleri.
 author: anangaur
 ms.author: anangaur
-ms.date: 10/30/2017
+ms.date: 01/21/2021
 ms.topic: conceptual
 ms.reviewer: kraigb
-ms.openlocfilehash: d0add777040dbb8bcde6d8e385a4feab568e5cdd
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: ea072484c896c4862e47b2c03a1b177f196b0aad
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547279"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98773972"
 ---
 # <a name="nugetorg-protocols"></a>nuget.org protokolleri
 
-Nuget.org ile etkileşim kurmak için istemcileri belirli protokoller izlemeniz gerekir. Bu protokollerin gelişen tutmak olduğundan, istemcileri belirli nuget.org API'leri çağırırken kullandıkları protokol sürümü tanımlamanız gerekir. Bu değişiklikler, eski istemciler için bir hataya neden olmayan şekilde tanıtmak nuget.org sağlar.
+Nuget.org ile etkileşim kurmak için istemcilerin belirli protokolleri izlemesi gerekir. Bu protokoller geliştiğinden, istemcilerin belirli nuget.org API 'Lerini çağırırken kullandıkları protokol sürümünü tanımlaması gerekir. Bu, nuget.org 'in eski istemciler için kırılmamış bir şekilde değişiklik almasına olanak tanır.
 
 > [!Note]
-> Bu sayfada belgelenen API'leri nuget.org için özeldir ve bu API'leri tanıtmak diğer NuGet sunucu uygulamaları için hiçbir beklentisi yoktur. 
+> Bu sayfada belgelenen API 'Ler nuget.org 'e özgüdür ve diğer NuGet sunucu uygulamalarının bu API 'Leri tanıtmak için bir beklenmesi yoktur. 
 
-Genel olarak NuGet ekosisteminde uygulanan NuGet API'si hakkında daha fazla bilgi için bkz [API'sine genel bakış](overview.md).
+NuGet ekosistemi genelinde uygulanan NuGet API 'si hakkında daha fazla bilgi için bkz. [API 'ye genel bakış](overview.md).
 
-Bu konu, çeşitli protokoller olarak ve varlığı için ne zaman geldikleri listeler.
+Bu konuda, çeşitli protokoller ve mevcut olduğunda, bu konular listelenmektedir.
 
-## <a name="nuget-protocol-version-410"></a>NuGet Protokolü sürüm 4.1.0
+## <a name="nuget-protocol-version-410"></a>NuGet protokol sürümü 4.1.0
 
-4.1.0 protokolü paketi nuget.org hesabına karşı doğrulamak için nuget.org dışındaki hizmetlerle etkileşim için doğrulama kapsamı anahtarları kullanımını belirtir. Unutmayın `4.1.0` sürüm numarası genel olmayan bir dizedir, ancak ilk sürümü bu protokolü desteklenen resmi bir NuGet istemcisi ile çakıştığı için gerçekleşir.
+4.1.0 protokolü, bir paketi nuget.org hesabına karşı doğrulamak için nuget.org dışındaki hizmetlerle etkileşimde bulunmak üzere Verify-Scope anahtarlarının kullanımını belirtir. `4.1.0`Sürüm numarasının donuk bir dize olduğunu, ancak bu protokolü destekleyen resmi NuGet istemcisinin ilk sürümüyle kesişeceğini unutmayın.
 
-Nuget.org ile yalnızca kullanıcı tarafından oluşturulan API anahtarları kullanılır ve bu bir doğrulama veya bir üçüncü taraf hizmetinden doğrulama tek seferlik kullanım doğrulama kapsamı anahtarlar aracılığıyla işlenir doğrulama sağlar. Bu doğrulama kapsamı anahtarları paket nuget.org üzerindeki belirli bir kullanıcı (hesap) ait olduğunu doğrulamak için kullanılabilir.
+Doğrulama, Kullanıcı tarafından oluşturulan API anahtarlarının yalnızca nuget.org ile kullanılmasını ve üçüncü taraf bir hizmetten gelen diğer doğrulamanın veya doğrulamanın tek seferlik Use Verify-Scope anahtarları aracılığıyla işlenmesini sağlar. Bu doğrulama kapsamı anahtarları, paketin nuget.org üzerinde belirli bir kullanıcıya (hesap) ait olduğunu doğrulamak için kullanılabilir.
 
 ### <a name="client-requirement"></a>İstemci gereksinimi
 
-İstemciler bir API çağrısına zaman aşağıdaki üst bilgi geçirmek için gerekli **anında iletme** nuget.org paketler:
+İstemciler, paketleri nuget.org 'e **göndermek** için API çağrıları yaparken istemcilerin aşağıdaki üstbilgiyi geçmesi gerekir:
 
-    X-NuGet-Protocol-Version: 4.1.0
+```
+X-NuGet-Protocol-Version: 4.1.0
+```
 
-Unutmayın `X-NuGet-Client-Version` üstbilgisi, benzer semantiğe sahip ancak yalnızca resmi bir NuGet istemcisi tarafından kullanılmak üzere ayrılmıştır. Üçüncü taraf istemcileri kullanması gereken `X-NuGet-Protocol-Version` üstbilgiyi ve değeri.
+`X-NuGet-Client-Version`Üstbilginin benzer anlamolduğuna, ancak yalnızca resmi NuGet istemcisi tarafından kullanılmak üzere ayrıldığını unutmayın. Üçüncü taraf istemcileri, `X-NuGet-Protocol-Version` üstbilgiyi ve değeri kullanmalıdır.
 
-**Anında iletme** protokolün kendisini belgelerinde açıklanmıştır [ `PackagePublish` kaynak](package-publish-resource.md).
+**Gönderme** protokolünün kendisi, [ `PackagePublish` kaynağın](package-publish-resource.md)belgelerinde açıklanmıştır.
 
-Dış hizmetler ve gereksinimlerini bir paket (hesap) belirli bir kullanıcıya ait olup olmadığını doğrulamak için bir istemci etkileşimde gerekirse, aşağıdaki protokolünü kullanan ve doğrulama kapsamı anahtarları ve nuget.org değil API anahtarlarını kullanın.
+Bir istemci dış hizmetlerle etkileşime geçtiğinde ve bir paketin belirli bir kullanıcıya (hesap) ait olup olmadığını doğrulaması gerekiyorsa, aşağıdaki Protokolü kullanmalı ve nuget.org adresinden API anahtarlarını değil Verify-Scope anahtarlarını kullanmalıdır.
 
-### <a name="api-to-request-a-verify-scope-key"></a>API doğrulama kapsamı anahtar istemek için
+### <a name="api-to-request-a-verify-scope-key"></a>Verify-Scope anahtarı istemek için API
 
-Bu API, bir nuget.org Yazar him/her tarafından sahip olunan bir paket doğrulamak için bir kapsam doğrulama anahtarını almak için kullanılır.
+Bu API, kendisine ait bir paketi doğrulamak üzere bir nuget.org yazarı için Validate-Scope anahtarını almak için kullanılır.
 
-    POST api/v2/package/create-verification-key/{ID}/{VERSION}
+```
+POST api/v2/package/create-verification-key/{ID}/{VERSION}
+```
 
 #### <a name="request-parameters"></a>İstek parametreleri
 
-Ad           | İçindeki     | Tür   | Gerekli | Notlar
+Name           | İçinde     | Tür   | Gerekli | Notlar
 -------------- | ------ | ------ | -------- | -----
-Kimlik             | URL    | dize | Evet      | Doğrulama kapsamı anahtar istendiği paket identidier
-VERSION        | URL    | dize | Yok       | Paket sürümü
-X-NuGet-ApiKey | Üstbilgi | dize | Evet      | Örneğin, `X-NuGet-ApiKey: {USER_API_KEY}`
+ID             | URL    | string | evet      | Kapsam anahtarını doğrula için istenen paket identidier
+VERSION        | URL    | string | hayır       | Paket sürümü
+X-NuGet-ApiKey | Üst bilgi | string | evet      | Örneğin, `X-NuGet-ApiKey: {USER_API_KEY}`
 
 #### <a name="response"></a>Yanıt
 
@@ -65,27 +69,29 @@ X-NuGet-ApiKey | Üstbilgi | dize | Evet      | Örneğin, `X-NuGet-ApiKey: {USE
 }
 ```
 
-### <a name="api-to-verify-the-verify-scope-key"></a>API doğrulama kapsamı anahtar doğrulamak için
+### <a name="api-to-verify-the-verify-scope-key"></a>Verify Scope anahtarını doğrulamak için API
 
-Bu API, nuget.org yazarı tarafından sahip olunan bir paket için bir doğrulama kapsamı anahtar doğrulamak için kullanılır.
+Bu API, nuget.org yazarına ait olan paketin doğrulama kapsamı anahtarını doğrulamak için kullanılır.
 
-    GET api/v2/verifykey/{ID}/{VERSION}
+```
+GET api/v2/verifykey/{ID}/{VERSION}
+```
 
 #### <a name="request-parameters"></a>İstek parametreleri
 
-Ad           | İçindeki     | Tür   | Gerekli | Notlar
+Name           | İçinde     | Tür   | Gerekli | Notlar
 -------------  | ------ | ------ | -------- | -----
-Kimlik             | URL    | dize | Evet      | Doğrulama kapsamı anahtar istendiği paket tanımlayıcısı
-VERSION        | URL    | dize | Yok       | Paket sürümü
-X-NuGet-ApiKey | Üstbilgi | dize | Evet      | Örneğin, `X-NuGet-ApiKey: {VERIFY_SCOPE_KEY}`
+ID             | URL    | string | evet      | Kapsam anahtarı doğrulaması istenen paket tanımlayıcısı
+VERSION        | URL    | string | hayır       | Paket sürümü
+X-NuGet-ApiKey | Üst bilgi | string | evet      | Örneğin, `X-NuGet-ApiKey: {VERIFY_SCOPE_KEY}`
 
 > [!Note]
-> Bu doğrulama kapsamı API anahtarı bir günün süresi veya ilk kez kullanıldığında, hangisi önce gerçekleşirse.
+> Bu kapsam API anahtarının süresi bir günün saati veya ilk kullanımda olduğunda, ne olursa olsun.
 
 #### <a name="response"></a>Yanıt
 
-Durum kodu | Açıklama
+Durum Kodu | Anlamı
 ----------- | -------
-200         | API anahtarı geçerlidir
-403         | API anahtarı geçersiz veya karşı paket göndermek için yetkili değil
-404         | Tarafından paket adlandırılan `ID` ve `VERSION` (isteğe bağlı) yok
+200         | API anahtarı geçerli
+403         | API anahtarı geçersiz veya pakete gönderim yetkisi yok
+404         | `ID`Ve `VERSION` (isteğe bağlı) tarafından başvurulan paket yok

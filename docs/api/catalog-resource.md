@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/30/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: ffbcb8dc18542f39c32a6d84b279c8eccaf98fc3
-ms.sourcegitcommit: 7e9c0630335ef9ec1e200e2ee9065f702e52a8ec
+ms.openlocfilehash: 11485f583d6993919f6bb8acabcc87d9e4261975
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85292325"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774156"
 ---
 # <a name="catalog"></a>Katalog
 
@@ -23,11 +23,11 @@ ms.locfileid: "85292325"
 > [!Note]
 > Şu anda nuget.org kataloğu Çin 'de kullanılamaz. Daha ayrıntılı bilgi için bkz. [NuGet/NuGetGallery # 4949](https://github.com/NuGet/NuGetGallery/issues/4949).
 
-## <a name="versioning"></a>Sürüm oluşturma
+## <a name="versioning"></a>Sürüm Oluşturma
 
 Aşağıdaki `@type` değer kullanılır:
 
-@typedeeri   | Notlar
+@type deeri   | Notlar
 ------------- | -----
 Katalog/3.0.0 | İlk yayın
 
@@ -63,15 +63,17 @@ Katalog öğeleri her zaman kataloğa tek bir artan, kronolojik sırada eklenir.
 
 Aşağıdaki istek Katalog dizinini getirir.
 
-    GET {@id}
+```
+GET {@id}
+```
 
 Katalog dizini, aşağıdaki özelliklere sahip bir nesne içeren bir JSON belgesidir:
 
-Name            | Tür             | Gerekli | Notlar
+Ad            | Tür             | Gerekli | Notlar
 --------------- | ---------------- | -------- | -----
 CommitId        | string           | evet      | En son işlemeden ilişkili benzersiz bir KIMLIK
 commitTimeStamp | string           | evet      | En son kaydetmenin zaman damgası
-count           | integer          | evet      | Dizindeki sayfa sayısı
+count           | tamsayı          | evet      | Dizindeki sayfa sayısı
 öğeler           | nesne dizisi | evet      | Her nesne, bir sayfayı temsil eden nesneler dizisi
 
 Dizideki her öğe `items` , her sayfa hakkında en az ayrıntı içeren bir nesnedir. Bu sayfa nesneleri, Katalog yaprakları (öğeler) içermez. Bu dizideki öğelerin sırası tanımlı değil. Sayfalar, özelliği kullanılarak bellekte istemci tarafından sıralanabilir `commitTimeStamp` .
@@ -84,18 +86,20 @@ Kataloğa öğeler eklendikçe, Dizin `commitId` değişir ve `commitTimeStamp` 
 
 Katalog dizininin özelliğinde bulunan Katalog sayfası nesneleri `items` aşağıdaki özelliklere sahiptir:
 
-Name            | Tür    | Gerekli | Notlar
+Ad            | Tür    | Gerekli | Notlar
 --------------- | ------- | -------- | -----
 @id             | string  | evet      | Kullanılacak Katalog sayfası URL 'SI
 CommitId        | string  | evet      | Bu sayfadaki en son işlemeden ilişkili benzersiz bir KIMLIK
 commitTimeStamp | string  | evet      | Bu sayfadaki en son yürütmenin zaman damgası
-count           | integer | evet      | Katalog sayfasındaki öğelerin sayısı
+count           | tamsayı | evet      | Katalog sayfasındaki öğelerin sayısı
 
 Bazı durumlarda, bazı durumlarda yer alabilen [paket meta veri kaynağının](registration-base-url-resource.md) aksine, Katalog ayrılmaları hiçbir zaman dizine alınmayacak ve sayfanın URL 'si kullanılarak her zaman alınmalıdır `@id` .
 
 ### <a name="sample-request"></a>Örnek istek
 
-    GET https://api.nuget.org/v3/catalog0/index.json
+```
+GET https://api.nuget.org/v3/catalog0/index.json
+```
 
 ### <a name="sample-response"></a>Örnek yanıt
 
@@ -109,11 +113,11 @@ Yeni katalog öğeleri, Katalog dizinindeki sayfaya yalnızca en yüksek tamamla
 
 Katalog sayfası belgesi, aşağıdaki özelliklere sahip bir JSON nesnesidir:
 
-Name            | Tür             | Gerekli | Notlar
+Ad            | Tür             | Gerekli | Notlar
 --------------- | ---------------- | -------- | -----
 CommitId        | string           | evet      | Bu sayfadaki en son işlemeden ilişkili benzersiz bir KIMLIK
 commitTimeStamp | string           | evet      | Bu sayfadaki en son yürütmenin zaman damgası
-count           | integer          | evet      | Sayfadaki öğelerin sayısı
+count           | tamsayı          | evet      | Sayfadaki öğelerin sayısı
 öğeler           | nesne dizisi | evet      | Bu sayfadaki katalog öğeleri
 üst          | string           | evet      | Katalog dizininin URL 'SI
 
@@ -129,7 +133,7 @@ Sayfaya öğeler eklendikçe, `commitId` değişiklikler ve `commitTimeStamp` ar
 
 Katalog sayfasının özelliğinde bulunan katalog öğesi nesneleri `items` aşağıdaki özelliklere sahiptir:
 
-Name            | Tür    | Gerekli | Notlar
+Ad            | Tür    | Gerekli | Notlar
 --------------- | ------- | -------- | -----
 @id             | string  | evet      | Katalog öğesini getirecek URL
 @type           | string  | evet      | Katalog öğesinin türü
@@ -147,7 +151,9 @@ Her türün anlamı hakkında daha fazla ayrıntı için aşağıdaki [ilgili ö
 
 ### <a name="sample-request"></a>Örnek istek
 
-    GET https://api.nuget.org/v3/catalog0/page2926.json
+```
+GET https://api.nuget.org/v3/catalog0/page2926.json
+```
 
 ### <a name="sample-response"></a>Örnek yanıt
 
@@ -159,7 +165,7 @@ Katalog yaprağı, belirli bir paket KIMLIĞI ve sürümü hakkında belirli bir
 
 Katalog yaprak belgesi, aşağıdaki özelliklere sahip bir JSON nesnesidir:
 
-Name                    | Tür                       | Gerekli | Notlar
+Ad                    | Tür                       | Gerekli | Notlar
 ----------------------- | -------------------------- | -------- | -----
 @type                   | dizelerin dizesi veya dizisi | evet      | Katalog öğesinin türleri
 Katalog: CommitId        | string                     | evet      | Bu katalog öğesiyle ilişkili bir kayıt KIMLIĞI
@@ -190,27 +196,27 @@ Katalog öğelerini kullanan istemciler, bu senaryoların Katalog öğesi ürett
 
 Paket ayrıntıları katalog öğeleri, [Tüm kataloglarda içerilenlere](#catalog-leaf)ek olarak aşağıdaki özelliklere sahiptir.
 
-Name                    | Tür                       | Gerekli | Notlar
+Ad                    | Tür                       | Gerekli | Notlar
 ----------------------- | -------------------------- | -------- | -----
 düzenliyor                 | string                     | hayır       |
 yaratıl                 | string                     | hayır       | Paketin ilk oluşturulduğu zaman damgası. Geri dönüş özelliği: `published` .
 dependencyGroups        | nesne dizisi           | hayır       | Hedef çerçeveye göre gruplandırılan paketin bağımlılıkları ([paket meta verileri kaynağıyla aynı biçimde](registration-base-url-resource.md#package-dependency-group))
-kullanımdan kaldırma             | nesne                     | hayır       | Paketle ilişkili kullanımdan kaldırma ([paket meta verileri kaynağıyla aynı biçimde](registration-base-url-resource.md#package-deprecation))
+kullanımdan kaldırma             | object                     | hayır       | Paketle ilişkili kullanımdan kaldırma ([paket meta verileri kaynağıyla aynı biçimde](registration-base-url-resource.md#package-deprecation))
 açıklama             | string                     | hayır       |
 Iurl                 | string                     | hayır       |
-IBir ön sürüm            | boole                    | hayır       | Paket sürümünün ön sürüm olup olmadığı. , Öğesinden algılanabilir `version` .
+IBir ön sürüm            | boolean                    | hayır       | Paket sürümünün ön sürüm olup olmadığı. , Öğesinden algılanabilir `version` .
 language                | string                     | hayır       |
 licenseUrl              | string                     | hayır       |
-listelenen                  | boole                    | hayır       | Paketin listede olup olmadığı
+listelenen                  | boolean                    | hayır       | Paketin listede olup olmadığı
 minClientVersion        | string                     | hayır       |
 packageHash             | string                     | evet      | [Standart temel 64](https://tools.ietf.org/html/rfc4648#section-4) kullanılarak kodlama, paketin karması
 packageHashAlgorithm    | string                     | evet      |
-packageSize             | integer                    | evet      | Paketin bayt cinsinden boyutu. nupkg
+packageSize             | tamsayı                    | evet      | Paketin bayt cinsinden boyutu. nupkg
 packageTypes            | nesne dizisi           | hayır       | Yazar tarafından belirtilen paket türleri.
 projectUrl              | string                     | hayır       |
 relet 'ler            | string                     | hayır       |
-requireLicenseAgreement | boole                    | hayır       | `false`Dışlandığını varsay
-özet                 | string                     | hayır       |
+requireLicenseAgreement | boolean                    | hayır       | `false`Dışlandığını varsay
+Özet                 | string                     | hayır       |
 etiketler                    | dize dizisi           | hayır       |
 başlık                   | string                     | hayır       |
 verbatimVersion         | string                     | hayır       | Özgün sürüm dizesi. nuspec içinde bulunur
@@ -223,7 +229,7 @@ Package `version` özelliği, normalleştirmenin ardından tam sürüm dizesidir
 
 `packageTypes`Özelliği yalnızca yazar tarafından bir paket türü belirtilmişse mevcut olacaktır. Varsa, her zaman en az bir (1) girişi olur. Dizideki her öğe, `packageTypes` aşağıdaki özelliklere sahip BIR JSON nesnesidir:
 
-Name      | Tür    | Gerekli | Notlar
+Ad      | Tür    | Gerekli | Notlar
 --------- | ------- | -------- | -----
 name      | string  | evet      | Paket türünün adı.
 sürüm    | string  | hayır       | Paket türünün sürümü. Yalnızca yazarı nuspec içinde açıkça bir sürüm belirtmişse vardır.
@@ -235,7 +241,9 @@ sürüm    | string  | hayır       | Paket türünün sürümü. Yalnızca yaza
 
 #### <a name="sample-request"></a>Örnek istek
 
-Alhttps://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.storage.1.0.0.json
+```
+GET https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.storage.1.0.0.json
+```
 
 #### <a name="sample-response"></a>Örnek yanıt
 
@@ -256,7 +264,9 @@ Paket silme kataloğu öğeleri, [Tüm katalogların dahil](#catalog-leaf)edilen
 
 #### <a name="sample-request"></a>Örnek istek
 
-Alhttps://api.nuget.org/v3/catalog0/data/2017.11.02.00.40.00/netstandard1.4_lib.1.0.0-test.json
+```
+GET https://api.nuget.org/v3/catalog0/data/2017.11.02.00.40.00/netstandard1.4_lib.1.0.0-test.json
+```
 
 #### <a name="sample-response"></a>Örnek yanıt
 

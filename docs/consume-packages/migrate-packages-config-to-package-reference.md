@@ -1,16 +1,16 @@
 ---
 title: packages.config ' den PackageReference biçimlerine geçme
 description: Bir projenin packages.config yönetim biçiminden NuGet 4.0 + ve VS2017 ve .NET Core 2,0 tarafından desteklenen PackageReference 'a nasıl geçirileceğiyle ilgili ayrıntılar
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 05/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 23bd936707173f49a651a8ba432fa8773fa53881
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 8161f4a39d4adfdb9efb25bcb840b20b85a58e07
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237841"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774777"
 ---
 # <a name="migrate-from-packagesconfig-to-packagereference"></a>packages.config ' den PackageReference 'a geçir
 
@@ -18,11 +18,11 @@ Visual Studio 2017 sürüm 15,7 ve üzeri, bir projenin [packages.config](../ref
 
 ## <a name="benefits-of-using-packagereference"></a>PackageReference kullanmanın avantajları
 
-* **Tüm proje bağımlılıklarını tek bir yerde yönetin** : projede proje başvuruları ve derleme başvuruları gibi, NuGet paket başvuruları (düğümü kullanılarak), `PackageReference` ayrı bir packages.config dosyası kullanmak yerine doğrudan proje dosyaları içinde yönetilir.
-* **Üst düzey bağımlılıkların dağınık görünümü** : packages.config aksine, packagereference yalnızca doğrudan projeye yüklediğiniz NuGet paketlerini listeler. Sonuç olarak, NuGet Paket Yöneticisi Kullanıcı arabirimi ve proje dosyası alt düzey bağımlılıklarla birlikte dağınık değildir.
-* **Performans iyileştirmeleri** : packagereference kullanılırken, paketler *genel paketler* klasöründe tutulur (çözüm içindeki bir klasör yerine [genel paketleri ve önbellek klasörlerini yönetme](../consume-packages/managing-the-global-packages-and-cache-folders.md) bölümünde açıklandığı gibi) `packages` . Sonuç olarak, PackageReference daha hızlı çalışır ve daha az disk alanı tüketir.
-* **Bağımlılıklar ve içerik akışı üzerinde ince denetim** : MSBuild 'in var olan özelliklerini kullanarak [bir NuGet paketine koşullu başvuru](../consume-packages/Package-References-in-Project-Files.md#adding-a-packagereference-condition) ve hedef çerçeve, yapılandırma, platform veya diğer özetler için paket başvuruları seçme olanağı sağlar.
-* **Packagereference etkin geliştirme aşamasındadır** : [GitHub 'da packagereference sorunları](https://aka.ms/nuget-pr-improvements)bölümüne bakın. packages.config artık etkin geliştirme aşamasındadır.
+* **Tüm proje bağımlılıklarını tek bir yerde yönetin**: projede proje başvuruları ve derleme başvuruları gibi, NuGet paket başvuruları (düğümü kullanılarak), `PackageReference` ayrı bir packages.config dosyası kullanmak yerine doğrudan proje dosyaları içinde yönetilir.
+* **Üst düzey bağımlılıkların dağınık görünümü**: packages.config aksine, packagereference yalnızca doğrudan projeye yüklediğiniz NuGet paketlerini listeler. Sonuç olarak, NuGet Paket Yöneticisi Kullanıcı arabirimi ve proje dosyası alt düzey bağımlılıklarla birlikte dağınık değildir.
+* **Performans iyileştirmeleri**: packagereference kullanılırken, paketler *genel paketler* klasöründe tutulur (çözüm içindeki bir klasör yerine [genel paketleri ve önbellek klasörlerini yönetme](../consume-packages/managing-the-global-packages-and-cache-folders.md) bölümünde açıklandığı gibi) `packages` . Sonuç olarak, PackageReference daha hızlı çalışır ve daha az disk alanı tüketir.
+* **Bağımlılıklar ve içerik akışı üzerinde ince denetim**: MSBuild 'in var olan özelliklerini kullanarak [bir NuGet paketine koşullu başvuru](../consume-packages/Package-References-in-Project-Files.md#adding-a-packagereference-condition) ve hedef çerçeve, yapılandırma, platform veya diğer özetler için paket başvuruları seçme olanağı sağlar.
+* **Packagereference etkin geliştirme aşamasındadır**: [GitHub 'da packagereference sorunları](https://aka.ms/nuget-pr-improvements)bölümüne bakın. packages.config artık etkin geliştirme aşamasındadır.
 
 ### <a name="limitations"></a>Sınırlamalar
 
@@ -57,7 +57,7 @@ Aşağıdaki NuGet eylemlerinden birini gerçekleştirin:
 
 1. Kullanarak proje içeren bir çözüm açın `packages.config` .
 
-1. **Çözüm Gezgini** , **Başvurular** düğümüne veya dosyaya sağ tıklayın `packages.config` ve packages.config, **packagereference...** ' a geçir ' i seçin.
+1. **Çözüm Gezgini**, **Başvurular** düğümüne veya dosyaya sağ tıklayın `packages.config` ve packages.config, **packagereference...**' a geçir ' i seçin.
 
 1. Migrator, projenin NuGet paketi başvurularını analiz eder ve bunları **en üst düzey bağımlılıklara** (doğrudan yüklediğiniz NuGet paketleri) ve **geçişli bağımlılıklara** (en üst düzey paketlere bağımlılıklar olarak yüklenen paketler) göre kategorilere ayırarak çalışır.
 

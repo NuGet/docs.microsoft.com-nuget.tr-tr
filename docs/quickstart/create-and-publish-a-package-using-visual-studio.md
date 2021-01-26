@@ -1,16 +1,16 @@
 ---
 title: .NET Standard NuGet paketi oluşturma ve yayımlama-Visual Studio Windows üzerinde
 description: Windows üzerinde Visual Studio kullanarak .NET Standard NuGet paketi oluşturma ve yayımlama hakkında bir adım adım öğretici.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 08/16/2019
 ms.topic: quickstart
-ms.openlocfilehash: 32dcc1d233154463e2950b1ce46554b1cb89956e
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 53f54f6723ad10fca2ed6f75290ba3829dfb9a5e
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237503"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775678"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Hızlı başlangıç: Visual Studio (.NET Standard, yalnızca Windows) kullanarak bir NuGet paketi oluşturma ve yayımlama
 
@@ -19,7 +19,7 @@ Windows üzerinde Visual Studio 'da bir .NET Standard sınıf kitaplığından b
 > [!Note]
 > Mac için Visual Studio kullanıyorsanız, bir NuGet paketi oluşturma konusunda [Bu bilgilere](/xamarin/cross-platform/app-fundamentals/nuget-multiplatform-libraries/existing-library) bakın veya [DotNet CLI araçlarını](create-and-publish-a-package-using-the-dotnet-cli.md)kullanın.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 1. .NET Core ile ilgili iş yüküyle [VisualStudio.com](https://www.visualstudio.com/) adresinden herhangi bir Visual Studio 2019 sürümünü yükleyin.
 
@@ -36,7 +36,7 @@ Windows üzerinde Visual Studio 'da bir .NET Standard sınıf kitaplığından b
 
 Paketlemek istediğiniz kod için mevcut bir .NET Standard Sınıf Kitaplığı projesini kullanabilir veya basit bir tane oluşturabilirsiniz:
 
-1. Visual Studio 'da **dosya > yeni > proje** ' yi seçin, **visual C# > .NET Standard** düğümünü genişletin, "sınıf kitaplığı (.NET Standard)" şablonunu seçin, projeyi appgünlükçü olarak adlandırın ve **Tamam** ' a tıklayın.
+1. Visual Studio 'da **dosya > yeni > proje**' yi seçin, **visual C# > .NET Standard** düğümünü genişletin, "sınıf kitaplığı (.NET Standard)" şablonunu seçin, projeyi appgünlükçü olarak adlandırın ve **Tamam**' a tıklayın.
 
    > [!Tip]
    > Aksi takdirde seçim yapmanız gerekmediğiniz sürece, en geniş kapsamlı proje yelpazğuyla uyumluluk sağladığından NuGet paketleri için tercih edilen hedef .NET Standard.
@@ -76,9 +76,9 @@ namespace AppLogger
     >
     > Zaten var olan bir ada sahip bir paketi yayımlamayı denerseniz, bir hata görürsünüz.
 
-1. Seçim Doğrudan proje dosyasında özellikleri görmek için Çözüm Gezgini içinde projeye sağ tıklayın ve **Appgünlükçü. csproj öğesini Düzenle** ' yi seçin.
+1. Seçim Doğrudan proje dosyasında özellikleri görmek için Çözüm Gezgini içinde projeye sağ tıklayın ve **Appgünlükçü. csproj öğesini Düzenle**' yi seçin.
 
-   Bu seçenek yalnızca SDK stili özniteliği kullanan projeler için Visual Studio 2017 ' den itibaren kullanılabilir. Aksi takdirde, projeye sağ tıklayın ve **Projeyi Kaldır** ' ı seçin. Ardından, kaldırılan projeye sağ tıklayın ve **Appgünlükçü. csproj öğesini Düzenle** ' yi seçin.
+   Bu seçenek yalnızca SDK stili özniteliği kullanan projeler için Visual Studio 2017 ' den itibaren kullanılabilir. Aksi takdirde, projeye sağ tıklayın ve **Projeyi Kaldır**' ı seçin. Ardından, kaldırılan projeye sağ tıklayın ve **Appgünlükçü. csproj öğesini Düzenle**' yi seçin.
 
 ## <a name="run-the-pack-command"></a>Pack komutunu çalıştırın
 
@@ -103,9 +103,9 @@ namespace AppLogger
 
 Visual Studio 'Yu, projeyi oluşturduğunuzda NuGet paketini otomatik olarak oluşturacak şekilde yapılandırabilirsiniz.
 
-1. Çözüm Gezgini, projeye sağ tıklayın ve **Özellikler** ' i seçin.
+1. Çözüm Gezgini, projeye sağ tıklayın ve **Özellikler**' i seçin.
 
-2. **Paket** sekmesinde **derlemede NuGet paketi oluştur** ' u seçin.
+2. **Paket** sekmesinde **derlemede NuGet paketi oluştur**' u seçin.
 
    ![Derleme üzerinde otomatik olarak paket oluştur](media/qs_create-vs-05-generate-on-build.png)
 

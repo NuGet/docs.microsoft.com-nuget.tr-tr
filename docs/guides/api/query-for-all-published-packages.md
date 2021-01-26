@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 11/02/2017
 ms.topic: tutorial
 ms.reviewer: kraigb
-ms.openlocfilehash: 749d9466976d51c7cb65332c8b149e3a30862e63
-ms.sourcegitcommit: 650c08f8bc3d48dfd206a111e5e2aaca3001f569
+ms.openlocfilehash: 7e611b568538e0acfcbad2e5d986a0f9382ac8fd
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97523406"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774117"
 ---
 # <a name="query-for-all-packages-published-to-nugetorg"></a>Nuget.org 'e yayınlanan tüm paketler için sorgu
 
@@ -54,7 +54,9 @@ DateTime cursor = DateTime.UtcNow.AddHours(-1);
 
 NuGet API 'sindeki her kaynağın (uç nokta) konumu, [hizmet dizini](../../api/service-index.md)kullanılarak keşfedilmelidir. Bu kılavuz nuget.org 'e odaklandığından NuGet. org 'ın hizmet dizinini kullanacağız.
 
-    GET https://api.nuget.org/v3/index.json
+```
+GET https://api.nuget.org/v3/index.json
+```
 
 Hizmet belgesi, nuget.org üzerindeki tüm kaynakları içeren JSON belgesidir. Özellik değerine sahip kaynağı arayın `@type` `Catalog/3.0.0` . İlişkili `@id` özellik değeri, Katalog dizininin URL 'sidir. 
 
@@ -62,13 +64,17 @@ Hizmet belgesi, nuget.org üzerindeki tüm kaynakları içeren JSON belgesidir. 
 
 `@id`Önceki adımda bulunan özellik değerini kullanarak, Katalog dizinini indirin:
 
-    GET https://api.nuget.org/v3/catalog0/index.json
+```
+GET https://api.nuget.org/v3/catalog0/index.json
+```
 
 [Katalog dizininin](../../api/catalog-resource.md#catalog-index)serisini kaldırma. Geçerli imlecinizin değerine eşit veya daha küçük olan tüm [Katalog sayfası nesnelerini](../../api/catalog-resource.md#catalog-page-object-in-the-index) filtreleyin `commitTimeStamp` .
 
 Kalan her bir katalog sayfası için, özelliğini kullanarak tam belgeyi indirin `@id` .
 
-    GET https://api.nuget.org/v3/catalog0/page2926.json
+```
+GET https://api.nuget.org/v3/catalog0/page2926.json
+```
 
 [Katalog sayfasının](../../api/catalog-resource.md#catalog-page)serisini kaldırma. Geçerli imlecinizin değerine eşit veya daha küçük olan tüm [Katalog yaprak nesnelerini](../../api/catalog-resource.md#catalog-item-object-in-a-page) filtreleyin `commitTimeStamp` .
 
@@ -80,7 +86,9 @@ Bu noktada, Katalog öğelerinde istediğiniz özel işlemleri gerçekleştirebi
 
 Paketle ilgili meta veriler (örneğin, açıklama, bağımlılıklar,. nupkg boyutu vb.) ile ilgileniyorsanız, özelliğini kullanarak [Katalog yaprak belgesini](../../api/catalog-resource.md#catalog-leaf) getirebilirsiniz `@id` .
 
-    GET https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.storage.1.0.0.json
+```
+GET https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.storage.1.0.0.json
+```
 
 Bu belge, [paket meta verileri kaynağında](../../api/registration-base-url-resource.md)bulunan tüm meta verilere sahiptir ve daha fazla!
 

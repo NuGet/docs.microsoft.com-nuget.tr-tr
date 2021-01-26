@@ -1,60 +1,64 @@
 ---
-title: Rapor kötüye URL şablonu, NuGet API'si
-description: Rapor kötüye URL şablonu, bunların kullanıcı Arabiriminde bir rapor kötüye bağlantı görüntüler etmesine olanak tanır.
+title: Uygunsuz kullanım URL şablonunu bildir, NuGet API
+description: Uygunsuz kullanım URL 'SI şablonu, istemcilerin Kullanıcı arabiriminde kötü bir rapor uygunsuz bağlantı görüntülemesini sağlar.
 author: joelverhagen
 ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: d0ff41b08eeba5a6e4bc7c44722b6bc57f502047
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: b36058c9c841e2cca6eb61121ada8275f1525a8f
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549345"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775226"
 ---
-# <a name="report-abuse-url-template"></a>Rapor kötüye URL şablonu
+# <a name="report-abuse-url-template"></a>Uygunsuz kullanım URL şablonunu raporla
 
-Uygunsuz kullanımı hakkında belirli bir paket için bir kullanıcı tarafından kullanılabilecek bir URL oluşturmak bir istemci mümkündür. Uygunsuz kullanım raporları paket kaynağına temsilci seçmek tüm istemci deneyimleri (hatta 3. taraf) etkinleştirmek bir paket kaynağı istediğinde, bu yararlıdır.
+Bir istemcinin belirli bir paket hakkında uygunsuz kullanımı raporlamak için Kullanıcı tarafından kullanılabilecek bir URL oluşturması mümkündür. Bu, bir paket kaynağı tüm istemci deneyimlerini (hatta 3. taraf), çok kişili raporların paket kaynağına atamasını sağlamak istediğinde yararlıdır.
 
-Bu URL'yi oluşturmak için kullanılan kaynak `ReportAbuseUriTemplate` kaynak bulunan [hizmet dizini](service-index.md).
+Bu URL 'YI oluşturmak için kullanılan kaynak, `ReportAbuseUriTemplate` [hizmet dizininde](service-index.md)bulunan kaynaktır.
 
-## <a name="versioning"></a>Sürüm oluşturma
+## <a name="versioning"></a>Sürüm Oluşturma
 
-Aşağıdaki `@type` değerleri kullanılır:
+Aşağıdaki `@type` değerler kullanılır:
 
-@type Değer                       | Notlar
+@type deeri                       | Notlar
 --------------------------------- | -----
-ReportAbuseUriTemplate/3.0.0-beta | İlk yayın
-ReportAbuseUriTemplate/3.0.0-rc   | Diğer adı `ReportAbuseUriTemplate/3.0.0-beta`
+ReportAbuseUriTemplate/3.0.0-Beta | İlk yayın
+ReportAbuseUriTemplate/3.0.0-RC   | Diğer adı `ReportAbuseUriTemplate/3.0.0-beta`
 
 ## <a name="url-template"></a>URL şablonu
 
-Aşağıdaki API URL'si değeri `@id` yukarıda sözü edilen kaynak biriyle ilişkili özelliği `@type` değerleri.
+Aşağıdaki API 'nin URL 'SI, `@id` belirtilen kaynak değerlerinden biriyle ilişkili özelliğin değeridir `@type` .
 
 ## <a name="http-methods"></a>HTTP yöntemleri
 
-İstemci istekleri için rapor Uygunsuz kullanım bildirme URL'si kullanıcı adına yapmak için tasarlanmamıştır olsa da, web sayfası desteklemelidir `GET` bir web tarayıcısından kolayca açılması tıklanan URL izin vermek için yöntemi.
+İstemci kullanıcı adına uygunsuz kullanım URL 'sine istek yapmaya yönelik değildir, ancak Web sayfası, `GET` tıklanan BIR URL 'nin bir Web tarayıcısında kolayca açılmasını sağlamak için yöntemini desteklemelidir.
 
-## <a name="construct-the-url"></a>URL'sini oluşturun
+## <a name="construct-the-url"></a>URL 'YI oluşturun
 
-Verilen bir bilinen paket kimliği ve sürüm, istemci uygulama bir web arabirimine erişmek için kullanılan bir URL oluşturabilirsiniz. İstemci uygulaması, bu oluşturulan URL (veya tıklatılabilir bir bağlantı) URL'sine bir web tarayıcısı açın ve tüm gerekli kötüye rapor yapmak için bunları izin vererek kullanıcıya görüntülemelidir. Uygunsuz kullanım raporu form uygulaması sunucu uygulaması tarafından belirlenir.
+Bilinen bir paket KIMLIĞI ve sürümü verildiğinde, istemci uygulama bir Web arabirimine erişmek için kullanılan bir URL oluşturabilir. İstemci uygulamasının bu oluşturulmuş URL 'yi (veya tıklatılabilir bağlantıyı) kullanıcıya URL 'ye bir Web tarayıcısı açmasına ve gerekli uygunsuz kullanım raporu yapmasına izin vererek görüntülemesi gerekir. Uygunsuz kullanım raporu formunun uygulanması sunucu uygulamasına göre belirlenir.
 
-Değerini `@id` herhangi bir aşağıdaki yer tutucu belirteçler içeren bir URL dize:
+Öğesinin değeri, `@id` aşağıdaki yer tutucu belirteçlerinden herhangi birini içeren BIR URL dizesidir:
 
 ### <a name="url-placeholders"></a>URL yer tutucuları
 
 Ad        | Tür    | Gerekli | Notlar
 ----------- | ------- | -------- | -----
-`{id}`      | dize  | Yok       | Uygunsuz kullanımı için paket kimliği
-`{version}` | dize  | Yok       | Uygunsuz kullanımı için için Paket sürümü
+`{id}`      | string  | hayır       | Kötüye kullanımı raporlamak için paket KIMLIĞI
+`{version}` | string  | hayır       | Kötüye kullanımı raporlamak için paket sürümü
 
-`{id}` Ve `{version}` sunucu uygulaması tarafından yorumlanan değerler büyük küçük harfe duyarlı ve duyarlı olup sürüm normalleştirilmiştir için olmalıdır.
+`{id}` `{version}` Sunucu uygulamasının yorumlandığı ve değerleri, büyük/küçük harfe duyarsız olmalıdır ve sürüm normalleştirilip normalleştirilmemelidir.
 
-Örneğin, nuget.org rapor kötüye şablonu şöyle görünür:
+Örneğin, NuGet. org 'ın uygunsuz kullanımı şablonu şöyle görünür:
 
-    https://www.nuget.org/packages/{id}/{version}/ReportAbuse
+```
+https://www.nuget.org/packages/{id}/{version}/ReportAbuse
+```
 
-İstemci uygulaması 4.3.0 NuGet.Versioning için rapor kötüye formuna bir bağlantı görüntülenecek gerekiyorsa aşağıdaki URL'yi oluşturur ve kullanıcıya sağlamak:
+İstemci uygulamasının NuGet. sürümlendirme için uygunsuz kullanım formunun bir bağlantısını görüntülemesi gerekiyorsa, aşağıdaki URL 'YI oluşturur ve kullanıcıya sağlar:
 
-    https://www.nuget.org/packages/NuGet.Versioning/4.3.0/ReportAbuse
+```
+https://www.nuget.org/packages/NuGet.Versioning/4.3.0/ReportAbuse
+```

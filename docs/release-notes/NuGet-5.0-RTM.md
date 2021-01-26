@@ -1,16 +1,16 @@
 ---
 title: NuGet 5,0 RTM sürüm notları
 description: Bilinen sorunlar, hata düzeltmeleri, yeni özellikler ve CCR 'ler dahil olmak üzere NuGet 5,0 sürüm notları.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 04/02/2019
 ms.topic: conceptual
-ms.openlocfilehash: e4a6be7fb26e3cc4bd297eaf02999f6ac1389b77
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 637db1ae128ce020c33e54e56148c848a5f905a5
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93236808"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776225"
 ---
 # <a name="nuget-50-release-notes"></a>NuGet 5,0 sürüm notları
 
@@ -29,7 +29,7 @@ NuGet dağıtım araçlar:
 
 * Visual Studio 2019- [#5820](https://github.com/NuGet/Home/issues/5820) [filtrelenmiş çözümleri](/visualstudio/ide/filtered-solutions?view=vs-2019) geri yükleme desteği
 * `BuildTransitive` klasör, paketlerin, ana bilgisayar projesine hedefe/props 'ın geçişli olarak katkıda bulunmasına olanak sağlar- [#6091](https://github.com/NuGet/Home/issues/6091)
-* NuGet IVS API 'Lerinde PackageReference senaryoları için daha iyi destek [#7005](https://github.com/NuGet/Home/issues/7005)-#7005 [#7493](https://github.com/NuGet/Home/issues/7493)
+* NuGet IVS API 'Lerinde PackageReference senaryoları için daha iyi destek [](https://github.com/NuGet/Home/issues/7005)-#7005 [#7493](https://github.com/NuGet/Home/issues/7493)
 * `nuget.exe pack project.json` kullanım dışı bırakıldı- [#7928](https://github.com/NuGet/Home/issues/7928)
 * Gen 1 kimlik bilgisi sağlayıcısı eklentisinin yerini [Gen 2](../reference/extensibility/nuget-cross-platform-authentication-plugin.md) ' den geçti ve yakında kullanım dışı bırakılacak [#7819](https://github.com/NuGet/Home/issues/7819)
 

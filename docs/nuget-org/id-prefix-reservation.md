@@ -1,102 +1,102 @@
 ---
-title: Kimlik Önek Rezervasyonu
-description: Paket Kimliği Önek Rezervasyon özelliği açıklaması ve yazar kılavuzu.
-author: karann-msft
-ms.author: karann
+title: KIMLIK ön eki ayırma
+description: Paket KIMLIĞI ön eki ayırma özelliği açıklaması ve yazar Kılavuzu.
+author: JonDouglas
+ms.author: jodou
 ms.date: 09/07/2019
 ms.topic: reference
 ms.reviewer: karann
-ms.openlocfilehash: da464cc44d8c874e13c0cdfab871f31e643b577f
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: af9969df33c6bf7a62709e6e3535b8b886376e3e
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "73610506"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775922"
 ---
 # <a name="package-id-prefix-reservation"></a>Paketleme kimlik ön eki ayırma
 
-Paket sahipleri kimlik önekleri ayırarak kimliklerini rezerve edebilir ve koruyabilirler. Paket tüketicilerine, tükettikleri paketler tanımlayıcı özelliklerinde aldatıcı olmadığında ek bilgiler verilir. 
+Paket sahipleri, kimlik öneklerini ayırarak kimliklerini ayırabilir ve koruyabilir. Paket tüketicileri, kullandıkları paketler kendi tanımlama özelliklerinde yanıltıcı olmadığında ek bilgilerle sağlanır. 
 
-[nuget.org](https://www.nuget.org/) ve Visual Studio 2017 sürüm 15.4 veya daha sonraki sürüm, paket ayrılmış kimlik öneki adlandırma desenine uygun olduğu sürece, sahipleri tarafından ayrılmış paket kimliği önekiyle gönderilen paketler için görsel bir gösterge gösterir. Aşağıdaki başvuru, kimlik öneki rezervasyonunun ne gerektirdiğini ve sahibinin kimlik önekiiçin nasıl başvurabileceğini açıklar.
+[NuGet.org](https://www.nuget.org/) ve Visual Studio 2017 sürüm 15,4 veya üzeri, Paket ayrılmış kimlik ön eki adlandırma düzeniyle eşleşen bir ayrılmış paket kimliği ön ekine sahip sahipler tarafından gönderilen paketler için görsel bir gösterge gösterir. Aşağıdaki başvuru, KIMLIK ön rezervasyonunun ne olduğunu ve bir kimliğin bir kimlik ön eki için nasıl uygulanacağını açıklar.
 
-## <a name="id-prefix-reservation-details"></a>Kimlik öneki rezervasyon detayları
+## <a name="id-prefix-reservation-details"></a>KIMLIK ön eki ayırma ayrıntıları
 
-Paket kimliği öneki rezerve edildiğinde, [nuget.org](https://www.nuget.org/) galerisinde ve Visual Studio'da birkaç şey olur. Ayrıca, önek alt kümelerini birden çok sahipe atamak, önek 'ortak' olarak ayarlamak gibi KIMLIK öneki rezervasyonları tarafından desteklenen gelişmiş senaryolar da vardır.
+Bir paket KIMLIĞI öneki ayrıldıysa, [NuGet.org](https://www.nuget.org/) galerisinde ve Visual Studio 'da çeşitli şeyler gerçekleşir. Ayrıca, bir öneki ' genel ' olarak ayarlama, birden çok Sahibe önek alt kümeleri atama gibi KIMLIK ön ek ayırmaları tarafından desteklenen gelişmiş senaryolar da vardır.
 
-### <a name="id-prefix-reservation-on-nugetorg"></a>nuget.org'da kimlik öneki rezervasyonu
+### <a name="id-prefix-reservation-on-nugetorg"></a>Nuget.org üzerinde KIMLIK ön eki ayırması
 
-bir önek [nuget.org](https://www.nuget.org/)ayrılmışsa, aşağıdakiler gerçekleşir:
+[NuGet.org](https://www.nuget.org/)üzerinde bir ön ek ayrıldıysa aşağıdakiler olur:
 
-1. Önek ayırma, [nuget.org'daki](https://www.nuget.org/)bir sahibi veya sahip ler kümesiyle ilişkilidir.
+1. Önek ayırma, [NuGet.org](https://www.nuget.org/)üzerindeki bir sahip veya sahip kümesi ile ilişkilendirilir.
 
-1. Ayrılmış kimlik önekiyle eşleşen bir kimlikle [nuget.org](https://www.nuget.org/) bir paket gönderildiğinde, paket kimlik önekini rezerve eden sahibinden (ler) kaynaklanmadığı sürece reddedilir.
+1. Ayrılmış KIMLIK önekiyle eşleşen bir KIMLIK ile [NuGet.org](https://www.nuget.org/) 'ye her paket gönderildiğinde, paket, kimlik önekini ayıran sahiplerden kaynaklanmadığı takdirde reddedilir.
 
-1. Ayrılmış kimlik önekiyle eşleşen ve kimlik önekini rezerve eden sahip(ler)den kaynaklanan herhangi bir paketin Visual Studio 2017 sürümü 15.4 veya sonraki sürümde ve paketin ayrılmış bir kimlik öneki altında olduğunu belirten [nuget.org](https://www.nuget.org/) görsel bir göstergeye sahip olacaktır. Bu, hem yeni paket gönderimleri hem de sahibi (ler) altındaki mevcut paketler için geçerlidir. **Not:** Visual Studio'daki gösterge yalnızca paket kaynağı olarak tek bir akış seçilirse görüntülenir.
+1. Ayrılmış KIMLIK önekiyle eşleşen ve KIMLIK ön ekini ayıran sahip 'lerden kaynaklanan herhangi bir paket, Visual Studio 2017 sürüm 15,4 veya sonraki sürümlerinde ve paketin ayrılmış bir KIMLIK ön eki altında olduğunu belirten [NuGet.org](https://www.nuget.org/) üzerinde bir görsel göstergeye sahip olur. Bu, hem yeni paket teslimleri hem de sahip (ler) de var olan paketler için geçerlidir. **Note:** Visual Studio 'daki gösterge yalnızca paket kaynağı olarak tek bir akış seçilirse görünür.
 
-1. Ayrılmış kimlik önekiyle eşleşen ancak ayrılmış önek sahibine ait *olmayan* önceden varolan tüm paketler değişmeden kalır (listedışı kalmazlar, ancak görsel göstergeye de sahip olmazlar). Buna ek olarak, bu paketlerin sahipleri pakete yeni sürümler göndermeye devam edebilecektir.
+1. Ayrılmış KIMLIK önekiyle eşleşen, ancak ayrılmış önek sahibine ait *olmayan* , daha önce varolan tüm paketler değişmeden kalır (bunlar listelenmemiş olmayacaktır, ancak görsel gösterge de yoktur). Ayrıca, bu paketlerin sahipleri yine de pakete yeni sürümler gönderebilecektir.
 
-Bu değişiklikler aşağıdaki koşullara dayanır ve birkaç ek kısıtlama uygular:
+Bu değişiklikler aşağıdaki koşullara dayanır ve birkaç ek kısıtlama uygulayabilir:
 
-- Bir paketin yalnızca bir sahibinin, görsel göstergenin görünmesi için ayrılmış öneki (birden çok sahibi olan paketler için) olması gerekir.
+- Bir paketin yalnızca bir sahibinin görsel göstergenin görünmesi için ayrılmış öneki olması gerekir (birden çok sahibe sahip paketler için).
 
-- Bir veya daha fazla sahibin ayrılmış önek olduğu ve bir veya daha fazla sahibin ayrılmış önek olmadığı bir paketin birden fazla sahibi varsa, yalnızca ayrılmış öneki olan sahip(ler) ayrılmış bir önek ile diğer sahibi(ler) kaldırabilir. Önek rezerve edilmedi, önek rezerve edildi. Yine de önek ayrılmış olmayan diğer sahipleri kaldırabilirsiniz.
+- Bir veya daha fazla sahibin ayrılmış öneki olduğu ve bir veya daha fazla sahibin ayrılmış öneki olmadığı bir paketin birden fazla sahibi varsa, yalnızca ayrılmış ön eke sahip olan sahipler, ayrılmış bir ön eki olan diğer sahipleri kaldırabilir. Öneki ayrılmış olmayan sahipler, ayrılmış ön eke sahip sahipleri kaldıramıyor. Ayrıca, ön eke sahip olmayan diğer sahipleri yine de kaldırabilirler.
 
-- Bir paket görsel göstergeye sahip olduğunda, *her zaman* görsel göstergeye sahip olmalıdır (ayrılmış önekiyle en az bir sahibin her zaman sahip olarak kalacağını garanti eder)
+- Bir paketin görsel göstergesi varsa, *her zaman* görsel göstergesi olmalıdır (ayrılmış ön eki olan en az bir sahip, her zaman bir sahip olarak kalacak şekilde garanti edilir)
 
-### <a name="advanced-prefix-reservation-scenarios"></a>Gelişmiş önek rezervasyon senaryoları
+### <a name="advanced-prefix-reservation-scenarios"></a>Gelişmiş önek ayırma senaryoları
 
-Aşağıda açıklanan sub prefix delegasyonu ve önekleri genel olarak işaretleme dahil olmak üzere birkaç daha gelişmiş önek rezervasyon senaryoları vardır. Aşağıda yapılabilir daha gelişmiş önek rezervasyonları vardır. 
+Alt ön ek temsili ve ön ekleri ortak olarak işaretleyerek aşağıda açıklanan birkaç gelişmiş ön ek ayırma senaryosu vardır. Aşağıda, yapılabilecek gelişmiş ön ek ayırmaları verilmiştir. 
 
-- Önek ayırma sırasında, sahibi diğer sahiplerine önek alt kümeleri (veya önek) delegasyonu isteyebilir. Örneğin, '[Microsoft](https://www.nuget.org/profiles/microsoft)' microsoft ' sahibi 'Microsoft. \*', ama '[aspnet](https://www.nuget.org/profiles/aspnet)' 'Microsoft.AspNet rezerv istiyor. \*', '[Microsoft](https://www.nuget.org/profiles/microsoft)' 'microsoft.AspNet'i temsilci olarak seçebilir. \*' [aspnet](https://www.nuget.org/profiles/aspnet) hesabına.
+- Önek ayırma sırasında, sahip önek alt kümelerinin (veya ön ek) diğer sahiplerin temsilciliğini alabilir. Örneğin, '[Microsoft](https://www.nuget.org/profiles/microsoft)' ' Microsoft. \* ' öğesine sahip ancak '[ASPNET](https://www.nuget.org/profiles/aspnet)' ' Microsoft. Aspnet. ' öğesini ayırmak istiyorsa, ' Microsoft \* '[](https://www.nuget.org/profiles/microsoft), \* [ASPNET](https://www.nuget.org/profiles/aspnet) hesabına ' Microsoft. Aspnet. ' yetkisini atamasını seçebilir.
 
-- Önek ayırma sırasında, sahibi bir önek genel yapmayı seçebilirsiniz. Bu, paketin ayrılmış bir önek olduğunu gösteren görsel göstergeyi vermeye devam eder, ancak herhangi bir sahip için önek üzerindeki gelecekteki paket gönderimlerini **engellemez.** Bu, birçok katılımcısı olan açık kaynak projeleri için yararlıdır - en iyi veya temel katkıda bulunanlar önek rezerve edilebilir, ancak yine de tüm katkıda bulunanlara açık olabilir. 
+- Önek ayırma sırasında, sahip ön eki bir genel hale getirme seçeneğini belirleyebilir. Bu, paketin ayrılmış bir önekden kaynaklandığını gösteren bir görsel göstergesi sağlar, ancak herhangi bir sahibe ait ön ek için gelecekte yapılan paket gönderilerini **engellemez.** Bu, çok sayıda katkıda bulunan açık kaynak projeleri için yararlıdır; üst veya temel katkıda bulunanlar ön eke sahip olabilir, ancak yine de tüm katkıda bulunanlar için açık olabilir. 
 
-### <a name="prefix-reservation-visual-indicator"></a>Önek rezervasyon görsel göstergesi
+### <a name="prefix-reservation-visual-indicator"></a>Ön ek ayırma görsel göstergesi
 
-Bir paket ayrılmış bir önek geldiğinde, [nuget.org](https://www.nuget.org/) galerisinde ve Visual Studio 2017 sürüm 15.4 veya sonraki sürümde aşağıdaki görsel göstergeleri görürsünüz:
+Bir paket ayrılmış bir önekden geldiğinde, [NuGet.org](https://www.nuget.org/) galerisinde ve visual Studio 2017 sürüm 15,4 veya üzeri sürümlerde aşağıdaki görsel göstergeleri görürsünüz:
 
-**nuget.org Galeri**
-![nuget.org Galerisi](media/nuget-gallery-reserved-prefix.png)
+**NuGet.org Galerisi** 
+ ![ nuget.org Galerisi](media/nuget-gallery-reserved-prefix.png)
 
-**Görsel Stüdyo**
-![Görsel Stüdyo](media/visual-studio-reserved-prefix.png)
+**Visual Studio** 
+ ![ Visual Studio](media/visual-studio-reserved-prefix.png)
 
-## <a name="id-prefix-reservation-application-process"></a>Kimlik öneki rezervasyon başvuru süreci
+## <a name="id-prefix-reservation-application-process"></a>KIMLIK ön eki ayırma uygulama işlemi
 
-1. Önek kimliği rezervasyonu için kabul [ölçütlerini](#id-prefix-reservation-criteria)gözden geçirin.
+1. [Önek kimliği ayırması için kabul ölçütlerini](#id-prefix-reservation-criteria)gözden geçirin.
 
-2. Gerektirebilecek [gelişmiş önek rezervasyon senaryolarına](#advanced-prefix-reservation-scenarios) ek olarak, ayırmak istediğiniz önekleri belirleyin.
+2. İstediğiniz ön ek [ön ek ayırma senaryolarına](#advanced-prefix-reservation-scenarios) ek olarak, ayırmak istediğiniz önekleri saptayın.
 
-3. nuget.org'da [account@nuget.org](mailto:account@nuget.org) sahibinin görüntü adı [nuget.org](https://www.nuget.org/)ile birlikte bir posta ve istediğiniz ayrılmış önekleri gönderin. Önek alt kümelerini birden çok sahipe atadıysanız, tüm sahip görüntüleme adlarından ve öneki alt kümelerinden bahsettiğinden emin olun.
+3. [account@nuget.org](mailto:account@nuget.org) [NuGet.org](https://www.nuget.org/)üzerinde sahip görünen adı ve istediğiniz ayrılmış ön eklerin yanı sıra e-posta gönderin. Birden çok Sahibe önek alt kümeleri temsilci seçtiyseniz, tüm sahip görünen adları ve önek alt kümelerine bahsetdiğinizden emin olun.
 
-Başvuru sunulduktan sonra, kabul veya ret (reddedilmeye neden olan kriterler ile) bildirilir. Sahip kimliğini doğrulamak için ek tanımlayıcı sorular sormamız gerekebilir.
+Uygulama gönderildikten sonra, kabul veya reddetme (reddetme hatasına neden olan ölçütlerle birlikte) hakkında bilgilendirilirsiniz. Sahip kimliğini onaylamak için ek tanımlama soruları sormamız gerekebilir.
 
-### <a name="id-prefix-reservation-criteria"></a>Kimlik öneki rezervasyon kriterleri
+### <a name="id-prefix-reservation-criteria"></a>KIMLIK ön eki ayırma ölçütleri
 
-Kimlik öneki rezervasyonu için herhangi bir başvuruyu incelerken, [nuget.org](https://www.nuget.org/) ekibi başvuruyu aşağıdaki kriterlere göre değerlendirecektir. Bir önekinin rezerve edilebilmesi için tüm kriterlerin karşılanması gerekmez, ancak karşılanan kriterlere dair önemli bir kanıt yoksa (bir açıklama ile) başvuru reddedilebilir:
+KIMLIK ön eki ayırma için herhangi bir uygulamayı gözden geçirirken, [NuGet.org](https://www.nuget.org/) ekibi uygulamayı aşağıdaki ölçütlere göre değerlendirir. Bir önekin ayrılması için tüm ölçütlerin sağlanması gerekmez, ancak karşılanmakta olan ölçütlere ilişkin önemli bir kanıt yoksa uygulama reddedilebilir (bir açıklama verilir):
 
-1. Paket kimliği öneki düzgün ve net bir şekilde paket sahibini tanımlıyor mu?
+1. Paket KIMLIĞI ön eki doğru bir şekilde ve paket sahibini açıkça tanımlıyor mu?
 
-1. Paket sahibi [NuGet.org hesabı için 2FA'yı etkinleştirmiş](individual-accounts.md#enable-two-factor-authentication-2fa)mi?
+1. Paket sahibi [NuGet.org hesabı için 2FA etkin](individual-accounts.md#enable-two-factor-authentication-2fa)mi?
 
-1. Paket kimliği öneki altında sahibi tarafından zaten gönderilmiş olan paketlerin önemli bir kısmı var mı?
+1. Paket KIMLIĞI ön eki altında sahip tarafından zaten gönderilen paketlerin önemli bir sayısı mı?
 
-1. Paket kimliği öneki, herhangi bir bireysel sahibine veya kuruluşa ait olmaması gereken yaygın bir şey midir?
+1. Paket KIMLIĞI ön eki, tek bir sahibe veya kuruluşa ait olmaması gereken ortak bir şeydir mi?
 
-1. Paket kimlik önekinin rezerve edilmemesi topluluk için belirsizlik ve karışıklığa neden *olmaz* mı?
+1. Paket  kimliği ön eki, topluluk için belirsizlik ve karışıklık neden oluyordu?
 
-1. Paket kimliği önekiyle eşleşen paketlerin tanımlayıcı özellikleri açık ve tutarlı mıdır (özellikle paket yazarı)?
+1. Paket KIMLIĞI öneki ile eşleşen paketlerin tanımlayıcı özellikleri açık ve tutarlı (özellikle paket yazarı)?
 
-1. Paketlerin bir lisansı var mı [(lisans](../reference/nuspec.md#license) meta veri öğesini ve amortismana alınmayan NOT licenseUrl'sini kullanarak)?
+1. Paketlerde bir lisans var ( [Lisans](../reference/nuspec.md#license) meta verileri öğesi kullanılıyor ve kullanımdan kaldırılmakta olan LICENSEURL 'si değil)?
 
-1. Paketlerde bir simge varsa (iconUrl meta veri öğesini kullanarak), [simge](../reference/nuspec.md#icon) meta veri öğesini de kullanıyorlar (simgeUrl'yi kaldırmak için bir gereklilik değildir)?
+1. Paketlerde bir simge varsa (Iurl meta veri öğesi kullanılarak), aynı zamanda [Icon](../reference/nuspec.md#icon) meta veri öğesini de kullanıyor (Iurl 'yi kaldırma gereksinimi değildir)?
 
 ## <a name="third-party-feed-provider-scenarios"></a>Üçüncü taraf akış sağlayıcısı senaryoları
 
-Bir üçüncü taraf özet akışı sağlayıcısı önek rezervasyonları sağlamak için kendi hizmetini uygulamakla ilgileniyorsa, bunu NuGet V3 besleme sağlayıcılarındaki arama hizmetini değiştirerek yapabilir. Özet akışı arama hizmetindeki değişiklik `verified` özelliği eklemektir. NuGet istemcisi V2 akışındaki eklenen özelliği desteklemez.
+Üçüncü taraf bir akış sağlayıcısı, ön ek ayırmaları sağlamak üzere kendi hizmetini uygulamayla ilgileniyorsa, NuGet v3 akış sağlayıcılarındaki arama hizmetini değiştirerek bu işlemleri yapabilir. Akış arama hizmetindeki değişiklik, `verified` özelliği eklemektir. NuGet istemcisi v2 akışındaki eklenen özelliği desteklemez.
 
-Daha fazla bilgi için [API'nin arama hizmeti yle ilgili belgelere](../api/search-query-service-resource.md)bakın.
+Daha fazla bilgi için, [API 'nin arama hizmeti hakkındaki belgelere](../api/search-query-service-resource.md)bakın.
 
-## <a name="package-id-prefix-reservation-dispute-policy"></a>Paket Kimlik Önek Rezervasyon İtiraz Politikası
-[NuGet.org'daki](https://www.nuget.org) bir sahibine yukarıda listelenen ölçütlere aykırı bir paket kimlik öneki rezervasyonu atandığını veya ticari [support@nuget.org](mailto:support@nuget.org) marka veya telif haklarını ihlal ettiğini düşünüyorsanız, lütfen söz konusu kimlik öneki, kimlik önekinin sahibi ve atanan önek rezervasyonun tartışımının nedenini içeren bir e-posta gönderin.
+## <a name="package-id-prefix-reservation-dispute-policy"></a>Paket KIMLIĞI önek ayırma Itiraz Ilkesi
+[NuGet.org](https://www.nuget.org) üzerinde bir sahibe, yukarıda listelenen ölçütlere veya herhangi bir ticari marka ya da telif haklarına karşı kuruluşa ait göre geçen BIR paket kimliği öneki ayırması atandığını düşünüyorsanız, lütfen [support@nuget.org](mailto:support@nuget.org) söz konusu KIMLIK önekiyle, kimlik önekinin sahibine ve atanan önek ayırmasını görüntüleme nedenine sahip e-posta gönderin.
 

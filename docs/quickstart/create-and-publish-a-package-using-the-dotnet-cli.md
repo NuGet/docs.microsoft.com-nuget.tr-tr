@@ -1,22 +1,22 @@
 ---
 title: DotNet CLı kullanarak bir NuGet paketi oluşturma ve yayımlama
 description: .NET Core CLI, DotNet kullanarak bir NuGet paketi oluşturma ve yayımlama hakkında bir adım adım öğretici.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: a67c8cd92304c6c4abcffbb79ddbe964664d08fb
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: cb63257c874fc4752f3b3d59db4be5996d5ab81d
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237490"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775766"
 ---
 # <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>Hızlı başlangıç: paket oluşturma ve yayımlama (DotNet CLı)
 
 .NET sınıf kitaplığından bir NuGet paketi oluşturmak ve `dotnet` komut satırı arabirimini (CLI) kullanarak NuGet.org 'de yayımlamak basit bir işlemdir.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 1. CLI içeren [.NET Core SDK](https://www.microsoft.com/net/download/)' yi yükler `dotnet` . Visual Studio 2017 ' den başlayarak DotNet CLı, .NET Core ile ilgili iş yükleriyle otomatik olarak yüklenir.
 
@@ -124,7 +124,7 @@ NuGet 'in sunabileceği daha fazlasını araştırmak için aşağıdaki bağlan
 - [Yayın öncesi paketler](../create-packages/Prerelease-Packages.md)
 - [Birden çok hedef çerçeveyi destekleme](../create-packages/multiple-target-frameworks-project-file.md)
 - [Paket sürümü oluşturma](../concepts/package-versioning.md)
-- [Lisans ifadesi veya dosya ekleme](../reference/msbuild-targets#packing-a-license-expression-or-a-license-file)
+- [Lisans ifadesi veya dosya ekleme](../reference/msbuild-targets.md#packing-a-license-expression-or-a-license-file)
 - [Yerelleştirilmiş paketler oluşturma](../create-packages/creating-localized-packages.md)
 - [Sembol paketleri oluşturma](../create-packages/symbol-packages-snupkg.md)
 - [İmzalama paketleri](../create-packages/Sign-a-package.md)

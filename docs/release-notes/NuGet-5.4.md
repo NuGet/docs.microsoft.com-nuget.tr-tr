@@ -1,16 +1,16 @@
 ---
 title: NuGet 5,4 sürüm notları
 description: Yeni özellikler, hata düzeltmeleri ve DTU 'lar dahil olmak üzere NuGet 5,4 sürüm notları.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 09/06/2019
 ms.topic: conceptual
-ms.openlocfilehash: c7fb9c1e587b6603abe63581c662571abfd4506b
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: dd4c10672db3a65b68f18636105ee55ab09da7ef
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75384117"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776182"
 ---
 # <a name="nuget-54-release-notes"></a>NuGet 5,4 sürüm notları
 
@@ -28,7 +28,7 @@ NuGet dağıtım araçlar:
 
 * Yeni yardımcı işlev-paket kimliklerinin ve sürümlerinin bir listesi verildiğinde, olası en üst düzey paketleri alın. - [#8316](https://github.com/NuGet/Home/issues/8316)
 
-* [GitHub eylemleri](https://github.com/features/actions)üzerinde NuGet. exe ' yi yükleme ve yapılandırma için yeni [`nuget/setup-nuget`](https://github.com/marketplace/actions/setup-nuget-exe-for-use-with-actions) eylem. - [#8818](https://github.com/NuGet/Home/issues/8818)
+* [`nuget/setup-nuget`](https://github.com/marketplace/actions/setup-nuget-exe-for-use-with-actions) [GitHub eylemlerine](https://github.com/features/actions)NuGet.exe yüklemek ve yapılandırmak için yeni eylem. - [#8818](https://github.com/NuGet/Home/issues/8818)
 
 ### <a name="issues-fixed-in-this-release"></a>Bu sürümde giderilen sorunlar
 
@@ -42,7 +42,7 @@ NuGet dağıtım araçlar:
 
 * Kilit dosyası düzgün oluşturulmamış-çerçeve sıralaması geri yüklemeyi lockedmode- [#8645](https://github.com/NuGet/Home/issues/8645) ile etkilememelidir
 
-* SDK 3.0.100- [#8639](https://github.com/NuGet/Home/issues/8639) <RuntimeIdentifiers> ayarlanan projelerde LockFile doğrulaması başarısız oluyor
+* <RuntimeIdentifiers>SDK 3.0.100- [#8639](https://github.com/NuGet/Home/issues/8639) ' de ayarlanan projelerde LockFile doğrulaması başarısız oluyor
 
 * İmzalama doğrulaması artık aynı OID altında 2 değere sahip olan zaman damgalarıyla imzaları doğru şekilde reddedecek [#8629](https://github.com/NuGet/Home/issues/8629)
 

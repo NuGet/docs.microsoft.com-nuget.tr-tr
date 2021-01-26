@@ -1,22 +1,22 @@
 ---
 title: NuGet ile UI denetimlerini paketleme
 description: Visual Studio ve Blend tasarımcıları için gerekli meta veriler ve destekleyici dosyalar dahil olmak üzere UWP veya WPF denetimleri içeren NuGet paketleri oluşturma.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 05/23/2018
 ms.topic: tutorial
-ms.openlocfilehash: 17062d83349fe1b8cd28e57dd888686a226ac9cb
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 317937b4d9d773d74384b8ebfcd2146062236ac1
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93238029"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774323"
 ---
 # <a name="creating-ui-controls-as-nuget-packages"></a>NuGet paketleri olarak UI denetimleri oluşturma
 
 Visual Studio 2017 ' den itibaren, NuGet paketlerinde teslim ettiğiniz UWP ve WPF denetimleri için eklenen özelliklerden yararlanabilirsiniz. Bu kılavuzda, [Extensionsdkasnugetpackage örneği](https://github.com/NuGet/Samples/tree/master/ExtensionSDKasNuGetPackage)kullanılarak UWP denetimleri bağlamında bu özelliklerde adım adım gösterilmektedir. Aksi belirtilmedikçe WPF denetimleri için de geçerlidir.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 1. Visual Studio 2017
 1. [UWP paketleri oluşturmayı](create-uwp-packages.md) anlama
@@ -36,10 +36,12 @@ Alternatif olarak, `<GenerateLibraryLayout>true</GenerateLibraryLayout>` ilk ko�
 
 Xaml tasarımcısının Visual Studio 'daki araç kutusunda ve Blend 'nin varlıklar bölmesinde görünmesi için, `VisualStudioToolsManifest.xml` paket projenizin klasörünün kökünde bir dosya oluşturun `tools` . Denetimin araç kutusu veya varlıklar bölmesinde görünmesi gerekmiyorsa bu dosya gerekli değildir.
 
-    \build
-    \lib
-    \tools
-        VisualStudioToolsManifest.xml
+```
+\build
+\lib
+\tools
+    VisualStudioToolsManifest.xml
+```
 
 Dosyanın yapısı aşağıdaki gibidir:
 
@@ -59,11 +61,11 @@ Dosyanın yapısı aşağıdaki gibidir:
 
 burada:
 
-- *your_package_file* : `ManagedPackage.winmd` ("managedpackage" gibi) denetim dosyanızın adı bu örnek için kullanılan rastgele bir adlandırılmış addır ve başka bir anlamı yoktur).
-- *vs_category* : denetimin Visual Studio Tasarımcısı araç kutusunda görünmesi gereken grubun etiketi. `VSCategory`Denetim, denetimin araç kutusunda görünmesi için gereklidir.
-*ui_framework* : çerçeve adı (örneğin, ' WPF '), `UIFramework` denetimin araç kutusunda görünmesi için Visual Studio 16,7 Preview 3 veya üzeri sürümlerde ToolBoxItems düğümlerinde bu özniteliğin gerekli olduğunu unutmayın.
-- *blend_category* : denetimin Blend Tasarımcısı varlık bölmesinde görünmesi gereken grubun etiketi. , `BlendCategory` Denetimin varlıklarda görünmesi için gereklidir.
-- *type_full_name_n* : ad alanı da dahil olmak üzere her denetim için tam olarak nitelenmiş addır `ManagedPackage.MyCustomControl` . Hem yönetilen hem de yerel türler için nokta biçiminin kullanıldığını unutmayın.
+- *your_package_file*: `ManagedPackage.winmd` ("managedpackage" gibi) denetim dosyanızın adı bu örnek için kullanılan rastgele bir adlandırılmış addır ve başka bir anlamı yoktur).
+- *vs_category*: denetimin Visual Studio Tasarımcısı araç kutusunda görünmesi gereken grubun etiketi. `VSCategory`Denetim, denetimin araç kutusunda görünmesi için gereklidir.
+*ui_framework*: çerçeve adı (örneğin, ' WPF '), `UIFramework` denetimin araç kutusunda görünmesi için Visual Studio 16,7 Preview 3 veya üzeri sürümlerde ToolBoxItems düğümlerinde bu özniteliğin gerekli olduğunu unutmayın.
+- *blend_category*: denetimin Blend Tasarımcısı varlık bölmesinde görünmesi gereken grubun etiketi. , `BlendCategory` Denetimin varlıklarda görünmesi için gereklidir.
+- *type_full_name_n*: ad alanı da dahil olmak üzere her denetim için tam olarak nitelenmiş addır `ManagedPackage.MyCustomControl` . Hem yönetilen hem de yerel türler için nokta biçiminin kullanıldığını unutmayın.
 
 Daha Gelişmiş senaryolarda, `<File>` `<FileList>` tek bir paket birden çok denetim derlemesi içerdiğinde içinde birden çok öğe de ekleyebilirsiniz. Ayrıca, `<ToolboxItems>` `<File>` denetimlerinizi ayrı kategoriler halinde düzenlemek istiyorsanız tek bir içinde birden fazla düğüme sahip olabilirsiniz.
 
@@ -109,38 +111,45 @@ UWP paketlerinde, uygulamanın yüklenebildiği işletim sistemi sürümünün �
 
 Örneğin, denetimler paketiniz için TPMinV 'i Windows 10 yıldönümü sürümüne (10,0;) ayarlayadığınızı varsayalım. Derleme 14393), bu nedenle paketin yalnızca alt sınır ile eşleşen UWP projeleri tarafından tüketildiğinden emin olmak istiyorsunuz. Paketinizin UWP projeleri tarafından tüketilebilmesi için, denetimlerinizi aşağıdaki klasör adlarıyla paketetmeniz gerekir:
 
-    \lib\uap10.0.14393\*
-    \ref\uap10.0.14393\*
+```
+\lib\uap10.0.14393\*
+\ref\uap10.0.14393\*
+```
 
 NuGet, tüketen projenin TPMinV otomatik olarak kontrol eder ve Windows 10 yıldönümü Edition 'dan düşükse yükleme başarısız olur (10,0; Derleme 14393)
 
 WPF söz konusu olduğunda, WPF denetimleri paketinizin .NET Framework v 4.6.1 veya üstünü hedefleyen projeler tarafından tüketildiğini varsayalım. Bunu zorlamak için, denetimlerinizi aşağıdaki klasör adlarıyla paketetmeniz gerekir:
 
-    \lib\net461\*
-    \ref\net461\*
+```
+\lib\net461\*
+\ref\net461\*
+```
 
 ## <a name="add-design-time-support"></a>Tasarım zamanı desteği ekle
 
 Denetim özelliklerinin, Özellik denetçisinde nerede olduğunu yapılandırmak için özel Donatıcılar ekleyin, vb., `design.dll` `lib\uap10.0.14393\Design` hedef platforma uygun şekilde dosyanızı klasöre yerleştirin. Ayrıca, **[şablonu düzenle > kopyalama özelliğini Düzenle](/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)** ' nin çalıştığından emin olmak için, `Generic.xaml` `<your_assembly_name>\Themes` klasöre (gerçek derleme adınızı kullanarak) Birleşmiş olan ve tüm kaynak sözlüklerini dahil etmeniz gerekir. (Bu dosya, bir denetimin çalışma zamanı davranışını etkilemez.) Bu nedenle, klasör yapısı şu şekilde görünür:
 
-    \lib
-      \uap10.0.14393
-        \Design
-          \MyControl.design.dll
-        \your_assembly_name
-          \Themes
-            Generic.xaml
-
+```
+\lib
+  \uap10.0.14393
+    \Design
+      \MyControl.design.dll
+    \your_assembly_name
+      \Themes
+        Generic.xaml
+```
 
 WPF için, WPF denetimleri paketinizin .NET Framework v 4.6.1 veya üstünü hedefleyen projeler tarafından tüketildiğini istediğiniz örneğe devam edin:
 
-    \lib
-      \net461
-        \Design
-          \MyControl.design.dll
-        \your_assembly_name
-          \Themes
-            Generic.xaml
+```
+\lib
+  \net461
+    \Design
+      \MyControl.design.dll
+    \your_assembly_name
+      \Themes
+        Generic.xaml
+```
 
 > [!Note]
 > Varsayılan olarak, denetim özellikleri, Özellik denetçisindeki çeşitli Kategoriler altında görünür.

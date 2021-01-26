@@ -1,16 +1,16 @@
 ---
 title: Ortak NuGet yapılandırmaları
 description: NuGet.Config dosyalar, NuGet 'in hem genel hem de proje başına temelinde denetimini denetler ve NuGet yapılandırma komutuyla değiştirilir.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 10/25/2017
 ms.topic: conceptual
-ms.openlocfilehash: e81c380eab3f1a8635e50e62811c7ae463ec3653
-ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
+ms.openlocfilehash: 35339626b0a20ccfceafa89fef94fb3187013fd7
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97699775"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774861"
 ---
 # <a name="common-nuget-configurations"></a>Ortak NuGet yapılandırmaları
 
@@ -120,14 +120,16 @@ NuGet bu dosyalardaki ayarları bulduğundan, bunlar aşağıdaki gibi uygulanı
 
 İki ayrı sürücüde aşağıdaki klasör yapısına sahip olduğunu varsayalım:
 
-    disk_drive_1
-        User
-    disk_drive_2
-       Project1
-         Source
-       Project2
-         Source
-       tmp
+```
+disk_drive_1
+    User
+disk_drive_2
+    Project1
+        Source
+    Project2
+        Source
+    tmp
+```
 
 Ardından, `NuGet.Config` belirtilen içeriğe sahip aşağıdaki konumlarda dört dosya vardır. (Bilgisayar düzeyindeki dosya bu örneğe dahil değildir, ancak kullanıcı düzeyindeki dosyada benzer şekilde davranır.)
 

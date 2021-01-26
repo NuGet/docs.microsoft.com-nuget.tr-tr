@@ -1,22 +1,22 @@
 ---
 title: NuGet CLı Add komutu
 description: nuget.exe Add komutu için başvuru
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 89d268946243e8eae07e482db48e809a15260c38
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 096d2f7a61a3c861ce2084368500ab8e8b21f212
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622908"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776090"
 ---
 # <a name="add-command-nuget-cli"></a>Add komutu (NuGet CLı)
 
 **Uygulama hedefi**: paket yayımlaması &bullet; **Desteklenen sürümler**: 3.3 +
 
-, Paket KIMLIĞI ve sürüm numarası için klasörler içinde oluşturulan, bir hiyerarşik düzende, belirtilen bir paketi HTTP olmayan bir kaynak (klasör veya UNC yolu) öğesine ekler. Örnek:
+, Paket KIMLIĞI ve sürüm numarası için klasörler içinde oluşturulan, bir hiyerarşik düzende, belirtilen bir paketi HTTP olmayan bir kaynak (klasör veya UNC yolu) öğesine ekler. Örneğin:
 
 ```
 \\myserver\packages

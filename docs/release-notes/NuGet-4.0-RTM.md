@@ -1,20 +1,20 @@
 ---
-title: NuGet 4.0 RC Yayın Notları
-description: Bilinen sorunlar, hata düzeltmeleri, eklenen özellikler ve DCR'ler dahil olmak üzere NuGet 4.0 RTM için sürüm notları.
+title: NuGet 4,0 RTM sürüm notları
+description: Bilinen sorunlar, hata düzeltmeleri, eklenen özellikler ve CCR 'ler dahil olmak üzere NuGet 4,0 RTM için sürüm notları.
 author: anangaur
 ms.author: anangaur
 ms.date: 03/03/2017
 ms.topic: conceptual
-ms.openlocfilehash: c27d0aa2e5c9af9cb15d2f487b93e93aca666214
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: c3ec5c20e5175edd315de20ca98c7a106c51809e
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "64496599"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776274"
 ---
-# <a name="nuget-40-rtm-release-notes"></a>NuGet 4.0 RTM Yayın Notları
+# <a name="nuget-40-rtm-release-notes"></a>NuGet 4,0 RTM sürüm notları
 
-[Visual Studio 2017,](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) .NET Core'a destek sağlayan, bir sürü kalite düzeltmesi olan ve performansı artıran NuGet 4.0 ile birlikte geliyor. Bu sürüm aynı zamanda PackageReference desteği, MSBuild hedefleri olarak NuGet komutları, arka plan paketi geri yüklemesi ve daha fazlası gibi çeşitli iyileştirmeler de getirir.
+[Visual Studio 2017](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) , .NET Core desteği ekleyen NuGet 4,0 ile birlikte gelir, bir dizi kalite düzeltmesine sahiptir ve performansı geliştirir. Bu sürümde, PackageReference için destek, MSBuild hedefleri olarak NuGet komutları, arka plan paketi geri yüklemeleri ve daha fazlası gibi çeşitli geliştirmeler de yer alır.
 
 ## <a name="known-issues"></a>Bilinen sorunlar
 
@@ -36,7 +36,7 @@ Bazen Paket Yöneticisi Konsolu’nda Enter tuşu çalışmıyor. Bunu görürse
 
 #### <a name="workaround"></a>Geçici çözüm
 
-Visual Studio’yu yeniden başlatın ve çözümü açmadan önce PMC’yi açın. Alternatif olarak, silme `project.lock.json` ve yeniden geri deneyin.
+Visual Studio’yu yeniden başlatın ve çözümü açmadan önce PMC’yi açın. Alternatif olarak, ' yi silmeyi `project.lock.json` ve geri yüklemeyi yeniden deneyin.
 
 ### <a name="in-net-core-projects-you-may-end-up-in-infinite-restore-loop-when-you-use-a-package-containing-an-assembly-with-an-invalid-signature"></a>.NET Core projelerinde, geçersiz imzalı bir bütünleştirilmiş kod içeren bir paket kullandığınızda sınırsız geri yükleme döngüsüne girebilirsiniz
 
@@ -48,7 +48,7 @@ Bazen, geçersiz imzalı bir bütünleştirilmiş kod içeren bir paket kulland�
 
 Şu anda bu sorunun geçici çözümü yoktur.
 
-### <a name="you-are-unable-to-view-add-or-update-dotnetclitools-using-nuget-package-manager"></a>Nuget Package Manager'ı kullanarak DotNetCLITools'u görüntüleyemiyor, ekleyemiyor veya güncelleştiremiyorsunuz
+### <a name="you-are-unable-to-view-add-or-update-dotnetclitools-using-nuget-package-manager"></a>NuGet Paket Yöneticisi 'Ni kullanarak Dotnetclıtools 'u görüntüleyemez, ekleyemez veya güncelleştiremezsiniz
 
 #### <a name="issue"></a>Sorun
 
@@ -108,288 +108,288 @@ El ile geri yükleme yapın.
 
 Şu anda bu sorunun geçici çözümü yoktur.
 
-## <a name="issues-fixed-in-nuget-40-rtm-timeframe"></a>NuGet 4.0 RTM zaman diliminde düzeltilen sorunlar
+## <a name="issues-fixed-in-nuget-40-rtm-timeframe"></a>NuGet 4,0 RTM zaman diliminde düzeltilen sorunlar
 
-[NuGet 4.0 RC Yayın Notları](../release-notes/nuget-4.0-RC.md) - NuGet 4.0 RC için düzeltilen tüm sorunları listeler
+[Nuget 4,0 RC sürüm notları](../release-notes/nuget-4.0-RC.md) -NUGET 4,0 RC için düzeltilen tüm sorunları listeler
 
 ### <a name="features"></a>Özellikler
 
-- NuGet.Core.sln'de dizeleri [yerelleştirin](https://github.com/NuGet/Home/issues/2041) - #2041
+- NuGet. Core. sln- [#2041](https://github.com/NuGet/Home/issues/2041) dizeleri yerelleştirin
 
-- Nuget kuvvetleri LSL modunda web uygulama projeleri yüklemek için - [#4258](https://github.com/NuGet/Home/issues/4258)
+- NuGet, Web uygulaması projelerini LSL modunda yüklemeye zorlar- [#4258](https://github.com/NuGet/Home/issues/4258)
 
-- "sdk yüklü" paketler için UI sürüm değişikliklerini engellemek için AutoReferenced PackageReference desteği - [#4044](https://github.com/NuGet/Home/issues/4044)
+- "SDK yüklü" paketlere yönelik kullanıcı arabiriminde sürüm değişikliklerini engellemek için, oto başvurulan PackageReference desteği- [#4044](https://github.com/NuGet/Home/issues/4044)
 
-- Doğru herhangi bir proje bağımlılıkları (PackageRef) için PackageSpec.Version iletişim - [#3902](https://github.com/NuGet/Home/issues/3902)
+- Herhangi bir proje bağımlılığı için PackageSpec. Version doğru şekilde iletişim kurar (PackageRef)- [#3902](https://github.com/NuGet/Home/issues/3902)
 
-- komut satırından(lar)a `.csproj` başvuruları kaldırmak için destek - [#4101](https://github.com/NuGet/Home/issues/4101)
+- `.csproj`komut satırı (ler) e- [#4101](https://github.com/NuGet/Home/issues/4101) başvuruları kaldırma desteği
 
-- PackageReference projeleri (normal ve xplat) ve Hafif Çözüm Yükü için destek geri [yüklemesi](https://github.com/NuGet/Home/issues/4003) - #4003
+- PackageReference projeleri (normal ve xplat) ve hafif çözüm yükü- [#4003](https://github.com/NuGet/Home/issues/4003) için geri yükleme desteği
 
-- commandline(lar) `.csproj` içine referanseklemek için destek - [#3751](https://github.com/NuGet/Home/issues/3751)
+- `.csproj`komut satırı (ler) e- [#3751](https://github.com/NuGet/Home/issues/3751) başvuru ekleme desteği
 
-- Destek NuGet geri yükleme `packages.config` için `project.json`  - hafif çözüm yükü için veya [#3711](https://github.com/NuGet/Home/issues/3711)
+- `packages.config`Veya `project.json`  -  [#3711](https://github.com/NuGet/Home/issues/3711) için hafif çözüm yükü için NuGet geri yüklemeyi destekleme
 
-- contentFiles nuget oluşturulan hedefler dosyasında destek - [#3683](https://github.com/NuGet/Home/issues/3683)
+- NuGet tarafından oluşturulan hedef dosya [#3683](https://github.com/NuGet/Home/issues/3683) ContentFiles desteği
 
-- MSBuild kullanarak Mac'te nuget.exe doğrulaması için mono ci [-#3646](https://github.com/NuGet/Home/issues/3646)
+- MSBuild- [#3646](https://github.com/NuGet/Home/issues/3646) kullanarak Mac 'te nuget.exe doğrulaması IÇIN mono CI oluşturma
 
-- Move NuGet off v2 NuGet.Core bağımlılıkları - [#3645](https://github.com/NuGet/Home/issues/3645)
+- NuGet 'i v2 NuGet. Core bağımlılıklarından Taşı- [#3645](https://github.com/NuGet/Home/issues/3645)
 
 ### <a name="bugs"></a>Hatalar
 
-- NuGet geri Visual Studio projelerin PackageId özelliğine saygı duymaz - [#4586](https://github.com/NuGet/Home/issues/4586)
+- Visual Studio 'da NuGet geri yükleme projelerin PackageID özelliğine uymuyor- [#4586](https://github.com/NuGet/Home/issues/4586)
 
-- VSIX paketine paket eklerken NuGet ProjectSystemCache hatası - [#4545](https://github.com/NuGet/Home/issues/4545)
+- VSIX paketine paket eklenirken NuGet ProjectSystemCache hatası- [#4545](https://github.com/NuGet/Home/issues/4545)
 
-- IncludeSource birden fazla TFM'si olan bir projede kullanılıyorsa paket özel durum atar - [#4536](https://github.com/NuGet/Home/issues/4536)
+- Includesource birden çok TFMs içeren bir projede kullanılıyorsa, paket özel durum oluşturur [#4536](https://github.com/NuGet/Home/issues/4536)
 
-- VS 2017 RC3, Solution genelindeki paket yönetiminden gelen güncellemeyi kullanarak çöküyor - [#4474](https://github.com/NuGet/Home/issues/4474)
+- VS 2017 RC3, çözüm genelinde paket yönetimi 'nden güncelleştirme kullanma ile kilitleniyor- [#4474](https://github.com/NuGet/Home/issues/4474)
 
-- Yeni yüklenen paketi kaldıramıyorum - [#4435](https://github.com/NuGet/Home/issues/4435)
+- Yeni yüklenen paket [#4435](https://github.com/NuGet/Home/issues/4435) kaldırılamıyor
 
-- PackageRef'e geçiş yaparken, karma çözümler garip geri yükleme davranışına sahiptir - [#4433](https://github.com/NuGet/Home/issues/4433)
+- PackageRef 'e geçiş yaparken, karma çözümlerin garip geri yükleme davranışı vardır- [#4433](https://github.com/NuGet/Home/issues/4433)
 
-- NuGet işlemine başladıktan kısa bir süre sonra bina (yükleme, güncelleme, geri yükleme), VS'nin Hang'a neden olabilir - [#4420](https://github.com/NuGet/Home/issues/4420)
+- NuGet işlemini başlattıktan hemen sonra oluşturma (yükleme, güncelleştirme, geri yükleme), askıda kalmasına neden olabilir [#4420](https://github.com/NuGet/Home/issues/4420)
 
-- UI Hang - NuGet.SolutionRestoreManager.RestoreManagerPackage [#4371](https://github.com/NuGet/Home/issues/4371) başlatma Deadlock
+- UI askıda-kilitlenme NuGet. SolutionRestoreManager. RestoreManagerPackage [#4371](https://github.com/NuGet/Home/issues/4371) başlatılıyor
 
-- paket komutu ekle öğe yerine öznitelik olarak sürüm eklemelidir - [#4325](https://github.com/NuGet/Home/issues/4325)
-
-- dotnet
-  - dotnetcore Geri Yükleme foo.sln - SLN yapılandırmaları geri yükleme grafiğiyineleme (ama diff config) projelere neden olduğunda başarısız olur - [#4316](https://github.com/NuGet/Home/issues/4316)
-
-- İçerik sadece paketler - [#3668](https://github.com/NuGet/Home/issues/3668)
-
-- Varsayılan olarak paket biçimi seçici seçeneğini devre dışı bırakma - [#4468](https://github.com/NuGet/Home/issues/4468)
-
-- Perf: CreateUAP_CSharp_VS.01.1.Create projesi Duration_TotalElapsedTime 3.153.570 ms (%149.1) geriledi. Taban Çizgisi 26129.02 - [#4452](https://github.com/NuGet/Home/issues/4452)
-
-- Perf: ManagedLangs_CS_DDRIT.0300.Rebuild Çözüm 1.5sec tarafından Duration_TotalElapsedTime geriledi. Temel 26105 - [#4441](https://github.com/NuGet/Home/issues/4441)
-
-- Çoklu TFM projelerinde adaylık başarısız oldu - [#4419](https://github.com/NuGet/Home/issues/4419)
-
-- Perf: WebForms_DDRIT.1200.Close Solution VM_ImagesInMemory_Total_devenv 3.000 Sayı (%0.5) geriledi. Taban çizgisi 26123.04 - [#4408](https://github.com/NuGet/Home/issues/4408)
-
-- vsfeedback - netcoreapp1.1 hedeflenirken paketleri uyarılar - [#4397](https://github.com/NuGet/Home/issues/4397)
-
-- PathTooLongException boş ASP.NET Core web uygulamasına bir NuGet paketi eklemeye çalışırken - [#4391](https://github.com/NuGet/Home/issues/4391)
-
-- Sürü çok sık çalışır -- dotnet
-  - dotnetcore paketi ile başarısız hedef "Paketi" içeren hedef bağımlılık grafiğinde dairesel bir bağımlılık var - [#4381](https://github.com/NuGet/Home/issues/4381)
-
-- Paket çok sık çalışır -- Generate NuGet paketi tüm yapılandırmaları içermez - [#4380](https://github.com/NuGet/Home/issues/4380)
-
-- NullReferenceExceptionC++ projesinde packageref ile nuget ekleme - [#4378](https://github.com/NuGet/Home/issues/4378)
-
-- Erişilebilirlik : Ekran okuyucupaketi yüklemek için projeleri seçmek için onay kutusunu anlatmaz - [#4366](https://github.com/NuGet/Home/issues/4366)
-
-- NuGet VS17, VSO/VSTS beslemelerine ( VS Bug 365798 - [#4365](https://github.com/NuGet/Home/issues/4365)
-
-- contentFiles, PackagePath yolu "contentFiles" olarak belirtirse çıktıyı yanlış konuma getirin - [#4348](https://github.com/NuGet/Home/issues/4348)
-
-- Pack hedef SürümSuffix ile PackageVersion özelliği ekler - [#4324](https://github.com/NuGet/Home/issues/4324)
-
-- Paket yolunu belirtme dotnet paketiile çalışmaz - [#4321](https://github.com/NuGet/Home/issues/4321)
-
-- NuGet geri yükleme sırasında yinelenen içeri almalar hakkında bir sürü uyarı çıktısı #4304 [#4304](https://github.com/NuGet/Home/issues/4304)
-
-- "NuGet Package Manager Format" iletişim kutusunu seçin karanlık tema altında kötü görünüyor - [#4300](https://github.com/NuGet/Home/issues/4300)
-
-- VS çarpışma inşa geri yükleme - [#4298](https://github.com/NuGet/Home/issues/4298)
-
-- Hedef çerçevelere TFM eklerseniz Visual Studio kilitlenir, kaydedin, sonra oluşturun. Zaman% 10 - [#4295](https://github.com/NuGet/Home/issues/4295)
-
-- nuget paketi başarıyla bir proje ambalaj başarı mesajı çıktı değil - [#4294](https://github.com/NuGet/Home/issues/4294)
-
-- PackTask System.IO.Compression 4.1 bulunamadı nedeniyle başarısız olur - [#4290](https://github.com/NuGet/Home/issues/4290)
-
-- Paket çok sık çalışır - PackTask sık sık dosya erişim çakışması ile başarısız olur - [#4289](https://github.com/NuGet/Home/issues/4289)
-
-- NuGet arka plan geri yükleme sırasında çıkış penceresini açar - [#4274](https://github.com/NuGet/Home/issues/4274)
-
-- ServiceProvider'ı tehlikeli kodlama deseni olarak ortadan kaldırın (askıda kalmasına neden olabilir) - [#4268](https://github.com/NuGet/Home/issues/4268)
-
-- Perf /UIHang - DownloadTimeoutStream geliştirin okur - [#4266](https://github.com/NuGet/Home/issues/4266)
-
-- NuGet geri yüklemesi tamamlanmadan önce bir projeyi kapatmaya çalışırsanız Visual Studio kilitlenir - [#4257](https://github.com/NuGet/Home/issues/4257)
-
-- PackTask ve ambalaj `.nuspec`  -  [#4250](https://github.com/NuGet/Home/issues/4250) ile ilgili sorunlar
-
-- [vsfeedback] Yeni projede nuget paketleri çözemez (visual studio yeniden başlatmaihtiyacı) - [#4217](https://github.com/NuGet/Home/issues/4217)
-
-- [vsfeedback] Kullanılabilir paket sürümlerini gösteren "Sürüm" açılır, seçilen nuGet paketi ile senkronize kalmak için mücadele eder... - [#4198](https://github.com/NuGet/Home/issues/4198)
-
-- Nuget.Client kilitlenmeleri önlemek için CPS ile etkileşimde cps JoinableTaskFactory kullanmalıdır - [#4185](https://github.com/NuGet/Home/issues/4185)
-
-- NuGet 3.5.0 `.targets` paketten ambalajı açılmaz - [#4171](https://github.com/NuGet/Home/issues/4171)
+- Add Package komutu, element- [#4325](https://github.com/NuGet/Home/issues/4325) yerine Attribute olarak eklenmelidir
 
 - dotnet
-  - dotnetcore paketi `.csproj`  -  [#4150](https://github.com/NuGet/Home/issues/4150) başlık desteklemiyor
+  - dotnetcore geri yükleme foo. sln--SLN içindeki yapılandırma, restore Graph 'te yinelenen (ancak fark yapılandırması) projelere neden olduğunda başarısız olur- [#4316](https://github.com/NuGet/Home/issues/4316)
 
-- VS2017 RC'de hata iletişim kutusunda yükleme-Paket sonuçları - [#4127](https://github.com/NuGet/Home/issues/4127)
+- Yalnızca içerik paketleri- [#3668](https://github.com/NuGet/Home/issues/3668)
 
-- .net çekirdek projesi için bir paketi güncelleştirme, kullanıcı arabirimi tarafından CPS güncelleştirmesini alamadığı için işe yaramıyor gibi görünüyor. - [#4035](https://github.com/NuGet/Home/issues/4035)
+- Varsayılan olarak, paket biçimi seçici seçeneğini devre dışı bırak- [#4468](https://github.com/NuGet/Home/issues/4468)
 
-- Çözülmemiş başvuru uyarısını geliştirin - [#3955](https://github.com/NuGet/Home/issues/3955)
+- Perf: CreateUAP_CSharp_VS. 01.1.3.153,570 MS (149,1%) tarafından proje gerilediğini Duration_TotalElapsedTime oluşturun. Taban çizgisi 26129,02- [#4452](https://github.com/NuGet/Home/issues/4452)
 
-- dotnet
-  - dotnetcore paketi - ProjectReference sürüm bilgilerini kaybeder - [#3953](https://github.com/NuGet/Home/issues/3953)
+- Perf: ManagedLangs_CS_DDRIT .0300. yeniden derleme çözümü Duration_TotalElapsedTime 1.5 sn tarafından yeniden derleyin. Taban çizgisi 26105- [#4441](https://github.com/NuGet/Home/issues/4441)
 
-- UWP uygulaması oluşturma & toplam geçen süre gerilemelerini yeniden oluşturma - [#3873](https://github.com/NuGet/Home/issues/3873)
+- Birden çok TFA projesinde aday başarısız oldu- [#4419](https://github.com/NuGet/Home/issues/4419)
 
-- Başarılı geri yükleme iletisi geri yükleme sırasında hata sonra bile görüntülenir. - [#3799](https://github.com/NuGet/Home/issues/3799)
+- Perf: WebForms_DDRIT .1200. Close çözüm gerilediğini VM_ImagesInMemory_Total_devenv 3,000 sayı (0,5%). Taban çizgisi 26123,04- [#4408](https://github.com/NuGet/Home/issues/4408)
 
-- yeniden Yayımla Nuget.CommandLine 3.4.4 to Nuget.org - [#2931](https://github.com/NuGet/Home/issues/2931)
+- vsfeedback-netcoreapp 1.1 'i hedeflerken paket uyarıları- [#4397](https://github.com/NuGet/Home/issues/4397)
 
-- Geçir'de, projeler `project.json` `.csproj` --- geri yükleme başarısız olur - [#4297](https://github.com/NuGet/Home/issues/4297)
+- Boş ASP.NET Core Web uygulamasına bir NuGet paketi eklenmeye çalışılırken PathTooLongException- [#4391](https://github.com/NuGet/Home/issues/4391)
 
-- Yeni oluşturulan xunit Test projesinde başarısız olan geri yükleme - [#4296](https://github.com/NuGet/Home/issues/4296)
+- Paket çok sık çalışır--DotNet
+  - dotnetcore paketi, target "Pack" ile ilgili hedef bağımlılık grafiğinde döngüsel bağımlılık olduğundan başarısız oluyor [#4381](https://github.com/NuGet/Home/issues/4381)
 
-- Çekirdek projeler asabilir, açık ui kilitlemek - [#4269](https://github.com/NuGet/Home/issues/4269)
+- Paket çok sık çalışır--NuGet paketi oluşturma tüm konfigürasyonları içermez- [#4380](https://github.com/NuGet/Home/issues/4380)
 
-- yapı görevleri için hedefler dosyayı düzeltme - [#4267](https://github.com/NuGet/Home/issues/4267)
+- C++ projesinde packageref ile NuGet ekleme- [#4378](https://github.com/NuGet/Home/issues/4378)
 
-- Hata listesinde başvurulan projeyi boşaltan yapı çözümünden sonra hata var - [#4208](https://github.com/NuGet/Home/issues/4208)
+- Erişilebilirlik: ekran okuyucusu, paketi [#4366](https://github.com/NuGet/Home/issues/4366) paketi yükleyecek projeleri seçme onay kutusunu göstermez
 
-- MSB4057: Projede "_GenerateRestoreGraphProjectEntry" hedefi yok. - [#4194](https://github.com/NuGet/Home/issues/4194)
+- NuGet VS17 sporadsoysal, VSO/VSTS akışlarına bağlanma başarısız oluyor-VS hatası 365798- [#4365](https://github.com/NuGet/Home/issues/4365)
 
-- vsfeedback: tüm projeleri seçtiğinizde çözüm çöküyor için nuget manager ui - [#4191](https://github.com/NuGet/Home/issues/4191)
+- PackagePath yolu "contentFiles" olarak belirtiyorsa contentFiles yanlış konuma çıkış alır- [#4348](https://github.com/NuGet/Home/issues/4348)
 
-- nuget.exe msbuildpath bir iz çizgi olduğunda başarısız olur - [#4180](https://github.com/NuGet/Home/issues/4180)
+- Paket hedefi bir PackageVersion özelliğini VersionSuffix ile ekler- [#4324](https://github.com/NuGet/Home/issues/4324)
 
-- vsfeedback: NuGet geri LinqToTwitter projesi için çeşitli proje referans uyarıları vermek geri - [#4156](https://github.com/NuGet/Home/issues/4156)
+- Paket yolunun belirtilmesi DotNet Pack ile çalışmıyor- [#4321](https://github.com/NuGet/Home/issues/4321)
 
-- Paket `.csproj` minClientVersion özniteliği içermez - [#4135](https://github.com/NuGet/Home/issues/4135)
+- NuGet geri yükleme sırasında yinelenen içeri aktarmalar hakkında bir uyarı verir- [#4304](https://github.com/NuGet/Home/issues/4304)
 
-- NuGet.Build.Tasks.Pack.dll sevk gecikmesi VS2017 (d15rel 26014.00) - [#4122](https://github.com/NuGet/Home/issues/4122)
+- "NuGet Paket Yöneticisi biçimi" iletişim kutusu Koyu tema altında hatalı görünüyor- [#4300](https://github.com/NuGet/Home/issues/4300)
 
-- VSFeedback: CMake 3.7.1 ile oluşturulan VS 2015 projesi için geri yükleme başarısız oldu - [#4114](https://github.com/NuGet/Home/issues/4114)
+- Derleme geri yükleme sırasında VS kilitlenmesi- [#4298](https://github.com/NuGet/Home/issues/4298)
 
-- VSFeedback: Geri yükleme hataları oluşturmak verebilir daha tam hata iletileri gizleyebilirsiniz - [#4113](https://github.com/NuGet/Home/issues/4113)
+- TargetFramework 'e tfd eklerseniz, bu durumda Visual Studio kilitlenmeleri, kaydedebilir ve derdir. %10 zaman [#4295](https://github.com/NuGet/Home/issues/4295)
 
-- [VSFeedback] Web sitesi projesi için NuGet paketlerini geri alırken hata oluştu: Değer null olamaz. - [#4092](https://github.com/NuGet/Home/issues/4092)
+- NuGet paketi bir projeyi başarıyla paketleme sırasında başarı iletisini çıktı değil- [#4294](https://github.com/NuGet/Home/issues/4294)
 
-- Geçiş NuGet.PackageManagement.VisualStudio.SolutionRestoreWorker "Nesne başvuru Özel Durum" atar - [#4067](https://github.com/NuGet/Home/issues/4067)
+- System. ıO. Compression 4,1 bulunamadığı için Pacbir SK başarısız oldu- [#4290](https://github.com/NuGet/Home/issues/4290)
 
-- dotnet
-  - dotnetcore paketi paketi karşı inşa edilmiş sürümleri ile araçları paketi gerekir - [#4063](https://github.com/NuGet/Home/issues/4063)
+- Paket çok sık çalışır; dosya erişimi çakışmasıyla birlikte Packısk sık başarısız olur- [#4289](https://github.com/NuGet/Home/issues/4289)
 
-- Yeni arka plan geri yüklemesi, saniyeler zaman zaman durum çubuğuna milisaniye yazar - [#4036](https://github.com/NuGet/Home/issues/4036)
+- NuGet arka plan geri yükleme sırasında çıkış penceresini açar- [#4274](https://github.com/NuGet/Home/issues/4274)
 
-- Yazım hatası tüm proje referansları çözmek için başarısız oldu - [#4018](https://github.com/NuGet/Home/issues/4018)
+- ServiceProvider tehlikeli kodlama düzeniyle (askıda kalmasına neden olabilir) kaldırın [#4268](https://github.com/NuGet/Home/issues/4268)
 
-- Paket başvuru senaryolarında PCM iş akışlarını etkinleştirin - [#4016](https://github.com/NuGet/Home/issues/4016)
+- Perf/Uıaskıda-#4266 DownloadTimeoutStream okumaları- [](https://github.com/NuGet/Home/issues/4266)
 
-- Paket yöneticisi UI yüklü paketleri bulamıyorum - [#4015](https://github.com/NuGet/Home/issues/4015)
+- NuGet geri yükleme işlemi tamamlanmadan önce bir projeyi kapatmaya çalışırsanız, Visual Studio kilitlenmeler- [#4257](https://github.com/NuGet/Home/issues/4257)
 
-- dotnet
-  - PackagePath boş olduğunda dotnetcore paketi başarısız olur - [#3993](https://github.com/NuGet/Home/issues/3993)
+- Pacbir SK ve paketleme `.nuspec`  -  [#4250](https://github.com/NuGet/Home/issues/4250) sorunları
 
-- Geri yükleme görevi çok kullanıcılı bir senaryoda başarısız olur - [#3897](https://github.com/NuGet/Home/issues/3897)
+- [vsfeedback] Yeni projedeki NuGet paketleri çözümlenemiyor (Visual Studio 'nun yeniden başlatılması gerekiyor)- [#4217](https://github.com/NuGet/Home/issues/4217)
 
-- NuGet Pack Task kullanarak ambalajlarken İçerik türünü değiştiremezsiniz - [#3895](https://github.com/NuGet/Home/issues/3895)
+- [vsfeedback] Kullanılabilir paket sürümlerini gösteren "sürüm" açılan penceresinde, seçili nuGet paketiyle eşitlenmiş halde kalmak için bir sorun var...- [#4198](https://github.com/NuGet/Home/issues/4198)
 
-- İçerik Dosyalarının Varsayılan Kopyası MsBuild /t:pack için yanlış - [#3894](https://github.com/NuGet/Home/issues/3894)
+- NuGet. Client, [#4185](https://github.com/NuGet/Home/issues/4185) kilitlenmeleri engellemek için CPS ile etkileşerek CPS JoinableTaskFactory kullanmalıdır
 
-- Paketi geri yükleyin çift günlükleri geri paketleri mesajı - [#3785](https://github.com/NuGet/Home/issues/3785)
-
-- Guardrails kaldırın - "runtimes" bölümünün geri yükleme sadece geçerli proje için geçerli olmalıdır - [#3768](https://github.com/NuGet/Home/issues/3768)
-
-- Paket görevi içerik dosyalarını hem 'içerik/' hem de 'contentFiles/' olarak koyar - [#3718](https://github.com/NuGet/Home/issues/3718)
+- NuGet 3.5.0 paketten paketten `.targets` açma- [#4171](https://github.com/NuGet/Home/issues/4171)
 
 - dotnet
-  - dotnetcore pack3 ekstra etiket bölme yok - [#3701](https://github.com/NuGet/Home/issues/3701)
+  - dotnetcore paketi `.csproj`  -  [#4150](https://github.com/NuGet/Home/issues/4150) başlığını desteklemiyor
+
+- VS2017 RC 'de hata iletişim kutusunda Install-Package sonuçları [#4127](https://github.com/NuGet/Home/issues/4127)
+
+- .NET Core projesi için bir paketi güncelleştirme, Kullanıcı arabirimi aday 'dan CPS güncelleştirmesini almamasına yönelik olarak görünür. - [#4035](https://github.com/NuGet/Home/issues/4035)
+
+- Çözümlenmemiş başvuruyu İyileştirme Uyarısı- [#3955](https://github.com/NuGet/Home/issues/3955)
 
 - dotnet
-  - dotnetcore paketi: paket referansları ile ambalaj projeleri yinelenen ithalat uyarısı sonuçları - [#3665](https://github.com/NuGet/Home/issues/3665)
+  - dotnetcore paketi-ProjectReference sürüm bilgilerini kaybeder- [#3953](https://github.com/NuGet/Home/issues/3953)
 
-- VS'de günlük geri yükleme her zaman görünmüyor - [#3633](https://github.com/NuGet/Home/issues/3633)
+- UWP uygulaması oluşturma proje oluşturma & toplam geçen süre gerilemesi- [#3873](https://github.com/NuGet/Home/issues/3873)
 
-- nuget yerliler metin hala belirtilen paketleri önbellek yardım - [#3592](https://github.com/NuGet/Home/issues/3592)
+- Geri yükleme sırasında hata sonrasında bile başarılı geri yükleme iletisi görüntülenir. - [#3799](https://github.com/NuGet/Home/issues/3799)
 
-- TargetFrameworks ile Restore3 çiftler PackageReferences. - [#3504](https://github.com/NuGet/Home/issues/3504)
+- NuGet. CommandLine 3.4.4 to Nuget.org- [#2931](https://github.com/NuGet/Home/issues/2931) yeniden yayımlayın
 
-- Nuget VS MSBuild beklenmedik sürümünü seçer "15" Önizleme 4 dev. komut istemi - [#3408](https://github.com/NuGet/Home/issues/3408)
+- Geçiş sırasında projeler `project.json` `.csproj` ---geri yükleme başarısız olur- [#4297](https://github.com/NuGet/Home/issues/4297)
 
-- Başarısız geri yüklemede hedef/sahne dosyalarını yazma - [#3399](https://github.com/NuGet/Home/issues/3399)
+- Yeni oluşturulan xUnit Test projesinde geri yükleme başarısız oldu- [#4296](https://github.com/NuGet/Home/issues/4296)
 
-- Geri yükleme sırasında NuGet VS 15 komut istemi çalışırken MSBuild ile aynı compat shims saygı yok - [#3387](https://github.com/NuGet/Home/issues/3387)
+- Temel projeler askıda kalabilir, açık [#4269](https://github.com/NuGet/Home/issues/4269) Kullanıcı arabirimini kilitleyebilir
 
-- VS15 için PackFromProjectWithDevelopmentDependencySet'i yeniden etkinleştirin - [#3272](https://github.com/NuGet/Home/issues/3272)
+- derleme görevleri için hedef dosyasını düzeltir- [#4267](https://github.com/NuGet/Home/issues/4267)
 
-- NuGet ile sorunları karıştırın - [#4043](https://github.com/NuGet/Home/issues/4043)
+- Hata listesi, başvurulan projeyi kaldırmak için derleme çözümünü tamamladıktan sonra hata oluştu- [#4208](https://github.com/NuGet/Home/issues/4208)
 
-- 4.0.0.2067'yi CLI ve SDK depolarına entegre edin - [#4029](https://github.com/NuGet/Home/issues/4029)
+- MSB4057: "_GenerateRestoreGraphProjectEntry" hedefi projede yok. - [#4194](https://github.com/NuGet/Home/issues/4194)
 
-- Yeni Core Console App, Close Solution, Open Solution ve Close Solution Oluştururken VS Askıda Kalır - [#4008](https://github.com/NuGet/Home/issues/4008)
+- vsfeedback: tüm projeler ' i seçtiğinizde çözüm kilitlenmeleri için NuGet Yöneticisi Kullanıcı arabirimi- [#4191](https://github.com/NuGet/Home/issues/4191)
 
-- D15prerel.25916.01 karşı asmak açılış projesi isabet - [#3982](https://github.com/NuGet/Home/issues/3982)
+- Sondaki eğik çizgi olduğunda MSBuildPath nuget.exe başarısız olur [#4180](https://github.com/NuGet/Home/issues/4180)
 
-- dotnet/nuget.exe locals doc/help message 'ı düzelt [- #3919](https://github.com/NuGet/Home/issues/3919)
+- vsfeedback: NuGet geri yüklemesi, LinqToTwitter projesi için çeşitli proje başvurusu uyarıları sağlar- [#4156](https://github.com/NuGet/Home/issues/4156)
 
-- PackTask'ı izleme veya önde gelen beyaz alanla ilgili sorunlar için denetleyin - [#3906](https://github.com/NuGet/Home/issues/3906)
+- Paketi `.csproj` , minClientVersion özniteliğini içermez- [#4135](https://github.com/NuGet/Home/issues/4135)
+
+- VS2017 içinde oturum açılan NuGet.Build.Tasks.Pack.dll gönderilen gecikme (d15rel 26014,00)- [#4122](https://github.com/NuGet/Home/issues/4122)
+
+- VSFeedback: CMake 3.7.1 ile oluşturulan VS 2015 projesinde geri yükleme başarısız oluyor [#4114](https://github.com/NuGet/Home/issues/4114)
+
+- VSFeedback: geri yükleme hataları, derleme [#4113](https://github.com/NuGet/Home/issues/4113) verebilmesi için daha fazla tam hata iletisi içerebilir
+
+- [VSFeedback] Web sitesi projesi için NuGet paketleri geri yüklenirken hata oluştu: değer null olamaz. - [#4092](https://github.com/NuGet/Home/issues/4092)
+
+- Geçiş, NuGet. PackageManagement. VisualStudio. SolutionRestoreWorker- [#4067](https://github.com/NuGet/Home/issues/4067) Içinde "nesne başvurusu özel durumu" oluşturur
 
 - dotnet
-  - dotnetcore paketi obj değil bin ambalaj - [#3880](https://github.com/NuGet/Home/issues/3880)
+  - dotnetcore Pack, paketin [#4063](https://github.com/NuGet/Home/issues/4063) karşı derlenme sürümlerine sahip araçları paketlemelidir.
+
+- Yeni arka plan geri yükleme, geri yükleme için saniye sürerse süreyi durum çubuğuna yazar- [#4036](https://github.com/NuGet/Home/issues/4036)
+
+- Typo on, tüm proje başvurularını çözümleyemedi- [#4018](https://github.com/NuGet/Home/issues/4018)
+
+- Paket başvuru senaryolarında PCM iş akışlarını Etkinleştir- [#4016](https://github.com/NuGet/Home/issues/4016)
+
+- Paket Yöneticisi Kullanıcı arabiriminde yüklü paketler bulunamıyor- [#4015](https://github.com/NuGet/Home/issues/4015)
 
 - dotnet
-  - dotnetcore paketi her zaman 1.0.0 ProjectReference sürümünü ayarlamak gibi görünüyor - [#3874](https://github.com/NuGet/Home/issues/3874)
+  - PackagePath boş olduğunda dotnetcore paketi başarısız olur- [#3993](https://github.com/NuGet/Home/issues/3993)
+
+- Birden çok Kullanıcı senaryosunda geri yükleme görevi başarısız oluyor- [#3897](https://github.com/NuGet/Home/issues/3897)
+
+- NuGet paketi kullanılırken Içerik türü değiştirilemez- [#3895](https://github.com/NuGet/Home/issues/3895)
+
+- MsBuild/t: Pack- [#3894](https://github.com/NuGet/Home/issues/3894) Için varsayılan ContentFiles kopyası hatalı
+
+- Paketi Yükle geri yükleme paket geri yükleme geri yükleme paketleri iletisi- [#3785](https://github.com/NuGet/Home/issues/3785)
+
+- Guardrayları kaldır-"çalışma zamanları" bölümünün geri yüklenmesi yalnızca geçerli projeye uygulanmalıdır- [#3768](https://github.com/NuGet/Home/issues/3768)
+
+- Paket görevi, içerik dosyalarını hem ' content/' hem de ' contentFiles/' öğesine koyar- [#3718](https://github.com/NuGet/Home/issues/3718)
 
 - dotnet
-  - dotnetcore paketi proje referansları ve <TargetFramework>  -  [#3865](https://github.com/NuGet/Home/issues/3865) ile başarısız
+  - dotnetcore Pack3, ek etiket bölme [#3701](https://github.com/NuGet/Home/issues/3701)
 
-- ProjectSystemCache.TryGetProjectNameByShortName içinde LockRecursionException - [#3861](https://github.com/NuGet/Home/issues/3861)
+- dotnet
+  - dotnetcore paketi: paket başvuruları olan paketleme projeleri, yinelenen içeri aktarma uyarısı ile sonuçlanır. [#3665](https://github.com/NuGet/Home/issues/3665)
 
-- MSBuild özelliklerinden beyaz boşluğu kırpın - [#3819](https://github.com/NuGet/Home/issues/3819)
+- VS 'de geri yükleme günlüğü her zaman [#3633](https://github.com/NuGet/Home/issues/3633) gösterme
 
-- Proje yükü yle toplanan iki proje olayını birleştirin - [#3759](https://github.com/NuGet/Home/issues/3759)
+- NuGet Yereller yardım metni hala bahsedilen paketler cache- [#3592](https://github.com/NuGet/Home/issues/3592)
 
-- Dosyadaki P2P kitaplıklarında `project.assets.json` yanlış Sürüm var - [#3748](https://github.com/NuGet/Home/issues/3748)
+- TargetFramework ile Restore3 bağles Packagereferles. - [#3504](https://github.com/NuGet/Home/issues/3504)
 
-- Yanıt vermeyen besleme ve kullanılamayan paket nedeniyle kilitlenmeyi geri yükleme - [#3672](https://github.com/NuGet/Home/issues/3672)
+- NuGet, VS "15" Preview 4 dev sürümünde MSBuild 'in beklenmedik sürümünü seçer. komut istemi- [#3408](https://github.com/NuGet/Home/issues/3408)
 
-- nuget.exe MSBuild hata çıkışı büyük miktarda asmak olabilir - [#3572](https://github.com/NuGet/Home/issues/3572)
+- Başarısız geri yükleme sırasında hedef/özellik dosyalarını yaz- [#3399](https://github.com/NuGet/Home/issues/3399)
 
-- Blend için geri yükleme-on-build ilk kez başarısız olur, ikinci kez başarılı (VS senaryo sabit) - [#2121](https://github.com/NuGet/Home/issues/2121)
+- Geri yükleme sırasında NuGet, VS 15 komut isteminde çalışırken MSBuild ile aynı uyumlu değildir- [#3387](https://github.com/NuGet/Home/issues/3387)
 
-### <a name="dcrs"></a>DCRs
+- VS15- [#3272](https://github.com/NuGet/Home/issues/3272) Için PackFromProjectWithDevelopmentDependencySet 'i yeniden etkinleştirin
 
-- v2 vsix v3 vsix için vsix göç - [#4196](https://github.com/NuGet/Home/issues/4196)
+- NuGet ile sorunları Blend- [#4043](https://github.com/NuGet/Home/issues/4043)
 
-- NuGet MSBuild kilit dosyasına yol almak için bir mekanizma olmalıdır - [#3351](https://github.com/NuGet/Home/issues/3351)
+- 4.0.0.2067 ile birlikte çalışmak için CLı ve SDK depolarıyla tümleştirin- [#4029](https://github.com/NuGet/Home/issues/4029)
 
-- TFM uyumluluk denetimine ve varlıklar dosyasına yapı varlıkları ekleme - [#3296](https://github.com/NuGet/Home/issues/3296)
+- Yeni çekirdek konsol uygulaması oluşturduğunuzda, çözümü kapatıp çözümü açıp çözümü kapattığınızda VS askıda kalıyor. [#4008](https://github.com/NuGet/Home/issues/4008)
 
-- Paketle ilgili yetenekleri etkinleştirmek için Paket hedeflerinde yeni bir ProjectCapability "Pack" tanımlayın - [#4146](https://github.com/NuGet/Home/issues/4146)
+- D15prerel. 25916.01- [#3982](https://github.com/NuGet/Home/issues/3982) karşı projenin açılmasını kapatma
 
-- "GeneratePackageOnBuild" MSBuild özelliği koşullu bir sonrası inşa hedef olarak Çalıştır ın - [#4145](https://github.com/NuGet/Home/issues/4145)
+- DotNet/nuget.exe Yereller belgesi/yardım iletisi- [#3919](https://github.com/NuGet/Home/issues/3919) düzeltir
 
-- Belirli NuGet projesi oluşturmak için NuGet özelliği RestoreProjectStyle'ı kullanın - [#4134](https://github.com/NuGet/Home/issues/4134)
+- Sondaki veya önde gelen boşluklar ile ilgili sorunlar için Paclorsk 'yi inceleyin- [#3906](https://github.com/NuGet/Home/issues/3906)
 
-- Geçişli Proje Başvuruları değişikliği için Geri Yükleme'yi [uyarla](https://github.com/NuGet/Home/issues/4076) - #4076
+- dotnet
+  - dotnetcore paketi obj 'den Not [#3880](https://github.com/NuGet/Home/issues/3880)
 
-- UWP olmayan projeler için hedef dosyaya NuGet özellikleri ekleme - [#4030](https://github.com/NuGet/Home/issues/4030)
+- dotnet
+  - dotnetcore paketi her zaman ProjectReference sürümünü 1.0.0- [#3874](https://github.com/NuGet/Home/issues/3874) olarak ayarlanmış görünüyor
 
-- UWP TargetPlatformVersion desteği - [#3923](https://github.com/NuGet/Home/issues/3923)
+- dotnet
+  - dotnetcore paketi proje başvuruları ve <TargetFramework>  -  [#3865](https://github.com/NuGet/Home/issues/3865) başarısız oluyor
 
-- Proje referans meta verilerini NuGet proje sistemine [iletin](https://github.com/NuGet/Home/issues/3922) - #3922
+- ProjectSystemCache. TryGetProjectNameByShortName- [#3861](https://github.com/NuGet/Home/issues/3861) Içindeki LockRecursionException özel durumu
 
-- Paketleme modu için UI ekle - [#3921](https://github.com/NuGet/Home/issues/3921)
+- MSBuild özelliklerinden boşluğu Kırp- [#3819](https://github.com/NuGet/Home/issues/3819)
 
-- Eski `.csproj` proj / hedefler ayarlanmış NugetTargetMoniker ve RuntimeIdentifiers ihtiyacı - [#3854](https://github.com/NuGet/Home/issues/3854)
+- Proje yükleme- [#3759](https://github.com/NuGet/Home/issues/3759) oluşturulan iki proje olayını birleştirin
 
-- Yükleme paketi otomatik geri yükleme ile çakışabilir - [#3836](https://github.com/NuGet/Home/issues/3836)
+- Dosyadaki P2P kitaplıklarının `project.assets.json` sürümü yanlış [#3748](https://github.com/NuGet/Home/issues/3748)
 
-- Bağlam menüsü QueryStatus VSPackage yüklenmediği zaman gerçekleşmez - [#3835](https://github.com/NuGet/Home/issues/3835)
+- Yanıt vermeyen akış ve kullanılamıyor paketi nedeniyle kilitlenme geri yükleme- [#3672](https://github.com/NuGet/Home/issues/3672)
 
-- Çözüm Geri Yükle ve Oluştur Geri Yükleme hala iletişim lerini gösterir - [#3789](https://github.com/NuGet/Home/issues/3789)
+- nuget.exe, büyük miktarda MSBuild hata çıkışı üzerinden askıda kalabilir [#3572](https://github.com/NuGet/Home/issues/3572)
 
-- NuGet.Clients çözüm yapısında VSSDK sürümünü yalıt - [#3890](https://github.com/NuGet/Home/issues/3890)
+- Blend için geri yükleme, ilk kez başarısız oldu, ikinci kez başarılı oldu (VS senaryosu düzeltildi)- [#2121](https://github.com/NuGet/Home/issues/2121)
 
-## <a name="links-to-github-issues-fixed-in-rtm"></a>RTM'de düzeltilen GitHub sorunlarına bağlantılar
-[Sorunlar listesi 1](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.0%20RTM")  
-[Sorunlar listesi 2](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.0%20RC4")  
-[Sorunlar listesi 3](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.0%20RC3")  
-[Sorunlar listesi 4](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.0%20RC2")  
-[Sorunlar listesi 5](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.0%20RC")
+### <a name="dcrs"></a>DCR
+
+- VSIX 'i v2 VSIX 'ten v3 VSIX 'e geçirin- [#4196](https://github.com/NuGet/Home/issues/4196)
+
+- NuGet, MSBuild- [#3351](https://github.com/NuGet/Home/issues/3351) kilit dosyasının yolunu almak için bir mekanizmaya sahip olmalıdır
+
+- TFD uyumluluk denetimi ve varlık dosyasına derleme varlıkları ekleme- [#3296](https://github.com/NuGet/Home/issues/3296)
+
+- Pakette ilgili özellikleri etkinleştirmek için paket hedeflerinde yeni bir ProjectCapability "Pack" tanımlayın- [#4146](https://github.com/NuGet/Home/issues/4146)
+
+- Paketi "GeneratePackageOnBuild" MSBuild özelliğinde koşullu bir post derlemesi hedefi olarak Çalıştır- [#4145](https://github.com/NuGet/Home/issues/4145)
+
+- Belirli bir NuGet projesi oluşturmak için, RestoreProjectStyle NuGet özelliğini kullanın- [#4134](https://github.com/NuGet/Home/issues/4134)
+
+- Geçişli proje başvuruları değişikliğini uyarlayın- [#4076](https://github.com/NuGet/Home/issues/4076)
+
+- UWP olmayan projeler için hedef dosyada NuGet özellikleri ekleme- [#4030](https://github.com/NuGet/Home/issues/4030)
+
+- UWP TargetPlatformVersion desteği- [#3923](https://github.com/NuGet/Home/issues/3923)
+
+- Proje başvurusu meta verilerini NuGet proje sistemiyle iletişim [#3922](https://github.com/NuGet/Home/issues/3922)
+
+- Paketleme modu için Kullanıcı arabirimi ekleme- [#3921](https://github.com/NuGet/Home/issues/3921)
+
+- Eski adı `.csproj` , PROJ/targets- [#3854](https://github.com/NuGet/Home/issues/3854) ayarlanan Nugettargetbilinen ad ve runtimetanımlayıcılarına ihtiyaç duyuyor
+
+- Yükleme paketi, otomatik geri yükleme ile çakışabilir [#3836](https://github.com/NuGet/Home/issues/3836)
+
+- VSPackage yüklü olmadığında bağlam menüsü QueryStatus gerçekleşmiyor- [#3835](https://github.com/NuGet/Home/issues/3835)
+
+- Çözüm geri yükleme ve derleme geri yükleme hala iletişim kutularını göster- [#3789](https://github.com/NuGet/Home/issues/3789)
+
+- NuGet 'de VSSDK sürümünü yalıtın. clients çözüm derlemesi- [#3890](https://github.com/NuGet/Home/issues/3890)
+
+## <a name="links-to-github-issues-fixed-in-rtm"></a>RTM 'de düzeltilen GitHub sorunlarına bağlantılar
+[Sorun listesi 1](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.0%20RTM")  
+[Sorun listesi 2](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.0%20RC4")  
+[Sorun listesi 3](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.0%20RC3")  
+[Sorun listesi 4](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.0%20RC2")  
+[Sorun listesi 5](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.0%20RC")

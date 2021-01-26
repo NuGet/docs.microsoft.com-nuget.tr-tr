@@ -1,17 +1,17 @@
 ---
 title: NuGet paketi yayımlama
 description: Bir NuGet paketini nuget.org veya özel akışlara yayımlama ve nuget.org üzerinde paket sahipliğini yönetme hakkında ayrıntılı yönergeler.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 05/18/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: fe5625247dca51c10d82fffe82022c40a4716069
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 5be7a4d4c31df9f2f4bda7bdb1ff9f4887108578
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237938"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775984"
 ---
 # <a name="publishing-packages"></a>Paketler yayımlanıyor
 
@@ -111,13 +111,13 @@ Tüm paket sahipleri, diğer sahipleri ekleme ve kaldırma ve güncelleştirme y
 Bir paketin sahipliğini değiştirmek için aşağıdakileri yapın:
 
 1. Nuget.org 'de paketin geçerli sahibi olan hesapla oturum açın.
-1. Hesap adınızı seçin, **paketleri Yönet** ' i seçin ve **yayımlanan paketler** ' i genişletin.
-1. Yönetmek istediğiniz paketi seçin, ardından sağ tarafta **sahipleri Yönet** ' i seçin.
+1. Hesap adınızı seçin, **paketleri Yönet**' i seçin ve **yayımlanan paketler**' i genişletin.
+1. Yönetmek istediğiniz paketi seçin, ardından sağ tarafta **sahipleri Yönet**' i seçin.
 
 Buradan çeşitli seçenekleriniz vardır:
 
 1. **Geçerli sahipler** altında listelenen tüm sahipleri kaldırın.
-1. Kullanıcı adını, bir iletiyi girerek ve **Ekle** ' yi seçerek **sahip Ekle** altına bir sahip ekleyin. Bu eylem, bu yeni ortak Sahibe onay bağlantısı ile bir e-posta gönderir. Onaylandıktan sonra, bu kişinin sahipleri eklemek ve kaldırmak için tam izinleri vardır. (Onaylanana kadar, **geçerli sahipler** bölümü söz konusu kişi için bekleyen onay olduğunu gösterir.)
+1. Kullanıcı adını, bir iletiyi girerek ve **Ekle**' yi seçerek **sahip Ekle** altına bir sahip ekleyin. Bu eylem, bu yeni ortak Sahibe onay bağlantısı ile bir e-posta gönderir. Onaylandıktan sonra, bu kişinin sahipleri eklemek ve kaldırmak için tam izinleri vardır. (Onaylanana kadar, **geçerli sahipler** bölümü söz konusu kişi için bekleyen onay olduğunu gösterir.)
 1. Sahipliği aktarmak için (sahiplik değişiklikleri veya bir paket yanlış hesap altında yayımlandığında olduğu gibi), yeni sahibi ekleyin ve sahipliği onayladıktan sonra listeden kaldırabilir.
 
 Bir şirkete veya gruba sahiplik atamak için, uygun takım üyelerine iletilen bir e-posta diğer adı kullanarak bir nuget.org hesabı oluşturun. Örneğin, çeşitli Microsoft ASP.NET paketleri [Microsoft](https://nuget.org/profiles/microsoft) ve [ASPNET](https://nuget.org/profiles/aspnet) hesaplarına aittir, bu da yalnızca diğer adlar vardır.

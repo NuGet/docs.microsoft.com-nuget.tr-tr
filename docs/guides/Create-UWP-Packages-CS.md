@@ -1,16 +1,16 @@
 ---
-title: Evrensel Windows Platformu için NuGet paketleri oluşturma
+title: UWP platformu için NuGet paketleri oluşturma (C#)
 description: C# ' de Evrensel Windows Platformu için bir Windows Çalışma Zamanı bileşeni kullanarak NuGet paketleri oluşturmaya yönelik uçtan uca bir yönerge.
 author: rrelyea
 ms.author: rrelyea
 ms.date: 02/28/2020
 ms.topic: tutorial
-ms.openlocfilehash: 6f8037f439d627af158b6d5b7746a633b053e514
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 22df2cd6dc374ba265c79a019747191e797b774c
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93238016"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774282"
 ---
 # <a name="create-uwp-packages-c"></a>UWP paketleri oluşturma (C#)
 
@@ -18,19 +18,19 @@ ms.locfileid: "93238016"
 
 Bu kılavuzda, hem yönetilen hem de yerel projelerde kullanılabilen bir C# UWP bileşeni (XAML denetimi dahil) ile bir NuGet paketi oluşturacaksınız.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 1. Visual Studio 2019. [VisualStudio.com](https://www.visualstudio.com/)'ten ücretsiz olarak 2019 Community Edition 'ı yükleyin; Profesyonel ve kurumsal sürümlerini de kullanabilirsiniz.
 
-1. NuGet CLı. Nuget.org/downloads adresinden en son sürümünü `nuget.exe` indirin [nuget.org/downloads](https://nuget.org/downloads)ve seçtiğiniz bir konuma kaydederek (indirme işlemi `.exe` doğrudan olur). Daha sonra bu konumu yol ortam değişkeninizin zaten olmaması durumunda ekleyin. [Daha fazla ayrıntı](../reference/nuget-exe-cli-reference.md#windows).
+1. NuGet CLı. Nuget.org/downloads adresinden en son sürümünü `nuget.exe` indirin [](https://nuget.org/downloads)ve seçtiğiniz bir konuma kaydederek (indirme işlemi `.exe` doğrudan olur). Daha sonra bu konumu yol ortam değişkeninizin zaten olmaması durumunda ekleyin. [Daha fazla ayrıntı](../reference/nuget-exe-cli-reference.md#windows).
 
 ## <a name="create-a-uwp-windows-runtime-component"></a>UWP Windows Çalışma Zamanı bileşeni oluşturma
 
-1. Visual Studio 'da **dosya > yeni > proje** ' yi seçin, "UWP c#" araması yapın, **Windows çalışma zamanı bileşeni (Evrensel Windows)** şablonunu seçin, ileri ' ye tıklayın, adı ImageEnhancer olarak değiştirin ve Oluştur ' a tıklayın. İstendiğinde, hedef sürüm için varsayılan değerleri ve en düşük sürümü kabul edin.
+1. Visual Studio 'da **dosya > yeni > proje**' yi seçin, "UWP c#" araması yapın, **Windows çalışma zamanı bileşeni (Evrensel Windows)** şablonunu seçin, ileri ' ye tıklayın, adı ImageEnhancer olarak değiştirin ve Oluştur ' a tıklayın. İstendiğinde, hedef sürüm için varsayılan değerleri ve en düşük sürümü kabul edin.
 
     ![Yeni UWP Windows Çalışma Zamanı bileşen projesi oluşturma](media/UWP-NewProject-CS.png)
 
-1. Çözüm Gezgini projeye sağ tıklayın, **> yeni öğe Ekle** ' yi seçin, **şablonlu denetim** ' i seçin, adı AwesomeImageControl.cs olarak değiştirin ve **Ekle** ' ye tıklayın:
+1. Çözüm Gezgini projeye sağ tıklayın, **> yeni öğe Ekle**' yi seçin, **şablonlu denetim**' i seçin, adı AwesomeImageControl.cs olarak değiştirin ve **Ekle**' ye tıklayın:
 
     ![Projeye yeni bir XAML şablonlu denetim öğesi ekleniyor](media/UWP-NewXAMLControl-CS.png)
 
@@ -38,7 +38,7 @@ Bu kılavuzda, hem yönetilen hem de yerel projelerde kullanılabilen bir C# UWP
 
     ![XML belge dosyalarını oluştur Evet olarak ayarlanıyor](media/UWP-GenerateXMLDocFiles-CS.png)
 
-1. Şimdi *çözüme* sağ tıklayın, **Batch Build** ' i seçin, iletişim kutusundaki beş derleme kutusunu aşağıda gösterildiği gibi denetleyin. Bu, bir yapı yaparken, Windows 'un desteklediği her bir hedef sistem için tam bir yapıt kümesi üretmenizi sağlar.
+1. Şimdi *çözüme* sağ tıklayın, **Batch Build**' i seçin, iletişim kutusundaki beş derleme kutusunu aşağıda gösterildiği gibi denetleyin. Bu, bir yapı yaparken, Windows 'un desteklediği her bir hedef sistem için tam bir yapıt kümesi üretmenizi sağlar.
 
     ![Batch derlemesi](media/UWP-BatchBuild-CS.png)
 

@@ -10,12 +10,12 @@ ms.technology: ''
 description: Yayımla hizmeti, istemcilerin yeni sembol paketleri yayımlamasına izin verir.
 keywords: NuGet API gönderme sembol paketi
 ms.reviewer: karann
-ms.openlocfilehash: bd4a10cc976c9d0775a63cfe61c35327c196065c
-ms.sourcegitcommit: e39e5a5ddf68bf41e816617e7f0339308523bbb3
+ms.openlocfilehash: 91bb4c9ca77fd7f1ff35831e02eb4f9d65d641c5
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96738883"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98773902"
 ---
 # <a name="push-symbol-packages"></a>Sembol paketlerini gönder
 
@@ -42,7 +42,9 @@ Aşağıdaki API 'Lerin temel URL 'SI, `@id` `SymbolPackagePublish/4.9.0` paket 
 
 nuget.org, aşağıdaki API 'YI kullanarak yeni sembol paketleri biçimi ([snupkg](../create-packages/Symbol-Packages-snupkg.md)) göndermeyi destekler. 
 
-    PUT https://www.nuget.org/api/v2/symbolpackage
+```
+PUT https://www.nuget.org/api/v2/symbolpackage
+```
 
 Aynı KIMLIĞE ve sürüme sahip sembol paketleri birden çok kez gönderilebilir. Aşağıdaki durumlarda bir sembol paketi reddedilir.
 - Aynı KIMLIĞE ve sürüme sahip bir paket yok.
@@ -51,7 +53,7 @@ Aynı KIMLIĞE ve sürüme sahip sembol paketleri birden çok kez gönderilebili
 
 ### <a name="request-parameters"></a>İstek parametreleri
 
-Ad           | İçinde     | Tür   | Gerekli | Notlar
+Name           | İçinde     | Tür   | Gerekli | Notlar
 -------------- | ------ | ------ | -------- | -----
 X-NuGet-ApiKey | Üst bilgi | string | evet      | Örneğin, `X-NuGet-ApiKey: {USER_API_KEY}`
 

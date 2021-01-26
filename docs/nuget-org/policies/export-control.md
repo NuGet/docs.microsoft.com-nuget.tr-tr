@@ -1,31 +1,31 @@
 ---
-title: İhracat Kontrol Politikası
-description: İhracat kontrol yasalarını düzenleyen politikalar
-author: karann-msft
-ms.author: karann
+title: Denetim Ilkesini dışarı aktar
+description: Dışa aktarma denetim yasaları yöneten ilkeler
+author: JonDouglas
+ms.author: jodou
 ms.date: 06/27/2019
 ms.topic: conceptual
-ms.openlocfilehash: 4ea2d2f23a02088b54982b825a5be3c872e27c37
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 9d8ba7043d3b855f43bee9b45d7316d1aaaa7985
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "73611315"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775628"
 ---
-# <a name="export-control-policy"></a>İhracat Kontrol Politikası
+# <a name="export-control-policy"></a>Denetim Ilkesini dışarı aktar
 
-NuGet.org yüklediğiniz veya NuGet.org erişebildiğiniz içerik, ABD İhracat İdaresi Yönetmelikleri (EAR) dahil olmak üzere ABD ihracat kontrol yasalarına tabi olabilir.  Size kolaylık sağlamak için aşağıda bazı bilgiler vermiş olsak da, NuGet.org ve ilgili hizmetleri kullanımınızın ABD ihracat kontrol yasaları da dahil olmak üzere yürürlükteki tüm yasa ve yönetmeliklere uygun olmasını ve [Kullanım Koşullarımıza](https://www.nuget.org/policies/Terms)uygun olmasını sağlamaksizin nihai olarak siz sorumlusunuz.
+NuGet.org 'e yüklediğiniz veya buradan erişim verdiğiniz içerik ABD dışa aktarma yönetim düzenlemeleri (EAR) dahil olmak üzere ABD dışa aktarma denetim yasaları 'na tabi olabilir.  Size kolaylık sağlaması için aşağıda bazı bilgiler sağladığımızda, NuGet.org ve ilgili tüm hizmetleri kullanmanın ABD ihracat denetimi yasaları dahil olmak üzere tüm geçerli yasaları ve yönetmeliklerle uyumlu olmasını sağlamaktan ve [kullanım koşullarımızla](https://www.nuget.org/policies/Terms)uyumlu olduğundan emin olmanız önerilir.
 
-## <a name="publicly-available-encryption-source-code"></a>Genel kullanıma açık şifreleme kaynak kodu
+## <a name="publicly-available-encryption-source-code"></a>Genel olarak kullanılabilir şifreleme kaynak kodu
 
-EAR'de açıklanan bildirim gereksinimlerine bağlı olarak, ECCN 5D002 altında sınıflandırılan şifreleme kaynak kodu artık EAR'ye tabi değildir.  Bu tür kaynak kodu, kaynak kodu kullanılarak geliştirilen herhangi bir ürünün ticari üretimi veya satışı için bir lisans ücreti veya telif hakkı ödemesi için açık bir anlaşmaya tabi olsa bile herkese açıktır.
+Bu konuda açıklanan bildirim gereksinimlerine bağlı olarak, ECCN 5D002 altında sınıflandırılan şifreleme kaynak kodu artık bu konuyla ilgili değildir.  Bu tür kaynak kodu, bir lisans ücreti ödemesine yönelik bir hızlı sözleşmeye veya kaynak kodu kullanılarak geliştirilen herhangi bir ürünün satışı veya ticari üretime yönelik bir üretime tabidir.
 
 ## <a name="notification-requirement"></a>Bildirim gereksinimi
 
-EAR'de belirtildiği gibi (Bölüm 742.15(b) & 734.3(b)(3)), şifreleme kaynak kodunu sağlayan veya yükleyen kişi veya kuruluş ABD'yi bilgilendirmelidir. Endüstri ve Güvenlik Bürosu (BIS) ve ENC Şifreleme İstek Koordinatörü, ECCN 5D002 altında sınıflandırılan veya her birine kamuya açık şifreleme kaynak kodunun bir kopyasını sağlayan, kamuya açık şifreleme kaynak kodunun Internet konumunun (örn. URL veya Internet adresi) e-posta yoluyla. Şifreleme kaynak kodunu günceller veya değiştirirseniz, şifreleme kaynak kodunun şifreleme kodlarının şifreleme işlevselliği her güncelleştirildiğinde veya değiştirildiğinde her birine ek kopyalar sağlamanız gerekir. Ayrıca, şifreleme kaynak kodunu Internet'te gönderdiyseniz (örn. NuGet.org yoluyla), Internet konumu her değiştirilince BIS'i ve ENC Şifreleme İstek Koordinatörü'ne bildirimde bulunmanız gerekir, ancak daha önce bildirilen konumda şifreleme kaynak kodunda yapılan güncelleştirmeleri veya değişiklikleri onlara bildirmeniz gerekmez. Her durumda, bildirimi veya kopyayı crypt@bis.doc.gov gönder enc@nsa.govve .
+EAR (Bölüm 742.15 (b) & 734.3 (b) (3)) içinde belirtildiği gibi, şifreleme kaynak kodu sağlayan veya karşıya yüklenen kişi veya varlık, ABD hükümeti ve güvenlik (b) ve ENC şifreleme Isteği koordinatörünü, ECCN 5D002 altında sınıflandırılan genel kullanıma açık şifreleme kaynak kodunun Internet konumunun (örn. URL veya Internet adresi) e-postası aracılığıyla bilgilendirmelidir veya bunların her birini genel kullanıma açık şifreleme kaynak kodunun bir kopyası sağlar. Şifreleme kaynak kodunu güncelleştirir veya değiştirirseniz, şifreleme kaynak kodunun şifreleme işlevselliği her bir kez güncelleştirilirken veya değiştirildiğinde her birine ek kopyalar sağlamanız gerekir. Ayrıca, şifreleme kaynak kodunu Internet üzerinde (örneğin, NuGet.org aracılığıyla) naklettiyseniz, Internet konumunun her değiştirildiği her seferinde bBu ve ENC şifreleme Isteği düzenleyicisine bildirimde bulunur, ancak bunları daha önce bildirilen konumdaki şifreleme kaynak kodunda yapılan güncelleştirmeler veya değişiklikler hakkında bilgilendirmek zorunda değilsiniz. Tüm örneklerde, bildirimi gönderir veya crypt@bis.doc.gov ' a ve ' a kopyalayın enc@nsa.gov .
 
-## <a name="commerical-software"></a>Commerical Yazılım
+## <a name="commerical-software"></a>Ticari yazılım
 
-Yukarıda açıklanan bildirim süreci yoluyla ihracat denetimi yargı sından kamuya açık kaynak kodunun serbest bırakılması, bu tür öğeleri içeren veya türetilen ticari yazılımlar için *geçerli değildir.*  NuGet.org aracılığıyla barındırılan kaynak veya nesne kodlarını içeren veya bu yazılımlardan türetilen herhangi bir ticari yazılıma uygulandığı şekilde İhracat Yasalarına uymak tan tek siz sorumlusunuz.
+Genel kullanıma sunulan kaynak kodu, yukarıdaki bildirim süreci aracılığıyla verme denetiminden, bu tür öğelerden oluşan veya bu öğeden türetilmiş ticari yazılımlar için *uygulanmaz* .  Yalnızca NuGet.org aracılığıyla barındırılan kaynak veya nesne kodundan elde edilen veya ondan türetilmiş herhangi bir ticari Yazılıma uygulanan Ihracat yasaları ile uyumlulukla sorumlusunuz.
 
-Dışa aktarma ve coğrafi dışa aktarma kısıtlamaları hakkında daha fazla bilgi için lütfen Microsoft Dışa Aktarma'yı ziyaret [edin.](https://www.microsoft.com/exporting)
+Dışarı aktarma ve coğrafi dışa aktarma kısıtlamaları hakkında daha fazla bilgi için lütfen [Microsoft dışarı aktarmayı](https://www.microsoft.com/exporting)ziyaret edin.

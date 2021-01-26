@@ -6,14 +6,14 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 86c9d07cf90b84fffd09b04847d41772dd633b98
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 7047dfd48b7f93756bbb1491de1b7e65da2c12b4
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237880"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775409"
 ---
-# <a name="search"></a>Arayın
+# <a name="search"></a>Arama
 
 V3 API kullanarak bir paket kaynağında kullanılabilir olan paketleri aramak mümkündür. Arama için kullanılan kaynak, `SearchQueryService` [hizmet dizininde](service-index.md)bulunan kaynaktır.
 
@@ -45,7 +45,9 @@ Arama API 'SI, bir istemcinin belirtilen arama sorgusuyla eşleşen bir paket sa
 
 Listelenmemiş bir paket, arama sonuçlarında asla görünmemelidir.
 
-    GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}&packageType={PACKAGETYPE}
+```
+GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}&packageType={PACKAGETYPE}
+```
 
 ### <a name="request-parameters"></a>İstek parametreleri
 
@@ -82,8 +84,8 @@ Kök JSON nesnesi aşağıdaki özelliklere sahiptir:
 
 Ad      | Tür             | Gerekli | Notlar
 --------- | ---------------- | -------- | -----
-Toplam Isabet sayısı | tamsayı          | yes      | Toplam eşleşme sayısı, ile ilgili `skip` ve `take`
-veriler      | nesne dizisi | yes      | İstekle eşleşen arama sonuçları
+Toplam Isabet sayısı | tamsayı          | evet      | Toplam eşleşme sayısı, ile ilgili `skip` ve `take`
+veriler      | nesne dizisi | evet      | İstekle eşleşen arama sonuçları
 
 ### <a name="search-result"></a>Arama sonucu
 
@@ -92,10 +94,10 @@ Nesnesi aşağıdaki özelliklere sahiptir:
 
 Ad           | Tür                       | Gerekli | Notlar
 -------------- | -------------------------- | -------- | -----
-kimlik             | string                     | yes      | Eşleşen paketin KIMLIĞI
-sürüm        | string                     | yes      | Paketin tam SemVer 2.0.0 sürüm dizesi (derleme meta verileri içerebilir)
+kimlik             | string                     | evet      | Eşleşen paketin KIMLIĞI
+sürüm        | string                     | evet      | Paketin tam SemVer 2.0.0 sürüm dizesi (derleme meta verileri içerebilir)
 açıklama    | string                     | hayır       | 
-versions       | nesne dizisi           | yes      | Parametre ile eşleşen paketin tüm sürümleri `prerelease`
+versions       | nesne dizisi           | evet      | Parametre ile eşleşen paketin tüm sürümleri `prerelease`
 düzenliyor        | dizelerin dizesi veya dizisi | hayır       | 
 Iurl        | string                     | hayır       | 
 licenseUrl     | string                     | hayır       | 
@@ -107,7 +109,7 @@ etiketler           | dizelerin dizesi veya dizisi | hayır       |
 başlık          | string                     | hayır       | 
 totalDownloads | tamsayı                    | hayır       | Bu değer dizideki indirmelerin toplamına göre çıkarsanamıyor `versions`
 doğrulanamayan       | boolean                    | hayır       | Paketin [doğrulanıp doğrulanmadığını](../nuget-org/id-prefix-reservation.md) gösteren bir JSON Boole değeri
-packageTypes   | nesne dizisi           | yes      | Paket yazarı tarafından tanımlanan paket türleri (eklenen `SearchQueryService/3.5.0` )
+packageTypes   | nesne dizisi           | evet      | Paket yazarı tarafından tanımlanan paket türleri (eklenen `SearchQueryService/3.5.0` )
 
 Nuget.org üzerinde, doğrulanmış bir paket, ayrılmış bir KIMLIK önekiyle eşleşen ve ayrılmış önek sahiplerinin birine sahip olan bir paket KIMLIĞI olan bir pakettir. Daha fazla bilgi için bkz. [kimlik ön eki ayırma hakkındaki belgeler](../nuget-org/id-prefix-reservation.md).
 
@@ -115,19 +117,21 @@ Arama sonucu nesnesinde bulunan meta veriler en son paket sürümünden alınmı
 
 Ad      | Tür    | Gerekli | Notlar
 --------- | ------- | -------- | -----
-@id       | string  | yes      | İlişkili [kayıt yaprağın](registration-base-url-resource.md#registration-leaf) mutlak URL 'si
-sürüm   | string  | yes      | Paketin tam SemVer 2.0.0 sürüm dizesi (derleme meta verileri içerebilir)
-indirmeler | tamsayı | yes      | Bu belirli paket sürümü için karşıdan yüklemelerin sayısı
+@id       | string  | evet      | İlişkili [kayıt yaprağın](registration-base-url-resource.md#registration-leaf) mutlak URL 'si
+sürüm   | string  | evet      | Paketin tam SemVer 2.0.0 sürüm dizesi (derleme meta verileri içerebilir)
+indirmeler | tamsayı | evet      | Bu belirli paket sürümü için karşıdan yüklemelerin sayısı
 
 `packageTypes`Dizi, her zaman en az bir (1) öğeden oluşur. Belirli bir paket KIMLIĞI için paket türü, diğer arama parametrelerine göre paketin en son sürümü tarafından tanımlanan paket türleri olarak kabul edilir. Dizideki her öğe, `packageTypes` aşağıdaki özelliklere sahip BIR JSON nesnesidir:
 
 Ad      | Tür    | Gerekli | Notlar
 --------- | ------- | -------- | -----
-name      | string  | yes      | Paket türünün adı.
+name      | string  | evet      | Paket türünün adı.
 
 ### <a name="sample-request"></a>Örnek istek
 
-    GET https://azuresearch-usnc.nuget.org/query?q=NuGet.Versioning&prerelease=false&semVerLevel=2.0.0
+```
+GET https://azuresearch-usnc.nuget.org/query?q=NuGet.Versioning&prerelease=false&semVerLevel=2.0.0
+```
 
 ### <a name="sample-response"></a>Örnek yanıt
 

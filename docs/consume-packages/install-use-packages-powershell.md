@@ -1,18 +1,18 @@
 ---
 title: Visual Studio 'da Konsolu kullanarak NuGet paketlerini yükleyip yönetme
 description: Paketlerle birlikte çalışmak üzere Visual Studio 'da NuGet Paket Yöneticisi konsolunu kullanmaya yönelik yönergeler.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 07/08/2019
 ms.topic: conceptual
 f1_keywords:
 - vs.nuget.packagemanager.console
-ms.openlocfilehash: 31fa51bc017eaaf9306d5f267e5d4b0d7a15ec9c
-ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
+ms.openlocfilehash: 119bf32426e5cbc179c3713e60688c691e133c5d
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97699832"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774893"
 ---
 # <a name="install-and-manage-packages-with-the-package-manager-console-in-visual-studio-powershell"></a>Visual Studio 'da Paket Yöneticisi konsolu ile paket yükleyip yönetme (PowerShell)
 
@@ -162,7 +162,7 @@ Bazı paketler konsol için yeni komutlar yükler. Örneğin, `MvcScaffolding` `
 
 PowerShell profili, PowerShell kullandığınızda yaygın olarak kullanılan komutların kullanılabilmesini sağlar. NuGet, genellikle aşağıdaki konumda bulunan NuGet 'e özgü bir profili destekler:
 
-    %UserProfile%\Documents\WindowsPowerShell\NuGet_profile.ps1
+*% UserProfile% \Documents\WindowsPowerShell\NuGet_profile.ps1*
 
 Profili bulmak için konsola şunu yazın `$profile` :
 

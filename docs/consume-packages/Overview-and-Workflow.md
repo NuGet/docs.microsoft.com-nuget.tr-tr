@@ -1,53 +1,53 @@
 ---
-title: NuGet paketlerini kullanmanın genel bakışı ve iş akışı
-description: Projenin diğer belirli bölümlerine bağlantılar içeren nuget paketlerini bir projede tüketme sürecine genel bir bakış.
-author: karann-msft
-ms.author: karann
+title: NuGet paketlerini kullanarak genel bakış ve iş akışı
+description: Bir projedeki NuGet paketlerini kullanma işlemine genel bakış ve işlemin diğer belirli bölümlerinin bağlantıları.
+author: JonDouglas
+ms.author: jodou
 ms.date: 03/22/2018
 ms.topic: conceptual
-ms.openlocfilehash: ddd1d163e18ed4ce1e7cbf41ed152acc40c1c423
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 5f1856940a988e0585c29ccfd581d823e4f69921
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79428886"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775060"
 ---
-# <a name="package-consumption-workflow"></a>Paket tüketim iş akışı
+# <a name="package-consumption-workflow"></a>Paket tüketimi iş akışı
 
-Kuruluşunuzun oluşturabileceği nuget.org ve özel paket galerileri arasında, uygulamalarınızda ve hizmetlerinizde kullanmak üzere on binlerce son derece kullanışlı paket bulabilirsiniz. Ancak kaynak ne olursa olsun, bir paketi tüketmek aynı genel iş akışını izler.
+Kuruluşunuzun yapabilmesini sağlayan nuget.org ve özel paket galerileri arasında, uygulamalarınızda ve hizmetleriniz için kullanmak üzere on binlerce çok yararlı paket bulabilirsiniz. Ancak kaynağa bakılmaksızın, bir paket kullanılması aynı genel iş akışını izler.
 
-![Paket kaynağına gitme, paket bulma, projeye yükleme, ardından kullanma deyimi ekleme ve paket API'sine çağrı ekleme akışı](media/Overview-01-GeneralFlow.png)
+![Bir paket kaynağına gidip bir paket bulma, bir projeye yükleme, daha sonra bir using ifadesini ve paket API 'sine çağrıları ekleme](media/Overview-01-GeneralFlow.png)
 
-\*_Visual Studio `dotnet.exe` ve sadece. Komut `nuget install` proje dosyalarını veya `packages.config` dosyayı değiştirmez; girişler el ile yönetilmelidir._
+\*_Yalnızca Visual Studio ve `dotnet.exe` . `nuget install`Komut proje dosyalarını veya `packages.config` dosyayı değiştirmez; girişlerin el ile yönetilmesi gerekir._
 
-Daha fazla bilgi için, [Paketleri Bulma ve Seçme](../consume-packages/finding-and-choosing-packages.md) ve Paket [yüklendiğinde ne olur'a bakın.](../concepts/package-installation-process.md)
+Daha fazla ayrıntı için bkz. [paketleri bulma ve seçme](../consume-packages/finding-and-choosing-packages.md) ve [bir paket yüklendiğinde ne olur?](../concepts/package-installation-process.md).
 
-NuGet, yüklenen her paketin kimlik ve sürüm numarasını hatırlar, proje dosyasına [(PackageReference](../consume-packages/package-references-in-project-files.md)kullanarak) veya [`packages.config`](../reference/packages-config.md)proje türüne ve NuGet sürümünüze bağlı olarak kaydeder. NuGet 4.0+ ile PackageReference tercih edilir, ancak bu [Paket Yöneticisi UI](install-use-packages-visual-studio.md)aracılığıyla Visual Studio'da yapılandırılabilir. Her durumda, projenizin bağımlılıklarının tam listesini görmek için istediğiniz zaman ilgili dosyaya bakabilirsiniz.
+NuGet, yüklü her paketin kimliğini ve sürüm numarasını anımsar, proje dosyasında ( [Packagereference](../consume-packages/package-references-in-project-files.md)kullanılarak) veya [`packages.config`](../reference/packages-config.md) proje türüne ve NuGet sürümünüze bağlı olarak bu paket. NuGet 4.0 + ile, bu, Visual Studio 'da [Paket Yöneticisi Kullanıcı arabirimi](install-use-packages-visual-studio.md)aracılığıyla yapılandırılabilse de, packagereference tercih edilir. Herhangi bir durumda, projeniz için bağımlılıkların tam listesini görmek üzere dilediğiniz zaman uygun dosyaya bakabilirsiniz.
 
 > [!Tip]
-> Yazılımınızda kullanmak istediğiniz her paketin lisansını her zaman kontrol etmek akıllıca olur. nuget.org, her paketin açıklama sayfasının sağ tarafında bir **Lisans Bilgileri** bağlantısı bulabilirsiniz. Bir paket lisans koşullarını belirtmiyorsa, paket sayfasındaki **İlgili Kişi sahipleri** bağlantısını kullanarak doğrudan paket sahibine başvurun. Microsoft, üçüncü taraf paket sağlayıcılardan size herhangi bir fikri mülkiyet lisansı vermez ve üçüncü taraflarca sağlanan bilgilerden sorumlu değildir.
+> Bu, yazılımınız üzerinde kullanmak istediğiniz her bir pakete ilişkin lisansı her zaman denetleyebilir. Nuget.org 'de, her bir paketin açıklama sayfasının sağ tarafında bir **Lisans bilgisi** bağlantısı bulabilirsiniz. Bir paket lisans koşulları belirtmezse, paket sayfasındaki **kişi sahipleri** bağlantısını kullanarak doğrudan paket sahibine başvurun. Microsoft, üçüncü taraf paket sağlayıcılarından sizin için herhangi bir fikri mülkiyet hakkı vermez ve üçüncü taraflar tarafından sunulan bilgilerden sorumlu değildir.
 
-Paketleri yüklerken, NuGet genellikle paketin önbelleğinden zaten kullanılabilir olup olmadığını denetler. Bu önbelleği, [genel paketleri ve önbellek klasörlerini yönetmede](../consume-packages/managing-the-global-packages-and-cache-folders.md)açıklandığı gibi komut satırından el ile temizleyebilirsiniz.
+Paketler yüklenirken, NuGet genellikle paketin önbelleğinde zaten kullanılabilir olup olmadığını denetler. Bu önbelleği, [genel paketleri ve önbellek klasörlerini yönetme](../consume-packages/managing-the-global-packages-and-cache-folders.md)bölümünde açıklandığı gibi komut satırından el ile temizleyebilirsiniz.
 
-NuGet ayrıca paket tarafından desteklenen hedef çerçevelerin projenizle uyumlu olmasını sağlar. Paket uyumlu derlemeler içermiyorsa, NuGet bir hata görüntüler. Bkz. [Uyumsuz paket hatalarını çözme.](../concepts/dependency-resolution.md#resolving-incompatible-package-errors)
+NuGet Ayrıca, paket tarafından desteklenen hedef çerçevelerin projenizle uyumlu olduğundan da emin olur. Paket uyumlu derlemeler içermiyorsa, NuGet bir hata görüntüler. Bkz. [uyumsuz paket hatalarını çözümleme](../concepts/dependency-resolution.md#resolving-incompatible-package-errors).
 
-Bir kaynak deposuna proje kodu eklerken, genellikle NuGet paketlerini içermezsiniz. Daha sonra depoyu klonlayan veya Visual Studio Team Services gibi sistemlerde yapı aracıları da dahil olmak üzere projeyi başka bir şekilde satın alanlar, bir yapıyı çalıştırmadan önce gerekli paketleri geri yüklemelidir:
+Bir kaynak depoya proje kodu eklerken, genellikle NuGet paketleri dahil değildir. Daha sonra depoyu klonlayan veya başka bir şekilde projeyi edinenler, Visual Studio Team Services gibi sistemlerdeki derleme aracıları dahil, bir derlemeyi çalıştırmadan önce gerekli paketleri geri yüklemesi gerekir:
 
-![Bir depoklonlayarak ve geri yükleme komutunu kullanarak NuGet paketlerini geri yükleme akışı](media/Overview-02-RestoreFlow.png)
+![Bir depoyu kopyalayarak ve bir restore komutu kullanarak NuGet paketlerini geri yükleme akışı](media/Overview-02-RestoreFlow.png)
 
-[Paket Geri Yükleme,](../consume-packages/package-restore.md) proje dosyasındaki bilgileri veya `packages.config` tüm bağımlılıkları yeniden yüklemek için kullanır. [Bağımlılık Çözümü'nde](../concepts/dependency-resolution.md)açıklandığı gibi, ilgili süreçte farklılıklar olduğunu unutmayın. Ayrıca, yukarıdaki diyagram Da Paket Yöneticisi Konsolu için bir geri yükleme komutu göstermez, çünkü Konsol'daysanız, genellikle paketleri otomatik olarak geri yükleyen ve gösterildiği gibi çözüm düzeyi komutunu sağlayan Visual Studio bağlamında zaten bulunuyorsunuz.
+[Paket geri yükleme](../consume-packages/package-restore.md) , proje dosyasındaki bilgileri kullanır veya `packages.config` tüm bağımlılıkları yeniden yükler. [Bağımlılık çözümlemesi](../concepts/dependency-resolution.md)bölümünde açıklandığı gibi işlemde ilgili farklılıklar olduğunu unutmayın. Ayrıca, Yukarıdaki diyagramda Paket Yöneticisi konsolu için geri yükleme komutu gösterilmez çünkü konsolunuz zaten Visual Studio bağlamında, genellikle paketleri otomatik olarak geri yükler ve gösterildiği gibi çözüm düzeyi komut sağlar.
 
-Bazen, zaten projeye dahil edilmiş olan ve bağımlılıkları yeniden yükleyebilecek paketleri yeniden yüklemek gerekir. Bu `nuget reinstall` komutu veya NuGet Paket Yöneticisi Konsolu kullanarak yapmak kolaydır. Ayrıntılar için [Paketleri Yeniden Yükleme ve Güncelleştirme'ye](../consume-packages/reinstalling-and-updating-packages.md)bakın.
+Bazen bir projede zaten bulunan paketleri yeniden yüklemek gerekir, bu da bağımlılıkları yeniden yükleyebilir. Bu, `nuget reinstall` komutu veya NuGet Paket Yöneticisi konsolunu kullanarak kolayca yapılır. Ayrıntılar için bkz. [paketleri yeniden yükleme ve güncelleştirme](../consume-packages/reinstalling-and-updating-packages.md).
 
-Son olarak, NuGet'in `Nuget.Config` davranışı dosyalar tarafından yönlendirilir. [NuGet Davranışını Yapılandırmada](../consume-packages/configuring-nuget-behavior.md)açıklandığı gibi, farklı düzeylerde belirli ayarları merkezileştirmek için birden çok dosya kullanılabilir.
+Son olarak, NuGet davranışı dosyalar tarafından çalıştırılır `Nuget.Config` . [NuGet davranışını yapılandırma](../consume-packages/configuring-nuget-behavior.md)bölümünde açıklandığı gibi, farklı düzeylerde belirli ayarları merkezileştirmek için birden çok dosya kullanılabilir.
 
-## <a name="ways-to-install-a-nuget-package"></a>NuGet Paketi yüklemenin yolları
+## <a name="ways-to-install-a-nuget-package"></a>NuGet paketi yüklemeye yönelik yollar
 
-NuGet paketleri aşağıdaki tablodaki yöntemlerden herhangi biri kullanılarak indirilir ve yüklenir.
+NuGet paketleri, aşağıdaki tablodaki yöntemlerden herhangi birini kullanarak indirilir ve yüklenir.
 
 | Araç | Açıklama |
 | --- | --- |
-| [dotnet.exe CLI](install-use-packages-dotnet-cli.md) | (Tüm platformlar) .NET Core ve .NET Standart kitaplıkları ve .NET Framework'ü hedefleyen SDK tarzı projeler için CLI aracı (bkz. [SDK özniteliği).](/dotnet/core/tools/csproj#additions) package_name \<\> tarafından tanımlanan paketi alır ve proje dosyasına bir başvuru ekler. Ayrıca bağımlılıkları alır ve yükler. |
-| Visual Studio | (Windows ve Mac) Belirli bir paket kaynağından paketlere ve bunların bağımlılıklarına göz atabileceğiniz, seçebileceğiniz ve yükleyebileceğiniz bir kullanıcı arama aracı sağlar. Yüklü paketlere başvurular proje dosyasına ekler.<ul><li>[Visual Studio'u kullanarak paketleri yükleyin ve yönetin](install-use-packages-visual-studio.md)</li><li>[Projenize bir NuGet paketi (Mac) dahil](/visualstudio/mac/nuget-walkthrough)</li></ul> |
-| [Paket Yöneticisi Konsolu (Visual Studio)](install-use-packages-powershell.md) | (Yalnızca Windows) Package_name \<\> tarafından tanımlanan paketi seçili bir kaynaktan çözümde belirli bir projeye alır ve yükler, ardından proje dosyasına bir başvuru ekler. Ayrıca bağımlılıkları alır ve yükler. |
-| [nuget.exe CLI](install-use-packages-nuget-cli.md) | (Tüm platformlar) .NET Framework kitaplıkları ve .NET Standart kitaplıklarını hedefleyen SDK tarzı olmayan projeler için CLI aracı. package_name \<\> tarafından tanımlanan paketi alır ve içeriğini geçerli dizindeki bir klasöre genişletir; bir `packages.config` dosyada listelenen tüm paketleri de alabilir. Ayrıca bağımlılıkları alır ve yükler, ancak proje dosyalarında veya `packages.config`. |
+| [dotnet.exe CLı](install-use-packages-dotnet-cli.md) | (Tüm platformlar) .NET Core ve .NET Standard kitaplıkları için CLı aracı ve .NET Framework hedefi olan SDK stili projeler için (bkz. [SDK özniteliği](/dotnet/core/tools/csproj#additions)). Tarafından tanımlanan paketi alır \<package_name\> ve proje dosyasına bir başvuru ekler. Ayrıca bağımlılıkları alır ve kurar. |
+| Visual Studio | (Windows ve Mac) , Paketleri ve bağımlılıklarını belirtilen bir paket kaynağından bir projeye göz atabilmeniz, seçebileceğiniz ve yükleyebileceğiniz bir kullanıcı arabirimi sağlar. Proje dosyasına yüklenen paketlere başvurular ekler.<ul><li>[Visual Studio kullanarak paketleri yükleyip yönetme](install-use-packages-visual-studio.md)</li><li>[Projenize NuGet paketi ekleme (Mac)](/visualstudio/mac/nuget-walkthrough)</li></ul> |
+| [Paket Yöneticisi Konsolu (Visual Studio)](install-use-packages-powershell.md) | (Yalnızca Windows) \<package_name\> Seçilen bir kaynaktan tarafından tanımlanan paketi çözümdeki belirli bir projeye alır ve ekler, ardından proje dosyasına bir başvuru ekler. Ayrıca bağımlılıkları alır ve kurar. |
+| [nuget.exe CLI](install-use-packages-nuget-cli.md) | (Tüm platformlar) .NET Standard kitaplıklarını hedefleyen .NET Framework kitaplıkları ve SDK olmayan projeler için CLı aracı. Tarafından tanımlanan paketi alır \<package_name\> ve içeriğini geçerli dizindeki bir klasöre genişletir; Ayrıca, bir dosyada listelenen tüm paketleri de alabilir `packages.config` . Ayrıca bağımlılıkları alır ve kurar, ancak proje dosyalarında veya hiçbir değişiklik yapmaz `packages.config` . |

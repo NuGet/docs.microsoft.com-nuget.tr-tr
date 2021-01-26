@@ -6,26 +6,26 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: f574849bf99cd4da4eefd55c3dd5a0648042f0c1
-ms.sourcegitcommit: 7e9c0630335ef9ec1e200e2ee9065f702e52a8ec
+ms.openlocfilehash: 2893e13ff7b070844a2bdd5722da3aa1f123538d
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85292299"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98773967"
 ---
 # <a name="autocomplete"></a>Otomatik Tamamlama
 
 V3 API kullanarak bir paket KIMLIĞI ve sürüm otomatik tamamlama deneyimi oluşturmak mümkündür. Otomatik tamamlama sorguları yapmak için kullanılan kaynak, `SearchAutocompleteService` [hizmet dizininde](service-index.md)bulunan kaynaktır.
 
-## <a name="versioning"></a>Sürüm oluşturma
+## <a name="versioning"></a>Sürüm Oluşturma
 
 Aşağıdaki `@type` değerler kullanılır:
 
-@typedeeri                          | Notlar
+@type deeri                          | Notlar
 ------------------------------------ | -----
 SearchAutocompleteService            | İlk yayın
-SearchAutocompleteService/3.0.0-Beta | Diğer adı`SearchAutocompleteService`
-SearchAutocompleteService/3.0.0-RC   | Diğer adı`SearchAutocompleteService`
+SearchAutocompleteService/3.0.0-Beta | Diğer adı `SearchAutocompleteService`
+SearchAutocompleteService/3.0.0-RC   | Diğer adı `SearchAutocompleteService`
 SearchAutocompleteService/3.5.0      | Sorgu parametresi için destek içerir `packageType`
 
 ### <a name="searchautocompleteservice350"></a>SearchAutocompleteService/3.5.0
@@ -45,16 +45,18 @@ Kayıt kaynağında bulunan tüm URL 'Ler HTTP yöntemlerini `GET` ve ' i destek
 
 Sonuçlarda yalnızca listelenmemiş sürümlerin yer aldığı bir paket görünmez.
 
-    GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}&packageType={PACKAGETYPE}
+```
+GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}&packageType={PACKAGETYPE}
+```
 
 ### <a name="request-parameters"></a>İstek parametreleri
 
 Name        | İçinde     | Tür    | Gerekli | Notlar
 ----------- | ------ | ------- | -------- | -----
 q           | URL    | string  | hayır       | Paket kimliklerine göre Karşılaştırılacak dize
-Atla        | URL    | integer | hayır       | Sayfalama için atlanacak sonuç sayısı
-almanız        | URL    | integer | hayır       | Sayfalama için döndürülecek sonuç sayısı
-sp1'in  | URL    | boole | hayır       | `true`veya `false` [yayın öncesi paketlerin](../create-packages/prerelease-packages.md) eklenip eklenmeyeceğini belirleme
+Atla        | URL    | tamsayı | hayır       | Sayfalama için atlanacak sonuç sayısı
+take        | URL    | tamsayı | hayır       | Sayfalama için döndürülecek sonuç sayısı
+sp1'in  | URL    | boolean | hayır       | `true`veya `false` [yayın öncesi paketlerin](../create-packages/prerelease-packages.md) eklenip eklenmeyeceğini belirleme
 semVerLevel | URL    | string  | hayır       | Bir SemVer 1.0.0 sürüm dizesi 
 packageType | URL    | string  | hayır       | Paketleri filtrelemek için kullanılacak paket türü (eklenen `SearchAutocompleteService/3.5.0` )
 
@@ -80,14 +82,16 @@ Yanıt, otomatik tamamlama sonuçlarını içeren JSON belgesidir `take` .
 
 Kök JSON nesnesi aşağıdaki özelliklere sahiptir:
 
-Name      | Tür             | Gerekli | Notlar
+Ad      | Tür             | Gerekli | Notlar
 --------- | ---------------- | -------- | -----
-Toplam Isabet sayısı | integer          | evet      | Toplam eşleşme sayısı, ile ilgili `skip` ve`take`
-veri      | dize dizisi | evet      | İstekle eşleşen paket kimlikleri
+Toplam Isabet sayısı | tamsayı          | evet      | Toplam eşleşme sayısı, ile ilgili `skip` ve `take`
+veriler      | dize dizisi | evet      | İstekle eşleşen paket kimlikleri
 
 ### <a name="sample-request"></a>Örnek istek
 
-    GET https://api-v2v3search-0.nuget.org/autocomplete?q=storage&prerelease=true
+```
+GET https://api-v2v3search-0.nuget.org/autocomplete?q=storage&prerelease=true
+```
 
 ### <a name="sample-response"></a>Örnek yanıt
 
@@ -99,14 +103,16 @@ Bir paket KIMLIĞI önceki API kullanılarak bulunduğunda, istemci, belirtilen 
 
 Listelenmemiş bir paket sürümü sonuçlarda görünmez.
 
-    GET {@id}?id={ID}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
+```
+GET {@id}?id={ID}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
+```
 
 ### <a name="request-parameters"></a>İstek parametreleri
 
 Name        | İçinde     | Tür    | Gerekli | Notlar
 ----------- | ------ | ------- | -------- | -----
 kimlik          | URL    | string  | evet      | İçin sürümlerinin getirileceği paket KIMLIĞI
-sp1'in  | URL    | boole | hayır       | `true`veya `false` [yayın öncesi paketlerin](../create-packages/prerelease-packages.md) eklenip eklenmeyeceğini belirleme
+sp1'in  | URL    | boolean | hayır       | `true`veya `false` [yayın öncesi paketlerin](../create-packages/prerelease-packages.md) eklenip eklenmeyeceğini belirleme
 semVerLevel | URL    | string  | hayır       | Bir SemVer 2.0.0 sürüm dizesi 
 
 `prerelease`Sağlanmazsa, yayın öncesi paketler hariç tutulur.
@@ -119,15 +125,17 @@ Yanıt, sağlanan paket KIMLIĞININ tüm paket sürümlerini içeren, belirtilen
 
 Kök JSON nesnesi aşağıdaki özelliğe sahiptir:
 
-Name      | Tür             | Gerekli | Notlar
+Ad      | Tür             | Gerekli | Notlar
 --------- | ---------------- | -------- | -----
-veri      | dize dizisi | evet      | İstekle eşleşen paket sürümleri
+veriler      | dize dizisi | evet      | İstekle eşleşen paket sürümleri
 
 Dizideki paket sürümleri, `data` `1.0.0+metadata` sorgu dizesinde sağlanmışsa, semver 2.0.0 derleme meta verileri (ör.) içerebilir `semVerLevel=2.0.0` .
 
 ### <a name="sample-request"></a>Örnek istek
 
-    GET https://api-v2v3search-0.nuget.org/autocomplete?id=nuget.protocol&prerelease=true
+```
+GET https://api-v2v3search-0.nuget.org/autocomplete?id=nuget.protocol&prerelease=true
+```
 
 ### <a name="sample-response"></a>Örnek yanıt
 

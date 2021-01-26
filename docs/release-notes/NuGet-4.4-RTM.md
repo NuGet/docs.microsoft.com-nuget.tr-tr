@@ -1,37 +1,37 @@
 ---
-title: NuGet 4.4 RTM Yayın Notları
-description: Bilinen sorunlar, hata düzeltmeleri, eklenen özellikler ve DCR'ler dahil olmak üzere NuGet 4.3 RTM için sürüm notları.
-author: karann-msft
-ms.author: karann
+title: NuGet 4,4 RTM sürüm notları
+description: Bilinen sorunlar, hata düzeltmeleri, eklenen özellikler ve CCR 'ler dahil olmak üzere NuGet 4,3 RTM için sürüm notları.
+author: JonDouglas
+ms.author: jodou
 ms.date: 08/14/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 3be24a86cc92c4e6d07fcae1dc625a150f28d7b4
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 970a920a401b8a74c04d84cbad9933c54e3cd19e
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "64498694"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776282"
 ---
-# <a name="nuget-44-release-notes"></a>NuGet 4.4 Yayın Notları
+# <a name="nuget-44-release-notes"></a>NuGet 4,4 sürüm notları
 
-[Visual Studio 2017 15.4 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) NuGet 4.4 RTM ile birlikte geliyor.
+[Visual Studio 2017 15,4 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) , NUGET 4,4 RTM ile gelir.
 
-## <a name="summary-whats-new-in-440"></a>Özeti: 4.4.0 Yenilikler
+## <a name="summary-whats-new-in-440"></a>Özet: 4.4.0 'deki yenilikler
 
-## <a name="summary-whats-new-in-442"></a>Özeti: 4.4.2 Yenilikler
+## <a name="summary-whats-new-in-442"></a>Özet: 4.4.2 'deki yenilikler
 
-* Güvenlik Düzeltmesi: ~/.nuget içinde oluşturulan dosyalardaki izinler [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757) [#7673](https://github.com/NuGet/Home/issues/7673) çok açıktır
+* Güvenlik onarımı: ~/. NuGet içinde oluşturulan dosyalardaki Izinler çok açık [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
 
-## <a name="summary-whats-new-in-443"></a>Özeti: 4.4.3 Yenilikler
+## <a name="summary-whats-new-in-443"></a>Özet: 4.4.3 'deki yenilikler
 
-* Güvenlik Düzeltmesi: NUPKG'lerin içindeki [dosyalar,](https://github.com/NuGet/Home/issues/7906) NUPKG dizininin üzerinde göreli bir yola sahip olabilir #7906
+* Güvenlik onarımı: NUPKGs içindeki dosyaların, NUPKG dizininin üzerinde göreli bir yolu olabilir [#7906](https://github.com/NuGet/Home/issues/7906)
 
 ## <a name="known-issues"></a>Bilinen sorunlar
 
-### <a name="issues-with-net-standard-20-with-net-framework--nuget"></a>.NET Framework & NuGet ile .NET Standard 2.0 ile ilgili sorunlar 
+### <a name="issues-with-net-standard-20-with-net-framework--nuget"></a>.NET Framework & NuGet ile .NET Standard 2,0 ile ilgili sorunlar 
 
-.NET Standard & .NET Framework 4.6.1'i hedefleyen projeler ,NET Standard 2.0 veya daha önce hedefleyen NuGet paketlerini & projeleri tüketebilecek şekilde tasarlanmıştır. [Bu belge,](https://github.com/dotnet/standard/issues/481) bu senaryonun etrafındaki sorunları, bunları ele alma planını ve araç lamanın bugünkü durumuyla dağıtabileceğiniz geçici geçici işleri özetler.
+.NET Standard & aracı .NET Framework, .NET Standard 2,0 veya önceki sürümleri hedefleyen projeler & NuGet paketlerini tüketebileceği şekilde tasarlanmıştır. [Bu belgede, bu](https://github.com/dotnet/standard/issues/481) senaryonun etrafındaki sorunlar, bunları ele almak için plan ve BT 'nin araç durumuyla birlikte dağıtabileceğiniz geçici çözümler özetlenmektedir.
 
 ### <a name="while-using-package-manager-console-enter-key-may-not-work"></a>Paket Yöneticisi Konsolu’nu kullanırken, 'Enter' tuşu çalışmayabilir
 
@@ -41,9 +41,9 @@ Bazen Paket Yöneticisi Konsolu’nda Enter tuşu çalışmıyor. Bunu görürse
 
 #### <a name="workaround"></a>Geçici çözüm
 
-Visual Studio’yu yeniden başlatın ve çözümü açmadan önce PMC’yi açın. Alternatif olarak, silme `project.lock.json` ve yeniden geri deneyin.
+Visual Studio’yu yeniden başlatın ve çözümü açmadan önce PMC’yi açın. Alternatif olarak, ' yi silmeyi `project.lock.json` ve geri yüklemeyi yeniden deneyin.
 
-### <a name="you-are-unable-to-view-add-or-update-dotnetclitools-using-nuget-package-manager"></a>Nuget Package Manager'ı kullanarak DotNetCLITools'u görüntüleyemiyor, ekleyemiyor veya güncelleştiremiyorsunuz
+### <a name="you-are-unable-to-view-add-or-update-dotnetclitools-using-nuget-package-manager"></a>NuGet Paket Yöneticisi 'Ni kullanarak Dotnetclıtools 'u görüntüleyemez, ekleyemez veya güncelleştiremezsiniz
 
 #### <a name="issue"></a>Sorun
 
@@ -73,130 +73,130 @@ Bazen, geçersiz imzalı bütünleştirilmiş kod içeren bir paket kullandığ�
 
 Şu anda bu sorunun geçici çözümü yoktur.
 
-## <a name="issues-fixed-in-nuget-44-rtm-timeframe"></a>NuGet 4.4 RTM zaman diliminde düzeltilen sorunlar
+## <a name="issues-fixed-in-nuget-44-rtm-timeframe"></a>NuGet 4,4 RTM zaman diliminde düzeltilen sorunlar
 
-[NuGet 4.3 RTM Yayın Notları](../release-notes/nuget-4.3-RTM.md) - NuGet 4.3 RTM için düzeltilen tüm sorunları listeler
+[Nuget 4,3 RTM sürüm notları](../release-notes/nuget-4.3-RTM.md) -NUGET 4,3 RTM için düzeltilen tüm sorunları listeler
 
 ### <a name="features"></a>Özellikler
 
-- PMC ve NuGet PM UI senaryolarında Hafif Çözüm Yükü Desteği - [#5180](https://github.com/NuGet/Home/issues/5180)
+- PMC ve NuGet PM Kullanıcı arabirimi senaryolarında basit çözüm yükü desteği- [#5180](https://github.com/NuGet/Home/issues/5180)
 
-- msbuild paketi hedef kendisinden önce kullanıcı hedefleri çalıştırmak için bir kamu kanca olmalıdır - [#5143](https://github.com/NuGet/Home/issues/5143)
+- MSBuild paketi hedefinin, Kullanıcı hedeflerini kendisinden önce çalıştırmak için ortak bir kancası olmalıdır [#5143](https://github.com/NuGet/Home/issues/5143)
 
-- Özellik: Nuget yüklemeye bağımlılıkeklemeSürümü anahtarı - [#1806](https://github.com/NuGet/Home/issues/1806)
+- Özellik: NuGet yüklemesine dependencyVersion anahtarı ekleme- [#1806](https://github.com/NuGet/Home/issues/1806)
 
-- uap10.0.TODO.0 NuGet için .NET Standart 2.0 haritası - [#5684](https://github.com/NuGet/Home/issues/5684)
+- uıap 10.0. TODO. 0, NuGet- [#5684](https://github.com/NuGet/Home/issues/5684) için .NET Standard 2,0 ile eşleşmelidir
 
-- Destek Visual Studio Build Tools SKU ile msbuild /t:restore - [#5562](https://github.com/NuGet/Home/issues/5562)
+- MSBuild/t: restore- [#5562](https://github.com/NuGet/Home/issues/5562) Ile Visual Studio derleme araçları SKU desteği
 
-- Geri yükleme sırasında .NET Standart 2.0 için .NET 4.6.1 desteği gerekiyorsa ancak yüklü değilse hata oluşturma - [#5325](https://github.com/NuGet/Home/issues/5325)
+- Geri yükleme sırasında .NET Standard 2,0 için .NET 4.6.1 desteği gerekliyse ancak yüklü değilse bir hata oluşturun [#5325](https://github.com/NuGet/Home/issues/5325)
 
-- Paket Kimlik öneki rezervasyon istemcisi UI - [#5572](https://github.com/NuGet/Home/issues/5572)
+- Paket KIMLIĞI ön ek ayırma istemci kullanıcı arabirimi- [#5572](https://github.com/NuGet/Home/issues/5572)
 
-- dotnet.exe yerelleştirmeyi desteklemek için yerelleştirilmiş nuget bileşenleri sunmak - [#4336](https://github.com/NuGet/Home/issues/4336)
+- dotnet.exe yerelleştirmeyi desteklemek için yerelleştirilmiş NuGet bileşenleri sunun [#4336](https://github.com/NuGet/Home/issues/4336)
 
 ### <a name="bugs"></a>Hatalar
 
-- Farklı proje yolu kovanları PackageReferences kaybetmek geri yükleme neden olabilir - [#5855](https://github.com/NuGet/Home/issues/5855)
+- Farklı proje yolu casler, geri yüklemenin Packagereferleri kaybetmesine neden olabilir [#5855](https://github.com/NuGet/Home/issues/5855)
 
-- Uyarı numaraları yla hata kodlarını hata aralığına taşıma - [#5824](https://github.com/NuGet/Home/issues/5824)
+- Hata aralığına uyarı numarası ile hata kodları taşıma- [#5824](https://github.com/NuGet/Home/issues/5824)
 
-- .NET Standart sürümünün hedef çerçeveyle uyumlu olduğu bilinmediğinde yanıltıcı hata - [#5818](https://github.com/NuGet/Home/issues/5818)
+- .NET Standard sürümünün hedef Framework ile uyumlu olduğu bilinmediği için yanıltıcı hata [#5818](https://github.com/NuGet/Home/issues/5818)
 
-- Kafa karıştırıcı lisansları olan test dosyaları - [#5776](https://github.com/NuGet/Home/issues/5776)
+- Dosyaları kafa karıştırıcı lisanslarla test etme- [#5776](https://github.com/NuGet/Home/issues/5776)
 
-- EndToEnd test şablonlarında eksik lisans başlıkları - [#5774](https://github.com/NuGet/Home/issues/5774)
+- EndToEnd test şablonlarında eksik lisans üstbilgileri- [#5774](https://github.com/NuGet/Home/issues/5774)
 
-- packages.config geri yükleme NU1000 olarak hataları gösterir - [#5743](https://github.com/NuGet/Home/issues/5743)
+- packages.config geri yükleme hataları NU1000 olarak gösterir- [#5743](https://github.com/NuGet/Home/issues/5743)
 
-- nuget.exe yüklemek mono üzerinde DisableParallelProcessing olmalıdır - [#5741](https://github.com/NuGet/Home/issues/5741)
+- nuget.exe yüklemesi, mono [#5741](https://github.com/NuGet/Home/issues/5741) üzerinde DisableParallelProcessing içermelidir
 
-- nuget.exe yüklemek yanlış önbelleğe alma devre dışı - [#5737](https://github.com/NuGet/Home/issues/5737)
+- nuget.exe yüklemesi, önbelleğe almayı yanlışlıkla devre dışı bırakır- [#5737](https://github.com/NuGet/Home/issues/5737)
 
-- VS Geri Yükleme devre dışı bırakıldığında packages.config için geri yükleme komutunu çalıştırma yanlış ileti görüntüler - [#5718](https://github.com/NuGet/Home/issues/5718)
+- Geri yükleme devre dışı olduğunda packages.config için restore komutunun çalıştırılması, yanlış ileti [#5718](https://github.com/NuGet/Home/issues/5718) görüntülüyor
 
-- VS; Geri Yükleme devre dışı bırakıldığında geri yükleme komutunu çalıştırma kafa karıştırıcı bir ileti görüntüler - [#5659](https://github.com/NuGet/Home/issues/5659)
+- ANLARA Restore devre dışı bırakıldığında restore komutunun çalıştırılması, karışık bir ileti [#5659](https://github.com/NuGet/Home/issues/5659) görüntüler.
 
-- GetRestoreDotnetCliToolsTask sürüm meta veri eksik başarısız olur - [#5716](https://github.com/NuGet/Home/issues/5716)
-
-- dotnet
-  - dotnetcore paketi eklemek bir csproj boş satırları temizleyebilirsiniz - [#5697](https://github.com/NuGet/Home/issues/5697)
-
-- NuGet.Config'deki kimlik bilgisi ayarlarının kaynak adları büyük/küçük harf duyarlıdır - [#5695](https://github.com/NuGet/Home/issues/5695)
-
-- Enableing GeneratePackageOnBuild tüm paket geçmişimi sildi - [#5676](https://github.com/NuGet/Home/issues/5676)
-
-- Geri yükleme mono.cecil veya semver paketleri geri olmaz, ancak diğer tüm paketler geri olsun. - [#5649](https://github.com/NuGet/Home/issues/5649)
-
-- Hatalar ve Uyarılar - bir kaynak kullanılamıyorsa hatalı hata.  - [#5644](https://github.com/NuGet/Home/issues/5644)
-
-- [DesignTutarlılık] NuGet Yükleme durum metni şu anda karanlık tema üzerinde doğru görünmüyor. - [#5642](https://github.com/NuGet/Home/issues/5642)
-
-- Tüm projeler için çözüm güncellemelerinde/yüklemelerinde paketleri güncelleştirin - [#5508](https://github.com/NuGet/Home/issues/5508)
+- GetRestoreDotnetCliToolsTask eksik sürüm meta verileri olmadığında başarısız olur [#5716](https://github.com/NuGet/Home/issues/5716)
 
 - dotnet
-  - dotnetcore paketi TargetFramework vs TargetFrameworks bağlı olarak farklı çalışır - [#5281](https://github.com/NuGet/Home/issues/5281)
+  - dotnetcore ekleme paketi, bir csproj [#5697](https://github.com/NuGet/Home/issues/5697) boş satırları temizleyebilir
 
-- Araçlar klasörü içinde DLs dahil uyarılar atmak - [#5020](https://github.com/NuGet/Home/issues/5020)
+- NuGet.Config kimlik bilgileri ayarlarının kaynak adları büyük/küçük harfe duyarlıdır [#5695](https://github.com/NuGet/Home/issues/5695)
 
-- NuGet.ContentModel dize işlemleri için çok fazla bellek tüketir - [#4714](https://github.com/NuGet/Home/issues/4714)
+- GeneratePackageOnBuild etkinleştiriliyor, tüm paket geçmişimin silinmesini- [#5676](https://github.com/NuGet/Home/issues/5676)
 
-- RuntimeEnvironmentHelper.IsLinux OSX için doğru döndürür - [#4648](https://github.com/NuGet/Home/issues/4648)
+- Restore, mono. Cecil veya semver paketlerini geri yüklemeden, ancak diğer tüm paketler geri yüklenir. - [#5649](https://github.com/NuGet/Home/issues/5649)
 
-- 'dotnet paketi' obj\Debug yerine obj altında nuspec koyar - [#4644](https://github.com/NuGet/Home/issues/4644)
+- Hatalar ve uyarılar-bir kaynak kullanılamadığında hatalı hata.  - [#5644](https://github.com/NuGet/Home/issues/5644)
 
-- Nuget son derece yavaş paket yükseltme - [#4534](https://github.com/NuGet/Home/issues/4534)
+- [Designtutarlılığı] NuGet yükleme durumu metni şu anda koyu Temada doğru görünmüyor. - [#5642](https://github.com/NuGet/Home/issues/5642)
 
-- CpS, LSL'yi (hafif çözüm geri yükleme) olmayan daha büyük çözümlerle Geri Yükleme ile senkronize değildir - [#4307](https://github.com/NuGet/Home/issues/4307)
+- Tüm projeler için çözüm güncelleştirmelerinde/yüklemelerde paketleri Güncelleştir- [#5508](https://github.com/NuGet/Home/issues/5508)
 
-- SemVer 2.0 - sağlanan sürümü ile nuget paketi meta verileri (3.5.0-rtm-1938) yok sayar - [#3643](https://github.com/NuGet/Home/issues/3643)
+- dotnet
+  - dotnetcore paketi, TargetFramework vs Targetçerçeveler 'e göre farklı davranır- [#5281](https://github.com/NuGet/Home/issues/5281)
 
-- Nuget.exe (3.+) Sürüm numarası ve ExcludeVersion bayrağı ile paketi yüklemek yeni sürüme paketi güncellemez - [#2405](https://github.com/NuGet/Home/issues/2405)
+- Araçlar klasörünün içindeki dahil edilen dll 'Ler uyarı oluştur- [#5020](https://github.com/NuGet/Home/issues/5020)
 
-- Project.json geri yüklemesi, üst düzey paketler kısıtlamaları ihlal ettiğinde uyarmalıdır - [#2358](https://github.com/NuGet/Home/issues/2358)
+- NuGet. ContentModel dize işlemleri için çok fazla bellek tüketir- [#4714](https://github.com/NuGet/Home/issues/4714)
 
-- -ConfigFile yükleme komutu özel config ayar değil - [#1646](https://github.com/NuGet/Home/issues/1646)
+- RuntimeEnvironmentHelper. ıslinux, OSX [#4648](https://github.com/NuGet/Home/issues/4648) için true döndürüyor
 
-- nuget.exe yüklemek '-DisableParallelProcessing' anahtarı onurlandırmaz - [#1556](https://github.com/NuGet/Home/issues/1556)
+- ' DotNet Pack ', nuspec öğesini obj\Debug- [#4644](https://github.com/NuGet/Home/issues/4644) yerine obj altına koyar
 
-- Hala DotNet.exe veya msbuild.exe tarafından kullanılan engelli kaynakları - [#5704](https://github.com/NuGet/Home/issues/5704)
+- NuGet son derece yavaş paket yükseltmesi- [#4534](https://github.com/NuGet/Home/issues/4534)
 
-- Düzeltme LSL senaryoda asılı - [#5685](https://github.com/NuGet/Home/issues/5685)
+- CPS, LSL (hafif çözüm geri yükleme) ile etkinleştirilmemiş daha büyük çözümlerle geri yükleme ile eşitlenmemiş. [#4307](https://github.com/NuGet/Home/issues/4307)
 
-### <a name="dcrs"></a>DCRs
+- SemVer 2,0-belirtilen sürüme sahip bir NuGet paketi meta verileri yoksayar (3.5.0-RTM-1938)- [#3643](https://github.com/NuGet/Home/issues/3643)
 
-- nuget.exe install TargetFramework desteği - [#5736](https://github.com/NuGet/Home/issues/5736)
+- Nuget.exe (3. +) sürüm numarası ve ExcludeVersion bayrağıyla paket yüklemesi, paketi daha yeni sürüme güncelleştirmez [#2405](https://github.com/NuGet/Home/issues/2405)
 
-- Farklı msbuild görev UserAgent dizeleri (netcore vs masaüstü msbuild) ekleyin - [#5709](https://github.com/NuGet/Home/issues/5709)
+- En üst düzey paketler kısıtlamaları ihlal ediyor durumunda geri yükleme Project.jsuyarı almalıdır [#2358](https://github.com/NuGet/Home/issues/2358)
 
-- PackagePathResolver.GetPackageDirectoryName sanal olmalıdır - [#5700](https://github.com/NuGet/Home/issues/5700)
+- -ConfigFile, install komutunda özel yapılandırma ayarlamadır- [#1646](https://github.com/NuGet/Home/issues/1646)
 
-- [DesignTutarlılık] NuGet paketi eklerken kafa karıştırıcı ileti - [#5641](https://github.com/NuGet/Home/issues/5641)
+- nuget.exe yüklemesi '-DisableParallelProcessing ' anahtarını kabul etmez [#1556](https://github.com/NuGet/Home/issues/1556)
 
-- [Uyarılar ve hatalar] NoWarn, P2P referansları aracılığıyla geçişli olarak akmaz - [#5501](https://github.com/NuGet/Home/issues/5501)
+- DotNet.exe veya msbuild.exe tarafından hala kullanılan devre dışı kaynaklar [#5704](https://github.com/NuGet/Home/issues/5704)
 
-- Hafif Çözüm Yükü: PM UI, PMC ve IV'ler için ortak çekirdek- - [#5057](https://github.com/NuGet/Home/issues/5057)
+- LSL senaryosunda onarım kilitleniyor- [#5685](https://github.com/NuGet/Home/issues/5685)
 
-- Hafif Çözüm Yükü: Destek - PMC - [#5053](https://github.com/NuGet/Home/issues/5053)
+### <a name="dcrs"></a>DCR
 
-- Visual Studio'nun tetiklediği MSBuild hedefini geri yüklemeden önce destek ekleyin - [#4781](https://github.com/NuGet/Home/issues/4781)
+- nuget.exe TargetFramework desteğini Install- [#5736](https://github.com/NuGet/Home/issues/5736)
 
-- Önce Hedefler kullanarak başvurulan nuget.hedeflerine ortak bir hedef ekleyin - [#4634](https://github.com/NuGet/Home/issues/4634)
+- Farklı MSBuild görev UserAgent dizeleri (netcore vs Desktop MSBuild) ekleme- [#5709](https://github.com/NuGet/Home/issues/5709)
 
-- Paket hedefi, yapı eylemleri yle içerik OluşturamazDosyaları doğru bir şekilde oluşturamaz - [#4166](https://github.com/NuGet/Home/issues/4166)
+- PackagePathResolver. GetPackageDirectoryName sanal- [#5700](https://github.com/NuGet/Home/issues/5700) olmalıdır
 
-- RestoreOperationLogger.Do bloklar iplik havuzu konuları - [#5663](https://github.com/NuGet/Home/issues/5663)
+- [Designtutarlılığı] NuGet paketi eklenirken kafa karıştırıcı iletisi- [#5641](https://github.com/NuGet/Home/issues/5641)
+
+- [Uyarılar ve hatalar] NoWarn, P2P başvuruları aracılığıyla geçişli olarak akış yapmaz [#5501](https://github.com/NuGet/Home/issues/5501)
+
+- Hafif çözüm yükü: PM Kullanıcı arabirimi, PMC ve IVS-- [#5057](https://github.com/NuGet/Home/issues/5057) Için ortak çekirdek
+
+- Hafif çözüm yükü: destek-PMC- [#5053](https://github.com/NuGet/Home/issues/5053)
+
+- Visual Studio 'Nun tetiklediği ön geri yükleme MSBuild hedefi için destek ekleme ( [#4781](https://github.com/NuGet/Home/issues/4781) )
+
+- NuGet. targets öğesine BeforeTargets kullanılarak başvurulabilen bir genel hedef ekleyin- [#4634](https://github.com/NuGet/Home/issues/4634)
+
+- Paket hedefi, derleme eylemleri doğru şekilde contentFiles oluşturamaz- [#4166](https://github.com/NuGet/Home/issues/4166)
+
+- RestoreOperationLogger.Do blokları iş parçacığı havuzu iş parçacıkları- [#5663](https://github.com/NuGet/Home/issues/5663)
 
 ### <a name="docs"></a>Docs
 
-- Yükleme komutu Bağımlılık ve Çerçeve bayrakları için Dokümanlar - [#5858](https://github.com/NuGet/Home/issues/5858)
+- Install komutu DependencyVersion ve Framework bayrakları- [#5858](https://github.com/NuGet/Home/issues/5858)
 
-- NuGet uyarı ve hataları yla ilgili dokümanlara güncelleme - [#5857](https://github.com/NuGet/Home/issues/5857)
+- NuGet uyarıları ve hatalarıyla ilgili belgeleri güncelleştirme- [#5857](https://github.com/NuGet/Home/issues/5857)
 
-## <a name="links-to-github-issues-fixed-in-44-rtm"></a>4.4 RTM'de düzeltilen GitHub sorunlarına bağlantılar
+## <a name="links-to-github-issues-fixed-in-44-rtm"></a>4,4 RTM 'de düzeltilen GitHub sorunlarına yönelik bağlantılar
 
-[Sorunlar Listesi 1](https://github.com/NuGet/Home/issues?q=is:issue+is:closed+milestone:"4.4")
+[Sorun listesi 1](https://github.com/NuGet/Home/issues?q=is:issue+is:closed+milestone:"4.4")
 
-[Sorunlar Listesi 2](https://github.com/NuGet/Home/issues?q=is:issue+is:closed+milestone:%224.4+-+7%2F31+through+8%2F18%22)
+[Sorun listesi 2](https://github.com/NuGet/Home/issues?q=is:issue+is:closed+milestone:%224.4+-+7%2F31+through+8%2F18%22)
 
-[Sorunlar Listesi 3](https://github.com/NuGet/Home/issues?q=is:issue+is:closed+milestone:%224.4+-+7%2F10+through+7%2F28%22)
+[Sorun listesi 3](https://github.com/NuGet/Home/issues?q=is:issue+is:closed+milestone:%224.4+-+7%2F10+through+7%2F28%22)

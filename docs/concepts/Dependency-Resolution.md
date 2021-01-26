@@ -1,16 +1,16 @@
 ---
 title: NuGet paket bağımlılığı çözümlemesi
 description: NuGet paketinin bağımlılıklarının çözümlenme ve hem NuGet 2. x hem de NuGet 3. x + ' da yüklendiği işlemle ilgili ayrıntılar.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: 4b95251e4b055523a9533b4125589b2650be932d
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 0ef309d95c6ef5437765c02791da6dab13794678
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237750"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775262"
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>NuGet paket bağımlılıklarını çözümler
 
@@ -55,7 +55,7 @@ Bir uygulama, akışta bulunmayan 1,2 gibi tam bir sürüm numarası belirttiği
 
 #### <a name="floating-versions"></a>Kayan sürümler
 
-Bir kayan bağımlılık sürümü \* karakteriyle belirtilir. Örneğin, `6.0.*`. Bu sürüm belirtimi "en son 6.0. x sürümünü kullan" ifadesini belirtir. `4.*` "en son 4. x sürümünü kullanın" anlamına gelir. Kayan bir sürümün kullanılması proje dosyasındaki değişiklikleri azaltır ve en son bir bağımlılık sürümüyle güncel tutmaya çalışır.
+Bir kayan bağımlılık sürümü \* karakteriyle belirtilir. Örneğin, `6.0.*`. Bu sürüm belirtimi "en son 6.0. x sürümünü kullan" ifadesini belirtir. `4.*` "en son 4. x sürümünü kullanın" anlamına gelir. Kayan sürümün kullanılması, proje dosyasında yapılacak değişiklik sayısını azaltırken bağımlılığın en son sürümünün kullanılmasını sağlar.
 
 Bir kayan sürüm kullanırken NuGet, sürüm düzeniyle eşleşen bir paketin en yüksek sürümünü çözümler. Örneğin, `6.0.*` 6,0 ile başlayan bir paketin en yüksek sürümünü alır:
 
