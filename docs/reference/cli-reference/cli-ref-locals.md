@@ -1,16 +1,16 @@
 ---
 title: NuGet CLı Yereller komutu
 description: nuget.exe Yereller komutuna yönelik başvuru
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 03/19/2018
 ms.topic: reference
-ms.openlocfilehash: cdc2b760021ffc4a9e02edacb45beac01cc99bf1
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 25feb29c7b96c47681cedd8208b8595952d3ca49
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623064"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98779203"
 ---
 # <a name="locals-command-nuget-cli"></a>Yereller komutu (NuGet CLı)
 
@@ -46,7 +46,7 @@ Burada `<folder>` `all` ,, `http-cache` , `packages-cache` *(3,5 ve öncesi)*, `
 
 - **`-List`**
 
-  Belirtilen klasörün konumunu veya tüm klasörlerin konumlarını, *Tümü*ile birlikte kullanıldığında listeler.
+  Belirtilen klasörün konumunu veya tüm klasörlerin konumlarını, *Tümü* ile birlikte kullanıldığında listeler.
 
 - **`-NonInteractive`**
 

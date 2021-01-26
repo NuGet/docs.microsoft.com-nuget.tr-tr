@@ -1,16 +1,16 @@
 ---
 title: NuGet CLı yardım komutu
 description: nuget.exe Help komutuna yönelik başvuru
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 12776b7c16aeef223a0b682ee2468edec8ea3295
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 5d91638c4a6f167ea8a04e5dfa2905cb55084ddd
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623116"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98779361"
 ---
 # <a name="help-or--command-nuget-cli"></a>help or ? komut (NuGet CLı)
 
@@ -28,7 +28,7 @@ nuget ? [command] [options]
 Burada [komut], yardım görüntülenecek belirli bir komutu tanımlar.
 
 > [!Warning]
-> Bazı komutlarla, *help* `nuget help install` NuGet.org üzerinde "Help" adlı bir paket olduğu için, ' da olduğu gibi öncelikle yardım 'ı belirtmek için küçük bir değer belirleyin. Komuta sahipseniz `nuget install help` , install komutuyla ilgili yardım almaz, ancak bunun yerine yardım adlı paketi yükleyeceksiniz.
+> Bazı komutlarla,  `nuget help install` NuGet.org üzerinde "Help" adlı bir paket olduğu için, ' da olduğu gibi öncelikle yardım 'ı belirtmek için küçük bir değer belirleyin. Komuta sahipseniz `nuget install help` , install komutuyla ilgili yardım almaz, ancak bunun yerine yardım adlı paketi yükleyeceksiniz.
 
 ## <a name="options"></a>Seçenekler
 

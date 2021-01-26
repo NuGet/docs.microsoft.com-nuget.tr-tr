@@ -1,115 +1,115 @@
 ---
-title: 3.5 RC sürüm notları
-description: NuGet 3.5 bilinen sorunları, hata düzeltmeleri yapıldı, eklenen özellikler ve dcr RC sürüm notları.
-author: karann-msft
-ms.author: karann
+title: 3,5 RC sürüm notları
+description: Bilinen sorunlar, hata düzeltmeleri, eklenen özellikler ve CCR 'ler dahil olmak üzere NuGet 3,5 RC için sürüm notları.
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 52c443ecd79c9108203f5a3c327078ce9e28b95b
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 04ec402df5ff993b405bb710abf26e1cdc850703
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548544"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780201"
 ---
-# <a name="nuget-35-rc-release-notes"></a>NuGet 3.5 RC sürüm notları
+# <a name="nuget-35-rc-release-notes"></a>NuGet 3,5 RC sürüm notları
 
-[NuGet 3.5-Beta2 sürüm notları](../release-notes/nuget-3.5-Beta2.md) | [NuGet 3.5-RTM sürüm notları](../release-notes/nuget-3.5-RTM.md)
+[NuGet 3,5-beta2 sürüm notları](../release-notes/nuget-3.5-Beta2.md)  |  [NuGet 3,5-RTM sürüm notları](../release-notes/nuget-3.5-RTM.md)
 
-sürüm 3.5 kalitesini ve NuGet istemcilerinin performansını geliştirmeye odaklanır. Ayrıca, biz desteği gibi bazı özellikler gönderildi [geri dönüş klasörleri](https://github.com/NuGet/Home/issues/2899), [PackageType](https://github.com/NuGet/Home/issues/2476) desteklemek `.nuspec` ve daha fazlası.
+3,5 sürümü, NuGet istemcilerinin kalitesini ve performansını geliştirmeye odaklanılmıştır. Ayrıca, [geri dönüş klasörleri](https://github.com/NuGet/Home/issues/2899)için destek, ve ' de [PackageType](https://github.com/NuGet/Home/issues/2476) desteği gibi birkaç özelliği sunuyoruz `.nuspec` .
 
 [Sorun listesi](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%223.5%20RC")
 
 ## <a name="bug-fixes"></a>Hata Düzeltmeleri
 
-* Paketi yükle/geri yükleme başarısız oluyor "pakette birden çok `.nuspec` dosyalarını." - [#3231](https://github.com/NuGet/Home/issues/3231)
+* Bir paketin yükleme/geri yükleme işlemi "paket birden çok dosya içeriyor" ile başarısız olur `.nuspec` . - [#3231](https://github.com/NuGet/Home/issues/3231)
 
-* nuget paketi zorla ekler `.tt` dosyaları içerik klasörüne - ne olursa olsun [#3203](https://github.com/NuGet/Home/issues/3203)
+* NuGet paketi, `.tt` ne tür bir içeriğe bakılmaksızın dosyaları içerik klasörüne zorla ekler [#3203](https://github.com/NuGet/Home/issues/3203)
 
-* nuget paketi csproj (ile `project.json`) hiçbir packOptions ve JSON dosyasında - sahibi varsa kilitleniyor [#3180](https://github.com/NuGet/Home/issues/3180)
+* `project.json`json dosyasında packOptions ve sahip olmadığında NuGet Pack csproj (WITH) kilitleniyor- [#3180](https://github.com/NuGet/Home/issues/3180)
 
-* nuget paketi için `project.json` packOptions etiketleri özeti, yazarlar, sahipleri - vb. gibi yoksayar [#3161](https://github.com/NuGet/Home/issues/3161)
+* için NuGet paketi `project.json` , Summary, yazarlar, Owners vs- [#3161](https://github.com/NuGet/Home/issues/3161) gibi packoptions etiketlerini yoksayar
 
-* nuget paketi yoksayar çıkış bağımlılıkları `.nuspec` için `project.json`  -  [#3145](https://github.com/NuGet/Home/issues/3145)
+* NuGet paketi `.nuspec` `project.json`  -  [#3145](https://github.com/NuGet/Home/issues/3145) için çıkışta bağımlılıkları yoksayar
 
-* Geri alma ile birden çok paketlerin güncelleştirilmesi, bozuk bir durumda - proje bırakır [#3139](https://github.com/NuGet/Home/issues/3139)
+* Birden çok paketin geri alma ile güncelleştirilmesi, projeyi bozuk bir durumda bırakır- [#3139](https://github.com/NuGet/Home/issues/3139)
 
-* ContentFiles herhangi netstandard projeleri için - eklenmedi [#3118](https://github.com/NuGet/Home/issues/3118)
+* Netstandart projeler için any altındaki ContentFiles eklenmez- [#3118](https://github.com/NuGet/Home/issues/3118)
 
-* Kitaplık .net targeting paketlenemiyor standart doğru - [#3108](https://github.com/NuGet/Home/issues/3108)
+* .NET Standard için kitaplık hedeflemesi doğru paketlenemez- [#3108](https://github.com/NuGet/Home/issues/3108)
 
-* Dosya -> Yeni Proje -> sınıf kitaplığı (taşınabilir) proje başarısız VS2015 ve - Dev15 [#3094](https://github.com/NuGet/Home/issues/3094)
+* Dosya-> yeni proje-> sınıf kitaplığı (taşınabilir) projesi VS2015 ve Dev15- [#3094](https://github.com/NuGet/Home/issues/3094) içinde başarısız oluyor
 
-* NuGet hata - 1.0.0-* geçerli bir sürüm dizesi - değil [#3070](https://github.com/NuGet/Home/issues/3070)
+* NuGet hatası-1.0.0-* geçerli bir sürüm dizesi değil- [#3070](https://github.com/NuGet/Home/issues/3070)
 
-* Bul-Package başarısız görünen ancak works Install-Package - [#3068](https://github.com/NuGet/Home/issues/3068)
+* Find-Package görüntülenemiyor ancak Install-Package çalışmaları [#3068](https://github.com/NuGet/Home/issues/3068)
 
-* Hata olduğunda "Install-Package jquery.validation" - dev15 [#3061](https://github.com/NuGet/Home/issues/3061)
+* Dev15- [#3061](https://github.com/NuGet/Home/issues/3061) "Install-Package jQuery. Validation" hatası
 
-* Yüklü VS 2015 sürümü 3.5.0 hatası oluşur - NuGet kullanan bir VS 3 güncelleştirdiğinizde [#3053](https://github.com/NuGet/Home/issues/3053)
+* Bir VS 2015 güncelleştirme 3 ' ü, NuGet sürümü 3.5.0 hatası oluşursa [#3053](https://github.com/NuGet/Home/issues/3053)
 
-* Paket Yöneticisi kullanıcı Arabirimi: bir paket güncelleştirdikten sonra yeni sürüm görüntülemez- [#3041](https://github.com/NuGet/Home/issues/3041)
+* Paket Yöneticisi Kullanıcı arabirimi: bir paket güncelleştirildikten sonra yeni sürüm gösterme- [#3041](https://github.com/NuGet/Home/issues/3041)
 
-* -ApiKey Sil komut satırında okuma/gönderilmez 3.5.0-beta içinde - [#3037](https://github.com/NuGet/Home/issues/3037)
+* -Delete komut satırındaki ApiKey, 3.5.0-Beta- [#3037](https://github.com/NuGet/Home/issues/3037) içinde okunamaz/gönderilmez
 
-* Yanlış dize: bir paketin kararlı bir sürüm öncesi bir bağımlılık olmamalıdır. - [#3030](https://github.com/NuGet/Home/issues/3030)
+* Hatalı dize: paketin kararlı bir sürümü bir ön sürüm bağımlılığı üzerinde olmamalıdır. - [#3030](https://github.com/NuGet/Home/issues/3030)
 
-* PCL (net46 ve windows 10) proje get NullRef özel durumu oluşturuluyor. - [#3014](https://github.com/NuGet/Home/issues/3014)
+* PCL (net46 ve Windows 10) projesi oluşturma NullRef özel durumu. - [#3014](https://github.com/NuGet/Home/issues/3014)
 
-* Nuget güncelleştirmesi, bilgilendirici ileti sağlamalıdır, daha yüksek bir sürüm allowedVersions kısıtlaması tarafından - sınırlı olduğunda [#3013](https://github.com/NuGet/Home/issues/3013)
+* Daha yüksek bir sürüm allowedVersions kısıtlaması tarafından kısıtlanmışsa NuGet güncelleştirmesi bilgilendirici ileti sağlamalıdır- [#3013](https://github.com/NuGet/Home/issues/3013)
 
-* Kimlik Bilgisi Eklentisi -1 hata ile çıkıldı / kimlik bilgisi sağlayıcıları ile birden çok kaynakları - kullanırken paket indirilirken hata [#2885](https://github.com/NuGet/Home/issues/2885)
+* Kimlik bilgisi eklentisi hata ile çıkıldı-1/birden çok kaynağa sahip kimlik bilgisi sağlayıcıları kullanılırken paket indirme hatası- [#2885](https://github.com/NuGet/Home/issues/2885)
 
-* nuget paketi - paketi bağımlılığı eksik Newtonsoft.Json - [#2876](https://github.com/NuGet/Home/issues/2876)
+* NuGet paketi-paket bağımlılığında Newtonsoft.Jseksik [#2876](https://github.com/NuGet/Home/issues/2876)
 
-* Linux/MacOS + Mono - ExecuteSynchronizedCore hatada [#2860](https://github.com/NuGet/Home/issues/2860)
+* Linux/MacOS + mono- [#2860](https://github.com/NuGet/Home/issues/2860) ExecuteSynchronizedCore 'da hata
 
-* VS içinde repositoryPath ortam değişkenlerini desteklemez (yapar. nuget.exe) - [#2763](https://github.com/NuGet/Home/issues/2763)
+* VS yolunda ortam değişkenlerini desteklemez (nuget.exe)- [#2763](https://github.com/NuGet/Home/issues/2763)
 
-* Erişilebilirlik sorunlarını gidermek [#2745](https://github.com/NuGet/Home/issues/2745)
+* Erişilebilirlik sorunlarını giderme- [#2745](https://github.com/NuGet/Home/issues/2745)
 
-* Taşınabilir çerçeveleri tirelerle profilleriyle reddedilir. - [#2734](https://github.com/NuGet/Home/issues/2734)
+* Hecelenmiş profiller içeren taşınabilir çerçeveler reddedilir. - [#2734](https://github.com/NuGet/Home/issues/2734)
 
-* NuGet Paket Yöneticisi, bu seçenekler listesinde paketleri ayrıntısı için geçerli değildir Temizle olmalısınız `project.json`  -  [#2665](https://github.com/NuGet/Home/issues/2665)
+* NuGet Paket Yöneticisi, paket ayrıntılarındaki seçenekler listesinin #2665 için uygulanmadığından emin olması gerekir `project.json`  -  [](https://github.com/NuGet/Home/issues/2665)
 
-* NuGet 3.3.0 güncelleştirmesi başarısız ' bir ek kısıtlama... tanımlanan packages.config bu işlemi engeller.' - [#1816](https://github.com/NuGet/Home/issues/1816)
+* NuGet 3.3.0 Güncelleştirmesi ' ek bir kısıtlama ile başarısız oluyor... packages.config tanımlı bu işlemi engelliyor. ' - [#1816](https://github.com/NuGet/Home/issues/1816)
 
-* Sahte bir ileti - paket oluşturur mevcut olmayan bir yerel kaynaktan yükleme [#1674](https://github.com/NuGet/Home/issues/1674)
+* Mevcut olmayan bir yerel kaynaktan paket yükleme, sahte bir ileti oluşturur [#1674](https://github.com/NuGet/Home/issues/1674)
 
-* "Yükseltme kullanılabilir" filtre gösterir - sürüm kısıtlamasını ihlal eden yükseltmeler [#1094](https://github.com/NuGet/Home/issues/1094)
+* "Upgrade vailable" filtresi, sürüm kısıtlamasını ihlal eden yükseltmeleri gösterir- [#1094](https://github.com/NuGet/Home/issues/1094)
 
 ## <a name="performance-improvements"></a>Performans Geliştirmeleri
 
-* : ContentModel hedef framework ayrıştırma - performansı [#3162](https://github.com/NuGet/Home/issues/3162)
+* Performans: ContentModel hedef çerçevesi ayrıştırmayı geliştirme- [#3162](https://github.com/NuGet/Home/issues/3162)
 
-* Performans: Okuma önlemek `runtime.json` RID'ler olmayan geri yüklemeler için dosyaları [#3150](https://github.com/NuGet/Home/issues/3150). Örnek projelerimizin 15 saniye 3 saniye için ASP.NET Web uygulaması sınırlı bir CI makinelerde geri.
+* Performans: `runtime.json` RID 'ler [#3150](https://github.com/NuGet/Home/issues/3150)olmayan geri yüklemeler Için dosyaları okumaktan kaçının. CI makinelerinde, örnek bir ASP.NET Web uygulamasının geri yüklenmesi 15 saniye ile 3 saniye arasında azaltılır.
 
-* Performans: Paket Yöneticisi konsolu init.ps1 yükleme süresi [#2956](https://github.com/NuGet/Home/issues/2956). Bazı durumlarda 132s'den 10'luk bloklar için PackageManagerConsole açmak zaman geliştirildi.
+* Performans: Paket Yöneticisi konsolu init.ps1 yükleme süresi [#2956](https://github.com/NuGet/Home/issues/2956). 1 milyon ' den 10 ' a kadar bazı durumlarda iyileştirilmiş PackageManagerConsole 'ı açma süresi.
 
-* NuGet güncelleştirmede - ReSharper performans sorunlarını çözün [#3044](https://github.com/NuGet/Home/issues/3044): örnek proje üzerinde paketleri yüklemek için harcanan süre sınırlı 140s 68s için.
+* NuGet Update 'de ReSharper performans sorunlarını çözün- [#3044](https://github.com/NuGet/Home/issues/3044): örnek bir projede, paket 140S 'den 68s 'ye düşürüldü.
 
-## <a name="dcrs"></a>Dcr
+## <a name="dcrs"></a>DCR
 
-* Yükseltme/yükleme tabanlı bir dotnet tfm PCL sorunları - neden olabileceğini kullanıcılarınıza gereken NuGet [#3138](https://github.com/NuGet/Home/issues/3138)
+* NuGet 'in kullanıcılara bir DotNet TFM tabanlı PCL 'de yükseltmenin/yüklemenin sorun oluşmasına neden olduğunu bilmesini sağlaması gerekir [#3138](https://github.com/NuGet/Home/issues/3138)
 
-* Hatalı yüklemesi/yükseltmesi tfm ile proje için uyar = "dotnet" - [#3137](https://github.com/NuGet/Home/issues/3137)
+* "DotNet" projesi için hatalı yüklemeyi/yükseltmeyi uyar = "DotNet"- [#3137](https://github.com/NuGet/Home/issues/3137)
 
-* Netcoreapp11 ve netstandard17 desteği - ekleyerek [#2998](https://github.com/NuGet/Home/issues/2998)
+* Netcoreapp11 ve netstandard17 desteği ekleme- [#2998](https://github.com/NuGet/Home/issues/2998)
 
-* Nuget.exe içinde - konsol için NuGet uyarı üst bilgi içeriği Yazdır [#2934](https://github.com/NuGet/Home/issues/2934)
+* nuget.exe- [#2934](https://github.com/NuGet/Home/issues/2934) NuGet-Warning üst bilgi içeriğini konsola yazdırma
 
-* Gücünden yararlanarak AssemblyMetadata özniteliği için `.nuspec` belirteç değiştirme - [#2851](https://github.com/NuGet/Home/issues/2851)
+* Belirteç değişiklikleri için AssemblyMetadata özniteliğiyle yararlanın `.nuspec` - [#2851](https://github.com/NuGet/Home/issues/2851)
 
-* Kilitli özelliğin kilit dosyanın - kaldırmak [#2379](https://github.com/NuGet/Home/issues/2379)
+* Kilitli özelliği kilit dosyasından kaldır- [#2379](https://github.com/NuGet/Home/issues/2379)
 
-* Sembol paketleri yüklemede hiç kullanılmamalıdır veya #2807 güncelleştir
+* Sembol paketleri, install veya Update #2807 hiçbir zaman kullanılmamalıdır
 
 ## <a name="features"></a>Özellikler
 
-* Geri dönüş paket klasörleri - desteği [#2899](https://github.com/NuGet/Home/issues/2899)
+* Geri dönüş paketi klasörleri için destek- [#2899](https://github.com/NuGet/Home/issues/2899)
 
-* Paket türü bir kavramı destek aracı paketlerinin - tasarlayıp [#2476](https://github.com/NuGet/Home/issues/2476)
+* Araç paketlerini desteklemek için bir paket türü kavramı tasarlama ve uygulama- [#2476](https://github.com/NuGet/Home/issues/2476)
 
-* -Genel paketleri klasörüne olan yolu almak için API [#2403](https://github.com/NuGet/Home/issues/2403)
+* Genel paketler klasörünün yolunu almak için API- [#2403](https://github.com/NuGet/Home/issues/2403)
 
-* Yerel paketler güncelleştirmesi desteği - [#1291](https://github.com/NuGet/Home/issues/1291)
+* Yerel paketler güncelleştirme desteği- [#1291](https://github.com/NuGet/Home/issues/1291)

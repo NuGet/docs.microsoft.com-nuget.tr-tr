@@ -1,16 +1,16 @@
 ---
 title: NuGet 5,5 sürüm notları
 description: Yeni özellikler, hata düzeltmeleri ve DTU 'lar dahil olmak üzere NuGet 5,5 sürüm notları.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 03/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0e8ab66c937058e84420bc3e3a5031cbc133aad7
-ms.sourcegitcommit: 1a63a84da2719c8141823ac89a20bf507fd22b00
+ms.openlocfilehash: 0fde67dd03c31e986ed89f2f8627608e279ef908
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80148299"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780107"
 ---
 # <a name="nuget-55-release-notes"></a>NuGet 5,5 sürüm notları
 
@@ -32,23 +32,23 @@ NuGet dağıtım araçlar:
 
 * Yerel akışlar üzerinde barındırılan paketler için Visual Studio Paket Yöneticisi Kullanıcı arabirimindeki kendi kendine içerilen bağımsız simgeler için destek- [#8189](https://github.com/NuGet/Home/issues/8189)
 
-* MSBuild statik grafik API 'Lerini çağırarak değerlendirmeleri hızlandıran `RestoreUseStaticGraphEvaluation` kullanarak önemli ölçüde geliştirilmiş bir işlem temelli geri yükleme performansı- [8791](https://github.com/NuGet/Home/issues/8791)
+* `RestoreUseStaticGraphEvaluation`MSBuild statik grafik API 'lerini çağırarak değerlendirmeleri hızlandıran önemli ölçüde geliştirilmiş bir işlem temelli geri yükleme performansı- [8791](https://github.com/NuGet/Home/issues/8791)
 
-* Platformlar arası kimlik doğrulama eklentileri ile iyileştirilmiş DotNet. exe güvenilirliği
+* Platformlar arası kimlik doğrulama eklentileri ile iyileştirilmiş dotnet.exe güvenilirliği
     * Taskolaydexception ile başarısız dotnet restore- [#7842](https://github.com/NuGet/Home/issues/7842)
     * Eklenti: "bir görev iptal edildi"-Bu nedenle ADO kimlik doğrulamasında sorun oluştu. - [#8528](https://github.com/NuGet/Home/issues/8528)
 
-* `dotnet nuget <add|remove|update|disable|enable|list> source` komutu Ekle- [#4126](https://github.com/NuGet/Home/issues/4126)
+* `dotnet nuget <add|remove|update|disable|enable|list> source`Komut Ekle- [#4126](https://github.com/NuGet/Home/issues/4126)
 
-* DotNet NuGet Push- [#8778](https://github.com/NuGet/Home/issues/8778) kullanarak `--skip-duplicate` için supmport
+* `--skip-duplicate`DotNet NuGet Push- [#8778](https://github.com/NuGet/Home/issues/8778) kullanımı için supmport
 
-* MSBuild/restore ile `packages.config` destek- [#8506](https://github.com/NuGet/Home/issues/8506)
+* `packages.config`MSBuild/restore ile destek- [#8506](https://github.com/NuGet/Home/issues/8506)
 
 ### <a name="issues-fixed-in-this-release"></a>Bu sürümde giderilen sorunlar
 
 **Hata**
 
-* V3 API 'lerle kendi kendine Güncelleştirici yeniden çalışma- [#4197](https://github.com/NuGet/Home/issues/4197)
+* V3 API 'lerle Self-Updater yeniden çalışma [#4197](https://github.com/NuGet/Home/issues/4197)
 
 * Paket bağımlılığı sürümü ' * ' olarak ayarlandıysa, paket bağımlılığı sürümü yanlış- [#6697](https://github.com/NuGet/Home/issues/6697)
 
@@ -56,7 +56,7 @@ NuGet dağıtım araçlar:
 
 * Kilit dosyası "*" senaryolarında kabul edilmez- [#8073](https://github.com/NuGet/Home/issues/8073)
 
-* Visual Studio 'da *, PackageReference (MSBuild/DotNet/VS geri yükleme do) içinde kullanıldığında, NuGet. exe bir paketin en son sürümüne çözümlenmiyor. [#8432](https://github.com/NuGet/Home/issues/8432)
+* NuGet.exe, PackageReference içinde * kullanılırken bir paketin en son sürümüne çözümlenmiyor (MSBuild/DotNet/VS geri yükleme do)- [#8432](https://github.com/NuGet/Home/issues/8432)
 
 * birden çok hedefleme WPF projesi olan DotNet liste paketi- [#8463](https://github.com/NuGet/Home/issues/8463)
 
@@ -92,9 +92,9 @@ NuGet dağıtım araçlar:
 
 * Geri yükleme: büyük nesne yığınında (LOH) büyük dizeler oluşturuldu- [#9031](https://github.com/NuGet/Home/issues/9031)
 
-* Yeni mono üzerinde özel NuGet. exe, MSBuild SDK 'Sı Çözümleyicisi nedeniyle kesintiye uğramayabilir- [8848](https://github.com/NuGet/Home/issues/8848)
+* Daha yeni mono 'daki özel nuget.exe, MSBuild SDK 'Sı Çözümleyicisi nedeniyle kesintiye uğramayabilir- [8848](https://github.com/NuGet/Home/issues/8848)
 
-* NuGet. dgspec. JSON "başka bir işlem tarafından kullanıldığında geri yükleme başarısız olur"- [8692](https://github.com/NuGet/Home/issues/8692)
+* nuget.dgspec.js, başka bir işlem tarafından kullanıldığında geri yükleme başarısız olur "- [8692](https://github.com/NuGet/Home/issues/8692)
 
 **DCR**
 

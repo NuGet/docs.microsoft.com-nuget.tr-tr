@@ -1,16 +1,16 @@
 ---
 title: NuGet CLı arama komutu
 description: nuget.exe Search komutu için başvuru
-author: advay26
-ms.author: t-adtand
+author: JonDouglas
+ms.author: jodou
 ms.date: 08/17/2020
 ms.topic: reference
-ms.openlocfilehash: 8d63efefb8f14c03fbe3986d8d7eebcc3eb5bcac
-ms.sourcegitcommit: 6cda91f135e58cf57a2471b0c7c4a2f748f40024
+ms.openlocfilehash: 6f4adcdf3981e5ec0e5e88337a8c3bcdd9158ca3
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89359688"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98779156"
 ---
 # <a name="search-command-nuget-cli"></a>Search komutu (NuGet CLı)
 
@@ -46,23 +46,23 @@ Ayrıca bkz. [ortam değişkenleri](cli-ref-environment-variables.md)
 
 ## <a name="examples"></a>Örnekler
 
-Varsayılan kaynaklardan *günlüğe kaydetme*ile ilgili paketleri arayın:
+Varsayılan kaynaklardan *günlüğe kaydetme* ile ilgili paketleri arayın:
 ```
 nuget search logging
 ```
-Ayrıntılı ayrıntı içeren *günlük*ile ilgili paketleri arayın:
+Ayrıntılı ayrıntı içeren *günlük* ile ilgili paketleri arayın:
 ```
 nuget search logging -Verbosity detailed
 ```
-*Günlüğe kaydetme*ile ilgili paketleri arayın ve yalnızca ilk 5 sonucu göster:
+*Günlüğe kaydetme* ile ilgili paketleri arayın ve yalnızca ilk 5 sonucu göster:
 ```
 nuget search logging -Take 5
 ```
-Yayın öncesi sürümleri de dahil olmak üzere, belirtilen kaynaktan/akıştan *JSON*ile ilgili paketleri arayın:
+Yayın öncesi sürümleri de dahil olmak üzere, belirtilen kaynaktan/akıştan *JSON* ile ilgili paketleri arayın:
 ```
 nuget search JSON -PreRelease -Source "https://api.nuget.org/v3/index.json"
 ```
-Birden çok kaynaktan/akışlardan *JSON*ile ilgili paketleri arayın:
+Birden çok kaynaktan/akışlardan *JSON* ile ilgili paketleri arayın:
 ```
 nuget search JSON -Source "https://api.nuget.org/v3/index.json" -Source "https://other-feed-url-goes-here"
 ```

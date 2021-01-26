@@ -1,16 +1,16 @@
 ---
 title: NuGet CLı güncelleştirme komutu
 description: nuget.exe Update komutuna yönelik başvuru
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 106c4027f03d8e8c1d19545b3ca9b6cd5263830e
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: cfa7fdcc6af46fd5f4030ba424754291f697bc43
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93236795"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98779129"
 ---
 # <a name="update-command-nuget-cli"></a>Update komutu (NuGet CLı)
 
@@ -40,7 +40,7 @@ nuget update <configPath> [options]
   
 - **`-DependencyVersion [Lowest, HighestPatch, HighestMinor, Highest, Ignore]`**
 
-  Kullanılacak bağımlılık paketlerinin sürümünü belirtir; Bu, aşağıdakilerden biri olabilir:<br/><ul><li>*En düşük* (varsayılan): en düşük sürüm</li><li>*HighestPatch* : en düşük ana, en düşük ikincil, en yüksek düzeltme eki olan sürüm</li><li>*HighestMinor* : en düşük ana, en yüksek ikincil, en yüksek düzeltme eki olan sürüm</li><li>*En yüksek* : en yüksek sürüm</li><li>*Yoksay* : bağımlılık paketleri kullanılmayacak</li></ul>
+  Kullanılacak bağımlılık paketlerinin sürümünü belirtir; Bu, aşağıdakilerden biri olabilir:<br/><ul><li>*En düşük* (varsayılan): en düşük sürüm</li><li>*HighestPatch*: en düşük ana, en düşük ikincil, en yüksek düzeltme eki olan sürüm</li><li>*HighestMinor*: en düşük ana, en yüksek ikincil, en yüksek düzeltme eki olan sürüm</li><li>*En yüksek*: en yüksek sürüm</li><li>*Yoksay*: bağımlılık paketleri kullanılmayacak</li></ul>
 
 - **`-FileConflictAction [PromptUser, Overwrite, Ignore]`**
 

@@ -1,16 +1,16 @@
 ---
 title: NuGet CLı paketi komutu
 description: nuget.exe Pack komutuna yönelik başvuru
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 0483a75c7ee1fd851f935f44d96a417e2e86bf20
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: e2906d53119cb8c922df7d177cd686836ac50a5a
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622960"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780048"
 ---
 # <a name="pack-command-nuget-cli"></a>Pack komutu (NuGet CLı)
 
@@ -105,7 +105,7 @@ Burada `<nuspecPath>` `<projectPath>` `.nuspec` veya proje dosyasını sırasıy
 
 - **`-p|-Properties`**
 
-  Diğer seçeneklerden sonra komut satırında son olarak görünmelidir. Proje dosyasındaki değerleri geçersiz kılan özelliklerin bir listesini belirtir; Özellik adları için bkz. [Ortak MSBuild proje özellikleri](/visualstudio/msbuild/common-msbuild-project-properties) . Burada bulunan Properties bağımsız değişkeni, noktalı virgülle ayrılmış bir belirteç = değer çiftleri listesi ve dosyadaki her oluşumun `$token$` `.nuspec` verilen değer ile değiştirilmesidir. Değerler, tırnak işaretleri içinde dizeler olabilir. "Yapılandırma" özelliği için varsayılan "hata ayıkla" dır. Bir sürüm yapılandırmasına geçiş yapmak için kullanın `-Properties Configuration=Release` . **Genel**olarak, alışılmadık davranışları önlemek için ilgili proje derlemesi sırasında kullanılan özellikler aynı olmalıdır.
+  Diğer seçeneklerden sonra komut satırında son olarak görünmelidir. Proje dosyasındaki değerleri geçersiz kılan özelliklerin bir listesini belirtir; Özellik adları için bkz. [Ortak MSBuild proje özellikleri](/visualstudio/msbuild/common-msbuild-project-properties) . Burada bulunan Properties bağımsız değişkeni, noktalı virgülle ayrılmış bir belirteç = değer çiftleri listesi ve dosyadaki her oluşumun `$token$` `.nuspec` verilen değer ile değiştirilmesidir. Değerler, tırnak işaretleri içinde dizeler olabilir. "Yapılandırma" özelliği için varsayılan "hata ayıkla" dır. Bir sürüm yapılandırmasına geçiş yapmak için kullanın `-Properties Configuration=Release` . **Genel** olarak, alışılmadık davranışları önlemek için ilgili proje derlemesi sırasında kullanılan özellikler aynı olmalıdır.
 
 - **`-SolutionDirectory`**
 

@@ -1,16 +1,16 @@
 ---
 title: NuGet CLı setapikey komutu
 description: nuget.exe setapikey komutuna yönelik başvuru
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: b84d4257c580f6e734c26ebfc589be27bea10c82
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 3e0c2f84e336e0a642b1b5e815e74a1fb0878467
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622817"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780016"
 ---
 # <a name="setapikey-command-nuget-cli"></a>setapikey komutu (NuGet CLı)
 
