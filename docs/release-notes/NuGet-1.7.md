@@ -1,20 +1,20 @@
 ---
 title: NuGet 1,7 sürüm notları
 description: Bilinen sorunlar, hata düzeltmeleri, eklenen özellikler ve CCR 'ler dahil olmak üzere NuGet 1,7 sürüm notları.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: a98da76038582202396c8da96f8eae166e6096f6
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: 50eb326c5ada4f74685b07c0d1b0f84b14e547ac
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75383325"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777073"
 ---
 # <a name="nuget-17-release-notes"></a>NuGet 1,7 sürüm notları
 
-[Nuget 1,6 sürüm notları](../release-notes/nuget-1.6.md) | [NuGet 1,8 sürüm notları](../release-notes/nuget-1.8.md)
+[NuGet 1,6 sürüm notları](../release-notes/nuget-1.6.md)  |  [NuGet 1,8 sürüm notları](../release-notes/nuget-1.8.md)
 
 NuGet 1,7, 4 Nisan 2012 ' de yayımlanmıştır.
 
@@ -27,8 +27,8 @@ Note: Visual Studio uzantıyı kaldırmanızı izin vermediğinden (kaldırma d�
 
 ## <a name="features"></a>Özellikler
 
-### <a name="support-opening-readmetxt-file-after-installation"></a>Yüklemeden sonra Readme. txt dosyasını açmayı destekle
-1,7 ' de yeni, paketiniz paketin kökünde bir `readme.txt` dosyası içeriyorsa, bu dosya paketinizi yükleme bittikten sonra otomatik olarak bu dosyayı açar.
+### <a name="support-opening-readmetxt-file-after-installation"></a>Yüklemeden sonra readme.txt dosyası açmayı destekleme
+1,7 ' de yeni, paketiniz `readme.txt` paketin kökünde bir dosya içeriyorsa, bu dosya paketinizi yükleme bittikten sonra otomatik olarak bu dosyayı açar.
 
 ### <a name="show-prerelease-packages-in-the-manage-nuget-packages-dialog"></a>NuGet Paketlerini Yönet iletişim kutusunda yayın öncesi paketleri göster
 NuGet Paketlerini Yönet iletişim kutusu artık, ön sürüm paketlerini gösterme seçeneği sağlayan bir açılan menü içerir.
@@ -36,18 +36,18 @@ NuGet Paketlerini Yönet iletişim kutusu artık, ön sürüm paketlerini göste
 ![Ön sürüm paketleri gösteriliyor](./media/prerelease-dropdown.png)
 
 ### <a name="show-package-restore-button-when-package-files-are-missing"></a>Paket dosyaları eksik olduğunda paket geri yükleme düğmesini göster
-Paket Yöneticisi konsolunu veya yönetici NuGet paketleri iletişim kutusunu açtığınızda, NuGet geçerli çözümün paket geri yükleme modunu etkinleştirmiştir ve `packages` klasöründe herhangi bir paket dosyası eksikse, bu çözüm denetlenir. Bu iki koşul karşılanıyorsa, NuGet size bildirimde bulunur ve uygun bir geri yükleme düğmesi gösterir. Bu düğmeye tıkladığınızda, tüm eksik paketleri geri yüklemek için NuGet tetiklenecek.
+Paket Yöneticisi konsolunu veya yönetici NuGet paketleri iletişim kutusunu açtığınızda, NuGet geçerli çözümün paket geri yükleme modunu etkinleştirmiştir ve klasörde herhangi bir paket dosyası eksikse, bu çözüm denetlenir `packages` . Bu iki koşul karşılanıyorsa, NuGet size bildirimde bulunur ve uygun bir geri yükleme düğmesi gösterir. Bu düğmeye tıkladığınızda, tüm eksik paketleri geri yüklemek için NuGet tetiklenecek.
 
 ![İletişim kutusunda paket geri yükleme düğmesi](./media/packagerestore-dialog.png)
 
 ![Konsolda paket geri yükleme düğmesi](./media/packagerestore-console.png)
 
-### <a name="add-solution-level-packagesconfig-file"></a>Çözüm düzeyi paketleri. config dosyası Ekle
-NuGet 'in önceki sürümlerinde, her proje bu projede hangi NuGet paketlerinin yüklü olduğunu izleyen bir `packages.config` dosyasına sahiptir. Ancak çözüm düzeyinde çözüm düzeyinde paketleri izlemek için benzer bir dosya yoktu. Sonuç olarak, çözüm düzeyi paketleri geri yüklemenin bir yolu yoktu.
-Bu özellik artık NuGet 1,7 ' de uygulanır. Çözüm düzeyi `packages.config` dosyası, çözüm kökü altında `.nuget` klasörünün altına yerleştirilir ve yalnızca çözüm düzeyi paketleri depolar.
+### <a name="add-solution-level-packagesconfig-file"></a>Çözüm düzeyi packages.config dosyası Ekle
+NuGet 'in önceki sürümlerinde her proje, `packages.config` Bu projeye hangi NuGet paketlerinin yüklendiğini izleyen bir dosya içerir. Ancak çözüm düzeyinde çözüm düzeyinde paketleri izlemek için benzer bir dosya yoktu. Sonuç olarak, çözüm düzeyi paketleri geri yüklemenin bir yolu yoktu.
+Bu özellik artık NuGet 1,7 ' de uygulanır. Çözüm düzeyi dosya, `packages.config` `.nuget` çözüm kökü altındaki klasörün altına yerleştirilir ve yalnızca çözüm düzeyi paketleri depolar.
 
-### <a name="remove-new-package-command"></a>New-Package komutunu kaldır
-Düşük kullanım nedeniyle, New-Package komutu kaldırılmıştır. Geliştiricilerin, paket oluşturmak için NuGet. exe veya kullanışlı NuGet paket Gezginini kullanması önerilir.
+### <a name="remove-new-package-command"></a>New-Package komutu kaldır
+Düşük kullanım nedeniyle New-Package komutu kaldırılmıştır. Geliştiricilerin, paketler oluşturmak için nuget.exe veya yararlı NuGet paket Gezginini kullanması önerilir.
 
 ## <a name="bug-fixes"></a>Hata Düzeltmeleri
 NuGet 1,7, paket geri yükleme iş akışı ve ağ/kaynak denetimi senaryolarında birçok hatayı düzeltti.

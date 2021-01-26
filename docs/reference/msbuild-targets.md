@@ -5,12 +5,12 @@ author: nkolev92
 ms.author: nikolev
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7de3f0f1133a89848e9268d489751293fb3cbf25
-ms.sourcegitcommit: 323a107c345c7cb4e344a6e6d8de42c63c5188b7
+ms.openlocfilehash: 0c32978baf6146f10c262ba7af94f61fee22272d
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98235704"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777723"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet paketi ve geri yükleme MSBuild hedefleri olarak
 
@@ -40,9 +40,9 @@ Benzer şekilde, MSBuild görevinde bir MSBuild görevi yazabilir, kendi hedefin
 
 ## <a name="pack-target"></a>paket hedefi
 
-PackageReference biçimini kullanan .NET Standard projeler için, `msbuild -t:pack` bir NuGet paketi oluştururken kullanılacak proje dosyasından girişler çizer.
+Biçimini kullanan .NET projeleri için `PackageReference` , `msbuild -t:pack` bir NuGet paketi oluştururken kullanılacak proje dosyasından girişler çizer.
 
-Aşağıdaki tabloda, ilk düğüm içindeki bir proje dosyasına eklenebilen MSBuild özellikleri açıklanmaktadır `<PropertyGroup>` . Bu düzenlemeleri Visual Studio 2017 ve sonraki sürümlerde kolayca yaparak, projeye sağ tıklayıp bağlam menüsünde **{Project_Name} Düzenle** ' yi seçerek yapabilirsiniz. Kolaylık olması için tablo, bir [ `.nuspec` dosyadaki](../reference/nuspec.md)denk özelliğe göre düzenlenir.
+Aşağıdaki tabloda, ilk düğüm içindeki bir proje dosyasına eklenebilen MSBuild özellikleri açıklanmaktadır `<PropertyGroup>` . Bu düzenlemeleri Visual Studio 2017 ve sonraki sürümlerde kolayca yaparak, projeye sağ tıklayıp bağlam menüsünde **{Project_Name} Düzenle** ' yi seçerek yapabilirsiniz. Kolaylık sağlaması için tablo, bir [ `.nuspec` dosyadaki](../reference/nuspec.md)denk özelliğe göre düzenlenir.
 
 `Owners`Ve `Summary` özelliklerinin `.nuspec` MSBuild ile desteklenmediğini unutmayın.
 
@@ -52,63 +52,67 @@ Aşağıdaki tabloda, ilk düğüm içindeki bir proje dosyasına eklenebilen MS
 | Sürüm | PackageVersion | Sürüm | Bu semver uyumludur, örneğin "1.0.0", "1.0.0-Beta" veya "1.0.0-Beta-00345" |
 | VersionPrefix | PackageVersionPrefix | empty | PackageVersion ayarı PackageVersionPrefix üzerine yazıyor |
 | VersionSuffix | PackageVersionSuffix | empty | MSBuild 'ten $ (VersionSuffix). PackageVersion ayarı PackageVersionSuffix üzerine yazıyor |
-| Yazarlar | Yazarlar | Geçerli kullanıcının Kullanıcı adı | |
+| Yazarlar | Yazarlar | Geçerli kullanıcının Kullanıcı adı | Nuget.org üzerindeki profil adlarıyla eşleşen paket yazarları için noktalı virgülle ayrılmış bir liste. Bunlar, nuget.org üzerindeki NuGet galerisinde görüntülenir ve aynı yazarlara göre çapraz başvuru için kullanılır. |
 | Sahipler | Yok | NuSpec içinde yok | |
-| Başlık | Başlık | PackageID| |
-| Description | Description | "Paket açıklaması" | |
-| Telif Hakkı | Telif Hakkı | empty | |
-| Requirelicensekabulünü | Packagerequirelicensekabulünü | yanlış | |
-| lisans | PackageLicenseExpression | empty | Karşılık gelen `<license type="expression">` |
-| lisans | PackageLicenseFile | empty | Öğesine karşılık gelir `<license type="file">` . Başvurulan lisans dosyasını açık bir şekilde paketetmeniz gerekir. |
-| LicenseUrl | PackageLicenseUrl 'Si | empty | `PackageLicenseUrl` kullanım dışı, PackageLicenseExpression veya PackageLicenseFile özelliğini kullanın |
+| Başlık | Başlık | PackageID| Genellikle, Kullanıcı arabiriminde kullanılan ve Visual Studio 'da paket yöneticisi olarak görüntülenen, paketin kolay bir başlığı. |
+| Açıklama | Açıklama | "Paket açıklaması" | Derleme için uzun bir açıklama. `PackageDescription`Belirtilmezse, bu özellik paketin açıklaması olarak da kullanılır. |
+| Telif Hakkı | Telif Hakkı | empty | Paket için telif hakkı ayrıntıları. |
+| Requirelicensekabulünü | Packagerequirelicensekabulünü | yanlış | İstemcinin paketi yüklemeden önce paket lisansını kabul etmesini isteyip istemeyeceğini belirten bir Boole değeri. |
+| lisans | PackageLicenseExpression | empty | Öğesine karşılık gelir `<license type="expression">` . Bkz. [Lisans ifadesi veya lisans dosyası paketleme](#packing-a-license-expression-or-a-license-file). |
+| lisans | PackageLicenseFile | empty | Özel bir lisans veya bir SPDX tanımlayıcısı atanmamış bir lisans kullanıyorsanız paket içindeki bir lisans dosyasının yolu. Başvurulan lisans dosyasını açık bir şekilde paketetmeniz gerekir. Öğesine karşılık gelir `<license type="file">` . Bkz. [Lisans ifadesi veya lisans dosyası paketleme](#packing-a-license-expression-or-a-license-file). |
+| LicenseUrl | PackageLicenseUrl 'Si | empty | `PackageLicenseUrl` kullanım dışıdır. `PackageLicenseExpression` `PackageLicenseFile` Bunun yerine veya kullanın. |
 | ProjectUrl | PackageProjectUrl | empty | |
-| Simge | Packageıcon | empty | Başvurulan simge görüntü dosyasını açıkça paketetmeniz gerekir.|
-| Iurl | PackageIconUrl 'Si | empty | En iyi alt düzey deneyim için `PackageIconUrl` öğesine ek olarak belirtilmelidir `PackageIcon` . Daha uzun vadeli `PackageIconUrl` kullanım dışı olacaktır. |
-| Etiketler | PackageTags | empty | Etiketler noktalı virgülle ayrılır. |
-| Relet 'ler | PackageReleaseNotes | empty | |
-| Depo/URL | Depourl 'Si | empty | Kaynak kodu kopyalamak veya almak için kullanılan depo URL 'SI. Örneğinde *https://github.com/NuGet/NuGet.Client.git* |
-| Depo/tür | Repositorytype parametrelerinin sağlanması | empty | Depo türü. Örnekler: *Git*, *TFS*. |
-| Depo/dal | Depodalı | empty | İsteğe bağlı depo dalı bilgileri. Bu özelliğin dahil olması için aynı zamanda bir *Depo-URL* belirtilmelidir. Örnek: *Master* (NuGet 4.7.0 +) |
-| Depo/kayıt | Kayıt yapma | empty | Paketin hangi kaynağa göre oluşturulduğunu göstermek için isteğe bağlı depo kaydı veya değişiklik kümesi. Bu özelliğin dahil olması için aynı zamanda bir *Depo-URL* belirtilmelidir. Örnek: *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0 +) |
+| Simge | Packageıcon | empty | Paket simgesi olarak kullanılacak paketteki bir görüntünün yolu. Başvurulan simge görüntü dosyasını açıkça paketetmeniz gerekir. Daha fazla bilgi için bkz. [paketleme bir simge görüntü dosyası](#packing-an-icon-image-file) ve [ `icon` meta verileri](/nuget/reference/nuspec#icon). |
+| Iurl | PackageIconUrl 'Si | empty | `PackageIconUrl` kullanım dışı bırakılmıştır `PackageIcon` . Ancak, en iyi alt düzey deneyim için öğesine ek olarak belirtmeniz gerekir `PackageIconUrl` `PackageIcon` . |
+| Etiketler | PackageTags | empty | Paketi atayan etiketlerin noktalı virgülle ayrılmış listesi. |
+| Relet 'ler | PackageReleaseNotes | empty | Paket için sürüm notları. |
+| Depo/URL | Depourl 'Si | empty | Kaynak kodu kopyalamak veya almak için kullanılan depo URL 'SI. Örnek: *https://github.com/NuGet/NuGet.Client.git* . |
+| Depo/tür | Repositorytype parametrelerinin sağlanması | empty | Depo türü. Örnekler: `git` (varsayılan), `tfs` . |
+| Depo/dal | Depodalı | empty | İsteğe bağlı depo dalı bilgileri. `RepositoryUrl` Bu özelliğin dahil edilmesini sağlamak için de belirtilmesi gerekir. Örnek: *Master* (NuGet 4.7.0 +). |
+| Depo/kayıt | Kayıt yapma | empty | Paketin hangi kaynağa göre oluşturulduğunu göstermek için isteğe bağlı depo kaydı veya değişiklik kümesi. `RepositoryUrl` Bu özelliğin dahil edilmesini sağlamak için de belirtilmesi gerekir. Örnek: *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0 +). |
 | PackageType | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
 | Özet | Desteklenmez | | |
 
 ### <a name="pack-target-inputs"></a>Paket hedef girişleri
 
-- Ispackable
-- Suppressbağımlıcıeswhenpaketleme
-- PackageVersion
-- PackageID
-- Yazarlar
-- Description
-- Telif Hakkı
-- Packagerequirelicensekabulünü
-- DevelopmentDependency
-- PackageLicenseExpression
-- PackageLicenseFile
-- PackageLicenseUrl 'Si
-- PackageProjectUrl
-- PackageIconUrl 'Si
-- PackageReleaseNotes
-- PackageTags
-- PackageOutputPath
-- Includesymbols
-- Includesource
-- PackageTypes
-- IsTool
-- Depourl 'Si
-- Repositorytype parametrelerinin sağlanması
-- Depodalı
-- Kayıt yapma
-- NoPackageAnalysis
-- MinClientVersion
-- IncludeBuildOutput
-- Includecontentınpack
-- BuildOutputTargetFolder
-- ContentTargetFolders
-- Nusguus dosyası
-- Nusgubasepath
-- Nus, Properties
+| Özellik | Açıklama |
+| - | - |
+| Ispackable | Projenin paketlenemeyeceğini belirten bir Boole değeri. `true` varsayılan değerdir. |
+| Suppressbağımlıcıeswhenpaketleme | `true`Oluşturulan NuGet paketinden paket bağımlılıklarını bastırmak için olarak ayarlayın. |
+| PackageVersion | Elde edilen paketin sahip olacağı sürümü belirtir. Tüm NuGet sürüm dizesi formlarını kabul eder. Varsayılan değeri,, `$(Version)` Yani, projedeki özelliğinin değeridir `Version` . |
+| PackageID | Sonuç paketinin adını belirtir. Belirtilmemişse, `pack` işlem varsayılan `AssemblyName` olarak paketin adı ile veya dizin adını kullanacaktır. |
+| PackageDescription | UI görüntüleme paketinin uzun açıklaması. |
+| Yazarlar | Nuget.org üzerindeki profil adlarıyla eşleşen paket yazarları için noktalı virgülle ayrılmış bir liste. Bunlar, nuget.org üzerindeki NuGet galerisinde görüntülenir ve aynı yazarlara göre çapraz başvuru için kullanılır. |
+| Açıklama | Derleme için uzun bir açıklama. `PackageDescription`Belirtilmezse, bu özellik paketin açıklaması olarak da kullanılır. |
+| Telif Hakkı | Paket için telif hakkı ayrıntıları. |
+| Packagerequirelicensekabulünü | İstemcinin paketi yüklemeden önce paket lisansını kabul etmesini isteyip istemeyeceğini belirten bir Boole değeri. Varsayılan değer: `false`. |
+| DevelopmentDependency | Paketin bir yalnızca geliştirme bağımlılığı olarak işaretlenip işaretlenmediğini belirten ve paketin diğer paketlere bağımlılık olarak eklenmesini önleyen bir Boole değeri. `PackageReference`(NuGet 4.8 +) ile bu bayrak, derleme zamanı varlıklarının derlemeden dışlandığı anlamına gelir. Daha fazla bilgi için bkz. [PackageReference Için Developmentdependency desteği](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference). |
+| PackageLicenseExpression | Örneğin, bir [Spdx lisans tanımlayıcısı](https://spdx.org/licenses/) veya ifadesi `Apache-2.0` . Daha fazla bilgi için bkz. [Lisans ifadesi veya lisans dosyası paketleme](#packing-a-license-expression-or-a-license-file). |
+| PackageLicenseFile | Özel bir lisans veya bir SPDX tanımlayıcısı atanmamış bir lisans kullanıyorsanız paket içindeki bir lisans dosyasının yolu. |
+| PackageLicenseUrl 'Si | `PackageLicenseUrl` kullanım dışıdır. `PackageLicenseExpression` `PackageLicenseFile` Bunun yerine veya kullanın. |
+| PackageProjectUrl | |
+| Packageıcon | Paketin köküne göre paket simge yolunu belirtir. Daha fazla bilgi için bkz. [paketleme a Icon Image File](#packing-an-icon-image-file). |
+| PackageReleaseNotes| Paket için sürüm notları. |
+| PackageTags | Paketi atayan etiketlerin noktalı virgülle ayrılmış listesi. |
+| PackageOutputPath | Paketlenmiş paketin bırakılacak çıkış yolunu belirler. `$(OutputPath)` varsayılan değerdir. |
+| Includesymbols | Bu Boole değeri, paketin proje paketedildiğinde ek bir sembol paketi oluşturup oluşturmayacağını gösterir. Semboller paketinin biçimi, özelliği tarafından denetlenir `SymbolPackageFormat` . Daha fazla bilgi için bkz. [ıncludesymbols](#includesymbols). |
+| Includesource | Bu Boole değeri, paket işleminin bir kaynak paketi oluşturup oluşturmayacağını gösterir. Kaynak paket, kitaplığın kaynak kodunu ve PDB dosyalarını içerir. Kaynak dosyalar, `src/ProjectName` elde edilen paket dosyasındaki dizinin altına yerleştirilir. Daha fazla bilgi için bkz. [ıncludesource](#includesource). |
+| PackageTypes
+| IsTool | Tüm çıkış dosyalarının *lib* klasörü yerine *Araçlar* klasörüne kopyalanıp kopyalanmayacağını belirtir. Daha fazla bilgi için bkz. [ISTool](#istool). |
+| Depourl 'Si | Kaynak kodu kopyalamak veya almak için kullanılan depo URL 'SI. Örnek: *https://github.com/NuGet/NuGet.Client.git* . |
+| Repositorytype parametrelerinin sağlanması | Depo türü. Örnekler: `git` (varsayılan), `tfs` . |
+| Depodalı | İsteğe bağlı depo dalı bilgileri. `RepositoryUrl` Bu özelliğin dahil edilmesini sağlamak için de belirtilmesi gerekir. Örnek: *Master* (NuGet 4.7.0 +). |
+| Kayıt yapma | Paketin hangi kaynağa göre oluşturulduğunu göstermek için isteğe bağlı depo kaydı veya değişiklik kümesi. `RepositoryUrl` Bu özelliğin dahil edilmesini sağlamak için de belirtilmesi gerekir. Örnek: *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0 +). |
+| SymbolPackageFormat | Semboller paketinin biçimini belirtir. "Symbols. nupkg" ise, pdb 'leri, dll 'Ler ve diğer çıktı dosyalarını içeren *. Symbols. nupkg* Uzantısı ile eski bir sembol paketi oluşturulur. "Snupkg" ise, taşınabilir pdb 'leri içeren bir snupkg sembol paketi oluşturulur. Varsayılan değer "symbols. nupkg" dır. |
+| NoPackageAnalysis | `pack`Paketi derlemeden sonra paket analizini çalıştırmamalıdır. |
+| MinClientVersion | Bu paketi yükleyecan nuget.exe ve Visual Studio Paket Yöneticisi tarafından zorlanan NuGet istemcisinin en düşük sürümünü belirtir. |
+| IncludeBuildOutput | Bu Boole değeri, derleme çıkış derlemelerinin *. nupkg* dosyasına paketedilip edilmeyeceğini belirtir. |
+| Includecontentınpack | Bu Boole değeri, türü olan herhangi bir öğenin `Content` elde edilen pakete otomatik olarak dahil edilip edilmeyeceğini belirtir. Varsayılan değer: `true`. |
+| BuildOutputTargetFolder | Çıkış derlemelerinin yerleştirileceği klasörü belirtir. Çıkış derlemeleri (ve diğer çıkış dosyaları) ilgili çerçeve klasörlerine kopyalanır. Daha fazla bilgi için bkz. [Çıkış derlemeleri](#output-assemblies). |
+| ContentTargetFolders | Kendileri için belirtilmemişse, tüm içerik dosyalarının gitmesi gereken varsayılan konumu belirtir `PackagePath` . Varsayılan değer "Content; contentFiles" dır. Daha fazla bilgi için bkz. [bir paketteki Içerik ekleme](#including-content-in-a-package). |
+| Nusguus dosyası | Paketleme için kullanılan *. nuspec* dosyasının göreli veya mutlak yolu. Belirtilmişse, **yalnızca** paketleme bilgileri için kullanılır ve projelerdeki tüm bilgiler kullanılmaz. Daha fazla bilgi için bkz [.. nuspec kullanarak paketleme](#packing-using-a-nuspec). |
+| Nusgubasepath | *. Nuspec* dosyasının temel yolu. Daha fazla bilgi için bkz [.. nuspec kullanarak paketleme](#packing-using-a-nuspec). |
+| Nus, Properties | Anahtar = değer çiftlerinin noktalı virgülle ayrılmış listesi. Daha fazla bilgi için bkz [.. nuspec kullanarak paketleme](#packing-using-a-nuspec). |
 
 ## <a name="pack-scenarios"></a>paket senaryoları
 
@@ -118,18 +122,16 @@ Oluşturulan NuGet paketinden paket bağımlılıklarını bastırmak için, ola
 
 ### <a name="packageiconurl"></a>PackageIconUrl 'Si
 
-`PackageIconUrl` yeni özellik yararına kullanım dışı olacaktır [`PackageIcon`](#packageicon) .
-
-NuGet 5,3 & Visual Studio 2019 sürüm 16,3 ' den itibaren, `pack` paket meta verileri yalnızca belirtiyorsa [NU5048](./errors-and-warnings/nu5048.md) uyarı verecek `PackageIconUrl` .
+`PackageIconUrl` özelliği kullanım dışı bırakılmıştır [`PackageIcon`](#packageicon) . NuGet 5,3 ve Visual Studio 2019 sürüm 16,3 ' den başlayarak, `pack` paket meta verileri yalnızca belirtiyorsa [NU5048](./errors-and-warnings/nu5048.md) uyarısını yayınlar `PackageIconUrl` .
 
 ### <a name="packageicon"></a>Packageıcon
 
 > [!Tip]
-> `PackageIcon` `PackageIconUrl` Henüz desteklemeyen istemcilerle ve kaynaklarla geriye dönük uyumluluğu sürdürmek için ve ikisini de belirtmeniz gerekir `PackageIcon` . Visual Studio, `PackageIcon` gelecek sürümlerde klasör tabanlı bir kaynaktan gelen paketleri destekleyecektir.
+> Henüz desteklemeyen istemcilerle ve kaynaklarla geriye dönük uyumluluk sağlamak için hem hem `PackageIcon` de belirtin `PackageIcon` `PackageIconUrl` . Visual Studio, `PackageIcon` Klasör tabanlı bir kaynaktan gelen paketler için destekler.
 
 #### <a name="packing-an-icon-image-file"></a>Simge görüntüsü dosyası paketleme
 
-Bir simge resim dosyası paketleme sırasında, paketin `PackageIcon` köküne göre paket yolunu belirtmek için özelliğini kullanmanız gerekir. Ayrıca, dosyanın pakete eklendiğinden emin olmanız gerekir. Görüntü dosyası boyutu 1 MB ile sınırlıdır. Desteklenen dosya biçimleri JPEG ve PNG içerir. 128x128 görüntü çözümlemesi yapmanızı öneririz.
+Bir simge görüntü dosyası paketleme sırasında, `PackageIcon` paketin köküne göre simge dosya yolunu belirtmek için özelliğini kullanın. Ayrıca, dosyanın pakete eklendiğinden emin olun. Görüntü dosyası boyutu 1 MB ile sınırlıdır. Desteklenen dosya biçimleri JPEG ve PNG içerir. 128x128 görüntü çözümlemesi yapmanızı öneririz.
 
 Örneğin:
 
@@ -231,8 +233,7 @@ Derleme türü bir dosya proje klasörünün dışında ise, ' ye eklenmiştir `
 
 ### <a name="packing-a-license-expression-or-a-license-file"></a>Lisans ifadesi veya lisans dosyası paketleme
 
-Bir lisans ifadesi kullanılırken PackageLicenseExpression özelliğinin kullanılması gerekir. 
-[Lisans ifadesi örneği](https://github.com/NuGet/Samples/tree/master/PackageLicenseExpressionExample).
+Bir lisans ifadesi kullanırken, `PackageLicenseExpression` özelliğini kullanın. Bir örnek için bkz. [Lisans ifadesi örneği](https://github.com/NuGet/Samples/tree/master/PackageLicenseExpressionExample).
 
 ```xml
 <PropertyGroup>
@@ -240,9 +241,9 @@ Bir lisans ifadesi kullanılırken PackageLicenseExpression özelliğinin kullan
 </PropertyGroup>
 ```
 
-[NuGet.org tarafından kabul edilen lisans ifadeleri ve lisanslar hakkında daha fazla bilgi edinin](nuspec.md#license).
+NuGet.org tarafından kabul edilen lisans ifadeleri ve lisanslar hakkında daha fazla bilgi için bkz. [Lisans meta verileri](nuspec.md#license).
 
-Bir lisans dosyası paketleme sırasında, paketin köküne göre paket yolunu belirtmek için PackageLicenseFile özelliğini kullanmanız gerekir. Ayrıca, dosyanın pakete eklendiğinden emin olmanız gerekir. Örneğin:
+Bir lisans dosyası paketleme sırasında, paketin `PackageLicenseFile` köküne göre paket yolunu belirtmek için özelliğini kullanın. Ayrıca, dosyanın pakete eklendiğinden emin olun. Örneğin:
 
 ```xml
 <PropertyGroup>
@@ -254,7 +255,10 @@ Bir lisans dosyası paketleme sırasında, paketin köküne göre paket yolunu b
 </ItemGroup>
 ```
 
-[Lisans dosyası örneği](https://github.com/NuGet/Samples/tree/master/PackageLicenseFileExample).
+Bir örnek için bkz. [Lisans dosyası örneği](https://github.com/NuGet/Samples/tree/master/PackageLicenseFileExample).
+
+> [!NOTE]
+> Tek seferde,, ve yalnızca biri `PackageLicenseExpression` `PackageLicenseFile` `PackageLicenseUrl` belirtilebilir.
 
 ### <a name="packing-a-file-without-an-extension"></a>Uzantı olmadan dosya paketleme
 
@@ -436,7 +440,7 @@ Proje dosyası:
 
 Restore derleme klasöründe aşağıdaki dosyaları oluşturur `obj` :
 
-| Dosya | Description |
+| Dosya | Açıklama |
 |--------|--------|
 | `project.assets.json` | Tüm paket başvurularının bağımlılık grafiğini içerir. |
 | `{projectName}.projectFileExtension.nuget.g.props` | Paketlerde bulunan MSBuild props 'a başvurular |

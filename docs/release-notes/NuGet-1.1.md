@@ -1,16 +1,16 @@
 ---
 title: NuGet 1,0 ve 1,1 sürüm notları
 description: Bilinen sorunlar, hata düzeltmeleri, eklenen özellikler ve CCR 'ler dahil olmak üzere NuGet 1,1 sürüm notları.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 4f90888eae4d039c99d6f6879a06107ec5a31a82
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: cdd4bad54b08d956dbfdaf54220971492fd3ab02
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75384703"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777216"
 ---
 # <a name="nuget-10-and-11-release-notes"></a>NuGet 1,0 ve 1,1 sürüm notları
 
@@ -18,7 +18,7 @@ ms.locfileid: "75384703"
 
 NuGet 1,0, 13 Ocak 2011 tarihinde yayınlanmıştır.  NuGet 1,1, 12 Şubat 2011 ' de yayımlanmıştır.
 
-## <a name="overview"></a>Genel bakış
+## <a name="overview"></a>Genel Bakış
 
 Bu belge, büyük önizleme sürümüne göre gruplandırılan çeşitli NuGet 1,0 sürümleri için sürüm notlarını içerir.
 
@@ -43,7 +43,7 @@ Bu [en son sürümü](http://nuget.codeplex.com/releases/view/52018)kullanmak i�
 
 * Önce eski derlemenizi kaldırın. Bunu yapmak için yönetici olarak ' i çalıştırmanız gerekir.
 * Sahip olduğunuz tüm mevcut akışları kaldırın.
-* <https://go.microsoft.com/fwlink/?LinkId=206669>işaret eden yeni bir akış ekleyin.
+* Öğesine işaret eden yeni bir akış ekleyin <https://go.microsoft.com/fwlink/?LinkId=206669> .
 
 ## <a name="nuget-11"></a>NuGet 1.1
 
@@ -110,14 +110,14 @@ Bu sürüm, CTP 2 ' den beri yapılan değişiklikler aşağıda verilmiştir. H
 * [Tanımlayıcı adlandırılmış derlemeler için bağlama yeniden yönlendirmelerini destekleme](http://nuget.codeplex.com/workitem/238)
 * [Paket başvurusu Ekle... Paket kaynağına yönelik açılan liste eklemek için Kullanıcı arabirimi](http://nuget.codeplex.com/workitem/226)
 * [NuPack 'in yapılandırma dosyası adının belirsiz şekilde yapılandırma dönüşümünü desteklemesi gerekir](http://nuget.codeplex.com/workitem/224)
-* [BasePath 'nin NuPack. exe içinde geçersiz Kılınılmasına izin verir](http://nuget.codeplex.com/workitem/222)
+* [NuPack.exe, BasePath 'nin geçersiz Kılınılmasına izin verir ](http://nuget.codeplex.com/workitem/222)
 * [Paket kaynağı geri dönüş davranışı](http://nuget.codeplex.com/workitem/204)
 * [GUI üzerinde kilitlenme](http://nuget.codeplex.com/workitem/201)
 * [Paket ekle Iletişim kutusuna sıralama seçenekleri ekleme](http://nuget.codeplex.com/workitem/179)
 * [Paket Yöneticisi konsolunu temizlemek için kısayol tuşu](http://nuget.codeplex.com/workitem/174)
 * [PowerConsole, NuPack konsolunun başarısız olmasına neden oluyor](http://nuget.codeplex.com/workitem/166)
 * [Konsol ve paket Ekle Iletişim kutusu isteklerde Kullanıcı Aracısı 'nı ayarlaması gerekir](http://nuget.codeplex.com/workitem/141)
-* [Derlemede VSıX ve NuPack. exe sürüm numarasını ayarlayın.](http://nuget.codeplex.com/workitem/134)
+* [VSıX 'in sürüm numarasını ve derlemedeki NuPack.exe ayarlayın.](http://nuget.codeplex.com/workitem/134)
 * [Ortak PowerShell parametreleri-? ile gizlensin](http://nuget.codeplex.com/workitem/118)
 * [Konsol komutları için ayrıntılı yardım ekleme](http://nuget.codeplex.com/workitem/110)
 * [Paket ekle Iletişim kutusu geçerli paket kaynağını seçmeye Izin verilmelidir](http://nuget.codeplex.com/workitem/88)
@@ -129,17 +129,17 @@ Bu sürüm, CTP 2 ' den beri yapılan değişiklikler aşağıda verilmiştir. H
 
 CTP 2 ' de yapılan en önemli değişiklikler aşağıda verilmiştir:
 
-* Paket akışı ATOM 'dan OData hizmeti uç noktasına geçildi: NuGet 'in CTP2 sürümüne yükseltirseniz, şu URL 'YI bir paket kaynağı olarak eklediğinizden emin olun: `https://feed.nuget.org/ctp2/odata/v1/`.
-* *Install*-Package için Add-Package komutu yeniden adlandırıldı.
-* `.nuspec` biçimi güncelleştirildi. `.nuspec` biçimi artık paket Ekle Iletişim kutusunda görünecek bir 32x32 png simgesi belirtmek için *Iurl* alanını içerir. Bu nedenle, paketinizi ayırt etmek için bunu ayarladığınızdan emin olun. `.nuspec` biçimi, paketiniz hakkında daha fazla bilgi sağlayan bir Web sayfasına işaret etmek için kullanabileceğiniz yeni *Projecturl* alanını da içerir.
+* Paket akışı ATOM 'dan OData hizmeti uç noktasına geçildi: NuGet 'in CTP2 sürümüne yükseltirseniz, şu URL 'YI bir paket kaynağı olarak eklediğinizden emin olun: `https://feed.nuget.org/ctp2/odata/v1/` .
+* Add-Package komutu *Install-Package* olarak yeniden adlandırıldı.
+* Biçim güncelleştirildi `.nuspec` . `.nuspec`Biçim artık, paket Ekle Iletişim kutusunda görünecek bir 32x32 png simgesi belirtmek Için *Iurl* alanını içerir. Bu nedenle, paketinizi ayırt etmek için bunu ayarladığınızdan emin olun. `.nuspec`Biçim Ayrıca, paketiniz hakkında daha fazla bilgi sağlayan bir Web sayfasına işaret etmek için kullanabileceğiniz yeni *projecturl* alanını da içerir.
 
-Bu derleme eski `.nupkg` dosyaları ile çalışmayacaktır. Null başvuru özel durumları alırsanız, eski bir `.nupkg` dosyası kullanıyorsunuz ve güncelleştirilmiş [NuGet komut satırı aracı](http://nuget.codeplex.com/releases/52017/download/165468)ile yeniden oluşturmanız gerekiyor.
+Bu derleme eski `.nupkg` dosyalarla çalışmayacak. Null başvuru özel durumları alırsanız, eski bir `.nupkg` Dosya kullanıyorsunuz ve güncelleştirilmiş [NuGet komut satırı aracı](http://nuget.codeplex.com/releases/52017/download/165468)ile yeniden oluşturmanız gerekir.
 
 Aşağıda, NuGet CTP 2 için düzeltilen Özellikler ve hataların listesi verilmiştir (küçük kod temizleme işlemleri için hata içermez vb.).
 
 * [Bir bütünleştirilmiş kod için TargetFramework oluştururken Paket derlemeleri açılırken hata oluştu.](http://nuget.codeplex.com/workitem/10)
 * [NuPack konsol penceresini daha fazla bulunabilir yap](http://nuget.codeplex.com/workitem/14)
-* [Nupack. exe yayınını ılmerge](http://nuget.codeplex.com/workitem/19)
+* [nupack.exe yayını ILMerge](http://nuget.codeplex.com/workitem/19)
 * [Daha iyi hata/özel durum işleme](http://nuget.codeplex.com/workitem/24)
 * [[Nupack. Core]: PackageManager akış ile ilgili hataları düzgün şekilde işlemelidir](http://nuget.codeplex.com/workitem/28)
 * [Konsol için yeni bir simge gerekiyor](http://nuget.codeplex.com/workitem/29)
@@ -147,7 +147,7 @@ Aşağıda, NuGet CTP 2 için düzeltilen Özellikler ve hataların listesi veri
 * [NuPack önbellekler. nupack dosyaları bellekte indirildi](http://nuget.codeplex.com/workitem/40)
 * [NuPack konsolu: konsolu görüntülemek için varsayılan kısayolu değiştirin](http://nuget.codeplex.com/workitem/48)
 * [ProjectSystem ortak özellikler için varsayılan değerleri desteklemelidir](http://nuget.codeplex.com/workitem/49)
-* [Yalnızca bir nuspec dosyası olan bir klasörde nupack. exe ' nin çalıştırılması bu nuspec 'i kullanmalıdır](http://nuget.codeplex.com/workitem/52)
+* [Tek bir nuspec dosyası ile bir klasörde nupack.exe çalıştırmak bu nuspec kullanmalıdır](http://nuget.codeplex.com/workitem/52)
 * [Proje menüsü, proje/çözüm yüklü olmadığında bile görüntülenir](http://nuget.codeplex.com/workitem/54)
 * [CodeBase 'in temiz bir kopyası üzerinde Build. cmd başarısız oluyor](http://nuget.codeplex.com/workitem/56)
 * [Güncelleştirmeler kullanılabilir özelliği](http://nuget.codeplex.com/workitem/57)
@@ -156,10 +156,10 @@ Aşağıda, NuGet CTP 2 için düzeltilen Özellikler ve hataların listesi veri
 * [Yüklü paketlerimin hangilerinin güncelleştirme olduğunu keşfetmenin bir yolu yoktur.](http://nuget.codeplex.com/workitem/82)
 * [İletişim kutusunda yüklü bir paketi güncelleştirmenin bir yolu yoktur.](http://nuget.codeplex.com/workitem/83)
 * [İletişim kutusunda yüklü bir paketi kaldırmanın bir yolu yoktur](http://nuget.codeplex.com/workitem/84)
-* [&ldquo;paket başvurusu ekleme&hellip;&rdquo;, yüklü başvuruların bağlam menüsünde görünür](http://nuget.codeplex.com/workitem/85)
+* [&ldquo;&hellip; &rdquo; Yüklü başvuruların bağlam menüsünde paket başvurusu Ekle görüntülenir](http://nuget.codeplex.com/workitem/85)
 * [Konsolundan bir paket güncelleştirildikten sonra, hem eski sürümü hem de yeni sürümü yüklü olarak gösterir](http://nuget.codeplex.com/workitem/86)
 * [İletişim kutusu kullanılırken konsolundaki etkinlik, kullanıldıktan sonra kayboluyor](http://nuget.codeplex.com/workitem/87)
-* [Nupack. exe ' de temizleme komut satırı ayrıştırma](http://nuget.codeplex.com/workitem/89)
+* [nupack.exe'de temizleme komut satırı ayrıştırma ](http://nuget.codeplex.com/workitem/89)
 * [Paket kaynaklarına kolay bir ad ekleyin](http://nuget.codeplex.com/workitem/98)
 * [Package simgeleri dahil olmak üzere. nuspec öğesini destekleyecek şekilde Güncelleştir](http://nuget.codeplex.com/workitem/103)
 * [Akış Kullanıcı arabirimi URL 'YI kopyalamaya izin vermiyor](http://nuget.codeplex.com/workitem/105)
@@ -175,14 +175,14 @@ Aşağıda, NuGet CTP 2 için düzeltilen Özellikler ve hataların listesi veri
 * [NuPack. Server 'ı, NuPack Kullanıcı aracısının paketi Indirmesini gerektirecek şekilde Güncelleştir](http://nuget.codeplex.com/workitem/142)
 * [Lisans kabulü Iletişim kutusu kabul gerektiren tüm bağımlılıklara yönelik lisansların listesini almalıdır](http://nuget.codeplex.com/workitem/145)
 * [Akışta bir paket oluşturduğunda hata kaydetme](http://nuget.codeplex.com/workitem/150)
-* [NuPack. exe boş bir &lt;licenseurl&gt; öğesine izin içermemelidir](http://nuget.codeplex.com/workitem/152)
-* [List-Install-Package, Install-Package ve Remove-Package to Install-Package olarak yeniden adlandır](http://nuget.codeplex.com/workitem/155)
+* [NuPack.exe boş bir &lt; licenseurl öğesine izin vermemelidir &gt;](http://nuget.codeplex.com/workitem/152)
+* [List-Package-Package, Install-Package Add-Package ve Uninstall-Package Remove-Package olarak yeniden adlandırın](http://nuget.codeplex.com/workitem/155)
 * [Çözüm Gezgini kilitleniyor Visual Studio 'dan paket başvurusu Ekle menü öğesini kullanma](http://nuget.codeplex.com/workitem/158)
 * ["Kullanılabilir paket kaynakları" etiketinde iki nokta eksik](http://nuget.codeplex.com/workitem/160)
 * [. Nuspec XML öğesi büyük küçük harfe sürekli beyaz bir şekilde yapılır](http://nuget.codeplex.com/workitem/161)
 * [NuPack VSıX bildiriminin ' admin' bit ' i açması gerekir](http://nuget.codeplex.com/workitem/162)
-* [Liste paketini akışsız çalıştırırsanız, null başvuru hatası alırsınız](http://nuget.codeplex.com/workitem/164)
-* [NuGet. exe: hedef yolu belirtin](http://nuget.codeplex.com/workitem/171)
+* [List-Package bir akışsız çalıştırırsanız, null başvuru hatası alırsınız](http://nuget.codeplex.com/workitem/164)
+* [nuget.exe: hedef yolu belirtin](http://nuget.codeplex.com/workitem/171)
 * [WinXP üzerinde Paket Yönetimi konsolunu açan PowerShell hataları](http://nuget.codeplex.com/workitem/175)
 * [Paket listesi yüklenmeye çalışılırken VS kilitleniyor](http://nuget.codeplex.com/workitem/176)
 * [meta paketlere izin ver (dosya yok, yalnızca bağımlılıklar)](http://nuget.codeplex.com/workitem/180)
@@ -190,22 +190,22 @@ Aşağıda, NuGet CTP 2 için düzeltilen Özellikler ve hataların listesi veri
 * [PathResolver, hedef belirtildiğinde Joker karakterlerden yola çıkar.](http://nuget.codeplex.com/workitem/183)
 * [Bağımlılık yok](http://nuget.codeplex.com/workitem/186)
 * [ELMAH yükleme hatası](http://nuget.codeplex.com/workitem/192)
-* [Yapılandırma dönüştürmeleri &lt;configSections ile düzgün çalışmıyor&gt;](http://nuget.codeplex.com/workitem/194)
+* [Yapılandırma dönüştürmeleri configSections ile doğru çalışmıyor &lt;&gt;](http://nuget.codeplex.com/workitem/194)
 * [' $Global:p rojectCache ' değişkeni ayarlanmadığından alınamıyor](http://nuget.codeplex.com/workitem/203)
 * [NuPack paketleri oluşturmak için MSBuild görevi ekleme](http://nuget.codeplex.com/workitem/205)
 * [List-Package aramayı/filtrelemeyi desteklemesi gerekir](http://nuget.codeplex.com/workitem/206)
 * [Paket yazarı bir lisans URL 'SI sağlıyorsa, her zaman lisansa bir bağlantı görüntüle](http://nuget.codeplex.com/workitem/208)
 * [Remove-Package ile zaman zaman "erişim engellendi" özel durumu](http://nuget.codeplex.com/workitem/213)
-* [Birim testleri başarısız: ınvalidpackageısexcludedfromfeeditems &amp; Creatingfeedconvertspackagestoatomendenemeler](http://nuget.codeplex.com/workitem/214)
+* [Birim testleri başarısız: ınvalidpackageisexcludedfromfeeditems &amp; creatingfeedconvertspackagestoatomendenemeler](http://nuget.codeplex.com/workitem/214)
 * [Yansımalı bir çerçeve sürümü bulunamazsa, geri dönüş/varsayılan dosya kümesine izin ver](http://nuget.codeplex.com/workitem/223)
 * [Paket başvurusu Ekle... Kullanıcı arabirimi bir paketi kaldıramıyor](http://nuget.codeplex.com/workitem/225)
 * [Bir veya daha fazla proje kaldırıldığında paket başvurusu kilitleniyor Studio Ekle](http://nuget.codeplex.com/workitem/228)
-* [Yapılandırma dönüştürmesi Web. Debug. config dosyasında çalışmıyor gibi görünüyor](http://nuget.codeplex.com/workitem/229)
-* [init. ps1 özel pakette tetikmedi](http://nuget.codeplex.com/workitem/237)
+* [Yapılandırma dönüşümü web.debug.config dosya üzerinde çalışıyor görünmüyor](http://nuget.codeplex.com/workitem/229)
+* [ Özel paketteinit.ps1 tetikmedi](http://nuget.codeplex.com/workitem/237)
 * [Feedlist 'e yollar eklenirken, varsayılan düğme Tamam olarak ayarlanır, bu nedenle ENTER tuşuna Bassam otomatik olarak kapanır](http://nuget.codeplex.com/workitem/240)
 * [Bir satırda 2 kez denendiğinde, bağımlılığı kaldırma girişimi kilitlenme Ile sonuçlanır](http://nuget.codeplex.com/workitem/241)
 * [Paket Ekle iletişim kutusunda proje URL 'sini görüntüle](http://nuget.codeplex.com/workitem/253)
-* [Yüklü paketlere varsayılan yükleme paketi Ekle iletişim kutusu](http://nuget.codeplex.com/workitem/254)
+* [Yüklü paketlere yönelik Add-Package iletişim kutusu varsayılan](http://nuget.codeplex.com/workitem/254)
 * [Paket ekle Iletişim menü öğesi değiştir.](http://nuget.codeplex.com/workitem/261)
 * [Ad alanlarını ve derlemeleri yeniden adlandırma](http://nuget.codeplex.com/workitem/274)
 * [NuPack projesini NuGet olarak yeniden adlandırma](http://nuget.codeplex.com/workitem/282)
@@ -214,7 +214,7 @@ Aşağıda, NuGet CTP 2 için düzeltilen Özellikler ve hataların listesi veri
 * [Paket listesinin üzerindeki lisans kabulü Iletişim kutusunda bulunan metni değiştirin](http://nuget.codeplex.com/workitem/292)
 * [OData bir fwlink URL 'SI ile çalışmıyor](http://nuget.codeplex.com/workitem/304)
 * [Paket Yöneticisi Kullanıcı arabirimi: sayfalama için kullanılan paket sayısının agresif önbelleklemesi](http://nuget.codeplex.com/workitem/317)
-* [NuPack/NuGet-&gt; Paket Yöneticisi konsol hatası](http://nuget.codeplex.com/workitem/335)
+* [NuPack/NuGet- &gt; Paket Yöneticisi konsol hatası](http://nuget.codeplex.com/workitem/335)
 * [Paket ekle Iletişim kutusu, önceden yüklenmiş paketlenmiş Için lisans kabulünü gösterir](http://nuget.codeplex.com/workitem/336)
 
 ## <a name="ctp-1"></a>CTP 1
@@ -223,8 +223,8 @@ Aşağıda, NuGet CTP 1 için düzeltilen Özellikler ve hataların bir listesi 
 
 * [Paket uzantısının yeniden adlandırılması gerekir. nupack](http://nuget.codeplex.com/workitem/1)
 * [Paket dosyasını klasöre taşı](http://nuget.codeplex.com/workitem/2)
-* [Birleştirme Install &amp; PS komutları ekleme](http://nuget.codeplex.com/workitem/3)
-* [Fiil-adı cmdlet 'leri için diğer adlar oluşturma](http://nuget.codeplex.com/workitem/4)
+* [Merge Install &amp; Add PS komutları](http://nuget.codeplex.com/workitem/3)
+* [Verb-Noun cmdlet 'leri için diğer adlar oluşturma](http://nuget.codeplex.com/workitem/4)
 * [VS 'de çözüm değiştirilirken NuPack karıştırılır](http://nuget.codeplex.com/workitem/6)
 * [' Packages ' çözüm klasörünü varsayılan olarak gizliyoruz](http://nuget.codeplex.com/workitem/11)
 * [İçerik öğelerinde belirteç değiştirme desteği ekleyin.](http://nuget.codeplex.com/workitem/12)
@@ -233,10 +233,10 @@ Aşağıda, NuGet CTP 1 için düzeltilen Özellikler ve hataların bir listesi 
 * [Varsayılan projeyi çözümden silmek hala silinen projeyi varsayılan olarak gösterir](http://nuget.codeplex.com/workitem/30)
 * [New-Package, "zaten pakette olduğundan belirtilen URI için bölüm eklenemiyor" ile başarısız olur.](http://nuget.codeplex.com/workitem/32)
 * [Visual Studio GUI 'sinden "NuPack" dizelerini kaldırma](http://nuget.codeplex.com/workitem/35)
-* [Bir TELIF hakkı. txt dosyasına Apache üstbilgisi ekleme](http://nuget.codeplex.com/workitem/36)
-* [Update-PackageSource komutunu kaldır](http://nuget.codeplex.com/workitem/37)
+* [COPYRIGHT.txt dosyasına Apache üstbilgisi ekleme](http://nuget.codeplex.com/workitem/36)
+* [Update-PackageSource komutu kaldır](http://nuget.codeplex.com/workitem/37)
 * [Profil yüklenirken paket yöneticisi kullanılamıyor bir özel durum oluşturur](http://nuget.codeplex.com/workitem/39)
-* [init. ps1, Install. ps1 ve Uninstall. ps1 ek durum almak için gerekir](http://nuget.codeplex.com/workitem/41)
+* [init.ps1, install.ps1 ve uninstall.ps1 ek durum alması gerekir](http://nuget.codeplex.com/workitem/41)
 * [Konsol ve GUI paketlerini tek bir pakette birleştirin](http://nuget.codeplex.com/workitem/42)
 * [Kökte olmayan XML 'e uygulanırsa XML Transform mantığı çalışmaz](http://nuget.codeplex.com/workitem/43)
 * [Paket kaynakları ayarlarını yönetme iletişim kutusu NuPack konsolu güncelleştirilmiyor](http://nuget.codeplex.com/workitem/44)
@@ -262,8 +262,8 @@ Aşağıda, NuGet CTP 1 için düzeltilen Özellikler ve hataların bir listesi 
 * [Remove-Package için neden-Version](http://nuget.codeplex.com/workitem/113)
 * [Iletişim kutusu kullanıcı arabirimindeki son sekmeyi kaldır](http://nuget.codeplex.com/workitem/115)
 * [Iletişim kutusu kullanıcı arabirimi en az bir açıldıktan sonra çözüm klasörüne sağ tıkladığınızda VS kilitlenmesi.](http://nuget.codeplex.com/workitem/126)
-* [Liste paketinin-yerel parametresini-yüklü olarak değiştir](http://nuget.codeplex.com/workitem/129)
-* [Packages. xml ' i NuPack. config olarak yeniden adlandırın](http://nuget.codeplex.com/workitem/132)
+* [List-Package-yerel parametresini-yüklü olarak değiştir](http://nuget.codeplex.com/workitem/129)
+* [packages.xml NuPack.configolarak yeniden adlandır ](http://nuget.codeplex.com/workitem/132)
 * [Konsol, imleci satır sonuna zorlar](http://nuget.codeplex.com/workitem/135)
 * [Remove-Package IntelliSense bozuk](http://nuget.codeplex.com/workitem/136)
 * [Requirelicensekabulünü bayrağını. nuspec ve Feed ekleyin](http://nuget.codeplex.com/workitem/137)

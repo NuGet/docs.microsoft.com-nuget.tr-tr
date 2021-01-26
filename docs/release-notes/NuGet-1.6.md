@@ -1,20 +1,20 @@
 ---
 title: NuGet 1,6 sürüm notları
 description: Bilinen sorunlar, hata düzeltmeleri, eklenen özellikler ve CCR 'ler dahil olmak üzere NuGet 1,6 sürüm notları.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 2878d3809b2be4fb71f4e7b1a1e08e405ead44b9
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: 08b1cb3736e645d6efcc33f920f521c9c0fc7507
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75384143"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777011"
 ---
  # <a name="nuget-16-release-notes"></a>NuGet 1,6 sürüm notları
 
-[Nuget 1,5 sürüm notları](../release-notes/nuget-1.5.md) | [NuGet 1,7 sürüm notları](../release-notes/nuget-1.7.md)
+[NuGet 1,5 sürüm notları](../release-notes/nuget-1.5.md)  |  [NuGet 1,7 sürüm notları](../release-notes/nuget-1.7.md)
 
 NuGet 1,6, 13 Aralık 2011 tarihinde yayınlandı.
 

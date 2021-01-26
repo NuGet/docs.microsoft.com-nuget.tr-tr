@@ -1,16 +1,16 @@
 ---
 title: NuGet 1,2 sürüm notları
 description: Bilinen sorunlar, hata düzeltmeleri, eklenen özellikler ve CCR 'ler dahil olmak üzere NuGet 1,2 sürüm notları.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 5d10d6bf27614980a144c30c3af6f9892a109061
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: af2248a41800f7641be9b77d7bb72e2a94d4ce47
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237198"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777196"
 ---
 # <a name="nuget-12-release-notes"></a>NuGet 1,2 sürüm notları
 
@@ -42,8 +42,8 @@ Bu derlemeler, .NET Framework bir parçası olarak her makinede olduğu varsayı
 
 |Öznitelik |Açıklama|
 |----------------|-----------|
-|**assemblyName**|*Gerekli* . Bütünleştirilmiş kodun adı `System.Net` .|
-|**targetFramework**|*Isteğe bağlı* . Bu çerçeve derlemesinin "net40" veya "SL4" gibi uyguladığı bir çerçeve ve profil adı (veya diğer ad) belirtilmesine izin verir. [Birden çok hedef çerçeveyi destekleme](../create-packages/supporting-multiple-target-frameworks.md)bölümünde açıklanan biçimi kullanır.|
+|**assemblyName**|*Gerekli*. Bütünleştirilmiş kodun adı `System.Net` .|
+|**targetFramework**|*Isteğe bağlı*. Bu çerçeve derlemesinin "net40" veya "SL4" gibi uyguladığı bir çerçeve ve profil adı (veya diğer ad) belirtilmesine izin verir. [Birden çok hedef çerçeveyi destekleme](../create-packages/supporting-multiple-target-frameworks.md)bölümünde açıklanan biçimi kullanır.|
 
 ```xml
   <frameworkAssemblies>
@@ -65,6 +65,6 @@ Paket Gezgini, NuGet 1,2 ' i destekleyecek şekilde güncelleştirilmiştir. Dah
 
 ## <a name="known-issues"></a>Bilinen Sorunlar
 
-* **1,2 paket uyumsuzluğu** : komut satırı aracının en son sürümüyle oluşturulan paketler nuget.exe (> 1,2), NuGet vs eklentisinin eski sürümleriyle (1,1 gibi) çalışmaz. Uyumsuz şemayla ilgili bir şeyi belirten bir hata mesajınızı çalıştırırsanız, bu hatayla çalışıyorsunuz demektir. Lütfen NuGet 'i en son sürüme güncelleştirin.
-* **NuGet. Server uyumsuzluğu** : NuGet. Server projesini kullanarak dahili bir NuGet akışı barındırıyorsanız, bu projeyi NuGet. Server ' ın en son sürümüyle güncelleştirmeniz gerekir.
-* **Imza uyumsuzluğu hatası** : bir imza uyumsuzluğu hakkında bir iletiyle birlikte yükseltme sırasında hata halinde çalıştırırsanız, önce NuGet 'i kaldırmanız ve ardından yüklemeniz gerekir. Bu, daha fazla ayrıntı sağlayan [Bilinen Sorunlar sayfamızda](../release-notes/known-issues.md) listelenmiştir. Sorun yalnızca çalışan Visual Studio 2010 SP1 'i etkiler ve hatalı imzalı bir NuGet 1,0 sürümü yüklü. Bu sürüm kısa bir süre boyunca yalnızca CodePlex Web sitesinden kullanıma sunulmuştur. bu sorunun çok fazla kişiyi etkilememesi gerekir.
+* **1,2 paket uyumsuzluğu**: komut satırı aracının en son sürümüyle oluşturulan paketler nuget.exe (> 1,2), NuGet vs eklentisinin eski sürümleriyle (1,1 gibi) çalışmaz. Uyumsuz şemayla ilgili bir şeyi belirten bir hata mesajınızı çalıştırırsanız, bu hatayla çalışıyorsunuz demektir. Lütfen NuGet 'i en son sürüme güncelleştirin.
+* **NuGet. Server uyumsuzluğu**: NuGet. Server projesini kullanarak dahili bir NuGet akışı barındırıyorsanız, bu projeyi NuGet. Server ' ın en son sürümüyle güncelleştirmeniz gerekir.
+* **Imza uyumsuzluğu hatası**: bir imza uyumsuzluğu hakkında bir iletiyle birlikte yükseltme sırasında hata halinde çalıştırırsanız, önce NuGet 'i kaldırmanız ve ardından yüklemeniz gerekir. Bu, daha fazla ayrıntı sağlayan [Bilinen Sorunlar sayfamızda](../release-notes/known-issues.md) listelenmiştir. Sorun yalnızca çalışan Visual Studio 2010 SP1 'i etkiler ve hatalı imzalı bir NuGet 1,0 sürümü yüklü. Bu sürüm kısa bir süre boyunca yalnızca CodePlex Web sitesinden kullanıma sunulmuştur. bu sorunun çok fazla kişiyi etkilememesi gerekir.

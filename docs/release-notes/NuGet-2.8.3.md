@@ -1,21 +1,21 @@
 ---
 title: NuGet 2.8.3 sürüm notları
-description: NuGet 2.8.3 dahil etmek için sürüm notları, sorunları, hata düzeltmeleri, eklenen özellikler ve dcr bilinir.
-author: karann-msft
-ms.author: karann
+description: Bilinen sorunlar, hata düzeltmeleri, eklenen özellikler ve CCR 'ler dahil olmak üzere NuGet 2.8.3 için sürüm notları.
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: e773d6dc55c1593a4f0918d67c9c188a38e0e5ec
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: fe7e8f7c45bc4d67ae4015234cf3775372b71bb1
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548462"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776739"
 ---
 # <a name="nuget-283-release-notes"></a>NuGet 2.8.3 sürüm notları
 
-[2.8.2 NuGet sürüm notları](../release-notes/nuget-2.8.2.md) | [2.8.5 NuGet sürüm notları](../release-notes/nuget-2.8.5.md)
+[NuGet 2.8.2 sürüm notları](../release-notes/nuget-2.8.2.md)  |  [NuGet 2.8.5 sürüm notları](../release-notes/nuget-2.8.5.md)
 
-NuGet 2.8.3, 17 Ekim 2014'te yayımlanmıştır. Küçük bir güncelleştirmesidir bizim 2.8.1 için VSIX bazı düzeltmeleri hedeflenen.
+NuGet 2.8.3, 17 Ekim 2014 ' te yayımlanmıştır. 2.8.1 VSıX 'in bazı hedeflenen düzeltmeleri içeren küçük bir güncelleştirmedir.
 
-NuGet Paket Yöneticisi iletişim kutusu için destek eklendi bu sürümde, [ASP.NET vNext](http://www.asp.net/vnext), [DevExtreme](http://js.devexpress.com/) ve [BizTalk (.btproj)](/biztalk/core/developing-biztalk-server-applications) proje türleri. Ayrıca, etkinleştirme paket geri yükleme ve kaydetme Paket Yöneticisi seçenekleri senaryoları ile ilgili güvenilirlik hata düzeltmeleri içerir.
+Bu sürümde, [ASP.NET vNext](http://www.asp.net/vnext), [DevExtreme](http://js.devexpress.com/) ve [BizTalk (. btproj)](/biztalk/core/developing-biztalk-server-applications) proje türleri için NuGet paket yöneticisi desteği iletişim kutusu eklenmiştir. Ayrıca, paket geri yükleme ve Paket Yöneticisi seçeneklerini kaydetme senaryolarıyla ilgili güvenilirlik hata düzeltmelerini içerir.

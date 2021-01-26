@@ -1,16 +1,16 @@
 ---
 title: NuGet Update-Package PowerShell Başvurusu
 description: Visual Studio 'daki NuGet Paket Yöneticisi konsolundaki Update-Package PowerShell komutuna yönelik başvuru.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: af918d11e8f976be962d52084c5eda4d53e382c6
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 159817e56d978d6432e989d2027907c0d2445222
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93238042"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777383"
 ---
 # <a name="update-package-package-manager-console-in-visual-studio"></a>Update-Package (Visual Studio 'da Paket Yöneticisi konsolu)
 
@@ -45,7 +45,7 @@ Update-Package Microsoft.AspNet.MVC -Version 5.0.0.
 | Includeönsürümü | Güncelleştirmeler için yayın öncesi paketleri içerir. |
 | Yeniden yükleme | Paketleri şu anda yüklü sürümlerini kullanarak resintalls. Bkz. [paketleri yeniden yükleme ve güncelleştirme](../../consume-packages/reinstalling-and-updating-packages.md). |
 | FileConflictAction | Proje tarafından başvurulan var olan dosyaların üzerine yazılması veya yoksayılması istendiğinde gerçekleştirilecek eylem. Olası değerler *üzerine yazılır, Yoksay, None, overwriteall* ve *IgnoreAll* (3.0 +). |
-| DependencyVersion | Kullanılacak bağımlılık paketlerinin sürümü, bu, aşağıdakilerden biri olabilir:<br/><ul><li>*En düşük* (varsayılan): en düşük sürüm</li><li>*HighestPatch* : en düşük ana, en düşük ikincil, en yüksek düzeltme eki olan sürüm</li><li>*HighestMinor* : en düşük ana, en yüksek ikincil, en yüksek düzeltme eki olan sürüm</li><li>*En yüksek* (parametresiz Update-Package için varsayılan): en yüksek sürüm</li></ul>Varsayılan değeri, [`dependencyVersion`](../nuget-config-file.md#config-section) dosyadaki ayarını kullanarak ayarlayabilirsiniz `Nuget.Config` . |
+| DependencyVersion | Kullanılacak bağımlılık paketlerinin sürümü, bu, aşağıdakilerden biri olabilir:<br/><ul><li>*En düşük* (varsayılan): en düşük sürüm</li><li>*HighestPatch*: en düşük ana, en düşük ikincil, en yüksek düzeltme eki olan sürüm</li><li>*HighestMinor*: en düşük ana, en yüksek ikincil, en yüksek düzeltme eki olan sürüm</li><li>*En yüksek* (parametresiz Update-Package için varsayılan): en yüksek sürüm</li></ul>Varsayılan değeri, [`dependencyVersion`](../nuget-config-file.md#config-section) dosyadaki ayarını kullanarak ayarlayabilirsiniz `Nuget.Config` . |
 | ToHighestPatch | -Safe ile eşdeğerdir. |
 | ToHighestMinor | Yükseltmeleri yalnızca, yüklü olan paketle aynı ana sürüme sahip sürümlere kısıtlar. |
 | WhatIf | Gerçekten güncelleştirmeyi gerçekleştirmeden, komutu çalıştırırken ne olacağını gösterir. |

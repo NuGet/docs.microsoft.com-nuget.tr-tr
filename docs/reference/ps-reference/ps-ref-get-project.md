@@ -1,16 +1,16 @@
 ---
 title: NuGet Get-Project PowerShell Başvurusu
 description: Visual Studio 'daki NuGet Paket Yöneticisi konsolundaki GetProject PowerShell komutu için başvuru.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 6d9e1d48c8e1838f193878cab3483b1bfba7d7f0
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 16b3ffc0a375b8027c615020243a7289520715f8
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93238081"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777472"
 ---
 # <a name="get-project-package-manager-console-in-visual-studio"></a>Get-Project (Visual Studio 'da Paket Yöneticisi konsolu)
 

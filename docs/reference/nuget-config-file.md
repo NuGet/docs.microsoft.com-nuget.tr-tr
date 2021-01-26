@@ -1,16 +1,16 @@
 ---
 title: nuget.config dosya başvurusu
 description: Config, Bindingyönlendirmeler, Packageresist, çözüm ve packageSource bölümlerini içeren dosya başvurusunu NuGet.Config.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 08/13/2019
 ms.topic: reference
-ms.openlocfilehash: 371f0d934fcd3c1f111d277131553c1eed0200be
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 9b15550d0e6e8aec4d526391d77c654a756f343e
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93238107"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777670"
 ---
 # <a name="nugetconfig-reference"></a>nuget.config başvurusu
 
@@ -38,7 +38,7 @@ NuGet davranışı, `NuGet.Config` `nuget.config` [yaygın NuGet yapılandırmal
 | http_proxy http_proxy. User http_proxy. Password no_proxy | Paket kaynaklarına bağlanırken kullanılacak proxy ayarları; `http_proxy` biçiminde olmalıdır `http://<username>:<password>@<domain>` . Parolalar şifrelenir ve el ile eklenemez. İçin `no_proxy` , değer, proxy sunucusunu atlayan etki alanlarının virgülle ayrılmış listesidir. Ayrıca, bu değerler için http_proxy ve no_proxy ortam değişkenlerini kullanabilirsiniz. Daha fazla bilgi için bkz. [NuGet proxy ayarları](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (skolima.blogspot.com). |
 | signatureValidationMode | Paket yüklemesi için paket imzalarını doğrulamak ve geri yüklemek için kullanılan doğrulama modunu belirtir. Değerler `accept` , `require` . Varsayılan olarak olur `accept` .
 
-**Örnek** :
+**Örnek**:
 
 ```xml
 <config>
@@ -58,7 +58,7 @@ Bir paket yüklendiğinde NuGet 'in otomatik bağlama yeniden yönlendirmelerini
 | --- | --- |
 | Atla | Otomatik bağlama yeniden yönlendirmelerinin atlanıp atlanmayacağını belirten bir Boole değeri. Varsayılan değer false. |
 
-**Örnek** :
+**Örnek**:
 
 ```xml
 <bindingRedirects>
@@ -75,7 +75,7 @@ Derlemeler sırasında paket geri yüklemeyi denetler.
 | enabled | NuGet 'in otomatik geri yükleme yapıp yapamadığını gösteren bir Boole değeri. Ayrıca, `EnableNuGetPackageRestore` `True` yapılandırma dosyasında bu anahtarı ayarlamak yerine, ortam değişkenini bir değeriyle ayarlayabilirsiniz. |
 | otomatik | Bir derleme sırasında NuGet 'in eksik paketleri denetleyip denetmeyeceğini belirten bir Boole değeri. |
 
-**Örnek** :
+**Örnek**:
 
 ```xml
 <packageRestore>
@@ -92,7 +92,7 @@ Derlemeler sırasında paket geri yüklemeyi denetler.
 | --- | --- |
 | Disablesourcecontrolintefini | Kaynak denetimiyle çalışırken paketler klasörünün yoksayılıp yoksayılmadığını gösteren bir Boole değeri. Varsayılan değer false'tur. |
 
-**Örnek** :
+**Örnek**:
 
 ```xml
 <solution>
@@ -116,7 +116,7 @@ Bilinen tüm paket kaynaklarını listeler. Geri yükleme işlemleri sırasında
 | --- | --- |
 | (paket kaynağına atanacak ad) | Paket kaynağının yolu veya URL 'SI. |
 
-**Örnek** :
+**Örnek**:
 
 ```xml
 <packageSources>
@@ -213,7 +213,7 @@ Ayrıca, geçerli kimlik doğrulama yöntemleri sağlanabilir:
 | --- | --- |
 | (kaynak URL) | Şifrelenmiş API anahtarı. |
 
-**Örnek** :
+**Örnek**:
 
 ```xml
 <apikeys>
@@ -250,7 +250,7 @@ Ayrıca, geçerli kimlik doğrulama yöntemleri sağlanabilir:
 | --- | --- |
 | (kaynağın adı) veya `All` | Anahtar bir kaynağın adı ise, değer kaynak yolu veya URL olur. Eğer `All` değeri, `(Aggregate source)` Aksi durumda devre dışı bırakılmayan tüm paket kaynaklarını birleştirmek için olmalıdır. |
 
-**Örnek** :
+**Örnek**:
 
 ```xml
 <activePackageSource>
@@ -268,7 +268,7 @@ Yükleme veya geri yükleme sırasında pakete izin vermek için kullanılan gü
 
 Bu bölüm, [ `nuget trusted-signers` komutuyla](../reference/cli-reference/cli-ref-trusted-signers.md)birlikte güncelleştirilemeyebilir.
 
-**Şema** :
+**Şema**:
 
 Güvenilen bir imzalayan `certificate` , belirli bir İmzalayanın tanımlayan tüm sertifikaları içeren bir öğe koleksiyonuna sahiptir. Güvenilen bir imzalayan ya da olabilir `Author` `Repository` .
 
@@ -278,7 +278,7 @@ Bir sertifika parmak izi için kullanılan desteklenen karma algoritmaları `SHA
 
 Bir ise `certificate` , `allowUntrustedRoot` `true` imza doğrulamasının parçası olarak sertifika zincirini oluştururken, belirtilen sertifikanın güvenilmeyen bir köke zincirine izin verileceğini belirtir.
 
-**Örnek** :
+**Örnek**:
 
 ```xml
 <trustedSigners>
@@ -311,7 +311,7 @@ Bir eşleşme bulunmazsa, NuGet dosya kaynaklarını ve ardından http kaynaklar
 | --- | --- |
 | (geri dönüş klasörünün adı) | Geri dönüş klasörünün yolu. |
 
-**Örnek** :
+**Örnek**:
 
 ```xml
 <fallbackPackageFolders>
@@ -325,10 +325,10 @@ Varsayılan paket yönetim biçimini *packages.config* ya da packagereference ol
 
 | Anahtar | Değer |
 | --- | --- |
-| biçim | Varsayılan paket yönetimi biçimini gösteren bir Boole değeri. İse `1` Format, PackageReference olur. İse `0` , biçim *packages.config* . |
+| biçim | Varsayılan paket yönetimi biçimini gösteren bir Boole değeri. İse `1` Format, PackageReference olur. İse `0` , biçim *packages.config*. |
 | devre dışı | İlk paket yüklemesi sırasında varsayılan bir paket biçimi seçme isteminin gösterilip gösterilmeyeceğini belirten bir Boole değeri. `False` istemi gizler. |
 
-**Örnek** :
+**Örnek**:
 
 ```xml
 <packageManagement>

@@ -1,17 +1,17 @@
 ---
 title: NuGet için hedef çerçeveler başvurusu
 description: NuGet hedef çerçevesi, bir paketin çerçeveye bağlı bileşenlerini belirler ve yalıtır.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 12/11/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 995f15ae2ad823d9c814cb7e78facddee713cc8f
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.openlocfilehash: 7671b50b84bf1447fe94e02896786d1f309425dd
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78230518"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777309"
 ---
 # <a name="target-frameworks"></a>Hedef çerçeveler
 
@@ -19,8 +19,8 @@ NuGet, bir paketin çerçeveye bağlı bileşenlerini özellikle tanımlamak ve 
 
 - [Proje dosyası](../create-packages/multiple-target-frameworks-project-file.md): SDK stilindeki projeler için *. csproj* , hedef Framework başvurularını içerir.
 - [. nuspec bildirimi](../reference/nuspec.md): bir paket, projenin hedef çerçevesine bağlı olarak bir projeye dahil edilecek ayrı paketleri belirtebilir.
-- [. nupkg klasör adı](../create-packages/creating-a-package.md#from-a-convention-based-working-directory): bir paketin `lib` klasörünün içindeki klasörler, her biri dll 'leri ve söz konusu çerçeveye uygun olan diğer içerikleri içeren hedef Framework 'e göre adlandırılmış olabilir.
-- [Packages. config](../reference/packages-config.md): bir bağımlılığın `targetframework` özniteliği, yüklenecek bir paketin türevini belirtir.
+- [. nupkg klasör adı](../create-packages/creating-a-package.md#from-a-convention-based-working-directory): bir paket klasörünün içindeki klasörler, `lib` her biri dll 'leri ve söz konusu çerçeveye uygun olan diğer içerikleri içeren hedef çerçeveye göre adlandırılabilir.
+- [packages.config](../reference/packages-config.md): `targetframework` bir bağımlılığın özniteliği, yüklenecek bir paketin türevini belirtir.
 
 > [!Note]
 > Aşağıdaki tabloları hesaplayan NuGet istemci kaynak kodu aşağıdaki konumlarda bulunur:
@@ -31,9 +31,9 @@ NuGet, bir paketin çerçeveye bağlı bileşenlerini özellikle tanımlamak ve 
 
 Bir çerçeveye genellikle kısa bir hedef Framework bilinen adı veya tfd tarafından başvurulur. .NET Standard Bu, birden çok çerçeve için tek bir başvuruya izin vermek üzere *TXD* için de genelleştirilir.
 
-NuGet istemcileri aşağıdaki tablodaki çerçeveleri destekler. Eşdeğerleri köşeli ayraç [] içinde gösterilir. `dotnet`gibi bazı araçların bazı dosyalardaki kurallı TFMs 'lerin çeşitlemelerini kullanabileceğini unutmayın. Örneğin, `dotnet pack` `netcoreapp2.0`yerine bir `.nuspec` dosyasında `.NETCoreApp2.0` kullanır. Çeşitli NuGet istemci araçları bu çeşitlemeleri düzgün şekilde işler, ancak dosyaları doğrudan düzenlenirken her zaman kurallı TFMs 'Leri kullanmanız gerekir.
+NuGet istemcileri aşağıdaki tablodaki çerçeveleri destekler. Eşdeğerleri köşeli ayraç [] içinde gösterilir. Gibi bazı araçların `dotnet` bazı dosyalardaki kurallı TFMs 'lerin çeşitlemelerini kullanabileceğini unutmayın. Örneğin, yerine `dotnet pack`  `.NETCoreApp2.0` bir dosyasında kullanır `.nuspec` `netcoreapp2.0` . Çeşitli NuGet istemci araçları bu çeşitlemeleri düzgün şekilde işler, ancak dosyaları doğrudan düzenlenirken her zaman kurallı TFMs 'Leri kullanmanız gerekir.
 
-| Adı | Kısaltma | TFMs/TxMs |
+| Name | Kısaltma | TFMs/TxMs |
 | ------------- | ------------ | --------- |
 |.NET Framework | net | net11 |
 | | | net20 |
@@ -79,7 +79,7 @@ Evrensel Windows Platformu | UAP | UAP [UAP 10.0] |
 | | | Netstandard 1.6 |
 | | | Netstandard 2.0 |
 | | | Netstandard 2.1 |
-.NET Core uygulaması | netcoreapp | netcoreapp 1.0 |
+.NET Core Uygulaması | netcoreapp | netcoreapp 1.0 |
 | | | netcoreapp 1.1 |
 | | | netcoreapp2.0 |
 | | | netcoreapp 2.1 |
@@ -93,7 +93,7 @@ Tizen | tizen | tizen3 |
 
 Aşağıdaki çerçeveler kullanım dışıdır. Bu çerçeveleri hedefleyen paketlerin belirtilen değişikliklere geçirilmesi gerekir.
 
-| Kullanım dışı çerçeve | Başka
+| Kullanım dışı çerçeve | Değiştirme
 | --- | ---
 | aspnet50 | netcoreapp |
 | aspnetcore50 |
@@ -116,7 +116,7 @@ Aşağıdaki çerçeveler kullanım dışıdır. Bu çerçeveleri hedefleyen pak
 
 Bir dizi çerçeve birbirleriyle ve birbirleriyle uyumludur, ancak eşdeğer değildir:
 
-| Çerçeve | Kullanabilir |
+| Framework | Kullanabilir |
 | -- | --- |
 | UAP (Evrensel Windows Platformu) | win81 |
 | | wpa81 |
@@ -130,35 +130,35 @@ Bir dizi çerçeve birbirleriyle ve birbirleriyle uyumludur, ancak eşdeğer de�
 
 [NuGet en yakın çerçeve aracı](https://aka.ms/s2m3th) , NuGet 'in, projenin çerçevesini temel alan bir pakette bulunan çok sayıda çerçeve varlıklarından bir çerçeve seçmek için hangi şekilde kullanacağını taklit eder.
 
-`dotnet` dizi adların NuGet 3,3 ve önceki sürümlerde kullanılması gerekir; `netstandard` bilinen ad sözdizimi v 3.4 ve sonrasında kullanılmalıdır.
+`dotnet`Takma ad serisi NuGet 3,3 ve önceki sürümlerde kullanılmalıdır; `netstandard` bilinen ad sözdizimi v 3.4 ve sonrasında kullanılmalıdır.
 
-## <a name="portable-class-libraries"></a>Taşınabilir sınıf kitaplıkları
+## <a name="portable-class-libraries"></a>Taşınabilir Sınıf Kitaplıkları
 
 > [!Warning]
 > **PCLS önerilmez**. PCLs destekleniyor olsa da, paket yazarları bunun yerine Netstandard 'ı desteklemelidir. .NET Platform standardı, PCLs 'in bir gelişmidir ve *Taşınabilir-a + b + c* takma adları gibi bir statik kitaplığa bağlı olmayan tek bir bilinen ad kullanarak platformlar arasında ikili taşınabilirliği temsil eder.
 
-Birden çok alt hedef çerçevesine başvuran bir hedef çerçeve tanımlamak için, başvurulan çerçeveler listesine önek olarak kullanılan `portable` anahtar sözcüğü kullanın. Doğrudan derlenmeyen ekstra çerçeveler de dahil olmak üzere yapay kullanmaktan kaçının ve bu çerçeveler içinde istenmeyen yan etkilere neden olabilir.
+Birden çok alt hedef çerçevesine başvuran bir hedef çerçeve tanımlamak için, `portable` başvurulan çerçeveler listesine önek olarak kullanılan anahtar sözcüğü kullanılır. Doğrudan derlenmeyen ekstra çerçeveler de dahil olmak üzere yapay kullanmaktan kaçının ve bu çerçeveler içinde istenmeyen yan etkilere neden olabilir.
 
-Üçüncü taraflar tarafından tanımlanan ek çerçeveler, bu şekilde erişilebilen diğer ortamlarla uyumluluk sağlar. Ayrıca, bu ilgili çerçeveler kombinasyonlarını `Profile#`olarak başvurmak için kullanılabilen özet profil numaraları vardır, ancak klasörlerin ve `.nuspec`okunabilirliğini azalttığı için bu sayıların kullanılması önerilen bir uygulamadır.
+Üçüncü taraflar tarafından tanımlanan ek çerçeveler, bu şekilde erişilebilen diğer ortamlarla uyumluluk sağlar. Ayrıca, bu ilgili çerçevelerin kombinasyonlarıyla aynı şekilde başvurmak için kullanılabilen bir Özet profil numarası vardır `Profile#` , ancak klasörlerin ve okunabilirliğini azalttığı için bu numaraları kullanmak önerilen bir uygulamadır `.nuspec` .
 
 | Profilinizi # | Framework’ler | Tam ad | .NET Standard |
  --- | --- | --- | ---
- Profile2 | . NETFramework 4,0 | Taşınabilir-net40 + Win8 + SL4 + WP7 |
- | | Windows 8,0 | |
+ Profil2 | . NETFramework 4,0 | Taşınabilir-net40 + Win8 + SL4 + WP7 |
+ | | Windows 8.0 | |
  | | Silverlight 4,0 |
  | | WindowsPhone 7,0|
- Profile3 | . NETFramework 4,0 | Taşınabilir-net40 + SL4
+ Profil3 | . NETFramework 4,0 | Taşınabilir-net40 + SL4
  | | Silverlight 4,0 |
- Profile4 | . NETFramework 4,5 | Taşınabilir-net45 + SL4 + Win8 + WP7
+ Profil4 | . NETFramework 4,5 | Taşınabilir-net45 + SL4 + Win8 + WP7
  | | Silverlight 4,0 |
- | | Windows 8,0 |
+ | | Windows 8.0 |
  | | WindowsPhone 7,0 |
- Profile5 | . NETFramework 4,0 | Taşınabilir-net40 + Win8
- | | Windows 8,0 |
+ Profil5 | . NETFramework 4,0 | Taşınabilir-net40 + Win8
+ | | Windows 8.0 |
  Profile6 | . NETFramework 4.0.3 | Taşınabilir-net403 + Win8
- | | Windows 8,0 |
+ | | Windows 8.0 |
  Profile7 | . NETFramework 4,5 | Taşınabilir-net45 + Win8 | Netstandard 1.1
- | | Windows 8,0 |
+ | | Windows 8.0 |
  Profile14 | . NETFramework 4,0 | Taşınabilir-net40 + SL5
  | | Silverlight 5,0 |
  Profile18 | . NETFramework 4.0.3 | Taşınabilir-net403 + SL4
@@ -175,118 +175,118 @@ Birden çok alt hedef çerçevesine başvuran bir hedef çerçeve tanımlamak i�
  | | WindowsPhone 8,1 (UWP) |
  Profile36 | . NETFramework 4,0 | Taşınabilir-net40 + SL4 + Win8 + WP8
  | | Silverlight 4,0 |
- | | Windows 8,0 |
+ | | Windows 8.0 |
  | | WindowsPhone 8,0 (SL) |
  Profile37 | . NETFramework 4,0 | Taşınabilir-net40 + SL5 + Win8
  | | Silverlight 5,0 |
- | | Windows 8,0 |
+ | | Windows 8.0 |
  Profile41 | . NETFramework 4.0.3 | Taşınabilir-net403 + SL4 + Win8
  | | Silverlight 4,0 |
- | | Windows 8,0 |
+ | | Windows 8.0 |
  Profile42 | . NETFramework 4.0.3 | Taşınabilir-net403 + SL5 + Win8
  | | Silverlight 5,0 |
- | | Windows 8,0 |
+ | | Windows 8.0 |
  Profile44 | . NETFramework 4.5.1 | Taşınabilir-net451 + win81 | Netstandard 1.2
  | | Windows 8.1 |
  Profile46 | . NETFramework 4,5 | Taşınabilir-net45 + SL4 + Win8
  | | Silverlight 4,0 |
- | | Windows 8,0 |
+ | | Windows 8.0 |
  Profile47 | . NETFramework 4,5 | Taşınabilir-net45 + SL5 + Win8
  | | Silverlight 5,0 |
- | | Windows 8,0 |
+ | | Windows 8.0 |
  Profile49 | . NETFramework 4,5 | Taşınabilir-net45 + WP8 | Netstandard 1.0
  | | WindowsPhone 8,0 (SL) |
  Profile78 | . NETFramework 4,5 | Taşınabilir-net45 + Win8 + WP8 | Netstandard 1.0
- | | Windows 8,0 |
+ | | Windows 8.0 |
  | | WindowsPhone 8,0 (SL) |
- Profile84 | WindowsPhone 8.1 | Taşınabilir-wp81 + wpa81 | Netstandard 1.0
+ Profile84 | WindowsPhone 8,1 | Taşınabilir-wp81 + wpa81 | Netstandard 1.0
  | | WindowsPhone 8,1 (UWP) |
  Profile88 | . NETFramework 4,0 | Taşınabilir-net40 + SL4 + Win8 + wp75
  | | Silverlight 4,0 |
- | | Windows 8,0 |
+ | | Windows 8.0 |
  | | WindowsPhone 7,5 |
  Profile92 | . NETFramework 4,0 | Taşınabilir-net40 + Win8 + wpa81
- | | Windows 8,0 |
+ | | Windows 8.0 |
  | | WindowsPhone 8,1 (UWP) |
  Profile95 | . NETFramework 4.0.3 | Taşınabilir-net403 + SL4 + Win8 + WP7
  | | Silverlight 4,0 |
- | | Windows 8,0 |
+ | | Windows 8.0 |
  | | WindowsPhone 7,0 |
  Profile96 | . NETFramework 4.0.3 | Taşınabilir-net403 + SL4 + Win8 + wp75
  | | Silverlight 4,0 |
- | | Windows 8,0 |
+ | | Windows 8.0 |
  | | WindowsPhone 7,5 |
  Profile102 | . NETFramework 4.0.3 | Taşınabilir-net403 + Win8 + wpa81
- | | Windows 8,0 |
+ | | Windows 8.0 |
  | | WindowsPhone 8,1 (UWP) |
  Profile104 | . NETFramework 4,5 | Taşınabilir-net45 + SL4 + Win8 + wp75
  | | Silverlight 4,0 |
- | | Windows 8,0 |
+ | | Windows 8.0 |
  | | WindowsPhone 7,5 |
  Profile111 | . NETFramework 4,5 | Taşınabilir-net45 + Win8 + wpa81 | Netstandard 1.1
- | | Windows 8,0 |
+ | | Windows 8.0 |
  | | WindowsPhone 8,1 (UWP) |
  Profile136 | . NETFramework 4,0 | Taşınabilir-net40 + SL5 + Win8 + WP8
  | | Silverlight 5,0 |
- | | Windows 8,0 |
+ | | Windows 8.0 |
  | | WindowsPhone 8,0 (SL) |
  Profile143 | . NETFramework 4.0.3 | Taşınabilir-net403 + SL4 + Win8 + WP8
  | | Silverlight 4,0 |
- | | Windows 8,0 |
+ | | Windows 8.0 |
  | | WindowsPhone 8,0 (SL) |
  Profile147 | . NETFramework 4.0.3 | Taşınabilir-net403 + SL5 + Win8 + WP8
  | | Silverlight 5,0 |
- | | Windows 8,0 |
+ | | Windows 8.0 |
  | | WindowsPhone 8,0 (SL) |
  Profile151 | NETFramework 4.5.1 | Taşınabilir-net451 + win81 + wpa81 | Netstandard 1.2
  | | Windows 8.1 |
  | | WindowsPhone 8,1 (UWP) |
  Profile154 | . NETFramework 4,5 | Taşınabilir-net45 + SL4 + Win8 + WP8
  | | Silverlight 4,0 |
- | | Windows 8,0 |
+ | | Windows 8.0 |
  | | WindowsPhone 8,0 (SL) |
  Profile157 | Windows 8.1 | Taşınabilir-win81 + wp81 + wpa81 | Netstandard 1.0
  | | WindowsPhone 8,1 (SL) |
  | | WindowsPhone 8,1 (UWP) |
  Profile158 | . NETFramework 4,5 | Taşınabilir-net45 + SL5 + Win8 + WP8
  | | Silverlight 5,0 |
- | | Windows 8,0 |
+ | | Windows 8.0 |
  | | WindowsPhone 8,0 (SL) |
  Profile225 | . NETFramework 4,0 | Taşınabilir-net40 + SL5 + Win8 + wpa81
  | | Silverlight 5,0 |
- | | Windows 8,0 |
+ | | Windows 8.0 |
  | | WindowsPhone 8,1 (UWP) |
  Profile240 | . NETFramework 4.0.3 | Taşınabilir-net403 + SL5 + Win8 + wpa8
  | | Silverlight 5,0 |
- | | Windows 8,0 |
+ | | Windows 8.0 |
  | | WindowsPhone 8,1 (UWP) |
  Profile255 | . NETFramework 4,5 | Taşınabilir-net45 + SL5 + Win8 + wpa81
  | | Silverlight 5,0 |
- | | Windows 8,0 |
+ | | Windows 8.0 |
  | | WindowsPhone 8,1 (UWP) |
  Profile259 | . NETFramework 4,5 | Taşınabilir-net45 + Win8 + wpa81 + WP8 | Netstandard 1.0
- | | Windows 8,0 |
+ | | Windows 8.0 |
  | | WindowsPhone 8,1 (UWP) |
  | | WindowsPhone 8,0 (SL) |
  Profile328 | . NETFramework 4,0 | Taşınabilir-net40 + SL5 + Win8 + wpa81 + WP8
  | | Silverlight 5,0 |
- | | Windows 8,0 |
+ | | Windows 8.0 |
  | | WindowsPhone 8,1 (UWP) |
  | | WindowsPhone 8,0 (SL) |
  Profile336 | . NETFramework 4.0.3 | Taşınabilir-net403 + SL5 + Win8 + wpa81 + WP8
  | | Silverlight 5,0 |
- | | Windows 8,0 |
+ | | Windows 8.0 |
  | | WindowsPhone 8,1 (UWP) |
  | | WindowsPhone 8,0 (SL) |
  Profile344 | . NETFramework 4,5 | Taşınabilir-net45 + SL5 + Win8 + wpa81 + WP8
  | | Silverlight 5,0 |
- | | Windows 8,0 |
+ | | Windows 8.0 |
  | | WindowsPhone 8,1 (UWP) |
  | | WindowsPhone 8,0 (SL) |
 
 Ayrıca, Xamarin 'i hedefleyen NuGet paketleri ek Xamarin tanımlı çerçeveler kullanabilir. Bkz. [Xamarin Için NuGet paketleri oluşturma](https://developer.xamarin.com/guides/cross-platform/advanced/nuget/).
 
-| Adı | Açıklama | .NET Standard |
+| Ad | Açıklama | .NET Standard |
 | --- | --- | ---
 | monoandroid | Android işletim sistemi için mono desteği | Netstandard 1.4 |
 | MonoTouch | İOS için mono desteği | Netstandard 1.4 |

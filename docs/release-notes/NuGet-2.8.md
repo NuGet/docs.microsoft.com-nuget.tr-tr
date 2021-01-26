@@ -1,16 +1,16 @@
 ---
 title: NuGet 2,8 sürüm notları
 description: Bilinen sorunlar, hata düzeltmeleri, eklenen özellikler ve CCR 'ler dahil olmak üzere NuGet 2,8 sürüm notları.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 98b8b7334738306e6d40ba7c455409a87c4bb822
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: cb77cf0f049b5b3cfe1039d83ab58e33457674bf
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237037"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776722"
 ---
 # <a name="nuget-28-release-notes"></a>NuGet 2,8 sürüm notları
 
@@ -44,13 +44,15 @@ NuGet 2,8, 29 Ocak 2014 tarihinde yayınlandı.
 
 Paket bağımlılıkları çözümlenirken, NuGet, paketteki bağımlılıkları karşılayan en düşük ana ve ikincil paket sürümünü seçme stratejisini değiştirdi. Ancak, büyük ve küçük sürümden farklı olarak, düzeltme eki sürümü her zaman en yüksek sürüme çözümlenmelidir. Davranış iyi bir şekilde olsa da, bağımlılıkları olan paketleri yüklemek için bir belirleyici eksiklik oluşturmıştı. Aşağıdaki örneği inceleyin:
 
-    PackageA@1.0.0 -[ >=1.0.0 ]-> PackageB@1.0.0
+```
+PackageA@1.0.0 -[ >=1.0.0 ]-> PackageB@1.0.0
 
-    Developer1 installs PackageA@1.0.0: installed PackageA@1.0.0 and PackageB@1.0.0
+Developer1 installs PackageA@1.0.0: installed PackageA@1.0.0 and PackageB@1.0.0
 
-    PackageB@1.0.1 is published
+PackageB@1.0.1 is published
 
-    Developer2 installs PackageA@1.0.0: installed PackageA@1.0.0 and PackageB@1.0.1
+Developer2 installs PackageA@1.0.0: installed PackageA@1.0.0 and PackageB@1.0.1
+```
 
 Bu örnekte, Developer1 ve Developer2 yüklü olsa bile PackageA@1.0.0 , her biri PackageB 'nin farklı bir sürümü ile sona erer. NuGet 2,8, düzeltme eki sürümleri için bağımlılık çözümleme davranışı büyük ve küçük sürümlerin davranışıyla tutarlı olacak şekilde bu varsayılan davranışı değiştirir. Yukarıdaki örnekte, daha PackageB@1.0.0 PackageA@1.0.0 Yeni bir düzeltme eki sürümüne bakılmaksızın yükleme sonucu olarak yüklenir.
 
@@ -64,24 +66,28 @@ NuGet 2,8, bağımlılıkları çözümlemek için _varsayılan_ davranışı de
 
 Yukarıda açıklanan-DependencyVersion anahtarına ek olarak, NuGet 'in,-DependencyVersion anahtarı Install-Package çağrısında belirtilmemişse, varsayılan değerin ne olduğunu tanımlayan Nuget.Config dosyasında yeni bir öznitelik ayarlama yeteneği de vardır. Bu değer, herhangi bir paket yüklemesi işlemi için NuGet Paket Yöneticisi Iletişim kutusu tarafından da kullanılacaktır. Bu değeri ayarlamak için aşağıdaki özniteliği Nuget.Config dosyanıza ekleyin:
 
-    <config>
-        <add key="dependencyversion" value="Highest" />
-    </config>
+```xml
+<config>
+    <add key="dependencyversion" value="Highest" />
+</config>
+```
 
 ## <a name="preview-nuget-operations-with--whatif"></a>-WhatIf Ile NuGet Işlemlerini önizleyin
 
 Bazı NuGet paketlerinde derin bağımlılık grafikleri bulunabilir ve bu nedenle, ne olacağını görmek için yükleme, kaldırma veya güncelleştirme işlemi sırasında yararlı olabilir. NuGet 2,8, standart PowerShell-whatIf anahtarını Install-Package, Uninstall-Package ve Update-Package komutlarına ekleyerek komutun uygulanacağı paketlerin tüm kapanışına görselleştirmeyi etkinleştirir. Örneğin, `install-package Microsoft.AspNet.WebApi -whatif` boş bir ASP.NET Web uygulamasında çalıştırmak aşağıdakileri verir.
 
-    PM> install-package Microsoft.AspNet.WebApi -whatif
-    Attempting to resolve dependency 'Microsoft.AspNet.WebApi.WebHost (≥ 5.0.0)'.
-    Attempting to resolve dependency 'Microsoft.AspNet.WebApi.Core (≥ 5.0.0)'.
-    Attempting to resolve dependency 'Microsoft.AspNet.WebApi.Client (≥ 5.0.0)'.
-    Attempting to resolve dependency 'Newtonsoft.Json (≥ 4.5.11)'.
-    Install Newtonsoft.Json 4.5.11
-    Install Microsoft.AspNet.WebApi.Client 5.0.0
-    Install Microsoft.AspNet.WebApi.Core 5.0.0
-    Install Microsoft.AspNet.WebApi.WebHost 5.0.0
-    Install Microsoft.AspNet.WebApi 5.0.0
+```
+PM> install-package Microsoft.AspNet.WebApi -whatif
+Attempting to resolve dependency 'Microsoft.AspNet.WebApi.WebHost (≥ 5.0.0)'.
+Attempting to resolve dependency 'Microsoft.AspNet.WebApi.Core (≥ 5.0.0)'.
+Attempting to resolve dependency 'Microsoft.AspNet.WebApi.Client (≥ 5.0.0)'.
+Attempting to resolve dependency 'Newtonsoft.Json (≥ 4.5.11)'.
+Install Newtonsoft.Json 4.5.11
+Install Microsoft.AspNet.WebApi.Client 5.0.0
+Install Microsoft.AspNet.WebApi.Core 5.0.0
+Install Microsoft.AspNet.WebApi.WebHost 5.0.0
+Install Microsoft.AspNet.WebApi 5.0.0
+```
 
 ## <a name="downgrade-package"></a>Paketi düşürme
 
@@ -101,12 +107,14 @@ Birden çok hedef platform için uygulama geliştirirken, ilgili Yapı ortamlar�
 
 NuGet paketleri genellikle bir ağ bağlantısı kullanan [NuGet Galerisi](http://www.nuget.org/) gibi uzak bir galeriden tüketilebilse de, istemcinin bağlı olmadığı birçok senaryo vardır. Ağ bağlantısı olmadan, NuGet istemcisi paketleri başarılı bir şekilde yükleyemedi-bu paketler, yerel NuGet önbelleğindeki istemci makinesinde zaten mevcut olduğunda bile. NuGet 2,8, Paket Yöneticisi konsoluna otomatik önbellek geri dönüşü ekler. Örneğin, ağ bağdaştırıcısının bağlantısını kesip jQuery yüklerken, konsol aşağıdakileri gösterir:
 
-    PM> Install-Package jquery
-    The source at nuget.org [https://www.nuget.org/api/v2/] is unreachable. Falling back to NuGet Local Cache at C:\Users\me\AppData\Local\NuGet\Cache
-    Installing 'jQuery 2.0.3'.
-    Successfully installed 'jQuery 2.0.3'.
-    Adding 'jQuery 2.0.3' to WebApplication18.
-    Successfully added 'jQuery 2.0.3' to WebApplication18.
+```
+PM> Install-Package jquery
+The source at nuget.org [https://www.nuget.org/api/v2/] is unreachable. Falling back to NuGet Local Cache at C:\Users\me\AppData\Local\NuGet\Cache
+Installing 'jQuery 2.0.3'.
+Successfully installed 'jQuery 2.0.3'.
+Adding 'jQuery 2.0.3' to WebApplication18.
+Successfully added 'jQuery 2.0.3' to WebApplication18.
+```
 
 Önbellek geri dönüş özelliği belirli bir komut bağımsız değişkeni gerektirmez. Ayrıca, şu anda önbellek geri dönüşü yalnızca Paket Yöneticisi konsolunda çalışır; bu davranış Şu anda Paket Yöneticisi iletişim kutusunda çalışmıyor.
 

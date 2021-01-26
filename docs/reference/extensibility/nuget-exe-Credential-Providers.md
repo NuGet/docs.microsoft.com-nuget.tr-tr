@@ -1,16 +1,16 @@
 ---
 title: nuget.exe kimlik bilgileri sağlayıcıları
 description: nuget.exe kimlik bilgileri sağlayıcıları bir akışa göre kimlik doğrulaması yapabilir ve belirli kuralları izleyen komut satırı yürütülebilir dosyaları olarak uygulanır.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 12/12/2017
 ms.topic: conceptual
-ms.openlocfilehash: 41e3e63138351bafd5e3a56080268faef10d85a3
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 285504508fa88c96f5c7a23f15ef14d81ebc21e1
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93238120"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777774"
 ---
 # <a name="authenticating-feeds-with-nugetexe-credential-providers"></a>nuget.exe kimlik bilgileri sağlayıcılarıyla akışların kimliğini doğrulama
 
@@ -22,11 +22,11 @@ Tüm kimlik doğrulama yaklaşımları hakkında daha fazla bilgi için bkz. [ki
 
 nuget.exe kimlik bilgileri sağlayıcıları 3 şekilde kullanılabilir:
 
-- **Küresel** : bir kimlik bilgisi sağlayıcısını geçerli kullanıcının profilinde çalıştırılacak tüm örnekleri için kullanılabilir hale getirmek için `nuget.exe` , ' ye ekleyin `%LocalAppData%\NuGet\CredentialProviders` . Klasörünü oluşturmanız gerekebilir `CredentialProviders` . Kimlik bilgisi sağlayıcıları `CredentialProviders`  klasörün köküne veya bir alt klasöre yüklenebilir. Bir kimlik bilgisi sağlayıcısında birden çok dosya/derleme varsa, sağlayıcıları düzenli tutmak için alt klasörleri kullanabilirsiniz.
+- **Küresel**: bir kimlik bilgisi sağlayıcısını geçerli kullanıcının profilinde çalıştırılacak tüm örnekleri için kullanılabilir hale getirmek için `nuget.exe` , ' ye ekleyin `%LocalAppData%\NuGet\CredentialProviders` . Klasörünü oluşturmanız gerekebilir `CredentialProviders` . Kimlik bilgisi sağlayıcıları `CredentialProviders`  klasörün köküne veya bir alt klasöre yüklenebilir. Bir kimlik bilgisi sağlayıcısında birden çok dosya/derleme varsa, sağlayıcıları düzenli tutmak için alt klasörleri kullanabilirsiniz.
 
-- **Bir ortam değişkeninden** : kimlik bilgileri sağlayıcıları `nuget.exe` , `%NUGET_CREDENTIALPROVIDERS_PATH%` ortam değişkeni sağlayıcı konumuna ayarlanarak her yerde depolanabilir ve erişilebilir hale getirilebilir. Bu değişken, birden fazla konumunuz varsa, noktalı virgülle ayrılmış bir liste olabilir (örneğin, `path1;path2` ).
+- **Bir ortam değişkeninden**: kimlik bilgileri sağlayıcıları `nuget.exe` , `%NUGET_CREDENTIALPROVIDERS_PATH%` ortam değişkeni sağlayıcı konumuna ayarlanarak her yerde depolanabilir ve erişilebilir hale getirilebilir. Bu değişken, birden fazla konumunuz varsa, noktalı virgülle ayrılmış bir liste olabilir (örneğin, `path1;path2` ).
 
-- **nuget.exe** : nuget.exe kimlik bilgileri sağlayıcıları ile aynı klasöre yerleştirilebilir `nuget.exe` .
+- **nuget.exe**: nuget.exe kimlik bilgileri sağlayıcıları ile aynı klasöre yerleştirilebilir `nuget.exe` .
 
 Kimlik bilgileri sağlayıcıları yüklenirken, `nuget.exe` Yukarıdaki konumları sırasıyla, adlı herhangi bir dosya için arar `credentialprovider*.exe` ve ardından bu dosyaları bulundukları sırada yükler. Aynı klasörde birden çok kimlik bilgisi sağlayıcısı varsa, bunlar alfabetik sırayla yüklenir.
 
@@ -70,9 +70,11 @@ Sağlayıcı aşağıdakileri yapması gerekir:
 
 Örnek stdout:
 
-    { "Username" : "freddy@example.com",
-      "Password" : "bwm3bcx6txhprzmxhl2x63mdsul6grctazoomtdb6kfbof7m3a3z",
-      "Message"  : "" }
+```
+{ "Username" : "freddy@example.com",
+    "Password" : "bwm3bcx6txhprzmxhl2x63mdsul6grctazoomtdb6kfbof7m3a3z",
+    "Message"  : "" }
+```
 
 ## <a name="troubleshooting-a-credential-provider"></a>Kimlik bilgisi sağlayıcısı sorunlarını giderme
 

@@ -1,16 +1,16 @@
 ---
-title: NuGet komut satırı arabirimi (CLı) başvurusu
+title: NuGet Command-Line arabirimi (CLı) başvurusu
 description: nuget.exe CLı için komut satırı başvuru dizini
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/23/2018
 ms.topic: reference
-ms.openlocfilehash: e9343f1fdddcf839322849925372587e685aef4a
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: a9a5fc4d3b1e0f19fa3ea249ca7759c8ebc2d12e
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623155"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777708"
 ---
 # <a name="nuget-cli-reference"></a>NuGet CLı başvurusu
 
@@ -47,20 +47,20 @@ Paket oluşturmaya, paket tüketimine ve/veya bir konağa paket yayımlamaya yö
 | [push](cli-reference/cli-ref-push.md) | Yayımlama | Tümü | Paket kaynağına bir paket yayımlar. |
 | [config](cli-reference/cli-ref-config.md) | Tümü | Tümü | NuGet yapılandırma değerlerini alır veya ayarlar. |
 | [help or ?](cli-reference/cli-ref-help.md) | Tümü | Tümü | Bir komut için yardım bilgilerini veya yardımı görüntüler. |
-| [locals](cli-reference/cli-ref-locals.md) | Tüketim | 3.3 + | *Genel paketler*, *http önbelleği*ve *geçici* klasörlerin konumlarını listeler ve bu klasörlerin içeriğini temizler. |
+| [locals](cli-reference/cli-ref-locals.md) | Tüketim | 3.3 + | *Genel paketler*, *http önbelleği* ve *geçici* klasörlerin konumlarını listeler ve bu klasörlerin içeriğini temizler. |
 | [restore](cli-reference/cli-ref-restore.md) | Tüketim | 2.7 + | Kullanımdaki paket yönetimi biçimi tarafından başvurulan tüm paketleri geri yükler. Mono üzerinde çalışırken, PackageReference biçimi kullanılarak paketlerin geri yüklenmesi desteklenmez. |
 | [setapikey](cli-reference/cli-ref-setapikey.md) | Yayımlama, tüketim | Tümü | Bu paket kaynağı erişim için bir anahtar gerektirdiğinde belirli bir paket kaynağı için bir API anahtarı kaydeder. |
 | [spec](cli-reference/cli-ref-spec.md) | Oluşturma | Tümü | Bir `.nuspec` Visual Studio projesinden dosya üretiyorsa belirteçleri kullanarak bir dosya oluşturur. |
 
 | İkincil komutlar | Uygulanabilir roller | NuGet sürümü | Açıklama |
 | --- | --- | --- | --- |
-| [add](cli-reference/cli-ref-add.md) | Yayımlama | 3.3 + | Hiyerarşik düzen kullanarak HTTP olmayan bir paket kaynağına bir paket ekler. HTTP kaynakları için *Push*kullanın. |
+| [add](cli-reference/cli-ref-add.md) | Yayımlama | 3.3 + | Hiyerarşik düzen kullanarak HTTP olmayan bir paket kaynağına bir paket ekler. HTTP kaynakları için *Push* kullanın. |
 | [delete](cli-reference/cli-ref-delete.md) | Yayımlama | Tümü | Paket kaynağından bir paketi kaldırır veya listesini kaldırır. |
 | [init](cli-reference/cli-ref-init.md) | Oluşturma | 3.3 + | Hiyerarşik düzen kullanarak bir klasörden paket kaynağına paket ekler. |
 | [install](cli-reference/cli-ref-install.md) | Tüketim | Tümü | Geçerli projeye bir paket kurar ancak projeleri veya başvuru dosyalarını değiştirmez. |
 | [list](cli-reference/cli-ref-list.md) | Tüketim, belki de yayımlanıyor | Tümü | Belirli bir kaynaktaki paketleri görüntüler. |
 | [mirror](cli-reference/cli-ref-mirror.md) | Yayımlama | 3.2 + ' da kullanım dışı | Bir paketi ve onun bağımlılıklarını bir kaynaktan hedef depoya yansıtır. |
-| [aramanız](cli-reference/cli-ref-search.md) | Tüketim | 5.8 + | Sağlanan sorgu dizesini kullanarak belirli bir kaynağı arar. |
+| [search](cli-reference/cli-ref-search.md) | Tüketim | 5.8 + | Sağlanan sorgu dizesini kullanarak belirli bir kaynağı arar. |
 | [sources](cli-reference/cli-ref-sources.md) | Tüketim, yayımlama | Tümü | Yapılandırma dosyalarındaki paket kaynaklarını yönetir. |
 | [update](cli-reference/cli-ref-update.md) | Tüketim | Tümü | Bir projenin paketlerini kullanılabilir en son sürümlere güncelleştirir. Mono üzerinde çalışırken desteklenmez. |
 

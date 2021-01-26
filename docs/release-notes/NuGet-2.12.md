@@ -1,28 +1,28 @@
 ---
 title: NuGet 2,12 sürüm notları
-description: NuGet bilinen sorunları, hata düzeltmeleri yapıldı, eklenen özellikler ve dcr 2.12 için sürüm notları.
-author: karann-msft
-ms.author: karann
+description: Bilinen sorunlar, hata düzeltmeleri, eklenen özellikler ve CCR 'ler dahil olmak üzere NuGet 2,12 sürüm notları.
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: bbdcff9c283e8f2e5799f5fdfb2272c70be484fd
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 76957601de56603cc657c12fdf927cdad781058d
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551820"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776822"
 ---
 # <a name="nuget-212-release-notes"></a>NuGet 2,12 sürüm notları
 
-NuGet 2.12 RTM 27 Haziran 2016'dan Visual Studio 2013 için yayımlanan
+NuGet 2,12 RTM, Visual Studio 2013 için 27 Haziran 2016 ' de yayımlanmıştır
 
-### <a name="updates-in-this-release"></a>Bu sürümdeki güncelleştirmelerin
+### <a name="updates-in-this-release"></a>Bu sürümdeki güncelleştirmeler
 
-* VS2013 için tam NetStandard ve NetCoreApp destekler.
-* Ekleme için içerme/dışlama `.nuspec` bağımlılık girdileri.
-* Proxy özel durumları belirtmek "no_proxy" için destek eklendi.
+* VS2013 için tam NetStandard ve NetCoreApp desteği.
+* Bağımlılık girişlerine dahil etme/hariç tutma ekleme `.nuspec` .
+* Proxy özel durumlarını belirtmek için "no_proxy" desteği ekleyin.
 * TFS ile ilgili düzeltmeler.
 
-Bu sürümdeki düzeltmeler listesini Github'da bulunabilir [2,12 Kilometre Taşı](https://github.com/NuGet/Home/issues?q=milestone%3A2.12+is%3Aclosed)
+Bu sürümdeki düzeltmelerin listesi [2,12 kilometre taşında](https://github.com/NuGet/Home/issues?q=milestone%3A2.12+is%3Aclosed) GitHub 'da bulunabilir
 
-İndirme araçları uzantısından -> Uzantılar ve güncelleştirmeler Visual Studio'da
+Visual Studio 'daki araçlar-> uzantılarından ve güncelleştirmelerden uzantıyı indirin

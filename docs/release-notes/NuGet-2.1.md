@@ -1,37 +1,41 @@
 ---
-title: NuGet 2.1 sürüm notları
-description: NuGet bilinen sorunları, hata düzeltmeleri, eklenen özellikler ve dcr dahil olmak üzere 2.1 için sürüm notları.
-author: karann-msft
-ms.author: karann
+title: NuGet 2,1 sürüm notları
+description: Bilinen sorunlar, hata düzeltmeleri, eklenen özellikler ve CCR 'ler dahil olmak üzere NuGet 2,1 sürüm notları.
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: fd6dadc7968991c77c1b06a6a261415355b2fd73
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: c44ad32c8c4018ccb517b41bffda674eef1f11f3
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548603"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777027"
 ---
-# <a name="nuget-21-release-notes"></a>NuGet 2.1 sürüm notları
+# <a name="nuget-21-release-notes"></a>NuGet 2,1 sürüm notları
 
-[NuGet 2.0 sürüm notları](../release-notes/nuget-2.0.md) | [NuGet 2.2 sürüm notları](../release-notes/nuget-2.2.md)
+[NuGet 2,0 sürüm notları](../release-notes/nuget-2.0.md)  |  [NuGet 2,2 sürüm notları](../release-notes/nuget-2.2.md)
 
-NuGet 2.1 4 Ekim 2012 tarihinde yayınlanmıştır.
+NuGet 2,1, 4 Ekim 2012 ' de yayımlanmıştır.
 
 ## <a name="hierarchical-nugetconfig"></a>Hiyerarşik Nuget.Config
 
-NuGet 2.1 özyinelemeli olarak aramak klasör yapısını walking yoluyla NuGet ayarları denetleme daha fazla esneklik sağlar `NuGet.Config` dosyaları ve ardından yapılandırma kümesinden tüm bulunan dosyalar oluşturma.  Örneğin, takım CI derlemeleri diğer iç bağımlılıklar için bir iç Paket Deposu olduğu senaryoyu düşünün. Her bir proje için klasör yapısı aşağıdaki gibi görünebilir:
+NuGet 2,1, `NuGet.Config` dosyaları bulmak ve sonra bulunan tüm dosyalar kümesinden yapılandırmayı oluşturmak için, NuGet ayarlarını Denetim konusunda daha fazla esneklik sağlar.  Örnek olarak, bir ekibin diğer iç bağımlılıkların CI derlemeleri için iç paket deposuna sahip olduğu senaryoyu göz önünde bulundurun. Tek bir projenin klasör yapısı aşağıdaki gibi görünebilir:
 
-    C:\
-    C:\myteam\
-    C:\myteam\solution1
-    C:\myteam\solution1\project1
+```
+C:\
+C:\myteam\
+C:\myteam\solution1
+C:\myteam\solution1\project1
+```
 
-Ayrıca, çözüm için paket geri yükleme etkinleştirilirse, aşağıdaki klasörü de vardır:
+Ayrıca, çözüm için paket geri yüklemesi etkinleştirilmişse, aşağıdaki klasör de mevcuttur:
 
-    C:\myteam\solution1\.nuget
+```
+C:\myteam\solution1\.nuget
+```
 
-Takımın iç paket deposu, her proje için kullanılabilir makinede yaparken değil, takımın çalıştığı tüm projeleri için kullanılabilir olması için size yeni bir Nuget.Config dosyası oluşturabilir ve c:\myteam klasörüne yerleştirin. Bir yolu yoktur çok specificy her proje bir paket klasörü.
+Takımın çalıştığı tüm projeler için ekibin iç paket deposunu kullanabilmesi için, bu dosyayı makinedeki her proje için kullanılabilir hale getirmekle, yeni bir Nuget.Config dosyası oluşturabilir ve c:\Team klasörüne yerleştirebilirsiniz. Her proje için bir paket klasörünü specificbir yol yoktur.
 
 ```xml
 <configuration>
@@ -45,23 +49,23 @@ Takımın iç paket deposu, her proje için kullanılabilir makinede yaparken de
 </configuration>
 ```
 
-Artık kaynak aşağıda gösterildiği gibi c:\myteam altındaki herhangi bir klasörde 'nuget.exe kaynakları' komutunu çalıştırarak eklendiğini görebiliriz:
+Şimdi, aşağıda gösterildiği gibi c:\myteam altındaki herhangi bir klasörden ' nuget.exe Sources ' komutunu çalıştırarak kaynağın eklendiğini görebiliriz:
 
-![Paket kaynaklarından üst nuget yapılandırma](./media/releasenotes-21-cfg-hierarchy.png)
+![Üst NuGet yapılandırmadan paket kaynakları](./media/releasenotes-21-cfg-hierarchy.png)
 
-`NuGet.Config` dosyaları aşağıdaki sırayla aranır:
+`NuGet.Config` dosyalar aşağıdaki sırayla aranır:
 
 1. `.nuget\Nuget.Config`
-2. Yinelemeli proje klasöründen kök yol
-3. Genel `Nuget.Config` (`%appdata%\NuGet\Nuget.Config`)
+2. Proje klasöründen köke özyinelemeli ilerleme
+3. Global `Nuget.Config` ( `%appdata%\NuGet\Nuget.Config` )
 
-Uygulanan daha yapılandırmalarıdır *ters sırada*, yukarıdaki sıralamaya bağlı anlamına gelir, genel Nuget.Config ilk uygulanan, bulunan Nuget.Config dosyalar kökünden proje klasörüne gelir, ardından tarafından `.nuget\Nuget.Config`.  Bu kullanıyorsanız özellikle önemlidir `<clear/>` öğenin bir dizi öğesini yapılandırma dosyasından kaldırın.
+Konfigürasyonlar *ters sırada* uygulanmasından, Yani yukarıdaki sıralamaya bağlı olarak, genel Nuget.Config önce uygulanır ve ardından kök 'ten proje klasörüne ve ardından tarafından oluşturulan Nuget.Config dosyalar gelmelidir `.nuget\Nuget.Config` .  Bu, `<clear/>` bir öğe kümesini yapılandırmadan kaldırmak için öğesini kullanıyorsanız özellikle önemlidir.
 
-## <a name="specify-packages-folder-location"></a>'Paketleri' klasör konumunu belirtin
+## <a name="specify-packages-folder-location"></a>' Paketlerin ' klasör konumunu belirtin
 
-Geçmişte, NuGet bilinen 'paketleri' klasöründen çözüm kök klasörü altında bulunan bir çözümün paketleri yönettiği.  NuGet paketlerini, yüklü olan birçok farklı çözümü olan geliştirme ekipleri için bu dosya sisteminde pek çok farklı yerde yüklenen paketteki sonuçlanabilir.
+Geçmişte, NuGet çözüm kök klasörü altında bulunan bilinen bir ' Packages ' klasöründen bir çözümün paketlerini yönetilemiştir.  NuGet paketleri yüklü olan çok sayıda farklı çözümü olan geliştirme ekiplerinde, bu paket, dosya sistemindeki birçok farklı yere aynı paketin yüklenmesini sağlayabilir.
 
-NuGet 2.1 paketleri klasörünün konumu üzerinde daha ayrıntılı denetim sağlar `repositoryPath` öğesinde `NuGet.Config` dosya.  Hiyerarşik Nuget.Config destek önceki örneği üzerinde oluşturma, tüm projeleri aynı paketleri klasörü C:\myteam\ paylaşmak istediğimiz varsayılır.  Bunu yapmak için aşağıdaki girişe eklemeniz yeterlidir `c:\myteam\Nuget.Config`.
+NuGet 2,1, dosyadaki öğesi aracılığıyla Packages klasörünün konumu üzerinde daha ayrıntılı denetim sağlar `repositoryPath` `NuGet.Config` .  Önceki hiyerarşik Nuget.Config desteğinin örneğini oluşturmak, C:\team\ ' ın altındaki tüm projelerin aynı paketler klasörünü paylaşmasını istediğinizi varsayalım.  Bunu gerçekleştirmek için aşağıdaki girdiyi öğesine eklemeniz yeterlidir `c:\myteam\Nuget.Config` .
 
 ```xml
 <configuration>
@@ -72,75 +76,79 @@ NuGet 2.1 paketleri klasörünün konumu üzerinde daha ayrıntılı denetim sa�
 </configuration>
 ```
 
-Bu örnekte, paylaşılan `Nuget.Config` dosya C:\myteam derinliği bağımsız olarak oluşturulan her proje için bir paylaşılan paketleri klasörünü belirtir. Var olan bir paket klasörü altında çözüm kökünüzde varsa, NuGet paketlerini yeni konuma yerleştirir önce VM'yi silmektir gerektiğini unutmayın.
+Bu örnekte, paylaşılan dosya, `Nuget.Config` derinliğinden bağımsız olarak C:\myteam altında oluşturulan her proje için paylaşılan paketler klasörünü belirtir. Çözüm kökünün altında var olan bir paket klasörünüz varsa, NuGet paketleri yeni konuma yerleştirebilmeniz için bunu silmeniz gerektiğini unutmayın.
 
 ## <a name="support-for-portable-libraries"></a>Taşınabilir kitaplıklar için destek
 
-[Taşınabilir kitaplıklar](/dotnet/standard/cross-platform/cross-platform-development-with-the-portable-class-library) ilk .NET 4,.NET Framework Windows Phone ve Xbox bile Silverlight'a sürümlerinden farklı Microsoft platformda değişiklik olmadan çalışan derlemeler oluşturmanıza olanak sağlayan ile sunulan bir özelliktir 360 (şu anda NuGet Xbox taşınabilir kitaplık hedefi desteklemiyor rağmen).  Genişleterek [paketini kuralları](../create-packages/supporting-multiple-target-frameworks.md) framework sürümleri ve profilleri, NuGet 2.1 artık taşınabilir kitaplıklar bileşik çerçevesi ve hedef profil olan paketleri oluşturmanızı sağlayarak destekler `lib` klasörleri.
+[Taşınabilir kitaplıklar](/dotnet/standard/cross-platform/cross-platform-development-with-the-portable-class-library) , .NET 4 ' te ilk kez sunulan ve The.NET Framework sürümlerinden Silverlight 'e Windows Phone ve hatta Xbox 360 ' ye (Şu anda NuGet, Xbox taşınabilir kitaplık hedefini desteklemez) farklı Microsoft platformları üzerinde değişiklik yapılmaksızın çalışabilen derlemeler oluşturmanıza olanak tanıyan bir özelliktir.  NuGet 2,1, Framework sürümleri ve profilleri için [paket kurallarını](../create-packages/supporting-multiple-target-frameworks.md) genişleterek artık bileşik çerçeve ve profil hedef klasörlerine sahip paketler oluşturmanızı sağlayarak taşınabilir kitaplıkları desteklemektedir `lib` .
 
-Örneğin, aşağıdaki taşınabilir sınıf kitaplığının kullanılabilir hedef platformlar göz önünde bulundurun.
+Örnek olarak, aşağıdaki taşınabilir sınıf kitaplığının kullanılabilir hedef platformlarını göz önünde bulundurun.
 
 ![Taşınabilir kitaplık oluşturma iletişim kutusu](./media/releasenotes-21-plib.png)
 
-Kitaplığı oluşturulduktan sonra ve komut `nuget.exe pack MyPortableProject.csproj` çalıştırılır, yeni taşınabilir kitaplık paketi klasör yapısı oluşturulan NuGet paketinin içeriği incelenerek herkes tarafından görülebilir.
+Kitaplık oluşturulduktan ve komut `nuget.exe pack MyPortableProject.csproj` çalıştırıldıktan sonra, yeni taşınabilir kitaplık paketi klasör yapısı oluşturulan NuGet paketinin içeriği incelenerek görülebilir.
 
-![Taşınabilir kitaplık paketi düzeni](./media/releasenotes-21-plib-layout.png)
+![Taşınabilir Kitaplık paket düzeni](./media/releasenotes-21-plib-layout.png)
 
-Gördüğünüz gibi taşınabilir kitaplık klasörü adı kuralını 'taşınabilir-{framework 1} + {framework n}' deseni burada mevcut framework tanımlayıcıları izleyin izleyen [framework adı ve sürümü kuralları](../reference/target-frameworks.md). Bir özel durum adı ve sürümü kuralları için Windows Phone için kullanılan çerçeve tanımlayıcısı dizininde bulunur.  Bu ad, çerçeve adı 'wp' (wp7, wp71 veya wp8) kullanmanız gerekir. 'Silverlight-wp7' kullanarak, örneğin, bir hatayla sonuçlanır.
+Görebileceğiniz gibi, taşınabilir kitaplık klasörü adı kuralı, çerçeve tanımlayıcılarının mevcut [çerçeve adı ve sürüm kurallarını](../reference/target-frameworks.md)izlediği ' Portable-{Framework 1} + {Framework n} ' düzenine uyar. Windows Phone için kullanılan çerçeve tanımlayıcıda ad ve sürüm kuralları için bir özel durum bulundu.  Bu bilinen ad, ' wp ' çerçeve adını (WP7, wp71 veya WP8) kullanmalıdır. Örneğin, ' Silverlight-WP7 ' kullanılması bir hatayla sonuçlanır.
 
-Bu klasör yapısından oluşturulan paketi yüklerken, NuGet klasör adı belirtildiği gibi birden çok hedefe artık kendi çerçevesi ve profili kuralları uygulayabilirsiniz.  NuGet'ın eşleştirme kuralları "ayrıntılı" hedef "daha az özel" olanları öncelik kazanır ilkesidir.  Bu hem de bir proje ile uyumlu olmaları durumunda belirli bir platformu hedefleyen adlar her zaman taşınabilir olanları tercih edilen anlamına gelir.  Ayrıca, birden çok taşınabilir hedefi bir proje ile uyumlu ise NuGet desteklenen platformlar kümesi "Bu paketi projeye en yakın" olduğu bir tercih eder.
+Bu klasör yapısından oluşturulan paketi yüklerken, NuGet artık çerçeve ve profil kurallarını, klasör adında belirtildiği gibi birden çok hedefe uygulayabilir.  NuGet 'in eşleşen kurallarının arkasında "daha belirgin" hedeflerin "daha az spesifik" olarak öncelikli olduğu prensip.  Bu, belirli bir platformu hedefleyen bilinen adların, her ikisi de proje ile uyumluysa taşınabilir dosyalar üzerinde her zaman tercih edildiği anlamına gelir.  Ayrıca, birden çok taşınabilir hedef bir proje ile uyumluysa NuGet, desteklenen platform kümesinin pakete başvuran projeye "en yakın" olduğu bir tane tercih eder.
 
-## <a name="targeting-windows-8-and-windows-phone-8-projects"></a>Hedefleme Windows 8 ve Windows Phone 8 projeleri
+## <a name="targeting-windows-8-and-windows-phone-8-projects"></a>Windows 8 ve Windows Phone 8 projelerini hedefleme
 
-Taşınabilir kitaplık projelerine hedeflemek için destek eklemenin yanı sıra, NuGet 2.1 yeni framework bilinen adlar için hem Windows 8 Store hem de Windows Phone 8 projeleri yanı sıra, Windows Store ve olacak Windows Phone projeleri için bazı yeni genel adlar sağlar gelecekteki sürümleri ilgili platformlar arasında yönetmek daha kolay.
+NuGet 2,1, taşınabilir kitaplık projelerini hedeflemek için destek eklemenin yanı sıra hem Windows 8 Mağazası hem de Windows Phone 8 projeleri için yeni çerçeve adları ve Windows Mağazası için yeni genel adlar ve ilgili platformların gelecek sürümlerinde daha kolay Yönetilecek projeler için de Windows Phone.
 
-Windows 8 Store uygulamaları için tanımlayıcıları aşağıdaki gibi görünür:
+Windows 8 Mağaza uygulamaları için tanımlayıcılar şöyle görünür:
 
-| NuGet 2.0 ve daha önceki | NuGet 2.1 |
+| NuGet 2,0 ve öncesi | NuGet 2.1 |
 | ---------------- | ----------- |
-| winRT45. NETCore45 | Windows, Windows8, win, win8 |
+| winRT45, . NETCore45 | Windows, Windows8, Win, Win8 |
 
 <br/>
-Windows Phone projeleri için tanımlayıcıları aşağıdaki gibi görünür:
+Windows Phone projeleri için, tanımlayıcılar şöyle görünür:
 
-| Phone işletim sistemi | NuGet 2.0 ve daha önceki | NuGet 2.1 |
+| Telefon OS | NuGet 2,0 ve öncesi | NuGet 2.1 |
 | --- | --- | --- |
-| Windows Phone 7 | silverlight3 wp | WP, wp7, WindowsPhone, WindowsPhone7 |
-| Windows Phone 7.5 (Mango) | silverlight4 wp71 | wp71, WindowsPhone71 |
-| Windows Phone 8 | (desteklenmiyor) | wp8, WindowsPhone8 |
+| Windows Phone 7 | silverlight3-WP | WP, wp7, WindowsPhone, WindowsPhone7 |
+| Windows Phone 7,5 (Mango) | silverlight4-wp71 | wp71, WindowsPhone71 |
+| Windows Phone 8 | (desteklenmiyor) | WP8, WindowsPhone8 |
 
 <br/>
-Tüm yukarıdaki değişiklikleri eski framework adları NuGet 2.1 tarafından tam olarak desteklenmeye devam edecektir.  Bunlar gelecek sürümleri ilgili platformlar arasında daha kararlı olacaktır gibi ilerletme, yeni adları kullanılmalıdır. Yeni adlar olur *değil* olması 2.1 önce NuGet sürümlerinde desteklenir, ancak, bu nedenle buna göre planlayın geçiş yapmak ne zaman.
+Yukarıdaki değişikliklerin tümünde, eski Framework adları NuGet 2,1 tarafından tam olarak desteklenmeye devam edecektir.  İleri doğru, yeni adların ilgili platformların gelecekteki sürümlerinde daha kararlı olacağı için kullanılması gerekir. Yeni adlar 2,1 ' den önceki NuGet sürümlerinde *desteklenmeyecektir, bu nedenle* anahtarın ne zaman olacağını planlayın.
 
-## <a name="improved-search-in-package-manager-dialog"></a>Paket Yöneticisi iletişim kutusunda geliştirilmiş arama
+## <a name="improved-search-in-package-manager-dialog"></a>Paket Yöneticisi Iletişim kutusunda geliştirilmiş arama
 
-Son birkaç yineleme büyük ölçüde geliştirilmiş hız ve paket aramalarınızı ilgi NuGet galerisinde değişiklikleri tanıtılmıştır.  Ancak, bu geliştirmeler nuget.org Web sitesine sınırlıydı.  NuGet 2.1 geliştirilmiş arama deneyimi NuGet Paket Yöneticisi iletişim kutusu kullanılabilir hale getirir.  Örneğin, Windows Azure önbelleğe almayı Önizleme paketi bulmak istediğinizi düşünelim.  Bu paket için makul bir arama sorgusu, "Azure Cache" olabilir.  Paket Yöneticisi iletişim kutusu önceki sürümlerinde, istenen paket bile sonuçları'nın ilk sayfasında listelenir değil.  Ancak, NuGet 2.1 içinde istenen paket artık arama sonuçları en üstünde gösterilir.
+Son birkaç yinelemeden sonra, paket aramalarının hızını ve uygunluğunu büyük ölçüde artıran NuGet galerisine değişiklikler yapılmıştır.  Ancak, bu iyileştirmeler nuget.org Web sitesiyle sınırlandırılmıştır.  NuGet 2,1, NuGet Paket Yöneticisi iletişim kutusunda geliştirilmiş arama deneyimini kullanıma sunar.  Örnek olarak, Windows Azure önbelleğe alma önizleme paketini bulmak istediğinizi düşünün.  Bu paket için makul bir arama sorgusu "Azure önbelleği" olabilir.  Paket Yöneticisi iletişim kutusunun önceki sürümlerinde, istenen paket sonuçların ilk sayfasında da listelenmemelidir.  Ancak, NuGet 2,1 ' de, istenen paket artık arama sonuçlarının en üstünde görünür.
 
-![Paket Yöneticisi iletişim arama](./media/releasenotes-21-vsdlg-search.png)
+![Paket Yöneticisi iletişim kutusu arama](./media/releasenotes-21-vsdlg-search.png)
 
-## <a name="force-package-update"></a>Paket güncelleştirme zorla
+## <a name="force-package-update"></a>Paket güncelleştirmesine zorla
 
-NuGet 2.1 önce NuGet olmadığından değiştirildiği bir paketin güncelleştirilmesi atlarsınız yüksek sürüm numarası.  Bu, özellikle nerede takım Paket sürümü ile her yapı numarası artırmak için istemediğiniz derleme veya CI senaryoları durumunda belirli senaryoları uyuşmazlıkları kullanıma sunuldu.  Bir güncelleştirme bakılmaksızın zorlamak için istenen davranışı oluştu.  NuGet 2.1 'yeniden' bayrağına sahip'yöneliktir.  Örneğin, önceki NuGet sürümleri aşağıdaki daha yeni bir paket sürümü sahip bir paketi güncelleştirmeye çalışırken neden olur:
+NuGet 2,1 ' den önce, büyük bir sürüm numarası olmadığında NuGet bir paketin güncelleştirilmesini atlar.  Bu, özellikle ekibin her bir derleme ile paket sürüm numarasını artırmak istememediği belirli senaryolar için ortaya çıkan, özellikle de derleme veya CI senaryolarında tanıtılmıştır.  İstenen davranış, bir güncelleştirmeyi bağımsız olarak zorlamaktır.  NuGet 2,1 bunu ' REINSTALL ' bayrağıyla gidermektedir.  Örneğin, NuGet 'in önceki sürümleri, daha yeni bir paket sürümüne sahip olmayan bir paketi güncelleştirmeye çalışırken aşağıdakiler ile sonuçlanır:
 
-    PM> Update-Package Moq
-    No updates available for 'Moq' in project 'MySolution.MyConsole'.
+```
+PM> Update-Package Moq
+No updates available for 'Moq' in project 'MySolution.MyConsole'.
+```
 
-Yeniden bayrağıyla paket olup olmamasına bakılmaksızın güncelleştirilecek daha yeni bir sürümü.
+Yeniden yükleme bayrağıyla, daha yeni bir sürüm olup olmamasına bakılmaksızın paket güncelleştirilir.
 
-    PM> Update-Package Moq -Reinstall
-    Successfully removed 'Moq 4.0.10827' from MySolution.MyConsole.
-    Successfully uninstalled 'Moq 4.0.10827'.
-    Successfully installed 'Moq 4.0.10827'.
-    Successfully added 'Moq 4.0.10827' to MySolution.MyConsole.
+```
+PM> Update-Package Moq -Reinstall
+Successfully removed 'Moq 4.0.10827' from MySolution.MyConsole.
+Successfully uninstalled 'Moq 4.0.10827'.
+Successfully installed 'Moq 4.0.10827'.
+Successfully added 'Moq 4.0.10827' to MySolution.MyConsole.
+```
 
-Burada yeniden bayrağı yararlı kanıtlar başka bir senaryo framework yeniden hedefleme olmasıdır. Bir projeden (örneğin, .NET 4.5 için .NET 4), hedef Framework'ü değiştirilirken Update-Package-yeniden projede yüklü tüm NuGet paketlerinin doğru derlemelerine başvurular güncelleştirebilirsiniz.
+Yeniden yükleme bayrağının yararlı olduğu başka bir senaryo Framework 'ün yeniden hedeflemesine yarar. Projenin hedef çerçevesini değiştirirken (örneğin, .NET 4 ' ten .NET 4,5 ' e kadar), Update-Package yeniden yükleme, projede yüklü olan tüm NuGet paketleri için doğru derlemelere başvuruları güncelleştirebilir.
 
-## <a name="edit-package-sources-within-visual-studio"></a>Paket kaynaklarını Visual Studio'dan Düzenle
+## <a name="edit-package-sources-within-visual-studio"></a>Visual Studio 'Da paket kaynaklarını düzenleme
 
-NuGet önceki sürümlerinde, silme ve paket kaynağı yeniden ekleyerek gerekli Visual Studio Seçenekleri iletişim kutusu içinde bir paket kaynağından güncelleştiriliyor.  NuGet 2.1, bu iş akışı Yapılandırması kullanıcı arabirimi birinci sınıf bir işlev olarak güncelleştirme destekleyerek artırır.
+NuGet 'in önceki sürümlerinde, Visual Studio Seçenekler iletişim kutusunun içinden bir paket kaynağını güncelleştirme, paket kaynağını silme ve yeniden ekleme için gereklidir.  NuGet 2,1, güncelleştirmeyi yapılandırma Kullanıcı arabiriminin ilk sınıf işlevi olarak destekleyerek bu iş akışını geliştirir.
 
-![Paket Yöneticisi'ni yapılandırma iletişim kutusu](./media/releasenotes-21-edit-pkg-source.png)
+![Paket Yöneticisi yapılandırma iletişim kutusu](./media/releasenotes-21-edit-pkg-source.png)
 
 ## <a name="bug-fixes"></a>Hata Düzeltmeleri
 
-NuGet 2.1 birçok hata düzeltmeleri içerir. Tam bir listesi için iş öğeleri NuGet 2. 0'da, lütfen görünümü sabit [bu sürüm için NuGet sorun İzleyicisi](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Fixed&type=All&priority=All&release=NuGet%202.1&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0).
+NuGet 2,1 birçok hata düzeltmesi içerir. NuGet 2,0 ' de düzeltilen iş öğelerinin tam listesi için lütfen [Bu sürüm Için NuGet sorun İzleyicisi](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Fixed&type=All&priority=All&release=NuGet%202.1&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0)' ni görüntüleyin.

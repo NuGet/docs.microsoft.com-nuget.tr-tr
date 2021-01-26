@@ -1,20 +1,20 @@
 ---
 title: NuGet 1,5 sürüm notları
 description: Bilinen sorunlar, hata düzeltmeleri, eklenen özellikler ve CCR 'ler dahil olmak üzere NuGet 1,5 sürüm notları.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 940a19cdc485d611d03b52ee3102bc95a78a36bb
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: c9946f3d8cf545ec14f842c40105743c231b4b72
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75383355"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777091"
 ---
 # <a name="nuget-15-release-notes"></a>NuGet 1,5 sürüm notları
 
-[Nuget 1,4 sürüm notları](../release-notes/nuget-1.4.md) | [NuGet 1,6 sürüm notları](../release-notes/nuget-1.6.md)
+[NuGet 1,4 sürüm notları](../release-notes/nuget-1.4.md)  |  [NuGet 1,6 sürüm notları](../release-notes/nuget-1.6.md)
 
 NuGet 1,5, 30 Ağustos 2011 tarihinde yayınlanmıştır.
 
@@ -29,7 +29,7 @@ Bu özellik hakkında daha fazla bilgi için bu [blog gönderisini özelliğin g
 
 ### <a name="explicit-assembly-references"></a>Açık bütünleştirilmiş kod başvuruları
 
-Paket içindeki hangi derlemelerin başvurulduğunu açıkça belirtmek için kullanılan yeni bir `<references />` öğesi eklendi.
+`<references />`Paket içindeki hangi derlemelerin başvurulduğunu açıkça belirtmek için kullanılan yeni bir öğe eklendi.
 
 Örneğin, aşağıdakileri eklerseniz:
 
@@ -40,18 +40,18 @@ Paket içindeki hangi derlemelerin başvurulduğunu açıkça belirtmek için ku
 </references>
 ```
 
-Daha sonra, klasörde başka derlemeler olsa bile `lib` klasörünün uygun [Framework/profile alt](../reference/nuspec.md#explicit-assembly-references) klasöründen yalnızca `xunit.dll` ve `xunit.extensions.dll` başvurulur.
+Daha sonra, `xunit.dll` `xunit.extensions.dll` klasörde başka derlemeler olsa da, klasörün yalnızca ve ilgili [Framework/profile alt](../reference/nuspec.md#explicit-assembly-references) klasöründen başvuracaktır `lib` .
 
-Bu öğe atlanmışsa, her bir derleme için `lib` klasöründeki her derlemeye başvurmak üzere normal davranış uygulanır.
+Bu öğe atlanırsa, her bir derleme, klasördeki her derlemeye başvurmak için geçerlidir `lib` .
 
 __Bu özellik ne için kullanılır?__
 
-Bu özellik yalnızca tasarım zamanı derlemelerini destekler. Örneğin, kod sözleşmeleri kullanılırken, Visual Studio 'Nun bunları bulabilmesi için, anlaşma derlemelerinin, iyileştirdikleri çalışma zamanı derlemelerinin yanında olması gerekir, ancak sözleşme derlemelerinin proje tarafından gerçekten başvurulması ve `bin` klasörüne kopyalanmaması gerekir.
+Bu özellik yalnızca tasarım zamanı derlemelerini destekler. Örneğin, kod sözleşmeleri kullanılırken, Visual Studio 'Nun bunları bulabilmesi için anlaşma derlemelerinin, iyileştirdikleri çalışma zamanı derlemelerinin yanında olması gerekir, ancak sözleşme derlemelerinin proje tarafından gerçekten başvurulması ve klasöre kopyalanmaması gerekir `bin` .
 
 Benzer şekilde, özelliği, araç derlemelerinin çalışma zamanı derlemelerinin yanında konumlandırılabilir, ancak proje başvurularından hariç tutulması gereken XUnit gibi birim testi çerçeveleri için de kullanılabilir.
 
 ### <a name="added-ability-to-exclude-files-in-the-nuspec"></a>. Nuspec içindeki dosyaları dışarıda bırakma özelliği eklendi
-Bir `.nuspec` dosyasındaki `<file>` öğesi, bir joker karakter kullanarak belirli bir dosyayı veya dosya kümesini eklemek için kullanılabilir. Joker karakter kullanırken, eklenen dosyaların belirli bir alt kümesini dışlayamazsınız. Örneğin, belirli bir klasörde yer alan tüm metin dosyalarını istediğiniz gibi düşünün.
+`<file>`Bir dosya içindeki öğe, bir `.nuspec` joker karakter kullanarak belirli bir dosyayı veya bir dosya kümesini dahil etmek için kullanılabilir. Joker karakter kullanırken, eklenen dosyaların belirli bir alt kümesini dışlayamazsınız. Örneğin, belirli bir klasörde yer alan tüm metin dosyalarını istediğiniz gibi düşünün.
 
 ```xml
 <files>
@@ -82,9 +82,11 @@ Bağımlılıklar içeren bir paket kaldırılırken, NuGet istemleri, paket ile
 
 
 ### <a name="get-package-command-improvement"></a>`Get-Package` komut geliştirmesi
-`Get-Package` komutu artık `-ProjectName` parametresini destekliyor. Bu nedenle komut
+`Get-Package`Komut artık bir parametreyi destekliyor `-ProjectName` . Bu nedenle komut
 
-    Get-Package –ProjectName A
+```
+Get-Package –ProjectName A
+```
 
 , A projesinde yüklü olan tüm paketleri listeler.
 
@@ -107,10 +109,10 @@ NuGet paketleri artık sürüm notları desteğini içerir. Sürüm notları yal
 
 ![Güncelleştirmeler sekmesi içinde sürüm notları](./media/manage-nuget-packages-release-notes.png)
 
-Bir pakete sürüm notları eklemek için NuSpec dosyanızdaki yeni `<releaseNotes />` meta veri öğesini kullanın.
+Bir pakete sürüm notları eklemek için `<releaseNotes />` NuSpec dosyanızdaki yeni meta veri öğesini kullanın.
 
-### <a name="nuspec-ltfiles-gt-improvement"></a>. nuspec & ltfiles/&gt; iyileştirmesi
-`.nuspec` dosyası artık, NuGet. exe ' nin pakete herhangi bir dosya içermediği anlamına gelen boş `<files />` öğesine izin veriyor.
+### <a name="nuspec-ltfiles-gt-improvement"></a>. nuspec &ltdosyaları/ &gt; geliştirmesi
+`.nuspec`Dosya artık boş öğeye izin veriyor `<files />` . bu, nuget.exe pakete hiçbir dosya dahil olmadığını söyler.
 
 ## <a name="bug-fixes"></a>Hata Düzeltmeleri
 NuGet 1,5, Toplam 107 iş öğesine sahipti. 103 tanesi hata olarak işaretlendi.
@@ -119,6 +121,6 @@ NuGet 1,5 ' de düzeltilen iş öğelerinin tam listesi için lütfen [Bu sürü
 
 ## <a name="bug-fixes-worth-noting"></a>Hata düzeltmeleri dikkat edilecek değer:
 
-* [Sorun 1273](http://nuget.codeplex.com/workitem/1273): paketleri alfabetik olarak sıralayarak ve fazladan boşluk kaldırarak daha fazla sürüm denetimi `packages.config` yapıldı.
-* [Sorun 844](http://nuget.codeplex.com/workitem/844): sürüm numaraları, `Install-Package 1.0` sürüm `1.0.0`bir pakette çalışacak şekilde normalleştirilmektedir.
-* [Sorun 1060](http://nuget.codeplex.com/workitem/1060): NuGet. exe kullanarak bir paket oluştururken `-Version` bayrağı `<version />` öğesini geçersiz kılar.
+* [Sorun 1273](http://nuget.codeplex.com/workitem/1273): `packages.config` paketler alfabetik olarak sıralandığında ve fazladan boşluk kaldırılarak daha fazla sürüm denetimi yapılıyor.
+* [Sorun 844](http://nuget.codeplex.com/workitem/844): sürüm numaraları artık `Install-Package 1.0` , sürümüne sahip bir pakette çalışacak şekilde normalleştirilmektedir `1.0.0` .
+* [Sorun 1060](http://nuget.codeplex.com/workitem/1060): nuget.exe kullanarak bir paket oluştururken, `-Version` bayrak öğeyi geçersiz kılar `<version />` .
