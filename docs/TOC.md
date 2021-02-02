@@ -35,9 +35,10 @@
 ## [Paket oluşturma (dotnet CLI)](create-packages/creating-a-package-dotnet-cli.md)
 ## [Paket oluşturma (nuget.exe CLI)](create-packages/creating-a-package.md)
 ## [Paket oluşturma (MSBuild)](create-packages/creating-a-package-msbuild.md)
-## [Proje dosyanızda birden çok hedef çerçeveyi destekleme](create-packages/multiple-target-frameworks-project-file.md)
+## [Paket yazma en iyi uygulamaları](create-packages/Package-authoring-best-practices.md)
 ## [Yayın öncesi paketi oluşturma](create-packages/prerelease-packages.md)
 ## [Sembol paketi oluşturma](create-packages/symbol-packages-snupkg.md)
+## [Proje dosyanızda birden çok hedef çerçeveyi destekleme](create-packages/multiple-target-frameworks-project-file.md)
 ## Gelişmiş görevler
 ### [Birden çok hedef çerçeveyi destekleme](create-packages/supporting-multiple-target-frameworks.md)
 ### [Kaynak kodu ve yapılandırma dosyalarını değiştirme](create-packages/source-and-config-file-transformations.md)
