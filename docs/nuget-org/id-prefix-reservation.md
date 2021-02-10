@@ -6,12 +6,12 @@ ms.author: jodou
 ms.date: 09/07/2019
 ms.topic: reference
 ms.reviewer: karann
-ms.openlocfilehash: af9969df33c6bf7a62709e6e3535b8b886376e3e
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 428fd3d7b324f6eb825b17e4a87a662fbd84a2f0
+ms.sourcegitcommit: af059dc776cfdcbad20baab2919b5d6dc1e9022d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775922"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99990103"
 ---
 # <a name="package-id-prefix-reservation"></a>Paketleme kimlik ön eki ayırma
 
@@ -73,23 +73,25 @@ Uygulama gönderildikten sonra, kabul veya reddetme (reddetme hatasına neden ol
 
 ### <a name="id-prefix-reservation-criteria"></a>KIMLIK ön eki ayırma ölçütleri
 
-KIMLIK ön eki ayırma için herhangi bir uygulamayı gözden geçirirken, [NuGet.org](https://www.nuget.org/) ekibi uygulamayı aşağıdaki ölçütlere göre değerlendirir. Bir önekin ayrılması için tüm ölçütlerin sağlanması gerekmez, ancak karşılanmakta olan ölçütlere ilişkin önemli bir kanıt yoksa uygulama reddedilebilir (bir açıklama verilir):
+KIMLIK ön eki ayırma için herhangi bir uygulamayı gözden geçirirken, [NuGet.org](https://www.nuget.org) ekibi uygulamayı aşağıdaki ölçütlere göre değerlendirir. Bir önekin ayrılması için tüm ölçütlerin karşılanmadığından emin olun, ancak karşılanmakta olan ölçütlere ilişkin önemli bir kanıt yoksa uygulama reddedilebilir (bir açıklama verilir):
 
-1. Paket KIMLIĞI ön eki doğru bir şekilde ve paket sahibini açıkça tanımlıyor mu?
+1. Paket KIMLIĞI öneki doğru şekilde, ayırma sahibini açıkça belirler mi?
 
-1. Paket sahibi [NuGet.org hesabı için 2FA etkin](individual-accounts.md#enable-two-factor-authentication-2fa)mi?
-
-1. Paket KIMLIĞI ön eki altında sahip tarafından zaten gönderilen paketlerin önemli bir sayısı mı?
+1. [NuGet.org hesabı için sahip 2FA etkin](individual-accounts.md#enable-two-factor-authentication-2fa)mi?
 
 1. Paket KIMLIĞI ön eki, tek bir sahibe veya kuruluşa ait olmaması gereken ortak bir şeydir mi?
 
-1. Paket  kimliği ön eki, topluluk için belirsizlik ve karışıklık neden oluyordu?
+1. Paket  kimliği ön eki, toplulukla belirsizliğe, karışıklığına veya başka bir soruna neden olabilir mi?
+
+Paket, KIMLIK ön eki rezervasyonunuzun içinde NuGet.org için yayımlandığında aşağıdaki en iyi yöntemler göz önünde bulundurulmalıdır:
 
 1. Paket KIMLIĞI öneki ile eşleşen paketlerin tanımlayıcı özellikleri açık ve tutarlı (özellikle paket yazarı)?
 
 1. Paketlerde bir lisans var ( [Lisans](../reference/nuspec.md#license) meta verileri öğesi kullanılıyor ve kullanımdan kaldırılmakta olan LICENSEURL 'si değil)?
 
-1. Paketlerde bir simge varsa (Iurl meta veri öğesi kullanılarak), aynı zamanda [Icon](../reference/nuspec.md#icon) meta veri öğesini de kullanıyor (Iurl 'yi kaldırma gereksinimi değildir)?
+1. Paketler bir simge (Iurl meta veri öğesi kullanılarak) içeriyorsa, [simge](../reference/nuspec.md#icon) meta veri öğesini de kullanıyor mu? Iurl 'Yi kaldırma gereksinimi yoktur, ancak katıştırılmış simgelerin kullanılması gerekir.
+ 
+Yukarıdaki noktalara ek olarak tüm [paket yazma en iyi yöntemler kılavuzunu](../create-packages/package-authoring-best-practices.md) gözden geçirmeyi düşünün.
 
 ## <a name="third-party-feed-provider-scenarios"></a>Üçüncü taraf akış sağlayıcısı senaryoları
 

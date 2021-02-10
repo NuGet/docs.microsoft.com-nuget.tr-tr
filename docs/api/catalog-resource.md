@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/30/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 11485f583d6993919f6bb8acabcc87d9e4261975
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 6c04453fec9beb7b0998953384ec60694e1213c1
+ms.sourcegitcommit: af059dc776cfdcbad20baab2919b5d6dc1e9022d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98774156"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99990142"
 ---
 # <a name="catalog"></a>Katalog
 
@@ -220,6 +220,7 @@ requireLicenseAgreement | boolean                    | hayır       | `false`Dı
 etiketler                    | dize dizisi           | hayır       |
 başlık                   | string                     | hayır       |
 verbatimVersion         | string                     | hayır       | Özgün sürüm dizesi. nuspec içinde bulunur
+'teki         | nesne dizisi           | hayır       | Paketin güvenlik açıkları
 
 Package `version` özelliği, normalleştirmenin ardından tam sürüm dizesidir. Bu, SemVer 2.0.0 derleme verilerinin buraya dahil edileceğini gösterir.
 
@@ -238,6 +239,17 @@ sürüm    | string  | hayır       | Paket türünün sürümü. Yalnızca yaza
 
 > [!Note]
 > Nuget.org 'de, `published` paket listelenmemiş olduğunda değer 1900 yılına ayarlanır.
+
+#### <a name="vulnerabilities"></a>Güvenlik Açıkları
+
+`vulnerability`Nesne dizisi. Her güvenlik açığı aşağıdaki özelliklere sahiptir:
+
+Ad         | Tür   | Gerekli | Notlar
+------------ | ------ | -------- | -----
+Danışmanorrivurl 'Si  | string | evet      | Paketin Güvenlik Danışma belgesi konumu
+önem derecesi     | string | evet      | Danışmanlık önem derecesi: "0" = düşük, "1" = Orta, "2" = yüksek, "3" = kritik
+
+`severity`Özellik burada listelenenlerden farklı değerler içeriyorsa, danışmanlık 'nın önem derecesi düşük olarak değerlendirilir.
 
 #### <a name="sample-request"></a>Örnek istek
 

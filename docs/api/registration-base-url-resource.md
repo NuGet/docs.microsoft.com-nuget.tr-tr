@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 403686de42bf4dc1fa94b9dd92ca6d33f3be2183
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 8d1ab4d1f3d75d93c30d94958fd9d1abf0742730
+ms.sourcegitcommit: af059dc776cfdcbad20baab2919b5d6dc1e9022d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775292"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99990118"
 ---
 # <a name="package-metadata"></a>Paket meta verileri
 
@@ -155,6 +155,7 @@ Requirelicensekabulünü | boolean                    | hayır       |
 etiketler                     | dize veya dize dizisi  | hayır       | 
 başlık                    | string                     | hayır       | 
 sürüm                  | string                     | evet      | Normalleştirme sonrasında tam sürüm dizesi
+'teki          | nesne dizisi           | hayır       | Paketin güvenlik açıkları
 
 Package `version` özelliği, normalleştirmenin ardından tam sürüm dizesidir. Bu, SemVer 2.0.0 derleme verilerinin buraya dahil edileceğini gösterir.
 
@@ -202,7 +203,7 @@ alternatePackage | object           | hayır       | Bunun yerine kullanılması
 
 `reasons`Özelliğin en az bir dize içermesi ve yalnızca aşağıdaki tablodaki dizeleri içermesi gerekir:
 
-Nedeni       | Açıklama             
+Nedeni       | Description             
 ------------ | -----------
 Eski       | Paket artık korunmaz
 Kritikhatalar | Pakette kullanım için uygun olmayan hatalar vardır
@@ -218,6 +219,15 @@ Ad         | Tür   | Gerekli | Notlar
 ------------ | ------ | -------- | -----
 kimlik           | string | evet      | Alternatif paketin KIMLIĞI
 aralık        | object | hayır       | İzin verilen [Sürüm aralığı](../concepts/package-versioning.md#version-ranges)veya `*` herhangi bir sürüme izin veriliyorsa
+
+#### <a name="vulnerabilities"></a>Güvenlik Açıkları
+
+`vulnerability`Nesne dizisi. Her güvenlik açığı aşağıdaki özelliklere sahiptir:
+
+Ad         | Tür   | Gerekli | Notlar
+------------ | ------ | -------- | -----
+Danışmanorrivurl 'Si  | string | evet      | Paketin Güvenlik Danışma belgesi konumu
+önem derecesi     | string | evet      | Danışmanlık önem derecesi: "0" = düşük, "1" = Orta, "2" = yüksek, "3" = kritik
 
 ### <a name="sample-request"></a>Örnek istek
 
