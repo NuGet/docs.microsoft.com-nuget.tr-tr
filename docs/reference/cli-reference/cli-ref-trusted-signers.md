@@ -6,12 +6,12 @@ ms.author: patbel
 ms.date: 11/12/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: 9e25f439617a76d30880bea3c10a5d063e681a41
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 4b6a1c3b6eb0fefd9a78c78233f974eb0db19e93
+ms.sourcegitcommit: aeb9072f2fcaca73dc9de05b7fd643f1aa7c5821
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93238159"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101101374"
 ---
 # <a name="trusted-signers-command-nuget-cli"></a>Güvenilen imzalayanlar komutu (NuGet CLı)
 
@@ -90,7 +90,7 @@ Burada `<package(s)>` bir veya daha fazla `.nupkg` Dosya bulunur.
 nuget trusted-signers add -Name <name> [options]
 ```
 
-_Note_ : Bu seçenek yalnızca güvenilen depolar ekler. 
+_Note_: Bu seçenek yalnızca güvenilen depolar ekler. 
 
 - **`-AllowUntrustedRoot`**
 
@@ -110,7 +110,7 @@ _Note_ : Bu seçenek yalnızca güvenilen depolar ekler.
 nuget trusted-signers add -Name <name> [options]
 ```
 
-_Note_ : verilen ada sahip bir güvenilir imzalayan zaten varsa, sertifika öğesi bu İmzalayanın birlikte eklenir. Aksi halde, belirtilen sertifika bilgileri 'nden bir sertifika öğesiyle güvenilir bir yazar oluşturulacaktır.
+_Note_: verilen ada sahip bir güvenilir imzalayan zaten varsa, sertifika öğesi bu İmzalayanın birlikte eklenir. Aksi halde, belirtilen sertifika bilgileri 'nden bir sertifika öğesiyle güvenilir bir yazar oluşturulacaktır.
 
 
 - **`-AllowUntrustedRoot`**
@@ -133,7 +133,7 @@ Verilen adla eşleşen tüm güvenilen İmzalayanları kaldırır.
 
 Güvenilen İmzalayanın mevcut sertifika listesini güncelleştirmek için şu anda güvenilir bir depoda kullanılan sertifikaların en son listesini ister.
 
-_Note_ : Bu hareket, geçerli sertifika listesini silecek ve bunları depodan güncel bir listeyle değiştirecek.
+_Note_: Bu hareket, geçerli sertifika listesini silecek ve bunları depodan güncel bir listeyle değiştirecek.
 
 ## <a name="options"></a>Seçenekler
 
@@ -175,7 +175,7 @@ nuget trusted-signers Add -Name author1 -CertificateFingerprint CE40881FF5F0AD3E
 
 nuget trusted-signers Add -Repository .\..\MyRepositorySignedPackage.nupkg -Name TrustedRepo
 
-nuget-trusted-signers Remove -Name TrustedRepo
+nuget trusted-signers Remove -Name TrustedRepo
 
-nuget-trusted-signers Sync -Name TrustedRepo
+nuget trusted-signers Sync -Name TrustedRepo
 ```
