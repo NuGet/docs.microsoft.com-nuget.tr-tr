@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 05/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8161f4a39d4adfdb9efb25bcb840b20b85a58e07
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: fabfd76a46a38ff26acbc6439406d99eb3f85bf4
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98774777"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859167"
 ---
 # <a name="migrate-from-packagesconfig-to-packagereference"></a>packages.config ' den PackageReference 'a geçir
 
@@ -100,31 +100,27 @@ packages.config desteklenen bazı yönleri PackageReference içinde desteklenmez
 
 ### <a name="installps1-scripts-are-ignored-when-the-package-is-installed-after-the-migration"></a>"install.ps1" betikleri, paket geçişten sonra yüklendiğinde yok sayılır
 
-| | |
-| --- | --- |
-| **Açıklama** | PackageReference ile, bir paket yüklenirken veya kaldırılırken install.ps1 ve uninstall.ps1 PowerShell betikleri yürütülmez. |
-| **Olası etki** | Hedef projede bazı davranışları yapılandırmak için bu betiklerin bağımlı olduğu paketler beklendiği gibi çalışmayabilir. |
+* **Açıklama**: bir paket yüklenirken veya kaldırılırken, packagereference, install.ps1 ve uninstall.ps1 PowerShell betikleri yürütülmez.
+
+* **Olası etki**: hedef projede bazı davranışları yapılandırmak için bu betiklerin bağlı olduğu paketler beklendiği gibi çalışmayabilir.
 
 ### <a name="content-assets-are-not-available-when-the-package-is-installed-after-the-migration"></a>geçişten sonra paket yüklendiğinde "içerik" varlıkları kullanılamaz
 
-| | |
-| --- | --- |
-| **Açıklama** | Bir paket `content` klasöründeki varlıklar, PackageReference ile desteklenmez ve yok sayılır. PackageReference `contentFiles` , daha iyi geçişli desteğe ve paylaşılan içeriğe sahip olmak için için destek ekler.  |
-| **Olası etki** | İçindeki varlıklar `content` projeye kopyalanmaz ve bu varlıkların varlığına bağlı olarak proje kodu yeniden düzenleme gerektirir.  |
+* **Açıklama**: bir paket klasörünün içindeki varlıklar `content` , packagereference ile desteklenmez ve yok sayılır. PackageReference `contentFiles` , daha iyi geçişli desteğe ve paylaşılan içeriğe sahip olmak için için destek ekler.
+
+* **Olası etki**: içindeki varlıklar `content` projeye kopyalanmaz ve bu varlıkların varlığına bağlı olarak proje kodu yeniden düzenleme gerektirir.
 
 ### <a name="xdt-transforms-are-not-applied-when-the-package-is-installed-after-the-upgrade"></a>Yükseltmeden sonra paket yüklendiğinde XDT dönüştürmeleri uygulanmaz
 
-| | |
-| --- | --- |
-| **Açıklama** | XDT dönüştürmeleri, PackageReference ile desteklenmez ve `.xdt` bir paket yüklenirken veya kaldırılırken dosyalar yok sayılır.   |
-| **Olası etki** | XDT dönüştürmeleri, en yaygın olarak ve olan herhangi bir proje XML dosyasına uygulanmaz `web.config.install.xdt` ; `web.config.uninstall.xdt` Bu, ` web.config` paket yüklenirken veya kaldırıldığında projenin dosyasının güncelleştirilmediği anlamına gelir. |
+* **Açıklama**: xdt dönüştürmeleri, packagereference ile desteklenmez ve `.xdt` bir paket yüklenirken veya kaldırılırken dosyalar yok sayılır.
+
+* **Olası etki**: xdt dönüştürmeleri, en yaygın olarak ve BIR proje XML dosyasına uygulanmaz; `web.config.install.xdt` Bu, `web.config.uninstall.xdt` ` web.config` paket yüklenirken veya kaldırıldığında projenin dosyasının güncelleştirilmediği anlamına gelir.
 
 ### <a name="assemblies-in-the-lib-root-are-ignored-when-the-package-is-installed-after-the-migration"></a>Geçişten sonra paket yüklendiğinde LIB kökündeki derlemeler yok sayılır
 
-| | |
-| --- | --- |
-| **Açıklama** | PackageReference ile, `lib` hedef çerçeveye özgü alt klasör olmadan klasörün kökünde bulunan derlemeler yok sayılır. NuGet, projenin hedef çerçevesine karşılık gelen hedef çerçeve bilinen adı (tfd) ile eşleşen bir alt klasör arar ve eşleşen derlemeleri projeye kurar. |
-| **Olası etki** | Projenin hedef çerçevesine karşılık gelen hedef çerçeve adı (tfd) ile eşleşen bir alt klasörü olan paketler, geçiş sırasında geçişten veya yüklemeden sonra beklendiği gibi davranmayabilir |
+* **Açıklama**: packagereference ile, `lib` hedef çerçeveye özgü alt klasör olmadan klasörün kökünde bulunan derlemeler yok sayılır. NuGet, projenin hedef çerçevesine karşılık gelen hedef çerçeve bilinen adı (tfd) ile eşleşen bir alt klasör arar ve eşleşen derlemeleri projeye kurar.
+
+* **Olası etki**: Proje hedef çerçevesine karşılık gelen hedef çerçeve adı (tfd) ile eşleşen bir alt klasörü olmayan paketler, geçiş sırasında geçişten veya yüklemeden sonra beklendiği gibi davranmayabilir.
 
 ## <a name="found-an-issue-report-it"></a>Bir sorun bulundu mı? Rapor It!
 

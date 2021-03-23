@@ -6,12 +6,12 @@ ms.author: jodou
 ms.date: 03/23/2018
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 5ba7860fae1037c0c0eb4c55d2df12d98b1d77cf
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 77b96e83f8fc7afd391537d16120d037585dd379
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775121"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859206"
 ---
 # <a name="package-versioning"></a>Paket sürümü oluşturma
 
@@ -245,3 +245,13 @@ Yükleme, yeniden yükleme veya geri yükleme işlemleri sırasında bir depodan
 `pack` ve `restore` işlemler mümkün olduğunda sürümleri normalleştirin. Zaten oluşturulan paketler için, bu normalleştirme, paketlerdeki sürüm numaralarını etkilemez; Bağımlılıklar çözümlenirken yalnızca NuGet 'in sürümleri nasıl eşleştiğini etkiler.
 
 Ancak, NuGet paket depoları, paket sürümü çoğaltmasını engellemek için bu değerleri NuGet ile aynı şekilde ele almalıdır. Bu nedenle, bir paketin *1,0* sürümünü içeren bir depo ayrıca ayrı ve farklı bir paket olarak sürüm *1.0.0* barındırmamalıdır.
+
+## <a name="where-nugetversion-diverges-from-semantic-versioning"></a>Anlamsal sürüm oluşturma işleminden ayrılan durumlar
+
+NuGet Paket sürümlerini kullanmak program aracılığıyla istiyorsanız [NuGet. sürümlendirme paketini](https://www.nuget.org/packages/NuGet.Versioning)kullanmanız önemle önerilir. Statik yöntem, `NuGetVersion.Parse(string)` Sürüm dizelerini ayrıştırmak için kullanılabilir ve `VersionComparer` örnekleri sıralamak için kullanılabilir `NuGetVersion` .
+
+.NET üzerinde çalışmayan bir dilde NuGet işlevselliği uygularıyorsa, `NuGetVersion` ve anlam sürümü oluşturma arasındaki bilinen farklar listesi ve var olan bir anlamsal sürüm kitaplığının NuGet.org üzerinde zaten yayımlanmış olan paketler için çalışmamasının nedenleri aşağıda verilmiştir.
+
+1. `NuGetVersion` , ile uyumlu olmak için 4. sürüm segmentini `Revision` veya bir üst kümesini destekler [`System.Version`](/dotnet/api/system.version) . Bu nedenle, bir sürüm dizesi, yayın öncesi ve meta veri etiketleri hariç olur `Major.Minor.Patch.Revision` . Yukarıda açıklanan sürüm normalleştirme uyarınca, sıfır ise, `Revision` normalleştirilmiş sürüm dizesinden atlayın.
+2. `NuGetVersion` yalnızca birincil segmentin tanımlanmasını gerektirir. Tüm diğerleri isteğe bağlıdır ve sıfıra eşdeğerdir. Bu,, `1` , `1.0` `1.0.0` ve `1.0.0.0` tümünün kabul edildiği ve eşit olduğu anlamına gelir.
+3. `NuGetVersion` yayın öncesi bileşenler için büyük/küçük harf temelli dize karşılaştırmaları kullanır. Bu, `1.0.0-alpha` ve eşittir anlamına gelir `1.0.0-Alpha` .

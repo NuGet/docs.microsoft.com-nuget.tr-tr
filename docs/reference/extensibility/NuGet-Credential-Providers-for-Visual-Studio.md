@@ -5,19 +5,19 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: f324f1e27e0d718571525152fcf16b55b900dbaa
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: ab3bde0d320375f854a8f0a98fb90acfecf54aa3
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98777753"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859102"
 ---
 # <a name="authenticating-feeds-in-visual-studio-with-nuget-credential-providers"></a>NuGet kimlik bilgisi sağlayıcılarıyla Visual Studio 'da akışlara kimlik doğrulama
 
 NuGet Visual Studio Uzantısı 3.6 + kimlik bilgisi sağlayıcılarını destekler, bu da NuGet 'nin kimliği doğrulanmış akışlarla çalışmasını sağlar.
 Visual Studio için bir NuGet kimlik bilgisi sağlayıcısı yükledikten sonra, NuGet Visual Studio uzantısı gerektiğinde kimliği doğrulanmış akışlar için kimlik bilgilerini otomatik olarak elde eder ve yeniler.
 
-Örnek bir uygulama [VsCredentialProvider örneğinde](https://github.com/NuGet/Samples/tree/master/VsCredentialProvider)bulunabilir.
+Örnek bir uygulama [VsCredentialProvider örneğinde](https://github.com/NuGet/Samples/tree/main/VsCredentialProvider)bulunabilir.
 
 NuGet, Visual Studio içinde `VsCredentialProviderImporter` eklenti kimlik bilgisi sağlayıcılarını da tarayan bir dahili kullanır. Bu eklenti kimlik bilgisi sağlayıcılarının türü MEF dışarı aktarma olarak bulunabilir olması gerekir `IVsCredentialProvider` .
 
@@ -58,7 +58,7 @@ public interface IVsCredentialProvider
 }
 ```
 
-Örnek bir uygulama [VsCredentialProvider örneğinde](https://github.com/NuGet/Samples/tree/master/VsCredentialProvider)bulunabilir.
+Örnek bir uygulama [VsCredentialProvider örneğinde](https://github.com/NuGet/Samples/tree/main/VsCredentialProvider)bulunabilir.
 
 Visual Studio için her NuGet kimlik bilgisi sağlayıcısı şunları vermelidir:
 
@@ -78,4 +78,4 @@ Visual Studio için özel bir NuGet kimlik bilgisi sağlayıcısı, `IVsCredenti
 | bool etkileşimsiz | True ise, kimlik bilgisi sağlayıcısı tüm Kullanıcı istemlerini bastırmalıdır ve bunun yerine varsayılan değerleri kullanır. |
 | CancellationToken cancellationToken | Kimlik bilgilerini isteme işleminin iptal edilip edilmediğine yönelik bu iptal belirtecinin denetlenmesi gerekir. |
 
-**Dönüş değeri**: [ `System.Net.ICredentials` arabirimi](/dotnet/api/system.net.icredentials?view=netstandard-2.0)uygulayan bir kimlik bilgileri nesnesi.
+**Dönüş değeri**: [ `System.Net.ICredentials` arabirimi](/dotnet/api/system.net.icredentials)uygulayan bir kimlik bilgileri nesnesi.

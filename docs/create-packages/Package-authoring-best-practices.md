@@ -5,12 +5,12 @@ author: chgill-MSFT
 ms.author: chgill
 ms.date: 09/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 35eb000bddaa58726857cd3c1fd2362917f83196
-ms.sourcegitcommit: c19d398cecee3cad2d79a8b22650fc1988d41a3f
+ms.openlocfilehash: 7475cf655876f2c127e79a16ccf67c0c723d164f
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99420868"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859076"
 ---
 # <a name="package-authoring-best-practices"></a>Paket yazma en iyi uygulamaları
 
@@ -20,7 +20,7 @@ Bu kılavuz, NuGet paket yazarlarına yüksek kaliteli paketler oluşturma ve ya
 
 Her makalede dört tür öneri sunulmaktadır: **Do**, **düþünün**, **önleyin** ve **Not**. Önerinin türü, ne kadar yakından izlenmeli olduğunu gösterir.
 
-Neredeyse her zaman bir **Do** önerisi izlemeniz gerekir. Örneğin:
+Neredeyse her zaman bir **Do** önerisi izlemeniz gerekir. Örnek:
 
 ✔️, paketinizin ne olduğunu açıklayan kısa bir açıklama içerir.
 
@@ -59,7 +59,7 @@ Paket meta verileri öğeleri [doğrudan proje dosyasında da belirtilebilir](ht
 Aşağıda, kullanılabilir paket meta verileri öğelerinin bir tablo eşlemesi ve açıklaması verilmiştir:
 
 | Visual Studio özellik adı                   | [Proje dosyası/MSBuild özellik adı](https://docs.microsoft.com/dotnet/core/tools/csproj#packagereleasenotes)                          | [Nuspec Özellik adı](https://docs.microsoft.com/nuget/reference/nuspec#general-form-and-schema) | Açıklama                                                                                                       |
-|-----------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
+|-----------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
 | [`Package id`](#package-id)                   | [`PackageId`](https://docs.microsoft.com/dotnet/core/tools/csproj#packageid)                                                            | [`id`](https://docs.microsoft.com/nuget/reference/nuspec#id)                                      | Paket adı veya tanımlayıcı.                    |
 | [`Package version`](#package-version)         | [`PackageVersion`](https://docs.microsoft.com/dotnet/core/tools/csproj#packageversion)                                                  | [`version`](https://docs.microsoft.com/nuget/reference/nuspec#version)                            | NuGet paket sürümü.                                           |
 | [`Authors`](#authors)                         | [`Authors`](https://docs.microsoft.com/dotnet/core/tools/csproj#authors)                                                                | [`authors`](https://docs.microsoft.com/nuget/reference/nuspec#authors)                            | Genellikle bireyin veya kuruluşun "asıl adı" olarak kullanılan, paket yazarları için virgülle ayrılmış bir liste.                             |
@@ -70,9 +70,9 @@ Aşağıda, kullanılabilir paket meta verileri öğelerinin bir tablo eşlemesi
 | [`Project URL`](#project-url)                 | `PackageProjectUrl`                                                                                                                     | [`projectUrl`](https://docs.microsoft.com/nuget/reference/nuspec#projecturl)                      | Proje giriş sayfası için bir URL.                                                                                   |
 | [`Icon File`](#icon)                          | [`PackageIcon`](https://docs.microsoft.com/nuget/reference/msbuild-targets#packing-an-icon-image-file)                                  | [`icon`](https://docs.microsoft.com/nuget/reference/nuspec#icon)                                  | Paket simgesi resim dosyasının yolu.                                                                      |
 | [`Repository URL`](#repository-type-and-url)  | [`RepositoryUrl`](https://docs.microsoft.com/dotnet/core/tools/csproj#repositoryurl)                                                    | [`repository url`](https://docs.microsoft.com/nuget/reference/nuspec#repository)               | Paketin oluşturulduğu deponun URL 'SI.                                                           |
-| [`Repository type`](#repository-type-and-url) | [`RespositoryType`](https://docs.microsoft.com/dotnet/core/tools/csproj#repositorytype)                                                 | [`repository type`](https://docs.microsoft.com/nuget/reference/nuspec#repository)              | Depo URL 'SI işaret eden deponun türü ("git").                                                   |
+| [`Repository type`](#repository-type-and-url) | [`RepositoryType`](https://docs.microsoft.com/dotnet/core/tools/csproj#repositorytype)                                                 | [`repository type`](https://docs.microsoft.com/nuget/reference/nuspec#repository)              | Depo URL 'SI işaret eden deponun türü ("git").                                                   |
 | [`Tags`](#tags)                               | [`PackageTags`](https://docs.microsoft.com/dotnet/core/tools/csproj#packagetags)                                                        | [`tags`](https://docs.microsoft.com/nuget/reference/nuspec#tags)                                  | Paketi tanımlayan etiketlerin ve anahtar sözcüklerin boşlukla ayrılmış bir listesi. Etiketler, paketler aranırken kullanılır. |
-| [`Release notes`](#release-notes)             | [`PackageReleaseNotes`](https://docs.microsoft.com/dotnet/core/tools/csproj#packagereleasenotes)                                          | [`releaseNotes`](https://docs.microsoft.com/nuget/reference/nuspec#releasenotes)                  | Paketin bu sürümünde yapılan değişikliklerin açıklaması.                                                 |  |
+| [`Release notes`](#release-notes)             | [`PackageReleaseNotes`](https://docs.microsoft.com/dotnet/core/tools/csproj#packagereleasenotes)                                          | [`releaseNotes`](https://docs.microsoft.com/nuget/reference/nuspec#releasenotes)                  | Paketin bu sürümünde yapılan değişikliklerin açıklaması.                                                 |
 
 ### <a name="package-id"></a>Paket Kimliği
 

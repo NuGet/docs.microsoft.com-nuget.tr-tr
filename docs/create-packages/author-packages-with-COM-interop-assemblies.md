@@ -5,16 +5,16 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: 0c663863673b50d0ba4969adf3a5d95151b2ca49
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: b12672e81a974e113ffbda80560c9d3eede9c69d
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98774499"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859128"
 ---
 # <a name="create-nuget-packages-that-contain-com-interop-assemblies"></a>COM birlikte çalışma derlemelerini içeren NuGet paketleri oluşturma
 
-COM birlikte çalışma derlemelerini içeren paketlerin [](creating-a-package.md#include-msbuild-props-and-targets-in-a-package) `EmbedInteropTypes` , packagereference biçimi kullanılarak projelere doğru meta veriler eklenebilmesi için uygun bir hedefler dosyası içermesi gerekir. Varsayılan olarak, `EmbedInteropTypes` PackageReference kullanıldığında tüm derlemeler için meta veriler her zaman false olur, bu nedenle hedefler dosyası bu meta verileri açıkça ekler. Çakışmaları önlemek için hedef adı benzersiz olmalıdır; ideal olarak, paket adınızın ve katıştırılmakta olan derlemenin birleşimini kullanın ve `{InteropAssemblyName}` Aşağıdaki örnekte bulunan öğesini bu değerle değiştirin. (Ayrıca bkz. [NuGet. Samples. Interop](https://github.com/NuGet/Samples/tree/master/NuGet.Samples.Interop) bir örnek için.)
+COM birlikte çalışma derlemelerini içeren paketlerin [](creating-a-package.md#include-msbuild-props-and-targets-in-a-package) `EmbedInteropTypes` , packagereference biçimi kullanılarak projelere doğru meta veriler eklenebilmesi için uygun bir hedefler dosyası içermesi gerekir. Varsayılan olarak, `EmbedInteropTypes` PackageReference kullanıldığında tüm derlemeler için meta veriler her zaman false olur, bu nedenle hedefler dosyası bu meta verileri açıkça ekler. Çakışmaları önlemek için hedef adı benzersiz olmalıdır; ideal olarak, paket adınızın ve katıştırılmakta olan derlemenin birleşimini kullanın ve `{InteropAssemblyName}` Aşağıdaki örnekte bulunan öğesini bu değerle değiştirin. (Ayrıca bkz. [NuGet. Samples. Interop](https://github.com/NuGet/Samples/tree/main/NuGet.Samples.Interop) bir örnek için.)
 
 ```xml
 <Target Name="Embedding**AssemblyName**From**PackageId**" AfterTargets="ResolveReferences" BeforeTargets="FindReferenceAssembliesForReferences">

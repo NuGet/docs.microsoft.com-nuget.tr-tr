@@ -5,14 +5,14 @@ author: nkolev92
 ms.author: nikolev
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: dcaed83ca54e3234702e963ffc2ebbde4cd75b28
-ms.sourcegitcommit: 323a107c345c7cb4e344a6e6d8de42c63c5188b7
+ms.openlocfilehash: df7c793d115622f04a148cbbc3ebf396a3e4ab69
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98235769"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859193"
 ---
-# <a name="package-references-packagereference-in-project-files"></a>Proje dosyalarında paket başvuruları (PackageReference)
+# <a name="package-references-packagereference-in-project-files"></a>Proje dosyalarındaki paket başvuruları ( `PackageReference` )
 
 Paket başvuruları, düğümü kullanarak `PackageReference` , NuGet bağımlılıklarını doğrudan proje dosyaları içinde (ayrı bir `packages.config` dosyanın aksine) yönetir. Çağrılan, PackageReference kullanarak NuGet 'in diğer yönlerini etkilemez; Örneğin, `NuGet.config` dosyalardaki (paket kaynakları dahil) ayarlar, [ortak NuGet yapılandırmalarında](configuring-nuget-behavior.md)açıklandığı gibi hala uygulanır.
 
@@ -99,7 +99,7 @@ Yalnızca bir geliştirme bandı olarak bir bağımlılık kullanıyor olabilirs
 
 Aşağıdaki meta veri etiketleri denetim bağımlılığı varlıkları:
 
-| Etiket | Description | Varsayılan değer |
+| Etiket | Açıklama | Varsayılan değer |
 | --- | --- | --- |
 | Includevarlıklarını | Bu varlıklar tüketilecektir | tümü |
 | Excludevarlıklarının | Bu varlıklar tüketilmeyecek | yok |
@@ -211,7 +211,7 @@ Oluşturulan özelliğin tam adını doğrulamak için, oluşturulan [NuGet. g. 
 Nadir bazı örneklerde farklı paketler aynı ad alanındaki sınıfları içerecektir. NuGet 5,7 ' den başlayarak, ProjectReference ile eşdeğer olan Visual Studio 2019 güncelleştirme 7 &, PackageReference desteklenir [`Aliases`](/dotnet/api/microsoft.codeanalysis.projectreference.aliases) .
 Varsayılan olarak, diğer ad sağlanmaz. Bir diğer ad belirtildiğinde, ek açıklamalı paketten gelen *Tüm* derlemeler bir diğer adla başvurulmalıdır.
 
-[Nuget\samples](https://github.com/NuGet/Samples/tree/master/PackageReferenceAliasesExample) ' da örnek kullanıma bakabilirsiniz
+[Nuget\samples](https://github.com/NuGet/Samples/tree/main/PackageReferenceAliasesExample) ' da örnek kullanıma bakabilirsiniz
 
 Proje dosyasında, diğer adları aşağıdaki gibi belirtin:
 
@@ -305,7 +305,7 @@ Visual Studio 'da Ayrıca, uyarıları IDE aracılığıyla da [gizleyebilirsini
 
 *Bu özellik NuGet **4,9** veya sonraki sürümlerde ve Visual Studio 2017 **15,9** veya üzeri sürümlerde kullanılabilir.*
 
-NuGet geri yükleme girdisi, proje dosyasından (en üst düzey veya doğrudan bağımlılıklar) paket başvuruları kümesidir ve çıkış geçişli bağımlılıklar dahil olmak üzere tüm paket bağımlılıklarının tam bir kapasitesinden oluşur. NuGet, giriş PackageReference listesi değişmediğinde paket bağımlılıklarının her zaman aynı tam kapatılmasını üretmeye çalışır. Ancak, bunu yapamaması gereken bazı senaryolar vardır. Örneğin:
+NuGet geri yükleme girdisi, proje dosyasından (en üst düzey veya doğrudan bağımlılıklar) paket başvuruları kümesidir ve çıkış geçişli bağımlılıklar dahil olmak üzere tüm paket bağımlılıklarının tam bir kapasitesinden oluşur. NuGet, giriş PackageReference listesi değişmediğinde paket bağımlılıklarının her zaman aynı tam kapatılmasını üretmeye çalışır. Ancak, bunu yapamaması gereken bazı senaryolar vardır. Örnek:
 
 * Gibi kayan sürümler kullandığınızda `<PackageReference Include="My.Sample.Lib" Version="4.*"/>` . Buradaki amaç paketlerin her geri yükleme işlemi için en son sürüme kaymalıdır, ancak kullanıcıların grafiğin belirli bir en son sürüme kilitlenmesini gerektiren senaryolar vardır ve açık bir hareket üzerine varsa, daha sonraki bir sürüme float olur.
 * Bir paketin, PackageReference sürümü gereksinimleriyle eşleşen daha yeni bir sürümü yayımlandı. Örneğin 
@@ -384,7 +384,7 @@ Bir `ProjectA` sürüme bağımlılığının yanı `PackageX` `2.0.0` sıra `Pr
 
 Aşağıda açıklandığı gibi kilit dosyası ile geri yükleme davranışlarını çeşitli davranışlar için denetleyebilirsiniz:
 
-| NuGet.exe seçeneği | DotNet seçeneği | MSBuild eşdeğer seçeneği | Description |
+| NuGet.exe seçeneği | DotNet seçeneği | MSBuild eşdeğer seçeneği | Açıklama |
 |:--- |:--- |:--- |:--- |
 | `-UseLockFile` |`--use-lock-file` | RestorePackagesWithLockFile | Bir kilit dosyasının kullanımıyla ilgili olarak. |
 | `-LockedMode` | `--locked-mode` | RestoreLockedMode | Geri yükleme için kilitli modu etkinleştirilir. Bu, yinelenebilir derlemeler istediğiniz CI/CD senaryolarında kullanışlıdır.|   

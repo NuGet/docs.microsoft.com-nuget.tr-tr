@@ -6,12 +6,12 @@ ms.author: jodou
 ms.date: 12/11/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 7671b50b84bf1447fe94e02896786d1f309425dd
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 9172aefb48ab3e542498f5a144f1d4f381ad55bd
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98777309"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859492"
 ---
 # <a name="target-frameworks"></a>Hedef çerçeveler
 
@@ -23,13 +23,17 @@ NuGet, bir paketin çerçeveye bağlı bileşenlerini özellikle tanımlamak ve 
 - [packages.config](../reference/packages-config.md): `targetframework` bir bağımlılığın özniteliği, yüklenecek bir paketin türevini belirtir.
 
 > [!Note]
-> Aşağıdaki tabloları hesaplayan NuGet istemci kaynak kodu aşağıdaki konumlarda bulunur:
-> - Desteklenen çerçeve adları: [FrameworkConstants.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/FrameworkConstants.cs)
-> - Çerçeve önceliği ve eşleme: [DefaultFrameworkMappings.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/DefaultFrameworkMappings.cs)
+> NuGet, modern .NET hedef çerçevelerinin tümünü destekler:
+> - En son hedef çerçevelerin bir listesi için bkz. [SDK stilindeki proje belgelerindeki hedef çerçeveler](/dotnet/standard/frameworks) .
 
 ## <a name="supported-frameworks"></a>Desteklenen çerçeveler
 
 Bir çerçeveye genellikle kısa bir hedef Framework bilinen adı veya tfd tarafından başvurulur. .NET Standard Bu, birden çok çerçeve için tek bir başvuruya izin vermek üzere *TXD* için de genelleştirilir.
+
+> [!Note]
+> Aşağıdaki tabloları hesaplayan NuGet istemci kaynak kodu aşağıdaki konumlarda bulunur:
+> - Desteklenen çerçeve adları: [Frameworksabitleri. cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/FrameworkConstants.cs)
+> - Çerçeve önceliği ve eşleme: [DefaultFrameworkMappings. cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/DefaultFrameworkMappings.cs)
 
 NuGet istemcileri aşağıdaki tablodaki çerçeveleri destekler. Eşdeğerleri köşeli ayraç [] içinde gösterilir. Gibi bazı araçların `dotnet` bazı dosyalardaki kurallı TFMs 'lerin çeşitlemelerini kullanabileceğini unutmayın. Örneğin, yerine `dotnet pack`  `.NETCoreApp2.0` bir dosyasında kullanır `.nuspec` `netcoreapp2.0` . Çeşitli NuGet istemci araçları bu çeşitlemeleri düzgün şekilde işler, ancak dosyaları doğrudan düzenlenirken her zaman kurallı TFMs 'Leri kullanmanız gerekir.
 

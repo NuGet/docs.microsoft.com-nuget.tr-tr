@@ -5,18 +5,18 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 05/23/2018
 ms.topic: tutorial
-ms.openlocfilehash: 317937b4d9d773d74384b8ebfcd2146062236ac1
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 7660203ec44db75b7764767b519c9ff10dd1122e
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98774323"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859089"
 ---
 # <a name="creating-ui-controls-as-nuget-packages"></a>NuGet paketleri olarak UI denetimleri oluşturma
 
-Visual Studio 2017 ' den itibaren, NuGet paketlerinde teslim ettiğiniz UWP ve WPF denetimleri için eklenen özelliklerden yararlanabilirsiniz. Bu kılavuzda, [Extensionsdkasnugetpackage örneği](https://github.com/NuGet/Samples/tree/master/ExtensionSDKasNuGetPackage)kullanılarak UWP denetimleri bağlamında bu özelliklerde adım adım gösterilmektedir. Aksi belirtilmedikçe WPF denetimleri için de geçerlidir.
+Visual Studio 2017 ' den itibaren, NuGet paketlerinde teslim ettiğiniz UWP ve WPF denetimleri için eklenen özelliklerden yararlanabilirsiniz. Bu kılavuzda, [Extensionsdkasnugetpackage örneği](https://github.com/NuGet/Samples/tree/main/ExtensionSDKasNuGetPackage)kullanılarak UWP denetimleri bağlamında bu özelliklerde adım adım gösterilmektedir. Aksi belirtilmedikçe WPF denetimleri için de geçerlidir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 1. Visual Studio 2017
 1. [UWP paketleri oluşturmayı](create-uwp-packages.md) anlama
@@ -90,7 +90,7 @@ Aşağıdaki örnekte, içinde uygulanan denetim `ManagedPackage.winmd` Visual S
 
 ## <a name="add-custom-icons-to-your-controls"></a>Denetimleriniz için özel simgeler ekleme
 
-Araç kutusu/varlıklar bölmesinde özel bir simge göstermek için projenize veya `design.dll` "namespace. ControlName. Extension" adlı ilgili projeye bir resim ekleyin ve derleme eylemini "katıştırılmış kaynak" olarak ayarlayın. Ayrıca, ilişkili öğesinin `AssemblyInfo.cs` ProvideMetadata özniteliğini belirttiğinden emin olmanız gerekir `[assembly: ProvideMetadata(typeof(RegisterMetadata))]` . Bu [örneğe](https://github.com/NuGet/Samples/blob/master/ExtensionSDKasNuGetPackage/NativePackage.Design/Properties/AssemblyInfo.cs#L20)bakın.
+Araç kutusu/varlıklar bölmesinde özel bir simge göstermek için projenize veya `design.dll` "namespace. ControlName. Extension" adlı ilgili projeye bir resim ekleyin ve derleme eylemini "katıştırılmış kaynak" olarak ayarlayın. Ayrıca, ilişkili öğesinin `AssemblyInfo.cs` ProvideMetadata özniteliğini belirttiğinden emin olmanız gerekir `[assembly: ProvideMetadata(typeof(RegisterMetadata))]` . Bu [örneğe](https://github.com/NuGet/Samples/blob/main/ExtensionSDKasNuGetPackage/NativePackage.Design/Properties/AssemblyInfo.cs#L20)bakın.
 
 Desteklenen biçimler şunlardır,,, `.png` `.jpg` `.jpeg` `.gif` ve `.bmp` . Önerilen biçim 16 piksel ile 16 piksel BMP24.
 
@@ -158,7 +158,7 @@ WPF için, WPF denetimleri paketinizin .NET Framework v 4.6.1 veya üstünü hed
 
 `.resw`Paketinize veya tüketen UWP projesi tarafından kullanılabilecek dize kaynaklarını (),, dosyanın **derleme eylemi** özelliğini `.resw` **priresource** olarak ayarlayabilirsiniz.
 
-Bir örnek için, ExtensionSDKasNuGetPackage örneğindeki [MyCustomControl.cs](https://github.com/NuGet/Samples/blob/master/ExtensionSDKasNuGetPackage/ManagedPackage/MyCustomControl.cs) adresine bakın.
+Örnek olarak, ExtensionSDKasNuGetPackage örneğindeki [MyCustomControl. cs](https://github.com/NuGet/Samples/blob/main/ExtensionSDKasNuGetPackage/ManagedPackage/MyCustomControl.cs) dosyasına bakın.
 
 > [!Note]
 > Bu yalnızca UWP denetimleri için geçerlidir.
@@ -166,4 +166,4 @@ Bir örnek için, ExtensionSDKasNuGetPackage örneğindeki [MyCustomControl.cs](
 ## <a name="see-also"></a>Ayrıca bkz.
 
 - [UWP paketleri oluşturma](create-uwp-packages.md)
-- [ExtensionSDKasNuGetPackage örneği](https://github.com/NuGet/Samples/tree/master/ExtensionSDKasNuGetPackage)
+- [ExtensionSDKasNuGetPackage örneği](https://github.com/NuGet/Samples/tree/main/ExtensionSDKasNuGetPackage)

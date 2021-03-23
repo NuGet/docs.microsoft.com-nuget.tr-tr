@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: bac4d88c29539f9fbe7b33b44ce11d350920d365
-ms.sourcegitcommit: 650c08f8bc3d48dfd206a111e5e2aaca3001f569
+ms.openlocfilehash: e5dfd9f8dd0439751ddd3863cad03f3b463e1487
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97523524"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859245"
 ---
 # <a name="restore-packages-using-package-restore"></a>Paket geri yükleme kullanarak paketleri geri yükleme
 
@@ -36,7 +36,7 @@ Paket geri yükleme, tüm paket bağımlılıklarını proje dosyanızdaki (*. c
    - [Visual Studio](#restore-using-visual-studio) ([otomatik geri yükleme](#restore-packages-automatically-using-visual-studio) veya [el ile geri yükleme](#restore-packages-manually-using-visual-studio))
    - [dotnet CLI](#restore-using-the-dotnet-cli)
    - [nuget.exe CLI](#restore-using-the-nugetexe-cli)
-   - [MSBUILD](#restore-using-msbuild)
+   - [MSBuild](#restore-using-msbuild)
    - [Azure Pipelines](#restore-using-azure-pipelines)
    - [Azure DevOps Server](#restore-using-azure-devops-server)
 
@@ -244,4 +244,4 @@ Otomatik paket geri yüklemeyi test etmek için:
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
-Bkz. [paket geri yükleme sorunlarını giderme](package-restore-troubleshooting.md).
+Bkz. [paket geri yükleme sorunlarını giderme](Package-restore-troubleshooting.md).

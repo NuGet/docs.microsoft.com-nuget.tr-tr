@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 02/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 125579832db2ac32217d24f6fc6fc1b555f54350
-ms.sourcegitcommit: aeb9072f2fcaca73dc9de05b7fd643f1aa7c5821
+ms.openlocfilehash: e0f235d99e41e23a4551fbf7577f6c42e3381f5b
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101101450"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859232"
 ---
 # <a name="best-practices-for-a-secure-software-supply-chain"></a>Güvenli yazılım tedarik zinciri için en iyi uygulamalar
 
@@ -75,7 +75,7 @@ Bu genellikle iki konumdan birinde bulunur:
 -   [`packages.config`](../reference/packages-config.md) – Proje kökünde bulunur.
 -   [`<PackageReference>`](../consume-packages/package-references-in-project-files.md) – Proje dosyasında bulunur. 
 
-NuGet bağımlılıklarınızı yönetmek için kullandığınız yönteme bağlı olarak, doğrudan [Çözüm Gezgini](/visualstudio/ide/solutions-and-projects-in-visual-studio?view=vs-2019#solution-explorer) veya [NuGet Paket Yöneticisi](../consume-packages/install-use-packages-visual-studio.md)' nde bağımlılıklarınızı görüntülemek için Visual Studio 'yu da kullanabilirsiniz.
+NuGet bağımlılıklarınızı yönetmek için kullandığınız yönteme bağlı olarak, doğrudan [Çözüm Gezgini](/visualstudio/ide/solutions-and-projects-in-visual-studio#solution-explorer) veya [NuGet Paket Yöneticisi](../consume-packages/install-use-packages-visual-studio.md)' nde bağımlılıklarınızı görüntülemek için Visual Studio 'yu da kullanabilirsiniz.
 
 CLı ortamları için, [`dotnet list package`](/dotnet/core/tools/dotnet-list-package) projenizi veya çözümünüzün bağımlılıklarını listelemek için komutunu kullanabilirsiniz. 
 
@@ -140,7 +140,7 @@ Oturum açmanız gereken paketlerin imzalanabilmesi için kullanabileceğiniz il
 
 Dosyaları kilitle, paketinizin içeriğinin karmasını depolar. Yüklemek istediğiniz bir paketin içerik karması kilit dosyasıyla eşleşiyorsa, Package yinelenebilirlik sağlar.
 
-Dosya kilitlemeyi etkinleştirmek için [aşağıdaki belgelere bakın](../consume-packages/package-references-in-project-files#locking-dependencies).
+Dosya kilitlemeyi etkinleştirmek için [aşağıdaki belgelere bakın](../consume-packages/package-references-in-project-files.md#locking-dependencies).
 
 ## <a name="monitor-your-supply-chain"></a>Tedarik zincirinizi izleme
 

@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 11/02/2017
 ms.topic: tutorial
 ms.reviewer: kraigb
-ms.openlocfilehash: 7e611b568538e0acfcbad2e5d986a0f9382ac8fd
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 8f21aad93eb952035683314c10cd964f265ec4fd
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98774117"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859349"
 ---
 # <a name="query-for-all-packages-published-to-nugetorg"></a>Nuget.org 'e yayınlanan tüm paketler için sorgu
 
@@ -110,7 +110,7 @@ Bazı nedenlerle, Katalog yaprakları sırasında bir hata varsa imlecinizi geri
 
 Katalog, HTTP üzerinden kullanılabilen bir JSON belgeleri kümesi olduğundan, HTTP istemcisi ve JSON seri hale getiricisi olan herhangi bir programlama dili kullanılarak ile etkileşim kurabilirsiniz.
 
-C# örnekleri [NuGet/Samples deposunda](https://github.com/NuGet/Samples/tree/master/CatalogReaderExample)mevcuttur.
+C# örnekleri [NuGet/Samples deposunda](https://github.com/NuGet/Samples/tree/main/CatalogReaderExample)mevcuttur.
 
 ```cli
 git clone https://github.com/NuGet/Samples.git
@@ -122,7 +122,7 @@ Kataloğu kullanmanın en kolay yolu `NuGet.Protocol.Catalog` , aşağıdaki NuG
 
 Bu paketi, `netstandard1.3` veya daha büyük (.NET Framework 4,6 gibi) uyumlu bir projeye yükleyebilirsiniz.
 
-Bu paketi kullanan bir örnek, [NuGet. Protocol. Catalog. Sample projesinde](https://github.com/NuGet/Samples/tree/master/CatalogReaderExample/NuGet.Protocol.Catalog.Sample)GitHub 'da bulunabilir.
+Bu paketi kullanan bir örnek, [NuGet. Protocol. Catalog. Sample projesinde](https://github.com/NuGet/Samples/tree/main/CatalogReaderExample/NuGet.Protocol.Catalog.Sample)GitHub 'da bulunabilir.
 
 #### <a name="sample-output"></a>Örnek çıktı
 
@@ -160,9 +160,9 @@ warn: NuGet.Protocol.Catalog.CatalogProcessor[0]
 
 ### <a name="minimal-sample"></a>Minimum örnek
 
-Daha ayrıntılı olarak katalogla etkileşimi gösteren daha az bağımlılıklara sahip bir örnek için bkz. [Catalogreadersample örnek projesi](https://github.com/NuGet/Samples/tree/master/CatalogReaderExample/CatalogReaderExample). Proje, `netcoreapp2.0` [NuGet. Protocol 4.4.0](https://www.nuget.org/packages/NuGet.Protocol/4.4.0) (hizmet dizinini çözümlemek için) ve [ 9.0.1 üzerindeNewtonsoft.Js](https://www.nuget.org/packages/Newtonsoft.Json/9.0.1) (JSON serisini kaldırma için) öğesine bağımlıdır.
+Daha ayrıntılı olarak katalogla etkileşimi gösteren daha az bağımlılıklara sahip bir örnek için bkz. [Catalogreadersample örnek projesi](https://github.com/NuGet/Samples/tree/main/CatalogReaderExample/CatalogReaderExample). Proje, `netcoreapp2.0` [NuGet. Protocol 4.4.0](https://www.nuget.org/packages/NuGet.Protocol/4.4.0) (hizmet dizinini çözümlemek için) ve [ 9.0.1 üzerindeNewtonsoft.Js](https://www.nuget.org/packages/Newtonsoft.Json/9.0.1) (JSON serisini kaldırma için) öğesine bağımlıdır.
 
-Kodun ana mantığı [program.cs dosyasında](https://github.com/NuGet/Samples/blob/master/CatalogReaderExample/CatalogReaderExample/Program.cs)görünür.
+Kodun ana mantığı [program. cs dosyasında](https://github.com/NuGet/Samples/blob/main/CatalogReaderExample/CatalogReaderExample/Program.cs)görünür.
 
 #### <a name="sample-output"></a>Örnek çıktı
 

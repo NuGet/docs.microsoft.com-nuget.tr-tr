@@ -5,18 +5,18 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: e5c62177b40162cb8b6b37b0d272fb7a945156c1
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 574ee874e2d6555a2e3e0a0643962e33b7ec1b09
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775715"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859453"
 ---
 # <a name="deleting-packages"></a>Paketleri silme
 
 nuget.org, paketlerin kalıcı olarak silinmesini desteklemez. Bunun yapılması, özellikle paket geri yüklemeyi içeren derleme iş akışlarıyla, paketin kullanılabilirliğine bağlı olarak her projeyi keser.
 
-nuget.org, Web sitesindeki paket yönetimi sayfasında yapılabilecek [bir paketin listesini kaldırma](#unlisting-a-package)işlemi destekler. Listelenmemiş paketler nuget.org veya Visual Studio Kullanıcı arabiriminde görünmez ve arama sonuçlarında görünmez. Ancak, listelenmemiş paketler, paket geri yüklemeyi destekleyen tam bir sürüm numarası kullanılarak indirilip yüklenebilirler. Ayrıca, listelenmemiş paketler yine de aşağıdaki belirli senaryolarda bulunabilir:
+nuget.org, Web sitesindeki paket yönetimi sayfasında yapılabilecek [bir paketin listesini kaldırma](#unlisting-a-package)desteği. Listelenmemiş paketler nuget.org veya Visual Studio Kullanıcı arabiriminde görünmez ve arama sonuçlarında görünmez. Ancak, listelenmemiş paketler, paket geri yüklemeyi destekleyen tam bir sürüm numarası kullanılarak indirilip yüklenebilirler. Ayrıca, listelenmemiş paketler yine de aşağıdaki belirli senaryolarda bulunabilir:
 
 - Kayan sürümler (örneğin,) kullanarak paket geri yükleme `1.0.0-*` , sürüm veya bağımlılık kısıtlamalarıyla eşleşen en son paket listelenmemiş bir pakettir.
 - Katalog aracılığıyla paketlerin çoğaltılması (Katalog Ayrıca listelenmemiş paketleri de içerir).

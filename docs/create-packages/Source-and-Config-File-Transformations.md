@@ -6,16 +6,16 @@ ms.author: jodou
 ms.date: 04/24/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 5bd0e409f527fb668008204fb16ad002f4784c46
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 76c589b5ad034127675fb2bbf79ea97992883ebe
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98774585"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859115"
 ---
 # <a name="transforming-source-code-and-configuration-files"></a>Kaynak kodu ve yapılandırma dosyalarını dönüştürme
 
-**Kaynak kodu dönüştürmesi** , paket `content` `contentFiles` `content` `packages.config` `contentFiles` `PackageReference` yüklendiğinde, belirtecin Visual Studio [Proje özelliklerine](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7)başvurduğu paketin veya klasördeki dosyalara tek yönlü belirteç değişimini uygular (ve için kullanan müşteriler için). Bu, projenin ad alanına bir dosya eklemenize veya tipik `global.asax` olarak bir ASP.net projesinde gidilecek kodu özelleştirmenize olanak sağlar.
+**Kaynak kodu dönüştürmesi** , paket `content` `contentFiles` `content` `packages.config` `contentFiles` `PackageReference` yüklendiğinde, belirtecin Visual Studio [Proje özelliklerine](/dotnet/api/vslangproj.projectproperties)başvurduğu paketin veya klasördeki dosyalara tek yönlü belirteç değişimini uygular (ve için kullanan müşteriler için). Bu, projenin ad alanına bir dosya eklemenize veya tipik `global.asax` olarak bir ASP.net projesinde gidilecek kodu özelleştirmenize olanak sağlar.
 
 Bir **yapılandırma dosyası dönüştürmesi** , ve gibi bir hedef projede zaten mevcut olan dosyaları değiştirmenize izin verir `web.config` `app.config` . Örneğin, paketinizin yapılandırma dosyasındaki bölümüne bir öğe eklemesi gerekebilir `modules` . Bu dönüşüm, yapılandırma dosyalarına eklenecek bölümleri tanımlayan paketteki özel dosyalar eklenerek yapılır. Bir paket kaldırıldığında, bu değişiklikler iki yönlü bir dönüşüm yaparak ters çevrilir.
 
@@ -45,7 +45,7 @@ Bir **yapılandırma dosyası dönüştürmesi** , ve gibi bir hedef projede zat
 
     Yükleme sonrasında NuGet, `$rootnamespace$` `Fabrikam` hedef projenin kök ad alanı olduğu varsayımıyla değiştirilir `Fabrikam` .
 
-`$rootnamespace$`Belirteç en yaygın olarak kullanılan proje özelliğidir; diğerleri [proje özelliklerinde](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7)listelenir. Kuşkusuz, bazı özelliklerin proje türüne özgü olabileceğini unutmayın.
+`$rootnamespace$`Belirteç en yaygın olarak kullanılan proje özelliğidir; diğerleri [proje özelliklerinde](/dotnet/api/vslangproj.projectproperties)listelenir. Kuşkusuz, bazı özelliklerin proje türüne özgü olabileceğini unutmayın.
 
 ## <a name="specifying-config-file-transformations"></a>Yapılandırma dosyası dönüşümlerini belirtme
 
@@ -113,9 +113,9 @@ Paketi yükleme ve kaldırma etkisini görmek için, Visual Studio 'da yeni bir 
 ### <a name="xdt-transforms"></a>XDT dönüşümleri
 
 > [!Note]
-> ' [Dan `packages.config` `PackageReference` ' a geçiş için docs 'ın paket uyumluluk sorunları bölümünde ](../consume-packages/migrate-packages-config-to-package-reference.md#package-compatibility-issues)belirtildiği gibi, aşağıda açıklandığı gibi xdt dönüştürmeleri yalnızca tarafından desteklenir `packages.config` . Aşağıdaki dosyaları paketinize eklerseniz, paketinizi kullanan tüketiciler, `PackageReference` Dönüştürmelere uygulanmaz (XDT dönüştürmelerinin birlikte çalışmasını sağlamak için [Bu örneğe](https://github.com/NuGet/Samples/tree/master/XDTransformExample) başvurun `PackageReference` ).
+> ' [Dan `packages.config` `PackageReference` ' a geçiş için docs 'ın paket uyumluluk sorunları bölümünde ](../consume-packages/migrate-packages-config-to-package-reference.md#package-compatibility-issues)belirtildiği gibi, aşağıda açıklandığı gibi xdt dönüştürmeleri yalnızca tarafından desteklenir `packages.config` . Aşağıdaki dosyaları paketinize eklerseniz, paketinizi kullanan tüketiciler, `PackageReference` Dönüştürmelere uygulanmaz (XDT dönüştürmelerinin birlikte çalışmasını sağlamak için [Bu örneğe](https://github.com/NuGet/Samples/tree/main/XDTransformExample) başvurun `PackageReference` ).
 
-[Xdt sözdizimini](/previous-versions/aspnet/dd465326(v=vs.110))kullanarak yapılandırma dosyalarını değiştirebilirsiniz. Ayrıca, sınırlayıcıları (büyük/küçük harfe duyarsız) içinde özellik adını ekleyerek NuGet 'in belirteçleri [Proje özellikleriyle](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7) değiştirmesini sağlayabilirsiniz `$` .
+[Xdt sözdizimini](/previous-versions/aspnet/dd465326(v=vs.110))kullanarak yapılandırma dosyalarını değiştirebilirsiniz. Ayrıca, sınırlayıcıları (büyük/küçük harfe duyarsız) içinde özellik adını ekleyerek NuGet 'in belirteçleri [Proje özellikleriyle](/dotnet/api/vslangproj.projectproperties) değiştirmesini sağlayabilirsiniz `$` .
 
 Örneğin, aşağıdaki `app.config.install.xdt` Dosya `appSettings` `app.config` `FullPath` `FileName` projedeki, ve değerlerini içeren içine bir öğesi ekleyecektir `ActiveConfigurationSettings` :
 
