@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 01/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: f9e08d37b30dfea83fd9b61f168c1e20f530ff9f
-ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
+ms.openlocfilehash: 6417c971dc13cf9ed05dcec4e4156af94c0ea058
+ms.sourcegitcommit: c8bf16420f235fc3e42c08cd0d56359e91d490e5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104859414"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107387393"
 ---
 # <a name="nuget-client-sdk"></a>NuGet İstemci SDK’sı
 
@@ -32,6 +32,9 @@ Bu örneklerin kaynak kodunu GitHub 'daki [NuGet. Protocol. Samples](https://git
 ```ps1
 dotnet add package NuGet.Protocol
 ```
+
+> [!Tip]
+> `Repository.Factory` ad alanında tanımlanmıştır `NuGet.Protocol.Core.Types` ve `GetCoreV3` yöntemi ad alanında tanımlanan bir genişletme yöntemidir `NuGet.Protocol` . Bu nedenle, `using` her iki ad alanı için deyimler eklemeniz gerekecektir.
 
 ### <a name="list-package-versions"></a>Paket sürümlerini Listele
 

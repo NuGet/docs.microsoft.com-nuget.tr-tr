@@ -12,20 +12,20 @@ keywords: NuGet sembol paketleri, NuGet paket hata ayıklaması, NuGet hata ayı
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 001637348fdd435e4ffd3a5a55e8128d1eab453c
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: a62996a28348bf95e4581af180597d72cd5aa298
+ms.sourcegitcommit: c8bf16420f235fc3e42c08cd0d56359e91d490e5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98774575"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107387341"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Sembol paketleri (. snupkg) oluşturuluyor
 
 İyi bir hata ayıklama deneyimi, derlenmiş ve kaynak kodu, yerel değişkenlerin adları, yığın izlemeleri ve daha fazlası arasındaki ilişki gibi kritik bilgiler sağlayan hata ayıklama sembollerinin varlığını kullanır. Sembol paketlerini (. snupkg), bu sembolleri dağıtmak ve NuGet paketlerinizin hata ayıklama deneyimini geliştirmek için kullanabilirsiniz.
 
-> Sembol paketinin, hata ayıklama sembollerini kitaplığınızın tüketicilerinin kullanımına sunmak için tek strateji olmadığını unutmayın. Ayrıca, ya [ `embed` ](https://docs.microsoft.com/dotnet/core/deploying/single-file#include-pdb-files-inside-the-bundle) da `dll` `exe` aşağıdaki proje özelliği ile de mümkündür:`<DebugType>embedded</DebugType>`
+> Sembol paketinin, hata ayıklama sembollerini kitaplığınızın tüketicilerinin kullanımına sunmak için tek strateji olmadığını unutmayın. Ayrıca, ya [ `embed` ](/dotnet/core/deploying/single-file#include-pdb-files-inside-the-bundle) da `dll` `exe` aşağıdaki proje özelliği ile de mümkündür:`<DebugType>embedded</DebugType>`
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Gerekli [NuGet protokollerini](../api/nuget-protocols.md)uygulayan [nuget.exe v 4.9.0 veya üzeri](https://www.nuget.org/downloads) ya da [DotNet CLI v 2.2.0 veya üzeri](https://www.microsoft.com/net/download/dotnet-core/2.2).
 

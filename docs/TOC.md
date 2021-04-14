@@ -70,6 +70,7 @@
 ## [Paket sürümü oluşturma](concepts/package-versioning.md)
 ## [Bağımlılık çözümlemesi](concepts/dependency-resolution.md)
 ## [Güvenli yazılım tedarik zinciri için en iyi uygulamalar](concepts/Security-Best-Practices.md)
+## [Yüklü paketlerin sorunlarını giderme](concepts/troubleshooting-installed-packages.md)
 # Başvuru
 ## [.nuspec](reference/nuspec.md)
 ## [nuget.config file](reference/nuget-config-file.md)

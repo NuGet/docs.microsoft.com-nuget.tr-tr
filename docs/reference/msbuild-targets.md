@@ -10,12 +10,12 @@ no-loc:
 - MSBuild
 - .nuspec
 - nuspec
-ms.openlocfilehash: 9d40d43d972537ee1cb11d54194ed6450ccd0b6e
-ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
+ms.openlocfilehash: 47411641db47884f79f2bc9a4aa00035fc79993b
+ms.sourcegitcommit: c8bf16420f235fc3e42c08cd0d56359e91d490e5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104858972"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107387380"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGethedef olarak Paketle ve geri yükle MSBuild
 
@@ -68,8 +68,9 @@ Aşağıdaki tabloda, MSBuild ilk düğüm içindeki bir proje dosyasına eklene
 | `license` | `PackageLicenseFile` | empty | Özel bir lisans veya bir SPDX tanımlayıcısı atanmamış bir lisans kullanıyorsanız paket içindeki bir lisans dosyasının yolu. Başvurulan lisans dosyasını açık bir şekilde paketetmeniz gerekir. Öğesine karşılık gelir `<license type="file">` . Bkz. [Lisans ifadesi veya lisans dosyası paketleme](#packing-a-license-expression-or-a-license-file). |
 | `LicenseUrl` | `PackageLicenseUrl` | empty | `PackageLicenseUrl` kullanım dışıdır. `PackageLicenseExpression` `PackageLicenseFile` Bunun yerine veya kullanın. |
 | `ProjectUrl` | `PackageProjectUrl` | empty | |
-| `Icon` | `PackageIcon` | empty | Paket simgesi olarak kullanılacak paketteki bir görüntünün yolu. Başvurulan simge görüntü dosyasını açıkça paketetmeniz gerekir. Daha fazla bilgi için bkz. [paketleme bir simge görüntü dosyası](#packing-an-icon-image-file) ve [ `icon` meta verileri](/nuget/reference/nuspec#icon). |
+| `Icon` | `PackageIcon` | empty | Paket simgesi olarak kullanılacak paketteki bir görüntünün yolu. Başvurulan simge görüntü dosyasını açıkça paketetmeniz gerekir. Daha fazla bilgi için bkz. [paketleme bir simge görüntü dosyası](#packing-an-icon-image-file) ve [ `icon` meta verileri](./nuspec.md#icon). |
 | `IconUrl` | `PackageIconUrl` | empty | `PackageIconUrl` kullanım dışı bırakılmıştır `PackageIcon` . Ancak, en iyi alt düzey deneyim için öğesine ek olarak belirtmeniz gerekir `PackageIconUrl` `PackageIcon` . |
+| `Readme` | `PackageReadmeFile` | empty | Başvurulan Benioku dosyasını açıkça paketetmeniz gerekir.|
 | `Tags` | `PackageTags` | empty | Paketi atayan etiketlerin noktalı virgülle ayrılmış listesi. |
 | `ReleaseNotes` | `PackageReleaseNotes` | empty | Paket için sürüm notları. |
 | `Repository/Url` | `RepositoryUrl` | empty | Kaynak kodu kopyalamak veya almak için kullanılan depo URL 'SI. Örnek: *https://github.com/ NuGet / NuGet . Client. git*. |
@@ -99,6 +100,7 @@ Aşağıdaki tabloda, MSBuild ilk düğüm içindeki bir proje dosyasına eklene
 | `PackageProjectUrl` | |
 | `PackageIcon` | Paketin köküne göre paket simge yolunu belirtir. Daha fazla bilgi için bkz. [paketleme a Icon Image File](#packing-an-icon-image-file). |
 | `PackageReleaseNotes` | Paket için sürüm notları. |
+| `PackageReadmeFile` | Paket için README. |
 | `PackageTags` | Paketi atayan etiketlerin noktalı virgülle ayrılmış listesi. |
 | `PackageOutputPath` | Paketlenmiş paketin bırakılacak çıkış yolunu belirler. `$(OutputPath)` varsayılan değerdir. |
 | `IncludeSymbols` | Bu Boole değeri, paketin proje paketedildiğinde ek bir sembol paketi oluşturup oluşturmayacağını gösterir. Semboller paketinin biçimi, özelliği tarafından denetlenir `SymbolPackageFormat` . Daha fazla bilgi için bkz. [ıncludesymbols](#includesymbols). |
@@ -158,6 +160,28 @@ Bir simge görüntü dosyası paketleme sırasında, `PackageIcon` paketin kök�
 [Paket simgesi örneği](https://github.com/NuGet/Samples/tree/main/PackageIconExample).
 
 nuspecEşdeğer bir deyişle, [ nuspec simgeye yönelik başvuruya](nuspec.md#icon)göz atın.
+
+### <a name="packagereadmefile"></a>PackageReadmeFile
+
+Bir Benioku dosyası paketleme sırasında, paketin `PackageReadmeFile` köküne göre paket yolunu belirtmek için özelliğini kullanmanız gerekir. Buna ek olarak, dosyanın pakete eklendiğinden emin olmanız gerekir. Desteklenen dosya biçimleri yalnızca Marklt (*. MD*) içerir.
+
+Örnek:
+
+```xml
+<PropertyGroup>
+    ...
+    <PackageReadmeFile>readme.md</PackageReadmeFile>
+    ...
+</PropertyGroup>
+
+<ItemGroup>
+    ...
+    <None Include="docs\readme.md" Pack="true" PackagePath="\"/>
+    ...
+</ItemGroup>
+```
+
+nuspecEşdeğer olarak, [ nuspec Benioku için başvuruya](nuspec.md#readme)göz atın.
 
 ### <a name="output-assemblies"></a>Çıkış derlemeleri
 

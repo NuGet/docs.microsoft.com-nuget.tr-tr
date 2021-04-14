@@ -6,12 +6,12 @@ ms.author: jodou
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 4028657862cfd56d0653b370e8344cab8392d69d
-ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
+ms.openlocfilehash: a8a8058032b0b6c6ddcd5eed1cf22e75f0e3af72
+ms.sourcegitcommit: c8bf16420f235fc3e42c08cd0d56359e91d490e5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104859505"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107387419"
 ---
 # <a name="nuspec-reference"></a>. nuspec başvurusu
 
@@ -204,6 +204,29 @@ MSBuild eşdeğeri için, [bir simge görüntüsü dosyası paketleme](msbuild-t
 
 > [!Tip]
 > `icon` `iconUrl` Desteği olmayan kaynaklarla geriye dönük uyumluluğu sürdürmek için ve ikisini de belirtebilirsiniz `icon` . Visual Studio, `icon` gelecek sürümlerde klasör tabanlı bir kaynaktan gelen paketleri destekleyecektir.
+
+#### <a name="readme"></a>Benioku
+
+Bir Benioku dosyası paketleme sırasında, paketin `readme` köküne göre paket yolunu belirtmek için öğesini kullanmanız gerekir. Buna ek olarak, dosyanın pakete eklendiğinden emin olmanız gerekir. Desteklenen dosya biçimleri yalnızca Marklt (*. MD*) içerir.
+
+Örneğin, projenize bir Benioku dosyası paketedebilmek için nuspec dosyanıza aşağıdakileri eklersiniz:
+
+```xml
+<package>
+  <metadata>
+    ...
+    <readme>docs\readme.md</readme>
+    ...
+  </metadata>
+  <files>
+    ...
+    <file src="..\readme.md" target="docs\" />
+    ...
+  </files>
+</package>
+```
+
+MSBuild eşdeğeri için, [bir Benioku dosyası paketleme](msbuild-targets.md#packagereadmefile)konusuna göz atın.
 
 #### <a name="requirelicenseacceptance"></a>Requirelicensekabulünü
 İstemcinin paketi yüklemeden önce, tüketicinin paket lisansını kabul etmesini isteyip istemeyeceğini belirten bir Boole değeri.
