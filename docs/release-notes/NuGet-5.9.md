@@ -5,12 +5,12 @@ author: erdembayar
 ms.author: eryondon
 ms.date: 3/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: 24933ebb51851da2583b03e7fd3e55fade5e8a18
-ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
+ms.openlocfilehash: 50fd277a4f1f39b4a68a89cd07af4e21f0d3d831
+ms.sourcegitcommit: 1462f9f42ae36b3c990762ad4f02e38ab799ad09
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104859582"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107508819"
 ---
 # <a name="nuget-59-release-notes"></a>NuGet 5,9 sürüm notları
 
@@ -18,12 +18,13 @@ NuGet dağıtım araçlar:
 
 | NuGet sürümü | Visual Studio sürümünde kullanılabilir | .NET SDK 'ları 'nda kullanılabilir |
 |:---|:---|:---|
-| [**5.9**](https://nuget.org/downloads) | [Visual Studio 2019 sürüm 16,9](https://visualstudio.microsoft.com/downloads/) | [5,0](https://dotnet.microsoft.com/download/dotnet-core/5.0)<sup>1</sup> |
+| [**5.9.0**](https://nuget.org/downloads) | [Visual Studio 2019 sürüm 16,9](https://visualstudio.microsoft.com/downloads/) | [5.0.200](https://dotnet.microsoft.com/download/dotnet-core/5.0)<sup>1</sup> |
+| [**5.9.1**](https://nuget.org/downloads) | [Visual Studio 2019 sürüm 16,9](https://visualstudio.microsoft.com/downloads/) | [5.0.202](https://dotnet.microsoft.com/download/dotnet-core/5.0)<sup>1</sup> |
 
 <sup>1</sup> .NET Core iş yüküne sahip Visual Studio 2019 ile yüklendi
   
 > [!NOTE]
-> Visual Studio 16,9, MSBuild 16,9 ve .NET 5.0.3 + NuGet.exe 5,9 veya üzeri bir sürüm gerektirir.
+> Visual Studio 16,9, MSBuild 16,9 ve .NET 5.0.200 + NuGet.exe 5,9 veya üzeri bir sürüm gerektirir.
 
 ## <a name="summary-whats-new-in-59"></a>Özet: 5,9 sürümündeki yenilikler
 
@@ -187,7 +188,6 @@ NuGet dağıtım araçlar:
 
 * NuGetPackageFileService onarımı- [#10503](https://github.com/NuGet/Home/issues/10503) atılabilir MemoryStream için using kullanın
 
-
 **[Bu yayında düzeltilen tüm sorunların listesi-5.9.0](https://app.zenhub.com/workspaces/nuget-client-team-55aec9a240305cf007585881/reports/release?release=5f6be8c10485c0236b7ef889)**
 
 **[Bu sürümdeki işlemelerin listesi-5.9.0](https://github.com/NuGet/NuGet.Client/compare/5.8.1.7021...5.9.0.7134)**
@@ -211,6 +211,15 @@ Bu NuGet yayınını harika hale getirmek için size yardımcı olan tüm katkı
 [rolfbjarne](https://github.com/rolfbjarne) | [3743](https://github.com/NuGet/NuGet.Client/pull/3743) | Çıkış, yeniden yönlendirildiğinde macOS üzerinde 80 karaktere kaydırılır [#10198](https://github.com/NuGet/Home/issues/10198)
 [xen2](https://github.com/xen2) | [2861](https://github.com/NuGet/NuGet.Client/pull/2861) | NuGet. PackageManagement 'ı .NET Standard paket olarak kullanılabilir hale getirin- [#6150](https://github.com/NuGet/Home/issues/6150)
 [Anipik](https://github.com/Anipik) | [3810](https://github.com/NuGet/NuGet.Client/pull/3810) | Paket görevi sırasında belirli tfms 'ler için derleme çıkışını hariç tutmak üzere yeni bir MSBuild özelliği ortaya çıkar [#10396](https://github.com/NuGet/Home/issues/10396)
+
+## <a name="summary-whats-new-in-591"></a>Özet: 5.9.1 'deki yenilikler
+
+* "DotNet NuGet Remove Source nuget.org" ilk [#10745](https://github.com/NuGet/Home/issues/10745) çalışmaz
+* Varsayılan doğrulamayı Linux üzerinde devre dışı bırak, ancak varsayılan olarak Windows- [#10713](https://github.com/NuGet/Home/issues/10713) 'de etkin yap
+
+**[Bu yayında düzeltilen tüm sorunların listesi-5.9.1](https://app.zenhub.com/workspaces/nuget-client-team-55aec9a240305cf007585881/reports/release?release=6075f42efd068017639b4036)**
+
+**[Bu sürümdeki işlemelerin listesi-5.9.1](https://github.com/NuGet/NuGet.Client/compare/5.9.0.7134...5.9.1.8)**
 
 ## <a name="feedback-welcome"></a>Geri bildirim hoş geldiniz
 

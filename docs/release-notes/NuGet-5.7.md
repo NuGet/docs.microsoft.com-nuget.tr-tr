@@ -5,12 +5,12 @@ author: chgill-msft
 ms.author: chgill
 ms.date: 8/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6c821091983ab0b5d59b759e1ee9930cf449fd9d
-ms.sourcegitcommit: 6cda91f135e58cf57a2471b0c7c4a2f748f40024
+ms.openlocfilehash: 58ab481f0c6a6cb5549c269788170b8c3ff6002f
+ms.sourcegitcommit: 1462f9f42ae36b3c990762ad4f02e38ab799ad09
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89364170"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107508793"
 ---
 # <a name="nuget-57-release-notes"></a>NuGet 5,7 sürüm notları
 
@@ -19,6 +19,7 @@ NuGet dağıtım araçlar:
 | NuGet sürümü | Visual Studio sürümünde kullanılabilir | .NET SDK 'ları 'nda kullanılabilir |
 |:---|:---|:---|
 | [**5.7.0**](https://nuget.org/downloads) | [Visual Studio 2019 sürüm 16,7](https://visualstudio.microsoft.com/downloads/) | [3.1.401](https://dotnet.microsoft.com/download/dotnet-core/3.1)<sup>1</sup> |
+| [**5.7.1**](https://nuget.org/downloads) | [Visual Studio 2019 sürüm 16,7](https://visualstudio.microsoft.com/downloads/) | [3.1.408](https://dotnet.microsoft.com/download/dotnet-core/3.1)<sup>1</sup> |
 
 <sup>1</sup> .NET Core iş yüküne sahip Visual Studio 2019 ile yüklendi
 
@@ -48,7 +49,7 @@ NuGet dağıtım araçlar:
 
 * Bir çözüme/projeye gerek olmadan geri dönüş klasörlerini numaralandırmak için birlikte çalışma API 'SI eklendi- [#9395](https://github.com/NuGet/Home/issues/9395)
 
-* `latest`#8808 için seçenek `-MSBuildVersion`  -  [#8808](https://github.com/NuGet/Home/issues/8808) eklendi
+* `latest`#8808 için seçenek `-MSBuildVersion`  -  [](https://github.com/NuGet/Home/issues/8808) eklendi
 
 ### <a name="issues-fixed-in-this-release"></a>Bu sürümde giderilen sorunlar
 
@@ -56,7 +57,7 @@ NuGet dağıtım araçlar:
 
 * DotNet CLı geri yükleme içinde, kimlik bilgisi eklentileri başlatırken, ortam değişkeni tanımlanmamışsa, sistem yolundaki DotNet CLı 'yi deneyin `DOTNET_HOST_PATH`  . - [#7438](https://github.com/NuGet/Home/issues/7438)
 
-* nuget.exe spec, #8696 yerine, telif hakkı yyyy sabit kodlanmış metin ile bir telif hakkı etiketi oluşturuyor `$copyright$`  -  [#8696](https://github.com/NuGet/Home/issues/8696)
+* nuget.exe spec, #8696 yerine, telif hakkı yyyy sabit kodlanmış metin ile bir telif hakkı etiketi oluşturuyor `$copyright$`  -  [](https://github.com/NuGet/Home/issues/8696)
 
 * NuGet.exe, derleme adı değiştirilirse bir csproj paketi sırasında yer tutucuları ve AssemblyInfo özniteliklerini yoksayarak, ' yazarlar Required ' özel durumunu oluşturur. [#4234](https://github.com/NuGet/Home/issues/4234)
 
@@ -104,6 +105,18 @@ Bu NuGet yayınını harika hale getirmek için size yardımcı olan tüm katkı
 |[Joseph Musser (jnm2)](https://github.com/jnm2)|[3241](https://github.com/NuGet/NuGet.Client/pull/3241)|`<owners>`Öğe gereksiz olduğunda gizlenmiş [#5134](https://github.com/NuGet/Home/issues/5134)|
 |[Volodymyr Shkolka (kara ad)](https://github.com/BlackGad)|[3273](https://github.com/NuGet/NuGet.Client/pull/3273)|NuGet, Istemci sertifikaları gerektiren HTTPS kaynaklarından geri yüklenemiyor- [#5773](https://github.com/NuGet/Home/issues/5773)|
 |[Marius Ungureanu (Therzok)](https://github.com/Therzok)|[3357](https://github.com/NuGet/NuGet.Client/pull/3357)|HttpSourceAuthenticationHandler SemaphoreSlim ileride sağlama- [#9463](https://github.com/NuGet/Home/issues/9463)|
-|[Sunner (SuNNjek)](https://github.com/SuNNjek)|[3088](https://github.com/NuGet/NuGet.Client/pull/3088)|nuget.exe spec, #8696 yerine, telif hakkı yyyy sabit kodlanmış metin ile bir telif hakkı etiketi oluşturuyor `$copyright$`  -  [#8696](https://github.com/NuGet/Home/issues/8696)|
+|[Sunner (SuNNjek)](https://github.com/SuNNjek)|[3088](https://github.com/NuGet/NuGet.Client/pull/3088)|nuget.exe spec, #8696 yerine, telif hakkı yyyy sabit kodlanmış metin ile bir telif hakkı etiketi oluşturuyor `$copyright$`  -  [](https://github.com/NuGet/Home/issues/8696)|
 |[Zeytin Spinelli (kayvier-Spinelli)](https://github.com/olivier-spinelli)|[3335](https://github.com/NuGet/NuGet.Client/pull/3335)|DotNet CLı geri yükleme içinde, kimlik bilgisi eklentileri başlatırken, ortam değişkeni tanımlanmamışsa, sistem yolundaki DotNet CLı 'yi deneyin `DOTNET_HOST_PATH`  . - [#7438](https://github.com/NuGet/Home/issues/7438)|
-|[goyızasılı](https://github.com/goyzhang)|[3370](https://github.com/NuGet/NuGet.Client/pull/3370)|`latest`#8808 için seçenek `-MSBuildVersion`  -  [#8808](https://github.com/NuGet/Home/issues/8808) eklendi|
+|[goyızasılı](https://github.com/goyzhang)|[3370](https://github.com/NuGet/NuGet.Client/pull/3370)|`latest`#8808 için seçenek `-MSBuildVersion`  -  [](https://github.com/NuGet/Home/issues/8808) eklendi|
+
+## <a name="summary-whats-new-in-571"></a>Özet: 5.7.1 'daki yenilikler
+
+* . Nupkg. Metadata dosyasını yükleme kaynağını içerecek şekilde genişletin- [#10354](https://github.com/NuGet/Home/issues/10354)
+
+* Geri yükleme günlüğü sırasında günlük paketi contenthash (ayıklama sırasında)- [#10384](https://github.com/NuGet/Home/issues/10384)
+
+* Normal ayrıntı düzeyinde geri yükleme yaparken, bir paketin hangi kaynak olarak geri yüklendiğini günlüğe kaydet- [#10461](https://github.com/NuGet/Home/issues/10461)
+
+**[Bu yayında düzeltilen tüm sorunların listesi-5.7.1](https://app.zenhub.com/workspaces/nuget-client-team-55aec9a240305cf007585881/reports/release?release=6075f5724f84579cc29a79ee)**
+
+**[Bu sürümdeki işlemelerin listesi-5.7.1](https://github.com/NuGet/NuGet.Client/compare/80512866a2c127e52ce3e86fd803fff77e9b9b52...5.7.1.4)**

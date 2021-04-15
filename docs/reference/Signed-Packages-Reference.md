@@ -6,12 +6,12 @@ ms.author: rmpablos
 ms.date: 05/18/2018
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: ac9efadc1d29bec86ca9b7821d5587e0171613aa
-ms.sourcegitcommit: 323a107c345c7cb4e344a6e6d8de42c63c5188b7
+ms.openlocfilehash: 85fdf7a41cc033d92bbd0326648142aec27a9970
+ms.sourcegitcommit: 1462f9f42ae36b3c990762ad4f02e38ab799ad09
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98235717"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107508806"
 ---
 # <a name="signed-packages"></a>İmzalanmış paketler
 
@@ -23,7 +23,7 @@ NuGet paketleri, değiştirilen içeriğe karşı koruma sağlayan dijital bir i
 - **Yazar imzası**. Yazar imzası, paketin, paketin hangi depodan veya hangi taşıma yönteminden bağımsız olarak teslim edildiğini değil, yazar tarafından imzalanmasından bu yana paketin değiştirilmediğinden emin olur. Ayrıca, imzalama sertifikasının zaman içinde kaydedilmesi gerektiğinden, yazar imzalı paketler nuget.org yayımlama işlem hattına ek bir kimlik doğrulama mekanizması sağlar. Daha fazla bilgi için bkz. [sertifikaları kaydetme](#signature-requirements-on-nugetorg).
 - **Depo imzası**. Depo imzaları, bu paketlerin İmzalandıkları özgün depodan farklı bir konumdan elde edilse bile, bir depodaki **Tüm** paketlere yönelik bir bütünlük garantisi sağlar.   
 
-Yazar imzalı bir paket oluşturma hakkında ayrıntılı bilgi için bkz. [Imzalama paketleri](../create-packages/Sign-a-package.md) ve [NuGet Sign komutu](../reference/cli-reference/cli-ref-sign.md). [DotNet NuGet Verify](/dotnet/core/tools/dotnet-nuget-verify.md) veya [NuGet Verify](../reference/cli-reference/cli-ref-verify.md) komutlarını kullanarak paketlerin imzalarını doğrulayabilirsiniz.
+Yazar imzalı bir paket oluşturma hakkında ayrıntılı bilgi için bkz. [Imzalama paketleri](../create-packages/Sign-a-package.md) ve [NuGet Sign komutu](../reference/cli-reference/cli-ref-sign.md). [DotNet NuGet Verify](/dotnet/core/tools/dotnet-nuget-verify) veya [NuGet Verify](../reference/cli-reference/cli-ref-verify.md) komutlarını kullanarak paketlerin imzalarını doğrulayabilirsiniz.
 
 > [!Important]
 > Yazar imzalama paketleri şu anda yalnızca Windows üzerinde nuget.exe tarafından desteklenir. Ancak, nuget.org ' e yüklenen tüm paketler otomatik olarak depo imzalanır.
@@ -57,6 +57,6 @@ nuget.org, imzalı bir paketi kabul etmek için ek gereksinimlere sahiptir:
 ## <a name="related-articles"></a>İlgili makaleler:
 
 - [NuGet paketleri imzalanıyor](../create-packages/Sign-a-Package.md)
-- [DotNet CLı kullanarak imzalı paketleri doğrulama](/dotnet/core/tools/dotnet-nuget-verify.md)
+- [DotNet CLı kullanarak imzalı paketleri doğrulama](/dotnet/core/tools/dotnet-nuget-verify)
 - [nuget.exekullanarak imzalı paketleri doğrulama ](../reference/cli-reference/cli-ref-verify.md)
 - [Paket güven sınırlarını yönetme](../consume-packages/installing-signed-packages.md)
