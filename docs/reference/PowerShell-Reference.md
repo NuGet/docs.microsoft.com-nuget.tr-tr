@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 10/02/2017
 ms.topic: reference
-ms.openlocfilehash: 98bea8a225f4864953f898ef57b26e9093f7c2e9
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 7bc0395a98e75fe006e048b91d84cb5c17220161
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98779367"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901895"
 ---
 # <a name="powershell-reference"></a>PowerShell başvurusu
 
@@ -20,16 +20,16 @@ Paket Yöneticisi konsolu, Windows üzerinde Visual Studio 'da aşağıda listel
 > Tüm PowerShell komutları yalnızca paket tüketimiyle ilgilidir. Bir paketin başka paketlerin bir tüketicisi de olması dışında, paket oluşturma ve yayımlama ile ilgili bir PowerShell komutu yoktur.
 
 > [!Important]
-> Burada listelenen komutlar, Visual Studio 'da Paket Yöneticisi konsoluna özgüdür ve genel bir PowerShell ortamında kullanılabilir olan [paket yönetimi modülü komutlarından](/powershell/module/packagemanagement/?view=powershell-6) farklıdır. Özellikle, her ortamın diğeri üzerinde kullanılamayan komutları vardır ve aynı ada sahip komutlar, belirli bağımsız değişkenlerinde de farklılık gösterebilir. Visual Studio 'da Paket Yönetimi konsolunu kullanırken, bu konu başlığı altında belgelenen komutlar ve bağımsız değişkenler geçerlidir.
+> Burada listelenen komutlar, Visual Studio 'da Paket Yöneticisi konsoluna özgüdür ve genel bir PowerShell ortamında kullanılabilir olan [paket yönetimi modülü komutlarından](/powershell/module/packagemanagement) farklıdır. Özellikle, her ortamın diğeri üzerinde kullanılamayan komutları vardır ve aynı ada sahip komutlar, belirli bağımsız değişkenlerinde de farklılık gösterebilir. Visual Studio 'da Paket Yönetimi konsolunu kullanırken, bu konu başlığı altında belgelenen komutlar ve bağımsız değişkenler geçerlidir.
 
-| Ortak komutlar | Açıklama | NuGet sürümü |
+| Ortak komutlar | Description | NuGet sürümü |
 | --- | --- | --- |
 | [Install-Package](ps-reference/ps-ref-install-package.md) | Bir paketi ve onun bağımlılıklarını projeye kurar. | Tümü |
 | [Update-Package](ps-reference/ps-ref-update-package.md) | Bir paketi ve onun bağımlılıklarını veya bir projedeki tüm paketleri güncelleştirir. | Tümü |
 | [Find-Package](ps-reference/ps-ref-find-package.md) | Paket KIMLIĞINI veya anahtar sözcüklerini kullanarak bir paket kaynağını arar. | 3.0 + |
 | [Get-Package](ps-reference/ps-ref-get-package.md) | Yerel depoda yüklü paketlerin listesini alır veya bir paket kaynağından kullanılabilir paketleri listeler. | Tümü |
 
-| İkincil komutlar | Açıklama | NuGet sürümü |
+| İkincil komutlar | Description | NuGet sürümü |
 | --- | --- | --- |
 | [Add-BindingRedirect](ps-reference/ps-ref-add-bindingredirect.md) | Bir projenin çıkış yolundaki tüm derlemeleri inceler ve ' a veya gerektiğinde bağlama yeniden yönlendirmeleri ekler `app.config` `web.config` . | Tümü |
 | [Get-Project](ps-reference/ps-ref-get-project.md) | Varsayılan veya belirtilen proje hakkındaki bilgileri görüntüler. | 3.0 + |
@@ -46,7 +46,7 @@ Get-Help <command> -full
 
 Tüm Paket Yöneticisi konsol komutları aşağıdaki [ortak PowerShell parametrelerini](/powershell/module/microsoft.powershell.core/about/about_commonparameters)destekler:
 
-- Hata ayıklama
+- Hata Ayıklama
 - ErrorAction
 - ErrorVariable
 - OutBuffer

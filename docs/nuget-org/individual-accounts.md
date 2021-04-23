@@ -5,12 +5,12 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 7951b3db0cdcaee0a1eb955a5bf6fedce24c79c9
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 5224a4f5be519e1d72285562c1611d047582f7de
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237620"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901570"
 ---
 # <a name="individual-accounts-on-nugetorg"></a>NuGet.org üzerinde ayrı hesaplar
 
@@ -36,7 +36,7 @@ Bir NuGet.org hesabı oluşturmak için bir kişisel Microsoft hesabı (MSA) vey
 
    ![NuGet.org için izinler verme](media/nuget-org-permissions.png)
 
-1. *NuGet.org* 'e yönlendirilirsiniz ve bir Kullanıcı adı kaydetmeniz istenir.
+1. *NuGet.org*'e yönlendirilirsiniz ve bir Kullanıcı adı kaydetmeniz istenir.
 
 1. Giriş kutusunda Kullanıcı adını belirtin. Kullanıcı adının büyük/küçük harfe **duyarlı olduğunu ve** daha sonra değiştirilemeyeceğini veya yeniden adlandırılamayacağını lütfen unutmayın.
 
@@ -54,19 +54,19 @@ Artık bir NuGet.org hesabınız var. Hesap yönetimi 'ni [Hesap ayarları](http
 
    ![2FA 'yı etkinleştir](media/nuget-org-register-2fa.png)
 
-   *NuGet.org* ' de bir sonraki oturum açışınızda sizden ek kimlik bilgileri istenmeyeceğini belirten bir ileti görürsünüz.
+   *NuGet.org*' de bir sonraki oturum açışınızda sizden ek kimlik bilgileri istenmeyeceğini belirten bir ileti görürsünüz.
 
 2. Kimlik doğrulamasını Şu anda tamamladıktan sonra oturumunuzu kapatıp yeniden oturum açın.
 
 3. Oturum açtığınızda, ikinci bir kimlik doğrulama biçimi olarak metin veya e-posta seçin.
 
-   Microsoft hesabı zaten ilişkilendirilmiş telefon numarasını veya e-postayı doğrulayın. Hesabınız için yeni bir telefon numarası veya e-posta girmeniz gerekebilir. Bu durumda, istenen bilgileri belirtildiği gibi girin ve **İleri** ' ye tıklayın.
+   Microsoft hesabı zaten ilişkilendirilmiş telefon numarasını veya e-postayı doğrulayın. Hesabınız için yeni bir telefon numarası veya e-posta girmeniz gerekebilir. Bu durumda, istenen bilgileri belirtildiği gibi girin ve **İleri**' ye tıklayın.
 
-   ![2FA 'yı etkinleştir](media/nuget-org-sign-in-2fa.png)
+   ![2FA 'yı etkinleştirin ve telefon girin](media/nuget-org-sign-in-2fa.png)
 
 4. Cihazınızı veya e-posta hesabınızı denetleyin ve az önce gönderdiğiniz kodu girin.
 
-   ![2FA 'yı etkinleştir](media/nuget-org-enter-code-2fa.png)
+   ![2FA 'yı etkinleştirin ve kodu girin](media/nuget-org-enter-code-2fa.png)
 
 5. Iki öğeli kimlik doğrulamayı tamamlamaya yönelik ek yönergeleri izleyin.
 

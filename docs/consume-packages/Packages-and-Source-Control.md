@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 9bae65573ca49c68d07250228c1923890e0f14ac
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: fa3ec6992002224c9fb56a53aee9096e6d2c6fbb
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775014"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901674"
 ---
 # <a name="omitting-nuget-packages-in-source-control-systems"></a>Kaynak denetim sistemlerinde NuGet paketlerini atlama
 
@@ -80,7 +80,7 @@ Seçili dosyalar için TFVC ile kaynak denetimi tümleştirmesini devre dışı 
 
 1. TFS 2010 veya önceki bir sürümünü kullanıyorsanız, `packages` çalışma alanı eşlemelerinizde klasörü gizlerin.
 
-1. TFS 2012 veya üzeri sürümlerde veya Visual Studio Team Services ile `.tfignore` [sunucuya dosya ekleme](/vsts/tfvc/add-files-server?view=vsts#tfignore)bölümünde açıklandığı gibi bir dosya oluşturun. Bu dosyada, `\packages` Depo düzeyindeki klasöre yapılan değişiklikleri ve diğer birkaç ara dosyayı açıkça yoksaymak için aşağıdaki içeriği ekleyin. (Dosya adını izleyen noktayla kullanarak Windows Gezgini 'nde oluşturabilirsiniz `.tfignore.` , ancak önce "bilinen dosya uzantılarını gizle" seçeneğini devre dışı bırakmanız gerekebilir.):
+1. TFS 2012 veya üzeri sürümlerde veya Visual Studio Team Services ile `.tfignore` [sunucuya dosya ekleme](/vsts/tfvc/add-files-server?view=vsts#tfignore&preserve-view=true)bölümünde açıklandığı gibi bir dosya oluşturun. Bu dosyada, `\packages` Depo düzeyindeki klasöre yapılan değişiklikleri ve diğer birkaç ara dosyayı açıkça yoksaymak için aşağıdaki içeriği ekleyin. (Dosya adını izleyen noktayla kullanarak Windows Gezgini 'nde oluşturabilirsiniz `.tfignore.` , ancak önce "bilinen dosya uzantılarını gizle" seçeneğini devre dışı bırakmanız gerekebilir.):
 
    ```cli
    # Ignore NuGet Packages

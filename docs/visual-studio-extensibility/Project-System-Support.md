@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 01/09/2017
 ms.topic: reference
-ms.openlocfilehash: 7af330f88b47352666933598719d9c8f8cb66a78
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 9f1ddfd20835cc3a0f9af40a8b4e712c218b31bc
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98779406"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901414"
 ---
 # <a name="nuget-support-for-the-visual-studio-project-system"></a>Visual Studio proje sistemi için NuGet desteği
 
@@ -113,6 +113,6 @@ case __VSHPROPID8.VSHPROPID_ProjectCapabilitiesChecker:
 
 ## <a name="dte-support"></a>DTE desteği
 
-NuGet, üst düzey Visual Studio Otomasyon arabirimi olan [DTE](/dotnet/api/envdte.dte?view=visualstudiosdk-2017)'ye çağırarak başvuruları, içerik öğelerini ve MSBuild içeri aktarmaları eklemek için proje sistemini çağırır. DTE, zaten uygulayabileceğiniz bir COM arabirimleri kümesidir.
+NuGet, üst düzey Visual Studio Otomasyon arabirimi olan [DTE](/dotnet/api/envdte.dte)'ye çağırarak başvuruları, içerik öğelerini ve MSBuild içeri aktarmaları eklemek için proje sistemini çağırır. DTE, zaten uygulayabileceğiniz bir COM arabirimleri kümesidir.
 
 Proje türü CPS 'yi temel alıyorsa, DTE sizin için uygulanır.

@@ -5,16 +5,16 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 6/1/2017
 ms.topic: reference
-ms.openlocfilehash: 83d0d62bbda07d07ea1e3b58e531447e2001b680
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 263835da64340a13737b32ab54ab057cb640a080
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98777512"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901765"
 ---
 # <a name="find-package-package-manager-console-in-visual-studio"></a>Find-Package (Visual Studio 'da Paket Yöneticisi konsolu)
 
-*Sürüm 3.0 +; Bu konuda, Windows üzerinde Visual Studio 'da [Paket Yöneticisi konsolu](../../consume-packages/install-use-packages-powershell.md) içindeki komut açıklanmaktadır. Genel PowerShell Find-Package komutu için bkz. [PowerShell PackageManagement başvurusu](/powershell/module/packagemanagement/?view=powershell-6).*
+*Sürüm 3.0 +; Bu konuda, Windows üzerinde Visual Studio 'da [Paket Yöneticisi konsolu](../../consume-packages/install-use-packages-powershell.md) içindeki komut açıklanmaktadır. Genel PowerShell Find-Package komutu için bkz. [PowerShell PackageManagement başvurusu](/powershell/module/packagemanagement).*
 
 Belirtilen KIMLIĞE veya anahtar sözcüklere sahip uzak paket kümesini paket kaynağından alır.
 

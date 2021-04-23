@@ -5,14 +5,14 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 08/13/2019
 ms.topic: reference
-ms.openlocfilehash: afc06c81bf0344f2086efd19111cc60d24d7f723
-ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
+ms.openlocfilehash: 38620058bccde876152328302a6049f011c149db
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104859518"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901869"
 ---
-# <a name="nugetconfig-reference"></a>nuget.config başvurusu
+# <a name="nugetconfig-reference"></a>`nuget.config` başvurunun
 
 NuGet davranışı, `NuGet.Config` `nuget.config` [yaygın NuGet yapılandırmalarında](../consume-packages/configuring-nuget-behavior.md)açıklandığı gibi farklı veya dosyalardaki ayarlarla denetlenir.
 
@@ -350,7 +350,7 @@ Bir ortam değişkeni bulunmazsa, NuGet yapılandırma dosyasından sabit değer
 
 Aşağıdaki tabloda, NuGet.Config dosyaları için environnment değişken sözdizimi ve yol ayırıcı desteği gösterilmektedir.
 
-### <a name="nugetconfig-environment-variable-support"></a>NuGet.Config ortam değişkeni desteği
+### <a name="nugetconfig-environment-variable-support"></a>`NuGet.Config` ortam değişkeni desteği
 
 | Syntax | Dizin ayırıcı | Windows nuget.exe | Windows dotnet.exe | Mac nuget.exe (mono) | Mac dotnet.exe |
 |---|---|---|---|---|---|

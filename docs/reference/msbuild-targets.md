@@ -10,12 +10,12 @@ no-loc:
 - MSBuild
 - .nuspec
 - nuspec
-ms.openlocfilehash: 47411641db47884f79f2bc9a4aa00035fc79993b
-ms.sourcegitcommit: c8bf16420f235fc3e42c08cd0d56359e91d490e5
+ms.openlocfilehash: 0a10a6f1e4c71903232281c25a6c4b6bbc65fb34
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107387380"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901492"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGethedef olarak Paketle ve geri yükle MSBuild
 
@@ -162,6 +162,8 @@ Bir simge görüntü dosyası paketleme sırasında, `PackageIcon` paketin kök�
 nuspecEşdeğer bir deyişle, [ nuspec simgeye yönelik başvuruya](nuspec.md#icon)göz atın.
 
 ### <a name="packagereadmefile"></a>PackageReadmeFile
+
+***NuGet 5.10.0 Preview 2**  /  **.NET 5.0.3** ve üzeri ile desteklenir*
 
 Bir Benioku dosyası paketleme sırasında, paketin `PackageReadmeFile` köküne göre paket yolunu belirtmek için özelliğini kullanmanız gerekir. Buna ek olarak, dosyanın pakete eklendiğinden emin olmanız gerekir. Desteklenen dosya biçimleri yalnızca Marklt (*. MD*) içerir.
 
@@ -471,7 +473,7 @@ Proje dosyası:
 
 Restore derleme klasöründe aşağıdaki dosyaları oluşturur `obj` :
 
-| Dosya | Açıklama |
+| Dosya | Description |
 |--------|--------|
 | `project.assets.json` | Tüm paket başvurularının bağımlılık grafiğini içerir. |
 | `{projectName}.projectFileExtension.nuget.g.props` | MSBuildPaketlerde bulunan props 'a başvurular |

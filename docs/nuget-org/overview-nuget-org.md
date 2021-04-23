@@ -5,49 +5,49 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9a75ecbc589afa664e5684005e077b02913e8039
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 2dac6ebd6367f3ed1a5ef9e81d843867a4a22f62
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "67427523"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901882"
 ---
 # <a name="overview-of-nugetorg"></a>NuGet.org’a genel bakış
 
-NuGet.org, her gün milyonlarca .NET ve .NET Core geliştiricisi tarafından kullanılan NuGet paketlerinin genel ev sahibidir.
+NuGet.org, her gün milyonlarca .NET ve .NET Core geliştiricisi tarafından çalıştırılan NuGet paketlerinin ortak bir ana konağından oluşur.
 
-## <a name="role-of-nugetorg-in-the-nuget-ecosystem"></a>NuGet ekosisteminde NuGet.org rolü
+## <a name="role-of-nugetorg-in-the-nuget-ecosystem"></a>NuGet ekosistemindeki NuGet.org rolü
 
-Bir kamu ev sahibi olarak rolünde, NuGet.org kendisi [nuget.org](https://www.nuget.org)100.000'den fazla benzersiz paketlerin merkezi deposu tutar. NuGet.org paketler için tek olası ana bilgisayar değildir. NuGet teknolojisi ayrıca paketleri bulutta (Azure DevOps'lerde gibi) özel olarak, özel bir ağda ve hatta yalnızca yerel dosya sisteminizde barındırmanıza olanak tanır. Farklı bir ev sahibi veya barındırma seçeneğiyle ilgileniyorsanız, [kendi NuGet akışlarınızı barındırma](../hosting-packages/overview.md)ya da barındırma bakın.
+Ortak ana bilgisayar olarak rolünde, NuGet.org, [NuGet.org](https://www.nuget.org)adresinden 100.000 benzersiz paketin üzerinden merkezi depoyu saklar. NuGet.org, paketler için mümkün olan tek konak değildir. NuGet teknolojisi Ayrıca, paketleri bulutta (Azure DevOps gibi), özel bir ağda veya hatta yalnızca yerel dosya sisteminizde barındırmanıza olanak sağlar. Farklı bir konak veya barındırma seçeneği ile ilgileniyorsanız, bkz. [kendi NuGet akışlarınızı barındırma](../hosting-packages/overview.md).
 
-NuGet.org, NuGet paketleri için herhangi bir ana bilgisayar gibi, paket *yaratıcıları* ve paket *tüketiciler*arasında bağlantı noktası olarak hizmet vermektedir. İçerik oluşturucular yararlı NuGet paketleri oluşturur ve bunları yayımlar. Tüketiciler daha sonra erişilebilir ana bilgisayarlarda, bu paketleri indirirken ve projelerine dahil ederek kullanışlı ve uyumlu paketleri ararlar. Bir projeye yüklendikten sonra, paketlerin API'leri proje kodunun geri kalanı için kullanılabilir.
+NuGet paketleri için herhangi bir konak gibi NuGet.org, paket *oluşturucular* ve paket *tüketicileri* arasındaki bağlantı noktası olarak görev yapar. Creators Build yararlı NuGet paketleri ve bunları yayımlayın. Müşteriler daha sonra, bu paketleri projelerinde, indirerek ve dahil olmak üzere erişilebilir konaklarda kullanışlı ve uyumlu paketler arar. Bir projeye yüklendikten sonra paketlerin API 'Leri proje kodunun geri kalanı tarafından kullanılabilir.
 
-![Paket oluşturucular, paket ana bilgisayarlar ve paket tüketicileri arasındaki ilişki](media/nuget-roles.png)
+![Paket oluşturucular, paket konakları ve paket tüketicileri arasındaki ilişki](media/nuget-roles.png)
 
 ## <a name="accounts"></a>Hesaplar
 
-Paketleri NuGet.org yayınlamak için önce [bir bireysel (kullanıcı) hesabı](individual-accounts.md)oluşturursunuz. Bu NuGet.org üzerinde kimliğiniz olur.
+Paketleri NuGet.org üzerinde yayımlamak için önce bir [bireysel (Kullanıcı) hesabı](individual-accounts.md)oluşturursunuz. Bu, NuGet.org adresindeki kimliğiniz olur.
 
-NuGet.org ayrıca bir [kuruluş hesabı](organizations-on-nuget-org.md)oluşturmanıza da olanak sağlar. Kuruluş hesabının üyeleri olarak bir veya daha fazla ayrı hesabı vardır. Üyeler, sahiplik için tek bir kimlik korurken bir dizi paketi yönetebilir. Bireysel hesabınız aracılığıyla, herhangi bir sayıda kuruluşun üyesi olabilirsiniz.
+NuGet.org Ayrıca, bir [kuruluş hesabı](organizations-on-nuget-org.md)oluşturmanıza de olanak tanır. Bir kuruluş hesabının üyeleri olarak bir veya daha fazla bireysel hesabı vardır. Üyeler, sahiplik için tek bir kimliği koruyarak bir paket kümesini yönetebilir. Bireysel hesabınız sayesinde, herhangi bir sayıda kuruluşun üyesi olabilirsiniz.
 
-Paket, tek bir hesaba ait olduğu gibi bir kuruluş hesabına ait olabilir. Paket tüketicileri tek bir hesap la kuruluş hesabı arasında herhangi `owners`bir fark görmezler: her ikisi de paket olarak görünür.
+Bir paket, tek bir hesaba ait olabilir gibi bir kuruluş hesabına ait olabilir. Paket tüketicileri, tek bir hesap veya kuruluş hesabı arasında herhangi bir farklılık görmez: her ikisi de paket olarak görünürler `owners` .
 
 ## <a name="api-keys"></a>API anahtarları
 
-Bir kez bir NuGet paketi *(.nupkg* dosyası) yayınlamak için, NuGet.org edinilen bir [API anahtarı](scoped-api-keys.md) ile birlikte nuget.exe CLI veya dotnet.exe CLI kullanarak NuGet.org yayımlamak.
+Yayımlamak üzere bir NuGet paketine (*. nupkg* dosyası) sahip olduktan sonra, NuGet.org ' den elde edilen bir [API anahtarı](scoped-api-keys.md) ile birlikte nuget.exe CLI veya dotnet.exe CLI kullanarak bunu NuGet.org olarak yayımlayabilirsiniz.
 
-Bir [paket yayımladığınızda,](../create-packages/creating-a-package.md)CLI komutuna API anahtar değerini eklersiniz.
+[Bir paket yayımladığınızda](../create-packages/creating-a-package.md), CLı komutuna API anahtarı değerini dahil edersiniz.
 
-## <a name="id-prefixes"></a>Kimlik önekleri
+## <a name="id-prefixes"></a>KIMLIK önekleri
 
-Paketleri yayımladığınızda, [kimlik önekleri ayırarak](id-prefix-reservation.md)kimliğinizi rezerve edebilir ve koruyabilirsiniz. Paket yüklerken, paket tüketicilerine tükettikleri paketin tanımlayıcı özelliklerinde aldatıcı olmadığını belirten ek bilgiler verilir.
+Paketleri yayımladığınızda kimlik [öneklerini](id-prefix-reservation.md)ayırarak kimliğinizi ayırabilir ve koruyabilirsiniz. Paket yüklerken, paket tüketicileri, kullandıkları paketin kendi tanımlama özelliklerinde yanıltıcı olmadığını belirten ek bilgilerle sağlanır.
 
-## <a name="api-endpoint-for-nugetorg"></a>NuGet.org için API bitiş noktası
+## <a name="api-endpoint-for-nugetorg"></a>NuGet.org için API uç noktası
 
-NuGet.org NuGet istemcileriyle paket deposu olarak kullanmak için aşağıdaki V3 API bitiş noktasını kullanmanız gerekir: 
+NuGet.org 'i NuGet istemcilerinde bir paket deposu olarak kullanmak için aşağıdaki v3 API uç noktasını kullanmanız gerekir: 
 
 `https://api.nuget.org/v3/index.json`
 
-Eski istemciler hala NuGet.org ulaşmak için V2 protokolünü kullanabilirsiniz. Ancak, lütfen unutmayın, NuGet istemcileri 3.0 veya daha sonra V2 protokolü kullanarak daha yavaş ve daha az güvenilir hizmet olacaktır:
+Daha eski istemciler NuGet.org ulaşmak için v2 protokolünü kullanmaya devam edebilir. Ancak, bkz. NuGet istemcileri 3,0 veya üzeri, v2 protokolünü kullanarak daha yavaş ve daha az güvenilir hizmete sahip olacaktır:
 
-`https://www.nuget.org/api/v2`(**V2 prototcol azat edilir!**)
+`https://www.nuget.org/api/v2` (**V2 Protokolü kullanım dışıdır!**)

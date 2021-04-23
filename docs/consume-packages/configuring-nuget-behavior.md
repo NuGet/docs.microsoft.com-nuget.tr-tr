@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 10/25/2017
 ms.topic: conceptual
-ms.openlocfilehash: 35339626b0a20ccfceafa89fef94fb3187013fd7
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 18e3af7145495b5753b5900915ffb4b07942b856
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98774861"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901489"
 ---
 # <a name="common-nuget-configurations"></a>Ortak NuGet yapılandırmaları
 
@@ -18,7 +18,7 @@ NuGet davranışı `NuGet.Config` , proje, Kullanıcı ve bilgisayar genelindeki
 
 ## <a name="config-file-locations-and-uses"></a>Yapılandırma dosyası konumları ve kullanımları
 
-| Kapsam | NuGet.Config dosya konumu | Açıklama |
+| Kapsam | `NuGet.Config` dosya konumu | Açıklama |
 | --- | --- | --- |
 | Çözüm | Geçerli klasör (diğer adıyla, çözüm klasörü) veya sürücü köküne kadar herhangi bir klasör.| Bir çözüm klasöründe, ayarlar alt klasörlerdeki tüm projelere uygulanır. Bir yapılandırma dosyası bir proje klasörüne yerleştirilmişse, projenin bu proje üzerinde hiçbir etkisi olmadığını unutmayın. |
 | Kullanıcı | **Windows:**`%appdata%\NuGet\NuGet.Config`<br/>**Mac/Linux:** `~/.config/NuGet/NuGet.Config` veya `~/.nuget/NuGet/NuGet.Config` (işletim sistemi dağıtımına göre farklılık gösterir) <br/>Ek yapılandırmaları tüm platformlarda desteklenir. Bu config 'ler araç tarafından düzenlenemez. </br> **Windows:**`%appdata%\NuGet\config\*.Config` <br/>**Mac/Linux:** `~/.config/NuGet/config/*.config` veya `~/.nuget/config/*.config` | Ayarlar tüm işlemlere uygulanır, ancak proje düzeyindeki tüm ayarlar tarafından geçersiz kılınır. |
@@ -26,7 +26,7 @@ NuGet davranışı `NuGet.Config` , proje, Kullanıcı ve bilgisayar genelindeki
 
 NuGet 'in önceki sürümleri için notlar:
 - NuGet 3,3 ve önceki sürümleri `.nuget` çözüm genelinde ayarlar için bir klasör kullandı. Bu klasör NuGet 3.4 + ' de kullanılmaz.
-- NuGet 2,6 için 3. x olarak, Windows üzerindeki bilgisayar düzeyi yapılandırma dosyası%ProgramData%\NuGet\Config [ \\ {IDE} [{ \\ Version} [ \\ {SKU}]]] \NuGet.Config. burada *{IDE}* *VisualStudio*, *{Version}* , *14,0* gibi Visual Studio sürümü ve *{SKU}* ise *Community*, *Pro* veya *Enterprise*. Ayarları NuGet 4.0 + ' ya geçirmek için yapılandırma dosyasını% ProgramFiles (x86)% \ Nuget\configkonumuna kopyalamanız yeterlidir. Linux 'ta, bu önceki konum/etc/opt ve Mac üzerinde/Library/Application Support desteği idi.
+- NuGet 2,6 için 3. x, Windows üzerindeki bilgisayar düzeyi yapılandırma dosyası ' de yer alır; `%ProgramData%\NuGet\Config[\{IDE}[\{Version}[\{SKU}]]]\NuGet.Config` burada,, gibi `{IDE}` `VisualStudio` `{Version}` Visual Studio sürümünüz `14.0` ve, veya, `{SKU}` `Community` `Pro` ya `Enterprise` da olabilir. Ayarları NuGet 4.0 + ' ya geçirmek için yapılandırma dosyasını ' a kopyalamanız yeterlidir `%ProgramFiles(x86)%\NuGet\Config` . Linux 'ta, bu önceki konum `/etc/opt` ve Mac üzerinde `/Library/Application Support` .
 
 ## <a name="changing-config-settings"></a>Yapılandırma ayarlarını değiştirme
 
@@ -102,18 +102,16 @@ Birden çok `NuGet.Config` Dosya, tek bir projeye, bir proje grubuna veya tüm p
 
 Özellikle, NuGet ayarları farklı yapılandırma dosyalarından aşağıdaki sırada yükler:
 
-1. Yalnızca paket kaynaklarıyla ilgili ayarları içeren [NuGetDefaults.Config dosyası](#nuget-defaults-file).
+1. Yalnızca paket kaynaklarıyla ilgili ayarları içeren [ `NuGetDefaults.Config` Dosya](#nuget-defaults-file).
 1. Bilgisayar düzeyindeki dosya.
 1. Kullanıcı düzeyi dosyası.
 1. İle belirtilen dosya `-configFile` .
-1. Sürücü kökünden, geçerli klasöre (nuget.exe çağrıldığında veya Visual Studio projesini içeren klasörde) yoldaki her klasörde bulunan dosyalar. Örneğin, bir komut c:\A\B\C içinde çağrılırsa, NuGet yapılandırma dosyalarını şuna bakar ve yükler: \, c:\A, ardından c:\A\B ve son olarak c:\A\B\C.
+1. Sürücü kökünden geçerli klasöre ( `nuget.exe` çağrıldığında veya Visual Studio projesini içeren klasör) yoldaki her klasörde bulunan dosyalar. Örneğin, bir komut ' de çağrılırsa, `c:\A\B\C` NuGet ' de yapılandırma dosyalarını arar ve yükler, sonra, `c:\` `c:\A` `c:\A\B` ve son olarak `c:\A\B\C` .
 
 NuGet bu dosyalardaki ayarları bulduğundan, bunlar aşağıdaki gibi uygulanır:
 
 1. Tek öğe öğelerinde, NuGet aynı anahtar için önceden bulunan tüm değeri değiştirdi. Bu, geçerli klasöre veya projeye "en yakın" olan ayarların daha önce bulduğu diğer tüm diğerlerini geçersiz kıldığı anlamına gelir. Örneğin, `defaultPushSource` içindeki ayarı `NuGetDefaults.Config` başka herhangi bir yapılandırma dosyasında varsa geçersiz kılınır.
-
 1. Koleksiyon öğeleri (gibi) için `<packageSources>` , NuGet tüm yapılandırma dosyalarındaki değerleri tek bir koleksiyon olarak birleştirir.
-
 1. `<clear />`Belirli bir düğüm için olduğunda, NuGet bu düğüm için önceden tanımlanmış yapılandırma değerlerini yoksayar.
 
 ### <a name="settings-walkthrough"></a>Ayarlar izlenecek yol
@@ -144,7 +142,7 @@ Dosya A. Kullanıcı düzeyi dosyası, ( `%appdata%\NuGet\NuGet.Config` Windows 
 </configuration>
 ```
 
-Dosya B. disk_drive_2/NuGet.Config:
+B dosyası. `disk_drive_2/NuGet.Config` :
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -158,7 +156,7 @@ Dosya B. disk_drive_2/NuGet.Config:
 </configuration>
 ```
 
-Dosya C. disk_drive_2/Project1/NuGet.Config:
+Dosya C. `disk_drive_2/Project1/NuGet.Config` :
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -174,7 +172,7 @@ Dosya C. disk_drive_2/Project1/NuGet.Config:
 </configuration>
 ```
 
-Dosya D. disk_drive_2/Project2/NuGet.Config:
+Dosya D. `disk_drive_2/Project2/NuGet.Config` :
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -188,13 +186,13 @@ Dosya D. disk_drive_2/Project2/NuGet.Config:
 
 Ardından NuGet, çağrıldığı yere bağlı olarak ayarları yükler ve aşağıdaki gibi uygular:
 
-- **Disk_drive_1/Users 'Den çağrılır**: yalnızca Kullanıcı düzeyi yapılandırma dosyasında (A) listelenen varsayılan depo, disk_drive_1 üzerinde bulunan tek dosya olduğu için kullanılır.
+- Çağrılan: yalnızca, üzerinde bulunan tek dosya olduğundan, Kullanıcı düzeyi yapılandırma dosyasında (A) listelenen varsayılan depo kullanılır. **`disk_drive_1/users`** `disk_drive_1`
 
-- **Disk_drive_2/veya disk_drive_/tmp**: önce Kullanıcı düzeyi dosya (A) yüklenir, ardından NuGet disk_drive_2 köküne gider ve dosyayı bulur (B). NuGet Ayrıca/tmp ' de bir yapılandırma dosyası arar ancak bir tane bulmaz. Sonuç olarak, nuget.org üzerindeki varsayılan depo kullanılır, paket geri yükleme etkinleştirilir ve paketler disk_drive_2/tmpa 'da genişletilir.
+- **`disk_drive_2/` Ya da `disk_drive_/tmp` çağrılır**: önce Kullanıcı düzeyi dosya (A) yüklenir, ardından NuGet kök öğesine gider `disk_drive_2` ve dosyayı bulur (B). NuGet Ayrıca ' de bir yapılandırma dosyası arar `/tmp` ancak bir yapılandırma dosyası bulamaz. Sonuç olarak, üzerindeki varsayılan depo `nuget.org` kullanılır, paket geri yükleme etkinleştirilir ve paketler ' de genişletilir `disk_drive_2/tmp` .
 
-- **Disk_drive_2/Project1 veya disk_drive_2/Project1/Source: ' dan çağrıldığında**, önce Kullanıcı düzeyi dosya (A) yüklenir, ardından NuGet dosyayı (B) disk_drive_2 kökünden, ardından dosyayı (C) yükler. (C) içindeki ayarlar, (B) ve (A) içindeki ayarları geçersiz kılar, bu nedenle `repositoryPath` paketlerin yüklendiği yer, *disk_drive_2/tmp* yerine disk_drive_2/Project1/External/Packages. Ayrıca, (C) temizleyen `<packageSources>` , NuGet.org artık yalnızca bir kaynak olarak kullanılamaz `https://MyPrivateRepo/ES/nuget` .
+- **`disk_drive_2/Project1` Ya da `disk_drive_2/Project1/Source` çağrılır**: önce Kullanıcı düzeyi dosya (A) yüklenir, ardından NuGet dosyayı (B) kökünden sonra `disk_drive_2` dosya (C) ile yükler. (C) içindeki ayarlar, (B) ve (A) içindeki ayarları geçersiz kılar, bu nedenle `repositoryPath` paketlerin yüklendiği yer `disk_drive_2/Project1/External/Packages` `disk_drive_2/tmp` . Ayrıca, (C) temizleyen `<packageSources>` , NuGet.org artık yalnızca bir kaynak olarak kullanılamaz `https://MyPrivateRepo/ES/nuget` .
 
-- **Disk_drive_2/Project2 veya disk_drive_2/Project2/Source**: ' dan önce dosya (b) ve dosya (D) ile birlikte Kullanıcı düzeyi dosya (A) yüklenir. `packageSources`Temizlenmediği için her ikisi de `nuget.org` `https://MyPrivateRepo/DQ/nuget` kaynak olarak kullanılabilir. Paketler, (B) ' de belirtildiği gibi disk_drive_2/tmp ' de genişletilir.
+- **`disk_drive_2/Project2` Ya `disk_drive_2/Project2/Source` da çağrılır**: Kullanıcı düzeyi dosya (A) önce yüklenir ve ardından dosya (b) ve dosya (D) gelir. `packageSources`Temizlenmediği için her ikisi de `nuget.org` `https://MyPrivateRepo/DQ/nuget` kaynak olarak kullanılabilir. Paketler ' `disk_drive_2/tmp` de belirtilen şekilde genişletilir (B).
 
 ## <a name="additional-user-wide-configuration"></a>Ek Kullanıcı genelindeki yapılandırma
 
@@ -217,11 +215,11 @@ Bu dosyalar Standart araç tarafından düzenlenemez.
 >
 > Ayrıca, `NuGetDefaults.Config` NuGet 'deki başka hiçbir mekanizma, NuGet.org gibi paket kaynaklarına erişimi engelleyebilir. Bir kuruluş söz konusu erişimi engellemeyi istiyorsa, bunun için güvenlik duvarları gibi diğer yollarla kullanılması gerekir.
 
-### <a name="nugetdefaultsconfig-location"></a>NuGetDefaults.Config konumu
+### <a name="nugetdefaultsconfig-location"></a>`NuGetDefaults.Config` konumuna
 
 Aşağıdaki tabloda `NuGetDefaults.Config` , hedef işletim sistemine bağlı olarak dosyanın depolanacağı konum açıklanmaktadır:
 
-| İşletim sistemi platformu  | NuGetDefaults.Config konumu |
+| İşletim sistemi platformu  | `NuGetDefaults.Config` Konumuna |
 | --- | --- |
 | Windows      | **Visual Studio 2017 veya NuGet 4. x +:**`%ProgramFiles(x86)%\NuGet\Config` <br />**Visual Studio 2015 ve öncesi ya da NuGet 3. x ve öncesi:**`%PROGRAMDATA%\NuGet` |
 | Mac/Linux    | `$XDG_DATA_HOME` (genellikle `~/.local/share` veya `/usr/local/share` , işletim sistemi dağıtımına bağlı olarak)|
@@ -230,9 +228,9 @@ Aşağıdaki tabloda `NuGetDefaults.Config` , hedef işletim sistemine bağlı o
 
 - `packageSources`: Bu koleksiyon, `packageSources` Normal yapılandırma dosyaları ile aynı anlama sahiptir ve varsayılan kaynakları belirtir. NuGet, yönetim biçimini kullanarak projelerdeki paketleri yükleme veya güncelleştirme sırasında kaynakları kullanır `packages.config` . , PackageReference biçimini kullanan projeler için, NuGet önce yerel kaynakları, ardından ağ paylaşımlarında kaynakları, sonra da yapılandırma dosyalarındaki sıra ne olursa olsun HTTP kaynaklarını kullanır. NuGet, geri yükleme işlemlerine sahip kaynakların sırasını her zaman yoksayar.
 
-- `disabledPackageSources`: Bu koleksiyonda ayrıca `NuGet.Config` , etkilenen her kaynağın adı ve devre dışı olup olmadığını gösteren bir doğru/yanlış değeri tarafından listelenen dosyalardaki gibi aynı anlamı vardır. Bu, kaynak adının ve URL 'nin `packageSources` Varsayılan olarak açık olmadan ' de kalmasına izin verir. Bireysel geliştiriciler daha sonra `NuGet.Config` doğru URL 'yi bulmaya gerek kalmadan kaynağın değerini diğer dosyalardaki false olarak ayarlayarak kaynağı yeniden etkinleştirebilir. Bu, geliştiricilere yalnızca bireysel ekibin kaynağını varsayılan olarak etkinleştirirken bir kuruluşun iç kaynak URL 'lerinin tam listesini sağlamak için de kullanışlıdır.
+- `disabledPackageSources`: Bu koleksiyonda ayrıca `NuGet.Config` , etkilenen her kaynağın adına ve `true` / `false` devre dışı olup olmadığını gösteren bir değere göre listelendiği, dosyalardaki gibi aynı anlamı vardır. Bu, kaynak adının ve URL 'nin `packageSources` Varsayılan olarak açık olmadan ' de kalmasına izin verir. Bireysel geliştiriciler daha sonra `false` `NuGet.Config` doğru URL 'yi bulmaya gerek kalmadan kaynağın değerini diğer dosyalarda olarak ayarlayarak kaynağı yeniden etkinleştirebilir. Bu, geliştiricilere yalnızca bireysel ekibin kaynağını varsayılan olarak etkinleştirirken bir kuruluşun iç kaynak URL 'lerinin tam listesini sağlamak için de kullanışlıdır.
 
-- `defaultPushSource`: `nuget push` NuGet.org 'in yerleşik varsayılan öğesini geçersiz kılarak, işlemler için varsayılan hedefi belirtir. Yöneticiler, özellikle nuget.org ' de yayımlamak için kullanması gerektiği için, şirket içi paketlerin yanlışlıkla yanlışlıkla, genel nuget.org yayınlanmasını önlemek üzere bu ayarı dağıtabilir `nuget push -Source` .
+- `defaultPushSource`: `nuget push` yerleşik varsayılanı geçersiz kılan işlemler için varsayılan hedefi belirtir `nuget.org` . Yöneticiler `nuget.org` , özellikle ' de yayımlamak üzere kullanmaları gereken şekilde, iç paketleri yanlışlıkla yanlışlıkla herkese yayınlayamaması için bu ayarı dağıtabilir `nuget push -Source` `nuget.org` .
 
 ### <a name="example-nugetdefaultsconfig-and-application"></a>Örnek NuGetDefaults.Config ve uygulama
 

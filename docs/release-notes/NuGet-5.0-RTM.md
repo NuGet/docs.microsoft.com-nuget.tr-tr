@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 04/02/2019
 ms.topic: conceptual
-ms.openlocfilehash: 637db1ae128ce020c33e54e56148c848a5f905a5
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 19173d2be7cd66b65651655385466b40f5e08352
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98776225"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901752"
 ---
 # <a name="nuget-50-release-notes"></a>NuGet 5,0 sürüm notları
 
@@ -27,7 +27,7 @@ NuGet dağıtım araçlar:
 
 ## <a name="summary-whats-new-in-50"></a>Özet: 5,0 sürümündeki yenilikler
 
-* Visual Studio 2019- [#5820](https://github.com/NuGet/Home/issues/5820) [filtrelenmiş çözümleri](/visualstudio/ide/filtered-solutions?view=vs-2019) geri yükleme desteği
+* Visual Studio 2019- [#5820](https://github.com/NuGet/Home/issues/5820) [filtrelenmiş çözümleri](/visualstudio/ide/filtered-solutions) geri yükleme desteği
 * `BuildTransitive` klasör, paketlerin, ana bilgisayar projesine hedefe/props 'ın geçişli olarak katkıda bulunmasına olanak sağlar- [#6091](https://github.com/NuGet/Home/issues/6091)
 * NuGet IVS API 'Lerinde PackageReference senaryoları için daha iyi destek [](https://github.com/NuGet/Home/issues/7005)-#7005 [#7493](https://github.com/NuGet/Home/issues/7493)
 * `nuget.exe pack project.json` kullanım dışı bırakıldı- [#7928](https://github.com/NuGet/Home/issues/7928)

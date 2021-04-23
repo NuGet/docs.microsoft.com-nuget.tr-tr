@@ -1,16 +1,16 @@
 ---
 title: MSBuild kullanarak bir NuGet paketi oluşturma
-description: Dosyalar ve sürüm oluşturma gibi önemli karar noktaları da dahil olmak üzere bir NuGet paketi tasarlama ve oluşturma işlemine yönelik ayrıntılı kılavuz.
+description: Dosya ve sürüm oluşturma gibi önemli karar noktaları da dahil olmak üzere, MSBuild kullanarak bir NuGet paketi tasarlama ve oluşturma işlemine yönelik ayrıntılı kılavuz.
 author: JonDouglas
 ms.author: jodou
 ms.date: 02/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 48741668af932a532240f2796a9bf5d490ee8e35
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 18e0da335f65fde99d035388b95f35160757ee84
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98774440"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901466"
 ---
 # <a name="create-a-nuget-package-using-msbuild"></a>MSBuild kullanarak bir NuGet paketi oluşturma
 

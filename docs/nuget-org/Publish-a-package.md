@@ -6,12 +6,12 @@ ms.author: jodou
 ms.date: 05/18/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 5be7a4d4c31df9f2f4bda7bdb1ff9f4887108578
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 05a16d8bf609d727aba3ddbc42959a3deb97b24b
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775984"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901921"
 ---
 # <a name="publishing-packages"></a>Paketler yayımlanıyor
 
@@ -38,11 +38,9 @@ Daha sonra, nuget.org Web portalı aracılığıyla paketi karşıya yükleyebil
 
 1. nuget.org, paket adının kullanılabilir olup olmadığını söyler. Değilse, projenizdeki paket tanımlayıcısını değiştirin, yeniden derleyin ve karşıya yüklemeyi yeniden deneyin.
 
-1. Paket adı kullanılabiliyorsa nuget.org, paket bildiriminden meta verileri gözden geçirebilmeniz için bir **doğrulama** bölümü açar. Meta verileri değiştirmek için projenizi (proje dosyası veya dosyası) düzenleyin, yeniden `.nuspec` derleyin, paketi yeniden oluşturun ve tekrar yükleyin.
+1. Paket adı kullanılabiliyorsa nuget.org, paket bildiriminden meta verileri gözden geçirebilmeniz için bir **doğrulama** bölümü açar. Paketinize bir [Benioku dosyası](/docs/nuget-org/package-readme-on-nuget-org.md) eklediyseniz, tüm içeriğin düzgün şekilde işlenmesini sağlamak için önizlemeye göz atın. Meta verileri değiştirmek için projenizi (proje dosyası veya dosyası) düzenleyin, yeniden `.nuspec` derleyin, paketi yeniden oluşturun ve tekrar yükleyin.
 
-1. **Belgeleri Içeri aktar** ' ın altında markaşağı yapıştırabilir, bir URL ile belgelerinize işaret edebilir veya bir belge dosyası yükleyebilirsiniz.
-
-1. Tüm bilgiler hazırlanıyor, **Gönder** düğmesini seçin
+2. Tüm bilgiler hazırlanıyor, **Gönder** düğmesini seçin
 
 ### <a name="command-line"></a>Komut satırı
 
