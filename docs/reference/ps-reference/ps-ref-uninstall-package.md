@@ -5,46 +5,46 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 06/01/2017
 ms.topic: reference
-ms.openlocfilehash: 961a9d68e5cba09030401fc871a93bf1145b23a3
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 371e95c341efbce1c4a15facefc15cd51b266141
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98777388"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901791"
 ---
-# <a name="uninstall-package-package-manager-console-in-visual-studio"></a><span data-ttu-id="c3db1-103">Uninstall-Package (Visual Studio 'da Paket Yöneticisi konsolu)</span><span class="sxs-lookup"><span data-stu-id="c3db1-103">Uninstall-Package (Package Manager Console in Visual Studio)</span></span>
+# <a name="uninstall-package-package-manager-console-in-visual-studio"></a><span data-ttu-id="71e20-103">Uninstall-Package (Visual Studio 'da Paket Yöneticisi konsolu)</span><span class="sxs-lookup"><span data-stu-id="71e20-103">Uninstall-Package (Package Manager Console in Visual Studio)</span></span>
 
-<span data-ttu-id="c3db1-104">*Bu konuda, Windows üzerinde Visual Studio 'da [Paket Yöneticisi konsolu](../../consume-packages/install-use-packages-powershell.md) içindeki komut açıklanmaktadır. Genel PowerShell Uninstall-Package komutu için bkz. [PowerShell PackageManagement başvurusu](/powershell/module/packagemanagement/?view=powershell-6).*</span><span class="sxs-lookup"><span data-stu-id="c3db1-104">*This topic describes the command within the [Package Manager Console](../../consume-packages/install-use-packages-powershell.md) in Visual Studio on Windows. For the generic PowerShell Uninstall-Package command, see the [PowerShell PackageManagement reference](/powershell/module/packagemanagement/?view=powershell-6).*</span></span>
+<span data-ttu-id="71e20-104">*Bu konuda, Windows üzerinde Visual Studio 'da [Paket Yöneticisi konsolu](../../consume-packages/install-use-packages-powershell.md) içindeki komut açıklanmaktadır. Genel PowerShell Uninstall-Package komutu için bkz. [PowerShell PackageManagement başvurusu](/powershell/module/packagemanagement).*</span><span class="sxs-lookup"><span data-stu-id="71e20-104">*This topic describes the command within the [Package Manager Console](../../consume-packages/install-use-packages-powershell.md) in Visual Studio on Windows. For the generic PowerShell Uninstall-Package command, see the [PowerShell PackageManagement reference](/powershell/module/packagemanagement).*</span></span>
 
-<span data-ttu-id="c3db1-105">, İsteğe bağlı olarak bağımlılıklarını kaldırarak bir projeden paket kaldırır.</span><span class="sxs-lookup"><span data-stu-id="c3db1-105">Removes a package from a project, optionally removing its dependencies.</span></span> <span data-ttu-id="c3db1-106">Diğer paketler bu pakete bağımlıysa, – zorlama seçeneği belirtilmediği takdirde komut başarısız olur.</span><span class="sxs-lookup"><span data-stu-id="c3db1-106">If other packages depend on this package, the command will fail unless the –Force option is specified.</span></span>
+<span data-ttu-id="71e20-105">, İsteğe bağlı olarak bağımlılıklarını kaldırarak bir projeden paket kaldırır.</span><span class="sxs-lookup"><span data-stu-id="71e20-105">Removes a package from a project, optionally removing its dependencies.</span></span> <span data-ttu-id="71e20-106">Diğer paketler bu pakete bağımlıysa, – zorlama seçeneği belirtilmediği takdirde komut başarısız olur.</span><span class="sxs-lookup"><span data-stu-id="71e20-106">If other packages depend on this package, the command will fail unless the –Force option is specified.</span></span>
 
-## <a name="syntax"></a><span data-ttu-id="c3db1-107">Syntax</span><span class="sxs-lookup"><span data-stu-id="c3db1-107">Syntax</span></span>
+## <a name="syntax"></a><span data-ttu-id="71e20-107">Syntax</span><span class="sxs-lookup"><span data-stu-id="71e20-107">Syntax</span></span>
 
 ```ps
 Uninstall-Package [-Id] <string> [-RemoveDependencies] [-ProjectName <string>] [-Force]
     [-Version <string>] [-WhatIf] [<CommonParameters>]
 ```
 
-<span data-ttu-id="c3db1-108">Diğer paketler bu pakete bağımlıysa, – zorlama seçeneği belirtilmediği takdirde komut başarısız olur.</span><span class="sxs-lookup"><span data-stu-id="c3db1-108">If other packages depend on this package, the command will fail unless the –Force option is specified.</span></span>
+<span data-ttu-id="71e20-108">Diğer paketler bu pakete bağımlıysa, – zorlama seçeneği belirtilmediği takdirde komut başarısız olur.</span><span class="sxs-lookup"><span data-stu-id="71e20-108">If other packages depend on this package, the command will fail unless the –Force option is specified.</span></span>
 
-## <a name="parameters"></a><span data-ttu-id="c3db1-109">Parametreler</span><span class="sxs-lookup"><span data-stu-id="c3db1-109">Parameters</span></span>
+## <a name="parameters"></a><span data-ttu-id="71e20-109">Parametreler</span><span class="sxs-lookup"><span data-stu-id="71e20-109">Parameters</span></span>
 
-| <span data-ttu-id="c3db1-110">Parametre</span><span class="sxs-lookup"><span data-stu-id="c3db1-110">Parameter</span></span> | <span data-ttu-id="c3db1-111">Açıklama</span><span class="sxs-lookup"><span data-stu-id="c3db1-111">Description</span></span> |
+| <span data-ttu-id="71e20-110">Parametre</span><span class="sxs-lookup"><span data-stu-id="71e20-110">Parameter</span></span> | <span data-ttu-id="71e20-111">Açıklama</span><span class="sxs-lookup"><span data-stu-id="71e20-111">Description</span></span> |
 | --- | --- |
-| <span data-ttu-id="c3db1-112">Id</span><span class="sxs-lookup"><span data-stu-id="c3db1-112">Id</span></span> | <span data-ttu-id="c3db1-113">Istenir Kaldırılacak paketin tanımlayıcısı.</span><span class="sxs-lookup"><span data-stu-id="c3db1-113">(Required) The identifier of the package to uninstall.</span></span> <span data-ttu-id="c3db1-114">-ID anahtarı isteğe bağlıdır.</span><span class="sxs-lookup"><span data-stu-id="c3db1-114">The -Id switch itself is optional.</span></span> |
-| <span data-ttu-id="c3db1-115">Sürüm</span><span class="sxs-lookup"><span data-stu-id="c3db1-115">Version</span></span> | <span data-ttu-id="c3db1-116">Kaldırılacak paketin sürümü, şu anda yüklü olan sürüme varsayılan olarak ayarlanıyor.</span><span class="sxs-lookup"><span data-stu-id="c3db1-116">The version of the package to uninstall, defaulting to the currently installed version.</span></span> |
-| <span data-ttu-id="c3db1-117">RemoveDependencies</span><span class="sxs-lookup"><span data-stu-id="c3db1-117">RemoveDependencies</span></span> | <span data-ttu-id="c3db1-118">Paketi ve kullanılmayan bağımlılıklarını kaldırın.</span><span class="sxs-lookup"><span data-stu-id="c3db1-118">Uninstall the package and its unused dependencies.</span></span> <span data-ttu-id="c3db1-119">Diğer bir deyişle, herhangi bir bağımlılığın kendisine bağımlı başka bir paketi varsa, bu atlanır.</span><span class="sxs-lookup"><span data-stu-id="c3db1-119">That is, if any dependency has another package that depends on it, it's skipped.</span></span> |
-| <span data-ttu-id="c3db1-120">ProjectName</span><span class="sxs-lookup"><span data-stu-id="c3db1-120">ProjectName</span></span> | <span data-ttu-id="c3db1-121">Paketin kaldırılacağı proje, varsayılan proje varsayılan olarak ayarlanıyor.</span><span class="sxs-lookup"><span data-stu-id="c3db1-121">The project from which to uninstall the package, defaulting to the default project.</span></span> |
-| <span data-ttu-id="c3db1-122">Force</span><span class="sxs-lookup"><span data-stu-id="c3db1-122">Force</span></span> | <span data-ttu-id="c3db1-123">Başka paketler buna bağımlı olsa bile, bir paketi kaldırılmasına zorlar.</span><span class="sxs-lookup"><span data-stu-id="c3db1-123">Forces a package to be uninstalled, even if other packages depend on it.</span></span> |
-| <span data-ttu-id="c3db1-124">WhatIf</span><span class="sxs-lookup"><span data-stu-id="c3db1-124">WhatIf</span></span> | <span data-ttu-id="c3db1-125">, Kaldırma işlemi yapılmadan komutu çalıştırırken ne olacağını gösterir.</span><span class="sxs-lookup"><span data-stu-id="c3db1-125">Shows what would happen when running the command without actually performing the uninstall.</span></span> |
+| <span data-ttu-id="71e20-112">Id</span><span class="sxs-lookup"><span data-stu-id="71e20-112">Id</span></span> | <span data-ttu-id="71e20-113">Istenir Kaldırılacak paketin tanımlayıcısı.</span><span class="sxs-lookup"><span data-stu-id="71e20-113">(Required) The identifier of the package to uninstall.</span></span> <span data-ttu-id="71e20-114">-ID anahtarı isteğe bağlıdır.</span><span class="sxs-lookup"><span data-stu-id="71e20-114">The -Id switch itself is optional.</span></span> |
+| <span data-ttu-id="71e20-115">Sürüm</span><span class="sxs-lookup"><span data-stu-id="71e20-115">Version</span></span> | <span data-ttu-id="71e20-116">Kaldırılacak paketin sürümü, şu anda yüklü olan sürüme varsayılan olarak ayarlanıyor.</span><span class="sxs-lookup"><span data-stu-id="71e20-116">The version of the package to uninstall, defaulting to the currently installed version.</span></span> |
+| <span data-ttu-id="71e20-117">RemoveDependencies</span><span class="sxs-lookup"><span data-stu-id="71e20-117">RemoveDependencies</span></span> | <span data-ttu-id="71e20-118">Paketi ve kullanılmayan bağımlılıklarını kaldırın.</span><span class="sxs-lookup"><span data-stu-id="71e20-118">Uninstall the package and its unused dependencies.</span></span> <span data-ttu-id="71e20-119">Diğer bir deyişle, herhangi bir bağımlılığın kendisine bağımlı başka bir paketi varsa, bu atlanır.</span><span class="sxs-lookup"><span data-stu-id="71e20-119">That is, if any dependency has another package that depends on it, it's skipped.</span></span> |
+| <span data-ttu-id="71e20-120">ProjectName</span><span class="sxs-lookup"><span data-stu-id="71e20-120">ProjectName</span></span> | <span data-ttu-id="71e20-121">Paketin kaldırılacağı proje, varsayılan proje varsayılan olarak ayarlanıyor.</span><span class="sxs-lookup"><span data-stu-id="71e20-121">The project from which to uninstall the package, defaulting to the default project.</span></span> |
+| <span data-ttu-id="71e20-122">Force</span><span class="sxs-lookup"><span data-stu-id="71e20-122">Force</span></span> | <span data-ttu-id="71e20-123">Başka paketler buna bağımlı olsa bile, bir paketi kaldırılmasına zorlar.</span><span class="sxs-lookup"><span data-stu-id="71e20-123">Forces a package to be uninstalled, even if other packages depend on it.</span></span> |
+| <span data-ttu-id="71e20-124">WhatIf</span><span class="sxs-lookup"><span data-stu-id="71e20-124">WhatIf</span></span> | <span data-ttu-id="71e20-125">, Kaldırma işlemi yapılmadan komutu çalıştırırken ne olacağını gösterir.</span><span class="sxs-lookup"><span data-stu-id="71e20-125">Shows what would happen when running the command without actually performing the uninstall.</span></span> |
 
-<span data-ttu-id="c3db1-126">Bu parametrelerin hiçbiri, işlem hattı girişi veya joker karakterler kabul etmez.</span><span class="sxs-lookup"><span data-stu-id="c3db1-126">None of these parameters accept pipeline input or wildcard characters.</span></span>
+<span data-ttu-id="71e20-126">Bu parametrelerin hiçbiri, işlem hattı girişi veya joker karakterler kabul etmez.</span><span class="sxs-lookup"><span data-stu-id="71e20-126">None of these parameters accept pipeline input or wildcard characters.</span></span>
 
-## <a name="common-parameters"></a><span data-ttu-id="c3db1-127">Ortak Parametreler</span><span class="sxs-lookup"><span data-stu-id="c3db1-127">Common Parameters</span></span>
+## <a name="common-parameters"></a><span data-ttu-id="71e20-127">Ortak Parametreler</span><span class="sxs-lookup"><span data-stu-id="71e20-127">Common Parameters</span></span>
 
-<span data-ttu-id="c3db1-128">`Uninstall-Package` Şu [ortak PowerShell parametrelerini](/powershell/module/microsoft.powershell.core/about/about_commonparameters)destekler: Hata Ayıkla, hata eylemi, ErrorVariable, OutBuffer, OutVariable, Pipelinevariable, verbose, WarningAction ve WarningVariable.</span><span class="sxs-lookup"><span data-stu-id="c3db1-128">`Uninstall-Package` supports the following [common PowerShell parameters](/powershell/module/microsoft.powershell.core/about/about_commonparameters): Debug, Error Action, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction, and WarningVariable.</span></span>
+<span data-ttu-id="71e20-128">`Uninstall-Package` Şu [ortak PowerShell parametrelerini](/powershell/module/microsoft.powershell.core/about/about_commonparameters)destekler: Hata Ayıkla, hata eylemi, ErrorVariable, OutBuffer, OutVariable, Pipelinevariable, verbose, WarningAction ve WarningVariable.</span><span class="sxs-lookup"><span data-stu-id="71e20-128">`Uninstall-Package` supports the following [common PowerShell parameters](/powershell/module/microsoft.powershell.core/about/about_commonparameters): Debug, Error Action, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction, and WarningVariable.</span></span>
 
-## <a name="examples"></a><span data-ttu-id="c3db1-129">Örnekler</span><span class="sxs-lookup"><span data-stu-id="c3db1-129">Examples</span></span>
+## <a name="examples"></a><span data-ttu-id="71e20-129">Örnekler</span><span class="sxs-lookup"><span data-stu-id="71e20-129">Examples</span></span>
 
 ```ps
 # Uninstalls the Elmah package from the default project
