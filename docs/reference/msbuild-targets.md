@@ -10,12 +10,12 @@ no-loc:
 - MSBuild
 - .nuspec
 - nuspec
-ms.openlocfilehash: 0a10a6f1e4c71903232281c25a6c4b6bbc65fb34
-ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
+ms.openlocfilehash: 8ebf0329f9dc7af09a59f1498a934754842df365
+ms.sourcegitcommit: 08c5b2c956a1a45f0ea9fb3f50f55e41312d8ce3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107901492"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108067316"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGethedef olarak Paketle ve geri yükle MSBuild
 
@@ -77,7 +77,7 @@ Aşağıdaki tabloda, MSBuild ilk düğüm içindeki bir proje dosyasına eklene
 | `Repository/Type` | `RepositoryType` | empty | Depo türü. Örnekler: `git` (varsayılan), `tfs` . |
 | `Repository/Branch` | `RepositoryBranch` | empty | İsteğe bağlı depo dalı bilgileri. `RepositoryUrl` Bu özelliğin dahil edilmesini sağlamak için de belirtilmesi gerekir. Örnek: *Master* ( NuGet 4.7.0 +). |
 | `Repository/Commit` | `RepositoryCommit` | empty | Paketin hangi kaynağa göre oluşturulduğunu göstermek için isteğe bağlı depo kaydı veya değişiklik kümesi. `RepositoryUrl` Bu özelliğin dahil edilmesini sağlamak için de belirtilmesi gerekir. Örnek: *0e4d1b598f350b3dc675018d539114d1328189ef* ( NuGet 4.7.0 +). |
-| `PackageType` | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
+| `PackageType` | `<PackageType>CustomType1, 1.0.0.0;CustomType2</PackageType>` | | Paketin amaçlanan kullanımını gösterir. Paket türleri paket kimlikleri ile aynı biçimi kullanır ve tarafından sınırlandırılır `;` . Paket türleri bir ve dizesi eklenerek sürümlenebilir `,` [`Version`](/dotnet/api/system.version) . Bkz. [ NuGet paket türünü ayarlama](../create-packages/set-package-type.md) ( NuGet 3.5.0 +). |
 | `Summary` | Desteklenmez | | |
 
 ### <a name="pack-target-inputs"></a>Paket hedef girişleri
@@ -163,7 +163,7 @@ nuspecEşdeğer bir deyişle, [ nuspec simgeye yönelik başvuruya](nuspec.md#ic
 
 ### <a name="packagereadmefile"></a>PackageReadmeFile
 
-***NuGet 5.10.0 Preview 2**  /  **.NET 5.0.3** ve üzeri ile desteklenir*
+***NuGet 5.10.0 Preview 2**  /  **.NET SDK 5.0.300** ve üstü ile desteklenir*
 
 Bir Benioku dosyası paketleme sırasında, paketin `PackageReadmeFile` köküne göre paket yolunu belirtmek için özelliğini kullanmanız gerekir. Buna ek olarak, dosyanın pakete eklendiğinden emin olmanız gerekir. Desteklenen dosya biçimleri yalnızca Marklt (*. MD*) içerir.
 
