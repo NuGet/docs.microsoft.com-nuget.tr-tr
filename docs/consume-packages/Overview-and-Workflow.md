@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 03/22/2018
 ms.topic: conceptual
-ms.openlocfilehash: 92968236262f891106ab2d4cd3ba399f1644400b
-ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
+ms.openlocfilehash: d1d6df3bcc36d8a78fcee97099b301c9ffc440d9
+ms.sourcegitcommit: f3d98c23408a4a1c01ea92fc45493fa7bd97c3ee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104859219"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112323641"
 ---
 # <a name="package-consumption-workflow"></a>Paket tüketimi iş akışı
 
@@ -39,7 +39,7 @@ Bir kaynak depoya proje kodu eklerken, genellikle NuGet paketleri dahil değildi
 
 Bazen bir projede zaten bulunan paketleri yeniden yüklemek gerekir, bu da bağımlılıkları yeniden yükleyebilir. Bu, `nuget reinstall` komutu veya NuGet Paket Yöneticisi konsolunu kullanarak kolayca yapılır. Ayrıntılar için bkz. [paketleri yeniden yükleme ve güncelleştirme](../consume-packages/reinstalling-and-updating-packages.md).
 
-Son olarak, NuGet davranışı dosyalar tarafından çalıştırılır `Nuget.Config` . [NuGet davranışını yapılandırma](../consume-packages/configuring-nuget-behavior.md)bölümünde açıklandığı gibi, farklı düzeylerde belirli ayarları merkezileştirmek için birden çok dosya kullanılabilir.
+Son olarak, NuGet davranışı dosyalar tarafından çalıştırılır `NuGet.Config` . [NuGet davranışını yapılandırma](../consume-packages/configuring-nuget-behavior.md)bölümünde açıklandığı gibi, farklı düzeylerde belirli ayarları merkezileştirmek için birden çok dosya kullanılabilir.
 
 ## <a name="ways-to-install-a-nuget-package"></a>NuGet paketi yüklemeye yönelik yollar
 

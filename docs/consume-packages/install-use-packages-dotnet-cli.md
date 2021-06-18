@@ -1,50 +1,50 @@
 ---
-title: DotNet CLı kullanarak NuGet paketlerini yükleyip yönetme
-description: NuGet paketleriyle çalışmak için DotNet CLı kullanma yönergeleri.
+title: dotnet CLI kullanarak NuGet paketlerini yükleme ve yönetme
+description: NuGet paketleriyle çalışmak için dotnet CLI kullanma yönergeleri.
 author: mikejo5000
 ms.author: mikejo
 ms.date: 06/03/2019
 ms.topic: conceptual
-ms.openlocfilehash: fecf14f0f04d5063f89080b2756f988739c1412c
-ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
+ms.openlocfilehash: 62c05aad388c25120d5b9f5143017a2f4f3b276b
+ms.sourcegitcommit: f3d98c23408a4a1c01ea92fc45493fa7bd97c3ee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104859271"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112323615"
 ---
-# <a name="install-and-manage-packages-using-the-dotnet-cli"></a>DotNet CLı kullanarak paketleri yükleyip yönetme
+# <a name="install-and-manage-packages-using-the-dotnet-cli"></a>dotnet CLI kullanarak paketleri yükleme ve yönetme
 
-CLı Aracı, projelerde ve çözümlerde NuGet paketlerini kolayca yüklemenize, kaldırmanıza ve güncelleştirmenize olanak tanır. Windows, Mac OS X ve Linux üzerinde çalışır.
+CLI aracı, projelerde ve çözümlerde NuGet paketlerini kolayca yüklemenizi, kaldırmanızı ve güncelleştirmenizi sağlar. Windows, Mac OS X ve Linux üzerinde çalışır.
 
-DotNet CLı, .NET Core ve .NET Standard projesi (SDK stili proje türleri) ve diğer SDK stilindeki projeler (örneğin, .NET Framework hedefleyen SDK stili bir proje) için kullanım içindir. Daha fazla bilgi için bkz. [SDK özniteliği](/dotnet/core/tools/csproj#additions).
+dotnet CLI, .NET Core ve .NET Standard projesinde (SDK stili proje türleri) ve diğer SDK stili projeler (örneğin, .NET Framework'i hedef alan SDK stilinde bir proje) için kullanılabilir. Daha fazla bilgi için bkz. [SDK özniteliği.](/dotnet/core/tools/csproj#additions)
 
-Bu makalede, en yaygın DotNet CLı komutlarının birçoğuna ilişkin temel kullanım gösterilmektedir. Bu komutların çoğu için, komutta bir proje dosyası belirtilmediği takdirde (proje dosyası isteğe bağlı bir anahtardır) CLı aracı geçerli dizinde proje dosyası arar. Komutların ve kullanabileceğiniz bağımsız değişkenlerin tam listesi için bkz. [.NET Core komut satırı arabirimi (CLI) araçları](../reference/dotnet-commands.md).
+Bu makalede, en yaygın dotnet CLI komutlarından birkaçı için temel kullanım bilgileri velanmıştır. Bu komutların çoğunda, komutta bir proje dosyası belirtilmemişse (proje dosyası isteğe bağlı bir anahtardır) CLI aracı geçerli dizinde bir proje dosyası olarak görünür. Kullanabileceğiniz komutların ve bağımsız değişkenlerin tam listesi için bkz. [.NET Core komut satırı arabirimi (CLI) araçları.](../reference/dotnet-commands.md)
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [](https://www.microsoft.com/net/download/) `dotnet` Komut satırı aracını sağlayan .NET Core SDK. Visual Studio 2017 ' den başlayarak DotNet CLı, .NET Core ile ilgili iş yükleriyle otomatik olarak yüklenir.
+- Komut [.NET Core SDK](https://www.microsoft.com/net/download/)sağlayan komut `dotnet` satırı aracı. 2017'Visual Studio itibaren dotnet CLI, .NET Core ile ilgili tüm iş yükleriyle otomatik olarak yüklenir.
 
 ## <a name="install-a-package"></a>Paketi yükleme
 
-[DotNet Add paketi](/dotnet/core/tools/dotnet-add-package?tabs=netcore2x) proje dosyasına bir paket başvurusu ekler ve ardından `dotnet restore` paketi yüklemek için çalıştırılır.
+[dotnet add package](/dotnet/core/tools/dotnet-add-package?tabs=netcore2x) proje dosyasına bir paket başvurusu ekler, sonra paketi `dotnet restore` yüklemek için çalıştırır.
 
-1. Bir komut satırı açın ve proje dosyanızı içeren dizine geçiş yapın.
+1. Bir komut satırı açın ve proje dosyanızı içeren dizine geçiş.
 
-2. Bir NuGet paketini yüklemek için aşağıdaki komutu kullanın:
+2. NuGet paketini yüklemek için aşağıdaki komutu kullanın:
 
     ```dotnetcli
     dotnet add package <PACKAGE_NAME>
     ```
 
-    Örneğin, paketini yüklemek için `Newtonsoft.Json` aşağıdaki komutu kullanın
+    Örneğin, paketi yüklemek `Newtonsoft.Json` için aşağıdaki komutu kullanın
 
     ```dotnetcli
     dotnet add package Newtonsoft.Json
     ```
 
-3. Komut tamamlandıktan sonra, paketin yüklendiğinden emin olmak için proje dosyasına bakın.
+3. Komut tamamlandıktan sonra, paketin yüklü olduğundan emin olmak için proje dosyasına bakın.
 
-   `.csproj`Eklenen başvuruyu görmek için dosyayı açabilirsiniz:
+   Eklenen başvuruya `.csproj` görmek için dosyayı açabilirsiniz:
 
     ```xml
     <ItemGroup>
@@ -52,45 +52,45 @@ Bu makalede, en yaygın DotNet CLı komutlarının birçoğuna ilişkin temel ku
     </ItemGroup>
     ```
 
-## <a name="install-a-specific-version-of-a-package"></a>Bir paketin belirli bir sürümünü yükler
+## <a name="install-a-specific-version-of-a-package"></a>Paketin belirli bir sürümünü yükleme
 
-Sürüm belirtilmemişse, NuGet paketin en son sürümünü yüklenir. Ayrıca, bir NuGet paketinin belirli bir sürümünü yüklemek için [DotNet Add Package](/dotnet/core/tools/dotnet-add-package?tabs=netcore2x) komutunu da kullanabilirsiniz:
+Sürüm belirtilmezse NuGet paketin en son sürümünü yüklür. Bir NuGet paketinin belirli bir sürümünü yüklemek için [dotnet add package](/dotnet/core/tools/dotnet-add-package?tabs=netcore2x) komutunu da kullanabilirsiniz:
 
 ```dotnetcli
 dotnet add package <PACKAGE_NAME> --version <VERSION>
 ```
 
-Örneğin, paketin sürüm 12.0.1 ' i eklemek için `Newtonsoft.Json` Şu komutu kullanın:
+Örneğin, paketin 12.0.1 sürümünü eklemek `Newtonsoft.Json` için şu komutu kullanın:
 
 ```dotnetcli
 dotnet add package Newtonsoft.Json --version 12.0.1
 ```
 
-## <a name="list-package-references"></a>Paket başvurularını Listele
+## <a name="list-package-references"></a>Paket başvurularını listele
 
-[DotNet List Package](/dotnet/core/tools/dotnet-list-package?tabs=netcore2x) komutunu kullanarak projenizin paket başvurularını listeleyebilirsiniz.
+dotnet list package komutunu kullanarak projenizin paket [başvurularını listeebilirsiniz.](/dotnet/core/tools/dotnet-list-package?tabs=netcore2x)
 
 ```dotnetcli
 dotnet list package
 ```
 
-## <a name="remove-a-package"></a>Bir paketi kaldırma
+## <a name="remove-a-package"></a>Paketi kaldırma
 
-Proje dosyasından bir paket başvurusunu kaldırmak için [DotNet Remove Package](/dotnet/core/tools/dotnet-remove-package?tabs=netcore2x) komutunu kullanın.
+Proje [dosyasından paket başvurularını](/dotnet/core/tools/dotnet-remove-package?tabs=netcore2x) kaldırmak için dotnet remove package komutunu kullanın.
 
 ```dotnetcli
 dotnet remove package <PACKAGE_NAME>
 ```
 
-Örneğin, paketini kaldırmak için `Newtonsoft.Json` aşağıdaki komutu kullanın
+Örneğin, paketi kaldırmak `Newtonsoft.Json` için aşağıdaki komutu kullanın
 
 ```dotnetcli
 dotnet remove package Newtonsoft.Json
 ```
 
-## <a name="update-a-package"></a>Bir paketi güncelleştirme
+## <a name="update-a-package"></a>Paketi güncelleştirme
 
-`dotnet add package`Paket sürümünü (anahtar) belirtmediğiniz takdirde NuGet, komutunu kullandığınızda paketin en son sürümünü yükleme `-v` .
+NuGet, komutunu kullanarak paket sürümünü ( `dotnet add package` anahtarı) belirtmedikçe paketin en son sürümünü `-v` yüklür.
 
 ## <a name="restore-packages"></a>Paketleri geri yükleme
 

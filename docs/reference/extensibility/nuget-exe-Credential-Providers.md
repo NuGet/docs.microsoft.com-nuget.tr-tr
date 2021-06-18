@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 12/12/2017
 ms.topic: conceptual
-ms.openlocfilehash: 285504508fa88c96f5c7a23f15ef14d81ebc21e1
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 4f0a5a2355b34c39a435d24691a3f8ea10ee9c00
+ms.sourcegitcommit: f3d98c23408a4a1c01ea92fc45493fa7bd97c3ee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98777774"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112323836"
 ---
 # <a name="authenticating-feeds-with-nugetexe-credential-providers"></a>nuget.exe kimlik bilgileri sağlayıcılarıyla akışların kimliğini doğrulama
 
@@ -37,7 +37,7 @@ Kimlik bilgisi sağlayıcısı, formda adlı, `CredentialProvider*.exe` girdiler
 Sağlayıcı aşağıdakileri yapması gerekir:
 
 - Kimlik bilgilerinin alımı başlatmadan önce hedeflenen URI için kimlik bilgileri sağlayıp sağlayamayacağını belirleme. Aksi takdirde, kimlik bilgileri olmadan durum kodu 1 döndürmelidir.
-- Değiştirme `Nuget.Config` (kimlik bilgilerini orada ayarlama gibi).
+- Değiştirme `NuGet.Config` (kimlik bilgilerini orada ayarlama gibi).
 - NuGet, eklentiye ara sunucu bilgileri sağlamadığından, HTTP proxy yapılandırmasını kendi kendine işleyin.
 - `nuget.exe`UTF-8 kodlaması kullanarak, stdout için BIR JSON yanıt nesnesi (aşağıya bakın) yazarak kimlik bilgilerini veya hata ayrıntılarını geri döndürün.
 - İsteğe bağlı olarak stderr 'e ek izleme günlüğü yayın. Ayrıntı düzeyleri "normal" veya "ayrıntılı" olarak, bu tür izlemelerin konsola NuGet tarafından yankılanmış olması nedeniyle, hiçbir gizli dizi hiçbir zaman stderr 'e yazılmamalıdır.

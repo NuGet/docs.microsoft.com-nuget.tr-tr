@@ -5,16 +5,16 @@ author: nkolev92
 ms.author: nikolev
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: df7c793d115622f04a148cbbc3ebf396a3e4ab69
-ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
+ms.openlocfilehash: c7b963352e0e9640844a213767a58c883ed0eeb9
+ms.sourcegitcommit: f3d98c23408a4a1c01ea92fc45493fa7bd97c3ee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104859193"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112323719"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Proje dosyalarındaki paket başvuruları ( `PackageReference` )
 
-Paket başvuruları, düğümü kullanarak `PackageReference` , NuGet bağımlılıklarını doğrudan proje dosyaları içinde (ayrı bir `packages.config` dosyanın aksine) yönetir. Çağrılan, PackageReference kullanarak NuGet 'in diğer yönlerini etkilemez; Örneğin, `NuGet.config` dosyalardaki (paket kaynakları dahil) ayarlar, [ortak NuGet yapılandırmalarında](configuring-nuget-behavior.md)açıklandığı gibi hala uygulanır.
+Paket başvuruları, düğümü kullanarak `PackageReference` , NuGet bağımlılıklarını doğrudan proje dosyaları içinde (ayrı bir `packages.config` dosyanın aksine) yönetir. Çağrılan, PackageReference kullanarak NuGet 'in diğer yönlerini etkilemez; Örneğin, `NuGet.Config` dosyalardaki (paket kaynakları dahil) ayarlar, [ortak NuGet yapılandırmalarında](configuring-nuget-behavior.md)açıklandığı gibi hala uygulanır.
 
 PackageReference ile, MSBuild koşullarını hedef çerçeve başına paket başvurularını veya diğer gruplandırmaları seçmek için de kullanabilirsiniz. Ayrıca bağımlılıklar ve içerik akışı üzerinde ayrıntılı denetim sağlar. (Daha fazla ayrıntı Için bkz. [NuGet paketi ve geri yükleme MSBuild hedefleri olarak](../reference/msbuild-targets.md).)
 
@@ -305,7 +305,7 @@ Visual Studio 'da Ayrıca, uyarıları IDE aracılığıyla da [gizleyebilirsini
 
 *Bu özellik NuGet **4,9** veya sonraki sürümlerde ve Visual Studio 2017 **15,9** veya üzeri sürümlerde kullanılabilir.*
 
-NuGet geri yükleme girdisi, proje dosyasından (en üst düzey veya doğrudan bağımlılıklar) paket başvuruları kümesidir ve çıkış geçişli bağımlılıklar dahil olmak üzere tüm paket bağımlılıklarının tam bir kapasitesinden oluşur. NuGet, giriş PackageReference listesi değişmediğinde paket bağımlılıklarının her zaman aynı tam kapatılmasını üretmeye çalışır. Ancak, bunu yapamaması gereken bazı senaryolar vardır. Örnek:
+NuGet geri yükleme girdisi, proje dosyasından (en üst düzey veya doğrudan bağımlılıklar) paket başvuruları kümesidir ve çıkış geçişli bağımlılıklar dahil olmak üzere tüm paket bağımlılıklarının tam bir kapasitesinden oluşur. NuGet, giriş PackageReference listesi değişmediğinde paket bağımlılıklarının her zaman aynı tam kapatılmasını üretmeye çalışır. Ancak, bunu yapamaması gereken bazı senaryolar vardır. Örneğin:
 
 * Gibi kayan sürümler kullandığınızda `<PackageReference Include="My.Sample.Lib" Version="4.*"/>` . Buradaki amaç paketlerin her geri yükleme işlemi için en son sürüme kaymalıdır, ancak kullanıcıların grafiğin belirli bir en son sürüme kilitlenmesini gerektiren senaryolar vardır ve açık bir hareket üzerine varsa, daha sonraki bir sürüme float olur.
 * Bir paketin, PackageReference sürümü gereksinimleriyle eşleşen daha yeni bir sürümü yayımlandı. Örneğin 
@@ -407,7 +407,7 @@ Uyumluluğun nasıl etkilendiğine ilişkin örnekler için aşağıdaki tabloya
 | .NET Core uygulaması 3,1 | |  .NET Framework 4.7.2 | Uyumsuz, ile başarısız oldu [`NU1202`](../reference/errors-and-warnings/NU1202.md) |
 | .NET Core uygulaması 3,1 | net472;net471 |  .NET Framework 4.7.2 | .NET Framework 4.7.2 [`NU1701`](../reference/errors-and-warnings/NU1701.md) |
 
-Ayırıcı olarak kullanılarak birden çok çerçeve belirtilebilir `;` . Bir geri dönüş çerçevesi eklemek için aşağıdakileri yapabilirsiniz:
+Ayırıcı olarak kullanılarak birden çok çerçeve belirtilebilir `;` . Bir geri dönüş çerçevesi eklemek için şunları yapabilirsiniz:
 
 ```xml
 <AssetTargetFallback Condition=" '$(TargetFramework)'=='netcoreapp3.1' ">
@@ -415,9 +415,9 @@ Ayırıcı olarak kullanılarak birden çok çerçeve belirtilebilir `;` . Bir g
 </AssetTargetFallback>
 ```
 
-`$(AssetTargetFallback)`Varolan değerlere eklemek yerine üzerine yazmak isterseniz, ' ı kapatabilirsiniz `AssetTargetFallback` .
+Üzerine yazmak `$(AssetTargetFallback)` isterseniz, mevcut değerlere eklemek yerine bu değeri kapalı `AssetTargetFallback` bırakın.
 
 > [!NOTE]
-> [.NET SDK tabanlı bir proje](/dotnet/core/sdk)kullanıyorsanız, uygun `$(AssetTargetFallback)` değerler yapılandırılır ve bunları el ile ayarlamanız gerekmez.
+> .NET SDK tabanlı [bir proje kullanıyorsanız,](/dotnet/core/sdk)uygun değerler yapılandırılır ve `$(AssetTargetFallback)` bunları el ile ayarlamanız gerekmez.
 >
-> `$(PackageTargetFallback)` , bu zorluğu ele almaya çalıştı, ancak temel olarak *bozulmuş ve kullanılmamalıdır* . ' Dan ' a geçiş yapmak için `$(PackageTargetFallback)` `$(AssetTargetFallback)` özellik adını değiştirmeniz yeterlidir.
+> `$(PackageTargetFallback)` bu zor durumla mücadele etmeye çalışan daha önceki bir özellikti, ancak temel olarak bozuktu *ve* kullanılmamalı. 'den `$(PackageTargetFallback)` 'a `$(AssetTargetFallback)` geçirmek için özellik adını değiştirmeniz gerekir.

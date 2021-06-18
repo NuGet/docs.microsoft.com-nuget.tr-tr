@@ -1,22 +1,22 @@
 ---
-title: NuGet CLı arama komutu
-description: nuget.exe Search komutu için başvuru
+title: NuGet CLI arama komutu
+description: nuget.exe search komutu için başvuru
 author: JonDouglas
 ms.author: jodou
 ms.date: 08/17/2020
 ms.topic: reference
-ms.openlocfilehash: 6f4adcdf3981e5ec0e5e88337a8c3bcdd9158ca3
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 0b0d0445f21ae49bc4785a6de822f9b56ec5c453
+ms.sourcegitcommit: f3d98c23408a4a1c01ea92fc45493fa7bd97c3ee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98779156"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112323667"
 ---
-# <a name="search-command-nuget-cli"></a>Search komutu (NuGet CLı)
+# <a name="search-command-nuget-cli"></a>search komutu (NuGet CLI)
 
-**Uygulama hedefi:** paket tüketimi &bullet; **Desteklenen sürümler:** 5,8 +
+**Uygulama: paket** tüketimi &bullet; **Desteklenen sürümler:** 5.8+
 
-Sağlanan sorgu dizesini kullanarak belirli bir kaynağı arar. Kaynak belirtilmemişse,% AppData% \NuGet\NuGet.config içinde tanımlanan tüm kaynaklar kullanılır.
+Sağlanan sorgu dizesini kullanarak verilen kaynağı arar. Kaynak belirtilmezse%AppData%\NuGet\NuGet.Config tanımlanan tüm kaynaklar kullanılır.
 
 ## <a name="usage"></a>Kullanım
 
@@ -24,45 +24,45 @@ Sağlanan sorgu dizesini kullanarak belirli bir kaynağı arar. Kaynak belirtilm
 nuget search [search terms] [options]
 ```
 
-arama koşullarının, paketler, Etiketler ve paket açıklamaları adına, bunları nuget.org 'de kullanırken oldukları gibi, bu adlara uygulandığı yer.
+burada arama terimlerinin, paketlerin, etiketlerin ve paket açıklamalarının adları, bu terimlerin kullanıcı adlarında olduğu gibi nuget.org.
 
 ## <a name="options"></a>Seçenekler
 
 | Ad | Açıklama | Kullanım |
 | ---  |     ---     |  :-:  |
-| Sp1'in | Yayın öncesi paketleri varsayılan olarak dahil edilmez, ancak bu bağımsız değişken kullanılarak eklenebilir | -Ön sürüm |
-| Kaynak | __nuget.config__ varsayılan kaynakları sorgulamak yerine aranacak belirli paket kaynakları | -Kaynak `<Source URL>`|
-| Take | Döndürülecek sonuç sayısı. Varsayılan değer 20 ' dir. | -Al `<positive integer>` |
-| Ayrıntı Düzeyi | Çıktıda görüntülenecek ayrıntı düzeyi. Varsayılan değer _normaldir_. (Aşağıdaki nota bakın)  | -Ayrıntı düzeyi `<quiet|normal|detailed>` |
-| Yardım | Komut için yardım bilgilerini görüntüler | -Yardım |
+| Önkeser | Yayın öncesi paketler varsayılan olarak dahil değildir, ancak bu bağımsız değişken kullanılarak dahil olabilir | -PreRelease |
+| Kaynak | Kaynaklarda varsayılan kaynakları sorgulamak yerine aranacak belirli paket __nuget.config__ | -Source `<Source URL>`|
+| Take | Geri dönecek sonuç sayısı. Varsayılan değer 20'dir. | -Take `<positive integer>` |
+| Ayrıntı Düzeyi | Çıkışta görüntülenmek için ayrıntı düzeyi. Varsayılan değer _normaldir._ (Aşağıdaki nota bakın)  | -Ayrıntılılık `<quiet|normal|detailed>` |
+| Help | Komutun yardım bilgilerini görüntüler | -Help |
 
-Ayrıca bkz. [ortam değişkenleri](cli-ref-environment-variables.md)
+Ayrıca [bkz. Ortam değişkenleri](cli-ref-environment-variables.md)
 
 > [!NOTE] 
-> Ayrıntı düzeyleri:
-> * _sessiz_ paket kimliği, sürüm
-> * _normal_ -paket kimliği, sürüm, Indirmeler, açıklama önizlemesi
-> * _ayrıntılı_ -paket kimliği, sürüm, Indirmeler, tam açıklama, sorgu URL 'Si gibi diğer bilgiler
+> AyrıntılıLık Düzeyleri:
+> * _quiet_ - Paket Kimliği, Sürüm
+> * _normal_ - Paket Kimliği, Sürüm, İndirmeler, Açıklama Önizlemesi
+> * _ayrıntılı_ - Paket Kimliği, Sürüm, İndirmeler, Tam Açıklama, Sorgu URL'si gibi diğer bilgiler
 
 ## <a name="examples"></a>Örnekler
 
-Varsayılan kaynaklardan *günlüğe kaydetme* ile ilgili paketleri arayın:
+Varsayılan kaynaklardan *günlük* kaydı ile ilgili paketleri arayın:
 ```
 nuget search logging
 ```
-Ayrıntılı ayrıntı içeren *günlük* ile ilgili paketleri arayın:
+Ayrıntılı *ayrıntılı* günlük kaydı ile ilgili paketleri arayın:
 ```
 nuget search logging -Verbosity detailed
 ```
-*Günlüğe kaydetme* ile ilgili paketleri arayın ve yalnızca ilk 5 sonucu göster:
+İlgili *paketleri günlüğe* kaydetme araması ve yalnızca ilk 5 sonucu gösterme:
 ```
 nuget search logging -Take 5
 ```
-Yayın öncesi sürümleri de dahil olmak üzere, belirtilen kaynaktan/akıştan *JSON* ile ilgili paketleri arayın:
+Belirtilen *kaynak/akıştan* yayın öncesi sürümler de dahil olmak üzere JSON ile ilgili paketleri arayın:
 ```
 nuget search JSON -PreRelease -Source "https://api.nuget.org/v3/index.json"
 ```
-Birden çok kaynaktan/akışlardan *JSON* ile ilgili paketleri arayın:
+Birden çok *kaynak/akıştan JSON* ile ilgili paketleri arayın:
 ```
 nuget search JSON -Source "https://api.nuget.org/v3/index.json" -Source "https://other-feed-url-goes-here"
 ```

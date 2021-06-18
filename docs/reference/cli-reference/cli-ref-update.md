@@ -1,28 +1,28 @@
 ---
-title: NuGet CLı güncelleştirme komutu
-description: nuget.exe Update komutuna yönelik başvuru
+title: NuGet CLI update komutu
+description: nuget.exe update komutu için başvuru
 author: JonDouglas
 ms.author: jodou
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: cfa7fdcc6af46fd5f4030ba424754291f697bc43
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 5f244e4cf15ca7afa0e6318a8c20d464ff75bd8e
+ms.sourcegitcommit: f3d98c23408a4a1c01ea92fc45493fa7bd97c3ee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98779129"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112323654"
 ---
-# <a name="update-command-nuget-cli"></a>Update komutu (NuGet CLı)
+# <a name="update-command-nuget-cli"></a>update komutu (NuGet CLI)
 
-**Uygulama hedefi:** paket tüketimi &bullet; **Desteklenen sürümler:** tümü
+**Uygulama: paket** tüketimi &bullet; **Desteklenen sürümler:** hepsi
 
-Projedeki tüm paketleri (kullanarak `packages.config` ) en son kullanılabilir sürümlerine güncelleştirir. Çalıştırılmadan önce [' Restore '](cli-ref-restore.md) çalıştırmak önerilir `update` . (Tek bir paketi güncelleştirmek için, [`nuget install`](cli-ref-install.md) sürüm numarası belirtmeden kullanın, bu durumda NuGet en son sürümü yüklerse.)
+Bir proje içinde tüm paketleri `packages.config` (kullanarak) en son kullanılabilir sürümlerine güncelleştirme. çalıştırmadan önce ['restore' çalıştırması](cli-ref-restore.md) `update` önerilir. (Tek bir paketi güncelleştirmek için, sürüm numarası belirtmeden kullanın; bu [`nuget install`](cli-ref-install.md) durumda NuGet en son sürümü yüklüdür.)
 
-Not: `update` Mono (Mac OSX veya Linux) altında çalışan CLI ile veya PackageReference biçimi kullanılırken çalışmaz.
+Not: Mono (Mac OSX veya Linux) altında çalışan CLI ile veya `update` PackageReference biçimi kullanırken çalışmıyor.
 
-`update`Bu başvurular zaten mevcut olduğundan, komut proje dosyasındaki derleme başvurularını da güncelleştirir. Güncelleştirilmiş bir pakette eklenen bir derleme varsa, yeni bir *başvuru eklenmez.* Yeni paket bağımlılıklarına Ayrıca, derleme başvuruları da eklenmez. Bu işlemleri bir güncelleştirmenin parçası olarak dahil etmek için, Paket Yöneticisi Kullanıcı arabirimini veya paket Yöneticisi konsolunu kullanarak Visual Studio 'da paketi güncelleştirin.
+Komut `update` ayrıca, bu başvuruların zaten mevcut olduğu durumda proje dosyasında derleme başvurularını da günceller. Güncelleştirilmiş bir paketin ekli bir derlemesi varsa, yeni bir *başvuru eklenmez.* Yeni paket bağımlılıklarında da derleme başvuruları eklenmez. Bu işlemleri bir güncelleştirmenin parçası olarak eklemek için Paket Yöneticisi kullanıcı arabirimini veya Visual Studio Konsolu'nu kullanarak paketi Paket Yöneticisi güncelleştirin.
 
-Bu komut, *-self* bayrağını kullanarak nuget.exe kendisini güncelleştirmek için de kullanılabilir.
+Bu komut, *-self* bayrağını nuget.exe kendi kendini güncelleştirmek için de kullanılabilir.
 
 ## <a name="usage"></a>Kullanım
 
@@ -30,77 +30,77 @@ Bu komut, *-self* bayrağını kullanarak nuget.exe kendisini güncelleştirmek 
 nuget update <configPath> [options]
 ```
 
-`<configPath>` `packages.config` , projenin bağımlılıklarını listeleyen bir veya çözüm dosyası tanımlar.
+burada, `<configPath>` projenin `packages.config` bağımlılıklarını listeleen bir veya çözüm dosyası tanımlar.
 
 ## <a name="options"></a>Seçenekler
 
 - **`-ConfigFile`**
 
-  Uygulanacak NuGet yapılandırma dosyası. Belirtilmemişse, `%AppData%\NuGet\NuGet.Config` (Windows) veya `~/.nuget/NuGet/NuGet.Config` ya da `~/.config/NuGet/NuGet.Config` (Mac/Linux) kullanılır.
+  Uygulanacak NuGet yapılandırma dosyası. Belirtilmezse `%AppData%\NuGet\NuGet.Config` (Windows) veya `~/.nuget/NuGet/NuGet.Config` `~/.config/NuGet/NuGet.Config` (Mac/Linux) kullanılır.
   
 - **`-DependencyVersion [Lowest, HighestPatch, HighestMinor, Highest, Ignore]`**
 
-  Kullanılacak bağımlılık paketlerinin sürümünü belirtir; Bu, aşağıdakilerden biri olabilir:<br/><ul><li>*En düşük* (varsayılan): en düşük sürüm</li><li>*HighestPatch*: en düşük ana, en düşük ikincil, en yüksek düzeltme eki olan sürüm</li><li>*HighestMinor*: en düşük ana, en yüksek ikincil, en yüksek düzeltme eki olan sürüm</li><li>*En yüksek*: en yüksek sürüm</li><li>*Yoksay*: bağımlılık paketleri kullanılmayacak</li></ul>
+  Kullanmak üzere bağımlılık paketlerinin sürümünü belirtir; bu sürüm, aşağıdakilerden biri olabilir:<br/><ul><li>*En* düşük (varsayılan): en düşük sürüm</li><li>*HighestPatch:* En düşük ana, en düşük ikincil, en yüksek düzeltme ekini olan sürüm</li><li>*HighestMinor:* en düşük ana, en yüksek ikincil, en yüksek düzeltme eki olan sürüm</li><li>*En yüksek*: en yüksek sürüm</li><li>*Yoksay:* Hiçbir bağımlılık paketi kullanılmaz</li></ul>
 
 - **`-FileConflictAction [PromptUser, Overwrite, Ignore]`**
 
-  Bir paketten bir dosya hedef projede zaten mevcut olduğunda varsayılan eylemi belirtir. `Overwrite`Dosyaları her zaman üzerine yazacak şekilde ayarlayın. `Ignore`Dosyaları atlamak için olarak ayarlayın.
+  Bir paketten bir dosya hedef projede zaten mevcut olduğunda varsayılan eylemi belirtir. Her zaman `Overwrite` dosyaların üzerine yaz olarak ayarlayın. Dosyaları atlamak `Ignore` için olarak ayarlayın.
 
-  `PromptUser`Varsayılan olarak, bu eylem, `OverwriteAll` `IgnoreAll` kalan tüm dosyalar için uygulanacak olan veya sağlanmazsa her çakışan dosya için istemde bulunur.
+  Varsayılan eylem, veya sağlanıyorsa çakışan her dosyayı ister ve bu da `PromptUser` kalan tüm dosyalar için geçerli `OverwriteAll` `IgnoreAll` olur.
 
 - **`-ForceEnglishOutput`**
 
-  *(3,5 +)* nuget.exe, sabit ve Ingilizce tabanlı bir kültür kullanılarak çalışmaya zorlar.
+  *(3,5+)* Bu nuget.exe sabit, İngilizce tabanlı bir kültür kullanarak çalıştırmaya güçler.
 
 - **`-?|-help`**
 
-  Komut için yardım bilgilerini görüntüler.
+  Komutun yardım bilgilerini görüntüler.
 
 - **`-Id`**
 
-  Güncelleştirilecek paket kimliklerinin bir listesini belirtir.
+  Güncelleştirilen paket kimliklerinin listesini belirtir.
 
 - **`-MSBuildPath`**
 
-  *(4.0 +)* Komutuyla birlikte kullanılacak MSBuild 'in yolunu belirtir `-MSBuildVersion` .
+  *(4.0+)* komutuyla birlikte kullanmak üzere MSBuild'in yolunu belirtir ve önceliğe sahip `-MSBuildVersion` olur.
 
 - **`-MSBuildVersion`**
 
-  *(3.2 +)* Bu komutla kullanılacak MSBuild sürümünü belirtir. Desteklenen değerler şunlardır 4, 12, 14, 15,1, 15,3, 15,4, 15,5, 15,6, 15,7, 15,8, 15,9. Varsayılan olarak, yolunuzda MSBuild çekilir, aksi takdirde en yüksek MSBuild 'in yüklü sürümü varsayılan olarak ayarlanır.
+  *(3.2+)* Bu komutla kullanılacak MSBuild sürümünü belirtir. Desteklenen değerler: 4, 12, 14, 15.1, 15.3, 15.4, 15.5, 15.6, 15.7, 15.8, 15.9. Varsayılan olarak, yolunuz msBuild seçerek, aksi takdirde msbuild'in en yüksek yüklü sürümüne varsayılan olarak kullanılır.
 
 - **`-NonInteractive`**
 
-  Kullanıcı girişi veya onayları için istemleri bastırır.
+  Kullanıcı girişi veya onay istemlerini bastırıyor.
 
 - **`-PreRelease`**
 
-  Yayın öncesi sürümlere güncelleştirme yapılmasına izin verir. Zaten yüklü olan ön sürüm paketleri güncelleştirilirken bu bayrak gerekli değildir.
+  Sürümleri ön sürüme güncelleştirmeye izin verir. Zaten yüklü olan ön sürümü paketleri güncelleştiriliyorken bu bayrak gerekli değildir.
 
 - **`-RepositoryPath`**
 
-  Paketlerin yüklendiği yerel klasörü belirtir.
+  Paketlerin yüklü olduğu yerel klasörü belirtir.
 
 - **`-Safe`**
 
-  Yüklü paket ile aynı ana ve alt sürüm içinde yalnızca en yüksek sürüme sahip güncelleştirmelerin yükleneceğini belirtir.
+  Yalnızca yüklü paketle aynı ana ve ikincil sürümde bulunan en yüksek sürüme sahip güncelleştirmelerin yük olacağını belirtir.
 
 - **`-Self`**
 
-  En son sürüme nuget.exe güncelleştirmeler; diğer tüm bağımsız değişkenler yoksayılır.
+  En `nuget.exe` son sürüme güncelleştirmeler. `-Source` kullanılabilir, ancak diğer tüm bağımsız değişkenler yoksayılır. Kaynak sağlanamıyorsa, `nuget.org` ayarlardan bağımsız olarak güncelleştirmeleri `NuGet.Config` denetler.
 
 - **`-Source`**
 
-  Güncelleştirmeler için kullanılacak paket kaynaklarının (URL 'Ler olarak) listesini belirtir. Atlanırsa, komut yapılandırma dosyalarında belirtilen kaynakları kullanır, bkz. [ortak NuGet yapılandırmaları](../../consume-packages/configuring-nuget-behavior.md).
+  Güncelleştirmeler için kullanmak üzere paket kaynaklarının listesini (URL olarak) belirtir. Atlanırsa, komut yapılandırma dosyalarında sağlanan kaynakları kullanır, bkz. [Ortak NuGet yapılandırmaları.](../../consume-packages/configuring-nuget-behavior.md)
 
 - **`-Verbosity [normal|quiet|detailed]`**
 
-  Çıkışta gösterilecek ayrıntı miktarını belirtir: `normal` (varsayılan), `quiet` veya `detailed` .
+  Çıktıda görüntülenen ayrıntı miktarını belirtir: `normal` (varsayılan), `quiet` veya `detailed` .
 
 - **`-Version`**
 
-  Tek bir paket KIMLIĞIYLE birlikte kullanıldığında, güncelleştirilecek paketin sürümünü belirtir.
+  Bir paket kimliği ile birlikte kullanılırken, güncelleştirilen paketin sürümünü belirtir.
 
-Ayrıca bkz. [ortam değişkenleri](cli-ref-environment-variables.md)
+Ayrıca [bkz. Ortam değişkenleri](cli-ref-environment-variables.md)
 
 ## <a name="examples"></a>Örnekler
 
