@@ -17,4 +17,4 @@
 ## [NuGet API](../api/overview.md)
 ## [licenses.nuget.org](licenses.nuget.org.md)
 # Kaynaklar
-## [SSS](nuget-org-faq.md)
+## [SSS](nuget-org-faq.yml)
