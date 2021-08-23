@@ -1,16 +1,16 @@
 ---
 title: NuGet 5,10 sürüm notları
-description: Yeni özellikler, hata düzeltmeleri ve DTU 'lar dahil olmak üzere NuGet 5,10 sürüm notları.
+description: yeni özellikler, hata düzeltmeleri ve dtu 'lar dahil NuGet 5,10 sürüm notları.
 author: zkat
 ms.author: kmarchan
 ms.date: 6/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: 666eda5803b540dc18a9310f61c92dc74ff2089e
-ms.sourcegitcommit: f3d98c23408a4a1c01ea92fc45493fa7bd97c3ee
+ms.openlocfilehash: 80a372074604f5c0073f78927b84de00e78acc74
+ms.sourcegitcommit: 5f706c62c97b78bbe3d8c7e95659976535fe486f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112356541"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122726957"
 ---
 # <a name="nuget-510-release-notes"></a>NuGet 5,10 sürüm notları
 
@@ -20,16 +20,16 @@ NuGet dağıtım araçlar:
 |:---|:---|:---|
 | [**5.10.0**](https://nuget.org/downloads) | [Visual Studio 2019 sürüm 16,10](https://visualstudio.microsoft.com/downloads/) | [5.0.300](https://dotnet.microsoft.com/download/dotnet-core/5.0)<sup>1</sup> |
 
-<sup>1</sup> .NET Core iş yüküne sahip Visual Studio 2019 ile yüklendi
+<sup>1</sup> .net Core iş yüküne sahip Visual Studio 2019 ile yüklendi
   
 > [!NOTE]
-> Visual Studio 16,10, MSBuild 16,10 ve .NET 5.0.300 + NuGet.exe 5,10 veya üzeri bir sürüm gerektirir.
+> Visual Studio 16,10, MSBuild 16,10 ve .net 5.0.300 + NuGet.exe 5,10 veya sonraki bir sürümü gerektirir.
 
 ## <a name="summary-whats-new-in-510"></a>Özet: 5,10 sürümündeki yenilikler
 
 * İmzalama: DotNet güvenilir-signers komutunu uygulama- [#8053](https://github.com/NuGet/Home/issues/8053)
 
-* Varsayılan doğrulamayı Linux üzerinde devre dışı bırak, ancak varsayılan olarak Windows- [#10713](https://github.com/NuGet/Home/issues/10713) 'de etkin yap
+* varsayılan doğrulamayı Linux üzerinde devre dışı bırak, ancak varsayılan olarak Windows- [#10713](https://github.com/NuGet/Home/issues/10713) etkinleştirildi
 
 * .NET 5 + Linux/MAC- [#10742](https://github.com/NuGet/Home/issues/10742) 'de paket imzalama doğrulaması IÇIN bir env değişkeni ekleyin
 
@@ -39,7 +39,7 @@ NuGet dağıtım araçlar:
 
 ### <a name="issues-fixed-in-this-release"></a>Bu sürümde giderilen sorunlar
 
-* <requireLicenseAcceptance>Proje paketleme sırasında öğeyi bastır- [#5133](https://github.com/NuGet/Home/issues/5133)
+* `<requireLicenseAcceptance>`Proje paketleme sırasında öğeyi bastır- [#5133](https://github.com/NuGet/Home/issues/5133)
 
 * [CPVM] Önizleme uyarısı DotNet CLI- [#10226](https://github.com/NuGet/Home/issues/10226) gösterilmelidir
 
@@ -49,15 +49,15 @@ NuGet dağıtım araçlar:
 
 * PM Kullanıcı arabirimi: çözüm düzeyinde paket yükleme performansını Iyileştirme- [#10210](https://github.com/NuGet/Home/issues/10210)
 
-* GetService 'i NuGet. clients [#3784](https://github.com/NuGet/Home/issues/3784) her yerde GetServiceAsync değiştirin
+* GetService 'i NuGet her yerde GetServiceAsync değiştirin. İstemciler- [#3784](https://github.com/NuGet/Home/issues/3784)
 
 * `..`Göreli yol ile [#5016](https://github.com/NuGet/Home/issues/5016) paketi performans sorunu NuGet.exe
 
 * "NuGet Pack" performansı, kaynak yollarında artan düzeyler ile düşüyor- [#5706](https://github.com/NuGet/Home/issues/5706)
 
-* Yinelenen dosyalarla nuspec paketleme sırasında NuGet hata vermez. - [#6941](https://github.com/NuGet/Home/issues/6941)
+* yinelenen dosyalarla nuspec paketleme sırasında hata NuGet. - [#6941](https://github.com/NuGet/Home/issues/6941)
 
-* NuGet paketi "belirtilen DateTimeOffset bir zip dosyası zaman damgasına dönüştürülemez"- [#7001](https://github.com/NuGet/Home/issues/7001)
+* NuGet pack "belirtilen DateTimeOffset bir Zip dosyası zaman damgasına dönüştürülemez"- [#7001](https://github.com/NuGet/Home/issues/7001)
 
 * Paketlenmiş paketin dosyasının zaman damgaları, saat dilimi tarafından kaydırılacağı [#7395](https://github.com/NuGet/Home/issues/7395)
 
@@ -109,13 +109,13 @@ NuGet dağıtım araçlar:
 
 * Güvenilir-sonuçcılar ekleme işlemi tutarsız bağımsız değişkenlere sahip- [#10647](https://github.com/NuGet/Home/issues/10647)
 
-* Vs2019 v 16.9.0: NuGet Paket Yöneticisi 'ndeki sekmelerin "Updates" iken "yüklü" olarak değiştirilmesi çerçeveyi güncelleştirmez. - [#10654](https://github.com/NuGet/Home/issues/10654)
+* Vs2019 v 16.9.0: NuGet Paket Yöneticisi "Updates" ile "yüklü" arasındaki sekmelerin değiştirilmesi çerçeveyi güncelleştirmez. - [#10654](https://github.com/NuGet/Home/issues/10654)
 
 * "V" öğesini PMUI- [#10677](https://github.com/NuGet/Home/issues/10677) sürüm numarasından kaldır
 
 * Inugetprojectservice. Getınstalınstaltesync, CPS proje sistemi aday [#10681](https://github.com/NuGet/Home/issues/10681) almadan önce oluşturur
 
-* Katıştırılmış simgeler, "Microsoft Visual Studio çevrimdışı paketler" kaynağından, gezinme sekmesinde erişim engellendi- [#10687](https://github.com/NuGet/Home/issues/10687)
+* katıştırılmış simgeler, "Microsoft Visual Studio çevrimdışı paketler" kaynağından, gezinme sekmesinde erişim engellendi- [#10687](https://github.com/NuGet/Home/issues/10687)
 
 * Msbuildprojectsınspath ayarlandığında ınugetprojectservice. Getınstallationpackagesasync oluşturulur [#10739](https://github.com/NuGet/Home/issues/10739)
 
@@ -123,11 +123,9 @@ NuGet dağıtım araçlar:
 
 * NuGet zaman uyumsuz bir yöntemde işlem parçacığı iş parçacığını engeller- [#10775](https://github.com/NuGet/Home/issues/10775) zaman uyumlu bir çağrı yapar
 
-* Araçlar-> seçenekler-> NuGet Paket Yöneticisi dizesi kesildi- [#10779](https://github.com/NuGet/Home/issues/10779)
-
 * `PackageLoadContext.GetInstalledAndTransitivePackagesAsync` etkin olmayan kod ve performans için [#10790](https://github.com/NuGet/Home/issues/10790)
 
-* NuGet SDK paketlerinde Embedded simgesini kullanın- [#10795](https://github.com/NuGet/Home/issues/10795)
+* NuGet SDK paketlerinde embedded simgesini kullanın- [#10795](https://github.com/NuGet/Home/issues/10795)
 
 * SPDX lisans listesini güncelleştirme- [#10806](https://github.com/NuGet/Home/issues/10806)
 
@@ -137,13 +135,13 @@ NuGet dağıtım araçlar:
   
 ### <a name="community-contributions"></a>Topluluk katkıları
 
-Bu NuGet yayınını harika hale getirmek için size yardımcı olan tüm katkıda bulunanlar için teşekkürler!
+bu NuGet yayını harika hale getirmek için size yardımcı olan tüm katkıda bulunanlar için teşekkürler!
 
-|Sağlayan|PR 'ler|Sorunlar|
+|Who|PR 'ler|Sorunlar|
 |----|----|----|
 [louo-z](https://github.com/louis-z) | [3991](https://github.com/NuGet/NuGet.Client/pull/3991) | VersionRange tek basamaklı aralıkları ayrıştıramıyor- [#10342](https://github.com/NuGet/Home/issues/10342)
-[omajıd](https://github.com/omajid) | [3860](https://github.com/NuGet/NuGet.Client/pull/3860) | NuGet. Client build.sh bozuk [#10139](https://github.com/NuGet/Home/issues/10139)
-[Nirmal4G](https://github.com/Nirmal4G) | [3623](https://github.com/NuGet/NuGet.Client/pull/3623) | NuGet. Client build.sh bozuk [#10139](https://github.com/NuGet/Home/issues/10139)
+[omajıd](https://github.com/omajid) | [3860](https://github.com/NuGet/NuGet.Client/pull/3860) | NuGet. İstemci build.sh bozuk [#10139](https://github.com/NuGet/Home/issues/10139)
+[Nirmal4G](https://github.com/Nirmal4G) | [3623](https://github.com/NuGet/NuGet.Client/pull/3623) | NuGet. İstemci build.sh bozuk [#10139](https://github.com/NuGet/Home/issues/10139)
 [BlackICE](https://github.com/BlackGad) | [3953](https://github.com/NuGet/NuGet.Client/pull/3953) | "NuGet Pack" performansı, kaynak yollarında artan düzeyler ile düşüyor- [#5706](https://github.com/NuGet/Home/issues/5706)
 [BlackICE](https://github.com/BlackGad) | [3953](https://github.com/NuGet/NuGet.Client/pull/3953) | İle NuGet.exe paketi performans sorunu.. göreli yol- [#5016](https://github.com/NuGet/Home/issues/5016)
 [Marcin-kronyıstianc](https://github.com/marcin-krystianc) | [3940](https://github.com/NuGet/NuGet.Client/pull/3940) | CPVM-grafik yürüme algoritmasındaki eşzamanlılık sorunları- [#10598](https://github.com/NuGet/Home/issues/10598)
@@ -151,5 +149,5 @@ Bu NuGet yayınını harika hale getirmek için size yardımcı olan tüm katkı
 
 ## <a name="feedback-welcome"></a>Geri bildirim hoş geldiniz
 
-Görüşleriniz bizim için önemlidir.  Bu sürümle ilgili herhangi bir sorun varsa GitHub Sorunları [sayfamızı ve mevcut Visual Studio Geliştirici Topluluğu](https://github.com/NuGet/Home/issues) bakın. [](https://developercommunity.visualstudio.com/)  NuGet içindeki yeni sorunlar için lütfen bir [GitHub Sorunu rapor edin.](https://github.com/NuGet/Home/issues/new)
-Genel NuGet deneyimi sorunları için Yardım [](/visualstudio/ide/how-to-report-a-problem-with-visual-studio) ve Sorun Bildir altında sık kullanılan IDE'niz içinde bulunan **bir sorun > bize bildirebilirsiniz.**
+Görüşleriniz bizim için önemlidir.  bu sürümle ilgili herhangi bir sorun varsa, mevcut sorunlar için [GitHub sorunlarımızı](https://github.com/NuGet/Home/issues) inceleyin ve [geliştirici Visual Studio Community](https://developercommunity.visualstudio.com/) .  NuGet içindeki yeni sorunlar için lütfen bir [GitHub sorunu](https://github.com/NuGet/Home/issues/new)bildirin.
+genel NuGet deneyimi sorunları için, **yardım > bir sorun bildirmek** üzere en sevdiğiniz ıde 'de bulunan [sorun bildir](/visualstudio/ide/how-to-report-a-problem-with-visual-studio) seçeneğini kullanarak bize bildirin.

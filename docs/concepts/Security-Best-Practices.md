@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 02/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: e0f235d99e41e23a4551fbf7577f6c42e3381f5b
-ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
+ms.openlocfilehash: 4575d4779ed90150cec667489c85875b7fb87a8d
+ms.sourcegitcommit: 5f706c62c97b78bbe3d8c7e95659976535fe486f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104859232"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122726983"
 ---
 # <a name="best-practices-for-a-secure-software-supply-chain"></a>Güvenli yazılım tedarik zinciri için en iyi uygulamalar
 
@@ -60,7 +60,7 @@ Bugün açık kaynak kullanımı önemlidir ve kısa süre içinde yavaşmak bek
 
 ![Octoverse 2020-Danışma durumu](media/advisories.png)
 
-NuGet ve GitHub 'ın sunduğu çeşitli araçları ve teknikleri kapsayacağız. Bu, bugün, projenizde potansiyel riskleri karşılamak için kullanabilirsiniz. 
+NuGet ve GitHub sağladığı çeşitli araçlar ve teknikler ele alınacaktır. bu, günümüzde projenizin içindeki olası riskleri karşılamak için kullanabilirsiniz. 
 
 ## <a name="knowing-what-is-in-your-environment"></a>Ortamınızda nelerin olduğunu bilme
 
@@ -68,14 +68,14 @@ NuGet ve GitHub 'ın sunduğu çeşitli araçları ve teknikleri kapsayacağız.
 
 **📦 Paket tüketicisi**
 
-NuGet bağımlılıklarınızı projenizde doğrudan ilgili proje dosyasına bakarak görebilirsiniz.
+projenizdeki NuGet bağımlılıklarınızı doğrudan ilgili proje dosyasına bakarak görebilirsiniz.
 
 Bu genellikle iki konumdan birinde bulunur:
 
 -   [`packages.config`](../reference/packages-config.md) – Proje kökünde bulunur.
 -   [`<PackageReference>`](../consume-packages/package-references-in-project-files.md) – Proje dosyasında bulunur. 
 
-NuGet bağımlılıklarınızı yönetmek için kullandığınız yönteme bağlı olarak, doğrudan [Çözüm Gezgini](/visualstudio/ide/solutions-and-projects-in-visual-studio#solution-explorer) veya [NuGet Paket Yöneticisi](../consume-packages/install-use-packages-visual-studio.md)' nde bağımlılıklarınızı görüntülemek için Visual Studio 'yu da kullanabilirsiniz.
+NuGet bağımlılıklarınızı yönetmek için kullandığınız yönteme bağlı olarak, bağımlılıklarınızı doğrudan [Çözüm Gezgini](/visualstudio/ide/solutions-and-projects-in-visual-studio#solution-explorer) veya [NuGet Paket Yöneticisi](../consume-packages/install-use-packages-visual-studio.md)görüntülemek için Visual Studio de kullanabilirsiniz.
 
 CLı ortamları için, [`dotnet list package`](/dotnet/core/tools/dotnet-list-package) projenizi veya çözümünüzün bağımlılıklarını listelemek için komutunu kullanabilirsiniz. 
 
@@ -85,9 +85,9 @@ NuGet bağımlılıklarını yönetme hakkında daha fazla bilgi için [aşağı
 
 **📦 Paket tüketicisi | 📦🖊 Paket yazarı**
 
-Projenizin bağımlı olduğu paketleri ve ona bağlı olan depoları görmek için GitHub 'ın bağımlılık grafiğini kullanabilirsiniz. Bu, bağımlılıklarında algılanan güvenlik açıklarını görbaşlamanıza yardımcı olabilir.
+projenizin bağımlı olduğu paketleri ve ona bağlı olan depoları görmek için GitHub bağımlılık grafiğini kullanabilirsiniz. Bu, bağımlılıklarında algılanan güvenlik açıklarını görbaşlamanıza yardımcı olabilir.
 
-GitHub deposu bağımlılıkları hakkında daha fazla bilgi için [aşağıdaki belgelere bakın](https://github.co/dependency-graph).
+GitHub depo bağımlılıkları hakkında daha fazla bilgi için [aşağıdaki belgelere bakın](https://github.co/dependency-graph).
 
 ### <a name="dependency-versions"></a>Bağımlılık sürümleri
 
@@ -102,90 +102,90 @@ Güvenli bir bağımlılık zinciri zinciri sağlamak için, tüm bağımlılık
 
 ## <a name="manage-your-dependencies"></a>Bağımlılıklarınızı yönetin
 
-### <a name="nuget-deprecated-and-vulnerable-dependencies"></a>NuGet kullanım dışı ve güvenlik açığı bağımlılıkları
+### <a name="nuget-deprecated-and-vulnerable-dependencies"></a>kullanım dışı ve güvenlik açığı bağımlılıkları NuGet
 
 **📦 Paket tüketicisi | 📦🖊 Paket yazarı**
 
 Proje veya çözümünüz içinde olabilecek bilinen ve kullanılmayan bağımlılıkları listelemek için [DotNet CLI](/dotnet/core/tools/dotnet-list-package) kullanabilirsiniz. Bilinen kullanım dışı bırakma `dotnet list package --deprecated` `dotnet list package --vulnerable` ve güvenlik açıklarının bir listesini sağlamak için komutunu kullanabilirsiniz.
 
-### <a name="github-vulnerable-dependencies"></a>GitHub 'da savunmasız bağımlılıklar
+### <a name="github-vulnerable-dependencies"></a>GitHub güvenlik açığı bağımlılıkları
 
 **📦 Paket tüketicisi | 📦🖊 Paket yazarı**
 
-Projeniz GitHub üzerinde barındırılıyorsa, projenizde güvenlik açıklarını ve hataları bulmak için [GitHub güvenliği](https://docs.github.com/en/free-pro-team@latest/github/finding-security-vulnerabilities-and-errors-in-your-code/automatically-scanning-your-code-for-vulnerabilities-and-errors) ' ni kullanabilir ve bir çekme isteğini kod tabanınıza göre açarak bağımlılıkları düzeltir. 
+projeniz GitHub üzerinde barındırılıyorsa, projenizdeki güvenlik güvenlik açıklarını ve hataları bulmak için [GitHub güvenlik](https://docs.github.com/en/free-pro-team@latest/github/finding-security-vulnerabilities-and-errors-in-your-code/automatically-scanning-your-code-for-vulnerabilities-and-errors) özelliğinden yararlanarak, bir çekme isteğini kod tabanınıza göre açarak bağımlılıkları düzeltir. 
 
 ["Sola Ötele"](https://en.wikipedia.org/wiki/Shift-left_testing) hareketinin bir hedefi, sunulmadan önce güvenlik açığı olan bağımlılıkları yakalamak. Bağımlılıklarınız hakkında, lisansları, geçişli bağımlılıklar ve bağımlılıkların yaşı gibi bilgiler, yalnızca bunu yapmanıza yardımcı olur.
 
 Bağımlı Kabot uyarıları & güvenlik güncelleştirmeleri hakkında daha fazla bilgi için [aşağıdaki belgelere bakın](https://docs.github.com/en/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies).
 
-### <a name="nuget-feeds"></a>NuGet akışları
+### <a name="nuget-feeds"></a>NuGet akışlar
 
 **📦 Paket tüketicisi**
 
-Birden çok ortak & özel NuGet kaynak akışı kullanırken, bir paket herhangi bir akışdan indirilebilir. Yapınızı [bağımlılık karışıklık](https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610)gibi bilinen saldırılara karşı öngörülebilir ve güvenli hale geldiğinden emin olmak için, paketlerinizin hangi belirli akışların geldiğini bilmek en iyi uygulamadır. Koruma için yukarı akış özelliklerine sahip tek bir akış veya özel akış kullanabilirsiniz.
+birden çok ortak & özel NuGet kaynak akışı kullanırken, bir paket herhangi bir akışdan indirilebilir. Yapınızı [bağımlılık karışıklık](https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610)gibi bilinen saldırılara karşı öngörülebilir ve güvenli hale geldiğinden emin olmak için, paketlerinizin hangi belirli akışların geldiğini bilmek en iyi uygulamadır. Koruma için yukarı akış özelliklerine sahip tek bir akış veya özel akış kullanabilirsiniz.
 
-Paket akışlarınızın güvenliğini sağlama hakkında daha fazla bilgi için bkz. [özel paket akışlarını kullanırken riski azaltmak için 3 yol](https://azure.microsoft.com/en-us/resources/3-ways-to-mitigate-risk-using-private-package-feeds/).
+Paket akışlarınızın güvenliğini sağlama hakkında daha fazla bilgi için bkz. [özel paket akışlarını kullanırken riski azaltmak için 3 yol](https://azure.microsoft.com/resources/3-ways-to-mitigate-risk-using-private-package-feeds/).
 
 ### <a name="client-trust-policies"></a>İstemci güven ilkeleri
 
 **📦 Paket tüketicisi**
 
-Oturum açmanız gereken paketlerin imzalanabilmesi için kullanabileceğiniz ilkeler vardır. Bu, yazar imzalandığı sürece bir paket yazarına güvenmesini veya NuGet.org tarafından imzalanan belirli bir Kullanıcı ya da hesaba aitse bir pakete güvenmesini sağlar.
+Oturum açmanız gereken paketlerin imzalanabilmesi için kullanabileceğiniz ilkeler vardır. bu, yazar imzalandığı sürece bir paket yazarına güvenmesini veya NuGet. org tarafından imzalanan belirli bir kullanıcı veya hesaba aitse bir pakete güvenmesini sağlar.
 
 İstemci güven ilkelerini yapılandırmak için [aşağıdaki belgelere bakın](../consume-packages/installing-signed-packages.md).
 
 ### <a name="lock-files"></a>Dosyaları kilitle
 
-**📦 Paket tüketicisi**
+**📦 Paket Tüketicisi**
 
-Dosyaları kilitle, paketinizin içeriğinin karmasını depolar. Yüklemek istediğiniz bir paketin içerik karması kilit dosyasıyla eşleşiyorsa, Package yinelenebilirlik sağlar.
+Kilit dosyaları, paketinizin içeriğinin karması depolar. Yüklemek istediğiniz paketin içerik karması kilit dosyasıyla eşlanıyorsa, paketin yinelenebilir olmasını sağlar.
 
-Dosya kilitlemeyi etkinleştirmek için [aşağıdaki belgelere bakın](../consume-packages/package-references-in-project-files.md#locking-dependencies).
+Kilit dosyalarını etkinleştirmek için [aşağıdaki belgelere bakın.](../consume-packages/package-references-in-project-files.md#locking-dependencies)
 
 ## <a name="monitor-your-supply-chain"></a>Tedarik zincirinizi izleme
 
 ### <a name="github-secret-scanning"></a>GitHub'da gizli dizi tarama
 
-**📦🖊 Paket yazarı**
+**📦🖊 Paket Yazarı**
 
-GitHub, yanlışlıkla yürütülen gizli dizileri kullanımını engellemek için NuGet API anahtarları için depoları tarar. 
+GitHub yanlışlıkla işlenen gizli dizilerin sahte NuGet önlemek için api anahtarlarının depolarını tarar. 
 
-Gizli tarama hakkında daha fazla bilgi edinmek için bkz. [gizli tarama hakkında](https://docs.github.com/en/github/administering-a-repository/about-secret-scanning).
+Gizli tarama hakkında daha fazla bilgi edinmek için [bkz. Gizli bilgi tarama hakkında.](https://docs.github.com/en/github/administering-a-repository/about-secret-scanning)
 
-### <a name="author-package-signing"></a>Yazar paketi Imzalama
+### <a name="author-package-signing"></a>Paket İmzalama Yazma
 
-**📦🖊 Paket yazarı**
+**📦🖊 Paket Yazarı**
 
-[Yazar imzalama](../reference/signed-packages-reference.md) , bir paket yazarının kimliğini bir paket üzerinde damgalamalarını ve tüketiciden sizden geldiğini doğrulamasını sağlar. Bu, içeriğin değiştirilmesine karşı koruma sağlar ve paketin ve paket orijinalinin kaynağı hakkında tek bir kaynak kaynağı görevi görür. İstemci güven ilkeleriyle birleştirildiğinde, belirli bir yazarın paketinin geldiğini doğrulayabilirsiniz.
+[Yazar imzalama,](../reference/signed-packages-reference.md) paket yazarının kimliğini bir pakete damgalamasını ve bir tüketicinin sizin kimliğinizi doğrulamasını sağlar. Bu sizi içerik üzerinde oynanmaya karşı korur ve paketin kaynağı ve paketin orijinalliği hakkında tek bir gerçeklik kaynağı olarak görev sağlar. İstemci güven ilkeleriyle bir araya geldiğinde, paketin belirli bir yazardan geldiğini doğruabilirsiniz.
 
-Bir paketi imzalamak için, bkz. [paket imzalama](../create-packages/sign-a-package.md).
+Paket imzalamak için bkz. [Paket imzalama.](../create-packages/sign-a-package.md)
 
-### <a name="two-factor-authentication-2fa"></a>Two-Factor kimlik doğrulaması (2FA)
+### <a name="two-factor-authentication-2fa"></a>Two-Factor Kimlik Doğrulaması (2FA)
 
-**📦🖊 Paket yazarı**
+**📦🖊 Paket Yazarı**
 
-İki öğeli kimlik doğrulamayı (2FA) etkinleştirmek, [GitHub hesabınızda](https://docs.github.com/en/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa) veya [NuGet.org ortak paket deposunda](../nuget-org/individual-accounts.md#enable-two-factor-authentication-2fa)oturum açarken ek bir güvenlik katmanı ekleyebilirler. Hesabınızı korumak için iki öğeli kimlik doğrulamayı etkinleştirmeniz önerilir.
+İki faktörlü kimlik doğrulamasını (2FA) etkinleştirmek, [GitHub](https://docs.github.com/en/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa) veya [NuGet.org](../nuget-org/individual-accounts.md#enable-two-factor-authentication-2fa)genel paket deposunda oturum aken ek bir güvenlik katmanı ekleyebilir. Bilgisayarınızı korumak için iki faktörlü kimlik doğrulamasını etkinleştirmeniz önerilir.
 
 ### <a name="package-id-prefix-reservation"></a>Paketleme kimlik ön eki ayırma 
 
-**📦🖊 Paket yazarı**
+**📦🖊 Paket Yazarı**
 
-Paketlerinizin kimliğini korumak için, paket KIMLIĞI önekiniz [belirtilen ölçütlere](../nuget-org/id-prefix-reservation.md#id-prefix-reservation-criteria)göre doğru kalırsa eşleşen bir sahibini ilişkilendirmek üzere BIR paket kimliği öneki ayırabilirsiniz. 
+Paketlerinizin kimliğini korumak için, paket kimliği ön ekin belirtilen ölçütlere uygun şekilde denk geliyorsa eşleşen bir sahibi ilişkilendirmek üzere ilgili ad alanınıza bir paket kimliği ön [eki ayırmanız gerekir.](../nuget-org/id-prefix-reservation.md#id-prefix-reservation-criteria) 
 
-KIMLIK öneklerini ayırma hakkında bilgi edinmek için bkz. [paket kimliği ön eki ayırması](../nuget-org/id-prefix-reservation.md).
+Kimlik ön eklerini ayırma hakkında bilgi edinmek için bkz. [Paket Kimliği ön eki rezervasyonu.](../nuget-org/id-prefix-reservation.md)
 
-### <a name="deprecating-and-unlisting-a-vulnerable-package"></a>Güvenlik açığı olan bir paketin kullanımdan kaldırılması ve listenin kaldırılması
+### <a name="deprecating-and-unlisting-a-vulnerable-package"></a>Güvenlik açığı olan bir paketi kullanımdan kaldırdık ve listeden kaldırdık
 
-**📦🖊 Paket yazarı**
+**📦🖊 Paket Yazarı**
 
-Yazdığınız bir pakette bir güvenlik açığını fark ettiğinizde .NET paketi ekosistemini korumak için, paket için arama yapabilmeleri için paketin kullanımdan kaldırılması ve listenin kaldırılması için en iyi şekilde yararlanın. Kullanım dışı bırakılmış ve listelenmemiş bir paket kullanıyorsanız, paketi kullanmaktan kaçının.
+.NET paket ekosistemini, yazmanız gereken bir pakette güvenlik açığı olduğunu fark ettiyken korumak için paketi kullanımdan sildi ve paket arayan kullanıcılardan gizlenecek şekilde listeye dahil etmek için en iyi şekilde çalışın. Kullanım dışı ve listelenmemiş bir paket kullanıyorsanız, paketi kullanmaktan kaçınabilirsiniz.
 
-Bir paketin kullanımdan kaldırılması ve listenin listesini kaldırma hakkında bilgi edinmek için, paketleri [kullanımdan](../nuget-org/deprecate-packages.md) kaldırma ve listeyi [kaldırma](../nuget-org/policies/deleting-packages.md#unlisting-a-package)hakkında aşağıdaki belgelere bakın.
+Bir paketin kullanım dışı ve listelerini nasıl geri alınarak silinecek hakkında bilgi edinmek için, paketlerin kullanım dışı ve listelerini geri alama [ile](../nuget-org/deprecate-packages.md) ilgili [aşağıdaki belgelere bakın.](../nuget-org/policies/deleting-packages.md#unlisting-a-package)
 
 ## <a name="summary"></a>Özet
 
-Yazılım tedarik zincirinizin kodu, kodunuzda bulunan veya etkileyen herhangi bir şeydir. Tedarik zinciri hedeflerinin gerçek ve popülerliği artmış olmasına rağmen, hala nadir, Böylece yapabileceğiniz en önemli şey, **bağımlılıklarınızın farkında olacak şekilde, bağımlılıklarınızı yöneterek** ve **tedarik zincirinizi izleyerek** tedarik zincirinizi korursunuz.
+Yazılım tedarik zinciriniz, kodunuzla ilgili olan veya onu etkileyen her şeydir. Tedarik zinciri güvenliğinin tehlikeye atları gerçek ve popülerliği artsa da hala nadirdir; Bu nedenle, en önemli şey bağımlılıklarınızı  fark etme, bağımlılıklarınızı yönetme ve tedarik zincirinizi izleme ile tedarik **zincirinizi korumaktır.**
 
-Sizin için sunulan NuGet ve [GitHub](/learn/modules/maintain-secure-repository-github/) 'ın sağladığı çeşitli yöntemler hakkında bilgi edindiniz ve tedarik zincirinizi görüntüleme, yönetme ve izleme konusunda daha etkili olabilirsiniz.
+Tedarik zincirinizi görüntüleme, yönetme ve NuGet [ve](/learn/modules/maintain-secure-repository-github/) izleme konusunda daha etkili olmak için NuGet ve GitHub sağlayan çeşitli yöntemler hakkında bilgi öğrendiniz.
 
-Dünya yazılımının güvenliğini sağlama hakkında daha fazla bilgi için [Octoverse 2020 güvenlik raporunun durumunu](https://octoverse.github.com/static/github-octoverse-2020-security-report.pdf)inceleyin.
+Dünyanın yazılımının güvenliğini sağlama hakkında daha fazla bilgi için bkz. [Octoverse 2020 Güvenlik Raporu'nun Durumu.](https://octoverse.github.com/static/github-octoverse-2020-security-report.pdf)

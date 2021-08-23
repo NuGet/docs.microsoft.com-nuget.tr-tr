@@ -35,7 +35,7 @@
 ## [Paket oluşturma (dotnet CLI)](create-packages/creating-a-package-dotnet-cli.md)
 ## [Paket oluşturma (nuget.exe CLI)](create-packages/creating-a-package.md)
 ## [Paket oluşturma (MSBuild)](create-packages/creating-a-package-msbuild.md)
-## [Paket yazma en iyi uygulamaları](create-packages/Package-authoring-best-practices.md)
+## [Paket yazma için en iyi yöntemler](create-packages/Package-authoring-best-practices.md)
 ## [Yayın öncesi paketi oluşturma](create-packages/prerelease-packages.md)
 ## [Sembol paketi oluşturma](create-packages/symbol-packages-snupkg.md)
 ## [Proje dosyanızda birden çok hedef çerçeveyi destekleme](create-packages/multiple-target-frameworks-project-file.md)
@@ -69,8 +69,8 @@
 ## [Paket yükleme işlemi](concepts/package-installation-process.md)
 ## [Paket sürümü oluşturma](concepts/package-versioning.md)
 ## [Bağımlılık çözümlemesi](concepts/dependency-resolution.md)
-## [Güvenli yazılım tedarik zinciri için en iyi uygulamalar](concepts/Security-Best-Practices.md)
-## [Yüklü paketlerin sorunlarını giderme](concepts/troubleshooting-installed-packages.md)
+## [Güvenli bir yazılım tedarik zinciri için en iyi yöntemler](concepts/Security-Best-Practices.md)
+## [Yüklü PaketLerde Sorun Giderme](concepts/troubleshooting-installed-packages.md)
 # Başvuru
 ## [.nuspec](reference/nuspec.md)
 ## [nuget.config file](reference/nuget-config-file.md)
@@ -293,6 +293,7 @@
 ## Sürüm notları
 ### [Bilinen Sorunlar](release-notes/known-issues.md)
 ### NuGet 5.x
+#### [NuGet 5,11](release-notes/NuGet-5.11.md)
 #### [NuGet 5,10](release-notes/NuGet-5.10.md)
 #### [NuGet 5,9](release-notes/NuGet-5.9.md)
 #### [NuGet 5.8](release-notes/NuGet-5.8.md)
